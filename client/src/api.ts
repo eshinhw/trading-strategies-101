@@ -5,6 +5,7 @@ import type {
   LessonDetail,
   GradeResponse,
 } from "./types/curriculum";
+import type { Course } from "./types/course";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(path, {
@@ -36,6 +37,16 @@ export function logout(): Promise<void> {
 
 export function fetchMe(): Promise<{ user: User }> {
   return request("/api/auth/me");
+}
+
+// --- courses ---
+
+export function fetchCourses(): Promise<Course[]> {
+  return request<{ courses: Course[] }>("/api/courses").then((d) => d.courses);
+}
+
+export function fetchCourse(slug: string): Promise<Course> {
+  return request(`/api/courses/${slug}`);
 }
 
 // --- curriculum ---

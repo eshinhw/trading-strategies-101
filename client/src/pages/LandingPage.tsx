@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchLesson, fetchModules } from "../api";
-import type { LessonDetail, ModulesResponse } from "../types/curriculum";
+import { fetchLesson, fetchCourses } from "../api";
+import type { LessonDetail } from "../types/curriculum";
+import type { Course } from "../types/course";
 import type { ParamValues } from "../engine/payoff";
 import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { PayoffChart } from "../components/PayoffChart";
@@ -10,12 +11,12 @@ import { StatTile } from "../components/StatTile";
 const DEMO_LESSON_SLUG = "long-straddle";
 
 export function LandingPage() {
-  // Support deep-linking to the curriculum section (e.g. "back to all modules"
+  // Support deep-linking to the courses section (e.g. "back to all modules"
   // links from a module/lesson page) even when this is a fresh route mount,
   // which the browser's native hash-scroll doesn't handle in an SPA.
   useEffect(() => {
-    if (window.location.hash === "#curriculum") {
-      document.getElementById("curriculum")?.scrollIntoView();
+    if (window.location.hash === "#courses") {
+      document.getElementById("courses")?.scrollIntoView();
     }
   }, []);
 
@@ -23,7 +24,7 @@ export function LandingPage() {
     <div>
       <Hero />
       <Features />
-      <CurriculumPreview />
+      <CoursesPreview />
       <FinalCta />
       <Footer />
     </div>
@@ -46,10 +47,10 @@ function Hero() {
             Learn trading strategies by using them, not memorizing them.
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
-            Trading Strategies 101 turns the 58 options strategies from{" "}
-            <em>151 Trading Strategies</em> (Kakushadze &amp; Serur, 2018) into a hands-on course.
-            Adjust real parameters, watch the payoff diagram respond, then prove you understand it
-            with a knowledge check graded against the real math.
+            Trading Strategies 101 is turning <em>151 Trading Strategies</em> (Kakushadze &amp;
+            Serur, 2018) — 18 asset classes, one course each — into a hands-on curriculum. Options
+            is live now: adjust real parameters, watch the payoff diagram respond, then prove you
+            understand it with a knowledge check graded against the real math.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
@@ -58,8 +59,8 @@ function Hero() {
             >
               Start learning — it's free
             </Link>
-            <a href="#curriculum" className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
-              Browse the curriculum ↓
+            <a href="#courses" className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+              Browse all courses ↓
             </a>
           </div>
           <p className="mt-4 text-sm text-[#898781]">
@@ -98,7 +99,7 @@ function HeroDemo() {
     <div className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5 shadow-2xl shadow-black/40">
       <div className="mb-3 flex items-center justify-between">
         <div>
-          <div className="text-xs uppercase tracking-wide text-[#898781]">Live from the course</div>
+          <div className="text-xs uppercase tracking-wide text-[#898781]">Live from the Options course</div>
           <h3 className="font-semibold text-[#e6e8ec]">
             {lesson?.kind === "strategy" ? lesson.strategy.name : "Long straddle"}
           </h3>
@@ -122,8 +123,8 @@ function HeroDemo() {
         </div>
       )}
       <p className="mt-3 text-xs text-[#898781]">
-        This is the same tool that's in every lesson — every chart in the course is live, not a
-        screenshot.
+        This is the same tool that's in every options lesson — every chart in the course is live,
+        not a screenshot.
       </p>
     </div>
   );
@@ -133,15 +134,15 @@ function Features() {
   const items = [
     {
       title: "Learn by doing",
-      body: "Every strategy lesson comes with the real interactive payoff tool. Change strikes, premiums, even volatility, and watch max profit, max loss, and breakeven recalculate live.",
+      body: "Every options lesson comes with the real interactive payoff tool. Change strikes, premiums, even volatility, and watch max profit, max loss, and breakeven recalculate live.",
     },
     {
       title: "Prove it, don't just read it",
       body: "Each lesson ends with a short check: given a fresh set of numbers, work out the max profit or loss yourself. The numbers are randomized every attempt, so there's nothing to memorize.",
     },
     {
-      title: "Built the way strategies actually build on each other",
-      body: "An iron condor is a bull put spread plus a bear call spread. The course unlocks modules in that same order, so complex strategies stay intuitive instead of feeling like a new vocabulary.",
+      title: "One course per asset class",
+      body: "The paper covers 18 asset classes, from options to distressed debt to cryptocurrencies. Each one gets its own course here, ordered so complex strategies build on simpler ones instead of feeling like a new vocabulary.",
     },
   ];
 
@@ -159,43 +160,53 @@ function Features() {
   );
 }
 
-function CurriculumPreview() {
-  const [data, setData] = useState<ModulesResponse | null>(null);
+function CoursesPreview() {
+  const [courses, setCourses] = useState<Course[] | null>(null);
 
   useEffect(() => {
-    fetchModules().then(setData).catch(() => setData(null));
+    fetchCourses().then(setCourses).catch(() => setCourses(null));
   }, []);
 
   return (
-    <section id="curriculum" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
+    <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-2xl font-bold text-[#e6e8ec]">12 modules, 58 strategies, one course</h2>
+        <h2 className="text-2xl font-bold text-[#e6e8ec]">18 courses, one per asset class</h2>
         <p className="mt-2 max-w-2xl text-[#9aa3b2]">
-          Starts with the fundamentals, ends with the strategies that combine everything before
-          them.
+          Options is live with 58 strategies across 12 modules. The rest are on the roadmap, each
+          with its real strategy list already mapped out from the paper.
         </p>
 
-        {data && (
+        {courses && (
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {data.modules
-              .slice()
-              .sort((a, b) => a.order - b.order)
-              .map((m, i) => (
-                <Link
-                  key={m.slug}
-                  to={`/module/${m.slug}`}
-                  className="rounded-xl border border-[#2a3040] bg-[#141821] p-5 transition hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1b2029] text-xs font-semibold text-[#898781]">
-                      {i + 1}
-                    </div>
-                    <h3 className="font-semibold text-[#e6e8ec]">{m.title}</h3>
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">{m.description}</p>
-                  <div className="mt-3 text-xs text-[#898781]">{m.totalLessons} lessons</div>
-                </Link>
-              ))}
+            {courses.map((c) => (
+              <Link
+                key={c.slug}
+                to={`/courses/${c.slug}`}
+                className={`rounded-xl border p-5 transition ${
+                  c.status === "available"
+                    ? "border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
+                    : "border-[#2a3040]/60 bg-[#101319] hover:border-[#2a3040]"
+                }`}
+              >
+                <div className="mb-2 flex flex-wrap items-center gap-2">
+                  <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#898781]">
+                    §{c.section}
+                  </span>
+                  {c.status === "available" ? (
+                    <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
+                      Available
+                    </span>
+                  ) : (
+                    <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-400">
+                      Coming soon
+                    </span>
+                  )}
+                </div>
+                <h3 className="font-semibold text-[#e6e8ec]">{c.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">{c.description}</p>
+                <div className="mt-3 text-xs text-[#898781]">{c.strategyCount} strategies</div>
+              </Link>
+            ))}
           </div>
         )}
       </div>
