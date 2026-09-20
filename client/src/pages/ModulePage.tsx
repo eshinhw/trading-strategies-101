@@ -20,7 +20,7 @@ export function ModulePage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/" className="mt-4 inline-block text-[#4f8cff] hover:underline">
+        <Link to="/#curriculum" className="mt-4 inline-block text-[#4f8cff] hover:underline">
           ← Back to course
         </Link>
       </div>
@@ -33,7 +33,7 @@ export function ModulePage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
-      <Link to="/" className="text-sm text-[#4f8cff] hover:underline">
+      <Link to="/#curriculum" className="text-sm text-[#4f8cff] hover:underline">
         ← All modules
       </Link>
 

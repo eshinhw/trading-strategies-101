@@ -2,36 +2,23 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchModules } from "../api";
 import type { ModulesResponse } from "../types/curriculum";
-import { useAuth } from "../auth/AuthContext";
 
-export function CourseHomePage() {
-  const { user } = useAuth();
+export function DashboardPage() {
   const [data, setData] = useState<ModulesResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchModules().then(setData).catch((e) => setError(e.message));
-  }, [user]);
+  }, []);
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-10">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-[#e6e8ec]">Options Strategy Course</h1>
+        <h1 className="text-3xl font-bold text-[#e6e8ec]">Your course</h1>
         <p className="mt-2 max-w-2xl text-[#9aa3b2]">
-          A structured course for early-career analysts and traders, built from{" "}
-          <em>151 Trading Strategies</em> (Kakushadze &amp; Serur, 2018). Work through modules in
-          order — each one builds on strategies from the last — with an interactive payoff
-          sandbox and a short knowledge check on every lesson.
+          Options Strategy Course — work through modules in order; each one builds on strategies
+          from the last.
         </p>
-        {!user && (
-          <div className="mt-4 rounded-lg border border-[#4f8cff]/30 bg-[#4f8cff]/10 px-4 py-3 text-sm text-[#9aa3b2]">
-            You can browse and try lessons without an account, but{" "}
-            <Link to="/signup" className="text-[#4f8cff] hover:underline">
-              sign up
-            </Link>{" "}
-            to save your progress and unlock modules as you complete them.
-          </div>
-        )}
       </header>
 
       {error && <p className="text-red-400">{error}</p>}

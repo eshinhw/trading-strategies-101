@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
 import { Nav } from "./components/Nav";
-import { CourseHomePage } from "./pages/CourseHomePage";
+import { HomePage } from "./pages/HomePage";
 import { ModulePage } from "./pages/ModulePage";
 import { LessonPage } from "./pages/LessonPage";
 import { AuthPage } from "./pages/AuthPage";
@@ -13,7 +13,7 @@ function App() {
         <div className="min-h-screen bg-[#0b0d12]">
           <Nav />
           <Routes>
-            <Route path="/" element={<CourseHomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/module/:slug" element={<ModulePage />} />
             <Route path="/lesson/:slug" element={<LessonPage />} />
             <Route path="/login" element={<AuthPage mode="login" />} />

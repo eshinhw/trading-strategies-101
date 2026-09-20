@@ -25,6 +25,20 @@ function fmtMoney(n: number): string {
   return `${sign}$${Math.abs(n).toFixed(2)}`;
 }
 
+// Renders a reference line's label at a fixed vertical slot (by `row`) rather
+// than relative to the line itself, so labels never collide even when two
+// lines sit close together on a narrow chart — a fixed x/y position keyword
+// like "insideTopLeft" is relative to the LINE, so two nearby lines can still
+// push their labels into the same space.
+function StackedLabel({ viewBox, text, color, row }: any) {
+  const { x, y } = viewBox;
+  return (
+    <text x={x} y={y + 12 + row * 14} textAnchor="middle" fontSize={11} fill={color}>
+      {text}
+    </text>
+  );
+}
+
 function ChartTooltip({ active, payload }: any) {
   if (!active || !payload?.length) return null;
   const point: PayoffPoint = payload[0].payload;
@@ -111,7 +125,7 @@ export function PayoffChart({
             x={currentPrice}
             stroke={COLOR.line}
             strokeDasharray="4 4"
-            label={{ value: "Current", position: "top", fill: COLOR.line, fontSize: 11 }}
+            label={<StackedLabel text="Current" color={COLOR.line} row={0} />}
           />
         )}
         {breakevens.map((be, i) => (
@@ -120,12 +134,13 @@ export function PayoffChart({
             x={be}
             stroke={COLOR.mutedText}
             strokeDasharray="2 4"
-            label={{
-              value: `B/E $${be.toFixed(0)}`,
-              position: i % 2 === 0 ? "insideTopLeft" : "insideTopRight",
-              fill: COLOR.mutedText,
-              fontSize: 11,
-            }}
+            label={
+              <StackedLabel
+                text={`B/E $${be.toFixed(0)}`}
+                color={COLOR.mutedText}
+                row={(currentPrice !== undefined ? 1 : 0) + i}
+              />
+            }
           />
         ))}
         <Area
