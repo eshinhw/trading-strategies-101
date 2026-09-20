@@ -1,18 +1,23 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import strategiesRouter from "./routes/strategies.js";
+import cookieParser from "cookie-parser";
+import authRouter from "./routes/auth.js";
+import curriculumRouter from "./routes/curriculum.js";
 
 const app = express();
 const PORT = process.env.PORT ? Number(process.env.PORT) : 4000;
 
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true });
 });
 
-app.use("/api/strategies", strategiesRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/curriculum", curriculumRouter);
 
 app.listen(PORT, () => {
   console.log(`strategy-desk API listening on http://localhost:${PORT}`);

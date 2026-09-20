@@ -1,14 +1,60 @@
-import type { Strategy, StrategySummary } from "./types/strategy";
+import type {
+  User,
+  ModulesResponse,
+  ModuleDetail,
+  LessonDetail,
+  GradeResponse,
+} from "./types/curriculum";
 
-export async function fetchStrategies(): Promise<StrategySummary[]> {
-  const res = await fetch("/api/strategies");
-  if (!res.ok) throw new Error(`Failed to load strategies (${res.status})`);
-  const data = await res.json();
-  return data.strategies;
+async function request<T>(path: string, init?: RequestInit): Promise<T> {
+  const res = await fetch(path, {
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    ...init,
+  });
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body.error || `Request failed (${res.status})`);
+  }
+  if (res.status === 204) return undefined as T;
+  return res.json();
 }
 
-export async function fetchStrategy(slug: string): Promise<Strategy> {
-  const res = await fetch(`/api/strategies/${slug}`);
-  if (!res.ok) throw new Error(`Failed to load strategy "${slug}" (${res.status})`);
-  return res.json();
+// --- auth ---
+
+export function signup(email: string, password: string, name: string): Promise<{ user: User }> {
+  return request("/api/auth/signup", { method: "POST", body: JSON.stringify({ email, password, name }) });
+}
+
+export function login(email: string, password: string): Promise<{ user: User }> {
+  return request("/api/auth/login", { method: "POST", body: JSON.stringify({ email, password }) });
+}
+
+export function logout(): Promise<void> {
+  return request("/api/auth/logout", { method: "POST" });
+}
+
+export function fetchMe(): Promise<{ user: User }> {
+  return request("/api/auth/me");
+}
+
+// --- curriculum ---
+
+export function fetchModules(): Promise<ModulesResponse> {
+  return request("/api/curriculum/modules");
+}
+
+export function fetchModule(slug: string): Promise<ModuleDetail> {
+  return request(`/api/curriculum/modules/${slug}`);
+}
+
+export function fetchLesson(slug: string): Promise<LessonDetail> {
+  return request(`/api/curriculum/lessons/${slug}`);
+}
+
+export function submitLesson(slug: string, body: unknown): Promise<GradeResponse> {
+  return request(`/api/curriculum/lessons/${slug}/submit`, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
 }

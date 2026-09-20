@@ -75,15 +75,3 @@ export interface Strategy {
   content: StrategyContent;
   formulas: PaperFormulas;
 }
-
-export interface StrategySummary {
-  slug: string;
-  name: string;
-  aka?: string;
-  section: string;
-  outlook: Outlook;
-  style: StrategyStyle;
-  netPosition: NetPosition;
-  legCount: number;
-  summary: string;
-}

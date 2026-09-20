@@ -1,0 +1,14 @@
+node_modules
+dist
+# Keep environment variables out of version control
+.env
+
+/src/generated/prisma
+/dev.db
+/dev.db-journal
+
+# Auto-installed by `prisma init` for AI coding agents — not app code.
+/.agents
+/.claude/skills
+/.windsurf
+/skills-lock.json
