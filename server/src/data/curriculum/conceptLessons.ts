@@ -47,6 +47,32 @@ export const conceptLessons: ConceptLesson[] = [
         explanation:
           "The premium compensates the seller for the asymmetric risk they've taken on — unlimited-ish obligation versus the buyer's limited, optional right.",
       },
+      {
+        id: "q4",
+        prompt: "A put option gives its buyer the right to do what?",
+        choices: [
+          "Buy the stock at the strike price",
+          "Sell the stock at the strike price",
+          "Buy the stock at any price they choose",
+          "Receive a fixed premium at expiration",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A put option gives the buyer the right, but not the obligation, to sell the stock at the strike price.",
+      },
+      {
+        id: "q5",
+        prompt: "According to this lesson, every strategy in this course is built from how many raw building blocks?",
+        choices: [
+          "Two: buying and selling",
+          "Three: calls, puts, and stock",
+          "Four: long call, short call, long put, short put",
+          "It varies strategy by strategy — there's no fixed set",
+        ],
+        correctIndex: 2,
+        explanation:
+          "Long a call, short a call, long a put, short a put — often combined with a stock position. Every multi-leg strategy is built from these four.",
+      },
     ],
   },
   {
@@ -87,6 +113,32 @@ export const conceptLessons: ConceptLesson[] = [
         correctIndex: 1,
         explanation:
           "OTM options have no intrinsic value yet — they're purely a bet on a future move — so they're generally cheaper than ITM options.",
+      },
+      {
+        id: "q4",
+        prompt: "A stock trades at exactly $100. What is the moneyness of a $100-strike call?",
+        choices: [
+          "In-the-money",
+          "Out-of-the-money",
+          "At-the-money",
+          "Undefined — moneyness requires the strike and stock price to differ",
+        ],
+        correctIndex: 2,
+        explanation: "When the strike equals the current stock price, the option is at-the-money (ATM).",
+      },
+      {
+        id: "q5",
+        prompt:
+          "Per this lesson's rule of thumb, why do so many strategies buy OTM options to keep cost down and sell OTM options for a 'safer' premium?",
+        choices: [
+          "OTM options have no intrinsic value yet, so they're cheaper to buy and less likely to be exercised against a seller",
+          "OTM options are always more expensive than ITM options",
+          "OTM options guarantee a profit for the buyer",
+          "Moneyness has no real effect on an option's price",
+        ],
+        correctIndex: 0,
+        explanation:
+          "OTM options are cheaper to buy (no intrinsic value yet) and, for a seller, less likely to move in-the-money and get exercised — which is why they show up on both sides of so many strategies.",
       },
     ],
   },
@@ -134,6 +186,31 @@ export const conceptLessons: ConceptLesson[] = [
         correctIndex: 1,
         explanation:
           "Each option leg only starts paying off once the stock crosses its strike — that transition is exactly where you'll see a kink.",
+      },
+      {
+        id: "q4",
+        prompt: "What does a payoff diagram's x-axis represent?",
+        choices: [
+          "Time until expiration",
+          "The stock's price at expiration",
+          "The option's premium",
+          "Implied volatility",
+        ],
+        correctIndex: 1,
+        explanation: "The x-axis is the stock price at expiration; the y-axis is profit or loss at that price.",
+      },
+      {
+        id: "q5",
+        prompt: "What does a flat (horizontal) segment of a payoff line tell you?",
+        choices: [
+          "The strategy always loses money",
+          "The outcome doesn't change with the stock price in that zone",
+          "The chart is missing data",
+          "The stock is exactly at the strike price",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A flat line means profit or loss stays the same no matter how the stock price moves within that zone — you're not exposed there.",
       },
     ],
   },
@@ -186,6 +263,33 @@ export const conceptLessons: ConceptLesson[] = [
         explanation:
           "A short straddle, for example, is a net credit trade with unlimited risk. The cash flow direction tells you nothing about risk on its own.",
       },
+      {
+        id: "q4",
+        prompt: "In a net debit trade, what does the breakeven price represent?",
+        choices: [
+          "The price at which the stock was originally purchased",
+          "The stock price at expiration where you've just earned back what you paid",
+          "The strike price of the option, always",
+          "The point where the seller starts losing money",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The breakeven in a debit trade is where the position's value exactly offsets what you paid to enter it — beyond that, you're profitable.",
+      },
+      {
+        id: "q5",
+        prompt:
+          "According to this lesson, how should you decide between a debit and a credit structure for a given trade idea?",
+        choices: [
+          "Always prefer credit trades — they're objectively safer",
+          "Always prefer debit trades — they have capped risk",
+          "Match the structure to your market view and risk tolerance — neither is inherently better",
+          "It doesn't matter; debit and credit trades are functionally identical",
+        ],
+        correctIndex: 2,
+        explanation:
+          "The lesson's takeaway is explicit: you're choosing between a known, limited cost for a shot at uncapped upside, or a known, limited credit for taking on risk. Fit the choice to your view and risk tolerance.",
+      },
     ],
   },
   {
@@ -225,6 +329,46 @@ export const conceptLessons: ConceptLesson[] = [
         correctIndex: 1,
         explanation:
           "Seeing the building blocks means new, unfamiliar-looking strategies become far less intimidating once you spot the simpler strategies inside them.",
+      },
+      {
+        id: "q3",
+        prompt: "Per this lesson, a bull call spread is described as a combination of which two positions?",
+        choices: [
+          "A long put and a short put",
+          "A long call and a short call",
+          "A long call and a long put",
+          "A covered call and a protective put",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A bull call spread is a long call plus a short call at a different strike — one of the simplest examples of combining legs.",
+      },
+      {
+        id: "q4",
+        prompt: "A long straddle is described in this lesson as which combination?",
+        choices: [
+          "A long call and a long put at the same strike",
+          "A long call and a short call at different strikes",
+          "Two long puts at different strikes",
+          "A long stock position plus a short call",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A long straddle is a long call plus a long put at the same strike — betting on a big move in either direction.",
+      },
+      {
+        id: "q5",
+        prompt:
+          "What is the interactive payoff tool in each strategy lesson specifically designed to show, according to this lesson?",
+        choices: [
+          "That every strategy is unique and unrelated to the others",
+          "How the combined payoff line is really just the sum of what each individual leg would do on its own",
+          "The historical price of the underlying stock",
+          "The tax treatment of each strategy",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Watching the combined line break down into its legs reinforces the core mental model: complex strategies are just sums of simpler positions.",
       },
     ],
   },
