@@ -9,7 +9,7 @@ export function Nav() {
     <nav className="border-b border-[#2a3040] bg-[#0e1117]">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
         <Link to="/" className="font-semibold text-[#e6e8ec] hover:text-[#4f8cff]">
-          Strategy Desk
+          Trading Strategies 101
         </Link>
         <div className="flex items-center gap-4 text-sm">
           {user ? (

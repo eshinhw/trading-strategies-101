@@ -20,5 +20,5 @@ app.use("/api/auth", authRouter);
 app.use("/api/curriculum", curriculumRouter);
 
 app.listen(PORT, () => {
-  console.log(`strategy-desk API listening on http://localhost:${PORT}`);
+  console.log(`trading-strategies-101 API listening on http://localhost:${PORT}`);
 });

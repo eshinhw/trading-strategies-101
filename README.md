@@ -1,4 +1,4 @@
-# Strategy Desk
+# Trading Strategies 101
 
 An educational course platform for early-career analysts and traders, built from
 [*151 Trading Strategies*](https://ssrn.com/abstract=3247865) (Kakushadze & Serur, 2018).

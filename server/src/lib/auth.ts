@@ -8,7 +8,7 @@ if (!JWT_SECRET) {
 }
 
 const TOKEN_TTL_DAYS = 7;
-export const AUTH_COOKIE = "strategy_desk_session";
+export const AUTH_COOKIE = "trading_strategies_101_session";
 
 export interface AuthTokenPayload {
   userId: string;
