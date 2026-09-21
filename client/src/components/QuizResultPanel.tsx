@@ -18,7 +18,20 @@ export function QuizResultPanel({ result, onRetry }: { result: GradeResponse; on
             : "Lesson already completed — this attempt updated your best score."
           : "You saw the correct answer on each question as you went — try again to improve your score (need 70%+ to pass)."}
       </p>
-      <button onClick={onRetry} className="mt-3 text-sm text-[#4f8cff] hover:underline">
+      <button
+        onClick={onRetry}
+        autoFocus
+        onKeyDown={(e) => {
+          // most browsers already activate a focused <button> on Enter, but
+          // that native behavior isn't reliable everywhere — handle it
+          // explicitly so the shortcut always works.
+          if (e.key === "Enter") {
+            e.preventDefault();
+            onRetry();
+          }
+        }}
+        className="mt-3 text-sm text-[#4f8cff] hover:underline"
+      >
         Try again
       </button>
     </div>
