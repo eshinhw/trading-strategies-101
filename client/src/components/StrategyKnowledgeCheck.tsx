@@ -167,7 +167,7 @@ export function StrategyKnowledgeCheck({
               type="number"
               step="0.01"
               autoFocus
-              disabled={isChecked || numericAnswers[q.id]?.unlimited}
+              readOnly={isChecked || numericAnswers[q.id]?.unlimited}
               value={numericAnswers[q.id]?.text ?? ""}
               onChange={(e) =>
                 setNumericAnswers((a) => ({
@@ -176,7 +176,15 @@ export function StrategyKnowledgeCheck({
                 }))
               }
               onKeyDown={(e) => {
-                if (e.key === "Enter" && isNumericAnswered(numericAnswers[q.id]) && !isChecked) checkNumeric();
+                if (e.key !== "Enter") return;
+                e.preventDefault();
+                // once checked, Enter advances too — full keyboard flow: type a
+                // value, Enter to check it, Enter again to move on.
+                if (isChecked) {
+                  next();
+                } else if (isNumericAnswered(numericAnswers[q.id])) {
+                  checkNumeric();
+                }
               }}
               className="input w-32"
               placeholder="0.00"
