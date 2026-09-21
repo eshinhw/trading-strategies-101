@@ -104,9 +104,18 @@ export function ConceptQuiz({
                 type="radio"
                 name={q.id}
                 className="accent-[#4f8cff]"
-                disabled={isChecked}
                 checked={isSelected}
                 onChange={() => selectChoice(ci)}
+                onKeyDown={(e) => {
+                  // once checked, Enter advances — kept on the input (rather
+                  // than disabling it) so it's still focused and can receive
+                  // the keypress; selectChoice() already no-ops further
+                  // changes once checked.
+                  if (e.key === "Enter" && isChecked) {
+                    e.preventDefault();
+                    next();
+                  }
+                }}
               />
               {choice}
             </label>
