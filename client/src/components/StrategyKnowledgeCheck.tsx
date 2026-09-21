@@ -1,48 +1,99 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { StrategyQuestionPrompt, GradeResponse } from "../types/curriculum";
-import type { ParamDef } from "../types/strategy";
+import type { Strategy } from "../types/strategy";
+import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { submitLesson } from "../api";
 import { QuizResultPanel } from "./QuizResultPanel";
 import { QuizProgress } from "./QuizProgress";
 
 type NumericAnswer = { unlimited: boolean; text: string };
-const ADVANCE_DELAY_MS = 350;
 
 function isNumericAnswered(a: NumericAnswer | undefined): boolean {
   return Boolean(a && (a.unlimited || a.text.trim() !== ""));
 }
 
+function numericIsCorrect(correct: number | "unlimited", a: NumericAnswer | undefined): boolean {
+  if (!a) return false;
+  if (correct === "unlimited") return a.unlimited;
+  if (a.unlimited) return false;
+  const value = Number(a.text);
+  if (Number.isNaN(value)) return false;
+  const tolerance = Math.max(0.5, Math.abs(correct) * 0.05);
+  return Math.abs(value - correct) <= tolerance;
+}
+
+function fmtAnswer(v: number | "unlimited"): string {
+  return v === "unlimited" ? "Unlimited" : `$${v.toFixed(2)}`;
+}
+
 export function StrategyKnowledgeCheck({
   lessonSlug,
-  params,
+  strategy,
   practiceParams,
   questions,
 }: {
   lessonSlug: string;
-  params: ParamDef[];
+  strategy: Strategy;
   practiceParams: Record<string, number>;
   questions: StrategyQuestionPrompt[];
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [numericAnswers, setNumericAnswers] = useState<Record<string, NumericAnswer>>({});
   const [mcqAnswers, setMcqAnswers] = useState<Record<string, number>>({});
+  const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [result, setResult] = useState<GradeResponse | null>(null);
   const [authRequired, setAuthRequired] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const isLast = currentIndex === questions.length - 1;
+  // the same engine that drives the interactive sandbox above — reused here so
+  // each answer can be graded the instant it's given, not just in one batch
+  // at the end.
+  const stats = useMemo(() => {
+    const [lo, hi] = defaultRange(strategy, practiceParams);
+    return computePayoffStats(strategy, practiceParams, lo, hi);
+  }, [strategy, practiceParams]);
 
-  async function submit(finalNumeric: Record<string, NumericAnswer>, finalMcq: Record<string, number>) {
+  function correctAnswerFor(q: StrategyQuestionPrompt): string {
+    if (q.id === "maxProfit") return fmtAnswer(stats.maxProfit);
+    if (q.id === "maxLoss") return fmtAnswer(stats.maxLoss);
+    if (q.id === "outlook") return strategy.outlook;
+    return strategy.netPosition === "debit" ? "Net debit — I pay to enter" : "Net credit — I receive money to enter";
+  }
+
+  function isQuestionCorrect(q: StrategyQuestionPrompt): boolean {
+    if (q.id === "maxProfit") return numericIsCorrect(stats.maxProfit, numericAnswers[q.id]);
+    if (q.id === "maxLoss") return numericIsCorrect(stats.maxLoss, numericAnswers[q.id]);
+    if (q.id === "outlook") return q.choices?.[mcqAnswers[q.id]] === strategy.outlook;
+    const correctIndex = strategy.netPosition === "debit" ? 0 : 1;
+    return mcqAnswers[q.id] === correctIndex;
+  }
+
+  const q = questions[currentIndex];
+  const isLast = currentIndex === questions.length - 1;
+  const isChecked = Boolean(checked[q?.id]);
+
+  function checkNumeric() {
+    if (!isNumericAnswered(numericAnswers[q.id])) return;
+    setChecked((c) => ({ ...c, [q.id]: true }));
+  }
+
+  function selectChoice(choiceIndex: number) {
+    if (isChecked) return; // locked once checked — no changing your answer after seeing it
+    setMcqAnswers((a) => ({ ...a, [q.id]: choiceIndex }));
+    setChecked((c) => ({ ...c, [q.id]: true }));
+  }
+
+  async function finish() {
     setAuthRequired(false);
     setSubmitting(true);
 
     const answers: Record<string, unknown> = {};
-    for (const q of questions) {
-      if (q.type === "mcq") {
-        answers[q.id] = finalMcq[q.id];
+    for (const question of questions) {
+      if (question.type === "mcq") {
+        answers[question.id] = mcqAnswers[question.id];
       } else {
-        const a = finalNumeric[q.id];
-        answers[q.id] = a?.unlimited ? { unlimited: true } : { value: Number(a?.text ?? NaN) };
+        const a = numericAnswers[question.id];
+        answers[question.id] = a?.unlimited ? { unlimited: true } : { value: Number(a?.text ?? NaN) };
       }
     }
 
@@ -58,32 +109,19 @@ export function StrategyKnowledgeCheck({
     }
   }
 
-  function advance() {
+  function next() {
     if (isLast) {
-      submit(numericAnswers, mcqAnswers);
+      finish();
     } else {
       setCurrentIndex((i) => i + 1);
     }
-  }
-
-  function selectChoice(questionId: string, choiceIndex: number) {
-    const nextMcq = { ...mcqAnswers, [questionId]: choiceIndex };
-    setMcqAnswers(nextMcq);
-    // a single click fully answers an MCQ question, so advance automatically —
-    // the brief delay just lets the selection register visually first.
-    setTimeout(() => {
-      if (isLast) {
-        submit(numericAnswers, nextMcq);
-      } else {
-        setCurrentIndex((i) => i + 1);
-      }
-    }, ADVANCE_DELAY_MS);
   }
 
   function retry() {
     setResult(null);
     setNumericAnswers({});
     setMcqAnswers({});
+    setChecked({});
     setCurrentIndex(0);
   }
 
@@ -91,7 +129,7 @@ export function StrategyKnowledgeCheck({
     <div className="mb-5 rounded-lg border border-[#2a3040] bg-[#0e1117] p-4">
       <div className="mb-2 text-xs uppercase tracking-wide text-[#898781]">Given</div>
       <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
-        {params.map((p) => (
+        {strategy.params.map((p) => (
           <span key={p.key} className="text-[#e6e8ec]">
             <span className="text-[#898781]">{p.label}:</span>{" "}
             <span className="font-mono text-[#4f8cff]">{practiceParams[p.key]}</span>
@@ -107,57 +145,12 @@ export function StrategyKnowledgeCheck({
         <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
           Knowledge check
         </h3>
-        {givenPanel}
-        <div className="flex flex-col gap-5">
-          {questions.map((q, i) => {
-            const questionResult = result.results.find((r) => r.questionId === q.id);
-            return (
-              <div key={q.id}>
-                <p className="mb-2 text-sm text-[#e6e8ec]">
-                  {i + 1}. {q.prompt}
-                </p>
-                {q.type === "numeric-or-unlimited" ? (
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm text-[#9aa3b2]">
-                      Your answer:{" "}
-                      {numericAnswers[q.id]?.unlimited ? "Unlimited" : `$${numericAnswers[q.id]?.text || "—"}`}
-                    </span>
-                    <span className={`text-sm ${questionResult?.correct ? "text-emerald-400" : "text-red-400"}`}>
-                      {questionResult?.correct ? "Correct" : `Correct answer: ${questionResult?.correctAnswer}`}
-                    </span>
-                  </div>
-                ) : (
-                  <div className="flex flex-col gap-1.5">
-                    {q.choices!.map((choice, ci) => {
-                      const isSelected = mcqAnswers[q.id] === ci;
-                      const isCorrectChoice = questionResult && choice === questionResult.correctAnswer;
-                      return (
-                        <div
-                          key={ci}
-                          className={`rounded-md border px-3 py-2 text-sm capitalize ${
-                            isCorrectChoice
-                              ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                              : isSelected
-                                ? "border-red-500/40 bg-red-500/10 text-red-300"
-                                : "border-[#2a3040] text-[#9aa3b2]"
-                          }`}
-                        >
-                          {choice}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
         <QuizResultPanel result={result} onRetry={retry} />
       </div>
     );
   }
 
-  const q = questions[currentIndex];
+  const correct = isChecked ? isQuestionCorrect(q) : false;
 
   return (
     <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
@@ -174,7 +167,7 @@ export function StrategyKnowledgeCheck({
               type="number"
               step="0.01"
               autoFocus
-              disabled={submitting || numericAnswers[q.id]?.unlimited}
+              disabled={isChecked || numericAnswers[q.id]?.unlimited}
               value={numericAnswers[q.id]?.text ?? ""}
               onChange={(e) =>
                 setNumericAnswers((a) => ({
@@ -183,7 +176,7 @@ export function StrategyKnowledgeCheck({
                 }))
               }
               onKeyDown={(e) => {
-                if (e.key === "Enter" && isNumericAnswered(numericAnswers[q.id])) advance();
+                if (e.key === "Enter" && isNumericAnswered(numericAnswers[q.id]) && !isChecked) checkNumeric();
               }}
               className="input w-32"
               placeholder="0.00"
@@ -192,7 +185,7 @@ export function StrategyKnowledgeCheck({
           <label className="flex items-center gap-1.5 text-sm text-[#9aa3b2]">
             <input
               type="checkbox"
-              disabled={submitting}
+              disabled={isChecked}
               checked={numericAnswers[q.id]?.unlimited ?? false}
               onChange={(e) =>
                 setNumericAnswers((a) => ({
@@ -204,32 +197,60 @@ export function StrategyKnowledgeCheck({
             />
             Unlimited
           </label>
+          {!isChecked && (
+            <button
+              onClick={checkNumeric}
+              disabled={!isNumericAnswered(numericAnswers[q.id])}
+              className="rounded-lg bg-[#4f8cff] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Check answer
+            </button>
+          )}
         </div>
       ) : (
         <div className="flex flex-col gap-1.5">
           {q.choices!.map((choice, ci) => {
             const isSelected = mcqAnswers[q.id] === ci;
+            const isCorrectChoice = choice === correctAnswerFor(q);
             return (
               <label
                 key={ci}
-                className={`flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-sm capitalize transition ${
-                  isSelected
-                    ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
-                    : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
+                className={`flex items-center gap-2 rounded-md border px-3 py-2 text-sm capitalize transition ${
+                  isChecked ? "" : "cursor-pointer"
+                } ${
+                  isChecked
+                    ? isCorrectChoice
+                      ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
+                      : isSelected
+                        ? "border-red-500/40 bg-red-500/10 text-red-300"
+                        : "border-[#2a3040] text-[#9aa3b2]"
+                    : isSelected
+                      ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
+                      : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
                 }`}
               >
                 <input
                   type="radio"
                   name={q.id}
                   className="accent-[#4f8cff]"
-                  disabled={submitting}
+                  disabled={isChecked}
                   checked={isSelected}
-                  onChange={() => selectChoice(q.id, ci)}
+                  onChange={() => selectChoice(ci)}
                 />
                 {choice}
               </label>
             );
           })}
+        </div>
+      )}
+
+      {isChecked && (
+        <div
+          className={`mt-3 rounded-md border px-3 py-2 text-sm ${
+            correct ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300" : "border-red-500/30 bg-red-500/10 text-red-300"
+          }`}
+        >
+          {correct ? "Correct." : `Not quite — correct answer: ${correctAnswerFor(q)}`}
         </div>
       )}
 
@@ -241,16 +262,15 @@ export function StrategyKnowledgeCheck({
         >
           ← Back
         </button>
-        {q.type === "numeric-or-unlimited" && (
+        {isChecked && (
           <button
-            onClick={advance}
-            disabled={!isNumericAnswered(numericAnswers[q.id]) || submitting}
+            onClick={next}
+            disabled={submitting}
             className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
           >
-            {submitting ? "Grading…" : isLast ? "Submit answers" : "Next question →"}
+            {submitting ? "Grading…" : isLast ? "Finish" : "Next question →"}
           </button>
         )}
-        {q.type === "mcq" && submitting && <span className="text-sm text-[#898781]">Grading…</span>}
       </div>
 
       {authRequired && (

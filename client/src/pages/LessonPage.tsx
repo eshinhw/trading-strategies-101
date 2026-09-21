@@ -218,7 +218,7 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
 
       <StrategyKnowledgeCheck
         lessonSlug={lesson.strategy.slug}
-        params={strategy.params}
+        strategy={strategy}
         practiceParams={lesson.practiceParams}
         questions={lesson.questions}
       />

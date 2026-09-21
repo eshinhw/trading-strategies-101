@@ -62,6 +62,11 @@ export interface ConceptQuizPrompt {
   id: string;
   prompt: string;
   choices: string[];
+  // included so the UI can grade each question immediately, before the
+  // learner moves on to the next one, instead of only revealing correctness
+  // in one batch after the whole quiz is submitted.
+  correctIndex: number;
+  explanation: string;
 }
 
 export interface ConceptLessonDetail extends LessonBase {

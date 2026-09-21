@@ -116,13 +116,11 @@ router.get("/lessons/:slug", async (req, res) => {
   };
 
   if (resolved.kind === "concept") {
-    const { quiz, kind, ...rest } = resolved.lesson;
-    return res.json({
-      ...base,
-      kind,
-      ...rest,
-      quiz: quiz.map((q) => ({ id: q.id, prompt: q.prompt, choices: q.choices })),
-    });
+    const { kind, ...rest } = resolved.lesson;
+    // quiz is sent in full, including correctIndex/explanation, so the client
+    // can grade each question the instant it's answered rather than only
+    // revealing correctness after the whole quiz is submitted.
+    return res.json({ ...base, kind, ...rest });
   }
 
   const practiceParams = generatePracticeParams(resolved.strategy);

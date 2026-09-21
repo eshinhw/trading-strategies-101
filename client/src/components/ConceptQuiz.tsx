@@ -5,8 +5,6 @@ import { QuizResultPanel } from "./QuizResultPanel";
 import { QuizProgress } from "./QuizProgress";
 import type { GradeResponse } from "../types/curriculum";
 
-const ADVANCE_DELAY_MS = 350;
-
 export function ConceptQuiz({
   lessonSlug,
   questions,
@@ -18,13 +16,23 @@ export function ConceptQuiz({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [checked, setChecked] = useState<Record<string, boolean>>({});
   const [result, setResult] = useState<GradeResponse | null>(null);
   const [authRequired, setAuthRequired] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
+  const q = questions[currentIndex];
   const isLast = currentIndex === questions.length - 1;
+  const isChecked = Boolean(checked[q?.id]);
+  const isCorrect = answers[q?.id] === q?.correctIndex;
 
-  async function submit(finalAnswers: Record<string, number>) {
+  function selectChoice(choiceIndex: number) {
+    if (isChecked) return; // locked once checked — no changing your answer after seeing it
+    setAnswers((a) => ({ ...a, [q.id]: choiceIndex }));
+    setChecked((c) => ({ ...c, [q.id]: true }));
+  }
+
+  async function finish(finalAnswers: Record<string, number>) {
     setAuthRequired(false);
     setSubmitting(true);
     try {
@@ -40,71 +48,31 @@ export function ConceptQuiz({
     }
   }
 
-  function selectChoice(questionId: string, choiceIndex: number) {
-    const nextAnswers = { ...answers, [questionId]: choiceIndex };
-    setAnswers(nextAnswers);
-    // a single click fully answers an MCQ question, so advance automatically —
-    // the brief delay just lets the selection register visually first.
-    setTimeout(() => {
-      if (isLast) {
-        submit(nextAnswers);
-      } else {
-        setCurrentIndex((i) => i + 1);
-      }
-    }, ADVANCE_DELAY_MS);
+  function next() {
+    if (isLast) {
+      finish(answers);
+    } else {
+      setCurrentIndex((i) => i + 1);
+    }
   }
 
   function retry() {
     setResult(null);
     setAnswers({});
+    setChecked({});
     setCurrentIndex(0);
   }
 
   if (result) {
     return (
       <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
+        <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
           Knowledge check
         </h3>
-        <div className="flex flex-col gap-5">
-          {questions.map((q, i) => {
-            const questionResult = result.results.find((r) => r.questionId === q.id);
-            return (
-              <div key={q.id}>
-                <p className="mb-2 text-sm text-[#e6e8ec]">
-                  {i + 1}. {q.prompt}
-                </p>
-                <div className="flex flex-col gap-1.5">
-                  {q.choices.map((choice, ci) => {
-                    const isSelected = answers[q.id] === ci;
-                    const isCorrectChoice = questionResult && choice === questionResult.correctAnswer;
-                    return (
-                      <div
-                        key={ci}
-                        className={`rounded-md border px-3 py-2 text-sm ${
-                          isCorrectChoice
-                            ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                            : isSelected
-                              ? "border-red-500/40 bg-red-500/10 text-red-300"
-                              : "border-[#2a3040] text-[#9aa3b2]"
-                        }`}
-                      >
-                        {choice}
-                      </div>
-                    );
-                  })}
-                </div>
-                <p className="mt-1.5 text-xs text-[#898781]">{questionResult?.explanation}</p>
-              </div>
-            );
-          })}
-        </div>
         <QuizResultPanel result={result} onRetry={retry} />
       </div>
     );
   }
-
-  const q = questions[currentIndex];
 
   return (
     <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
@@ -114,28 +82,48 @@ export function ConceptQuiz({
       <div className="flex flex-col gap-1.5">
         {q.choices.map((choice, ci) => {
           const isSelected = answers[q.id] === ci;
+          const isCorrectChoice = ci === q.correctIndex;
           return (
             <label
               key={ci}
-              className={`flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-sm transition ${
-                isSelected
-                  ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
-                  : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
+              className={`flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition ${
+                isChecked ? "" : "cursor-pointer"
+              } ${
+                isChecked
+                  ? isCorrectChoice
+                    ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
+                    : isSelected
+                      ? "border-red-500/40 bg-red-500/10 text-red-300"
+                      : "border-[#2a3040] text-[#9aa3b2]"
+                  : isSelected
+                    ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
+                    : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
               }`}
             >
               <input
                 type="radio"
                 name={q.id}
                 className="accent-[#4f8cff]"
-                disabled={submitting}
+                disabled={isChecked}
                 checked={isSelected}
-                onChange={() => selectChoice(q.id, ci)}
+                onChange={() => selectChoice(ci)}
               />
               {choice}
             </label>
           );
         })}
       </div>
+
+      {isChecked && (
+        <div
+          className={`mt-3 rounded-md border px-3 py-2 text-sm ${
+            isCorrect ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300" : "border-red-500/30 bg-red-500/10 text-red-300"
+          }`}
+        >
+          <span className="font-medium">{isCorrect ? "Correct." : "Not quite."}</span>{" "}
+          <span className="text-[#9aa3b2]">{q.explanation}</span>
+        </div>
+      )}
 
       <div className="mt-5 flex items-center justify-between">
         <button
@@ -145,7 +133,15 @@ export function ConceptQuiz({
         >
           ← Back
         </button>
-        {submitting && <span className="text-sm text-[#898781]">Grading…</span>}
+        {isChecked && (
+          <button
+            onClick={next}
+            disabled={submitting}
+            className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {submitting ? "Grading…" : isLast ? "Finish" : "Next question →"}
+          </button>
+        )}
       </div>
 
       {authRequired && (

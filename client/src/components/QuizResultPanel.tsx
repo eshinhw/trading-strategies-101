@@ -16,7 +16,7 @@ export function QuizResultPanel({ result, onRetry }: { result: GradeResponse; on
           ? result.lessonNewlyCompleted
             ? "Lesson marked complete."
             : "Lesson already completed — this attempt updated your best score."
-          : "Review the explanations above, then try again (need 70%+ to pass)."}
+          : "You saw the correct answer on each question as you went — try again to improve your score (need 70%+ to pass)."}
       </p>
       <button onClick={onRetry} className="mt-3 text-sm text-[#4f8cff] hover:underline">
         Try again
