@@ -34,18 +34,20 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
 
   return (
     <div className="mx-auto max-w-sm px-6 py-16">
-      <Link to="/" className="mb-6 inline-flex" aria-label="Trading Strategies 101 home">
-        <svg viewBox="0 0 100 100" width="36" height="36">
-          <polyline
-            points="24,30 50,68 76,30"
-            fill="none"
-            stroke="#4f8cff"
-            strokeWidth="13"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </Link>
+      <div className="mb-6 flex justify-center">
+        <Link to="/" aria-label="Trading Strategies 101 home">
+          <svg viewBox="0 0 100 100" width="36" height="36">
+            <polyline
+              points="24,30 50,68 76,30"
+              fill="none"
+              stroke="#4f8cff"
+              strokeWidth="13"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Link>
+      </div>
       <h1 className="mb-1 text-2xl font-bold text-[#e6e8ec]">
         {mode === "signup" ? "Create your account" : "Welcome back"}
       </h1>
