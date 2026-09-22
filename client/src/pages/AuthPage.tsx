@@ -6,7 +6,7 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
   const { login, signup } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const redirectTo = (location.state as { from?: string } | null)?.from ?? "/";
+  const redirectTo = (location.state as { from?: string } | null)?.from ?? "/courses";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

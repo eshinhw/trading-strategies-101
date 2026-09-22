@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
 import { Nav } from "./components/Nav";
-import { HomePage } from "./pages/HomePage";
+import { LandingPage } from "./pages/LandingPage";
 import { CoursesPage } from "./pages/CoursesPage";
 import { CoursePage } from "./pages/CoursePage";
 import { BooksPage } from "./pages/BooksPage";
@@ -18,7 +18,7 @@ function App() {
         <div className="min-h-screen bg-[#0b0d12]">
           <Nav />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:slug" element={<CoursePage />} />
             <Route path="/courses/:slug/exam" element={<ExamPage />} />
