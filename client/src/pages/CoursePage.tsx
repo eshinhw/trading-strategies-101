@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchCourse, fetchModules } from "../api";
+import { fetchCourse, fetchModules, fetchExamStatus } from "../api";
 import type { Course } from "../types/course";
 import type { ModulesResponse } from "../types/curriculum";
+import type { ExamStatus } from "../types/exam";
 
 export function CoursePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -96,7 +97,67 @@ function AvailableCourseModules({ slug }: { slug: string }) {
             <ModuleRow key={m.slug} module={m} index={i + 1} />
           ))}
       </div>
+
+      <ExamSection slug={slug} />
     </>
+  );
+}
+
+function ExamSection({ slug }: { slug: string }) {
+  const [status, setStatus] = useState<ExamStatus | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchExamStatus(slug).then(setStatus).catch((e) => setError(e.message));
+  }, [slug]);
+
+  if (error || !status) return null; // no exam for this course, or still loading — stay quiet either way
+
+  const passed = status.progress?.passed ?? false;
+
+  return (
+    <div
+      className={`mt-6 rounded-xl border p-5 ${
+        status.unlocked
+          ? passed
+            ? "border-emerald-500/30 bg-emerald-500/10"
+            : "border-[#4f8cff]/30 bg-[#4f8cff]/10"
+          : "border-[#2a3040]/60 bg-[#101319] opacity-60"
+      }`}
+    >
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <div className="flex items-center gap-2">
+            <h3 className="font-semibold text-[#e6e8ec]">Final Exam</h3>
+            {passed && (
+              <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
+                Completed
+              </span>
+            )}
+            {!status.unlocked && (
+              <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#898781]">
+                Locked
+              </span>
+            )}
+          </div>
+          <p className="mt-1 text-sm text-[#9aa3b2]">
+            {status.unlocked
+              ? passed
+                ? `You've completed this course — best score ${Math.round((status.progress?.bestScore ?? 0) * 100)}%. Retake any time.`
+                : "A no-hints test across every module, answers revealed only at the end — the real capstone for this course."
+              : "Complete every module above to unlock the final exam."}
+          </p>
+        </div>
+        {status.unlocked && (
+          <Link
+            to={`/courses/${slug}/exam`}
+            className="shrink-0 rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0]"
+          >
+            {passed ? "Retake exam" : "Take the exam"}
+          </Link>
+        )}
+      </div>
+    </div>
   );
 }
 

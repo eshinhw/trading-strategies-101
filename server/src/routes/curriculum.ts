@@ -11,21 +11,13 @@ import {
 import { generatePracticeParams } from "../data/curriculum/practiceParams.js";
 import { buildStrategyQuestions, gradeStrategySubmission, gradeConceptSubmission } from "../lib/grading.js";
 import type { StrategySubmission } from "../lib/grading.js";
+import { completedLessonSlugs } from "../lib/progress.js";
 
 const router = Router();
 router.use(attachUser);
 
 function slugParam(v: string | string[]): string {
   return Array.isArray(v) ? v[0] : v;
-}
-
-async function completedLessonSlugs(userId: string | undefined): Promise<Set<string>> {
-  if (!userId) return new Set();
-  const rows = await prisma.lessonProgress.findMany({
-    where: { userId, completed: true },
-    select: { lessonSlug: true },
-  });
-  return new Set(rows.map((r) => r.lessonSlug));
 }
 
 router.get("/modules", async (req, res) => {

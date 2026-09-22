@@ -22,6 +22,7 @@ model User {
   name         String
   createdAt    DateTime         @default(now())
   progress     LessonProgress[]
+  examProgress CourseProgress[]
 }
 
 model LessonProgress {
@@ -36,4 +37,21 @@ model LessonProgress {
   updatedAt   DateTime  @updatedAt
 
   @@unique([userId, lessonSlug])
+}
+
+// Course-level exam result — distinct from LessonProgress, which only tracks
+// individual lessons. Passing the exam is what actually marks a course
+// "completed," separate from having finished every module's lessons.
+model CourseProgress {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseSlug  String
+  passed      Boolean   @default(false)
+  bestScore   Float? // best fraction-correct (0-1) across exam attempts
+  attempts    Int       @default(0)
+  completedAt DateTime?
+  updatedAt   DateTime  @updatedAt
+
+  @@unique([userId, courseSlug])
 }

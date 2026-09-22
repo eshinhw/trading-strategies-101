@@ -3,8 +3,11 @@ import type { ConceptLesson } from "../data/curriculum/types.js";
 import type { ParamValues } from "../engine/payoff.js";
 import { computePayoffStats } from "../engine/payoff.js";
 
-const OUTLOOK_CHOICES = ["bullish", "bearish", "neutral"] as const;
-const NET_POSITION_CHOICES = ["Net debit — I pay to enter", "Net credit — I receive money to enter"] as const;
+export const OUTLOOK_CHOICES = ["bullish", "bearish", "neutral"] as const;
+export const NET_POSITION_CHOICES = [
+  "Net debit — I pay to enter",
+  "Net credit — I receive money to enter",
+] as const;
 
 export type NumericAnswer = { unlimited: true } | { unlimited?: false; value: number };
 
@@ -61,9 +64,9 @@ export interface GradeResult {
   results: QuestionResult[];
 }
 
-const PASS_THRESHOLD = 0.7;
+export const PASS_THRESHOLD = 0.7;
 
-function numericMatches(correct: number | "unlimited", submitted: NumericAnswer | undefined): boolean {
+export function numericMatches(correct: number | "unlimited", submitted: NumericAnswer | undefined): boolean {
   if (!submitted) return false;
   if (correct === "unlimited") return submitted.unlimited === true;
   if (submitted.unlimited) return false;
@@ -71,7 +74,7 @@ function numericMatches(correct: number | "unlimited", submitted: NumericAnswer 
   return Math.abs(submitted.value - correct) <= tolerance;
 }
 
-function fmtAnswer(v: number | "unlimited"): string {
+export function fmtAnswer(v: number | "unlimited"): string {
   return v === "unlimited" ? "Unlimited" : `$${v.toFixed(2)}`;
 }
 
