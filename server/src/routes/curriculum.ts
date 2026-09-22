@@ -20,9 +20,36 @@ function slugParam(v: string | string[]): string {
   return Array.isArray(v) ? v[0] : v;
 }
 
+function mapLessons(
+  lessonSlugs: string[],
+  progressBySlug: Map<string, { completed: boolean; bestScore: number | null }>,
+) {
+  return lessonSlugs.map((slug) => {
+    const resolved = resolveLesson(slug);
+    const progress = progressBySlug.get(slug);
+    return {
+      slug,
+      kind: resolved?.kind,
+      title: resolved?.kind === "concept" ? resolved.lesson.title : resolved?.strategy.name,
+      summary: resolved?.kind === "concept" ? resolved.lesson.summary : resolved?.strategy.content.summary,
+      completed: progress?.completed ?? false,
+      bestScore: progress?.bestScore ?? null,
+    };
+  });
+}
+
 router.get("/modules", async (req, res) => {
   const completed = await completedLessonSlugs(req.userId);
   const statuses = computeModuleStatuses(completed);
+
+  let progressRows: { lessonSlug: string; completed: boolean; bestScore: number | null }[] = [];
+  if (req.userId) {
+    progressRows = await prisma.lessonProgress.findMany({
+      where: { userId: req.userId, lessonSlug: { in: allLessonSlugs() } },
+      select: { lessonSlug: true, completed: true, bestScore: true },
+    });
+  }
+  const progressBySlug = new Map(progressRows.map((r) => [r.lessonSlug, r]));
 
   res.json({
     signedIn: Boolean(req.userId),
@@ -38,6 +65,7 @@ router.get("/modules", async (req, res) => {
       completedLessons: s.completedLessons,
       unlocked: s.unlocked,
       completed: s.completed,
+      lessons: s.unlocked ? mapLessons(s.module.lessonSlugs, progressBySlug) : [],
     })),
   });
 });
@@ -65,18 +93,7 @@ router.get("/modules/:slug", async (req, res) => {
     description: module.description,
     unlocked: status.unlocked,
     completed: status.completed,
-    lessons: module.lessonSlugs.map((slug) => {
-      const resolved = resolveLesson(slug);
-      const progress = progressBySlug.get(slug);
-      return {
-        slug,
-        kind: resolved?.kind,
-        title: resolved?.kind === "concept" ? resolved.lesson.title : resolved?.strategy.name,
-        summary: resolved?.kind === "concept" ? resolved.lesson.summary : resolved?.strategy.content.summary,
-        completed: progress?.completed ?? false,
-        bestScore: progress?.bestScore ?? null,
-      };
-    }),
+    lessons: mapLessons(module.lessonSlugs, progressBySlug),
   });
 });
 

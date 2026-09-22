@@ -7,6 +7,15 @@ export interface User {
   createdAt: string;
 }
 
+export interface ModuleLessonSummary {
+  slug: string;
+  kind: "concept" | "strategy";
+  title: string;
+  summary: string;
+  completed: boolean;
+  bestScore: number | null;
+}
+
 export interface ModuleSummary {
   slug: string;
   title: string;
@@ -17,6 +26,8 @@ export interface ModuleSummary {
   completedLessons: number;
   unlocked: boolean;
   completed: boolean;
+  /** empty when the module is locked */
+  lessons: ModuleLessonSummary[];
 }
 
 export interface ModulesResponse {
@@ -24,15 +35,6 @@ export interface ModulesResponse {
   totalLessons: number;
   totalCompleted: number;
   modules: ModuleSummary[];
-}
-
-export interface ModuleLessonSummary {
-  slug: string;
-  kind: "concept" | "strategy";
-  title: string;
-  summary: string;
-  completed: boolean;
-  bestScore: number | null;
 }
 
 export interface ModuleDetail {
