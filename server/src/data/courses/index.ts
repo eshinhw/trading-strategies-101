@@ -8,6 +8,24 @@ import type { Course } from "./types.js";
 
 export const courses: Course[] = [
   {
+    slug: "futures",
+    title: "Futures",
+    section: "10",
+    description:
+      "Hedging and speculative strategies built directly on futures contracts — cross-hedging, calendar spreads, and trend following.",
+    status: "coming-soon",
+    strategyCount: 7,
+    strategyTitles: [
+      "Hedging risk with futures",
+      "Cross-hedging",
+      "Interest rate risk hedging",
+      "Calendar spread",
+      "Contrarian trading (mean-reversion)",
+      "Contrarian trading – market activity",
+      "Trend following (momentum)",
+    ],
+  },
+  {
     slug: "options",
     title: "Options",
     section: "2",
@@ -49,7 +67,7 @@ export const courses: Course[] = [
   },
   {
     slug: "etfs",
-    title: "Exchange-Traded Funds",
+    title: "Exchange-Traded Funds (ETF)",
     section: "4",
     description:
       "Sector and alpha rotation, plus strategies specific to how ETFs trade relative to their underlying holdings.",
@@ -146,8 +164,7 @@ export const courses: Course[] = [
     slug: "commodities",
     title: "Commodities",
     section: "9",
-    description:
-      "Roll yield, hedging pressure, and value and skewness-premium strategies across commodity futures.",
+    description: "Roll yield, hedging pressure, and value and skewness-premium strategies across commodity futures.",
     status: "coming-soon",
     strategyCount: 6,
     strategyTitles: [
@@ -159,24 +176,7 @@ export const courses: Course[] = [
       "Trading with pricing models",
     ],
   },
-  {
-    slug: "futures",
-    title: "Futures",
-    section: "10",
-    description:
-      "Hedging and speculative strategies built directly on futures contracts — cross-hedging, calendar spreads, and trend following.",
-    status: "coming-soon",
-    strategyCount: 7,
-    strategyTitles: [
-      "Hedging risk with futures",
-      "Cross-hedging",
-      "Interest rate risk hedging",
-      "Calendar spread",
-      "Contrarian trading (mean-reversion)",
-      "Contrarian trading – market activity",
-      "Trend following (momentum)",
-    ],
-  },
+
   {
     slug: "structured-assets",
     title: "Structured Assets",
