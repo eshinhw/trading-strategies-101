@@ -6,13 +6,15 @@ export function Nav() {
   const navigate = useNavigate();
 
   return (
-    <nav className="border-b border-[#2a3040] bg-[#0e1117]">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-3">
+    <nav className="relative overflow-hidden bg-gradient-to-r from-[#1c1949] via-[#231f5e] to-[#1c1949]">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-28 left-1/4 h-64 w-64 rounded-full bg-[#6d5ef5]/20 blur-3xl" />
+        <div className="absolute -top-32 right-1/4 h-72 w-72 rounded-full bg-[#4338ca]/25 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-4">
         <div className="flex items-center gap-10">
-          <Link
-            to="/"
-            className="flex items-center gap-2 whitespace-nowrap font-semibold text-[#e6e8ec] hover:text-[#4f8cff]"
-          >
+          <Link to="/" className="flex items-center gap-2 whitespace-nowrap font-semibold text-white">
             <svg viewBox="0 0 100 100" width="22" height="22" aria-hidden="true" className="shrink-0">
               <polyline
                 points="24,30 50,68 76,30"
@@ -26,35 +28,35 @@ export function Nav() {
             <span className="hidden sm:inline">Trading Strategies 101</span>
             <span className="sm:hidden">TS 101</span>
           </Link>
-          <Link to="/courses" className="whitespace-nowrap text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+          <Link to="/courses" className="whitespace-nowrap text-sm text-slate-300 hover:text-white">
             Courses
           </Link>
-          <Link to="/books" className="whitespace-nowrap text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+          <Link to="/books" className="whitespace-nowrap text-sm text-slate-300 hover:text-white">
             Books
           </Link>
         </div>
         <div className="flex items-center gap-4 whitespace-nowrap text-sm">
           {user ? (
             <>
-              <span className="text-[#9aa3b2]">{user.name}</span>
+              <span className="text-slate-300">{user.name}</span>
               <button
                 onClick={async () => {
                   await logout();
                   navigate("/");
                 }}
-                className="text-[#4f8cff] hover:underline"
+                className="text-slate-300 hover:text-white"
               >
                 Sign out
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-[#9aa3b2] hover:text-[#e6e8ec]">
+              <Link to="/login" className="text-slate-300 hover:text-white">
                 Sign in
               </Link>
               <Link
                 to="/signup"
-                className="rounded-md bg-[#4f8cff] px-3 py-1.5 font-medium text-white hover:bg-[#3d7ce0]"
+                className="rounded-full bg-[#6d5ef5] px-4 py-2 font-medium text-white hover:bg-[#5b4ce0]"
               >
                 Sign up
               </Link>
