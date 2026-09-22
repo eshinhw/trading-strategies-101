@@ -30,7 +30,7 @@ export function QuizResultPanel({ result, onRetry }: { result: GradeResponse; on
             onRetry();
           }
         }}
-        className="mt-3 text-sm text-[#34c98a] hover:underline"
+        className="mt-3 text-sm text-[#14b8a6] hover:underline"
       >
         Try again
       </button>

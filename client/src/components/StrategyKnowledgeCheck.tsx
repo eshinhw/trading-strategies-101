@@ -132,7 +132,7 @@ export function StrategyKnowledgeCheck({
         {strategy.params.map((p) => (
           <span key={p.key} className="text-[#e6f2ec]">
             <span className="text-[#6f8a7c]">{p.label}:</span>{" "}
-            <span className="font-mono text-[#34c98a]">{practiceParams[p.key]}</span>
+            <span className="font-mono text-[#14b8a6]">{practiceParams[p.key]}</span>
           </span>
         ))}
       </div>
@@ -201,7 +201,7 @@ export function StrategyKnowledgeCheck({
                   [q.id]: { unlimited: e.target.checked, text: a[q.id]?.text ?? "" },
                 }))
               }
-              className="accent-[#34c98a]"
+              className="accent-[#14b8a6]"
             />
             Unlimited
           </label>
@@ -209,7 +209,7 @@ export function StrategyKnowledgeCheck({
             <button
               onClick={checkNumeric}
               disabled={!isNumericAnswered(numericAnswers[q.id])}
-              className="rounded-lg bg-[#34c98a] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#2bb37a] disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-[#14b8a6] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#0d9488] disabled:cursor-not-allowed disabled:opacity-40"
             >
               Check answer
             </button>
@@ -233,14 +233,14 @@ export function StrategyKnowledgeCheck({
                         ? "border-red-500/40 bg-red-500/10 text-red-300"
                         : "border-[#1e3d2f] text-[#8fada0]"
                     : isSelected
-                      ? "border-[#34c98a] bg-[#34c98a]/10 text-[#e6f2ec]"
+                      ? "border-[#14b8a6] bg-[#14b8a6]/10 text-[#e6f2ec]"
                       : "border-[#1e3d2f] text-[#8fada0] hover:border-[#2c5942]"
                 }`}
               >
                 <input
                   type="radio"
                   name={q.id}
-                  className="accent-[#34c98a]"
+                  className="accent-[#14b8a6]"
                   disabled={isChecked}
                   checked={isSelected}
                   onChange={() => selectChoice(ci)}
@@ -266,7 +266,7 @@ export function StrategyKnowledgeCheck({
         <button
           onClick={() => setCurrentIndex((i) => i - 1)}
           disabled={currentIndex === 0}
-          className="text-sm text-[#34c98a] hover:underline disabled:cursor-not-allowed disabled:text-[#6f8a7c] disabled:no-underline"
+          className="text-sm text-[#14b8a6] hover:underline disabled:cursor-not-allowed disabled:text-[#6f8a7c] disabled:no-underline"
         >
           ← Back
         </button>
@@ -274,7 +274,7 @@ export function StrategyKnowledgeCheck({
           <button
             onClick={next}
             disabled={submitting}
-            className="rounded-lg bg-[#34c98a] px-4 py-2 text-sm font-medium text-white hover:bg-[#2bb37a] disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg bg-[#14b8a6] px-4 py-2 text-sm font-medium text-white hover:bg-[#0d9488] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {submitting ? "Grading…" : isLast ? "Finish" : "Next question →"}
           </button>

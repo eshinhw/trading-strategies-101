@@ -81,7 +81,7 @@ function CourseCard({ course, progress }: { course: Course; progress: ModulesRes
       to={`/courses/${course.slug}`}
       className={`flex flex-col rounded-xl border p-5 transition ${
         course.status === "available"
-          ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#34c98a]/50 hover:bg-[#12281d]"
+          ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#14b8a6]/50 hover:bg-[#12281d]"
           : "border-[#1e3d2f]/60 bg-[#0a1f16] hover:border-[#1e3d2f]"
       }`}
     >
@@ -103,7 +103,7 @@ function CourseCard({ course, progress }: { course: Course; progress: ModulesRes
         {progress && (
           <div className="mt-3 flex items-center gap-2">
             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#142b20]">
-              <div className="h-full rounded-full bg-[#34c98a]" style={{ width: `${pct}%` }} />
+              <div className="h-full rounded-full bg-[#14b8a6]" style={{ width: `${pct}%` }} />
             </div>
             <span className="text-xs text-[#6f8a7c]">
               {progress.totalCompleted}/{progress.totalLessons}

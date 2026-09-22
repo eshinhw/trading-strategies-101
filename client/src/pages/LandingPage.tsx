@@ -37,11 +37,11 @@ function Hero() {
     <section className="relative overflow-hidden border-b border-[#1e3d2f]">
       <div
         className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, #34c98a, transparent)" }}
+        style={{ background: "radial-gradient(closest-side, #14b8a6, transparent)" }}
       />
       <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
-          <span className="inline-block rounded-full border border-[#34c98a]/30 bg-[#34c98a]/10 px-3 py-1 text-xs font-medium text-[#34c98a]">
+          <span className="inline-block rounded-full border border-[#14b8a6]/30 bg-[#14b8a6]/10 px-3 py-1 text-xs font-medium text-[#14b8a6]">
             For early-career analysts &amp; traders
           </span>
           <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6f2ec] sm:text-5xl">
@@ -55,7 +55,7 @@ function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               to="/signup"
-              className="rounded-lg bg-[#34c98a] px-5 py-2.5 font-medium text-white hover:bg-[#2bb37a]"
+              className="rounded-lg bg-[#14b8a6] px-5 py-2.5 font-medium text-white hover:bg-[#0d9488]"
             >
               Start learning — it's free
             </Link>
@@ -175,7 +175,7 @@ function CoursesPreview() {
                 to={`/courses/${c.slug}`}
                 className={`flex flex-col rounded-xl border p-5 transition ${
                   c.status === "available"
-                    ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#34c98a]/50 hover:bg-[#12281d]"
+                    ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#14b8a6]/50 hover:bg-[#12281d]"
                     : "border-[#1e3d2f]/60 bg-[#0a1f16] hover:border-[#1e3d2f]"
                 }`}
               >
@@ -210,7 +210,7 @@ function FinalCta() {
         Create a free account to save your progress and unlock modules as you complete them.
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-        <Link to="/signup" className="rounded-lg bg-[#34c98a] px-5 py-2.5 font-medium text-white hover:bg-[#2bb37a]">
+        <Link to="/signup" className="rounded-lg bg-[#14b8a6] px-5 py-2.5 font-medium text-white hover:bg-[#0d9488]">
           Sign up free
         </Link>
         <Link to="/login" className="text-sm text-[#8fada0] hover:text-[#e6f2ec]">

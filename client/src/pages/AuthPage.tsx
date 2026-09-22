@@ -83,7 +83,7 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
         <button
           type="submit"
           disabled={submitting}
-          className="mt-2 rounded-lg bg-[#34c98a] px-4 py-2 font-medium text-white hover:bg-[#2bb37a] disabled:opacity-50"
+          className="mt-2 rounded-lg bg-[#14b8a6] px-4 py-2 font-medium text-white hover:bg-[#0d9488] disabled:opacity-50"
         >
           {submitting ? "Please wait…" : mode === "signup" ? "Create account" : "Sign in"}
         </button>
@@ -93,14 +93,14 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
         {mode === "signup" ? (
           <>
             Already have an account?{" "}
-            <Link to="/login" className="text-[#34c98a] hover:underline">
+            <Link to="/login" className="text-[#14b8a6] hover:underline">
               Sign in
             </Link>
           </>
         ) : (
           <>
             New here?{" "}
-            <Link to="/signup" className="text-[#34c98a] hover:underline">
+            <Link to="/signup" className="text-[#14b8a6] hover:underline">
               Create an account
             </Link>
           </>
