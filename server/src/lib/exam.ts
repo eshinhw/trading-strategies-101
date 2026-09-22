@@ -125,6 +125,7 @@ export interface ExamAnswerSubmission {
 export interface ExamQuestionResult {
   id: string;
   moduleTitle: string;
+  lessonSlug: string;
   lessonTitle: string;
   prompt: string;
   correct: boolean;
@@ -139,7 +140,13 @@ export interface ExamGradeResult {
 }
 
 function gradeOne(a: ExamAnswerSubmission): ExamQuestionResult {
-  const base = { id: a.id, moduleTitle: a.moduleTitle, lessonTitle: a.lessonTitle, prompt: a.prompt };
+  const base = {
+    id: a.id,
+    moduleTitle: a.moduleTitle,
+    lessonSlug: a.lessonSlug,
+    lessonTitle: a.lessonTitle,
+    prompt: a.prompt,
+  };
 
   if (a.kind === "concept") {
     const lesson = conceptLessons.find((l) => l.slug === a.lessonSlug);

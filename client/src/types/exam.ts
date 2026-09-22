@@ -37,6 +37,7 @@ export interface ExamAnswerSubmission {
 export interface ExamQuestionResult {
   id: string;
   moduleTitle: string;
+  lessonSlug: string;
   lessonTitle: string;
   prompt: string;
   correct: boolean;

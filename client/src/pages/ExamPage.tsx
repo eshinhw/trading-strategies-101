@@ -283,7 +283,9 @@ function ExamReport({
             <div className="mb-1 flex flex-wrap items-center gap-2 text-xs text-[#898781]">
               <span>{i + 1}.</span>
               <span className="rounded-full border border-[#2a3040] px-2 py-0.5">{r.moduleTitle}</span>
-              <span>{r.lessonTitle}</span>
+              <Link to={`/lesson/${r.lessonSlug}`} className="text-[#4f8cff] hover:underline">
+                {r.lessonTitle}
+              </Link>
             </div>
             <p className="text-sm text-[#e6e8ec]">{r.prompt}</p>
             <p className={`mt-1 text-sm ${r.correct ? "text-emerald-400" : "text-red-400"}`}>
