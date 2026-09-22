@@ -206,4 +206,40 @@ export const modules: Module[] = [
       "stocks-market-making",
     ],
   },
+  {
+    slug: "stocks-factor-and-quant-strategies",
+    courseSlug: "stocks",
+    title: "Factor & Quant Strategies",
+    description:
+      "Deeper factor investing (earnings-momentum, low-volatility, multifactor, residual momentum), a signal drawn from the options market (implied volatility), and how a real stat-arb desk combines many signals and builds a portfolio from them.",
+    order: 2,
+    prerequisiteModuleSlugs: ["stocks-fundamentals"],
+    lessonSlugs: [
+      "stocks-earnings-momentum",
+      "stocks-low-volatility-anomaly",
+      "stocks-implied-volatility",
+      "stocks-multifactor-portfolio",
+      "stocks-residual-momentum",
+      "stocks-alpha-combos",
+      "stocks-statistical-arbitrage-optimization",
+    ],
+  },
+  {
+    slug: "stocks-technical-and-event-driven",
+    courseSlug: "stocks",
+    title: "Technical & Event-Driven Strategies",
+    description:
+      "Chart-based trend-following (moving-average crossovers, support/resistance, channels), mean-reversion scaled across many industry clusters, merger arbitrage, and a machine-learning approach to single-stock prediction.",
+    order: 3,
+    prerequisiteModuleSlugs: ["stocks-fundamentals"],
+    lessonSlugs: [
+      "stocks-mean-reversion-multiple-clusters",
+      "stocks-two-moving-averages",
+      "stocks-three-moving-averages",
+      "stocks-support-and-resistance",
+      "stocks-channel",
+      "stocks-event-driven-ma",
+      "stocks-machine-learning-knn",
+    ],
+  },
 ];

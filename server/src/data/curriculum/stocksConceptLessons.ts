@@ -480,4 +480,1126 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "stocks-earnings-momentum",
+    title: "Earnings-momentum",
+    summary:
+      "Buying stocks following positive earnings surprises and avoiding or shorting those with negative surprises, since the market tends to underreact to earnings news.",
+    body: [
+      "Earnings-momentum, also called post-earnings-announcement drift or PEAD, is a close cousin of price-momentum, but the signal comes from a company's earnings surprise — the difference between its actual reported earnings and what analysts expected — rather than from its raw stock-price trend. Stocks that beat expectations tend to keep drifting higher for weeks or months after the announcement, and stocks that miss tend to keep drifting lower.",
+      "The core explanation is that markets underreact to earnings news: the initial price move on the announcement day doesn't fully capture the information, so the stock keeps adjusting gradually as more investors process the surprise, analysts revise their estimates, and the market gradually re-rates the stock. A standardized unexpected earnings (SUE) score — the surprise scaled by its own historical volatility — is a common way to rank stocks by how significant the surprise really was.",
+      "Unlike pure price-momentum, which reacts purely to price action and says nothing about why a stock moved, earnings-momentum ties directly to a specific, discrete, and repeatable catalyst — the quarterly earnings release — which makes the signal easier to time around, since a strategy typically re-evaluates its holdings shortly after each earnings season, but also concentrates risk around those release dates, when volatility is elevated.",
+      "The drift tends to be strongest in smaller, less-covered stocks, where fewer analysts and less trading activity slow down the market's absorption of new information — in large, heavily-covered names, the drift after an earnings surprise is much smaller because so much capital is already competing to process the news instantly.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is the earnings-momentum signal based on?",
+        choices: [
+          "The difference between a company's actual reported earnings and what analysts expected",
+          "The company's raw stock price trend over the past year",
+          "The company's dividend yield",
+          "The company's market capitalization",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Earnings-momentum, or post-earnings-announcement drift, uses the earnings surprise itself as its signal, distinct from price-momentum's raw price trend.",
+      },
+      {
+        id: "q2",
+        prompt: "What does \"post-earnings-announcement drift\" refer to?",
+        choices: [
+          "Stock prices staying perfectly flat after an earnings announcement",
+          "The tendency for a stock's price to keep moving in the direction of an earnings surprise for weeks or months afterward",
+          "A rule requiring companies to announce earnings quarterly",
+          "The gap between an earnings announcement and the next one",
+        ],
+        correctIndex: 1,
+        explanation:
+          "PEAD is the empirical finding that stocks continue drifting in the direction of their earnings surprise well after the announcement itself, rather than fully repricing instantly.",
+      },
+      {
+        id: "q3",
+        prompt: "What is a \"standardized unexpected earnings\" (SUE) score used for?",
+        choices: [
+          "Measuring a company's total revenue",
+          "Scaling an earnings surprise by its own historical volatility, to rank how significant the surprise really was",
+          "Predicting a company's stock split ratio",
+          "Calculating a company's dividend payout",
+        ],
+        correctIndex: 1,
+        explanation:
+          "SUE normalizes the raw earnings surprise against how volatile that company's surprises typically are, making surprises comparable across different companies.",
+      },
+      {
+        id: "q4",
+        prompt: "Why does market underreaction help explain earnings-momentum drift?",
+        choices: [
+          "Markets always fully price in all information instantly",
+          "The initial price move on announcement day doesn't fully capture the surprise, so the stock keeps adjusting gradually as more information is processed",
+          "Underreaction only occurs in bond markets, not stocks",
+          "Earnings announcements have no effect on stock prices",
+        ],
+        correctIndex: 1,
+        explanation:
+          "If the market fully and instantly priced in an earnings surprise, there would be no further drift — the observed drift implies the initial reaction was incomplete.",
+      },
+      {
+        id: "q5",
+        prompt: "In which kind of stocks does the earnings-momentum drift tend to be strongest?",
+        choices: [
+          "Large, heavily-covered stocks with many analysts",
+          "Smaller, less-covered stocks, where information is absorbed into the price more slowly",
+          "Stocks that never report earnings",
+          "Only stocks with no dividend",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Fewer analysts and less trading activity in smaller names slow down how quickly the market fully processes and prices in an earnings surprise, producing a stronger and longer-lasting drift.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-low-volatility-anomaly",
+    title: "Low-volatility anomaly",
+    summary:
+      "Buying stocks with lower historical volatility than the market, an anomaly because standard theory says taking more risk should be rewarded with higher, not lower, returns.",
+    body: [
+      "Standard finance theory, like the CAPM, predicts that riskier stocks — those with higher volatility or higher beta relative to the market — should earn higher expected returns to compensate investors for bearing that extra risk. The low-volatility anomaly is the empirical observation that this relationship doesn't hold in practice: low-volatility and low-beta stocks have historically delivered returns roughly comparable to, or even better than, high-volatility stocks on a risk-adjusted basis, quietly outperforming what theory would predict.",
+      "A systematic low-volatility strategy ranks stocks by trailing realized volatility, or beta estimated against a market index, and buys the lowest-volatility decile, often while shorting or underweighting the highest-volatility names to isolate the anomaly from the market's overall direction.",
+      "Several explanations have been proposed for why this anomaly persists: many investors are constrained from using leverage and instead reach for extra return by buying inherently risky, high-volatility \"lottery-like\" stocks directly, which bids up the price and lowers the future return of exactly those risky names, while boring, low-volatility stocks get relatively overlooked and undervalued.",
+      "Because it tends to hold up defensively in market downturns — low-volatility stocks fall less than the market during selloffs, almost by definition — while still capturing most of the market's upside over a full cycle, the low-volatility anomaly is often framed as a way to improve a portfolio's risk-adjusted return rather than as a strategy for chasing the single highest raw return.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt:
+          "What does standard finance theory (like the CAPM) predict about the relationship between a stock's risk and its expected return?",
+        choices: [
+          "Riskier stocks should earn lower expected returns",
+          "Riskier stocks should earn higher expected returns, to compensate for the extra risk",
+          "Risk has no relationship to expected return",
+          "Only dividend-paying stocks carry any risk",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The CAPM's core prediction is that investors demand higher expected returns for bearing higher risk (volatility or beta) — the low-volatility anomaly is the empirical violation of exactly this prediction.",
+      },
+      {
+        id: "q2",
+        prompt: "What is the \"low-volatility anomaly\"?",
+        choices: [
+          "The observation that low-volatility stocks have historically delivered comparable or better risk-adjusted returns than high-volatility stocks, contrary to standard theory",
+          "The fact that all stocks have identical volatility",
+          "A rule that low-volatility stocks cannot be traded",
+          "The tendency for volatility to increase every year",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The anomaly is that low-volatility (or low-beta) stocks don't underperform the way standard risk-return theory would predict — they often perform comparably or better on a risk-adjusted basis.",
+      },
+      {
+        id: "q3",
+        prompt: "How does a systematic low-volatility strategy typically select stocks?",
+        choices: [
+          "It buys the highest-volatility stocks in the market",
+          "It ranks stocks by trailing realized volatility or beta and buys the lowest-volatility decile",
+          "It selects stocks entirely at random",
+          "It only buys stocks that pay no dividend",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The strategy is built by explicitly ranking and selecting stocks with low historical volatility or beta relative to the market.",
+      },
+      {
+        id: "q4",
+        prompt: "What is one proposed explanation for why the low-volatility anomaly persists?",
+        choices: [
+          "All investors are legally required to avoid risky stocks",
+          "Leverage-constrained investors reach for extra return by buying inherently risky \"lottery-like\" stocks directly, bidding up their price and lowering their future returns",
+          "Low-volatility stocks are illegal to trade in most markets",
+          "The anomaly has never actually been observed",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Investors who can't use leverage to boost returns on safe stocks may instead buy risky, high-volatility stocks outright, which can overprice those risky names and leave low-volatility stocks comparatively undervalued.",
+      },
+      {
+        id: "q5",
+        prompt: "How does a low-volatility strategy typically behave during market downturns?",
+        choices: [
+          "It falls further than the overall market",
+          "It tends to fall less than the market, since it's built from inherently less-volatile stocks",
+          "It has no relationship to overall market direction",
+          "It is only usable during downturns and unusable otherwise",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Low-volatility stocks are, almost by definition, less sensitive to market swings, so the strategy tends to hold up defensively during selloffs while still capturing much of the market's upside over a full cycle.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-implied-volatility",
+    title: "Implied volatility",
+    summary:
+      "Using the volatility priced into a stock's options — rather than its own historical volatility — as a forward-looking signal for trading the stock itself.",
+    body: [
+      "Implied volatility (IV) is the volatility level that, when plugged into an option pricing model, produces the option's current market price — it represents what options traders collectively expect the stock's future volatility to be, in contrast to historical (realized) volatility, which just measures how much the stock actually moved in the past. Because options prices are forward-looking, IV often reacts to information before it's fully reflected in the stock price itself.",
+      "A stock-selection strategy built on implied volatility typically looks at IV level or IV changes — a level far above or below the stock's own historical volatility, or a sudden spike or divergence in IV relative to peers, can signal that informed options traders expect an unusual move, which the strategy then trades in the underlying stock rather than the option itself.",
+      "One common variant compares a stock's IV to the IV of related stocks or its own sector — a stock whose IV is rising relative to its peers, without an obvious public news catalyst, can be a signal that informed money is positioning ahead of an anticipated event, such as an acquisition rumor, which the strategy tries to front-run or ride.",
+      "Because IV also reflects the volatility risk premium — investors generally paying up for the insurance-like protection options provide, especially during periods of uncertainty — sustained differences between a stock's implied and realized volatility can reflect risk-aversion sentiment as much as directional information, so this signal is typically combined with other filters rather than traded in isolation.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does \"implied volatility\" represent?",
+        choices: [
+          "The volatility level that, plugged into an option pricing model, produces the option's current market price",
+          "The stock's actual historical price volatility",
+          "The company's dividend yield",
+          "The number of shares outstanding",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Implied volatility is backed out from the market price of an option using a pricing model, representing what the market collectively expects future volatility to be, as opposed to what already happened (realized volatility).",
+      },
+      {
+        id: "q2",
+        prompt: "How does implied volatility differ from historical (realized) volatility?",
+        choices: [
+          "They are always exactly equal",
+          "Implied volatility is forward-looking, reflecting expectations priced into options, while realized volatility measures how much the stock actually moved in the past",
+          "Realized volatility only applies to bonds, not stocks",
+          "Implied volatility cannot be measured for any stock",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Realized volatility looks backward at actual price moves, while implied volatility is extracted from current options prices and reflects the market's forward expectation.",
+      },
+      {
+        id: "q3",
+        prompt:
+          "What can a sudden spike in a stock's implied volatility, without an obvious public news catalyst, signal?",
+        choices: [
+          "That the company has stopped trading entirely",
+          "That informed options traders may expect an unusual move, potentially positioning ahead of an anticipated event",
+          "That the stock's dividend has been permanently eliminated",
+          "Nothing — IV spikes are always random noise",
+        ],
+        correctIndex: 1,
+        explanation:
+          "An unexplained IV spike relative to peers can indicate informed money positioning in the options market ahead of news not yet public, which a strategy might try to trade in the underlying stock.",
+      },
+      {
+        id: "q4",
+        prompt: "How might a strategy use implied volatility relative to a stock's peers or sector?",
+        choices: [
+          "By ignoring peer comparisons entirely",
+          "By flagging a stock whose IV is rising relative to its peers as a potential signal of informed positioning",
+          "By assuming all stocks in a sector always have identical implied volatility",
+          "By using it exclusively to set dividend policy",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Comparing a stock's IV to its peers helps isolate stock-specific signals from broad, sector-wide volatility moves that aren't informative about that particular company.",
+      },
+      {
+        id: "q5",
+        prompt: "Why must the implied-volatility signal typically be combined with other filters rather than traded alone?",
+        choices: [
+          "Implied volatility never changes",
+          "Elevated implied volatility can also reflect a general volatility risk premium or risk-aversion sentiment, not just informed directional information",
+          "Options markets are never liquid enough to compute implied volatility",
+          "It is illegal to trade based on implied volatility",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Since IV also embeds a general premium investors pay for downside protection, a high or rising IV doesn't always mean informed directional information — other filters help separate the two.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-multifactor-portfolio",
+    title: "Multifactor portfolio",
+    summary:
+      "Combining several independent factors — like value, momentum, and quality — into a single composite score, rather than relying on any one factor alone.",
+    body: [
+      "Individual factors like value, momentum, and low-volatility each capture a different, partial explanation for why some stocks outperform others, and each one goes through extended stretches of underperformance on its own — value can lag for years, momentum can suffer sharp reversals. A multifactor portfolio combines several factors into a single composite score per stock, on the idea that factors with low correlation to each other smooth out the ride, since it's unlikely all of them underperform at the same time.",
+      "A typical construction ranks every stock in the universe on each individual factor, say value, momentum, and quality, converts each ranking to a standardized score, a z-score for example, so factors measured in different units become comparable, and then averages or weights those scores into one combined ranking used to build the final portfolio.",
+      "Choosing which factors to combine matters as much as the combining method: factors should ideally be reasonably independent of each other, so they're not really just the same signal twice, and each should have a sound economic or behavioral rationale for existing, rather than being included just because it looked good in a backtest — a risk sometimes called \"factor mining.\"",
+      "Multifactor portfolios trade off peak performance for consistency: a single-factor portfolio might outperform a multifactor blend in the specific years that factor is most in favor, but the multifactor blend is designed to avoid the multi-year underperformance stretches that any single factor eventually goes through, which is often the more important property for an investor who has to actually hold the strategy through difficult periods.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is the main idea behind a multifactor portfolio?",
+        choices: [
+          "Relying on a single factor for all stock selection decisions",
+          "Combining several relatively independent factors into one composite score, so it's unlikely all of them underperform at the same time",
+          "Ignoring all quantitative factors and using only qualitative judgment",
+          "Trading exclusively based on company size",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Multifactor portfolios diversify across signals like value, momentum, and quality precisely because each factor has its own stretches of underperformance, and combining relatively uncorrelated factors smooths the overall ride.",
+      },
+      {
+        id: "q2",
+        prompt: "How is a stock's combined multifactor score typically constructed?",
+        choices: [
+          "By using only the single highest-ranked factor per stock",
+          "By standardizing each factor's ranking (e.g., via z-scores) so different factors become comparable, then averaging or weighting them together",
+          "By ignoring all factors and using market capitalization alone",
+          "By picking one random factor for each stock",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Since factors are measured in different units and scales, they're typically standardized before being combined into a single composite ranking used to build the portfolio.",
+      },
+      {
+        id: "q3",
+        prompt: "Why does it matter that the factors combined in a multifactor portfolio be reasonably independent of each other?",
+        choices: [
+          "It doesn't matter — any factors can be combined with equal benefit",
+          "If factors are highly correlated, combining them doesn't provide real diversification — they're effectively the same signal counted twice",
+          "Independent factors are illegal to combine",
+          "Only exactly two factors can ever be combined",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The diversification benefit of a multifactor approach comes from combining factors that behave differently from each other — redundant, highly correlated factors don't add that benefit.",
+      },
+      {
+        id: "q4",
+        prompt: "What is \"factor mining\"?",
+        choices: [
+          "A rigorous, economically justified process for selecting factors",
+          "The risk of including a factor just because it looked good in a backtest, without a sound economic or behavioral rationale",
+          "The process of physically extracting minerals used in computer chips",
+          "A required regulatory filing for factor-based funds",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Factor mining refers to over-fitting a factor selection to historical data without a real underlying rationale, which risks including a factor that won't actually hold up going forward.",
+      },
+      {
+        id: "q5",
+        prompt: "What is the main tradeoff of a multifactor portfolio compared to a single-factor portfolio?",
+        choices: [
+          "Multifactor portfolios always have higher returns in every single year",
+          "A multifactor blend may underperform a single factor in that factor's best years, but is designed to avoid the multi-year underperformance any single factor eventually goes through",
+          "There is no meaningful tradeoff at all",
+          "Multifactor portfolios cannot be constructed using standardized scores",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Combining factors sacrifices some peak performance in a single factor's best years in exchange for more consistent, less extreme performance over the full cycle.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-residual-momentum",
+    title: "Residual momentum",
+    summary:
+      "Trading momentum in a stock's return after stripping out the part explained by broad factors, isolating the stock-specific component of the trend.",
+    body: [
+      "Ordinary price-momentum ranks stocks by their raw total return, but some of that return is really just the stock's exposure to broad factors — market direction, sector performance, or its beta — rather than anything specific to the company. Residual momentum first strips out those explained components, typically by regressing the stock's return against a factor model, like the market and a few other common factors, and then measures momentum only in what's left over: the residual, stock-specific return.",
+      "The rationale is that momentum driven by a stock-specific residual is a cleaner, more genuine signal than momentum in the raw return, since raw-return momentum can just be a proxy for \"this stock happens to be in a sector that's been hot\" rather than anything distinctive about the company itself — residual momentum tries to isolate the latter.",
+      "In practice, this means computing each stock's residual return over a rolling window, after removing its typical factor exposures, ranking stocks by the cumulative or average residual, and building a long-short portfolio from the top and bottom of that ranking, much like ordinary momentum but applied to the \"cleaned\" return series.",
+      "Because it removes common factor exposure, residual momentum portfolios tend to run closer to market-neutral than raw-return momentum portfolios do, and empirical studies have found the residual version can produce steadier, more consistent momentum profits with less of the severe tail risk — the momentum crash — that plagues the raw-return version.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does residual momentum measure, that ordinary price-momentum does not isolate?",
+        choices: [
+          "The stock's total raw historical return",
+          "The stock-specific component of return left over after removing exposure to broad factors like the market or sector",
+          "The company's total revenue growth",
+          "The stock's dividend history",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Residual momentum strips out the portion of a stock's return explained by common factors (market, sector, beta) and measures momentum only in what remains — the stock-specific residual.",
+      },
+      {
+        id: "q2",
+        prompt: "How is a stock's \"residual return\" typically computed?",
+        choices: [
+          "By adding together every factor's return",
+          "By regressing the stock's return against a factor model and taking what's left unexplained",
+          "By ignoring the stock's price entirely",
+          "By averaging the stock's price over the past decade",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A factor regression separates a stock's return into the part explained by common factors and the residual, stock-specific part — residual momentum uses the latter.",
+      },
+      {
+        id: "q3",
+        prompt: "Why might raw-return momentum sometimes be a weaker signal than residual momentum?",
+        choices: [
+          "Raw-return momentum can just reflect a stock's sector or market exposure being hot, rather than anything specific to the company",
+          "Raw-return momentum is always identical to residual momentum",
+          "Raw returns cannot be measured for any stock",
+          "Residual momentum ignores price entirely",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A stock's raw return includes its exposure to common factors, so raw momentum can partly just be \"this stock's sector has been strong\" rather than a genuinely stock-specific signal — residual momentum tries to filter that out.",
+      },
+      {
+        id: "q4",
+        prompt: "How does a residual momentum portfolio typically compare to a raw-return momentum portfolio in terms of market exposure?",
+        choices: [
+          "It has identical market exposure",
+          "It tends to run closer to market-neutral, since common factor exposure has already been removed",
+          "It has double the market exposure",
+          "Market exposure is not a meaningful concept for either strategy",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Because residual momentum strips out common factor exposure before ranking, the resulting long-short portfolio tends to carry less unintended market or sector exposure than raw-return momentum.",
+      },
+      {
+        id: "q5",
+        prompt: "What potential benefit have empirical studies found for residual momentum compared to raw-return momentum?",
+        choices: [
+          "It always produces exactly double the returns",
+          "Steadier, more consistent momentum profits with less severe tail risk, such as the momentum crash",
+          "It eliminates all risk from the strategy entirely",
+          "It only works on bonds, not stocks",
+        ],
+        correctIndex: 1,
+        explanation:
+          "By removing common factor exposure, residual momentum has been found in some studies to reduce the severe drawdowns that raw-return momentum can suffer during sharp market reversals.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-mean-reversion-multiple-clusters",
+    title: "Mean-reversion – multiple clusters",
+    summary:
+      "Running single-cluster mean-reversion simultaneously across many industry or peer groups at once, diversifying the strategy across the whole market.",
+    body: [
+      "Single-cluster mean-reversion trades one group of closely related stocks — say, regional banks — looking for members that have diverged from that group's average and betting on reversion. Mean-reversion across multiple clusters simply runs this same process simultaneously across many such clusters spanning the whole market — banks, retailers, airlines, utilities, and so on — each cluster generating its own independent set of long and short candidates.",
+      "The main advantage over trading a single cluster is diversification: a single cluster's mean-reversion signal can go quiet for a long stretch, if that particular industry isn't experiencing much internal divergence, or can suffer if that one industry undergoes a structural shift that breaks its typical peer relationships. Spreading the same strategy across dozens of independent clusters means the overall portfolio isn't dependent on any single group behaving as expected.",
+      "Constructing the clusters well becomes a bigger and more systematic task at this scale — rather than hand-picking one obviously related group of stocks, a multi-cluster strategy typically uses a formal industry classification system, like GICS, or a statistical clustering method, grouping stocks by historical correlation, to partition the entire investable universe into clusters automatically, then applies the identical mean-reversion rule inside each one.",
+      "Because the resulting long and short positions are spread across many unrelated industries rather than concentrated in one, a multi-cluster mean-reversion portfolio tends to be much more balanced and market-neutral in aggregate than a single-cluster version, even though each individual cluster's trades are exactly the same simple rule: buy the laggard, sell the leader, relative to that cluster's own average.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "How does multi-cluster mean-reversion differ from single-cluster mean-reversion?",
+        choices: [
+          "It only trades a single, hand-picked group of stocks",
+          "It runs the same mean-reversion process simultaneously across many independent industry or peer groups spanning the whole market",
+          "It ignores industry groupings entirely",
+          "It can only be applied to bonds, not stocks",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Multi-cluster mean-reversion scales the single-cluster idea up by running it in parallel across many clusters — banks, retailers, airlines, and so on — rather than just one.",
+      },
+      {
+        id: "q2",
+        prompt: "What is the main advantage of trading mean-reversion across multiple clusters instead of just one?",
+        choices: [
+          "It requires less data than single-cluster mean-reversion",
+          "Diversification — the portfolio isn't dependent on any single cluster's internal divergence behaving as expected",
+          "It guarantees higher returns than any other equity strategy",
+          "It eliminates the need for any stock selection at all",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Spreading the same rule across many independent clusters means a quiet or structurally-broken signal in any one industry has a much smaller effect on the overall portfolio.",
+      },
+      {
+        id: "q3",
+        prompt: "How are clusters typically formed at the scale of a multi-cluster strategy?",
+        choices: [
+          "By hand-picking exactly one group of similar stocks",
+          "Using a formal industry classification system or a statistical clustering method to partition the entire universe automatically",
+          "By selecting stocks alphabetically",
+          "Clusters are never actually defined in multi-cluster strategies",
+        ],
+        correctIndex: 1,
+        explanation:
+          "At this scale, clusters are typically built systematically — via an industry classification standard like GICS or statistical correlation-based clustering — rather than manually chosen one at a time.",
+      },
+      {
+        id: "q4",
+        prompt: "Within each individual cluster, what trading rule does a multi-cluster strategy apply?",
+        choices: [
+          "A completely different rule for every cluster",
+          "The same simple mean-reversion rule: buy the relative laggard, sell the relative leader, versus that cluster's own average",
+          "No trading rule at all — clusters are used only for reporting purposes",
+          "A rule based exclusively on company size",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Each cluster runs the identical single-cluster mean-reversion logic; what changes across the strategy is which cluster of stocks that rule is applied to, not the rule itself.",
+      },
+      {
+        id: "q5",
+        prompt: "Why does a multi-cluster mean-reversion portfolio tend to be more market-neutral in aggregate than a single-cluster version?",
+        choices: [
+          "It isn't — multi-cluster portfolios are always more directional",
+          "Long and short positions are spread across many unrelated industries rather than concentrated in just one",
+          "It only ever holds a single stock at a time",
+          "Market-neutrality is unrelated to how many clusters are used",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Concentrating in one cluster leaves the portfolio exposed to that specific industry's overall direction, while spreading positions across many unrelated clusters balances that exposure out in aggregate.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-two-moving-averages",
+    title: "Two moving averages",
+    summary:
+      "A trend-following rule based on the crossover of a fast and a slow moving average, rather than comparing price to just one reference line.",
+    body: [
+      "A two-moving-average, or moving-average crossover, strategy uses a pair of moving averages computed over different lookback windows — a shorter, \"fast\" one, say 20 days, and a longer, \"slow\" one, say 100 days — and generates trading signals from their relationship to each other rather than from price alone. When the fast average crosses above the slow average, that's read as the start of an uptrend and triggers a buy; when the fast average crosses below the slow average, that's read as the start of a downtrend and triggers a sell or short.",
+      "This differs from a single-moving-average rule mainly in smoothness: comparing price to a single moving average reacts very quickly to price moves, since raw price is noisy, while comparing two moving averages to each other is inherently smoother, since both lines are already averaged, which tends to filter out some of the noise that causes whipsaws in the single-average version.",
+      "The choice of the two lookback windows is itself a meaningful design decision: a shorter fast/slow pair, like 10/50 days, reacts to trend changes more quickly but generates more signals and more whipsaws in choppy markets, while a longer pair, like 50/200 days, the classic \"golden cross\" and \"death cross\" levels, reacts more slowly but with fewer false signals — there's a real tradeoff between responsiveness and reliability.",
+      "Like any trend-following rule, the two-moving-average crossover performs best in markets with a sustained, persistent trend and worst in sideways, range-bound markets, where the fast and slow averages can cross back and forth repeatedly without either crossover reflecting a real, lasting shift in direction.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What triggers a buy signal in a two-moving-average crossover strategy?",
+        choices: [
+          "The stock's price falling to zero",
+          "The fast (shorter-window) moving average crossing above the slow (longer-window) moving average",
+          "The two moving averages becoming perfectly equal forever",
+          "Trading volume dropping to zero",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A crossover of the fast average above the slow average is read as the start of an uptrend, triggering a buy signal in this strategy.",
+      },
+      {
+        id: "q2",
+        prompt: "How does a two-moving-average strategy differ from a single-moving-average strategy?",
+        choices: [
+          "They are identical in every respect",
+          "It compares two moving averages of different lengths to each other, rather than comparing price to just one reference line",
+          "It uses no moving averages at all",
+          "It can only be applied to bonds",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The two-average version generates signals from the relationship between a fast and slow average, while the single-average version compares raw price to just one line.",
+      },
+      {
+        id: "q3",
+        prompt: "Why does comparing two moving averages to each other tend to be smoother than comparing price to a single moving average?",
+        choices: [
+          "It isn't smoother — it's identical in behavior",
+          "Both lines being compared are already averaged, which filters out more of the noise that causes whipsaws",
+          "Moving averages are never smooth by definition",
+          "Smoothness has nothing to do with how many averages are used",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Since both the fast and slow lines are themselves smoothed versions of price, comparing them to each other filters out more short-term noise than comparing raw, noisy price to a single average.",
+      },
+      {
+        id: "q4",
+        prompt: "What is the tradeoff between using a shorter fast/slow pair (e.g., 10/50 days) versus a longer pair (e.g., 50/200 days)?",
+        choices: [
+          "There is no tradeoff — longer and shorter pairs behave identically",
+          "A shorter pair reacts to trend changes more quickly but generates more whipsaws, while a longer pair reacts more slowly but with fewer false signals",
+          "Shorter pairs can only be used on futures, never stocks",
+          "Longer pairs always produce more frequent trading signals",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The lookback window choice trades off responsiveness (shorter windows react faster) against reliability (longer windows filter out more noise but lag more).",
+      },
+      {
+        id: "q5",
+        prompt: "In what kind of market does a two-moving-average crossover strategy perform worst?",
+        choices: [
+          "A market with a strong, sustained trend",
+          "A sideways, range-bound market, where the two averages can cross back and forth without a real lasting shift in direction",
+          "It performs identically in every market condition",
+          "A market where trading is completely halted",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Like other trend-following rules, the crossover strategy struggles in choppy markets, where the fast and slow averages can generate repeated false crossovers with no real trend behind them.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-three-moving-averages",
+    title: "Three moving averages",
+    summary:
+      "A trend-following rule using three moving averages of different lengths together, requiring stronger alignment before signaling a trade.",
+    body: [
+      "A three-moving-average strategy extends the two-average crossover idea by adding a third moving average — typically a short, medium, and long window, say 10, 50, and 200 days — and requiring some form of alignment among all three before generating a signal, rather than relying on just one crossover event. A common version requires the short average to be above the medium, and the medium above the long, before treating the trend as confirmed bullish, and the reverse ordering for bearish.",
+      "The motivation is filtering out false signals: a single two-average crossover can occasionally be a brief, noisy blip rather than a real trend shift, but requiring three averages to line up in the same order is a stronger, more demanding condition, which tends to trigger less often but with somewhat more confidence that a genuine trend is underway.",
+      "This comes at a real cost, though: because the three-average alignment condition is stricter, the strategy tends to enter trends later, after more of the early move has already happened, and can also exit later, giving back more of a trend's late-stage reversal before the signal flips — there's a persistent tradeoff between signal quality and timeliness.",
+      "Traders sometimes also use the middle-length average as an early-warning layer, watching for the short average to cross the medium average as a heads-up signal, while still waiting for full three-way alignment, including the long average, before treating the trend as confirmed and taking a full position — using the three lines together rather than just picking one crossover to act on.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What additional element does a three-moving-average strategy add beyond the two-average crossover?",
+        choices: [
+          "Nothing — it is identical to the two-average version",
+          "A third moving average, requiring some form of alignment among all three (e.g., short above medium above long) before signaling a trend",
+          "A rule that ignores price entirely",
+          "A requirement to only trade once per year",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The three-average version requires a stronger, more specific alignment among short, medium, and long averages before confirming a trend, rather than relying on a single two-average crossover.",
+      },
+      {
+        id: "q2",
+        prompt: "Why might requiring three moving averages to align reduce false signals compared to a single crossover?",
+        choices: [
+          "It doesn't reduce false signals at all",
+          "The stricter, more demanding condition of three-way alignment is less likely to be triggered by brief, noisy price blips",
+          "Three averages always move in perfect sync with each other",
+          "False signals are impossible to reduce in any trend-following strategy",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A single two-average crossover can be a brief, noisy event, but requiring three averages to align in a specific order is a stronger condition that filters out more of that noise.",
+      },
+      {
+        id: "q3",
+        prompt: "What is the main cost of the stricter three-moving-average alignment condition?",
+        choices: [
+          "The strategy becomes completely risk-free",
+          "The strategy tends to enter and exit trends later, giving back more of an early move or a late reversal before signaling",
+          "It has no cost — it is strictly better than a two-average strategy",
+          "It requires exactly one moving average to compute",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A stricter, more demanding signal condition tends to trigger later, meaning the strategy can miss some of the early part of a trend and give back more before flagging a reversal.",
+      },
+      {
+        id: "q4",
+        prompt: "How might a trader use the middle-length moving average in a three-average setup?",
+        choices: [
+          "As the only average that matters, ignoring the short and long ones",
+          "As an early-warning layer — watching for the short average to cross it as a heads-up, before waiting for full three-way alignment to confirm",
+          "It serves no purpose and is typically dropped",
+          "Only for calculating dividend yield",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The medium average can act as an intermediate signal, giving traders an early hint of a possible trend shift while they wait for the stricter full alignment across all three averages.",
+      },
+      {
+        id: "q5",
+        prompt: "What is the fundamental tradeoff illustrated by adding a third moving average to a trend-following rule?",
+        choices: [
+          "There is no tradeoff; more averages are always strictly better",
+          "Signal quality (fewer false signals) versus timeliness (entering and exiting trends later)",
+          "Moving averages have no relationship to signal quality",
+          "Adding more averages always increases trading costs to infinity",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Stricter alignment conditions reduce false signals but respond more slowly to real trend changes — a persistent tradeoff in designing trend-following rules with more confirming indicators.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-support-and-resistance",
+    title: "Support and resistance",
+    summary:
+      "Trading around price levels where a stock has historically struggled to fall below (support) or rise above (resistance), betting on bounces or breakouts at those levels.",
+    body: [
+      "Support and resistance are price levels where a stock's decline or rally has repeatedly stalled in the past — support is a level where buying pressure has historically emerged to stop further declines, and resistance is a level where selling pressure has historically emerged to cap further rallies. These levels are typically identified from a stock's own price history: a price that the stock has bounced off of, or been rejected from, multiple times.",
+      "One common way to trade these levels is a \"bounce\" strategy: buying near support on the expectation the stock will again fail to break through it and bounce higher, or shorting near resistance on the expectation it will again fail to break through and pull back — betting on the level continuing to hold, as it has in the past.",
+      "The opposite approach is a breakout strategy: rather than betting the level holds, it bets that when the stock does finally break decisively through support or resistance, that breakout often continues, since a level breaking after multiple failed attempts can signal a genuine shift in the underlying balance between buyers and sellers, not just another temporary test of the level.",
+      "The core risk with support and resistance is that these levels are somewhat subjective and self-referential — different traders may draw slightly different levels from the same price chart, and a level's significance can fade over time as new information arrives, meaning that trading a stale or overly precise level, or being caught on the wrong side of an unexpected breakout, are the main ways this approach can lose.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is a \"support\" level, in this context?",
+        choices: [
+          "A price level where a stock's decline has repeatedly stalled in the past, due to historical buying pressure",
+          "A level that guarantees a stock's price will never fall below it",
+          "The company's total market capitalization",
+          "A regulatory price floor set by an exchange",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Support is identified from a stock's own price history as a level where declines have repeatedly stopped, historically due to buying pressure emerging at that price.",
+      },
+      {
+        id: "q2",
+        prompt: "What does a \"bounce\" strategy around support and resistance bet on?",
+        choices: [
+          "That support and resistance levels will always break immediately",
+          "That the level will continue to hold, as it has in the past — buying near support, shorting near resistance",
+          "That the stock's price will never change again",
+          "That the company will announce a stock split",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A bounce strategy bets on the historical pattern repeating — the stock failing to break through the level again and reversing back, just as it has before.",
+      },
+      {
+        id: "q3",
+        prompt: "How does a breakout strategy differ from a bounce strategy at support or resistance?",
+        choices: [
+          "They are the same strategy under different names",
+          "A breakout strategy bets that when the level finally does break decisively, the move often continues, rather than betting the level holds",
+          "Breakout strategies never involve support or resistance levels",
+          "A breakout strategy only works on Fridays",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Rather than betting on the level holding, a breakout strategy bets that a decisive break through a well-tested level signals a genuine shift in buyer/seller balance likely to continue.",
+      },
+      {
+        id: "q4",
+        prompt: "Why might a level breaking after multiple failed attempts be seen as a meaningful signal?",
+        choices: [
+          "It never signals anything meaningful",
+          "It can indicate a genuine shift in the underlying balance between buyers and sellers, rather than just another temporary test",
+          "It always means the company is about to be acquired",
+          "It guarantees the stock will return to that level immediately",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A level that has repeatedly held but finally breaks suggests something has changed in the supply/demand balance strongly enough to overcome the historical pattern, which breakout traders interpret as significant.",
+      },
+      {
+        id: "q5",
+        prompt: "What is a core risk of trading support and resistance levels?",
+        choices: [
+          "These levels are perfectly objective and identical for every trader",
+          "The levels are somewhat subjective and self-referential, so different traders may draw them differently, and their significance can fade over time",
+          "Support and resistance levels never change once identified",
+          "There is no risk once a support or resistance level is identified",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Because support and resistance levels are drawn from historical price action rather than a fixed rule, they carry some subjectivity, and trading a stale or imprecise level — or being wrong about a breakout — is how the approach can lose.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-channel",
+    title: "Channel",
+    summary:
+      "Trading a stock within a well-defined price range bounded by parallel trendlines, buying near the lower bound and selling near the upper bound.",
+    body: [
+      "A price channel is formed by two roughly parallel trendlines — an upper line connecting a series of recent highs, and a lower line connecting a series of recent lows — within which a stock's price has been oscillating for some period. Unlike a single support or resistance level, a channel captures the stock's entire recent trading range as a structure, and that structure can itself be flat (sideways), rising (an uptrend channel), or falling (a downtrend channel).",
+      "A basic channel-trading strategy buys the stock when its price approaches the lower boundary of the channel and sells or shorts when it approaches the upper boundary, on the expectation that the price will continue oscillating within the established range — effectively a mean-reversion strategy applied within the geometric structure of the channel rather than around a single average.",
+      "Channels are also used to trade breakouts: a decisive move outside either boundary, especially on higher-than-normal volume, is read as a signal that the established range no longer holds and a new trend may be starting, at which point a channel trader may reverse from range-trading the interior to trading the breakout in its new direction.",
+      "As with support and resistance, the main challenge is that channel boundaries are drawn somewhat subjectively from the trader's own reading of recent highs and lows, and a channel that has held reliably for a long stretch can still fail without warning — so channel strategies typically pair the range-trading rule with a stop-loss or a plan for handling the breakout scenario, rather than assuming the channel will hold indefinitely.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What forms a price channel?",
+        choices: [
+          "A single moving average line",
+          "Two roughly parallel trendlines — an upper line connecting recent highs and a lower line connecting recent lows",
+          "The company's earnings report schedule",
+          "A single support level with no corresponding resistance",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A channel is defined by a pair of parallel trendlines bounding the stock's recent trading range from above and below, unlike a single support or resistance level.",
+      },
+      {
+        id: "q2",
+        prompt: "What does a basic channel-trading strategy do when price approaches the lower boundary of the channel?",
+        choices: [
+          "Sell or short the stock",
+          "Buy the stock, expecting it to bounce back within the established range",
+          "Immediately close all positions in the stock",
+          "Increase the size of the channel",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A basic channel strategy is a mean-reversion approach within the channel's structure — buying near the lower boundary on the expectation the price continues oscillating within the range.",
+      },
+      {
+        id: "q3",
+        prompt: "How can a channel be used to trade breakouts, rather than just range-bound oscillation?",
+        choices: [
+          "Channels can never be used to trade breakouts",
+          "A decisive move outside either boundary, especially on high volume, can signal a new trend starting, prompting the trader to reverse from range-trading to trading the breakout direction",
+          "Breakouts only occur inside the channel, never outside it",
+          "Channel breakouts are always ignored by traders",
+        ],
+        correctIndex: 1,
+        explanation:
+          "When price breaks decisively through a channel boundary, especially with strong volume, it's read as a signal the range no longer holds — a channel trader may switch from betting on reversion to betting on the new trend.",
+      },
+      {
+        id: "q4",
+        prompt: "Can a price channel itself be trending, rather than flat?",
+        choices: [
+          "No, channels are always perfectly flat",
+          "Yes — a channel can be flat, rising (uptrend channel), or falling (downtrend channel)",
+          "Channels can only exist in cryptocurrency markets",
+          "A channel becomes a support level once it starts trending",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A channel is defined by the parallel trendlines connecting highs and lows, which can themselves slope upward, downward, or stay flat, capturing trending as well as sideways price action.",
+      },
+      {
+        id: "q5",
+        prompt: "Why do channel strategies typically pair the range-trading rule with a stop-loss or breakout plan?",
+        choices: [
+          "Channels never fail once established",
+          "A channel that has held reliably can still fail without warning, so relying on it holding indefinitely is risky without a plan for that scenario",
+          "Stop-losses are required by regulation for all channel trades",
+          "Channel boundaries are always perfectly objective and never subjective",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Since channel boundaries are drawn somewhat subjectively and can break down unexpectedly, a purely range-trading approach without a breakout plan or stop-loss risks large losses if the range fails to hold.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-event-driven-ma",
+    title: "Event-driven – M&A",
+    summary:
+      "Trading the price gap between a target company's stock and the announced acquisition price after a merger is announced — commonly called merger arbitrage.",
+    body: [
+      "When one company announces it will acquire another, the target company's stock typically jumps toward the announced deal price but usually still trades at a discount to it, reflecting the market's assessment of the risk that the deal might not close, due to financing issues, regulatory objections, shareholder rejection, or a competing bid falling through. Merger arbitrage buys the target's stock at that discount, betting the deal closes and the stock converges to the full deal price.",
+      "In a stock-for-stock deal, where the target's shareholders receive shares of the acquirer rather than cash, the standard structure is to go long the target's stock and simultaneously short the acquirer's stock in the ratio specified by the deal terms — this hedges out the acquirer's own stock-price moves, isolating a bet purely on whether the deal closes, rather than on where the acquirer's stock happens to trade.",
+      "The primary source of the discount, and the primary risk to the strategy, is deal-completion risk: mergers can fall apart due to antitrust challenges, financing falling through, a shareholder vote failing, or a material adverse change clause being invoked — and if a deal does collapse, the target's stock typically falls sharply back toward its pre-announcement price, which can produce a loss much larger than the modest discount the strategy was trying to capture.",
+      "Because the return on a single deal is capped, the stock can only converge up to the deal price, while the downside on a collapsed deal is comparatively large and sudden, merger arbitrage return profiles resemble selling insurance — collecting a steady stream of small, positive spreads across many deals, punctuated by occasional sharp losses when a deal breaks, which is why diversifying across many uncorrelated deals is central to managing the strategy's risk.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does a target company's stock typically do immediately after a merger is announced?",
+        choices: [
+          "It falls to zero immediately",
+          "It jumps toward the announced deal price, but usually still trades at a discount to it",
+          "It becomes completely untradeable",
+          "It always trades above the announced deal price",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The stock rises toward the deal price on the announcement but typically trades below it, reflecting the market's assessment of the risk the deal might not close.",
+      },
+      {
+        id: "q2",
+        prompt: "What does merger arbitrage bet on?",
+        choices: [
+          "That the acquiring company's stock will double in price",
+          "That the announced deal will close, allowing the target's stock to converge to the full deal price",
+          "That the merger will definitely be rejected by regulators",
+          "That interest rates will fall",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Merger arbitrage buys the target at its discount to the deal price, betting the deal successfully closes and the discount closes with it.",
+      },
+      {
+        id: "q3",
+        prompt: "In a stock-for-stock deal, what is the standard merger-arbitrage position structure?",
+        choices: [
+          "Long the target's stock only, with no position in the acquirer",
+          "Long the target's stock and short the acquirer's stock in the ratio specified by the deal terms",
+          "Short both the target's and the acquirer's stock",
+          "Long the acquirer's stock only",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Shorting the acquirer in the deal's specified ratio hedges out the acquirer's own stock-price moves, isolating the bet purely on whether the deal itself closes.",
+      },
+      {
+        id: "q4",
+        prompt: "What is the primary risk in merger arbitrage?",
+        choices: [
+          "The risk that the stock market closes permanently",
+          "Deal-completion risk — the merger falling apart due to antitrust challenges, financing issues, or a failed shareholder vote",
+          "The risk that dividends are paid too frequently",
+          "The risk that the target company's name changes",
+        ],
+        correctIndex: 1,
+        explanation:
+          "If the deal collapses for any of several possible reasons, the target's stock typically falls sharply back toward its pre-announcement level, which is the strategy's main risk.",
+      },
+      {
+        id: "q5",
+        prompt: "Why is merger arbitrage's return profile often compared to selling insurance?",
+        choices: [
+          "Because it involves literally selling insurance policies",
+          "Because it collects a steady stream of small, positive spreads across many deals, punctuated by occasional sharp losses when a deal breaks",
+          "Because it guarantees a fixed return with no risk at all",
+          "Because it can only be used by insurance companies",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Like selling insurance, the strategy earns small, consistent premiums (the deal spread) most of the time, but faces occasional large losses when a \"claim\" (a broken deal) occurs — which is why diversifying across many deals matters.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-machine-learning-knn",
+    title: "Machine learning – single-stock KNN",
+    summary:
+      "Using the k-nearest-neighbors algorithm to predict a stock's next move by finding historical periods with the most similar pattern of features and seeing what happened next.",
+    body: [
+      "K-nearest-neighbors (KNN) is a simple, non-parametric machine learning algorithm: to predict something about a new data point, it looks for the k most similar past data points, its \"nearest neighbors,\" measured by some distance metric across a set of features, and bases the prediction on what happened in those similar cases, rather than fitting a specific mathematical formula to the whole dataset in advance.",
+      "Applied to a single stock, a KNN strategy defines a feature vector describing the stock's current state — for example, its recent returns over several lookback windows, its recent volatility, and maybe a volume measure — and searches through the stock's own trading history for the k historical days whose feature vectors were most similar to today's. The strategy then predicts the stock's next move based on the average of what actually happened on those k similar historical days.",
+      "Because KNN makes no assumption about the shape of the relationship between features and future returns, unlike, say, a linear regression, which assumes a straight-line relationship, it can in principle capture more complex, nonlinear patterns in a stock's behavior — but this flexibility comes at the cost of needing a reasonably long price history to have enough genuinely similar past examples to draw from, and of being more prone to overfitting to noise if the feature set or the value of k isn't chosen carefully.",
+      "Two of the most important design choices in a KNN strategy are k itself, how many neighbors to average over, since too few makes the prediction noisy and unstable while too many dilutes it toward the average, losing its ability to react to anything distinctive about the current setup, and the distance metric used to measure \"similarity\" between feature vectors, since different features may need to be weighted or scaled differently for the notion of \"nearest\" to be meaningful.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is the core idea behind the k-nearest-neighbors (KNN) algorithm?",
+        choices: [
+          "Fitting a single mathematical formula to the entire dataset in advance",
+          "Finding the k most similar past data points to a new one and basing the prediction on what happened in those similar cases",
+          "Ignoring all historical data and predicting randomly",
+          "Using only the single most recent data point to make every prediction",
+        ],
+        correctIndex: 1,
+        explanation:
+          "KNN is a non-parametric method — rather than assuming a fixed formula, it looks up the most similar historical examples and bases its prediction on what happened in those cases.",
+      },
+      {
+        id: "q2",
+        prompt: "In a single-stock KNN strategy, what is a \"feature vector\"?",
+        choices: [
+          "The stock's ticker symbol alone",
+          "A description of the stock's current state, such as recent returns, volatility, and volume, used to find similar historical periods",
+          "The company's full annual report",
+          "A random number generated each trading day",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The feature vector captures the relevant characteristics of the stock's current situation, which is then compared against historical feature vectors to find the most similar past periods.",
+      },
+      {
+        id: "q3",
+        prompt: "What is an advantage of KNN's lack of an assumed relationship shape (unlike linear regression)?",
+        choices: [
+          "It guarantees perfect predictions every time",
+          "It can potentially capture more complex, nonlinear patterns in a stock's behavior",
+          "It requires no historical data whatsoever",
+          "It eliminates the need for any features at all",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Since KNN doesn't assume a specific mathematical form (like a straight line) relating features to outcomes, it can in principle pick up on more complex, nonlinear patterns that a simpler model might miss.",
+      },
+      {
+        id: "q4",
+        prompt: "What happens if the value of k (the number of neighbors) is chosen too large?",
+        choices: [
+          "The prediction becomes noisier and less stable",
+          "The prediction gets diluted toward the overall average, losing its ability to react to anything distinctive about the current setup",
+          "The algorithm stops working entirely",
+          "The stock's price is guaranteed to rise",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Averaging over too many neighbors smooths the prediction toward the general average outcome, weakening its sensitivity to what's actually distinctive about the current situation — the opposite problem from choosing k too small, which makes it noisy.",
+      },
+      {
+        id: "q5",
+        prompt: "Why does the choice of distance metric matter in a KNN strategy?",
+        choices: [
+          "It doesn't matter — any distance metric produces identical results",
+          "Different features may need to be weighted or scaled differently for the notion of \"nearest\" or \"most similar\" to be meaningful",
+          "Distance metrics are only used in unrelated geometry problems",
+          "The distance metric determines the company's stock ticker",
+        ],
+        correctIndex: 1,
+        explanation:
+          "If features are on different scales or have different relevance, an unweighted distance metric can be dominated by whichever feature happens to have the largest raw scale, so choosing (or scaling) the distance metric thoughtfully is an important design decision.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-statistical-arbitrage-optimization",
+    title: "Statistical arbitrage – optimization",
+    summary:
+      "Building a large statistical-arbitrage portfolio as a formal optimization problem, balancing expected return, risk, and trading costs across many simultaneous positions.",
+    body: [
+      "A large statistical arbitrage, or \"stat arb,\" operation typically generates hundreds or thousands of individual return forecasts across a broad universe of stocks — one per name, updated frequently, often blending several of the signals covered elsewhere in this course, such as momentum, mean-reversion, and factor scores. The question of exactly how much of each stock to actually hold, given all those simultaneous forecasts plus real-world constraints, is itself treated as a formal optimization problem rather than decided name-by-name.",
+      "The optimization typically maximizes expected portfolio return, built from the individual stock forecasts, minus a penalty for risk, usually estimated portfolio variance from a factor-based risk model, minus a penalty for transaction costs, since trading hundreds of names, especially quickly, isn't free — subject to a set of constraints: dollar-neutrality, roughly equal long and short exposure, sector or factor neutrality, not accidentally making a big bet on one industry or common factor, and position-size limits per stock.",
+      "Because the forecasts, the risk model, and the cost model can all disagree with each other, and because a portfolio that's optimal for today's forecasts can require large trades away from yesterday's portfolio, in practice the optimizer typically also penalizes turnover, trading too much too fast, to keep transaction costs manageable, which means the resulting portfolio is a genuine compromise, not simply \"the highest-conviction bets, sized as large as possible.\"",
+      "This portfolio-construction-as-optimization approach is what elevates statistical arbitrage from a collection of individual trading signals into a coherent, risk-managed system — the same underlying signals could produce very different real portfolios, and very different risk and return profiles, depending on how the optimization is set up, which is why the optimization step is treated as its own discipline within a stat-arb operation, separate from generating the underlying forecasts themselves.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "In a large statistical arbitrage operation, how is the exact size of each individual stock position typically decided?",
+        choices: [
+          "By trading a fixed dollar amount in every stock regardless of forecast",
+          "As a formal optimization problem that weighs all simultaneous forecasts and constraints together, rather than name-by-name",
+          "Purely at random",
+          "Only for the single stock with the highest forecast, ignoring all others",
+        ],
+        correctIndex: 1,
+        explanation:
+          "With hundreds or thousands of simultaneous return forecasts, position sizing is treated as a portfolio-level optimization problem rather than a series of independent, individual decisions.",
+      },
+      {
+        id: "q2",
+        prompt: "What does a typical stat-arb portfolio optimization try to maximize or minimize?",
+        choices: [
+          "Only the number of stocks traded, with no other consideration",
+          "Expected return minus a penalty for estimated risk minus a penalty for transaction costs",
+          "Only the portfolio's total dollar size",
+          "The number of sectors represented in the portfolio",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The optimization balances the portfolio's expected return (from the forecasts) against the risk it's taking on and the cost of trading into that portfolio.",
+      },
+      {
+        id: "q3",
+        prompt: "What is \"dollar-neutrality,\" as a constraint in stat-arb portfolio construction?",
+        choices: [
+          "Holding only long positions, never short",
+          "Keeping roughly equal long and short dollar exposure in the portfolio",
+          "Never trading in dollar-denominated stocks",
+          "Holding exactly one dollar of every stock",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Dollar-neutrality is a common constraint that keeps the portfolio's overall long exposure roughly balanced against its short exposure, reducing unintended directional market exposure.",
+      },
+      {
+        id: "q4",
+        prompt: "Why does a stat-arb optimizer typically penalize turnover (trading too much, too fast)?",
+        choices: [
+          "Turnover has no cost or downside in a real portfolio",
+          "Because trading hundreds of names, especially quickly, incurs real transaction costs that erode returns if left unchecked",
+          "Regulations forbid any turnover in a stat-arb portfolio",
+          "Turnover always improves the portfolio's risk profile with no cost",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Moving quickly toward an \"optimal\" portfolio based on today's forecasts can require large trades, which are costly at scale — penalizing turnover keeps the resulting trading manageable and cost-effective.",
+      },
+      {
+        id: "q5",
+        prompt: "Why is portfolio-construction optimization treated as its own discipline, separate from generating the underlying return forecasts?",
+        choices: [
+          "Because forecasts and portfolio construction are always exactly the same thing",
+          "Because the same underlying forecasts can produce very different real portfolios, with very different risk and return profiles, depending on how the optimization is set up",
+          "Because optimization has no effect on the resulting portfolio",
+          "Because only one possible portfolio can ever be built from a given set of forecasts",
+        ],
+        correctIndex: 1,
+        explanation:
+          "How forecasts, risk, and costs are weighed and constrained in the optimization meaningfully shapes the resulting portfolio, which is why it's treated as a distinct step and discipline from generating the forecasts themselves.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-alpha-combos",
+    title: "Alpha combos",
+    summary:
+      "Combining multiple distinct alpha-generating signals into a single blended forecast, on the same diversification logic as a multifactor portfolio but applied more broadly to any source of edge.",
+    body: [
+      "An individual trading signal — momentum, an earnings surprise, a statistical mean-reversion score, a machine-learning prediction, and so on — is typically called an \"alpha\" in quantitative trading, shorthand for a forecast of a stock's expected excess return. An alpha combo blends several distinct alphas together into one combined forecast per stock, used as the actual signal driving the portfolio, rather than trading off of any single alpha alone.",
+      "The logic closely parallels a multifactor portfolio, but generalizes beyond named academic factors like value and momentum to include any source of predictive signal a firm has access to — proprietary data, alternative datasets, machine-learning model outputs, or even a human analyst's discretionary view — combined via the same basic principle: individually noisy or unreliable signals, when combined, average out much of their independent noise if they're not too correlated with each other.",
+      "Combining alphas well requires more than just averaging them together: each alpha typically needs its own estimate of quality, how reliable has this particular alpha historically been, and how correlated is it with the others already in the combo, so that more reliable, more independent alphas are weighted more heavily than noisier or redundant ones — this weighting is often itself estimated statistically, similar in spirit to how a multifactor portfolio might use factor z-scores, but is usually a more involved, ongoing calibration process given the larger and more heterogeneous set of signals typically involved.",
+      "A well-built alpha combo captures a form of diversification that goes beyond just diversifying across stocks — it diversifies across sources of edge itself, so that if any one alpha decays over time, a common risk as a signal becomes more widely known and arbitraged away by other traders, the overall combined forecast is far less damaged than if the whole strategy had depended on that one alpha alone.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "In quantitative trading, what is an \"alpha\"?",
+        choices: [
+          "A stock's ticker symbol",
+          "A forecast, or trading signal, of a stock's expected excess return",
+          "A company's total market capitalization",
+          "A type of bond issued by the government",
+        ],
+        correctIndex: 1,
+        explanation:
+          "\"Alpha\" is standard quant shorthand for an individual signal or forecast predicting a stock's expected excess return, whether from momentum, an earnings surprise, or any other source.",
+      },
+      {
+        id: "q2",
+        prompt: "What does an \"alpha combo\" do?",
+        choices: [
+          "Trades off of a single alpha signal exclusively",
+          "Blends several distinct alpha signals together into one combined forecast used to drive the portfolio",
+          "Ignores all quantitative signals in favor of pure guesswork",
+          "Refers to a type of options combination strategy",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Rather than relying on any single signal, an alpha combo blends multiple distinct alphas into one combined forecast, aiming to diversify across sources of predictive edge.",
+      },
+      {
+        id: "q3",
+        prompt: "How does the logic of an alpha combo relate to a multifactor portfolio?",
+        choices: [
+          "They are unrelated concepts with no shared logic",
+          "It follows the same diversification principle, but generalizes beyond named academic factors to any source of predictive signal, including proprietary data or model outputs",
+          "Alpha combos can only ever include exactly one signal",
+          "Multifactor portfolios and alpha combos always produce identical portfolios",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Both rely on the idea that combining relatively independent, individually noisy signals reduces overall noise — an alpha combo simply applies this more broadly, beyond just named factors like value and momentum.",
+      },
+      {
+        id: "q4",
+        prompt: "Why does combining alphas well require more than simply averaging them together?",
+        choices: [
+          "Simple averaging is always the optimal approach with no exceptions",
+          "Each alpha typically needs its own quality estimate — reliability and correlation with other alphas — so more reliable, independent signals can be weighted more heavily",
+          "Averaging alphas together is technically impossible",
+          "Alphas can never be compared to each other in terms of quality",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Treating every alpha as equally reliable and independent would waste the benefit of weighting toward the signals that actually add the most value — proper combination requires estimating each alpha's quality and correlation with the others.",
+      },
+      {
+        id: "q5",
+        prompt: "What risk does a well-diversified alpha combo help protect against?",
+        choices: [
+          "The risk that a single stock's price never changes",
+          "The risk that any one individual alpha decays over time (e.g., becomes widely known and arbitraged away), damaging the overall strategy much less than if it depended on that alpha alone",
+          "The risk that trading commissions increase",
+          "There is no risk that diversifying alphas can help mitigate",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Individual signals can lose their edge over time as more traders discover and exploit them — combining many relatively independent alphas means the failure of any single one has a much smaller impact on the overall combined forecast.",
+      },
+    ],
+  },
 ];
