@@ -59,9 +59,6 @@ function CourseCard({ course, progress }: { course: Course; progress: ModulesRes
       }`}
     >
       <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#898781]">
-          §{course.section}
-        </span>
         {course.status === "available" ? (
           <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
             Available
