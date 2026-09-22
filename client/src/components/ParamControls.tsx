@@ -20,7 +20,7 @@ export function ParamControls({
         </h3>
         <button
           onClick={onReset}
-          className="text-xs text-[#14b8a6] hover:underline"
+          className="text-xs text-[#34c98a] hover:underline"
         >
           Reset to defaults
         </button>
@@ -32,7 +32,7 @@ export function ParamControls({
               <label htmlFor={p.key} className="text-sm text-[#e6f2ec]">
                 {p.label}
               </label>
-              <span className="font-mono text-sm text-[#14b8a6]">
+              <span className="font-mono text-sm text-[#34c98a]">
                 {values[p.key] ?? p.default}
               </span>
             </div>
@@ -44,7 +44,7 @@ export function ParamControls({
               step={p.step}
               value={values[p.key] ?? p.default}
               onChange={(e) => onChange(p.key, Number(e.target.value))}
-              className="w-full accent-[#14b8a6]"
+              className="w-full accent-[#34c98a]"
             />
             {p.hint && <div className="mt-1 text-xs text-[#6f8a7c]">{p.hint}</div>}
           </div>

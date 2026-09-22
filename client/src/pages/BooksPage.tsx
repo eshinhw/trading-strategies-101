@@ -10,7 +10,7 @@ const LEVEL_LABEL: Record<Book["level"], string> = {
 
 const LEVEL_CLASSES: Record<Book["level"], string> = {
   beginner: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
-  intermediate: "border-[#14b8a6]/30 bg-[#14b8a6]/10 text-[#14b8a6]",
+  intermediate: "border-[#34c98a]/30 bg-[#34c98a]/10 text-[#34c98a]",
   advanced: "border-amber-500/30 bg-amber-500/10 text-amber-400",
 };
 
@@ -94,7 +94,7 @@ function LevelChip({ label, active, onClick }: { label: string; active: boolean;
       onClick={onClick}
       className={`shrink-0 rounded-full border px-3 py-1 text-xs font-medium transition ${
         active
-          ? "border-[#14b8a6]/30 bg-[#14b8a6]/10 text-[#14b8a6]"
+          ? "border-[#34c98a]/30 bg-[#34c98a]/10 text-[#34c98a]"
           : "border-[#1e3d2f] text-[#8fada0] hover:border-[#2c5942] hover:text-[#e6f2ec]"
       }`}
     >

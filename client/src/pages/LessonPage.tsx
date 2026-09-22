@@ -31,7 +31,7 @@ export function LessonPage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses/options" className="mt-4 inline-block text-[#14b8a6] hover:underline">
+        <Link to="/courses/options" className="mt-4 inline-block text-[#34c98a] hover:underline">
           ← Back to course
         </Link>
       </div>
@@ -54,13 +54,13 @@ export function LessonPage() {
 function Breadcrumb({ lesson }: { lesson: LessonDetail }) {
   return (
     <div className="mb-4 flex items-center gap-2 text-sm">
-      <Link to="/courses/options" className="text-[#14b8a6] hover:underline">
+      <Link to="/courses/options" className="text-[#34c98a] hover:underline">
         Course
       </Link>
       {lesson.moduleSlug && (
         <>
           <span className="text-[#6f8a7c]">/</span>
-          <Link to={`/module/${lesson.moduleSlug}`} className="text-[#14b8a6] hover:underline">
+          <Link to={`/module/${lesson.moduleSlug}`} className="text-[#34c98a] hover:underline">
             {lesson.moduleTitle}
           </Link>
         </>
@@ -74,19 +74,19 @@ function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (
   return (
     <div className="mt-10 flex items-center justify-between border-t border-[#1e3d2f] pt-6">
       {lesson.prevLessonSlug ? (
-        <button onClick={() => onNavigate(lesson.prevLessonSlug!)} className="text-sm text-[#14b8a6] hover:underline">
+        <button onClick={() => onNavigate(lesson.prevLessonSlug!)} className="text-sm text-[#34c98a] hover:underline">
           ← Previous lesson
         </button>
       ) : (
         <span />
       )}
       {lesson.nextLessonSlug ? (
-        <button onClick={() => onNavigate(lesson.nextLessonSlug!)} className="text-sm text-[#14b8a6] hover:underline">
+        <button onClick={() => onNavigate(lesson.nextLessonSlug!)} className="text-sm text-[#34c98a] hover:underline">
           Next lesson →
         </button>
       ) : (
         lesson.moduleSlug && (
-          <Link to={`/module/${lesson.moduleSlug}`} className="text-sm text-[#14b8a6] hover:underline">
+          <Link to={`/module/${lesson.moduleSlug}`} className="text-sm text-[#34c98a] hover:underline">
             Back to module →
           </Link>
         )
@@ -208,7 +208,7 @@ function FormulaReference({ strategy }: { strategy: Extract<LessonDetail, { kind
   const [show, setShow] = useState(false);
   return (
     <div>
-      <button onClick={() => setShow((v) => !v)} className="text-sm text-[#14b8a6] hover:underline">
+      <button onClick={() => setShow((v) => !v)} className="text-sm text-[#34c98a] hover:underline">
         {show ? "Hide" : "Show"} the formulas (§{strategy.section})
       </button>
       {show && (

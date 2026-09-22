@@ -9,7 +9,7 @@ export function Nav() {
     <nav className="border-b border-[#1e3d2f] bg-[#081a13]">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-3">
         <div className="flex items-center gap-10">
-          <Link to="/" className="whitespace-nowrap font-semibold text-[#e6f2ec] hover:text-[#14b8a6]">
+          <Link to="/" className="whitespace-nowrap font-semibold text-[#e6f2ec] hover:text-[#34c98a]">
             <span className="hidden sm:inline">Trading Strategies 101</span>
             <span className="sm:hidden">TS 101</span>
           </Link>
@@ -29,7 +29,7 @@ export function Nav() {
                   await logout();
                   navigate("/");
                 }}
-                className="text-[#14b8a6] hover:underline"
+                className="text-[#34c98a] hover:underline"
               >
                 Sign out
               </button>
@@ -41,7 +41,7 @@ export function Nav() {
               </Link>
               <Link
                 to="/signup"
-                className="rounded-md bg-[#14b8a6] px-3 py-1.5 font-medium text-white hover:bg-[#0d9488]"
+                className="rounded-md bg-[#34c98a] px-3 py-1.5 font-medium text-white hover:bg-[#2bb37a]"
               >
                 Sign up
               </Link>

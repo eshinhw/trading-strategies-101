@@ -23,7 +23,7 @@ export function CoursePage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses" className="mt-4 inline-block text-[#14b8a6] hover:underline">
+        <Link to="/courses" className="mt-4 inline-block text-[#34c98a] hover:underline">
           ← All courses
         </Link>
       </div>
@@ -36,7 +36,7 @@ export function CoursePage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
-      <Link to="/courses" className="text-sm text-[#14b8a6] hover:underline">
+      <Link to="/courses" className="text-sm text-[#34c98a] hover:underline">
         ← All courses
       </Link>
 
@@ -82,7 +82,7 @@ function AvailableCourseModules({ slug }: { slug: string }) {
       <div className="mb-6 flex items-center gap-3">
         <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#142b20]">
           <div
-            className="h-full rounded-full bg-[#14b8a6] transition-all"
+            className="h-full rounded-full bg-[#34c98a] transition-all"
             style={{ width: `${(data.totalCompleted / data.totalLessons) * 100}%` }}
           />
         </div>
@@ -125,7 +125,7 @@ function ExamSection({ slug }: { slug: string }) {
         status.unlocked
           ? passed
             ? "border-emerald-500/30 bg-emerald-500/10"
-            : "border-[#14b8a6]/30 bg-[#14b8a6]/10"
+            : "border-[#34c98a]/30 bg-[#34c98a]/10"
           : "border-[#1e3d2f]/60 bg-[#0a1f16] opacity-60"
       }`}
     >
@@ -153,7 +153,7 @@ function ExamSection({ slug }: { slug: string }) {
         {status.unlocked && (
           <Link
             to={`/courses/${slug}/exam`}
-            className="shrink-0 rounded-lg bg-[#14b8a6] px-4 py-2 text-sm font-medium text-white hover:bg-[#0d9488]"
+            className="shrink-0 rounded-lg bg-[#34c98a] px-4 py-2 text-sm font-medium text-white hover:bg-[#2bb37a]"
           >
             {passed ? "Retake quiz" : "Take the quiz"}
           </Link>
@@ -170,7 +170,7 @@ function ModuleRow({ module: m, index }: { module: ModulesResponse["modules"][nu
     <div
       className={`flex items-center gap-4 rounded-xl border p-5 transition ${
         m.unlocked
-          ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#14b8a6]/50 hover:bg-[#12281d]"
+          ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#34c98a]/50 hover:bg-[#12281d]"
           : "border-[#1e3d2f]/60 bg-[#0a1f16] opacity-60"
       }`}
     >
@@ -179,7 +179,7 @@ function ModuleRow({ module: m, index }: { module: ModulesResponse["modules"][nu
           m.completed
             ? "bg-emerald-500/20 text-emerald-400"
             : m.unlocked
-              ? "bg-[#14b8a6]/20 text-[#14b8a6]"
+              ? "bg-[#34c98a]/20 text-[#34c98a]"
               : "bg-[#142b20] text-[#6f8a7c]"
         }`}
       >
@@ -196,7 +196,7 @@ function ModuleRow({ module: m, index }: { module: ModulesResponse["modules"][nu
         {m.unlocked && (
           <div className="mt-3 flex items-center gap-2">
             <div className="h-1.5 w-40 overflow-hidden rounded-full bg-[#142b20]">
-              <div className="h-full rounded-full bg-[#14b8a6]" style={{ width: `${pct}%` }} />
+              <div className="h-full rounded-full bg-[#34c98a]" style={{ width: `${pct}%` }} />
             </div>
             <span className="text-xs text-[#6f8a7c]">
               {m.completedLessons}/{m.totalLessons}
@@ -221,7 +221,7 @@ function ComingSoonStrategies({ course }: { course: Course }) {
       <ul className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
         {course.strategyTitles?.map((title) => (
           <li key={title} className="flex items-start gap-2 text-sm text-[#e6f2ec]">
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#14b8a6]" />
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#34c98a]" />
             {title}
           </li>
         ))}

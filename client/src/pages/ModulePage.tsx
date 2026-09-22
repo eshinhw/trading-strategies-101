@@ -20,7 +20,7 @@ export function ModulePage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses/options" className="mt-4 inline-block text-[#14b8a6] hover:underline">
+        <Link to="/courses/options" className="mt-4 inline-block text-[#34c98a] hover:underline">
           ← Back to course
         </Link>
       </div>
@@ -33,7 +33,7 @@ export function ModulePage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
-      <Link to="/courses/options" className="text-sm text-[#14b8a6] hover:underline">
+      <Link to="/courses/options" className="text-sm text-[#34c98a] hover:underline">
         ← All modules
       </Link>
 
@@ -52,7 +52,7 @@ export function ModulePage() {
             <li key={lesson.slug}>
               <Link
                 to={`/lesson/${lesson.slug}`}
-                className="flex items-center gap-4 rounded-lg border border-[#1e3d2f] bg-[#0e2118] p-4 transition hover:border-[#14b8a6]/50 hover:bg-[#12281d]"
+                className="flex items-center gap-4 rounded-lg border border-[#1e3d2f] bg-[#0e2118] p-4 transition hover:border-[#34c98a]/50 hover:bg-[#12281d]"
               >
                 <div
                   className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${
