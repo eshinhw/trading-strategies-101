@@ -8,6 +8,7 @@ import type {
 import type { Course } from "./types/course";
 import type { ExamStatus, ExamQuestion, ExamAnswerSubmission, ExamGradeResponse } from "./types/exam";
 import type { BooksResponse } from "./types/book";
+import type { ConstructionExerciseSummary, ConstructionExerciseDetail, ConstructionGradeResult } from "./types/construction";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(path, {
@@ -72,6 +73,27 @@ export function submitExam(courseSlug: string, answers: ExamAnswerSubmission[]):
 
 export function fetchBooks(): Promise<BooksResponse> {
   return request("/api/books");
+}
+
+// --- construction exercises ---
+
+export function fetchConstructionExercises(): Promise<ConstructionExerciseSummary[]> {
+  return request<{ exercises: ConstructionExerciseSummary[] }>("/api/construction").then((d) => d.exercises);
+}
+
+export function fetchConstructionExercise(slug: string): Promise<ConstructionExerciseDetail> {
+  return request(`/api/construction/${slug}`);
+}
+
+export function submitConstruction(
+  slug: string,
+  strategySlug: string,
+  params: Record<string, number>,
+): Promise<ConstructionGradeResult> {
+  return request(`/api/construction/${slug}/submit`, {
+    method: "POST",
+    body: JSON.stringify({ strategySlug, params }),
+  });
 }
 
 // --- curriculum ---

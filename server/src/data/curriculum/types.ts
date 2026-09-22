@@ -1,3 +1,5 @@
+import type { Outlook } from "../../types.js";
+
 export interface ConceptQuizQuestion {
   id: string;
   prompt: string;
@@ -31,4 +33,25 @@ export interface Module {
   order: number;
   prerequisiteModuleSlugs: string[];
   lessonSlugs: string[];
+}
+
+/** A single machine-checkable requirement, evaluated against the payoff stats of
+ * whatever strategy+params the learner submits. "all" composes several into one goal. */
+export type ConstructionGoal =
+  | { kind: "maxLossAtMost"; value: number }
+  | { kind: "maxProfitAtLeast"; value: number }
+  | { kind: "maxProfitUnlimited" }
+  | { kind: "outlookMatches"; outlook: Outlook }
+  | { kind: "netPositionIs"; netPosition: "debit" | "credit" | "zero-cost" }
+  | { kind: "all"; goals: ConstructionGoal[] };
+
+/** A scenario the learner solves by picking one of a few candidate strategies and
+ * configuring its params — graded against `goal`, not against one fixed answer. */
+export interface ConstructionExercise {
+  slug: string;
+  moduleSlug: string;
+  title: string;
+  scenario: string;
+  candidateStrategySlugs: string[];
+  goal: ConstructionGoal;
 }

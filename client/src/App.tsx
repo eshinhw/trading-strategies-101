@@ -8,6 +8,7 @@ import { BooksPage } from "./pages/BooksPage";
 import { ExamPage } from "./pages/ExamPage";
 import { ModulePage } from "./pages/ModulePage";
 import { LessonPage } from "./pages/LessonPage";
+import { ConstructionPage } from "./pages/ConstructionPage";
 import { AuthPage } from "./pages/AuthPage";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/books" element={<BooksPage />} />
             <Route path="/module/:slug" element={<ModulePage />} />
             <Route path="/lesson/:slug" element={<LessonPage />} />
+            <Route path="/construction/:slug" element={<ConstructionPage />} />
             <Route path="/login" element={<AuthPage mode="login" />} />
             <Route path="/signup" element={<AuthPage mode="signup" />} />
           </Routes>
