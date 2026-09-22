@@ -40,7 +40,7 @@ export const courses: Course[] = [
     section: "3",
     description:
       "Momentum, mean-reversion, value, and statistical-arbitrage strategies traded in the underlying stock itself, plus a few quant and machine-learning approaches.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 20,
     strategyTitles: [
       "Price-momentum",

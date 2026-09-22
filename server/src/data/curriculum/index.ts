@@ -1,10 +1,11 @@
 import { optionsStrategies } from "../options/index.js";
 import { conceptLessons as foundationsConceptLessons } from "./conceptLessons.js";
 import { futuresConceptLessons } from "./futuresConceptLessons.js";
+import { stocksConceptLessons } from "./stocksConceptLessons.js";
 import { modules } from "./modules.js";
 import type { Module } from "./types.js";
 
-export const conceptLessons = [...foundationsConceptLessons, ...futuresConceptLessons];
+export const conceptLessons = [...foundationsConceptLessons, ...futuresConceptLessons, ...stocksConceptLessons];
 export { modules };
 
 const strategyBySlug = new Map(optionsStrategies.map((s) => [s.slug, s]));

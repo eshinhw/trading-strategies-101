@@ -189,4 +189,21 @@ export const modules: Module[] = [
       "futures-calendar-spread",
     ],
   },
+  {
+    slug: "stocks-fundamentals",
+    courseSlug: "stocks",
+    title: "Stocks Fundamentals",
+    description:
+      "A first tour of equity trading strategies — factor investing (momentum and value), statistical arbitrage (pairs trading and cluster mean-reversion), technical trend-following, and market-making.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "stocks-price-momentum",
+      "stocks-value",
+      "stocks-pairs-trading",
+      "stocks-mean-reversion-single-cluster",
+      "stocks-single-moving-average",
+      "stocks-market-making",
+    ],
+  },
 ];
