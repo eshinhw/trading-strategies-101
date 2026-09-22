@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { fetchCourses, fetchModules } from "../api";
 import type { Course } from "../types/course";
 import type { ModulesResponse } from "../types/curriculum";
+import { Footer } from "../components/Footer";
 
 export function CoursesPage() {
   const [courses, setCourses] = useState<Course[] | null>(null);
@@ -15,29 +16,32 @@ export function CoursesPage() {
   }, []);
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold text-[#e6e8ec]">All courses</h1>
-        <p className="mt-2 max-w-2xl text-[#9aa3b2]">
-          One course per asset class from <em>151 Trading Strategies</em> (Kakushadze &amp; Serur,
-          2018) — 18 in total. Options is live today; the rest are on the roadmap.
-        </p>
-      </header>
+    <div>
+      <div className="mx-auto max-w-5xl px-6 py-10">
+        <header className="mb-8">
+          <h1 className="text-3xl font-bold text-[#e6e8ec]">All courses</h1>
+          <p className="mt-2 max-w-2xl text-[#9aa3b2]">
+            One course per asset class — 18 in total. Options is live today; the rest are on the
+            roadmap.
+          </p>
+        </header>
 
-      {error && <p className="text-red-400">{error}</p>}
-      {!courses && !error && <p className="text-[#898781]">Loading courses…</p>}
+        {error && <p className="text-red-400">{error}</p>}
+        {!courses && !error && <p className="text-[#898781]">Loading courses…</p>}
 
-      {courses && (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {courses.map((c) => (
-            <CourseCard
-              key={c.slug}
-              course={c}
-              progress={c.slug === "options" ? optionsProgress : null}
-            />
-          ))}
-        </div>
-      )}
+        {courses && (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {courses.map((c) => (
+              <CourseCard
+                key={c.slug}
+                course={c}
+                progress={c.slug === "options" ? optionsProgress : null}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+      <Footer />
     </div>
   );
 }

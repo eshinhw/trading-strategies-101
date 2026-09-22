@@ -217,8 +217,8 @@ function ComingSoonStrategies({ course }: { course: Course }) {
         What this course will cover
       </h3>
       <p className="mb-4 text-sm text-[#898781]">
-        {course.strategyCount} strategies from §{course.section} of the paper — lessons for this
-        course haven't been built yet.
+        {course.strategyCount} strategies from §{course.section} of the curriculum — lessons for
+        this course haven't been built yet.
       </p>
       <ul className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
         {course.strategyTitles?.map((title) => (

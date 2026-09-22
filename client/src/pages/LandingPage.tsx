@@ -7,6 +7,7 @@ import type { ParamValues } from "../engine/payoff";
 import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
+import { Footer } from "../components/Footer";
 
 const DEMO_LESSON_SLUG = "long-straddle";
 
@@ -47,10 +48,10 @@ function Hero() {
             Learn trading strategies by using them, not memorizing them.
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
-            Trading Strategies 101 is turning <em>151 Trading Strategies</em> (Kakushadze &amp;
-            Serur, 2018) — 18 asset classes, one course each — into a hands-on curriculum. Options
-            is live now: adjust real parameters, watch the payoff diagram respond, then prove you
-            understand it with a knowledge check graded against the real math.
+            Trading Strategies 101 turns a structured curriculum — 18 asset classes, one course
+            each — into hands-on lessons. Options is live now: adjust real parameters, watch the
+            payoff diagram respond, then prove you understand it with a knowledge check graded
+            against the real math.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
@@ -142,7 +143,7 @@ function Features() {
     },
     {
       title: "One course per asset class",
-      body: "The paper covers 18 asset classes, from options to distressed debt to cryptocurrencies. Each one gets its own course here, ordered so complex strategies build on simpler ones instead of feeling like a new vocabulary.",
+      body: "The curriculum spans 18 asset classes, from options to distressed debt to cryptocurrencies. Each one gets its own course here, ordered so complex strategies build on simpler ones instead of feeling like a new vocabulary.",
     },
   ];
 
@@ -173,7 +174,7 @@ function CoursesPreview() {
         <h2 className="text-2xl font-bold text-[#e6e8ec]">18 courses, one per asset class</h2>
         <p className="mt-2 max-w-2xl text-[#9aa3b2]">
           Options is live with 58 strategies across 12 modules. The rest are on the roadmap, each
-          with its real strategy list already mapped out from the paper.
+          with its real strategy list already mapped out.
         </p>
 
         {courses && (
@@ -236,12 +237,3 @@ function FinalCta() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-[#2a3040] px-6 py-8 text-center text-xs text-[#898781]">
-      Strategy mechanics, formulas, and categorization are drawn from Kakushadze, Z. and Serur,
-      J.A., <em>151 Trading Strategies</em> (2018). Plain-English explanations, scenarios, and
-      course content are original to this project.
-    </footer>
-  );
-}

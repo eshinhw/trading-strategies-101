@@ -231,7 +231,7 @@ function FormulaReference({ strategy }: { strategy: Extract<LessonDetail, { kind
   return (
     <div>
       <button onClick={() => setShow((v) => !v)} className="text-sm text-[#4f8cff] hover:underline">
-        {show ? "Hide" : "Show"} the paper's formulas (§{strategy.section})
+        {show ? "Hide" : "Show"} the formulas (§{strategy.section})
       </button>
       {show && (
         <div className="mt-3 grid grid-cols-1 gap-3 rounded-xl border border-[#2a3040] bg-[#141821] p-5 font-mono text-sm text-[#9aa3b2] sm:grid-cols-2">
