@@ -16,6 +16,9 @@ export function Nav() {
           <Link to="/courses" className="whitespace-nowrap text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
             Courses
           </Link>
+          <Link to="/books" className="whitespace-nowrap text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+            Books
+          </Link>
         </div>
         <div className="flex items-center gap-4 whitespace-nowrap text-sm">
           {user ? (

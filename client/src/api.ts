@@ -7,6 +7,7 @@ import type {
 } from "./types/curriculum";
 import type { Course } from "./types/course";
 import type { ExamStatus, ExamQuestion, ExamAnswerSubmission, ExamGradeResponse } from "./types/exam";
+import type { BooksResponse } from "./types/book";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(path, {
@@ -65,6 +66,12 @@ export function submitExam(courseSlug: string, answers: ExamAnswerSubmission[]):
     method: "POST",
     body: JSON.stringify({ answers }),
   });
+}
+
+// --- books ---
+
+export function fetchBooks(): Promise<BooksResponse> {
+  return request("/api/books");
 }
 
 // --- curriculum ---

@@ -4,6 +4,7 @@ import { Nav } from "./components/Nav";
 import { HomePage } from "./pages/HomePage";
 import { CoursesPage } from "./pages/CoursesPage";
 import { CoursePage } from "./pages/CoursePage";
+import { BooksPage } from "./pages/BooksPage";
 import { ExamPage } from "./pages/ExamPage";
 import { ModulePage } from "./pages/ModulePage";
 import { LessonPage } from "./pages/LessonPage";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/:slug" element={<CoursePage />} />
             <Route path="/courses/:slug/exam" element={<ExamPage />} />
+            <Route path="/books" element={<BooksPage />} />
             <Route path="/module/:slug" element={<ModulePage />} />
             <Route path="/lesson/:slug" element={<LessonPage />} />
             <Route path="/login" element={<AuthPage mode="login" />} />
