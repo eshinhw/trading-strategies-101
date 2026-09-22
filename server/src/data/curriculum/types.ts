@@ -8,13 +8,26 @@ export interface ConceptQuizQuestion {
   explanation: string;
 }
 
+/**
+ * A concept lesson's body is a sequence of blocks rather than plain
+ * paragraphs, so a lesson can mix in a diagram (or, later, a video) at the
+ * point in the explanation where it's actually useful. `diagramId` references
+ * a hand-built illustration component on the client (see
+ * client/src/components/lessonDiagrams) — there's no image-hosting pipeline,
+ * so diagrams are themed inline SVG rather than uploaded assets. `video` is
+ * schema support for a future pass; no lesson populates it yet.
+ */
+export type LessonBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "image"; diagramId: string; caption?: string }
+  | { type: "video"; url: string; caption?: string };
+
 export interface ConceptLesson {
   kind: "concept";
   slug: string;
   title: string;
   summary: string;
-  /** paragraphs of body text */
-  body: string[];
+  body: LessonBlock[];
   quiz: ConceptQuizQuestion[];
 }
 

@@ -11,6 +11,9 @@ import { StatTile } from "../components/StatTile";
 import { ConceptQuiz } from "../components/ConceptQuiz";
 import { StrategyKnowledgeCheck } from "../components/StrategyKnowledgeCheck";
 import { Formula } from "../components/Formula";
+import { LessonDiagram } from "../components/LessonDiagram";
+import { LessonVideo } from "../components/LessonVideo";
+import type { LessonBlock } from "../types/curriculum";
 import { useAuth } from "../auth/AuthContext";
 
 export function LessonPage() {
@@ -96,7 +99,33 @@ function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (
   );
 }
 
+// Groups consecutive paragraph blocks into one shared card (matching the
+// original all-prose look) while letting an image or video block break out
+// into its own full-width card at the point in the body where it appears.
+type BodySegment =
+  | { kind: "paragraphs"; items: string[] }
+  | { kind: "image"; diagramId: string; caption?: string }
+  | { kind: "video"; url: string; caption?: string };
+
+function groupBodySegments(body: LessonBlock[]): BodySegment[] {
+  const segments: BodySegment[] = [];
+  for (const block of body) {
+    if (block.type === "paragraph") {
+      const last = segments[segments.length - 1];
+      if (last?.kind === "paragraphs") last.items.push(block.text);
+      else segments.push({ kind: "paragraphs", items: [block.text] });
+    } else if (block.type === "image") {
+      segments.push({ kind: "image", diagramId: block.diagramId, caption: block.caption });
+    } else {
+      segments.push({ kind: "video", url: block.url, caption: block.caption });
+    }
+  }
+  return segments;
+}
+
 function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "concept" }> }) {
+  const segments = useMemo(() => groupBodySegments(lesson.body), [lesson.body]);
+
   return (
     <div>
       <header className="mb-6">
@@ -105,12 +134,25 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
         <p className="mt-2 text-lg text-[#9aa3b2]">{lesson.summary}</p>
       </header>
 
-      <div className="mb-8 flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6">
-        {lesson.body.map((para, i) => (
-          <p key={i} className="leading-relaxed text-[#e6e8ec]">
-            {para}
-          </p>
-        ))}
+      <div className="mb-8 flex flex-col gap-6">
+        {segments.map((seg, i) => {
+          if (seg.kind === "paragraphs") {
+            return (
+              <div
+                key={i}
+                className="flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6"
+              >
+                {seg.items.map((text, j) => (
+                  <p key={j} className="leading-relaxed text-[#e6e8ec]">
+                    {text}
+                  </p>
+                ))}
+              </div>
+            );
+          }
+          if (seg.kind === "image") return <LessonDiagram key={i} diagramId={seg.diagramId} caption={seg.caption} />;
+          return <LessonVideo key={i} url={seg.url} caption={seg.caption} />;
+        })}
       </div>
 
       <ConceptQuiz lessonSlug={lesson.slug} questions={lesson.quiz} />

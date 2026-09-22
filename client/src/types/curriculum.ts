@@ -73,12 +73,17 @@ export interface ConceptQuizPrompt {
   explanation: string;
 }
 
+export type LessonBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "image"; diagramId: string; caption?: string }
+  | { type: "video"; url: string; caption?: string };
+
 export interface ConceptLessonDetail extends LessonBase {
   kind: "concept";
   slug: string;
   title: string;
   summary: string;
-  body: string[];
+  body: LessonBlock[];
   quiz: ConceptQuizPrompt[];
 }
 
