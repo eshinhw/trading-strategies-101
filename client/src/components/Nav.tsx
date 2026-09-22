@@ -8,7 +8,7 @@ export function Nav() {
   return (
     <nav className="border-b border-[#2a3040] bg-[#0e1117]">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-3">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-10">
           <Link to="/" className="whitespace-nowrap font-semibold text-[#e6e8ec] hover:text-[#4f8cff]">
             <span className="hidden sm:inline">Trading Strategies 101</span>
             <span className="sm:hidden">TS 101</span>
