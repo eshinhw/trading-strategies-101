@@ -5,6 +5,7 @@ import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { submitLesson } from "../api";
 import { QuizResultPanel } from "./QuizResultPanel";
 import { QuizProgress } from "./QuizProgress";
+import { ParamLabel } from "./ParamLabel";
 
 type NumericAnswer = { unlimited: boolean; text: string };
 
@@ -131,7 +132,9 @@ export function StrategyKnowledgeCheck({
       <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
         {strategy.params.map((p) => (
           <span key={p.key} className="text-[#e6e8ec]">
-            <span className="text-[#898781]">{p.label}:</span>{" "}
+            <span className="text-[#898781]">
+              <ParamLabel label={p.label} />:
+            </span>{" "}
             <span className="font-mono text-[#4f8cff]">{practiceParams[p.key]}</span>
           </span>
         ))}

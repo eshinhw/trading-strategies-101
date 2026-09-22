@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { fetchExam, submitExam } from "../api";
 import type { ExamQuestion, ExamAnswerSubmission, ExamGradeResponse } from "../types/exam";
 import { QuizProgress } from "../components/QuizProgress";
+import { ParamLabel } from "../components/ParamLabel";
 
 type AnswerState = { kind: "mcq"; choiceIndex: number } | { kind: "numeric"; unlimited: boolean; text: string };
 
@@ -128,7 +129,9 @@ export function ExamPage() {
             <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
               {q.paramDefs.map((p) => (
                 <span key={p.key} className="text-[#e6e8ec]">
-                  <span className="text-[#898781]">{p.label}:</span>{" "}
+                  <span className="text-[#898781]">
+                    <ParamLabel label={p.label} />:
+                  </span>{" "}
                   <span className="font-mono text-[#4f8cff]">{q.practiceParams![p.key]}</span>
                 </span>
               ))}
