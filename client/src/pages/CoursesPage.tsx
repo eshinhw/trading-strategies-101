@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchCourses, fetchModules } from "../api";
 import type { Course } from "../types/course";
@@ -9,11 +9,24 @@ export function CoursesPage() {
   const [courses, setCourses] = useState<Course[] | null>(null);
   const [optionsProgress, setOptionsProgress] = useState<ModulesResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     fetchCourses().then(setCourses).catch((e) => setError(e.message));
     fetchModules().then(setOptionsProgress).catch(() => setOptionsProgress(null));
   }, []);
+
+  const filteredCourses = useMemo(() => {
+    if (!courses) return [];
+    const q = query.trim().toLowerCase();
+    if (q === "") return courses;
+    return courses.filter(
+      (c) =>
+        c.title.toLowerCase().includes(q) ||
+        c.description.toLowerCase().includes(q) ||
+        c.strategyTitles?.some((t) => t.toLowerCase().includes(q)),
+    );
+  }, [courses, query]);
 
   return (
     <div>
@@ -30,15 +43,29 @@ export function CoursesPage() {
         {!courses && !error && <p className="text-[#898781]">Loading courses…</p>}
 
         {courses && (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {courses.map((c) => (
-              <CourseCard
-                key={c.slug}
-                course={c}
-                progress={c.slug === "options" ? optionsProgress : null}
-              />
-            ))}
-          </div>
+          <>
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search courses or strategies…"
+              className="input mb-6 w-full sm:max-w-xs"
+            />
+
+            {filteredCourses.length === 0 ? (
+              <p className="text-[#898781]">No courses match your search.</p>
+            ) : (
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {filteredCourses.map((c) => (
+                  <CourseCard
+                    key={c.slug}
+                    course={c}
+                    progress={c.slug === "options" ? optionsProgress : null}
+                  />
+                ))}
+              </div>
+            )}
+          </>
         )}
       </div>
       <Footer />
