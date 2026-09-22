@@ -69,31 +69,19 @@ function Breadcrumb({ lesson }: { lesson: LessonDetail }) {
   );
 }
 
-function LessonNav({
-  lesson,
-  onNavigate,
-}: {
-  lesson: LessonDetail;
-  onNavigate: (slug: string) => void;
-}) {
+function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (slug: string) => void }) {
   if (!lesson.prevLessonSlug && !lesson.nextLessonSlug) return null;
   return (
     <div className="mt-10 flex items-center justify-between border-t border-[#2a3040] pt-6">
       {lesson.prevLessonSlug ? (
-        <button
-          onClick={() => onNavigate(lesson.prevLessonSlug!)}
-          className="text-sm text-[#4f8cff] hover:underline"
-        >
+        <button onClick={() => onNavigate(lesson.prevLessonSlug!)} className="text-sm text-[#4f8cff] hover:underline">
           ← Previous lesson
         </button>
       ) : (
         <span />
       )}
       {lesson.nextLessonSlug ? (
-        <button
-          onClick={() => onNavigate(lesson.nextLessonSlug!)}
-          className="text-sm text-[#4f8cff] hover:underline"
-        >
+        <button onClick={() => onNavigate(lesson.nextLessonSlug!)} className="text-sm text-[#4f8cff] hover:underline">
           Next lesson →
         </button>
       ) : (
@@ -154,7 +142,7 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
           <OutlookBadge outlook={strategy.outlook} />
           <PlainBadge>{strategy.style.replace("-", " ")}</PlainBadge>
           <PlainBadge>{strategy.netPosition.replace("-", " ")}</PlainBadge>
-          <PlainBadge>§{strategy.section}</PlainBadge>
+          {/* <PlainBadge>§{strategy.section}</PlainBadge> */}
         </div>
         <h1 className="text-3xl font-bold text-[#e6e8ec]">{strategy.name}</h1>
         {strategy.aka && <div className="mt-1 text-sm text-[#898781]">a.k.a. {strategy.aka}</div>}
@@ -173,9 +161,7 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
       </section>
 
       <section className="mb-6">
-        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-          Try it yourself
-        </h3>
+        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Try it yourself</h3>
         <ParamControls
           params={strategy.params}
           values={params}
@@ -189,25 +175,17 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
         <StatTile label="Max loss" value={stats.maxLoss} tone="critical" />
         <StatTile
           label="Breakeven"
-          value={
-            stats.breakevens.length === 0
-              ? "—"
-              : stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")
-          }
+          value={stats.breakevens.length === 0 ? "—" : stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")}
           tone="neutral"
         />
         <StatTile label="Legs" value={String(strategy.legCount)} tone="neutral" />
       </section>
 
       <section className="mb-10 rounded-xl border border-[#2a3040] bg-[#141821] p-5">
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-          Payoff at expiration
-        </h3>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
         <PayoffChart
           curve={stats.curve}
-          breakevens={stats.breakevens.filter(
-            (b) => b >= stats.displayRange[0] && b <= stats.displayRange[1],
-          )}
+          breakevens={stats.breakevens.filter((b) => b >= stats.displayRange[0] && b <= stats.displayRange[1])}
           currentPrice={currentPrice}
         />
       </section>

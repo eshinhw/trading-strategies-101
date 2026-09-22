@@ -48,10 +48,9 @@ function Hero() {
             Learn trading strategies by using them, not memorizing them.
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
-            Trading Strategies 101 turns a structured curriculum — 18 asset classes, one course
-            each — into hands-on lessons. Options is live now: adjust real parameters, watch the
-            payoff diagram respond, then prove you understand it with a knowledge check graded
-            against the real math.
+            Trading Strategies 101 turns a structured curriculum — 18 asset classes, one course each — into hands-on
+            lessons. Options is live now: adjust real parameters, watch the payoff diagram respond, then prove you
+            understand it with a knowledge check graded against the real math.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
@@ -64,9 +63,7 @@ function Hero() {
               Browse all courses ↓
             </a>
           </div>
-          <p className="mt-4 text-sm text-[#898781]">
-            No credit card. Browse and try any lesson before you sign up.
-          </p>
+          <p className="mt-4 text-sm text-[#898781]">No credit card. Browse and try any lesson before you sign up.</p>
         </div>
         <HeroDemo />
       </div>
@@ -105,9 +102,7 @@ function HeroDemo() {
             {lesson?.kind === "strategy" ? lesson.strategy.name : "Long straddle"}
           </h3>
         </div>
-        <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#9aa3b2]">
-          Interactive
-        </span>
+        <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#9aa3b2]">Interactive</span>
       </div>
 
       {stats ? (
@@ -119,13 +114,10 @@ function HeroDemo() {
           </div>
         </>
       ) : (
-        <div className="flex h-[360px] items-center justify-center text-sm text-[#898781]">
-          Loading demo…
-        </div>
+        <div className="flex h-[360px] items-center justify-center text-sm text-[#898781]">Loading demo…</div>
       )}
       <p className="mt-3 text-xs text-[#898781]">
-        This is the same tool that's in every options lesson — every chart in the course is live,
-        not a screenshot.
+        This is the same tool that's in every options lesson — every chart in the course is live, not a screenshot.
       </p>
     </div>
   );
@@ -165,17 +157,15 @@ function CoursesPreview() {
   const [courses, setCourses] = useState<Course[] | null>(null);
 
   useEffect(() => {
-    fetchCourses().then(setCourses).catch(() => setCourses(null));
+    fetchCourses()
+      .then(setCourses)
+      .catch(() => setCourses(null));
   }, []);
 
   return (
     <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="text-2xl font-bold text-[#e6e8ec]">18 courses, one per asset class</h2>
-        <p className="mt-2 max-w-2xl text-[#9aa3b2]">
-          Options is live with 58 strategies across 12 modules. The rest are on the roadmap, each
-          with its real strategy list already mapped out.
-        </p>
 
         {courses && (
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -220,10 +210,7 @@ function FinalCta() {
         Create a free account to save your progress and unlock modules as you complete them.
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-        <Link
-          to="/signup"
-          className="rounded-lg bg-[#4f8cff] px-5 py-2.5 font-medium text-white hover:bg-[#3d7ce0]"
-        >
+        <Link to="/signup" className="rounded-lg bg-[#4f8cff] px-5 py-2.5 font-medium text-white hover:bg-[#3d7ce0]">
           Sign up free
         </Link>
         <Link to="/login" className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
@@ -233,4 +220,3 @@ function FinalCta() {
     </section>
   );
 }
-
