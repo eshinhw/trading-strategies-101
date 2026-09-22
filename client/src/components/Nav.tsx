@@ -28,8 +28,8 @@ export function Nav() {
           <span className="sm:hidden">TS 101</span>
         </Link>
 
-        <div className="flex items-center gap-8 whitespace-nowrap text-sm">
-          <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 whitespace-nowrap text-sm">
+          <div className="flex items-center gap-6 font-medium">
             <Link to="/courses" className="text-slate-300 hover:text-white">
               Courses
             </Link>
@@ -38,7 +38,9 @@ export function Nav() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="h-5 w-px bg-white/15" />
+
+          <div className="flex items-center gap-3">
             {user ? (
               <>
                 <span className="text-slate-300">{user.name}</span>
@@ -47,14 +49,17 @@ export function Nav() {
                     await logout();
                     navigate("/");
                   }}
-                  className="text-slate-300 hover:text-white"
+                  className="rounded-full border border-white/20 px-4 py-2 text-slate-200 hover:border-white/40 hover:text-white"
                 >
                   Sign out
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className="text-slate-300 hover:text-white">
+                <Link
+                  to="/login"
+                  className="rounded-full border border-white/20 px-4 py-2 text-slate-200 hover:border-white/40 hover:text-white"
+                >
                   Sign in
                 </Link>
                 <Link
