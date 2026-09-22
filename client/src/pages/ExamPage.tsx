@@ -4,9 +4,7 @@ import { fetchExam, submitExam } from "../api";
 import type { ExamQuestion, ExamAnswerSubmission, ExamGradeResponse } from "../types/exam";
 import { QuizProgress } from "../components/QuizProgress";
 
-type AnswerState =
-  | { kind: "mcq"; choiceIndex: number }
-  | { kind: "numeric"; unlimited: boolean; text: string };
+type AnswerState = { kind: "mcq"; choiceIndex: number } | { kind: "numeric"; unlimited: boolean; text: string };
 
 function isAnswered(a: AnswerState | undefined): boolean {
   if (!a) return false;
@@ -37,10 +35,7 @@ export function ExamPage() {
 
   useEffect(loadFreshExam, [slug]);
 
-  const allAnswered = useMemo(
-    () => (questions ?? []).every((q) => isAnswered(answers[q.id])),
-    [questions, answers],
-  );
+  const allAnswered = useMemo(() => (questions ?? []).every((q) => isAnswered(answers[q.id])), [questions, answers]);
   const answeredCount = useMemo(
     () => (questions ?? []).filter((q) => isAnswered(answers[q.id])).length,
     [questions, answers],
@@ -93,7 +88,7 @@ export function ExamPage() {
   }
 
   if (!questions) {
-    return <div className="mx-auto max-w-3xl px-6 py-16 text-center text-[#898781]">Loading exam…</div>;
+    return <div className="mx-auto max-w-3xl px-6 py-16 text-center text-[#898781]">Loading quiz…</div>;
   }
 
   if (result) {
@@ -107,14 +102,14 @@ export function ExamPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
       <Link to={`/courses/${slug}`} className="text-sm text-[#4f8cff] hover:underline">
-        ← Exit exam
+        ← Exit quiz
       </Link>
 
       <header className="mt-4 mb-6">
-        <h1 className="text-2xl font-bold text-[#e6e8ec]">Final Exam</h1>
+        <h1 className="text-2xl font-bold text-[#e6e8ec]">Final Quiz</h1>
         <p className="mt-1 text-sm text-[#9aa3b2]">
-          {questions.length} questions across every module. Answers aren't graded until you submit
-          — go back and change anything before then.
+          {questions.length} questions across every module. Answers aren't graded until you submit — go back and change
+          anything before then.
         </p>
       </header>
 
@@ -154,7 +149,10 @@ export function ExamPage() {
                 disabled={a?.kind === "numeric" && a.unlimited}
                 value={a?.kind === "numeric" ? a.text : ""}
                 onChange={(e) =>
-                  setAnswers((prev) => ({ ...prev, [q.id]: { kind: "numeric", unlimited: false, text: e.target.value } }))
+                  setAnswers((prev) => ({
+                    ...prev,
+                    [q.id]: { kind: "numeric", unlimited: false, text: e.target.value },
+                  }))
                 }
                 className="input w-32"
                 placeholder="0.00"
@@ -216,7 +214,7 @@ export function ExamPage() {
               disabled={!allAnswered || submitting}
               className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
             >
-              {submitting ? "Grading…" : "Submit exam"}
+              {submitting ? "Grading…" : "Submit quiz"}
             </button>
           ) : (
             <button
@@ -263,14 +261,14 @@ function ExamReport({
       >
         <div className={`text-3xl font-bold ${result.passed ? "text-emerald-400" : "text-amber-400"}`}>{pct}%</div>
         <div className={`mt-1 font-semibold ${result.passed ? "text-emerald-400" : "text-amber-400"}`}>
-          {result.passed ? "You passed the final exam." : "Not quite — need 70%+ to pass."}
+          {result.passed ? "You passed the final quiz." : "Not quite — need 70%+ to pass."}
         </div>
         <p className="mt-2 text-sm text-[#9aa3b2]">
           {result.passed
             ? result.courseNewlyCompleted
               ? "This course is now marked complete."
               : `Course already completed — best score is now ${Math.round(result.bestScore * 100)}%.`
-            : "Review what you missed below, then retake the exam whenever you're ready — it's a fresh set of questions each time."}
+            : "Review what you missed below, then retake the quiz whenever you're ready — it's a fresh set of questions each time."}
         </p>
       </div>
 
@@ -301,7 +299,7 @@ function ExamReport({
           onClick={onRetake}
           className="rounded-lg bg-[#4f8cff] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#3d7ce0]"
         >
-          Retake exam
+          Retake quiz
         </button>
         <Link to={`/courses/${courseSlug}`} className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
           Back to course

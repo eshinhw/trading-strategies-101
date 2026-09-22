@@ -26,7 +26,7 @@ router.get("/:slug", (req, res) => {
 router.get("/:slug/exam-status", async (req, res) => {
   const courseSlug = slugParam(req.params.slug);
   if (!isExaminableCourse(courseSlug)) {
-    return res.status(404).json({ error: "This course doesn't have an exam yet" });
+    return res.status(404).json({ error: "This course doesn't have a quiz yet" });
   }
 
   const completed = await completedLessonSlugs(req.userId);
@@ -46,12 +46,12 @@ router.get("/:slug/exam-status", async (req, res) => {
 router.get("/:slug/exam", async (req, res) => {
   const courseSlug = slugParam(req.params.slug);
   if (!isExaminableCourse(courseSlug)) {
-    return res.status(404).json({ error: "This course doesn't have an exam yet" });
+    return res.status(404).json({ error: "This course doesn't have a quiz yet" });
   }
 
   const completed = await completedLessonSlugs(req.userId);
   if (!isCourseFullyComplete(courseSlug, completed)) {
-    return res.status(403).json({ error: "Complete every module in this course before taking the exam." });
+    return res.status(403).json({ error: "Complete every module in this course before taking the quiz." });
   }
 
   res.json({ questions: generateExamQuestions(courseSlug) });
@@ -60,12 +60,12 @@ router.get("/:slug/exam", async (req, res) => {
 router.post("/:slug/exam/submit", requireAuth, async (req, res) => {
   const courseSlug = slugParam(req.params.slug);
   if (!isExaminableCourse(courseSlug)) {
-    return res.status(404).json({ error: "This course doesn't have an exam yet" });
+    return res.status(404).json({ error: "This course doesn't have a quiz yet" });
   }
 
   const completed = await completedLessonSlugs(req.userId);
   if (!isCourseFullyComplete(courseSlug, completed)) {
-    return res.status(403).json({ error: "Complete every module in this course before taking the exam." });
+    return res.status(403).json({ error: "Complete every module in this course before taking the quiz." });
   }
 
   const answers = (req.body?.answers ?? []) as ExamAnswerSubmission[];
