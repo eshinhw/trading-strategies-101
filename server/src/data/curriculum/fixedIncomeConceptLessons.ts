@@ -475,4 +475,710 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "fixed-income-fifty-fifty-butterfly",
+    title: "Fifty-fifty butterfly",
+    summary: "A simplified butterfly construction that splits the body's duration equally, 50/50, between the two wings — an easy-to-build alternative to full dollar-duration matching.",
+    body: [
+      { type: "paragraph", text: "A fifty-fifty butterfly is a simpler way to construct a butterfly trade than fully solving for dollar-duration neutrality: rather than calculating the precise dollar-duration split needed between the wings based on their individual durations, it simply allocates half of the body's dollar duration to the short wing and half to the long wing, in a fixed 50/50 split, regardless of the wings' actual relative durations." },
+      { type: "paragraph", text: "This makes the trade much easier to set up and explain — no need to solve equations weighting each wing by its specific duration and price sensitivity — but it comes at the cost of precision: because a fifty-fifty split doesn't account for the fact that the short and long wings typically have very different durations from each other, the resulting position usually isn't perfectly dollar-duration-neutral to a parallel shift in rates, unlike a fully weighted dollar-duration-neutral butterfly." },
+      { type: "paragraph", text: "In practice, this means a fifty-fifty butterfly retains some residual exposure to the overall level of interest rates, not just to the curve's shape — a parallel shift in the yield curve can move the position's value by a small amount, whereas a true dollar-duration-neutral construction is designed to cancel that out almost entirely." },
+      { type: "paragraph", text: "Despite this imprecision, the fifty-fifty approach remains popular for its simplicity and transparency: traders who want a quick, easy-to-communicate butterfly position, and are willing to tolerate a bit of residual parallel-shift exposure in exchange for not having to run a more involved weighting calculation, often default to this construction as a starting point before considering more precisely weighted alternatives." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "How does a fifty-fifty butterfly allocate dollar duration between its two wings?",
+        choices: [
+          "It calculates a precise weighting based on each wing's individual duration",
+          "It simply splits the body's dollar duration equally, 50/50, between the two wings regardless of their individual durations",
+          "It allocates 100% of the duration to only one wing",
+          "It ignores duration entirely",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The fifty-fifty construction is a simplified approach that fixes the split at 50/50 rather than solving for each wing's precise, duration-based weighting.",
+      },
+      {
+        id: "q2",
+        prompt: "What is the main appeal of a fifty-fifty butterfly compared to a fully dollar-duration-neutral butterfly?",
+        choices: [
+          "It is always more profitable",
+          "It's simpler and easier to set up, since it avoids solving for each wing's precise duration-based weighting",
+          "It eliminates all interest-rate risk completely",
+          "It requires no capital to implement",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The fifty-fifty split trades off precision for simplicity — no need to calculate exact dollar-duration weightings for each wing.",
+      },
+      {
+        id: "q3",
+        prompt: "What is the main drawback of the fifty-fifty approach compared to a fully weighted dollar-duration-neutral butterfly?",
+        choices: [
+          "It has no drawback — the two approaches are identical",
+          "It usually isn't perfectly neutral to a parallel shift in rates, since it doesn't account for the wings' differing individual durations",
+          "It requires significantly more capital to implement",
+          "It can only be used with government bonds",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Because the wings typically have different durations from each other, a fixed 50/50 split doesn't precisely offset the body's dollar duration, leaving some residual parallel-shift exposure.",
+      },
+      {
+        id: "q4",
+        prompt: "What kind of exposure does a fifty-fifty butterfly typically retain that a true dollar-duration-neutral butterfly is designed to cancel out?",
+        choices: [
+          "Credit risk",
+          "Some exposure to the overall level of interest rates from a parallel shift in the curve",
+          "Exposure to equity market movements",
+          "Currency exposure",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Since the 50/50 split doesn't perfectly offset dollar duration, the position retains a small amount of sensitivity to a parallel move in rates, not just to the curve's shape.",
+      },
+      {
+        id: "q5",
+        prompt: "Why might a trader choose a fifty-fifty butterfly despite its imprecision?",
+        choices: [
+          "It is required by regulation for all butterfly trades",
+          "Its simplicity and transparency make it an easy starting point, even at the cost of some residual parallel-shift exposure",
+          "It always produces better returns than a precisely weighted butterfly",
+          "It cannot be constructed using real bonds",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Traders who want a quick, easy-to-communicate position often accept the small imprecision of a fixed 50/50 split rather than running a more involved weighting calculation.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-regression-weighted-butterfly",
+    title: "Regression-weighted butterfly",
+    summary: "Weighting a butterfly's wings using a statistical regression of how each maturity has historically moved relative to the body, rather than a simple duration calculation.",
+    body: [
+      { type: "paragraph", text: "A regression-weighted butterfly improves on simpler weighting methods by using historical data: instead of weighting the wings purely by dollar duration, which only captures a bond's theoretical price sensitivity, or splitting 50/50, which ignores the wings' relative behavior entirely, it runs a statistical regression of how each wing's yield has actually moved historically relative to the body's yield, and uses those regression coefficients, the \"betas\" of each wing to the body, to set the weights." },
+      { type: "paragraph", text: "This matters because, in practice, different points on the yield curve don't always move in the simple, proportional way that a pure duration calculation assumes — the short end of the curve might be more sensitive to central bank policy changes, for example, while the long end responds more to inflation expectations, so their actual historical co-movement with the body can differ from what a dollar-duration calculation alone would predict." },
+      { type: "paragraph", text: "By weighting the wings according to their empirically observed sensitivity to the body, rather than their theoretical duration-based sensitivity, a regression-weighted butterfly aims to be neutral to the kinds of rate moves that have actually occurred historically, which can make it more robust to real-world curve behavior than a purely theoretical dollar-duration-neutral construction." },
+      { type: "paragraph", text: "The tradeoff is that regression-based weights depend on the historical period used to estimate them, and historical relationships between yield-curve points aren't guaranteed to hold going forward — a regression fit over a very different rate environment, say, a period of aggressive central-bank tightening, may not describe how the curve behaves in the future, so the weights need to be periodically re-estimated and used with the understanding that they're describing the past, not guaranteeing the future." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "How does a regression-weighted butterfly determine its wing weights?",
+        choices: [
+          "By splitting the weight 50/50 between the wings regardless of history",
+          "By running a statistical regression of how each wing's yield has historically moved relative to the body's yield, and using those coefficients to set the weights",
+          "By ignoring the body entirely and weighting only the wings against each other",
+          "By using a fixed weight that never changes across any butterfly trade",
+        ],
+        correctIndex: 1,
+        explanation:
+          "This construction uses empirical, historically observed relationships between the wings and the body, rather than a purely theoretical duration calculation or a fixed split.",
+      },
+      {
+        id: "q2",
+        prompt: "Why might a regression-based weighting differ from a pure dollar-duration weighting?",
+        choices: [
+          "They are always mathematically identical",
+          "Different points on the curve don't always move in the simple, proportional way a duration calculation assumes — actual historical co-movement can differ from theoretical sensitivity",
+          "Regression weighting ignores yield curve data entirely",
+          "Dollar duration cannot be calculated for any bond",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The short and long ends of the curve can respond differently to different drivers (like policy changes versus inflation expectations), so their real historical relationship to the body may not match what a duration calculation alone predicts.",
+      },
+      {
+        id: "q3",
+        prompt: "What is the potential benefit of weighting wings by their empirically observed sensitivity rather than theoretical duration?",
+        choices: [
+          "It guarantees a risk-free trade",
+          "It aims to be neutral to the kinds of rate moves that have actually occurred historically, potentially making it more robust to real-world curve behavior",
+          "It eliminates the need to hold any bonds at all",
+          "It has no potential benefit over other weighting methods",
+        ],
+        correctIndex: 1,
+        explanation:
+          "By using historically observed co-movement rather than a purely theoretical calculation, the trade is designed to match actual observed curve behavior more closely.",
+      },
+      {
+        id: "q4",
+        prompt: "What is a key limitation of regression-based weights?",
+        choices: [
+          "They are always identical to a fifty-fifty split",
+          "They depend on the historical period used to estimate them, and historical relationships aren't guaranteed to hold going forward",
+          "Regression weights cannot be recalculated once set",
+          "They require no historical data whatsoever",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A regression fit over one rate environment may not accurately describe curve behavior in a different future environment, so the weights need periodic re-estimation.",
+      },
+      {
+        id: "q5",
+        prompt: "Why might weights estimated during a period of aggressive central-bank tightening be a poor guide for future trades?",
+        choices: [
+          "Central bank policy has no effect on the yield curve",
+          "Historical relationships between yield-curve points estimated in one environment aren't guaranteed to describe how the curve behaves in a different future environment",
+          "Regression weights are always accurate regardless of the period used",
+          "Tightening periods make regression analysis impossible to run",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The regression describes the past relationship observed during a specific period — if future conditions differ meaningfully, that historical relationship may no longer hold.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-maturity-weighted-butterfly",
+    title: "Maturity-weighted butterfly",
+    summary: "Weighting a butterfly's wings by their maturity distance from the body, a simple rule-of-thumb alternative to duration- or regression-based weighting.",
+    body: [
+      { type: "paragraph", text: "A maturity-weighted butterfly sets its wing weights based on each wing's maturity distance from the body, rather than on dollar duration or a historical regression — for example, weighting the short wing and long wing inversely to how far their maturities sit from the body's maturity, so a wing closer to the body in maturity terms gets a larger weight than one further away." },
+      { type: "paragraph", text: "This is a simpler, more mechanical rule of thumb than either the dollar-duration-neutral or regression-weighted approaches: it doesn't require calculating each bond's precise duration or running a statistical regression on historical yield relationships, just measuring the maturity gap between each wing and the body, which makes it fast and easy to apply consistently across many different butterfly trades." },
+      { type: "paragraph", text: "The tradeoff is that maturity distance is only a rough proxy for a bond's actual interest-rate sensitivity — two bonds the same distance in years from the body don't necessarily have the same dollar duration or the same historical co-movement with the body, especially since duration doesn't scale in a perfectly linear way with maturity, a bond's duration grows more slowly than its maturity, especially at longer maturities, because of the effect of coupon payments arriving along the way." },
+      { type: "paragraph", text: "In practice, a maturity-weighted butterfly is often used as a quick, intuitive starting point for structuring a butterfly trade — especially when a trader wants a fast, rule-of-thumb construction — before potentially refining the position with a more precise dollar-duration or regression-based weighting if the trade is going to be held for a meaningful period or sized significantly." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does a maturity-weighted butterfly use to set its wing weights?",
+        choices: [
+          "A statistical regression of historical yield movements",
+          "Each wing's maturity distance from the body",
+          "The credit rating of each bond",
+          "A fixed 50/50 split regardless of maturity",
+        ],
+        correctIndex: 1,
+        explanation:
+          "This construction weights the wings based on how far their maturities sit from the body's maturity, rather than on duration calculations or historical regression.",
+      },
+      {
+        id: "q2",
+        prompt: "What is the main appeal of the maturity-weighted approach?",
+        choices: [
+          "It is the most mathematically precise weighting method available",
+          "It's simple and mechanical — no need to calculate precise duration or run a statistical regression, just measure the maturity gap",
+          "It guarantees perfect dollar-duration neutrality",
+          "It requires the most extensive historical data of any method",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Maturity-weighting is valued for being fast and easy to apply consistently, since it only requires measuring maturity distances rather than more involved calculations.",
+      },
+      {
+        id: "q3",
+        prompt: "Why is maturity distance only a rough proxy for a bond's actual interest-rate sensitivity?",
+        choices: [
+          "Maturity distance perfectly predicts interest-rate sensitivity in all cases",
+          "Duration doesn't scale in a perfectly linear way with maturity — it grows more slowly than maturity, especially at longer maturities, due to coupon payments arriving along the way",
+          "Interest-rate sensitivity is unrelated to a bond's maturity",
+          "All bonds have identical duration regardless of maturity",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Two bonds the same distance in years from the body don't necessarily have matching dollar duration, since duration grows more slowly than maturity because of intervening coupon payments.",
+      },
+      {
+        id: "q4",
+        prompt: "How does maturity-weighting compare in complexity to dollar-duration-neutral or regression-weighted construction?",
+        choices: [
+          "It is more complex than both alternatives",
+          "It is simpler than both, since it skips precise duration calculations and historical regression entirely",
+          "It is identical in complexity to a regression-weighted butterfly",
+          "Complexity cannot be compared across these methods",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Maturity-weighting is the most mechanical and simplest of the three approaches, trading precision for ease of use.",
+      },
+      {
+        id: "q5",
+        prompt: "When is a maturity-weighted butterfly often used in practice?",
+        choices: [
+          "Only for trades held for multiple decades",
+          "As a quick, intuitive starting point, potentially refined later with a more precise weighting method for larger or longer-held positions",
+          "Only when regression data is completely unavailable",
+          "It is never used in practice",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Its simplicity makes it a practical first-pass construction, which a trader might later refine with dollar-duration or regression-based weighting for a more significant or longer-held trade.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-yield-curve-spread",
+    title: "Yield curve spread (flatteners & steepeners)",
+    summary: "Trading the difference in yield between two points on the curve, betting on the curve steepening or flattening rather than on the overall level of rates.",
+    body: [
+      { type: "paragraph", text: "A yield curve spread trade bets on the difference between yields at two points on the curve — commonly a short maturity and a long maturity, such as the 2-year and 10-year — rather than on the overall direction of interest rates. The trader goes long one maturity and short the other, so the position's return depends on how that yield spread changes, not on whether rates broadly rise or fall." },
+      { type: "paragraph", text: "A \"steepener\" bets that the spread between the long and short yields will widen, the curve becoming steeper, typically constructed by being short the long-maturity bond, or receiving fixed on a long-dated swap, and long the short-maturity bond, profiting if long yields rise relative to short yields, or short yields fall relative to long yields." },
+      { type: "paragraph", text: "A \"flattener\" bets the opposite: that the spread will narrow, the curve flattening, or even inverting, where short yields exceed long yields, typically constructed with the reverse positioning, long the long-maturity bond and short the short-maturity bond, profiting as the gap between them shrinks." },
+      { type: "paragraph", text: "These trades are often motivated by a view on monetary policy and the economic cycle: central bank rate hikes tend to push up short-term yields more than long-term ones, flattening the curve, while expectations of future rate cuts or economic weakness can pull short yields down faster than long ones, steepening the curve — so curve-spread trades let a trader express a view on the path and shape of policy without taking a pure directional bet on where rates end up overall." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does a yield curve spread trade bet on?",
+        choices: [
+          "The overall direction interest rates move",
+          "The difference in yield between two points on the curve — how that spread changes, not the overall rate level",
+          "The credit rating of a single bond",
+          "The total number of bonds outstanding in the market",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A curve spread trade is long one maturity and short another, so its return depends on the relationship between the two yields, not on where rates broadly end up.",
+      },
+      {
+        id: "q2",
+        prompt: "What does a \"steepener\" trade bet on?",
+        choices: [
+          "That the spread between long and short yields will widen — the curve becoming steeper",
+          "That the spread between long and short yields will narrow",
+          "That interest rates will stay perfectly flat forever",
+          "That the bond market will close entirely",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A steepener profits when long yields rise relative to short yields, or short yields fall relative to long yields, widening the spread between them.",
+      },
+      {
+        id: "q3",
+        prompt: "What does a \"flattener\" trade bet on?",
+        choices: [
+          "That the yield curve will become steeper",
+          "That the spread between long and short yields will narrow, the curve flattening or even inverting",
+          "That short-term yields will always exceed long-term yields permanently",
+          "That the trade has no relationship to yield spreads at all",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A flattener is positioned the opposite way from a steepener, profiting as the gap between long and short yields shrinks.",
+      },
+      {
+        id: "q4",
+        prompt: "How is a steepener typically constructed?",
+        choices: [
+          "Long the long-maturity bond and short the short-maturity bond",
+          "Short the long-maturity bond (or receiving fixed on a long-dated swap) and long the short-maturity bond",
+          "Long both the long- and short-maturity bonds in equal amounts",
+          "Short both the long- and short-maturity bonds in equal amounts",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A steepener is short the long end and long the short end, profiting as the spread between them widens.",
+      },
+      {
+        id: "q5",
+        prompt: "Why might central bank policy motivate a curve-spread trade?",
+        choices: [
+          "Central bank policy has no effect on any part of the yield curve",
+          "Rate hikes tend to push up short-term yields more than long-term ones (flattening), while expectations of cuts or economic weakness can pull short yields down faster (steepening), letting a trader express a view on policy path and curve shape",
+          "Central banks directly set both the 2-year and 10-year yields to be identical at all times",
+          "Curve-spread trades are unrelated to monetary policy",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Because short-term yields are more directly influenced by near-term policy expectations, shifts in the expected policy path tend to move the short end more than the long end, which curve-spread trades are designed to capture.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-low-risk-factor",
+    title: "Low-risk factor",
+    summary: "The fixed-income analog of the equity low-volatility anomaly — lower-risk bonds have historically delivered comparable or better risk-adjusted returns than higher-risk ones.",
+    body: [
+      { type: "paragraph", text: "The low-risk factor in fixed income mirrors the low-volatility anomaly seen in equities: bonds with lower risk, measured by some combination of lower duration, higher credit quality, or lower historical price volatility, have historically delivered risk-adjusted returns comparable to, or better than, higher-risk bonds, even though standard theory suggests investors should be compensated with higher returns for taking on more risk." },
+      { type: "paragraph", text: "A systematic low-risk factor strategy ranks bonds in a universe by a risk measure such as duration, credit spread, or historical volatility, and tilts the portfolio toward the lower-risk end of that ranking, often while still targeting a competitive overall yield by selecting the least risky bonds within each maturity or credit-quality bucket rather than simply buying the shortest, safest bonds available." },
+      { type: "paragraph", text: "One proposed explanation for why this factor persists is similar to the equity version: many fixed-income investors are constrained by mandates that push them toward higher-yielding, higher-risk bonds to hit a target return, or are drawn to riskier bonds for their higher headline yield without fully pricing in the additional risk, which can leave lower-risk bonds comparatively underpriced relative to the risk they actually carry." },
+      { type: "paragraph", text: "Because it favors bonds that hold up better in stressed markets, lower duration and higher credit quality both tend to cushion a portfolio during a selloff, a low-risk factor tilt is often used to improve a fixed-income portfolio's resilience during downturns, similar to how the equity low-volatility factor is used, rather than as a strategy for chasing the single highest raw yield." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does the fixed-income low-risk factor draw a parallel to in equities?",
+        choices: ["The value factor", "The low-volatility anomaly", "The momentum factor", "The size factor"],
+        correctIndex: 1,
+        explanation:
+          "Just as low-volatility stocks have historically shown comparable or better risk-adjusted returns than high-volatility stocks, lower-risk bonds have shown a similar pattern relative to higher-risk bonds.",
+      },
+      {
+        id: "q2",
+        prompt: "How is \"risk\" typically measured for ranking bonds in a low-risk factor strategy?",
+        choices: [
+          "Only by the bond's coupon rate",
+          "Some combination of lower duration, higher credit quality, or lower historical price volatility",
+          "Only by the number of bonds a company has issued",
+          "Risk cannot be measured for bonds",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A low-risk factor strategy typically ranks bonds using one or more risk measures like duration, credit quality, and historical volatility, then tilts toward the lower-risk end.",
+      },
+      {
+        id: "q3",
+        prompt: "What is one proposed explanation for why the low-risk factor persists in fixed income?",
+        choices: [
+          "Regulations require all investors to buy only the riskiest bonds",
+          "Some investors are drawn to higher-yielding, riskier bonds without fully pricing in the additional risk, leaving lower-risk bonds comparatively underpriced",
+          "Lower-risk bonds are illegal to purchase in most markets",
+          "The low-risk factor has never actually been observed",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Investor demand skewed toward higher-yielding, riskier bonds, sometimes driven by mandates targeting a return level, can leave safer bonds relatively undervalued given the risk they carry.",
+      },
+      {
+        id: "q4",
+        prompt: "Why might a low-risk factor tilt improve a fixed-income portfolio's behavior during a market downturn?",
+        choices: [
+          "Lower duration and higher credit quality both tend to cushion a portfolio during a selloff",
+          "Low-risk bonds always lose more value than high-risk bonds during downturns",
+          "Downturns have no effect on bond portfolios of any risk level",
+          "A low-risk tilt eliminates the need to hold any bonds during a downturn",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Bonds with lower duration and stronger credit quality tend to be more resilient during market stress, which is why the low-risk factor is often used to improve portfolio resilience.",
+      },
+      {
+        id: "q5",
+        prompt: "How does a systematic low-risk factor strategy typically construct its bond selection?",
+        choices: [
+          "It buys only the single shortest-maturity bond available regardless of yield",
+          "It ranks bonds by a risk measure and tilts toward lower risk, often selecting the least risky bonds within each maturity or credit bucket to maintain a competitive yield",
+          "It selects bonds entirely at random",
+          "It only ever holds bonds issued by a single company",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Rather than simply buying the shortest, safest bonds, the strategy tilts toward lower risk while still trying to maintain a reasonable yield by selecting carefully within maturity/credit buckets.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-value-factor",
+    title: "Value factor",
+    summary: "Buying bonds that are cheap relative to a fundamental measure of credit risk, on the premise the market has temporarily mispriced them.",
+    body: [
+      { type: "paragraph", text: "The fixed-income value factor identifies bonds that trade cheaply relative to some measure of their fundamental credit risk — for example, a bond whose credit spread, the extra yield it pays over a comparable risk-free bond, is wider than what its issuer's underlying fundamentals, like leverage, profitability, or credit rating, would seem to justify. The strategy buys these apparently underpriced bonds, betting the market will eventually recognize the mispricing and the spread will narrow." },
+      { type: "paragraph", text: "A systematic implementation typically models a bond's \"fair\" credit spread based on issuer fundamentals and market-wide credit conditions, compares that fair-value estimate to the bond's actual traded spread, and ranks bonds by the gap between the two, buying the bonds trading at the widest positive gap, cheapest relative to fair value, and potentially avoiding or shorting the bonds trading tightest relative to their fundamentals." },
+      { type: "paragraph", text: "As with the equity value factor, part of the challenge is distinguishing a genuine, temporary mispricing from a spread that's wide for a good reason: a bond can trade cheap because the market is pricing in a real, elevated risk of default or downgrade that a backward-looking fundamentals model hasn't yet fully captured, which is the fixed-income analog of the equity \"value trap.\"" },
+      { type: "paragraph", text: "The value factor in credit has historically shown periods of both strong performance and extended underperformance, similar to equity value — it tends to do well when previously depressed credits recover, but can suffer during periods of sustained credit deterioration or a \"flight to quality,\" when investors broadly move away from cheaper, riskier credits regardless of their fundamentals." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does the fixed-income value factor look for?",
+        choices: [
+          "Bonds with the highest possible credit rating only",
+          "Bonds trading cheaply relative to a fundamental measure of their credit risk, such as a wider-than-justified credit spread",
+          "Bonds issued by the largest companies only",
+          "Bonds with no coupon payments",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The value factor identifies bonds whose market-priced credit spread is wider than what the issuer's underlying fundamentals would seem to justify, betting on that mispricing correcting.",
+      },
+      {
+        id: "q2",
+        prompt: "How does a systematic value strategy typically rank bonds?",
+        choices: [
+          "By ranking issuers alphabetically",
+          "By comparing a bond's actual traded credit spread to a modeled \"fair value\" spread based on issuer fundamentals, and ranking by the gap between the two",
+          "By ignoring credit spreads entirely",
+          "By ranking bonds solely on their coupon rate",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The strategy models what a bond's spread \"should\" be based on fundamentals, then buys bonds where the actual spread is unusually wide relative to that estimate.",
+      },
+      {
+        id: "q3",
+        prompt: "What is the fixed-income analog of the equity \"value trap\"?",
+        choices: [
+          "A bond that always reverts to fair value quickly",
+          "A bond trading cheap because the market is pricing in a real, elevated default or downgrade risk that a fundamentals model hasn't yet captured",
+          "A bond with no credit risk whatsoever",
+          "A bond that has never traded below par",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Just as a cheap stock can be a value trap if it's cheap for a real reason, a wide-spread bond can be genuinely risky rather than temporarily mispriced, and a backward-looking model may not catch that in time.",
+      },
+      {
+        id: "q4",
+        prompt: "When does the credit value factor tend to perform well?",
+        choices: [
+          "Only during periods when all credit spreads are identical",
+          "When previously depressed credits recover",
+          "Only during a flight to quality",
+          "The value factor has no relationship to credit-market conditions",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Like equity value, the credit value factor benefits when the market's pessimism about specific cheap bonds proves overdone and those bonds recover.",
+      },
+      {
+        id: "q5",
+        prompt: "When might the credit value factor underperform?",
+        choices: [
+          "During periods of sustained credit deterioration or a \"flight to quality,\" when investors broadly move away from cheaper, riskier credits",
+          "It never underperforms under any market conditions",
+          "Only when interest rates are exactly zero",
+          "Only on the last trading day of the year",
+        ],
+        correctIndex: 0,
+        explanation:
+          "During periods when credit conditions are worsening broadly or investors are fleeing to safety, cheap, riskier credits can continue underperforming regardless of their fundamentals, hurting the value factor.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-carry-factor",
+    title: "Carry factor",
+    summary: "Favoring bonds with the highest yield relative to their risk, on the premise that, absent a change in rates or spreads, higher carry translates directly into higher realized return.",
+    body: [
+      { type: "paragraph", text: "Carry, in fixed income, refers to the return an investor earns simply from holding a bond over time if nothing else changes — market rates stay the same, credit spreads stay the same, and the yield curve's shape stays the same. The carry factor strategy tilts a portfolio toward bonds offering the most carry relative to their risk, on the premise that this income comes directly through to realized return unless something moves against the position." },
+      { type: "paragraph", text: "Carry can come from multiple sources: a bond's yield relative to the risk-free rate, credit carry, a longer-maturity bond's higher yield relative to a shorter one on an upward-sloping curve, term carry, closely related to rolling down the yield curve, or the funding-rate difference in a leveraged position. A systematic carry strategy typically ranks available bonds by carry-per-unit-of-risk and tilts toward the highest-ranked ones." },
+      { type: "paragraph", text: "The strategy's central assumption, that today's yields and spreads are a reasonable guide to future realized returns, is also its central risk: carry strategies tend to earn steady, positive returns most of the time, but can suffer sharp losses when the conditions the carry was compensating for actually occur, such as a sudden widening of credit spreads or a sharp rise in rates, which erodes bond prices faster than the accumulated carry can offset." },
+      { type: "paragraph", text: "This risk profile, small, steady gains most of the time, occasional larger losses when the underlying risk materializes, is a recurring pattern across carry strategies in many asset classes, it shows up in currency carry trades and futures roll-yield strategies too, and is often described as resembling an insurance-selling business: collecting a steady premium in exchange for bearing the risk of an occasional larger payout." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does \"carry\" refer to in fixed income?",
+        choices: [
+          "The physical transportation of bonds between markets",
+          "The return an investor earns simply from holding a bond over time if market rates, spreads, and the curve's shape stay unchanged",
+          "A bond's credit rating",
+          "The fee charged by a broker to trade a bond",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Carry is the return that accrues to a bondholder purely from holding the position, assuming no adverse change in the underlying market conditions.",
+      },
+      {
+        id: "q2",
+        prompt: "What are two sources of carry mentioned for a bond position?",
+        choices: [
+          "Credit carry (yield relative to the risk-free rate) and term carry (a longer-maturity bond's higher yield on an upward-sloping curve)",
+          "Only the bond's face value",
+          "Only changes in a company's stock price",
+          "The number of coupon payments per year alone",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Carry can come from a bond's credit spread over the risk-free rate, or from the additional yield a longer maturity offers on an upward-sloping curve, closely related to rolling down the curve.",
+      },
+      {
+        id: "q3",
+        prompt: "How does a systematic carry strategy typically select bonds?",
+        choices: [
+          "By avoiding all bonds with any yield whatsoever",
+          "By ranking available bonds by carry-per-unit-of-risk and tilting the portfolio toward the highest-ranked ones",
+          "By selecting bonds at random regardless of yield",
+          "By only holding bonds with zero carry",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The strategy explicitly ranks and favors bonds offering the most carry relative to their risk, rather than an unweighted selection.",
+      },
+      {
+        id: "q4",
+        prompt: "What is the central risk of a carry strategy?",
+        choices: [
+          "Carry strategies have no risk once implemented",
+          "It can suffer sharp losses when the conditions the carry was compensating for actually occur, such as a sudden spread widening or sharp rate rise",
+          "Carry strategies only work if interest rates are exactly zero",
+          "The risk that bond issuers stop paying coupons entirely",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Carry assumes today's yields are a reasonable guide to the future; when the risks embedded in that yield materialize, like a spread blowout, losses can occur faster than accumulated carry can offset.",
+      },
+      {
+        id: "q5",
+        prompt: "What business is a carry strategy's return profile often compared to?",
+        choices: [
+          "A bank's checking account services",
+          "An insurance-selling business — collecting steady premiums in exchange for bearing the risk of an occasional larger payout",
+          "A charity with no revenue model",
+          "A business with no exposure to any form of risk",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Carry strategies typically earn small, steady gains most of the time, punctuated by occasional larger losses when the underlying risk materializes — a pattern that resembles selling insurance.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-cds-basis-arbitrage",
+    title: "CDS basis arbitrage",
+    summary: "Trading the gap between a company's bond credit spread and the cost of insuring against its default with a credit default swap, betting the two converge.",
+    body: [
+      { type: "paragraph", text: "A credit default swap (CDS) is a contract that functions like insurance against a bond issuer defaulting: the buyer pays a periodic premium, the CDS spread, and receives a payout if the issuer defaults, while the seller collects the premium and bears the default risk. In principle, the CDS spread on a company's debt and the credit spread on its actual bonds should be closely linked, since both are compensation for the same underlying default risk, but in practice, the two can and do diverge, and that gap is called the CDS basis." },
+      { type: "paragraph", text: "The basis is defined as the CDS spread minus the bond's credit spread. A \"negative basis\" trade, buying the bond and buying CDS protection on the same issuer, profits if the bond's credit spread is unusually wide relative to the CDS spread and the two converge, since the trader earns the bond's wide credit spread while paying the relatively cheaper CDS premium for protection, largely hedging out the underlying default risk in the process." },
+      { type: "paragraph", text: "Because the position is long the bond and long protection against that same bond defaulting, the trade is close to credit-risk-neutral in theory — if the issuer actually defaults, the CDS payout is designed to offset the loss on the bond — which means the trade's expected profit comes mainly from the basis converging, not from taking a view on whether the company will actually default." },
+      { type: "paragraph", text: "In practice, the basis doesn't always converge cleanly, and several frictions can keep it persistently wide or even cause it to move further apart: differences in the cheapest-to-deliver bond eligible for CDS settlement, funding costs and balance-sheet constraints for financing the bond position, counterparty risk on the CDS itself, and technical supply-and-demand imbalances between the bond and CDS markets — all of which mean a negative-basis trade, despite being theoretically low-risk, still carries real execution and financing risk." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does a credit default swap (CDS) function like?",
+        choices: [
+          "A stock option on the issuer's equity",
+          "Insurance against a bond issuer defaulting — the buyer pays a premium and receives a payout if the issuer defaults",
+          "A guaranteed fixed-rate savings account",
+          "A type of government bond",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A CDS lets the buyer pay a periodic premium in exchange for a payout if the underlying issuer defaults, functioning like default insurance.",
+      },
+      {
+        id: "q2",
+        prompt: "What is the \"CDS basis\"?",
+        choices: [
+          "The face value of the underlying bond",
+          "The CDS spread minus the bond's credit spread",
+          "The total number of CDS contracts outstanding",
+          "The coupon rate on the underlying bond",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The basis measures the gap between the cost of CDS protection and the bond's own credit spread, which in principle should be closely linked since both compensate for the same default risk.",
+      },
+      {
+        id: "q3",
+        prompt: "How is a \"negative basis\" trade constructed?",
+        choices: [
+          "Selling the bond and selling CDS protection",
+          "Buying the bond and buying CDS protection on the same issuer",
+          "Buying the bond and selling CDS protection",
+          "Selling the bond and buying CDS protection",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A negative basis trade goes long the bond, earning its credit spread, while also buying CDS protection, paying the CDS premium, profiting if the bond's spread is wide relative to the CDS spread and the two converge.",
+      },
+      {
+        id: "q4",
+        prompt: "Why is a negative basis trade close to credit-risk-neutral in theory?",
+        choices: [
+          "Because it has no exposure to the issuer at all",
+          "Because the position is long the bond and long protection against that same bond defaulting, so a default's loss on the bond is designed to be offset by the CDS payout",
+          "Because CDS contracts eliminate all forms of risk",
+          "Because the trade requires no capital",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Being simultaneously long the bond and long default protection on it means an actual default largely cancels out — the bond loss is offset by the CDS payout — leaving the basis's convergence as the main driver of profit.",
+      },
+      {
+        id: "q5",
+        prompt: "What can keep the CDS basis from converging cleanly in practice?",
+        choices: [
+          "Nothing — the basis always converges perfectly and immediately",
+          "Frictions like cheapest-to-deliver differences, funding costs, counterparty risk, and supply-demand imbalances between the bond and CDS markets",
+          "The basis is fixed by regulation and never changes",
+          "CDS contracts cannot be traded once issued",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Despite being theoretically low-risk, negative basis trades face real-world frictions — financing costs, delivery mechanics, counterparty exposure, and market technicals — that can keep the basis persistently wide.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-swap-spread-arbitrage",
+    title: "Swap-spread arbitrage",
+    summary: "Trading the gap between a fixed-for-floating interest rate swap's fixed rate and the yield on a government bond of the same maturity, betting the spread reverts to its typical range.",
+    body: [
+      { type: "paragraph", text: "An interest rate swap exchanges a stream of fixed payments for a stream of floating payments, typically tied to a short-term reference rate, over a set period. The \"swap spread\" is the difference between the fixed rate on a swap and the yield on a government bond of the same maturity — for example, the 10-year swap rate minus the 10-year government bond yield. Because both reflect the market's view of interest rates over the same horizon, they tend to move together, but the swap spread itself fluctuates within a historical range influenced by factors specific to each market." },
+      { type: "paragraph", text: "Swap-spread arbitrage bets that a swap spread which has moved unusually wide or narrow relative to its historical range will revert back toward that typical level — a trader might, for example, receive fixed on the swap and simultaneously short the government bond, or the reverse, constructing a position that profits as the swap spread moves back toward its normal range, largely independent of which direction interest rates broadly move." },
+      { type: "paragraph", text: "Swap spreads are driven by factors distinct from the general level of rates: the perceived credit risk of the bank counterparties in the swap market versus the near-risk-free status of government debt, the relative supply of new government bond issuance versus swap market demand, and, especially since the 2008 financial crisis, regulatory and balance-sheet constraints on banks' capacity to intermediate swap trades, all of which can push the spread away from its historical norm for reasons unrelated to the direction of interest rates." },
+      { type: "paragraph", text: "Like other spread-arbitrage trades, the position is not risk-free: dealer balance-sheet constraints and shifts in bond supply can cause swap spreads to move further away from historical norms, and can stay unusually wide or narrow for extended periods rather than reverting quickly — a well-known example is when swap spreads turned negative for long-maturity swaps after 2008, a level that would have looked anomalous, and unprofitable to bet against, under pre-crisis assumptions about the swap market's structure." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is the \"swap spread\"?",
+        choices: [
+          "The difference between two different companies' stock prices",
+          "The difference between the fixed rate on an interest rate swap and the yield on a government bond of the same maturity",
+          "The coupon rate on a single government bond",
+          "The spread between a CDS contract and its underlying bond",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The swap spread compares the fixed leg of an interest rate swap to a government bond yield of matching maturity — both reflect rate expectations over the same horizon.",
+      },
+      {
+        id: "q2",
+        prompt: "What does swap-spread arbitrage bet on?",
+        choices: [
+          "The overall direction interest rates will move",
+          "That a swap spread which has moved unusually wide or narrow relative to its historical range will revert back toward that typical level",
+          "That government bonds will default",
+          "That interest rate swaps will be banned by regulators",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The trade is constructed to profit from the swap spread's mean-reversion toward its normal historical range, largely independent of the broad direction of rates.",
+      },
+      {
+        id: "q3",
+        prompt: "What factors can drive swap spreads independently of the general level of interest rates?",
+        choices: [
+          "Nothing — swap spreads move in lockstep with rate levels at all times",
+          "The perceived credit risk of swap-market bank counterparties, relative government bond supply versus swap demand, and regulatory/balance-sheet constraints on banks",
+          "Only the color of the currency used",
+          "Swap spreads cannot be influenced by any external factor",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Swap spreads reflect factors specific to the swap and government bond markets separately — counterparty credit perception, issuance supply, and post-crisis regulatory constraints — not just the general rate level.",
+      },
+      {
+        id: "q4",
+        prompt: "What happened to swap spreads for long-maturity swaps after the 2008 financial crisis?",
+        choices: [
+          "They stayed exactly the same as before the crisis",
+          "They turned negative, a level that would have looked anomalous under pre-crisis assumptions about the swap market",
+          "They were permanently eliminated by regulators",
+          "They became identical to CDS spreads",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Post-2008, long-maturity swap spreads turned negative, illustrating how swap spreads can move to levels that pre-crisis models wouldn't have anticipated, and can persist rather than quickly reverting.",
+      },
+      {
+        id: "q5",
+        prompt: "Why is swap-spread arbitrage not considered risk-free, despite betting on reversion to a historical norm?",
+        choices: [
+          "Because government bonds carry no interest-rate risk",
+          "Because dealer balance-sheet constraints and shifts in bond supply can cause spreads to move further from historical norms and stay unusually wide or narrow for extended periods rather than reverting quickly",
+          "Because swaps cannot be traded by any market participant",
+          "There is no risk in this trade once it is constructed",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Structural factors like balance-sheet constraints can keep spreads away from their historical range for a long time, meaning the anticipated reversion may be delayed or not happen as expected, exposing the trade to real losses in the meantime.",
+      },
+    ],
+  },
 ];

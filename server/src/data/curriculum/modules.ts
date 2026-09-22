@@ -278,4 +278,35 @@ export const modules: Module[] = [
       "fixed-income-rolling-down-the-yield-curve",
     ],
   },
+  {
+    slug: "fixed-income-butterfly-and-curve-trades",
+    courseSlug: "fixed-income",
+    title: "Butterfly & Curve Trades",
+    description:
+      "Three more ways to weight a butterfly trade's wings — fixed split, historical regression, and maturity distance — plus betting on the curve steepening or flattening rather than on rates overall.",
+    order: 2,
+    prerequisiteModuleSlugs: ["fixed-income-fundamentals"],
+    lessonSlugs: [
+      "fixed-income-fifty-fifty-butterfly",
+      "fixed-income-regression-weighted-butterfly",
+      "fixed-income-maturity-weighted-butterfly",
+      "fixed-income-yield-curve-spread",
+    ],
+  },
+  {
+    slug: "fixed-income-factor-and-credit-strategies",
+    courseSlug: "fixed-income",
+    title: "Factor & Credit Strategies",
+    description:
+      "Factor investing applied to bonds (low-risk, value, and carry), plus two spread-arbitrage trades that isolate a mispricing between related credit and rates markets.",
+    order: 3,
+    prerequisiteModuleSlugs: ["fixed-income-fundamentals"],
+    lessonSlugs: [
+      "fixed-income-low-risk-factor",
+      "fixed-income-value-factor",
+      "fixed-income-carry-factor",
+      "fixed-income-cds-basis-arbitrage",
+      "fixed-income-swap-spread-arbitrage",
+    ],
+  },
 ];
