@@ -240,4 +240,320 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "futures-cross-hedging",
+    title: "Cross-hedging",
+    summary:
+      "Hedging with futures on a different but closely related asset, when no futures contract exists on the exact one you hold.",
+    body: [
+      "A direct hedge uses a futures contract on the exact asset you're exposed to. Cross-hedging is what you do when no such contract exists, or it's too illiquid to use — you hedge with futures on a different but closely correlated asset instead. A regional jet-fuel buyer can't easily trade jet-fuel futures, since the market is thin, so they hedge using heating oil or crude oil futures, since jet fuel prices tend to move closely with those more liquid contracts.",
+      "The key requirement for a cross-hedge to work is a strong, stable historical correlation between the price of the asset you're exposed to and the price of the futures contract you're using to hedge it. The stronger and more stable that relationship, the more effective the hedge.",
+      "Cross-hedging introduces an additional layer of basis risk beyond a normal direct hedge. Not only can the futures price diverge from the spot price of its own underlying — ordinary basis risk — but the price of the asset you actually hold can also diverge from the price of the futures' underlying asset. Jet fuel and heating oil don't always move in perfect lockstep, even though they're closely related refined products.",
+      "To size a cross-hedge, traders often compute a hedge ratio, commonly estimated by regressing the exposed asset's price changes against the hedging instrument's price changes. That regression's slope — sometimes called the minimum-variance hedge ratio — tells them how many futures contracts to use per unit of exposure, rather than assuming a naive one-for-one match.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is cross-hedging?",
+        choices: [
+          "Hedging using a futures contract on the exact same asset you hold",
+          "Hedging using a futures contract on a different but closely correlated asset, when no direct contract is available",
+          "Simultaneously hedging with both a call and a put option",
+          "A hedge that automatically adjusts itself daily",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Cross-hedging is used when there's no liquid futures market on the exact asset you're exposed to, so you substitute a closely correlated instrument instead.",
+      },
+      {
+        id: "q2",
+        prompt: "What determines how effective a cross-hedge will be?",
+        choices: [
+          "The number of exchanges the futures contract trades on",
+          "The strength and stability of the historical price correlation between the held asset and the hedging instrument",
+          "The futures contract's expiration date, regardless of the underlying",
+          "Whether the trader uses a broker or trades directly",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The stronger and more stable the correlation between the two assets' prices, the more effective the cross-hedge will be at offsetting risk.",
+      },
+      {
+        id: "q3",
+        prompt: "Compared to a direct hedge, a cross-hedge carries:",
+        choices: [
+          "Less basis risk, since it uses a more liquid contract",
+          "An additional layer of basis risk, from the price gap between the held asset and the futures' own underlying",
+          "No risk at all, since the correlation is always perfect",
+          "The exact same risk profile as holding no hedge",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A cross-hedge adds a second source of basis risk on top of ordinary futures basis risk — the exposed asset and the futures' underlying aren't the same thing, so their prices can diverge.",
+      },
+      {
+        id: "q4",
+        prompt: "What is a \"hedge ratio\" used for in cross-hedging?",
+        choices: [
+          "The interest rate charged on a margin account",
+          "Determining how many futures contracts to use per unit of the exposure, often estimated via regression",
+          "The ratio of long to short traders in the market",
+          "A fixed 1:1 rule that never changes",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A hedge ratio — often the slope of a regression of the exposed asset's returns against the futures' returns — tells the hedger the right sizing, rather than assuming a naive one-to-one match.",
+      },
+      {
+        id: "q5",
+        prompt: "A regional jet-fuel buyer who can't easily trade jet-fuel futures might cross-hedge using:",
+        choices: ["Wheat futures", "Heating oil or crude oil futures", "Equity index futures", "They cannot hedge at all"],
+        correctIndex: 1,
+        explanation:
+          "Jet fuel prices tend to move closely with other refined petroleum products like heating oil and crude oil, making them a workable, if imperfect, cross-hedge.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-interest-rate-risk-hedging",
+    title: "Interest rate risk hedging",
+    summary: "Using interest rate futures to protect a bond portfolio, loan, or borrowing plan against unfavorable rate moves.",
+    body: [
+      "Interest rate futures — Treasury note or bond futures, SOFR futures — let market participants hedge against the risk that interest rates move against them. Bond prices move inversely to interest rates: when rates rise, existing bond prices fall. A bond portfolio manager worried about rising rates can sell (short) interest rate futures — if rates rise and their bond portfolio loses value, the short futures position gains, offsetting the loss.",
+      "The mirror case: a company planning to borrow money in three months is worried rates will rise before they lock in a loan, raising their future borrowing cost. They can hedge with a short position in interest rate futures, so that if rates do rise, a gain on the futures position offsets the higher interest expense they'll pay on the loan.",
+      "Because bonds of different maturities respond differently to a given change in rates — longer-maturity bonds are more sensitive — hedgers commonly account for duration, a measure of interest-rate sensitivity, when sizing a rate hedge, using more or fewer futures contracts depending on how sensitive their actual portfolio is compared to the futures contract's own underlying instrument.",
+      "As with other futures hedges, an interest-rate hedge isn't perfect: the specific bonds a portfolio holds may not move in perfect lockstep with the futures contract's benchmark instrument, and getting the duration-matched sizing wrong can leave the hedge over- or under-protecting the actual position.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt:
+          "A bond portfolio manager worried that interest rates will rise, pushing bond prices down, should typically:",
+        choices: [
+          "Buy more bonds immediately",
+          "Sell (short) interest rate futures",
+          "Buy interest rate futures",
+          "Interest rate futures cannot hedge bond portfolios",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Since bond prices fall when rates rise, a manager hedges that risk by shorting interest rate futures — a rate rise then produces a gain on the futures position that offsets the portfolio's loss.",
+      },
+      {
+        id: "q2",
+        prompt:
+          "A company planning to borrow money in three months, worried rates will rise before then, would hedge by:",
+        choices: [
+          "Going long interest rate futures",
+          "Going short interest rate futures (or a similar rate-locking instrument)",
+          "Waiting and hoping rates fall",
+          "Buying more physical assets",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A short futures position gains if rates rise, offsetting the higher interest cost the company will face when it actually borrows.",
+      },
+      {
+        id: "q3",
+        prompt: "Why does a fixed-rate bond's price move inversely to interest rates?",
+        choices: [
+          "It doesn't — bond prices and rates move in the same direction",
+          "As rates rise, the bond's fixed coupon becomes less attractive relative to new bonds paying higher rates, so its price falls",
+          "Bond prices are set randomly and unrelated to rates",
+          "Only floating-rate bonds are affected by interest rates",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A fixed-rate bond's value falls when new bonds offer higher yields, since investors won't pay full price for a lower fixed payment stream — that's the inverse price/rate relationship.",
+      },
+      {
+        id: "q4",
+        prompt: "What does \"duration\" measure, in the context of sizing an interest rate hedge?",
+        choices: [
+          "How many days until the futures contract expires",
+          "A bond's sensitivity to a given change in interest rates",
+          "The length of the futures contract's trading day",
+          "The number of coupon payments remaining",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Duration measures how much a bond's price is expected to move for a given change in rates — longer-duration bonds are more rate-sensitive, so hedgers size their futures position with duration in mind.",
+      },
+      {
+        id: "q5",
+        prompt: "Why might an interest rate futures hedge be imperfect even when correctly sized?",
+        choices: [
+          "Futures contracts settle instantly, leaving no room for error",
+          "The specific bonds held may not move in perfect lockstep with the futures contract's benchmark instrument — basis risk",
+          "Interest rate futures don't actually exist",
+          "Hedging always doubles the original risk",
+        ],
+        correctIndex: 1,
+        explanation:
+          "As with any futures hedge, the hedged position and the futures' own underlying benchmark aren't identical, so their prices can diverge — a source of basis risk that keeps even a well-sized hedge from being perfect.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-contrarian-trading-mean-reversion",
+    title: "Contrarian trading (mean-reversion)",
+    summary:
+      "A strategy that bets prices which have moved unusually far from their typical range will snap back toward it — the opposite premise of trend following.",
+    body: [
+      "Mean-reversion, or contrarian, trading is built on the opposite premise from trend following: rather than betting that a move will continue, it bets that a price which has moved unusually far from some reference level — a moving average, a historical range, a statistical band — will tend to snap back toward that level. The trader buys after a sharp, seemingly overdone decline, and sells or shorts after a sharp, seemingly overdone rally.",
+      "A simple example rule: when a price falls more than two standard deviations below its 20-day average, buy, expecting a bounce back toward the average; when it rises more than two standard deviations above, sell or short, expecting a pullback. The trader is essentially betting against the crowd at moments of apparent extremes.",
+      "Mean-reversion strategies tend to have a high win rate with small, frequent gains, punctuated by occasional large losses — almost the mirror image of trend following's profile. Most short-term overshoots do snap back as expected, but the rare times a market keeps moving strongly in one direction — a genuine new trend, not a temporary overshoot — can produce an outsized loss for a contrarian position that keeps fighting the move.",
+      "Because of that loss profile, disciplined risk controls — a hard stop-loss, or limiting how much a position is added to as price keeps moving against the entry — are essential to mean-reversion trading. Without them, the strategy is exposed to the specific risk of being run over by a real, sustained trend that never reverts.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is the core premise behind mean-reversion (contrarian) trading?",
+        choices: [
+          "A price that has moved far from a reference level will keep moving in that same direction",
+          "A price that has moved unusually far from a reference level will tend to snap back toward it",
+          "Prices move in a perfectly random walk with no exploitable pattern",
+          "You should always buy the most expensive asset available",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Mean-reversion bets on a snapback toward a typical range or average — the opposite premise from trend following's bet on persistence.",
+      },
+      {
+        id: "q2",
+        prompt: "A simple mean-reversion rule might be to buy when price falls:",
+        choices: [
+          "Above its long-term average",
+          "More than a set number of standard deviations below its short-term average, expecting a bounce back",
+          "To exactly zero",
+          "In line with its historical average, with no deviation",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Buying after an unusually large drop below a short-term average, and expecting reversion toward that average, is a textbook mean-reversion entry signal.",
+      },
+      {
+        id: "q3",
+        prompt: "Compared to trend following, mean-reversion strategies typically show:",
+        choices: [
+          "A low win rate with a few very large winners",
+          "A high win rate with small, frequent gains, punctuated by occasional large losses",
+          "An identical risk and reward profile",
+          "Guaranteed profitability with no downside",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Most short-term overshoots do revert as expected, producing frequent small wins, but the rare case of a genuine sustained trend can produce an outsized loss for a contrarian position — roughly the mirror image of trend following's profile.",
+      },
+      {
+        id: "q4",
+        prompt: "Why is disciplined risk management, like a hard stop-loss, especially important for mean-reversion trading?",
+        choices: [
+          "It isn't — mean-reversion trades never lose money",
+          "A real, sustained trend that never reverts can produce an outsized loss if the position isn't cut",
+          "Stop-losses are required by exchange rules for all futures trades",
+          "It only matters for trend-following strategies, not contrarian ones",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Because a contrarian position bets against the current move, the rare case where that move is a genuine new trend, not an overshoot, can run against the position for a long time without risk controls in place.",
+      },
+      {
+        id: "q5",
+        prompt: "A contrarian trader who sells (shorts) after a sharp, unusually large rally is betting that:",
+        choices: [
+          "The rally will continue indefinitely",
+          "The price is likely to pull back toward a more typical level",
+          "The asset will be delisted from trading",
+          "Interest rates will rise",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The core contrarian bet is that an extreme, fast move is more likely to partially reverse than to keep extending in the same direction.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-contrarian-trading-market-activity",
+    title: "Contrarian trading – market activity",
+    summary:
+      "A contrarian approach that reads trading volume and open interest, not just price, to spot when a move may be running out of participants to sustain it.",
+    body: [
+      "This is a variant of contrarian trading that looks beyond price alone and incorporates market activity data — trading volume and open interest, the number of outstanding futures contracts that haven't been closed out — to judge whether a price move is likely to continue or is running out of steam.",
+      "The logic: a price move backed by strong, rising volume and rising open interest suggests genuine new money and conviction are flowing into the move, making it more likely to persist, at least for now. A price move that continues on thinning volume and falling open interest suggests the move is increasingly running on fumes — fewer participants are willing to keep pushing it further, and existing positions are being closed out rather than added to, which a contrarian trader reads as a warning sign the move could reverse.",
+      "A classic pattern: a strong price rally accompanied by declining volume and declining open interest is viewed skeptically by activity-based contrarian traders. It suggests the rally is being sustained by a shrinking pool of participants — often short-covering, where traders who bet against the move are forced to buy back their positions — rather than fresh buying interest, making it a candidate for a reversal once that short-covering is exhausted.",
+      "This approach requires more data than a pure price-based contrarian rule, since volume and open interest for futures are typically published daily by the exchange with a delay, and is usually combined with price-based signals rather than used entirely on its own. Activity data adds context about who is driving a move and how sustainable the current participation looks, rather than replacing a price signal outright.",
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "In addition to price, what two pieces of market activity data does this contrarian approach rely on?",
+        choices: [
+          "Interest rates and inflation reports",
+          "Trading volume and open interest",
+          "The exchange's daily trading hours",
+          "The number of exchanges listing the contract",
+        ],
+        correctIndex: 1,
+        explanation:
+          "This variant of contrarian trading specifically incorporates volume (how many contracts traded) and open interest (how many contracts remain outstanding) alongside price.",
+      },
+      {
+        id: "q2",
+        prompt: "What does open interest measure?",
+        choices: [
+          "The total dollar value traded in a single day",
+          "The number of outstanding futures contracts that haven't yet been closed out",
+          "The interest rate charged on margin loans",
+          "How many traders are interested in a market but haven't traded yet",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Open interest counts the number of futures contracts currently open (not yet offset or delivered) — a measure of how much money is committed to the market, distinct from volume.",
+      },
+      {
+        id: "q3",
+        prompt: "A price rally accompanied by rising volume and rising open interest generally suggests:",
+        choices: [
+          "The move is likely running out of participants and about to reverse",
+          "Genuine new money and conviction are flowing into the move",
+          "The exchange has made an error in its reporting",
+          "The contract is about to expire",
+        ],
+        correctIndex: 1,
+        explanation: "Rising volume and rising open interest alongside a price move typically signal fresh participation and conviction behind that move.",
+      },
+      {
+        id: "q4",
+        prompt:
+          "A rally that continues on declining volume and declining open interest is often read by contrarian traders as a sign that:",
+        choices: [
+          "The rally is unusually strong and likely to continue for a long time",
+          "The move may be increasingly sustained by short-covering rather than fresh buying, and could be running out of steam",
+          "Open interest data is irrelevant to price direction",
+          "The contract has become more liquid than before",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A rally on thinning volume and falling open interest suggests fewer participants are willing to keep pushing the move — often a sign it's being propped up by short-covering rather than genuine new demand, a classic setup contrarian traders watch for.",
+      },
+      {
+        id: "q5",
+        prompt: "How is market-activity-based contrarian analysis usually applied in practice?",
+        choices: [
+          "Entirely on its own, ignoring price",
+          "Combined with price-based signals, since activity data adds context about who is driving a move rather than replacing price analysis",
+          "Only during the final hour of trading",
+          "It cannot be applied to futures markets, only stocks",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Volume and open interest add context about the sustainability and conviction behind a move, but are typically used alongside price signals rather than as a standalone trading rule.",
+      },
+    ],
+  },
 ];

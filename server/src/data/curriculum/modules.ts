@@ -179,6 +179,14 @@ export const modules: Module[] = [
       "How futures contracts are used in practice — hedging price risk, systematic trend following, and trading the shape of the futures curve with calendar spreads.",
     order: 1,
     prerequisiteModuleSlugs: [],
-    lessonSlugs: ["futures-hedging-with-futures", "futures-trend-following", "futures-calendar-spread"],
+    lessonSlugs: [
+      "futures-hedging-with-futures",
+      "futures-cross-hedging",
+      "futures-interest-rate-risk-hedging",
+      "futures-trend-following",
+      "futures-contrarian-trading-mean-reversion",
+      "futures-contrarian-trading-market-activity",
+      "futures-calendar-spread",
+    ],
   },
 ];
