@@ -113,7 +113,7 @@ export function ExamPage() {
         </p>
       </header>
 
-      <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+      <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
         <QuizProgress current={currentIndex} total={questions.length} />
 
         <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -123,7 +123,7 @@ export function ExamPage() {
         </div>
 
         {q.kind === "strategy" && q.paramDefs && q.practiceParams && (
-          <div className="mb-4 rounded-lg border border-[#2a3040] bg-[#0e1117] p-4">
+          <div className="mb-4 rounded-lg border border-[#2a3040] bg-[#0e1117] card-glow p-4">
             <div className="mb-2 text-xs uppercase tracking-wide text-[#898781]">Given</div>
             <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
               {q.paramDefs.map((p) => (

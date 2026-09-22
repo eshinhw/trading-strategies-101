@@ -43,7 +43,7 @@ export function ModulePage() {
       </header>
 
       {!module.unlocked ? (
-        <p className="rounded-lg border border-[#2a3040] bg-[#141821] px-4 py-3 text-sm text-[#898781]">
+        <p className="rounded-lg border border-[#2a3040] bg-[#141821] card-glow px-4 py-3 text-sm text-[#898781]">
           This module is locked. Complete its prerequisite module(s) first.
         </p>
       ) : (
@@ -52,7 +52,7 @@ export function ModulePage() {
             <li key={lesson.slug}>
               <Link
                 to={`/lesson/${lesson.slug}`}
-                className="flex items-center gap-4 rounded-lg border border-[#2a3040] bg-[#141821] p-4 transition hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
+                className="flex items-center gap-4 rounded-lg border border-[#2a3040] bg-[#141821] card-glow p-4 transition hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
               >
                 <div
                   className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${

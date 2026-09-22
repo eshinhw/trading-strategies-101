@@ -81,7 +81,7 @@ function CourseCard({ course, progress }: { course: Course; progress: ModulesRes
       to={`/courses/${course.slug}`}
       className={`flex flex-col rounded-xl border p-5 transition ${
         course.status === "available"
-          ? "border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
+          ? "card-glow border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
           : "border-[#2a3040]/60 bg-[#101319] hover:border-[#2a3040]"
       }`}
     >

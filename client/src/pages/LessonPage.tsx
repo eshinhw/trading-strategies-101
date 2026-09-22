@@ -104,7 +104,7 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
         <p className="mt-2 text-lg text-[#9aa3b2]">{lesson.summary}</p>
       </header>
 
-      <div className="mb-8 flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] p-6">
+      <div className="mb-8 flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6">
         {lesson.body.map((para, i) => (
           <p key={i} className="leading-relaxed text-[#e6e8ec]">
             {para}
@@ -155,7 +155,7 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
         <InfoCard title="How to use it" text={strategy.content.howToUse} />
       </section>
 
-      <section className="mb-8 rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+      <section className="mb-8 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
         <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Scenario</h3>
         <p className="leading-relaxed text-[#e6e8ec]">{strategy.content.scenario}</p>
       </section>
@@ -181,7 +181,7 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
         <StatTile label="Legs" value={String(strategy.legCount)} tone="neutral" />
       </section>
 
-      <section className="mb-10 rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+      <section className="mb-10 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
         <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
         <PayoffChart
           curve={stats.curve}
@@ -212,7 +212,7 @@ function FormulaReference({ strategy }: { strategy: Extract<LessonDetail, { kind
         {show ? "Hide" : "Show"} the formulas (§{strategy.section})
       </button>
       {show && (
-        <div className="mt-3 grid grid-cols-1 gap-3 rounded-xl border border-[#2a3040] bg-[#141821] p-5 font-mono text-sm text-[#9aa3b2] sm:grid-cols-2">
+        <div className="mt-3 grid grid-cols-1 gap-3 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5 font-mono text-sm text-[#9aa3b2] sm:grid-cols-2">
           <div>
             <div className="text-xs uppercase tracking-wide text-[#898781]">Payoff</div>
             <div className="mt-0.5 break-words text-[#e6e8ec]">{strategy.formulas.payoff}</div>
@@ -237,7 +237,7 @@ function FormulaReference({ strategy }: { strategy: Extract<LessonDetail, { kind
 
 function InfoCard({ title, text }: { title: string; text: string }) {
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+    <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
       <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">{title}</h3>
       <p className="text-sm leading-relaxed text-[#e6e8ec]">{text}</p>
     </div>

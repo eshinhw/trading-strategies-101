@@ -124,8 +124,8 @@ function ExamSection({ slug }: { slug: string }) {
       className={`mt-6 rounded-xl border p-5 ${
         status.unlocked
           ? passed
-            ? "border-emerald-500/30 bg-emerald-500/10"
-            : "border-[#4f8cff]/30 bg-[#4f8cff]/10"
+            ? "card-glow border-emerald-500/30 bg-emerald-500/10"
+            : "card-glow border-[#4f8cff]/30 bg-[#4f8cff]/10"
           : "border-[#2a3040]/60 bg-[#101319] opacity-60"
       }`}
     >
@@ -170,7 +170,7 @@ function ModuleRow({ module: m, index }: { module: ModulesResponse["modules"][nu
     <div
       className={`flex items-center gap-4 rounded-xl border p-5 transition ${
         m.unlocked
-          ? "border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
+          ? "card-glow border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
           : "border-[#2a3040]/60 bg-[#101319] opacity-60"
       }`}
     >
@@ -212,7 +212,7 @@ function ModuleRow({ module: m, index }: { module: ModulesResponse["modules"][nu
 
 function ComingSoonStrategies({ course }: { course: Course }) {
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+    <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
       <h3 className="mb-1 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">What this course will cover</h3>
       <p className="mb-4 text-sm text-[#898781]">
         {course.strategyCount} strategies from §{course.section} of the curriculum — lessons for this course haven't

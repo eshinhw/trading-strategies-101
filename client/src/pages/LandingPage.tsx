@@ -41,9 +41,6 @@ function Hero() {
       />
       <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
-          <span className="inline-block rounded-full border border-[#4f8cff]/30 bg-[#4f8cff]/10 px-3 py-1 text-xs font-medium text-[#4f8cff]">
-            For early-career analysts &amp; traders
-          </span>
           <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6e8ec] sm:text-5xl">
             Learn trading strategies by using them, not memorizing them.
           </h1>
@@ -94,7 +91,7 @@ function HeroDemo() {
   }, [lesson]);
 
   return (
-    <div className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5 shadow-2xl shadow-black/40">
+    <div className="rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5 shadow-2xl shadow-black/40">
       <div className="mb-3 flex items-center justify-between">
         <div>
           <div className="text-xs uppercase tracking-wide text-[#898781]">Live from the Options course</div>
@@ -143,7 +140,7 @@ function Features() {
     <section className="mx-auto max-w-5xl px-6 py-16">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
         {items.map((it) => (
-          <div key={it.title} className="rounded-xl border border-[#2a3040] bg-[#141821] p-6">
+          <div key={it.title} className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6">
             <h3 className="mb-2 font-semibold text-[#e6e8ec]">{it.title}</h3>
             <p className="text-sm leading-relaxed text-[#9aa3b2]">{it.body}</p>
           </div>
@@ -175,7 +172,7 @@ function CoursesPreview() {
                 to={`/courses/${c.slug}`}
                 className={`flex flex-col rounded-xl border p-5 transition ${
                   c.status === "available"
-                    ? "border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
+                    ? "card-glow border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
                     : "border-[#2a3040]/60 bg-[#101319] hover:border-[#2a3040]"
                 }`}
               >

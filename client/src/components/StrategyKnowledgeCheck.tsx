@@ -126,7 +126,7 @@ export function StrategyKnowledgeCheck({
   }
 
   const givenPanel = (
-    <div className="mb-5 rounded-lg border border-[#2a3040] bg-[#0e1117] p-4">
+    <div className="mb-5 rounded-lg border border-[#2a3040] bg-[#0e1117] card-glow p-4">
       <div className="mb-2 text-xs uppercase tracking-wide text-[#898781]">Given</div>
       <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
         {strategy.params.map((p) => (
@@ -141,7 +141,7 @@ export function StrategyKnowledgeCheck({
 
   if (result) {
     return (
-      <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+      <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
         <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
           Knowledge check
         </h3>
@@ -153,7 +153,7 @@ export function StrategyKnowledgeCheck({
   const correct = isChecked ? isQuestionCorrect(q) : false;
 
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+    <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
       <QuizProgress current={currentIndex} total={questions.length} />
       {givenPanel}
 

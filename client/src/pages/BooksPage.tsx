@@ -120,7 +120,7 @@ function CategorySection({ category, books }: { category: BookCategoryInfo; book
 
 function BookCard({ book }: { book: Book }) {
   return (
-    <div className="flex flex-col rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+    <div className="flex flex-col rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
       <div className="mb-1 flex items-start justify-between gap-2">
         <h3 className="font-semibold text-[#e6e8ec]">{book.title}</h3>
         <span className={`shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium ${LEVEL_CLASSES[book.level]}`}>

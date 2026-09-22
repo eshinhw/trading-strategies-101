@@ -65,7 +65,7 @@ export function ConceptQuiz({
 
   if (result) {
     return (
-      <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+      <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
         <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
           Knowledge check
         </h3>
@@ -75,7 +75,7 @@ export function ConceptQuiz({
   }
 
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+    <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
       <QuizProgress current={currentIndex} total={questions.length} />
 
       <p className="mb-3 text-sm text-[#e6e8ec]">{q.prompt}</p>

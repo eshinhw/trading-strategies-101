@@ -13,7 +13,7 @@ export function ParamControls({
   onReset: () => void;
 }) {
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+    <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
           Adjust parameters
