@@ -242,4 +242,23 @@ export const modules: Module[] = [
       "stocks-machine-learning-knn",
     ],
   },
+  {
+    slug: "etfs-fundamentals",
+    courseSlug: "etfs",
+    title: "ETF Fundamentals",
+    description:
+      "Sector and alpha rotation strategies (plain, MA-filtered, and dual momentum), the technical tools that refine and complement them (R-squared, mean-reversion), and structural ETF mechanics (leveraged ETF decay, multi-asset trend following).",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "etf-sector-momentum-rotation",
+      "etf-sector-momentum-rotation-with-ma-filter",
+      "etf-dual-momentum-sector-rotation",
+      "etf-alpha-rotation",
+      "etf-r-squared",
+      "etf-mean-reversion",
+      "etf-leveraged-etfs",
+      "etf-multi-asset-trend-following",
+    ],
+  },
 ];

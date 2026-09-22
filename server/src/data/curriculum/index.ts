@@ -2,10 +2,16 @@ import { optionsStrategies } from "../options/index.js";
 import { conceptLessons as foundationsConceptLessons } from "./conceptLessons.js";
 import { futuresConceptLessons } from "./futuresConceptLessons.js";
 import { stocksConceptLessons } from "./stocksConceptLessons.js";
+import { etfConceptLessons } from "./etfConceptLessons.js";
 import { modules } from "./modules.js";
 import type { Module } from "./types.js";
 
-export const conceptLessons = [...foundationsConceptLessons, ...futuresConceptLessons, ...stocksConceptLessons];
+export const conceptLessons = [
+  ...foundationsConceptLessons,
+  ...futuresConceptLessons,
+  ...stocksConceptLessons,
+  ...etfConceptLessons,
+];
 export { modules };
 
 const strategyBySlug = new Map(optionsStrategies.map((s) => [s.slug, s]));

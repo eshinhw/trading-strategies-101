@@ -71,7 +71,7 @@ export const courses: Course[] = [
     section: "4",
     description:
       "Sector and alpha rotation, plus strategies specific to how ETFs trade relative to their underlying holdings.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 8,
     strategyTitles: [
       "Sector momentum rotation",
