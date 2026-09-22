@@ -256,6 +256,11 @@ export const stocksConceptLessons: ConceptLesson[] = [
     body: [
       { type: "paragraph", text: "This is a form of mean-reversion trading applied to a single, well-defined cluster of closely related stocks — for example, all the major stocks within one narrow industry, like large regional banks or big-box retailers — rather than to a broad, diverse market index. The trader computes some measure of the group's collective typical behavior, such as the cluster's average return over a short window, and looks for individual members whose price has deviated unusually far from that group average." },
       { type: "paragraph", text: "The trading rule follows directly: when one stock in the cluster has fallen well below the group's recent average performance while its close peers haven't, buy it, expecting it to catch back up toward the cluster; when one stock has risen well above the group's average, sell or short it, expecting it to fall back in line." },
+      {
+        type: "image",
+        diagramId: "cluster-deviation",
+        caption: "One stock falls away from its peers while the rest of the cluster holds its band — the laggard is the buy candidate.",
+      },
       { type: "paragraph", text: "This differs from pairs trading in scope: a pair looks at the relationship between exactly two stocks, while a single-cluster mean-reversion strategy looks at one stock's deviation from a whole group of peers at once, which can make the signal more statistically robust — a genuine outlier relative to five or ten closely related peers is a stronger signal than a divergence measured against just one other stock." },
       { type: "paragraph", text: "Choosing the right cluster matters enormously: the stocks need to be similar enough in what drives their business — same industry, similar size, similar exposure to the same economic factors — that reverting to the group average is actually a sensible expectation, rather than grouping together stocks that only superficially resemble each other and have no real reason to move together." },
     ],
@@ -335,6 +340,11 @@ export const stocksConceptLessons: ConceptLesson[] = [
     body: [
       { type: "paragraph", text: "A moving average smooths out day-to-day price noise by averaging a stock's closing price over a fixed lookback window — a 50-day or 200-day moving average is common — recalculated fresh each day as the window rolls forward. A single-moving-average strategy uses just one such average as its entire trading signal." },
       { type: "paragraph", text: "The rule is simple: when the stock's price is above its moving average, hold a long position, or stay long; when price falls below the moving average, exit the position, or go short in strategies that allow it. The moving average acts as a dynamic line in the sand — price crossing above or below it is treated as a shift from an uptrend to a downtrend, or vice versa." },
+      {
+        type: "image",
+        diagramId: "single-moving-average",
+        caption: "Price crossing above the moving average signals a long entry; crossing below signals an exit.",
+      },
       { type: "paragraph", text: "This approach is a trend-following rule, closely related in spirit to the moving-average-crossover rule used in futures trend-following, but simpler: it compares price to just one reference line rather than comparing two moving averages of different lengths to each other. That simplicity is both its appeal, easy to compute and explain, and its main weakness." },
       { type: "paragraph", text: "The single-moving-average rule's main drawback shows up in sideways, choppy markets: when price oscillates back and forth across the moving average without establishing a real trend, the strategy generates a series of \"whipsaw\" trades — buying just before a small dip below the average, then selling just before it climbs back above — each one a small loss, with transaction costs compounding the damage. It performs best in markets with sustained, clear directional trends and worst in range-bound, noisy ones." },
     ],
@@ -413,6 +423,11 @@ export const stocksConceptLessons: ConceptLesson[] = [
     summary: "Continuously quoting both a buy and a sell price for a stock, earning the spread between them while managing the inventory risk that comes with it.",
     body: [
       { type: "paragraph", text: "A market maker continuously posts both a bid — a price at which they're willing to buy — and an ask — a price at which they're willing to sell — for a stock, profiting from the difference between the two, the bid-ask spread, by buying from sellers and selling to buyers throughout the day, rather than making a directional bet on where the stock is headed." },
+      {
+        type: "image",
+        diagramId: "bid-ask-spread",
+        caption: "The market maker earns the spread between bid and ask, and skews both quotes lower as unwanted long inventory builds up.",
+      },
       { type: "paragraph", text: "Because a market maker is constantly trading with whoever shows up, they inevitably accumulate inventory — if more people sell to them than buy from them over some stretch, their inventory of the stock grows; if more people buy than sell, it shrinks, or goes negative, meaning they end up short. Managing that inventory, rather than picking direction, is the central skill of market-making." },
       { type: "paragraph", text: "Market makers actively adjust their quoted prices to manage inventory risk: if they've accumulated more of a stock than they want to hold, they'll lower both their bid and ask slightly to encourage buyers and discourage further sellers, nudging their inventory back toward a comfortable level, and do the reverse if they've built up an unwanted short position. This constant, small repricing is a defining feature of the strategy, distinct from a directional trader who holds a fixed view." },
       { type: "paragraph", text: "The central risk in market-making is adverse selection: on average, the people most eager to trade with you right now are often the ones who know something you don't — informed traders who trade aggressively just before news moves the price. A market maker who can't tell informed order flow from routine liquidity-driven trading risks systematically buying right before a stock falls and selling right before it rises, which is why market makers widen their spreads when uncertainty or the risk of informed trading is elevated." },
@@ -1060,6 +1075,11 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "A trend-following rule using three moving averages of different lengths together, requiring stronger alignment before signaling a trade.",
     body: [
       { type: "paragraph", text: "A three-moving-average strategy extends the two-average crossover idea by adding a third moving average — typically a short, medium, and long window, say 10, 50, and 200 days — and requiring some form of alignment among all three before generating a signal, rather than relying on just one crossover event. A common version requires the short average to be above the medium, and the medium above the long, before treating the trend as confirmed bullish, and the reverse ordering for bearish." },
+      {
+        type: "image",
+        diagramId: "three-moving-average-alignment",
+        caption: "Short, medium, and long averages stacking in order confirms the trend rather than relying on a single crossover.",
+      },
       { type: "paragraph", text: "The motivation is filtering out false signals: a single two-average crossover can occasionally be a brief, noisy blip rather than a real trend shift, but requiring three averages to line up in the same order is a stronger, more demanding condition, which tends to trigger less often but with somewhat more confidence that a genuine trend is underway." },
       { type: "paragraph", text: "This comes at a real cost, though: because the three-average alignment condition is stricter, the strategy tends to enter trends later, after more of the early move has already happened, and can also exit later, giving back more of a trend's late-stage reversal before the signal flips — there's a persistent tradeoff between signal quality and timeliness." },
       { type: "paragraph", text: "Traders sometimes also use the middle-length average as an early-warning layer, watching for the short average to cross the medium average as a heads-up signal, while still waiting for full three-way alignment, including the long average, before treating the trend as confirmed and taking a full position — using the three lines together rather than just picking one crossover to act on." },
