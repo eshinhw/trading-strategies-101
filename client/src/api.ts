@@ -98,8 +98,8 @@ export function submitConstruction(
 
 // --- curriculum ---
 
-export function fetchModules(): Promise<ModulesResponse> {
-  return request("/api/curriculum/modules");
+export function fetchModules(courseSlug: string): Promise<ModulesResponse> {
+  return request(`/api/curriculum/modules?course=${courseSlug}`);
 }
 
 export function fetchModule(slug: string): Promise<ModuleDetail> {

@@ -39,13 +39,16 @@ function mapLessons(
 }
 
 router.get("/modules", async (req, res) => {
+  const courseSlug = typeof req.query.course === "string" ? req.query.course : "options";
   const completed = await completedLessonSlugs(req.userId);
-  const statuses = computeModuleStatuses(completed);
+  const statuses = computeModuleStatuses(courseSlug, completed);
+  const courseLessonSlugs = allLessonSlugs(courseSlug);
+  const courseCompleted = new Set([...completed].filter((s) => courseLessonSlugs.includes(s)));
 
   let progressRows: { lessonSlug: string; completed: boolean; bestScore: number | null }[] = [];
   if (req.userId) {
     progressRows = await prisma.lessonProgress.findMany({
-      where: { userId: req.userId, lessonSlug: { in: allLessonSlugs() } },
+      where: { userId: req.userId, lessonSlug: { in: courseLessonSlugs } },
       select: { lessonSlug: true, completed: true, bestScore: true },
     });
   }
@@ -53,8 +56,8 @@ router.get("/modules", async (req, res) => {
 
   res.json({
     signedIn: Boolean(req.userId),
-    totalLessons: allLessonSlugs().length,
-    totalCompleted: completed.size,
+    totalLessons: courseLessonSlugs.length,
+    totalCompleted: courseCompleted.size,
     modules: statuses.map((s) => ({
       slug: s.module.slug,
       title: s.module.title,
@@ -75,7 +78,7 @@ router.get("/modules/:slug", async (req, res) => {
   if (!module) return res.status(404).json({ error: "Module not found" });
 
   const completed = await completedLessonSlugs(req.userId);
-  const statuses = computeModuleStatuses(completed);
+  const statuses = computeModuleStatuses(module.courseSlug, completed);
   const status = statuses.find((s) => s.module.slug === module.slug)!;
 
   let progressRows: { lessonSlug: string; completed: boolean; bestScore: number | null }[] = [];
@@ -89,6 +92,7 @@ router.get("/modules/:slug", async (req, res) => {
 
   res.json({
     slug: module.slug,
+    courseSlug: module.courseSlug,
     title: module.title,
     description: module.description,
     unlocked: status.unlocked,
@@ -119,6 +123,7 @@ router.get("/lessons/:slug", async (req, res) => {
   const base = {
     moduleSlug: module?.slug ?? null,
     moduleTitle: module?.title ?? null,
+    courseSlug: module?.courseSlug ?? null,
     prevLessonSlug,
     nextLessonSlug,
     progress,

@@ -84,8 +84,8 @@ export function ConstructionPage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-amber-400">{error}</p>
-        <Link to="/courses/options" className="mt-4 inline-block text-[#4f8cff] hover:underline">
-          ← Back to course
+        <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
+          ← All courses
         </Link>
       </div>
     );

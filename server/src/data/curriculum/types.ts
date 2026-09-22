@@ -28,6 +28,8 @@ export type LessonRef = ConceptLesson | StrategyLessonRef;
 
 export interface Module {
   slug: string;
+  /** which course (Course.slug) this module belongs to */
+  courseSlug: string;
   title: string;
   description: string;
   order: number;

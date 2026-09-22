@@ -69,7 +69,9 @@ function AvailableCourseModules({ slug }: { slug: string }) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchModules()
+    setData(null);
+    setError(null);
+    fetchModules(slug)
       .then(setData)
       .catch((e) => setError(e.message));
   }, [slug]);

@@ -32,8 +32,8 @@ export function LessonPage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses/options" className="mt-4 inline-block text-[#4f8cff] hover:underline">
-          ← Back to course
+        <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
+          ← All courses
         </Link>
       </div>
     );
@@ -55,7 +55,7 @@ export function LessonPage() {
 function Breadcrumb({ lesson }: { lesson: LessonDetail }) {
   return (
     <div className="mb-4 flex items-center gap-2 text-sm">
-      <Link to="/courses/options" className="text-[#4f8cff] hover:underline">
+      <Link to={lesson.courseSlug ? `/courses/${lesson.courseSlug}` : "/courses"} className="text-[#4f8cff] hover:underline">
         Course
       </Link>
       {lesson.moduleSlug && (

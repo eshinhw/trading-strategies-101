@@ -13,7 +13,7 @@ export const courses: Course[] = [
     section: "10",
     description:
       "Hedging and speculative strategies built directly on futures contracts — cross-hedging, calendar spreads, and trend following.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 7,
     strategyTitles: [
       "Hedging risk with futures",

@@ -39,6 +39,7 @@ export interface ModulesResponse {
 
 export interface ModuleDetail {
   slug: string;
+  courseSlug: string;
   title: string;
   description: string;
   unlocked: boolean;
@@ -55,6 +56,7 @@ export interface LessonProgress {
 interface LessonBase {
   moduleSlug: string | null;
   moduleTitle: string | null;
+  courseSlug: string | null;
   prevLessonSlug: string | null;
   nextLessonSlug: string | null;
   progress: LessonProgress | null;

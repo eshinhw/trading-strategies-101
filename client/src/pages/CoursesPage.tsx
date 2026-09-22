@@ -7,13 +7,21 @@ import { Footer } from "../components/Footer";
 
 export function CoursesPage() {
   const [courses, setCourses] = useState<Course[] | null>(null);
-  const [optionsProgress, setOptionsProgress] = useState<ModulesResponse | null>(null);
+  const [progressByCourse, setProgressByCourse] = useState<Record<string, ModulesResponse>>({});
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    fetchCourses().then(setCourses).catch((e) => setError(e.message));
-    fetchModules().then(setOptionsProgress).catch(() => setOptionsProgress(null));
+    fetchCourses()
+      .then((cs) => {
+        setCourses(cs);
+        for (const c of cs.filter((c) => c.status === "available")) {
+          fetchModules(c.slug)
+            .then((data) => setProgressByCourse((prev) => ({ ...prev, [c.slug]: data })))
+            .catch(() => {});
+        }
+      })
+      .catch((e) => setError(e.message));
   }, []);
 
   const filteredCourses = useMemo(() => {
@@ -57,11 +65,7 @@ export function CoursesPage() {
             ) : (
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {filteredCourses.map((c) => (
-                  <CourseCard
-                    key={c.slug}
-                    course={c}
-                    progress={c.slug === "options" ? optionsProgress : null}
-                  />
+                  <CourseCard key={c.slug} course={c} progress={progressByCourse[c.slug] ?? null} />
                 ))}
               </div>
             )}

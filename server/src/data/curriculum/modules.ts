@@ -6,6 +6,7 @@ import type { Module } from "./types.js";
 export const modules: Module[] = [
   {
     slug: "foundations",
+    courseSlug: "options",
     title: "Foundations",
     description:
       "The vocabulary and mental models every strategy in this course leans on: what an option is, moneyness, reading a payoff diagram, debit vs. credit, and the 'legs' way of thinking about strategies.",
@@ -21,6 +22,7 @@ export const modules: Module[] = [
   },
   {
     slug: "income-strategies",
+    courseSlug: "options",
     title: "Income Strategies",
     description:
       "Strategies built around an existing (or hypothetical) stock position, designed to generate recurring premium income: covered calls, covered puts, protective hedges, and the collar.",
@@ -38,6 +40,7 @@ export const modules: Module[] = [
   },
   {
     slug: "vertical-spreads",
+    courseSlug: "options",
     title: "Vertical Spreads",
     description:
       "The core building block for most of the rest of this course: buying one option and selling another at a different strike, same expiration, to define your risk in a directional bet.",
@@ -47,6 +50,7 @@ export const modules: Module[] = [
   },
   {
     slug: "synthetics-and-combos",
+    courseSlug: "options",
     title: "Synthetics & Combos",
     description:
       "Using options to replicate a stock position (synthetic forwards), cheaper variations of that idea (combos), and a strategy that isolates a pure, near risk-free payoff (the box).",
@@ -56,6 +60,7 @@ export const modules: Module[] = [
   },
   {
     slug: "ladders",
+    courseSlug: "options",
     title: "Ladders",
     description:
       "What happens when you finance a vertical spread with an extra short option — cheaper entry, but a new risk that shows up if the stock moves too far. Also covers adjusting a losing spread into a ladder.",
@@ -65,6 +70,7 @@ export const modules: Module[] = [
   },
   {
     slug: "straddles-and-strangles",
+    courseSlug: "options",
     title: "Straddles & Strangles",
     description:
       "Non-directional strategies that bet on how much the stock moves rather than which way: long versions bet on a big move, short versions bet on the stock staying put.",
@@ -74,6 +80,7 @@ export const modules: Module[] = [
   },
   {
     slug: "synthetic-straddles",
+    courseSlug: "options",
     title: "Synthetic Straddles",
     description:
       "The same straddle payoff shapes, rebuilt from a stock position plus two same-type options instead of a call and a put — useful when you already hold the stock position.",
@@ -88,6 +95,7 @@ export const modules: Module[] = [
   },
   {
     slug: "strap-strip-and-ratios",
+    courseSlug: "options",
     title: "Strap, Strip & Ratio Spreads",
     description:
       "Directionally-biased straddles (strap/strip), and spreads built with unequal numbers of contracts on each leg (ratio backspreads and ratio spreads) — where the leg count itself becomes a lever.",
@@ -104,6 +112,7 @@ export const modules: Module[] = [
   },
   {
     slug: "butterflies",
+    courseSlug: "options",
     title: "Butterflies",
     description:
       "Three-strike, low-cost bets on the stock pinning near a specific price (or, in the short versions, on it moving away from one) — built from two vertical spreads stacked against each other.",
@@ -122,6 +131,7 @@ export const modules: Module[] = [
   },
   {
     slug: "condors",
+    courseSlug: "options",
     title: "Condors",
     description:
       "A butterfly with its middle strike split into two — wider, more forgiving range-bound (or breakout) bets, at the cost of a smaller maximum payoff.",
@@ -138,6 +148,7 @@ export const modules: Module[] = [
   },
   {
     slug: "calendar-and-diagonal-spreads",
+    courseSlug: "options",
     title: "Calendar & Diagonal Spreads",
     description:
       "Strategies that span two different expirations, profiting from the near-term option losing time value faster than the longer-dated one. Introduces Black-Scholes valuation for the still-alive leg.",
@@ -147,6 +158,7 @@ export const modules: Module[] = [
   },
   {
     slug: "seagulls",
+    courseSlug: "options",
     title: "Seagulls",
     description:
       "Three-leg, near-zero-cost strategies that add a protective wing to a combo — the course's capstone module, combining ideas from combos and vertical spreads.",
@@ -158,5 +170,15 @@ export const modules: Module[] = [
       "bearish-short-seagull-spread",
       "bullish-long-seagull-spread",
     ],
+  },
+  {
+    slug: "futures-fundamentals",
+    courseSlug: "futures",
+    title: "Futures Fundamentals",
+    description:
+      "How futures contracts are used in practice — hedging price risk, systematic trend following, and trading the shape of the futures curve with calendar spreads.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["futures-hedging-with-futures", "futures-trend-following", "futures-calendar-spread"],
   },
 ];

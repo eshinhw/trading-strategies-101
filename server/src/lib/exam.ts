@@ -1,4 +1,4 @@
-import { modules, conceptLessons, resolveLesson } from "../data/curriculum/index.js";
+import { conceptLessons, resolveLesson, modulesForCourse } from "../data/curriculum/index.js";
 import { optionsStrategies } from "../data/options/index.js";
 import { generatePracticeParams } from "../data/curriculum/practiceParams.js";
 import { computePayoffStats } from "../engine/payoff.js";
@@ -57,7 +57,7 @@ export function isExaminableCourse(courseSlug: string): boolean {
 export function generateExamQuestions(courseSlug: string): ExamQuestion[] {
   if (!isExaminableCourse(courseSlug)) return [];
 
-  const shuffledModules = shuffle(modules);
+  const shuffledModules = shuffle(modulesForCourse(courseSlug));
   const questions: ExamQuestion[] = [];
 
   shuffledModules.forEach((module, i) => {
@@ -186,5 +186,5 @@ export function gradeExamSubmission(answers: ExamAnswerSubmission[]): ExamGradeR
 /** Whether every module in the course has been fully completed — the exam's unlock condition. */
 export function isCourseFullyComplete(courseSlug: string, completedLessonSlugs: Set<string>): boolean {
   if (!isExaminableCourse(courseSlug)) return false;
-  return modules.every((m) => m.lessonSlugs.every((slug) => completedLessonSlugs.has(slug)));
+  return modulesForCourse(courseSlug).every((m) => m.lessonSlugs.every((slug) => completedLessonSlugs.has(slug)));
 }
