@@ -189,18 +189,18 @@ function CoursesPreview() {
                     : "border-[#2a3040]/60 bg-[#101319] hover:border-[#2a3040]"
                 }`}
               >
-                <div className="mb-2 flex flex-wrap items-center gap-2">
+                <div className="mb-1 flex items-center justify-between gap-2">
+                  <h3 className="font-semibold text-[#e6e8ec]">{c.title}</h3>
                   {c.status === "available" ? (
-                    <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
+                    <span className="shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
                       Available
                     </span>
                   ) : (
-                    <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-400">
+                    <span className="shrink-0 rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-400">
                       Coming soon
                     </span>
                   )}
                 </div>
-                <h3 className="font-semibold text-[#e6e8ec]">{c.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">{c.description}</p>
                 <div className="mt-3 text-xs text-[#898781]">{c.strategyCount} strategies</div>
               </Link>
