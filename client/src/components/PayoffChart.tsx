@@ -16,8 +16,8 @@ const COLOR = {
   line: "#3987e5",
   grid: "#2c2c2a",
   baseline: "#383835",
-  mutedText: "#898781",
-  primaryText: "#e6e8ec",
+  mutedText: "#6f8a7c",
+  primaryText: "#e6f2ec",
 };
 
 function fmtMoney(n: number): string {
@@ -46,8 +46,8 @@ function ChartTooltip({ active, payload }: any) {
   return (
     <div
       style={{
-        background: "#1b2029",
-        border: "1px solid #2a3040",
+        background: "#142b20",
+        border: "1px solid #1e3d2f",
         borderRadius: 8,
         padding: "8px 12px",
         fontSize: 13,

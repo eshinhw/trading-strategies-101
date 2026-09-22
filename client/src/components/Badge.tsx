@@ -18,7 +18,7 @@ export function OutlookBadge({ outlook }: { outlook: Outlook }) {
 
 export function PlainBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-block rounded-full border border-[#2a3040] bg-[#1b2029] px-2.5 py-0.5 text-xs font-medium capitalize text-[#9aa3b2]">
+    <span className="inline-block rounded-full border border-[#1e3d2f] bg-[#142b20] px-2.5 py-0.5 text-xs font-medium capitalize text-[#8fada0]">
       {children}
     </span>
   );

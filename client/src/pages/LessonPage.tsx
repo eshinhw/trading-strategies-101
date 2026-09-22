@@ -31,7 +31,7 @@ export function LessonPage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses/options" className="mt-4 inline-block text-[#4f8cff] hover:underline">
+        <Link to="/courses/options" className="mt-4 inline-block text-[#34c98a] hover:underline">
           ← Back to course
         </Link>
       </div>
@@ -39,7 +39,7 @@ export function LessonPage() {
   }
 
   if (!lesson) {
-    return <div className="mx-auto max-w-3xl px-6 py-16 text-center text-[#898781]">Loading…</div>;
+    return <div className="mx-auto max-w-3xl px-6 py-16 text-center text-[#6f8a7c]">Loading…</div>;
   }
 
   return (
@@ -54,13 +54,13 @@ export function LessonPage() {
 function Breadcrumb({ lesson }: { lesson: LessonDetail }) {
   return (
     <div className="mb-4 flex items-center gap-2 text-sm">
-      <Link to="/courses/options" className="text-[#4f8cff] hover:underline">
+      <Link to="/courses/options" className="text-[#34c98a] hover:underline">
         Course
       </Link>
       {lesson.moduleSlug && (
         <>
-          <span className="text-[#898781]">/</span>
-          <Link to={`/module/${lesson.moduleSlug}`} className="text-[#4f8cff] hover:underline">
+          <span className="text-[#6f8a7c]">/</span>
+          <Link to={`/module/${lesson.moduleSlug}`} className="text-[#34c98a] hover:underline">
             {lesson.moduleTitle}
           </Link>
         </>
@@ -72,21 +72,21 @@ function Breadcrumb({ lesson }: { lesson: LessonDetail }) {
 function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (slug: string) => void }) {
   if (!lesson.prevLessonSlug && !lesson.nextLessonSlug) return null;
   return (
-    <div className="mt-10 flex items-center justify-between border-t border-[#2a3040] pt-6">
+    <div className="mt-10 flex items-center justify-between border-t border-[#1e3d2f] pt-6">
       {lesson.prevLessonSlug ? (
-        <button onClick={() => onNavigate(lesson.prevLessonSlug!)} className="text-sm text-[#4f8cff] hover:underline">
+        <button onClick={() => onNavigate(lesson.prevLessonSlug!)} className="text-sm text-[#34c98a] hover:underline">
           ← Previous lesson
         </button>
       ) : (
         <span />
       )}
       {lesson.nextLessonSlug ? (
-        <button onClick={() => onNavigate(lesson.nextLessonSlug!)} className="text-sm text-[#4f8cff] hover:underline">
+        <button onClick={() => onNavigate(lesson.nextLessonSlug!)} className="text-sm text-[#34c98a] hover:underline">
           Next lesson →
         </button>
       ) : (
         lesson.moduleSlug && (
-          <Link to={`/module/${lesson.moduleSlug}`} className="text-sm text-[#4f8cff] hover:underline">
+          <Link to={`/module/${lesson.moduleSlug}`} className="text-sm text-[#34c98a] hover:underline">
             Back to module →
           </Link>
         )
@@ -100,13 +100,13 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
     <div>
       <header className="mb-6">
         <PlainBadge>Concept</PlainBadge>
-        <h1 className="mt-3 text-3xl font-bold text-[#e6e8ec]">{lesson.title}</h1>
-        <p className="mt-2 text-lg text-[#9aa3b2]">{lesson.summary}</p>
+        <h1 className="mt-3 text-3xl font-bold text-[#e6f2ec]">{lesson.title}</h1>
+        <p className="mt-2 text-lg text-[#8fada0]">{lesson.summary}</p>
       </header>
 
-      <div className="mb-8 flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] p-6">
+      <div className="mb-8 flex flex-col gap-4 rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-6">
         {lesson.body.map((para, i) => (
-          <p key={i} className="leading-relaxed text-[#e6e8ec]">
+          <p key={i} className="leading-relaxed text-[#e6f2ec]">
             {para}
           </p>
         ))}
@@ -144,9 +144,9 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
           <PlainBadge>{strategy.netPosition.replace("-", " ")}</PlainBadge>
           {/* <PlainBadge>§{strategy.section}</PlainBadge> */}
         </div>
-        <h1 className="text-3xl font-bold text-[#e6e8ec]">{strategy.name}</h1>
-        {strategy.aka && <div className="mt-1 text-sm text-[#898781]">a.k.a. {strategy.aka}</div>}
-        <p className="mt-3 max-w-3xl text-lg text-[#9aa3b2]">{strategy.content.summary}</p>
+        <h1 className="text-3xl font-bold text-[#e6f2ec]">{strategy.name}</h1>
+        {strategy.aka && <div className="mt-1 text-sm text-[#6f8a7c]">a.k.a. {strategy.aka}</div>}
+        <p className="mt-3 max-w-3xl text-lg text-[#8fada0]">{strategy.content.summary}</p>
       </header>
 
       <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -155,13 +155,13 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
         <InfoCard title="How to use it" text={strategy.content.howToUse} />
       </section>
 
-      <section className="mb-8 rounded-xl border border-[#2a3040] bg-[#141821] p-5">
-        <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Scenario</h3>
-        <p className="leading-relaxed text-[#e6e8ec]">{strategy.content.scenario}</p>
+      <section className="mb-8 rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
+        <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#8fada0]">Scenario</h3>
+        <p className="leading-relaxed text-[#e6f2ec]">{strategy.content.scenario}</p>
       </section>
 
       <section className="mb-6">
-        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Try it yourself</h3>
+        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#8fada0]">Try it yourself</h3>
         <ParamControls
           params={strategy.params}
           values={params}
@@ -181,8 +181,8 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
         <StatTile label="Legs" value={String(strategy.legCount)} tone="neutral" />
       </section>
 
-      <section className="mb-10 rounded-xl border border-[#2a3040] bg-[#141821] p-5">
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
+      <section className="mb-10 rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#8fada0]">Payoff at expiration</h3>
         <PayoffChart
           curve={stats.curve}
           breakevens={stats.breakevens.filter((b) => b >= stats.displayRange[0] && b <= stats.displayRange[1])}
@@ -208,26 +208,26 @@ function FormulaReference({ strategy }: { strategy: Extract<LessonDetail, { kind
   const [show, setShow] = useState(false);
   return (
     <div>
-      <button onClick={() => setShow((v) => !v)} className="text-sm text-[#4f8cff] hover:underline">
+      <button onClick={() => setShow((v) => !v)} className="text-sm text-[#34c98a] hover:underline">
         {show ? "Hide" : "Show"} the formulas (§{strategy.section})
       </button>
       {show && (
-        <div className="mt-3 grid grid-cols-1 gap-3 rounded-xl border border-[#2a3040] bg-[#141821] p-5 font-mono text-sm text-[#9aa3b2] sm:grid-cols-2">
+        <div className="mt-3 grid grid-cols-1 gap-3 rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5 font-mono text-sm text-[#8fada0] sm:grid-cols-2">
           <div>
-            <div className="text-xs uppercase tracking-wide text-[#898781]">Payoff</div>
-            <div className="mt-0.5 break-words text-[#e6e8ec]">{strategy.formulas.payoff}</div>
+            <div className="text-xs uppercase tracking-wide text-[#6f8a7c]">Payoff</div>
+            <div className="mt-0.5 break-words text-[#e6f2ec]">{strategy.formulas.payoff}</div>
           </div>
           <div>
-            <div className="text-xs uppercase tracking-wide text-[#898781]">Breakeven</div>
-            <div className="mt-0.5 break-words text-[#e6e8ec]">{strategy.formulas.breakeven}</div>
+            <div className="text-xs uppercase tracking-wide text-[#6f8a7c]">Breakeven</div>
+            <div className="mt-0.5 break-words text-[#e6f2ec]">{strategy.formulas.breakeven}</div>
           </div>
           <div>
-            <div className="text-xs uppercase tracking-wide text-[#898781]">Max profit</div>
-            <div className="mt-0.5 break-words text-[#e6e8ec]">{strategy.formulas.maxProfit}</div>
+            <div className="text-xs uppercase tracking-wide text-[#6f8a7c]">Max profit</div>
+            <div className="mt-0.5 break-words text-[#e6f2ec]">{strategy.formulas.maxProfit}</div>
           </div>
           <div>
-            <div className="text-xs uppercase tracking-wide text-[#898781]">Max loss</div>
-            <div className="mt-0.5 break-words text-[#e6e8ec]">{strategy.formulas.maxLoss}</div>
+            <div className="text-xs uppercase tracking-wide text-[#6f8a7c]">Max loss</div>
+            <div className="mt-0.5 break-words text-[#e6f2ec]">{strategy.formulas.maxLoss}</div>
           </div>
         </div>
       )}
@@ -237,9 +237,9 @@ function FormulaReference({ strategy }: { strategy: Extract<LessonDetail, { kind
 
 function InfoCard({ title, text }: { title: string; text: string }) {
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
-      <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">{title}</h3>
-      <p className="text-sm leading-relaxed text-[#e6e8ec]">{text}</p>
+    <div className="rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
+      <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#8fada0]">{title}</h3>
+      <p className="text-sm leading-relaxed text-[#e6f2ec]">{text}</p>
     </div>
   );
 }

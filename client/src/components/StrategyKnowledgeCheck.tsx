@@ -126,13 +126,13 @@ export function StrategyKnowledgeCheck({
   }
 
   const givenPanel = (
-    <div className="mb-5 rounded-lg border border-[#2a3040] bg-[#0e1117] p-4">
-      <div className="mb-2 text-xs uppercase tracking-wide text-[#898781]">Given</div>
+    <div className="mb-5 rounded-lg border border-[#1e3d2f] bg-[#081a13] p-4">
+      <div className="mb-2 text-xs uppercase tracking-wide text-[#6f8a7c]">Given</div>
       <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
         {strategy.params.map((p) => (
-          <span key={p.key} className="text-[#e6e8ec]">
-            <span className="text-[#898781]">{p.label}:</span>{" "}
-            <span className="font-mono text-[#4f8cff]">{practiceParams[p.key]}</span>
+          <span key={p.key} className="text-[#e6f2ec]">
+            <span className="text-[#6f8a7c]">{p.label}:</span>{" "}
+            <span className="font-mono text-[#34c98a]">{practiceParams[p.key]}</span>
           </span>
         ))}
       </div>
@@ -141,8 +141,8 @@ export function StrategyKnowledgeCheck({
 
   if (result) {
     return (
-      <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
-        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
+      <div className="rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
+        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#8fada0]">
           Knowledge check
         </h3>
         <QuizResultPanel result={result} onRetry={retry} />
@@ -153,16 +153,16 @@ export function StrategyKnowledgeCheck({
   const correct = isChecked ? isQuestionCorrect(q) : false;
 
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+    <div className="rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
       <QuizProgress current={currentIndex} total={questions.length} />
       {givenPanel}
 
-      <p className="mb-3 text-sm text-[#e6e8ec]">{q.prompt}</p>
+      <p className="mb-3 text-sm text-[#e6f2ec]">{q.prompt}</p>
 
       {q.type === "numeric-or-unlimited" ? (
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
-            <span className="text-[#898781]">$</span>
+            <span className="text-[#6f8a7c]">$</span>
             <input
               type="number"
               step="0.01"
@@ -190,7 +190,7 @@ export function StrategyKnowledgeCheck({
               placeholder="0.00"
             />
           </div>
-          <label className="flex items-center gap-1.5 text-sm text-[#9aa3b2]">
+          <label className="flex items-center gap-1.5 text-sm text-[#8fada0]">
             <input
               type="checkbox"
               disabled={isChecked}
@@ -201,7 +201,7 @@ export function StrategyKnowledgeCheck({
                   [q.id]: { unlimited: e.target.checked, text: a[q.id]?.text ?? "" },
                 }))
               }
-              className="accent-[#4f8cff]"
+              className="accent-[#34c98a]"
             />
             Unlimited
           </label>
@@ -209,7 +209,7 @@ export function StrategyKnowledgeCheck({
             <button
               onClick={checkNumeric}
               disabled={!isNumericAnswered(numericAnswers[q.id])}
-              className="rounded-lg bg-[#4f8cff] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-[#34c98a] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#2bb37a] disabled:cursor-not-allowed disabled:opacity-40"
             >
               Check answer
             </button>
@@ -231,16 +231,16 @@ export function StrategyKnowledgeCheck({
                       ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
                       : isSelected
                         ? "border-red-500/40 bg-red-500/10 text-red-300"
-                        : "border-[#2a3040] text-[#9aa3b2]"
+                        : "border-[#1e3d2f] text-[#8fada0]"
                     : isSelected
-                      ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
-                      : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
+                      ? "border-[#34c98a] bg-[#34c98a]/10 text-[#e6f2ec]"
+                      : "border-[#1e3d2f] text-[#8fada0] hover:border-[#2c5942]"
                 }`}
               >
                 <input
                   type="radio"
                   name={q.id}
-                  className="accent-[#4f8cff]"
+                  className="accent-[#34c98a]"
                   disabled={isChecked}
                   checked={isSelected}
                   onChange={() => selectChoice(ci)}
@@ -266,7 +266,7 @@ export function StrategyKnowledgeCheck({
         <button
           onClick={() => setCurrentIndex((i) => i - 1)}
           disabled={currentIndex === 0}
-          className="text-sm text-[#4f8cff] hover:underline disabled:cursor-not-allowed disabled:text-[#898781] disabled:no-underline"
+          className="text-sm text-[#34c98a] hover:underline disabled:cursor-not-allowed disabled:text-[#6f8a7c] disabled:no-underline"
         >
           ← Back
         </button>
@@ -274,7 +274,7 @@ export function StrategyKnowledgeCheck({
           <button
             onClick={next}
             disabled={submitting}
-            className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg bg-[#34c98a] px-4 py-2 text-sm font-medium text-white hover:bg-[#2bb37a] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {submitting ? "Grading…" : isLast ? "Finish" : "Next question →"}
           </button>

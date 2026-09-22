@@ -32,15 +32,15 @@ export function CoursesPage() {
     <div>
       <div className="mx-auto max-w-5xl px-6 py-10">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold text-[#e6e8ec]">All courses</h1>
-          <p className="mt-2 max-w-2xl text-[#9aa3b2]">
+          <h1 className="text-3xl font-bold text-[#e6f2ec]">All courses</h1>
+          <p className="mt-2 max-w-2xl text-[#8fada0]">
             One course per asset class — 18 in total. Options is live today; the rest are on the
             roadmap.
           </p>
         </header>
 
         {error && <p className="text-red-400">{error}</p>}
-        {!courses && !error && <p className="text-[#898781]">Loading courses…</p>}
+        {!courses && !error && <p className="text-[#6f8a7c]">Loading courses…</p>}
 
         {courses && (
           <>
@@ -53,7 +53,7 @@ export function CoursesPage() {
             />
 
             {filteredCourses.length === 0 ? (
-              <p className="text-[#898781]">No courses match your search.</p>
+              <p className="text-[#6f8a7c]">No courses match your search.</p>
             ) : (
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {filteredCourses.map((c) => (
@@ -81,12 +81,12 @@ function CourseCard({ course, progress }: { course: Course; progress: ModulesRes
       to={`/courses/${course.slug}`}
       className={`flex flex-col rounded-xl border p-5 transition ${
         course.status === "available"
-          ? "border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
-          : "border-[#2a3040]/60 bg-[#101319] hover:border-[#2a3040]"
+          ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#34c98a]/50 hover:bg-[#12281d]"
+          : "border-[#1e3d2f]/60 bg-[#0a1f16] hover:border-[#1e3d2f]"
       }`}
     >
       <div className="mb-1 flex items-center justify-between gap-2">
-        <h3 className="font-semibold text-[#e6e8ec]">{course.title}</h3>
+        <h3 className="font-semibold text-[#e6f2ec]">{course.title}</h3>
         {course.status === "available" ? (
           <span className="shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
             Available
@@ -97,15 +97,15 @@ function CourseCard({ course, progress }: { course: Course; progress: ModulesRes
           </span>
         )}
       </div>
-      <p className="mt-1 text-sm leading-relaxed text-[#9aa3b2]">{course.description}</p>
+      <p className="mt-1 text-sm leading-relaxed text-[#8fada0]">{course.description}</p>
       <div className="mt-auto pt-3">
-        <div className="text-xs text-[#898781]">{course.strategyCount} strategies</div>
+        <div className="text-xs text-[#6f8a7c]">{course.strategyCount} strategies</div>
         {progress && (
           <div className="mt-3 flex items-center gap-2">
-            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#1b2029]">
-              <div className="h-full rounded-full bg-[#4f8cff]" style={{ width: `${pct}%` }} />
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#142b20]">
+              <div className="h-full rounded-full bg-[#34c98a]" style={{ width: `${pct}%` }} />
             </div>
-            <span className="text-xs text-[#898781]">
+            <span className="text-xs text-[#6f8a7c]">
               {progress.totalCompleted}/{progress.totalLessons}
             </span>
           </div>

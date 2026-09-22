@@ -34,20 +34,20 @@ export function LandingPage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-[#2a3040]">
+    <section className="relative overflow-hidden border-b border-[#1e3d2f]">
       <div
         className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, #4f8cff, transparent)" }}
+        style={{ background: "radial-gradient(closest-side, #34c98a, transparent)" }}
       />
       <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
-          <span className="inline-block rounded-full border border-[#4f8cff]/30 bg-[#4f8cff]/10 px-3 py-1 text-xs font-medium text-[#4f8cff]">
+          <span className="inline-block rounded-full border border-[#34c98a]/30 bg-[#34c98a]/10 px-3 py-1 text-xs font-medium text-[#34c98a]">
             For early-career analysts &amp; traders
           </span>
-          <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6e8ec] sm:text-5xl">
+          <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6f2ec] sm:text-5xl">
             Learn trading strategies by using them, not memorizing them.
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
+          <p className="mt-4 text-lg leading-relaxed text-[#8fada0]">
             Trading Strategies 101 turns a structured curriculum — 18 asset classes, one course each — into hands-on
             lessons. Options is live now: adjust real parameters, watch the payoff diagram respond, then prove you
             understand it with a knowledge check graded against the real math.
@@ -55,15 +55,15 @@ function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               to="/signup"
-              className="rounded-lg bg-[#4f8cff] px-5 py-2.5 font-medium text-white hover:bg-[#3d7ce0]"
+              className="rounded-lg bg-[#34c98a] px-5 py-2.5 font-medium text-white hover:bg-[#2bb37a]"
             >
               Start learning — it's free
             </Link>
-            <a href="#courses" className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+            <a href="#courses" className="text-sm text-[#8fada0] hover:text-[#e6f2ec]">
               Browse all courses ↓
             </a>
           </div>
-          <p className="mt-4 text-sm text-[#898781]">No credit card. Browse and try any lesson before you sign up.</p>
+          <p className="mt-4 text-sm text-[#6f8a7c]">No credit card. Browse and try any lesson before you sign up.</p>
         </div>
         <HeroDemo />
       </div>
@@ -94,15 +94,15 @@ function HeroDemo() {
   }, [lesson]);
 
   return (
-    <div className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5 shadow-2xl shadow-black/40">
+    <div className="rounded-2xl border border-[#1e3d2f] bg-[#0e2118] p-5 shadow-2xl shadow-black/40">
       <div className="mb-3 flex items-center justify-between">
         <div>
-          <div className="text-xs uppercase tracking-wide text-[#898781]">Live from the Options course</div>
-          <h3 className="font-semibold text-[#e6e8ec]">
+          <div className="text-xs uppercase tracking-wide text-[#6f8a7c]">Live from the Options course</div>
+          <h3 className="font-semibold text-[#e6f2ec]">
             {lesson?.kind === "strategy" ? lesson.strategy.name : "Long straddle"}
           </h3>
         </div>
-        <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#9aa3b2]">Interactive</span>
+        <span className="rounded-full border border-[#1e3d2f] px-2 py-0.5 text-xs text-[#8fada0]">Interactive</span>
       </div>
 
       {stats ? (
@@ -114,9 +114,9 @@ function HeroDemo() {
           </div>
         </>
       ) : (
-        <div className="flex h-[360px] items-center justify-center text-sm text-[#898781]">Loading demo…</div>
+        <div className="flex h-[360px] items-center justify-center text-sm text-[#6f8a7c]">Loading demo…</div>
       )}
-      <p className="mt-3 text-xs text-[#898781]">
+      <p className="mt-3 text-xs text-[#6f8a7c]">
         This is the same tool that's in every options lesson — every chart in the course is live, not a screenshot.
       </p>
     </div>
@@ -143,9 +143,9 @@ function Features() {
     <section className="mx-auto max-w-5xl px-6 py-16">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
         {items.map((it) => (
-          <div key={it.title} className="rounded-xl border border-[#2a3040] bg-[#141821] p-6">
-            <h3 className="mb-2 font-semibold text-[#e6e8ec]">{it.title}</h3>
-            <p className="text-sm leading-relaxed text-[#9aa3b2]">{it.body}</p>
+          <div key={it.title} className="rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-6">
+            <h3 className="mb-2 font-semibold text-[#e6f2ec]">{it.title}</h3>
+            <p className="text-sm leading-relaxed text-[#8fada0]">{it.body}</p>
           </div>
         ))}
       </div>
@@ -163,9 +163,9 @@ function CoursesPreview() {
   }, []);
 
   return (
-    <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
+    <section id="courses" className="border-t border-[#1e3d2f] bg-[#081a13] py-16">
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-2xl font-bold text-[#e6e8ec]">18 courses, one per asset class</h2>
+        <h2 className="text-2xl font-bold text-[#e6f2ec]">18 courses, one per asset class</h2>
 
         {courses && (
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -175,12 +175,12 @@ function CoursesPreview() {
                 to={`/courses/${c.slug}`}
                 className={`flex flex-col rounded-xl border p-5 transition ${
                   c.status === "available"
-                    ? "border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
-                    : "border-[#2a3040]/60 bg-[#101319] hover:border-[#2a3040]"
+                    ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#34c98a]/50 hover:bg-[#12281d]"
+                    : "border-[#1e3d2f]/60 bg-[#0a1f16] hover:border-[#1e3d2f]"
                 }`}
               >
                 <div className="mb-1 flex items-center justify-between gap-2">
-                  <h3 className="font-semibold text-[#e6e8ec]">{c.title}</h3>
+                  <h3 className="font-semibold text-[#e6f2ec]">{c.title}</h3>
                   {c.status === "available" ? (
                     <span className="shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
                       Available
@@ -191,8 +191,8 @@ function CoursesPreview() {
                     </span>
                   )}
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">{c.description}</p>
-                <div className="mt-auto pt-3 text-xs text-[#898781]">{c.strategyCount} strategies</div>
+                <p className="mt-2 text-sm leading-relaxed text-[#8fada0]">{c.description}</p>
+                <div className="mt-auto pt-3 text-xs text-[#6f8a7c]">{c.strategyCount} strategies</div>
               </Link>
             ))}
           </div>
@@ -205,15 +205,15 @@ function CoursesPreview() {
 function FinalCta() {
   return (
     <section className="mx-auto max-w-5xl px-6 py-16 text-center">
-      <h2 className="text-2xl font-bold text-[#e6e8ec]">Ready to start?</h2>
-      <p className="mx-auto mt-2 max-w-md text-[#9aa3b2]">
+      <h2 className="text-2xl font-bold text-[#e6f2ec]">Ready to start?</h2>
+      <p className="mx-auto mt-2 max-w-md text-[#8fada0]">
         Create a free account to save your progress and unlock modules as you complete them.
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-        <Link to="/signup" className="rounded-lg bg-[#4f8cff] px-5 py-2.5 font-medium text-white hover:bg-[#3d7ce0]">
+        <Link to="/signup" className="rounded-lg bg-[#34c98a] px-5 py-2.5 font-medium text-white hover:bg-[#2bb37a]">
           Sign up free
         </Link>
-        <Link to="/login" className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+        <Link to="/login" className="text-sm text-[#8fada0] hover:text-[#e6f2ec]">
           Already have an account? Sign in
         </Link>
       </div>

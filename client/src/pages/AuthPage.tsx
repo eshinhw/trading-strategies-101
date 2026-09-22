@@ -34,10 +34,10 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
 
   return (
     <div className="mx-auto max-w-sm px-6 py-16">
-      <h1 className="mb-1 text-2xl font-bold text-[#e6e8ec]">
+      <h1 className="mb-1 text-2xl font-bold text-[#e6f2ec]">
         {mode === "signup" ? "Create your account" : "Welcome back"}
       </h1>
-      <p className="mb-6 text-sm text-[#9aa3b2]">
+      <p className="mb-6 text-sm text-[#8fada0]">
         {mode === "signup"
           ? "Track your progress through the course."
           : "Sign in to pick up where you left off."}
@@ -74,7 +74,7 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
             className="input"
           />
           {mode === "signup" && (
-            <div className="mt-1 text-xs text-[#898781]">At least 8 characters.</div>
+            <div className="mt-1 text-xs text-[#6f8a7c]">At least 8 characters.</div>
           )}
         </Field>
 
@@ -83,24 +83,24 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
         <button
           type="submit"
           disabled={submitting}
-          className="mt-2 rounded-lg bg-[#4f8cff] px-4 py-2 font-medium text-white hover:bg-[#3d7ce0] disabled:opacity-50"
+          className="mt-2 rounded-lg bg-[#34c98a] px-4 py-2 font-medium text-white hover:bg-[#2bb37a] disabled:opacity-50"
         >
           {submitting ? "Please wait…" : mode === "signup" ? "Create account" : "Sign in"}
         </button>
       </form>
 
-      <p className="mt-6 text-sm text-[#9aa3b2]">
+      <p className="mt-6 text-sm text-[#8fada0]">
         {mode === "signup" ? (
           <>
             Already have an account?{" "}
-            <Link to="/login" className="text-[#4f8cff] hover:underline">
+            <Link to="/login" className="text-[#34c98a] hover:underline">
               Sign in
             </Link>
           </>
         ) : (
           <>
             New here?{" "}
-            <Link to="/signup" className="text-[#4f8cff] hover:underline">
+            <Link to="/signup" className="text-[#34c98a] hover:underline">
               Create an account
             </Link>
           </>
@@ -113,7 +113,7 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label className="block text-sm">
-      <span className="mb-1 block text-[#9aa3b2]">{label}</span>
+      <span className="mb-1 block text-[#8fada0]">{label}</span>
       {children}
     </label>
   );
