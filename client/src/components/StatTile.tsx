@@ -23,8 +23,8 @@ export function StatTile({
   const display = typeof value === "number" || value === "unlimited" ? fmtStat(value) : value;
 
   return (
-    <div className="rounded-lg border border-[#1e3d2f] bg-[#0e2118] px-4 py-3">
-      <div className="text-xs uppercase tracking-wide text-[#6f8a7c]">{label}</div>
+    <div className="rounded-lg border border-[#2a3040] bg-[#141821] px-4 py-3">
+      <div className="text-xs uppercase tracking-wide text-[#898781]">{label}</div>
       <div className={`mt-1 text-lg font-semibold ${toneClass}`}>{display}</div>
     </div>
   );

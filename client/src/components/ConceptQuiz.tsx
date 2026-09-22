@@ -65,8 +65,8 @@ export function ConceptQuiz({
 
   if (result) {
     return (
-      <div className="rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
-        <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#8fada0]">
+      <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+        <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
           Knowledge check
         </h3>
         <QuizResultPanel result={result} onRetry={retry} />
@@ -75,10 +75,10 @@ export function ConceptQuiz({
   }
 
   return (
-    <div className="rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
+    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
       <QuizProgress current={currentIndex} total={questions.length} />
 
-      <p className="mb-3 text-sm text-[#e6f2ec]">{q.prompt}</p>
+      <p className="mb-3 text-sm text-[#e6e8ec]">{q.prompt}</p>
       <div className="flex flex-col gap-1.5">
         {q.choices.map((choice, ci) => {
           const isSelected = answers[q.id] === ci;
@@ -94,16 +94,16 @@ export function ConceptQuiz({
                     ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
                     : isSelected
                       ? "border-red-500/40 bg-red-500/10 text-red-300"
-                      : "border-[#1e3d2f] text-[#8fada0]"
+                      : "border-[#2a3040] text-[#9aa3b2]"
                   : isSelected
-                    ? "border-[#34c98a] bg-[#34c98a]/10 text-[#e6f2ec]"
-                    : "border-[#1e3d2f] text-[#8fada0] hover:border-[#2c5942]"
+                    ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
+                    : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
               }`}
             >
               <input
                 type="radio"
                 name={q.id}
-                className="accent-[#34c98a]"
+                className="accent-[#4f8cff]"
                 checked={isSelected}
                 onChange={() => selectChoice(ci)}
                 onKeyDown={(e) => {
@@ -130,7 +130,7 @@ export function ConceptQuiz({
           }`}
         >
           <span className="font-medium">{isCorrect ? "Correct." : "Not quite."}</span>{" "}
-          <span className="text-[#8fada0]">{q.explanation}</span>
+          <span className="text-[#9aa3b2]">{q.explanation}</span>
         </div>
       )}
 
@@ -138,7 +138,7 @@ export function ConceptQuiz({
         <button
           onClick={() => setCurrentIndex((i) => i - 1)}
           disabled={currentIndex === 0}
-          className="text-sm text-[#34c98a] hover:underline disabled:cursor-not-allowed disabled:text-[#6f8a7c] disabled:no-underline"
+          className="text-sm text-[#4f8cff] hover:underline disabled:cursor-not-allowed disabled:text-[#898781] disabled:no-underline"
         >
           ← Back
         </button>
@@ -146,7 +146,7 @@ export function ConceptQuiz({
           <button
             onClick={next}
             disabled={submitting}
-            className="rounded-lg bg-[#34c98a] px-4 py-2 text-sm font-medium text-white hover:bg-[#2bb37a] disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {submitting ? "Grading…" : isLast ? "Finish" : "Next question →"}
           </button>

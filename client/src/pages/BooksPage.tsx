@@ -10,7 +10,7 @@ const LEVEL_LABEL: Record<Book["level"], string> = {
 
 const LEVEL_CLASSES: Record<Book["level"], string> = {
   beginner: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
-  intermediate: "border-[#34c98a]/30 bg-[#34c98a]/10 text-[#34c98a]",
+  intermediate: "border-[#4f8cff]/30 bg-[#4f8cff]/10 text-[#4f8cff]",
   advanced: "border-amber-500/30 bg-amber-500/10 text-amber-400",
 };
 
@@ -41,15 +41,15 @@ export function BooksPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-10">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-[#e6f2ec]">Books</h1>
-        <p className="mt-2 max-w-2xl text-[#8fada0]">
+        <h1 className="text-3xl font-bold text-[#e6e8ec]">Books</h1>
+        <p className="mt-2 max-w-2xl text-[#9aa3b2]">
           Reading recommended across trading desks and quant research teams — the books that keep showing up on
           industry reading lists, grouped by what they're actually useful for.
         </p>
       </header>
 
       {error && <p className="text-red-400">{error}</p>}
-      {!data && !error && <p className="text-[#6f8a7c]">Loading books…</p>}
+      {!data && !error && <p className="text-[#898781]">Loading books…</p>}
 
       {data && (
         <>
@@ -70,7 +70,7 @@ export function BooksPage() {
           </div>
 
           {filteredBooks.length === 0 ? (
-            <p className="text-[#6f8a7c]">No books match your search.</p>
+            <p className="text-[#898781]">No books match your search.</p>
           ) : (
             <div className="flex flex-col gap-10">
               {data.categories.map((category) => (
@@ -94,8 +94,8 @@ function LevelChip({ label, active, onClick }: { label: string; active: boolean;
       onClick={onClick}
       className={`shrink-0 rounded-full border px-3 py-1 text-xs font-medium transition ${
         active
-          ? "border-[#34c98a]/30 bg-[#34c98a]/10 text-[#34c98a]"
-          : "border-[#1e3d2f] text-[#8fada0] hover:border-[#2c5942] hover:text-[#e6f2ec]"
+          ? "border-[#4f8cff]/30 bg-[#4f8cff]/10 text-[#4f8cff]"
+          : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150] hover:text-[#e6e8ec]"
       }`}
     >
       {label}
@@ -107,8 +107,8 @@ function CategorySection({ category, books }: { category: BookCategoryInfo; book
   if (books.length === 0) return null;
   return (
     <section>
-      <h2 className="text-xl font-bold text-[#e6f2ec]">{category.title}</h2>
-      <p className="mt-1 max-w-2xl text-sm text-[#8fada0]">{category.description}</p>
+      <h2 className="text-xl font-bold text-[#e6e8ec]">{category.title}</h2>
+      <p className="mt-1 max-w-2xl text-sm text-[#9aa3b2]">{category.description}</p>
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
         {books.map((book) => (
           <BookCard key={book.slug} book={book} />
@@ -120,18 +120,18 @@ function CategorySection({ category, books }: { category: BookCategoryInfo; book
 
 function BookCard({ book }: { book: Book }) {
   return (
-    <div className="flex flex-col rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
+    <div className="flex flex-col rounded-xl border border-[#2a3040] bg-[#141821] p-5">
       <div className="mb-1 flex items-start justify-between gap-2">
-        <h3 className="font-semibold text-[#e6f2ec]">{book.title}</h3>
+        <h3 className="font-semibold text-[#e6e8ec]">{book.title}</h3>
         <span className={`shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium ${LEVEL_CLASSES[book.level]}`}>
           {LEVEL_LABEL[book.level]}
         </span>
       </div>
-      <div className="text-sm text-[#6f8a7c]">
+      <div className="text-sm text-[#898781]">
         {book.author} · {book.year}
       </div>
-      <p className="mt-3 text-sm leading-relaxed text-[#8fada0]">{book.summary}</p>
-      <p className="mt-auto pt-3 text-xs text-[#6f8a7c]">{book.whyItsHere}</p>
+      <p className="mt-3 text-sm leading-relaxed text-[#9aa3b2]">{book.summary}</p>
+      <p className="mt-auto pt-3 text-xs text-[#898781]">{book.whyItsHere}</p>
     </div>
   );
 }

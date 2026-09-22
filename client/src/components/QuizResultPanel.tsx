@@ -11,7 +11,7 @@ export function QuizResultPanel({ result, onRetry }: { result: GradeResponse; on
       <div className={`font-semibold ${result.passed ? "text-emerald-400" : "text-amber-400"}`}>
         {result.passed ? `Nice work — ${pct}% correct.` : `${pct}% correct — not quite there yet.`}
       </div>
-      <p className="mt-1 text-sm text-[#8fada0]">
+      <p className="mt-1 text-sm text-[#9aa3b2]">
         {result.passed
           ? result.lessonNewlyCompleted
             ? "Lesson marked complete."
@@ -30,7 +30,7 @@ export function QuizResultPanel({ result, onRetry }: { result: GradeResponse; on
             onRetry();
           }
         }}
-        className="mt-3 text-sm text-[#34c98a] hover:underline"
+        className="mt-3 text-sm text-[#4f8cff] hover:underline"
       >
         Try again
       </button>

@@ -6,7 +6,7 @@ export function HomePage() {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div className="mx-auto max-w-5xl px-6 py-16 text-center text-[#6f8a7c]">Loading…</div>;
+    return <div className="mx-auto max-w-5xl px-6 py-16 text-center text-[#898781]">Loading…</div>;
   }
 
   return user ? <Navigate to="/courses" replace /> : <LandingPage />;

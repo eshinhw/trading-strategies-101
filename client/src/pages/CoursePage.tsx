@@ -23,7 +23,7 @@ export function CoursePage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses" className="mt-4 inline-block text-[#34c98a] hover:underline">
+        <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
           ← All courses
         </Link>
       </div>
@@ -31,18 +31,18 @@ export function CoursePage() {
   }
 
   if (!course) {
-    return <div className="mx-auto max-w-3xl px-6 py-16 text-center text-[#6f8a7c]">Loading…</div>;
+    return <div className="mx-auto max-w-3xl px-6 py-16 text-center text-[#898781]">Loading…</div>;
   }
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
-      <Link to="/courses" className="text-sm text-[#34c98a] hover:underline">
+      <Link to="/courses" className="text-sm text-[#4f8cff] hover:underline">
         ← All courses
       </Link>
 
       <header className="mt-4 mb-8">
         <div className="mb-3 flex flex-wrap items-center gap-2">
-          {/* <span className="rounded-full border border-[#1e3d2f] px-2.5 py-0.5 text-xs text-[#8fada0]">
+          {/* <span className="rounded-full border border-[#2a3040] px-2.5 py-0.5 text-xs text-[#9aa3b2]">
             §{course.section}
           </span> */}
           {course.status === "coming-soon" && (
@@ -51,8 +51,8 @@ export function CoursePage() {
             </span>
           )}
         </div>
-        <h1 className="text-3xl font-bold text-[#e6f2ec]">{course.title}</h1>
-        <p className="mt-2 max-w-2xl text-[#8fada0]">{course.description}</p>
+        <h1 className="text-3xl font-bold text-[#e6e8ec]">{course.title}</h1>
+        <p className="mt-2 max-w-2xl text-[#9aa3b2]">{course.description}</p>
       </header>
 
       {course.status === "available" ? (
@@ -75,18 +75,18 @@ function AvailableCourseModules({ slug }: { slug: string }) {
   }, [slug]);
 
   if (error) return <p className="text-red-400">{error}</p>;
-  if (!data) return <p className="text-[#6f8a7c]">Loading modules…</p>;
+  if (!data) return <p className="text-[#898781]">Loading modules…</p>;
 
   return (
     <>
       <div className="mb-6 flex items-center gap-3">
-        <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#142b20]">
+        <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#1b2029]">
           <div
-            className="h-full rounded-full bg-[#34c98a] transition-all"
+            className="h-full rounded-full bg-[#4f8cff] transition-all"
             style={{ width: `${(data.totalCompleted / data.totalLessons) * 100}%` }}
           />
         </div>
-        <span className="whitespace-nowrap text-sm text-[#8fada0]">
+        <span className="whitespace-nowrap text-sm text-[#9aa3b2]">
           {data.totalCompleted} / {data.totalLessons} lessons
         </span>
       </div>
@@ -125,24 +125,24 @@ function ExamSection({ slug }: { slug: string }) {
         status.unlocked
           ? passed
             ? "border-emerald-500/30 bg-emerald-500/10"
-            : "border-[#34c98a]/30 bg-[#34c98a]/10"
-          : "border-[#1e3d2f]/60 bg-[#0a1f16] opacity-60"
+            : "border-[#4f8cff]/30 bg-[#4f8cff]/10"
+          : "border-[#2a3040]/60 bg-[#101319] opacity-60"
       }`}
     >
       <div className="flex items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="font-semibold text-[#e6f2ec]">Final Quiz</h3>
+            <h3 className="font-semibold text-[#e6e8ec]">Final Quiz</h3>
             {passed && (
               <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
                 Completed
               </span>
             )}
             {!status.unlocked && (
-              <span className="rounded-full border border-[#1e3d2f] px-2 py-0.5 text-xs text-[#6f8a7c]">Locked</span>
+              <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#898781]">Locked</span>
             )}
           </div>
-          <p className="mt-1 text-sm text-[#8fada0]">
+          <p className="mt-1 text-sm text-[#9aa3b2]">
             {status.unlocked
               ? passed
                 ? `You've completed this course — best score ${Math.round((status.progress?.bestScore ?? 0) * 100)}%. Retake any time.`
@@ -153,7 +153,7 @@ function ExamSection({ slug }: { slug: string }) {
         {status.unlocked && (
           <Link
             to={`/courses/${slug}/exam`}
-            className="shrink-0 rounded-lg bg-[#34c98a] px-4 py-2 text-sm font-medium text-white hover:bg-[#2bb37a]"
+            className="shrink-0 rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0]"
           >
             {passed ? "Retake quiz" : "Take the quiz"}
           </Link>
@@ -170,8 +170,8 @@ function ModuleRow({ module: m, index }: { module: ModulesResponse["modules"][nu
     <div
       className={`flex items-center gap-4 rounded-xl border p-5 transition ${
         m.unlocked
-          ? "border-[#1e3d2f] bg-[#0e2118] hover:border-[#34c98a]/50 hover:bg-[#12281d]"
-          : "border-[#1e3d2f]/60 bg-[#0a1f16] opacity-60"
+          ? "border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
+          : "border-[#2a3040]/60 bg-[#101319] opacity-60"
       }`}
     >
       <div
@@ -179,26 +179,26 @@ function ModuleRow({ module: m, index }: { module: ModulesResponse["modules"][nu
           m.completed
             ? "bg-emerald-500/20 text-emerald-400"
             : m.unlocked
-              ? "bg-[#34c98a]/20 text-[#34c98a]"
-              : "bg-[#142b20] text-[#6f8a7c]"
+              ? "bg-[#4f8cff]/20 text-[#4f8cff]"
+              : "bg-[#1b2029] text-[#898781]"
         }`}
       >
         {m.completed ? "✓" : index}
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <h3 className="font-semibold text-[#e6f2ec]">{m.title}</h3>
+          <h3 className="font-semibold text-[#e6e8ec]">{m.title}</h3>
           {!m.unlocked && (
-            <span className="rounded-full border border-[#1e3d2f] px-2 py-0.5 text-xs text-[#6f8a7c]">Locked</span>
+            <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#898781]">Locked</span>
           )}
         </div>
-        <p className="mt-1 text-sm text-[#8fada0]">{m.description}</p>
+        <p className="mt-1 text-sm text-[#9aa3b2]">{m.description}</p>
         {m.unlocked && (
           <div className="mt-3 flex items-center gap-2">
-            <div className="h-1.5 w-40 overflow-hidden rounded-full bg-[#142b20]">
-              <div className="h-full rounded-full bg-[#34c98a]" style={{ width: `${pct}%` }} />
+            <div className="h-1.5 w-40 overflow-hidden rounded-full bg-[#1b2029]">
+              <div className="h-full rounded-full bg-[#4f8cff]" style={{ width: `${pct}%` }} />
             </div>
-            <span className="text-xs text-[#6f8a7c]">
+            <span className="text-xs text-[#898781]">
               {m.completedLessons}/{m.totalLessons}
             </span>
           </div>
@@ -212,16 +212,16 @@ function ModuleRow({ module: m, index }: { module: ModulesResponse["modules"][nu
 
 function ComingSoonStrategies({ course }: { course: Course }) {
   return (
-    <div className="rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
-      <h3 className="mb-1 text-sm font-semibold uppercase tracking-wide text-[#8fada0]">What this course will cover</h3>
-      <p className="mb-4 text-sm text-[#6f8a7c]">
+    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
+      <h3 className="mb-1 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">What this course will cover</h3>
+      <p className="mb-4 text-sm text-[#898781]">
         {course.strategyCount} strategies from §{course.section} of the curriculum — lessons for this course haven't
         been built yet.
       </p>
       <ul className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
         {course.strategyTitles?.map((title) => (
-          <li key={title} className="flex items-start gap-2 text-sm text-[#e6f2ec]">
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#34c98a]" />
+          <li key={title} className="flex items-start gap-2 text-sm text-[#e6e8ec]">
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#4f8cff]" />
             {title}
           </li>
         ))}

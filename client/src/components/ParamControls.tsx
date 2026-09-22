@@ -13,14 +13,14 @@ export function ParamControls({
   onReset: () => void;
 }) {
   return (
-    <div className="rounded-xl border border-[#1e3d2f] bg-[#0e2118] p-5">
+    <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-5">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-[#8fada0]">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
           Adjust parameters
         </h3>
         <button
           onClick={onReset}
-          className="text-xs text-[#34c98a] hover:underline"
+          className="text-xs text-[#4f8cff] hover:underline"
         >
           Reset to defaults
         </button>
@@ -29,10 +29,10 @@ export function ParamControls({
         {params.map((p) => (
           <div key={p.key}>
             <div className="mb-1 flex items-baseline justify-between">
-              <label htmlFor={p.key} className="text-sm text-[#e6f2ec]">
+              <label htmlFor={p.key} className="text-sm text-[#e6e8ec]">
                 {p.label}
               </label>
-              <span className="font-mono text-sm text-[#34c98a]">
+              <span className="font-mono text-sm text-[#4f8cff]">
                 {values[p.key] ?? p.default}
               </span>
             </div>
@@ -44,9 +44,9 @@ export function ParamControls({
               step={p.step}
               value={values[p.key] ?? p.default}
               onChange={(e) => onChange(p.key, Number(e.target.value))}
-              className="w-full accent-[#34c98a]"
+              className="w-full accent-[#4f8cff]"
             />
-            {p.hint && <div className="mt-1 text-xs text-[#6f8a7c]">{p.hint}</div>}
+            {p.hint && <div className="mt-1 text-xs text-[#898781]">{p.hint}</div>}
           </div>
         ))}
       </div>
