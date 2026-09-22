@@ -90,7 +90,7 @@ export const courses: Course[] = [
     section: "5",
     description:
       "Duration and yield-curve strategies for bond portfolios — bullets, barbells, ladders, butterflies, and credit-spread arbitrage.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 15,
     strategyTitles: [
       "Bullets",

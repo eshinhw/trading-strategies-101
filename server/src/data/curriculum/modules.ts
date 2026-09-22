@@ -261,4 +261,21 @@ export const modules: Module[] = [
       "etf-multi-asset-trend-following",
     ],
   },
+  {
+    slug: "fixed-income-fundamentals",
+    courseSlug: "fixed-income",
+    title: "Fixed Income Fundamentals",
+    description:
+      "The classic bond-portfolio structures (bullets, barbells, ladders), immunizing a portfolio against rate risk, a duration-neutral curvature trade, and capturing price gains as a bond ages down the yield curve.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "fixed-income-bullets",
+      "fixed-income-barbells",
+      "fixed-income-ladders",
+      "fixed-income-bond-immunization",
+      "fixed-income-dollar-duration-neutral-butterfly",
+      "fixed-income-rolling-down-the-yield-curve",
+    ],
+  },
 ];
