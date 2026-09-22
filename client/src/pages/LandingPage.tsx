@@ -183,7 +183,7 @@ function CoursesPreview() {
               <Link
                 key={c.slug}
                 to={`/courses/${c.slug}`}
-                className={`rounded-xl border p-5 transition ${
+                className={`flex flex-col rounded-xl border p-5 transition ${
                   c.status === "available"
                     ? "border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
                     : "border-[#2a3040]/60 bg-[#101319] hover:border-[#2a3040]"
@@ -202,7 +202,7 @@ function CoursesPreview() {
                   )}
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">{c.description}</p>
-                <div className="mt-3 text-xs text-[#898781]">{c.strategyCount} strategies</div>
+                <div className="mt-auto pt-3 text-xs text-[#898781]">{c.strategyCount} strategies</div>
               </Link>
             ))}
           </div>

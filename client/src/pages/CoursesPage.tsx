@@ -71,17 +71,19 @@ function CourseCard({ course, progress }: { course: Course; progress: ModulesRes
         )}
       </div>
       <p className="mt-1 text-sm leading-relaxed text-[#9aa3b2]">{course.description}</p>
-      <div className="mt-3 text-xs text-[#898781]">{course.strategyCount} strategies</div>
-      {progress && (
-        <div className="mt-3 flex items-center gap-2">
-          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#1b2029]">
-            <div className="h-full rounded-full bg-[#4f8cff]" style={{ width: `${pct}%` }} />
+      <div className="mt-auto pt-3">
+        <div className="text-xs text-[#898781]">{course.strategyCount} strategies</div>
+        {progress && (
+          <div className="mt-3 flex items-center gap-2">
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#1b2029]">
+              <div className="h-full rounded-full bg-[#4f8cff]" style={{ width: `${pct}%` }} />
+            </div>
+            <span className="text-xs text-[#898781]">
+              {progress.totalCompleted}/{progress.totalLessons}
+            </span>
           </div>
-          <span className="text-xs text-[#898781]">
-            {progress.totalCompleted}/{progress.totalLessons}
-          </span>
-        </div>
-      )}
+        )}
+      </div>
     </Link>
   );
 }
