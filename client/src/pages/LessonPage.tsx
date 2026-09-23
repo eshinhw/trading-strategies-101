@@ -135,8 +135,7 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
   return (
     <div>
       <header className="mb-6">
-        <PlainBadge>Concept</PlainBadge>
-        <h1 className="mt-3 text-3xl font-bold text-[#e6e8ec]">{lesson.title}</h1>
+        <h1 className="text-3xl font-bold text-[#e6e8ec]">{lesson.title}</h1>
         <p className="mt-2 text-lg text-[#9aa3b2]">{lesson.summary}</p>
       </header>
 
