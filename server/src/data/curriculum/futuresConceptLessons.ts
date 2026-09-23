@@ -778,4 +778,256 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "futures-margin-and-mark-to-market",
+    title: "Margin and Daily Settlement",
+    summary:
+      "How futures contracts stay solvent day to day — initial margin, maintenance margin, and the daily mark-to-market process that settles gains and losses in cash every single day.",
+    body: [
+      { type: "heading", text: "Initial Margin" },
+      { type: "paragraph", text: "Unlike a forward, which typically requires no cash upfront, opening a futures position requires posting collateral with the broker and clearinghouse called initial margin — a fraction of the contract's notional value, not the full amount, which is what gives futures their capital efficiency and leverage. The exchange sets initial margin based on the contract's historical volatility, and it's required from both the long and short side of every trade, unlike an option, where only the seller posts margin." },
+      { type: "heading", text: "Maintenance Margin and Margin Calls" },
+      { type: "paragraph", text: "Maintenance margin is a lower threshold, below the initial margin level, that an account's balance is never allowed to fall under. If a run of daily losses pushes the account below that threshold, the broker issues a margin call, requiring the trader to deposit additional cash — variation margin — back up to the initial margin level, typically within one business day, or have the position liquidated to cap further losses." },
+      { type: "heading", text: "Daily Mark-to-Market" },
+      { type: "paragraph", text: "Every trading day, the exchange marks every open futures position to that day's settlement price and credits or debits the resulting gain or loss in cash to each account. This is the core structural difference from a forward, which settles its entire profit or loss in a single lump sum at maturity: a futures trader's gains and losses are realized incrementally, in cash, day by day, rather than accumulating unrealized until expiration." },
+      { type: "heading", text: "Leverage Cuts Both Ways" },
+      { type: "paragraph", text: "Because initial margin is only a small fraction of a contract's notional value, a modest move in the underlying's price translates into a much larger percentage gain or loss on the margin capital actually posted. That same leverage that makes futures capital-efficient for hedgers and speculators also means a string of adverse daily marks can trigger a margin call, or a full liquidation, far faster than an equivalent-sized position in the cash market ever would." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is initial margin?",
+        choices: [
+          "The full notional value of the futures contract, paid upfront",
+          "Collateral posted by both the long and short side, set as a fraction of notional value, required to open a futures position",
+          "A fee paid only by the seller of the contract",
+          "The profit a trader expects to earn from the position",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Initial margin is a fraction of the contract's notional value, posted by both sides of the trade — it's what makes futures capital-efficient and leveraged compared to owning the underlying outright.",
+      },
+      {
+        id: "q2",
+        prompt: "What happens if losses push an account below maintenance margin?",
+        choices: [
+          "Nothing — maintenance margin is only a suggestion",
+          "The broker issues a margin call, requiring a deposit back up to the initial margin level or the position is liquidated",
+          "The contract is automatically extended to a later expiration",
+          "The exchange refunds the trader's initial margin",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Falling below maintenance margin triggers a margin call: the trader must post variation margin to restore the account to the initial margin level, or the position gets liquidated.",
+      },
+      {
+        id: "q3",
+        prompt: "How does daily mark-to-market differ from how a forward contract settles?",
+        choices: [
+          "They are identical — both settle only once, at maturity",
+          "A futures position settles gains and losses in cash every day, while a forward settles its entire profit or loss in one lump sum at maturity",
+          "Futures never settle at all",
+          "A forward settles daily, while futures settle only once",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Daily mark-to-market realizes a futures position's gains and losses incrementally in cash each day, unlike a forward's single lump-sum settlement at expiration.",
+      },
+      {
+        id: "q4",
+        prompt: "Why does the daily mark-to-market process eliminate the counterparty risk that forwards carry?",
+        choices: [
+          "It doesn't — futures carry the exact same counterparty risk as forwards",
+          "Because losses are collected in cash each day rather than allowed to accumulate unpaid over the life of the contract, no single party can build up a large unhonored loss",
+          "Because futures contracts are never allowed to lose value",
+          "Because futures are always held to physical delivery",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Collecting losses daily, in cash, is precisely what prevents the kind of large, unpaid, end-of-contract loss that makes a private forward agreement risky.",
+      },
+      {
+        id: "q5",
+        prompt: "Why does posting only a fraction of notional value as margin create risk for a futures trader?",
+        choices: [
+          "It doesn't create any additional risk",
+          "A modest move in the underlying translates into a much larger percentage gain or loss on the margin capital actually posted, which can trigger a margin call quickly",
+          "Because margin requirements are set randomly by each broker",
+          "Because leverage only ever increases a trader's profits, never their losses",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Since margin is a small fraction of notional value, the same dollar move in the underlying is a much larger percentage move on the margin posted — leverage that cuts both ways.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-contract-specifications",
+    title: "Contract Specifications",
+    summary:
+      "The standardized terms — size, tick, expiration, and quality — that make a futures contract fungible on an exchange, and why that standardization is what a forward trades away for flexibility.",
+    body: [
+      { type: "heading", text: "What Standardization Means" },
+      { type: "paragraph", text: "Where a forward's terms are fully custom, negotiated privately between two specific parties, a futures contract's terms are standardized by the exchange: a fixed contract size (say, 5,000 bushels of corn, or 1,000 barrels of crude oil), a fixed tick size — the minimum allowed price increment — and its corresponding tick value, and a fixed calendar of expiration and delivery months set well in advance." },
+      { type: "heading", text: "Why Standardization Enables Liquidity" },
+      { type: "paragraph", text: "Because every trader in a given contract is trading the exact same terms, one trader's long position is perfectly interchangeable, or fungible, with any other trader's short position in that same contract. That fungibility is what allows a deep, liquid, anonymous market to exist on an exchange — any buyer can be matched with any seller instantly, with no need to negotiate custom terms the way two parties to a private forward would have to." },
+      { type: "heading", text: "Grade and Quality Specifications" },
+      { type: "paragraph", text: "For contracts on physical commodities, the specification also pins down an exact grade or quality of the deliverable asset — a specific crude oil grade, or a minimum wheat protein content, for example — along with a list of approved delivery locations. Sellers are sometimes permitted to deliver a different, but contractually allowed, grade at a specified price adjustment, and this precision is exactly what prevents disputes over whether the asset actually delivered was the asset the contract promised." },
+      { type: "heading", text: "Expiration Cycles and the Front Month" },
+      { type: "paragraph", text: "Each futures contract trades under a ticker combined with an expiration month code, and several expirations — say, March, June, September, and December — trade simultaneously at any given time. The nearest-to-expire contract with the highest trading volume is called the front month, and it's typically the most liquid one; as it approaches its own expiration, active traders roll their exposure forward into the next expiration rather than let the contract run into its delivery process." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "How does a futures contract's terms differ from a forward's?",
+        choices: [
+          "They are identical — both are fully custom-negotiated",
+          "A futures contract's size, tick, and expiration terms are standardized by the exchange, while a forward's terms are privately negotiated between two parties",
+          "Futures contracts have no fixed contract size",
+          "Forwards are always standardized, while futures are custom",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Exchange standardization — fixed size, tick, and expiration terms — is what distinguishes a futures contract from a forward's fully bespoke, privately negotiated terms.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does standardization enable a liquid futures market?",
+        choices: [
+          "It doesn't — standardization actually reduces liquidity",
+          "Because every trader's position in a given contract is fungible with every other trader's, allowing any buyer to be matched with any seller without negotiation",
+          "Because standardization eliminates the need for a clearinghouse",
+          "Because it guarantees the contract will always be profitable",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Fungibility — every contract being identical in terms — is what lets buyers and sellers transact anonymously and instantly, creating deep, liquid markets.",
+      },
+      {
+        id: "q3",
+        prompt: "Why do futures contracts on physical commodities specify an exact grade or quality?",
+        choices: [
+          "Grade specifications are not used in futures contracts",
+          "To prevent disputes over whether the asset actually delivered matches what the contract promised",
+          "Because every unit of a commodity is always identical, so specification is a formality",
+          "Purely to increase the contract's price",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Pinning down an exact grade and approved delivery locations removes ambiguity about what's actually owed at delivery, preventing disputes between the long and short.",
+      },
+      {
+        id: "q4",
+        prompt: "What is the \"front month\" contract?",
+        choices: [
+          "The contract furthest from expiration",
+          "The nearest-to-expire contract with the highest trading volume, typically the most liquid one",
+          "A contract that never expires",
+          "The contract with the lowest price",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The front month is the nearest expiration with the most trading activity — it's where most of the liquidity concentrates at any given time.",
+      },
+      {
+        id: "q5",
+        prompt: "Why do active traders roll their positions forward as the front month approaches expiration?",
+        choices: [
+          "To lock in a worse price on purpose",
+          "To maintain their exposure in a new, more distant contract rather than let the position run into the delivery process",
+          "Rolling is required by exchange rules for every trader",
+          "To avoid paying any margin at all",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Rolling lets a trader keep continuous exposure to the underlying without going through delivery, by closing the expiring contract and opening an equivalent position further out.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-delivery-and-close-out",
+    title: "Delivery and Closing Out a Position",
+    summary:
+      "Why the overwhelming majority of futures contracts never reach physical delivery — and what actually happens as a contract's expiration approaches.",
+    body: [
+      { type: "heading", text: "Two Ways a Futures Contract Ends" },
+      { type: "paragraph", text: "A futures position ends in one of two ways: it runs to expiration and settles, either through physical delivery of the underlying asset or, for contracts like stock index futures or VIX futures that have no single physical asset to hand over, through cash settlement — or the trader closes out the position early with an offsetting trade, buying back a short or selling out a long, before expiration ever arrives. The vast majority of speculative traders exit this second way." },
+      { type: "heading", text: "Physical Delivery in Practice" },
+      { type: "paragraph", text: "For a physically-settled contract, only accounts still holding an open position once the exchange's delivery process begins risk being matched for actual delivery, and the exchange runs a formal notice process pairing the remaining longs and shorts. Because that process is operationally demanding — arranging storage, transport, and quality inspection — most speculative and retail accounts close out well before this window opens, leaving physical delivery mainly to the commercial participants, grain elevators, refiners, and the like, who actually want or already hold the underlying commodity." },
+      { type: "heading", text: "Cash-Settled Contracts" },
+      { type: "paragraph", text: "Many modern futures contracts, especially financial futures, are cash-settled by design and have no physical delivery mechanism at all: at expiration, the contract simply settles against an agreed reference price or index level, and the difference is paid in cash. This removes the operational complexity of delivery entirely, at the cost of the contract being a purely financial instrument rather than a claim on a physical asset." },
+      { type: "heading", text: "Rolling a Position Forward" },
+      { type: "paragraph", text: "A trader who wants continuous exposure without ever taking delivery closes out the expiring contract and simultaneously opens an equivalent position in a later-dated contract — a roll. The price difference between the two contracts, driven largely by the same cost-of-carry logic behind forward pricing, becomes a return or a cost of maintaining that exposure over time, which is exactly the dynamic behind both calendar-spread trading and roll yield in commodity futures." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What are the two ways a futures position can end?",
+        choices: [
+          "It must always run to physical delivery, with no other option",
+          "It runs to expiration and settles (physically or in cash), or the trader closes it out early with an offsetting trade",
+          "It can only be cancelled by the exchange",
+          "It automatically converts into a forward contract",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A futures position either settles at expiration — physically or in cash — or, far more commonly for speculative traders, is closed out early with an offsetting trade.",
+      },
+      {
+        id: "q2",
+        prompt: "Who mainly ends up taking physical delivery on a futures contract?",
+        choices: [
+          "Every trader who ever holds the contract, without exception",
+          "Mainly commercial participants who actually want or hold the underlying commodity, since most speculative accounts close out before the delivery window",
+          "No one — physical delivery never actually happens",
+          "Only the exchange itself",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Because physical delivery is operationally demanding, most speculative traders close out beforehand, leaving delivery mainly to commercial hedgers who actually want the physical asset.",
+      },
+      {
+        id: "q3",
+        prompt: "What is a cash-settled futures contract?",
+        choices: [
+          "A contract that requires the underlying asset to be physically delivered",
+          "A contract that settles at expiration against a reference price or index, paying the difference in cash, with no physical delivery mechanism",
+          "A contract that can only be traded with cash, never on margin",
+          "A contract that never expires",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Cash settlement pays the difference between the contract price and a reference price in cash at expiration, avoiding physical delivery entirely — common for financial futures.",
+      },
+      {
+        id: "q4",
+        prompt: "What does it mean to \"roll\" a futures position?",
+        choices: [
+          "Letting the position run into physical delivery",
+          "Closing out the expiring contract and simultaneously opening an equivalent position in a later-dated contract, to maintain continuous exposure",
+          "Doubling the size of a position right before expiration",
+          "Cancelling the position with no replacement",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Rolling swaps an expiring contract for a later-dated one in a single move, letting a trader maintain exposure indefinitely without ever taking delivery.",
+      },
+      {
+        id: "q5",
+        prompt: "What determines the price difference between the contract being rolled out of and the one being rolled into?",
+        choices: [
+          "The difference is always zero",
+          "Largely the same cost-of-carry logic behind forward pricing, which is also the dynamic behind calendar spreads and commodity roll yield",
+          "It is set arbitrarily by the trader",
+          "It depends only on the trader's broker fees",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The roll's price difference reflects cost-of-carry between the two expirations — the same underlying dynamic that drives calendar-spread trading and roll yield in commodities.",
+      },
+    ],
+  },
 ];

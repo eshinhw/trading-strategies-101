@@ -182,12 +182,26 @@ export const modules: Module[] = [
     lessonSlugs: ["futures-what-are-financial-contracts", "futures-forward-pricing"],
   },
   {
+    slug: "futures-mechanics",
+    courseSlug: "futures",
+    title: "Futures Mechanics",
+    description:
+      "What actually makes a futures contract a futures contract, mechanically — margin and daily mark-to-market, standardized contract specs, and how (and whether) a contract ever reaches physical delivery.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "futures-margin-and-mark-to-market",
+      "futures-contract-specifications",
+      "futures-delivery-and-close-out",
+    ],
+  },
+  {
     slug: "futures-fundamentals",
     courseSlug: "futures",
     title: "Futures Fundamentals",
     description:
       "How futures contracts are used in practice — hedging price risk, systematic trend following, and trading the shape of the futures curve with calendar spreads.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-hedging-with-futures",
