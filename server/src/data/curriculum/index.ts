@@ -9,6 +9,7 @@ import { volatilityConceptLessons } from "./volatilityConceptLessons.js";
 import { fxConceptLessons } from "./fxConceptLessons.js";
 import { commoditiesConceptLessons } from "./commoditiesConceptLessons.js";
 import { realEstateConceptLessons } from "./realEstateConceptLessons.js";
+import { structuredAssetsConceptLessons } from "./structuredAssetsConceptLessons.js";
 import { modules } from "./modules.js";
 import type { Module } from "./types.js";
 
@@ -23,6 +24,7 @@ export const conceptLessons = [
   ...fxConceptLessons,
   ...commoditiesConceptLessons,
   ...realEstateConceptLessons,
+  ...structuredAssetsConceptLessons,
 ];
 export { modules };
 

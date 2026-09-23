@@ -182,7 +182,7 @@ export const courses: Course[] = [
     title: "Structured Assets",
     section: "11",
     description: "Carry and curve-trade strategies for CDOs and other structured credit products.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 6,
     strategyTitles: [
       "Carry, equity tranche – index hedging",

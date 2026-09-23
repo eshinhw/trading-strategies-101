@@ -431,4 +431,36 @@ export const modules: Module[] = [
       "real-estate-fix-and-flip",
     ],
   },
+  {
+    slug: "structured-assets-basics",
+    courseSlug: "structured-assets",
+    title: "Structured Assets Basics",
+    description:
+      "The building blocks every structured-credit strategy leans on: what securitization and tranching actually are, how CDS and credit indices transfer default risk, and how mortgage-backed securities work.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "structured-assets-what-is-a-structured-asset",
+      "structured-assets-tranches-and-the-waterfall",
+      "structured-assets-credit-default-swaps-and-indices",
+      "structured-assets-mortgage-backed-securities",
+    ],
+  },
+  {
+    slug: "structured-assets-strategies",
+    courseSlug: "structured-assets",
+    title: "Structured Assets Strategies",
+    description:
+      "Carry trades across the tranche capital structure, hedged with the index, another tranche, or single-name CDS; betting on the shape of the credit curve; and trading MBS on prepayment and relative value.",
+    order: 2,
+    prerequisiteModuleSlugs: ["structured-assets-basics"],
+    lessonSlugs: [
+      "structured-assets-carry-equity-tranche-index-hedging",
+      "structured-assets-carry-senior-mezzanine-index-hedging",
+      "structured-assets-carry-tranche-hedging",
+      "structured-assets-carry-cds-hedging",
+      "structured-assets-cdos-curve-trades",
+      "structured-assets-mbs-trading",
+    ],
+  },
 ];
