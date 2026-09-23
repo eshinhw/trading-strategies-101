@@ -13,15 +13,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
     summary: "Using a futures contract to offset the price risk of a position you already hold, or will hold.",
     body: [
       { type: "heading", text: "What a Futures Hedge Is" },
-      { type: "paragraph", text: "A futures contract is a standardized, exchange-traded agreement to buy or sell an asset at a set price on a future date. Hedging with futures means taking the opposite position to whatever exposure you already have, so that a loss on one side is offset by a gain on the other." },
+      {
+        type: "paragraph",
+        text: "A futures contract is a standardized, exchange-traded agreement to buy or sell an asset at a set price on a future date. Hedging with futures means taking the opposite position to whatever exposure you already have, so that a loss on one side is offset by a gain on the other.",
+      },
       { type: "heading", text: "The Short Hedge" },
-      { type: "paragraph", text: "Take a wheat farmer who will harvest and sell wheat in six months and is worried prices will fall by then. They sell (go short) wheat futures now, locking in today's price. If the cash price falls, the loss on the physical crop is offset by a gain on the short futures position. This is a short hedge — used by anyone who is effectively long the underlying and worried about a price drop." },
+      {
+        type: "paragraph",
+        text: "Take a wheat farmer who will harvest and sell wheat in six months and is worried prices will fall by then. They sell (go short) wheat futures now, locking in today's price. If the cash price falls, the loss on the physical crop is offset by a gain on the short futures position. This is a short hedge — used by anyone who is effectively long the underlying and worried about a price drop.",
+      },
       { type: "heading", text: "The Long Hedge" },
-      { type: "paragraph", text: "The mirror image is a long hedge: a cereal manufacturer who will need to buy wheat in three months and is worried prices will rise buys (goes long) wheat futures now. If the cash price rises, the higher cost of the physical wheat is offset by a gain on the long futures position." },
+      {
+        type: "paragraph",
+        text: "The mirror image is a long hedge: a cereal manufacturer who will need to buy wheat in three months and is worried prices will rise buys (goes long) wheat futures now. If the cash price rises, the higher cost of the physical wheat is offset by a gain on the long futures position.",
+      },
       { type: "heading", text: "Basis Risk and Tradeoffs" },
-      { type: "paragraph", text: "Hedging with futures doesn't eliminate risk — it trades price risk for basis risk, the risk that the futures price and the cash price don't move in perfect lockstep. A hedger also gives up the benefit of a favorable price move in exchange for protection against an unfavorable one; certainty has a cost." },
+      {
+        type: "paragraph",
+        text: "Hedging with futures doesn't eliminate risk — it trades price risk for basis risk, the risk that the futures price and the cash price don't move in perfect lockstep. A hedger also gives up the benefit of a favorable price move in exchange for protection against an unfavorable one; certainty has a cost.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "A farmer expects to harvest 50,000 bushels of wheat in six months and sells wheat futures today at $6.00 per bushel, locking in $300,000 of notional value. At harvest, the cash price has fallen to $5.50 per bushel. Selling the physical wheat now brings in only 50,000 × $5.50 = $275,000, but the short futures position has gained ($6.00 − $5.50) × 50,000 = $25,000, since the trader locked in the higher price and can buy back the futures cheaper than they sold it. Adding the two together, $275,000 + $25,000 = $300,000, the farmer nets almost exactly the $300,000 they locked in — the futures gain offset the cash-market loss, aside from any small basis gap between the futures and cash markets." },
+      {
+        type: "paragraph",
+        text: "A farmer expects to harvest 50,000 bushels of wheat in six months and sells wheat futures today at $6.00 per bushel, locking in $300,000 of notional value. At harvest, the cash price has fallen to $5.50 per bushel. Selling the physical wheat now brings in only 50,000 × $5.50 = $275,000, but the short futures position has gained ($6.00 − $5.50) × 50,000 = $25,000, since the trader locked in the higher price and can buy back the futures cheaper than they sold it. Adding the two together, $275,000 + $25,000 = $300,000, the farmer nets almost exactly the $300,000 they locked in — the futures gain offset the cash-market loss, aside from any small basis gap between the futures and cash markets.",
+      },
     ],
     quiz: [
       {
@@ -52,7 +67,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "What does it mean that a futures hedge trades price risk for \"basis risk\"?",
+        prompt: 'What does it mean that a futures hedge trades price risk for "basis risk"?',
         choices: [
           "The hedge eliminates all risk entirely",
           "The futures price and the spot price may not move in perfect lockstep, so the hedge can be imperfect",
@@ -78,7 +93,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q5",
-        prompt: "Futures contracts are described as being \"marked to market daily.\" What does that mean?",
+        prompt: 'Futures contracts are described as being "marked to market daily." What does that mean?',
         choices: [
           "Gains and losses on the position are settled in cash at the end of each trading day",
           "The contract's price is only updated once, at expiration",
@@ -112,15 +127,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
     summary: "A systematic strategy that buys assets going up and sells assets going down, betting trends persist.",
     body: [
       { type: "heading", text: "What Trend Following Is" },
-      { type: "paragraph", text: "Trend following is a systematic, rules-based strategy: instead of predicting where a market is headed, it reacts to where the market has already been headed — buying instruments in an established uptrend and shorting (or avoiding) those in a downtrend. Futures are the natural tool for this because they make it cheap and capital-efficient to go long or short across many different asset classes from one account." },
+      {
+        type: "paragraph",
+        text: "Trend following is a systematic, rules-based strategy: instead of predicting where a market is headed, it reacts to where the market has already been headed — buying instruments in an established uptrend and shorting (or avoiding) those in a downtrend. Futures are the natural tool for this because they make it cheap and capital-efficient to go long or short across many different asset classes from one account.",
+      },
       { type: "heading", text: "A Simple Trend Rule" },
-      { type: "paragraph", text: "A simple example rule: go long when price crosses above its 200-day moving average, go short (or exit) when it crosses back below. The strategy never tries to call the top or the bottom — it accepts being late getting into every trend and late getting out, in exchange for capturing the middle of a sustained move." },
+      {
+        type: "paragraph",
+        text: "A simple example rule: go long when price crosses above its 200-day moving average, go short (or exit) when it crosses back below. The strategy never tries to call the top or the bottom — it accepts being late getting into every trend and late getting out, in exchange for capturing the middle of a sustained move.",
+      },
       { type: "heading", text: "Win Rate vs. Expectancy" },
-      { type: "paragraph", text: "Trend following is defined by a low win rate paired with positive expectancy. Most individual trades are small losses — the trend didn't continue, or the market chopped sideways — but the few trades that do catch a real, sustained trend are large enough winners to more than make up for the many losers. Because of this, disciplined risk management (small, consistent position sizing and cutting losers quickly) matters more to this strategy's success than being right often." },
+      {
+        type: "paragraph",
+        text: "Trend following is defined by a low win rate paired with positive expectancy. Most individual trades are small losses — the trend didn't continue, or the market chopped sideways — but the few trades that do catch a real, sustained trend are large enough winners to more than make up for the many losers. Because of this, disciplined risk management (small, consistent position sizing and cutting losers quickly) matters more to this strategy's success than being right often.",
+      },
       { type: "heading", text: "Trading Many Markets at Once" },
-      { type: "paragraph", text: "Trend-following programs typically trade across many uncorrelated futures markets at once — grains, energy, metals, currencies, interest rates, equity indexes — rather than concentrating on one. Since nobody knows in advance which market will trend next, spreading the strategy across many markets is what lets a handful of big winners offset the frequent small losses elsewhere." },
+      {
+        type: "paragraph",
+        text: "Trend-following programs typically trade across many uncorrelated futures markets at once — grains, energy, metals, currencies, interest rates, equity indexes — rather than concentrating on one. Since nobody knows in advance which market will trend next, spreading the strategy across many markets is what lets a handful of big winners offset the frequent small losses elsewhere.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "A trader with a $500,000 account risks 1% of capital, $5,000, on each new trend trade. Crude oil crosses above its 200-day moving average at $75 per barrel, triggering a long entry, with a stop-loss set at $73 — a $2-per-barrel risk. Since one contract covers 1,000 barrels, that's $2,000 of risk per contract, so the trader buys $5,000 ÷ $2,000 ≈ 2 contracts. The trend continues and crude eventually reaches $85: the position gains $10 per barrel × 1,000 barrels × 2 contracts = $20,000 — four times the $5,000 originally risked, from a single trade that worked." },
+      {
+        type: "paragraph",
+        text: "A trader with a $500,000 account risks 1% of capital, $5,000, on each new trend trade. Crude oil crosses above its 200-day moving average at $75 per barrel, triggering a long entry, with a stop-loss set at $73 — a $2-per-barrel risk. Since one contract covers 1,000 barrels, that's $2,000 of risk per contract, so the trader buys $5,000 ÷ $2,000 ≈ 2 contracts. The trend continues and crude eventually reaches $85: the position gains $10 per barrel × 1,000 barrels × 2 contracts = $20,000 — four times the $5,000 originally risked, from a single trade that worked.",
+      },
     ],
     quiz: [
       {
@@ -138,8 +168,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt:
-          "A rule like \"go long when price crosses above its 200-day moving average\" is best described as:",
+        prompt: 'A rule like "go long when price crosses above its 200-day moving average" is best described as:',
         choices: [
           "A prediction of exactly where the market will turn",
           "A reactive, rules-based signal that follows price rather than forecasting it",
@@ -205,23 +234,39 @@ export const futuresConceptLessons: ConceptLesson[] = [
     kind: "concept",
     slug: "futures-calendar-spread",
     title: "Calendar spread",
-    summary: "Trading the price relationship between two futures contracts on the same underlying that expire at different times.",
+    summary:
+      "Trading the price relationship between two futures contracts on the same underlying that expire at different times.",
     body: [
       { type: "heading", text: "What a Calendar Spread Is" },
-      { type: "paragraph", text: "A futures calendar spread (also called a time spread) means simultaneously buying one futures contract and selling another on the same underlying asset, but with different expiration months — for example, buying December crude oil futures and selling November crude oil futures. Rather than betting on which direction the underlying commodity moves, the trader is betting on how the price difference between the two expirations changes." },
+      {
+        type: "paragraph",
+        text: "A futures calendar spread (also called a time spread) means simultaneously buying one futures contract and selling another on the same underlying asset, but with different expiration months — for example, buying December crude oil futures and selling November crude oil futures. Rather than betting on which direction the underlying commodity moves, the trader is betting on how the price difference between the two expirations changes.",
+      },
       { type: "heading", text: "Contango and Backwardation" },
-      { type: "paragraph", text: "That difference reflects the market's expectations about supply and storage costs between now and each delivery date. It can sit in contango, where later-dated contracts are priced higher than near-dated ones — common when storage costs are significant, as with crude oil or grains — or in backwardation, where later-dated contracts are priced lower, often a sign that near-term supply is unusually tight and buyers are paying up for more immediate availability." },
+      {
+        type: "paragraph",
+        text: "That difference reflects the market's expectations about supply and storage costs between now and each delivery date. It can sit in contango, where later-dated contracts are priced higher than near-dated ones — common when storage costs are significant, as with crude oil or grains — or in backwardation, where later-dated contracts are priced lower, often a sign that near-term supply is unusually tight and buyers are paying up for more immediate availability.",
+      },
       {
         type: "image",
         diagramId: "futures-curve",
         caption: "Contango: further-dated contracts cost more. Backwardation: further-dated contracts cost less.",
       },
       { type: "heading", text: "Isolating the Curve, Not the Price" },
-      { type: "paragraph", text: "Because both legs of the spread move together with the overall commodity price most of the time, a calendar spread is far less exposed to day-to-day price noise than an outright long or short futures position. The trader is isolating a narrower bet on the shape of the futures curve — the supply, demand, and storage dynamics between two dates — rather than on the commodity's absolute price level." },
+      {
+        type: "paragraph",
+        text: "Because both legs of the spread move together with the overall commodity price most of the time, a calendar spread is far less exposed to day-to-day price noise than an outright long or short futures position. The trader is isolating a narrower bet on the shape of the futures curve — the supply, demand, and storage dynamics between two dates — rather than on the commodity's absolute price level.",
+      },
       { type: "heading", text: "A Classic Use Case" },
-      { type: "paragraph", text: "A classic use case: heading into a season where a supply crunch is expected, such as a natural gas contract approaching a cold winter with low storage, a trader might buy the near-month contract and sell a further-out month, expecting the near-term squeeze to push the front contract's price up relative to the back one. That profits from the change in the spread, largely independent of whether natural gas prices broadly rise or fall." },
+      {
+        type: "paragraph",
+        text: "A classic use case: heading into a season where a supply crunch is expected, such as a natural gas contract approaching a cold winter with low storage, a trader might buy the near-month contract and sell a further-out month, expecting the near-term squeeze to push the front contract's price up relative to the back one. That profits from the change in the spread, largely independent of whether natural gas prices broadly rise or fall.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "December crude oil trades at $78 and November crude trades at $76 — a $2 contango spread. A trader expecting the near-term squeeze to tighten buys November and sells December. Over the following weeks, November rises to $77.50 (a $1.50 gain on the long leg) while December stays flat at $78.00 (no gain or loss on the short leg), narrowing the spread from $2.00 down to $0.50. The trade nets $1.50 per barrel — $1,500 on a single 1,000-barrel contract — purely from the spread narrowing, regardless of what crude's outright price did in the meantime." },
+      {
+        type: "paragraph",
+        text: "December crude oil trades at $78 and November crude trades at $76 — a $2 contango spread. A trader expecting the near-term squeeze to tighten buys November and sells December. Over the following weeks, November rises to $77.50 (a $1.50 gain on the long leg) while December stays flat at $78.00 (no gain or loss on the short leg), narrowing the spread from $2.00 down to $0.50. The trade nets $1.50 per barrel — $1,500 on a single 1,000-barrel contract — purely from the spread narrowing, regardless of what crude's outright price did in the meantime.",
+      },
     ],
     quiz: [
       {
@@ -252,7 +297,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "When later-dated futures contracts are priced higher than near-dated ones, the market is said to be in:",
+        prompt:
+          "When later-dated futures contracts are priced higher than near-dated ones, the market is said to be in:",
         choices: ["Backwardation", "Contango", "Equilibrium", "Arbitrage"],
         correctIndex: 1,
         explanation:
@@ -303,15 +349,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "Hedging with futures on a different but closely related asset, when no futures contract exists on the exact one you hold.",
     body: [
       { type: "heading", text: "What Cross-Hedging Is" },
-      { type: "paragraph", text: "A direct hedge uses a futures contract on the exact asset you're exposed to. Cross-hedging is what you do when no such contract exists, or it's too illiquid to use — you hedge with futures on a different but closely correlated asset instead. A regional jet-fuel buyer can't easily trade jet-fuel futures, since the market is thin, so they hedge using heating oil or crude oil futures, since jet fuel prices tend to move closely with those more liquid contracts." },
+      {
+        type: "paragraph",
+        text: "A direct hedge uses a futures contract on the exact asset you're exposed to. Cross-hedging is what you do when no such contract exists, or it's too illiquid to use — you hedge with futures on a different but closely correlated asset instead. A regional jet-fuel buyer can't easily trade jet-fuel futures, since the market is thin, so they hedge using heating oil or crude oil futures, since jet fuel prices tend to move closely with those more liquid contracts.",
+      },
       { type: "heading", text: "The Correlation Requirement" },
-      { type: "paragraph", text: "The key requirement for a cross-hedge to work is a strong, stable historical correlation between the price of the asset you're exposed to and the price of the futures contract you're using to hedge it. The stronger and more stable that relationship, the more effective the hedge." },
+      {
+        type: "paragraph",
+        text: "The key requirement for a cross-hedge to work is a strong, stable historical correlation between the price of the asset you're exposed to and the price of the futures contract you're using to hedge it. The stronger and more stable that relationship, the more effective the hedge.",
+      },
       { type: "heading", text: "An Extra Layer of Basis Risk" },
-      { type: "paragraph", text: "Cross-hedging introduces an additional layer of basis risk beyond a normal direct hedge. Not only can the futures price diverge from the spot price of its own underlying — ordinary basis risk — but the price of the asset you actually hold can also diverge from the price of the futures' underlying asset. Jet fuel and heating oil don't always move in perfect lockstep, even though they're closely related refined products." },
+      {
+        type: "paragraph",
+        text: "Cross-hedging introduces an additional layer of basis risk beyond a normal direct hedge. Not only can the futures price diverge from the spot price of its own underlying — ordinary basis risk — but the price of the asset you actually hold can also diverge from the price of the futures' underlying asset. Jet fuel and heating oil don't always move in perfect lockstep, even though they're closely related refined products.",
+      },
       { type: "heading", text: "Sizing With a Hedge Ratio" },
-      { type: "paragraph", text: "To size a cross-hedge, traders often compute a hedge ratio, commonly estimated by regressing the exposed asset's price changes against the hedging instrument's price changes. That regression's slope — sometimes called the minimum-variance hedge ratio — tells them how many futures contracts to use per unit of exposure, rather than assuming a naive one-for-one match." },
+      {
+        type: "paragraph",
+        text: "To size a cross-hedge, traders often compute a hedge ratio, commonly estimated by regressing the exposed asset's price changes against the hedging instrument's price changes. That regression's slope — sometimes called the minimum-variance hedge ratio — tells them how many futures contracts to use per unit of exposure, rather than assuming a naive one-for-one match.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "A regional jet-fuel buyer needs to hedge 100,000 gallons of future purchases. Regressing historical jet-fuel price changes against heating oil futures price changes gives a hedge ratio of 0.85 — jet fuel has typically moved about 85 cents for every dollar move in heating oil. The buyer needs 0.85 × 100,000 = 85,000 gallon-equivalents of heating oil futures exposure. If one heating oil futures contract covers 42,000 gallons, that works out to 85,000 ÷ 42,000 ≈ 2 contracts, rather than a naive 100,000 ÷ 42,000 ≈ 2.4 contracts a one-to-one hedge would suggest." },
+      {
+        type: "paragraph",
+        text: "A regional jet-fuel buyer needs to hedge 100,000 gallons of future purchases. Regressing historical jet-fuel price changes against heating oil futures price changes gives a hedge ratio of 0.85 — jet fuel has typically moved about 85 cents for every dollar move in heating oil. The buyer needs 0.85 × 100,000 = 85,000 gallon-equivalents of heating oil futures exposure. If one heating oil futures contract covers 42,000 gallons, that works out to 85,000 ÷ 42,000 ≈ 2 contracts, rather than a naive 100,000 ÷ 42,000 ≈ 2.4 contracts a one-to-one hedge would suggest.",
+      },
     ],
     quiz: [
       {
@@ -355,7 +416,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What is a \"hedge ratio\" used for in cross-hedging?",
+        prompt: 'What is a "hedge ratio" used for in cross-hedging?',
         choices: [
           "The interest rate charged on a margin account",
           "Determining how many futures contracts to use per unit of the exposure, often estimated via regression",
@@ -369,7 +430,12 @@ export const futuresConceptLessons: ConceptLesson[] = [
       {
         id: "q5",
         prompt: "A regional jet-fuel buyer who can't easily trade jet-fuel futures might cross-hedge using:",
-        choices: ["Wheat futures", "Heating oil or crude oil futures", "Equity index futures", "They cannot hedge at all"],
+        choices: [
+          "Wheat futures",
+          "Heating oil or crude oil futures",
+          "Equity index futures",
+          "They cannot hedge at all",
+        ],
         correctIndex: 1,
         explanation:
           "Jet fuel prices tend to move closely with other refined petroleum products like heating oil and crude oil, making them a workable, if imperfect, cross-hedge.",
@@ -394,18 +460,34 @@ export const futuresConceptLessons: ConceptLesson[] = [
     kind: "concept",
     slug: "futures-interest-rate-risk-hedging",
     title: "Interest rate risk hedging",
-    summary: "Using interest rate futures to protect a bond portfolio, loan, or borrowing plan against unfavorable rate moves.",
+    summary:
+      "Using interest rate futures to protect a bond portfolio, loan, or borrowing plan against unfavorable rate moves.",
     body: [
       { type: "heading", text: "Hedging a Bond Portfolio" },
-      { type: "paragraph", text: "Interest rate futures — Treasury note or bond futures, SOFR futures — let market participants hedge against the risk that interest rates move against them. Bond prices move inversely to interest rates: when rates rise, existing bond prices fall. A bond portfolio manager worried about rising rates can sell (short) interest rate futures — if rates rise and their bond portfolio loses value, the short futures position gains, offsetting the loss." },
+      {
+        type: "paragraph",
+        text: "Interest rate futures — Treasury note or bond futures, SOFR futures — let market participants hedge against the risk that interest rates move against them. Bond prices move inversely to interest rates: when rates rise, existing bond prices fall. A bond portfolio manager worried about rising rates can sell (short) interest rate futures — if rates rise and their bond portfolio loses value, the short futures position gains, offsetting the loss.",
+      },
       { type: "heading", text: "Hedging a Future Borrowing Cost" },
-      { type: "paragraph", text: "The mirror case: a company planning to borrow money in three months is worried rates will rise before they lock in a loan, raising their future borrowing cost. They can hedge with a short position in interest rate futures, so that if rates do rise, a gain on the futures position offsets the higher interest expense they'll pay on the loan." },
+      {
+        type: "paragraph",
+        text: "The mirror case: a company planning to borrow money in three months is worried rates will rise before they lock in a loan, raising their future borrowing cost. They can hedge with a short position in interest rate futures, so that if rates do rise, a gain on the futures position offsets the higher interest expense they'll pay on the loan.",
+      },
       { type: "heading", text: "Accounting for Duration" },
-      { type: "paragraph", text: "Because bonds of different maturities respond differently to a given change in rates — longer-maturity bonds are more sensitive — hedgers commonly account for duration, a measure of interest-rate sensitivity, when sizing a rate hedge, using more or fewer futures contracts depending on how sensitive their actual portfolio is compared to the futures contract's own underlying instrument." },
+      {
+        type: "paragraph",
+        text: "Because bonds of different maturities respond differently to a given change in rates — longer-maturity bonds are more sensitive — hedgers commonly account for duration, a measure of interest-rate sensitivity, when sizing a rate hedge, using more or fewer futures contracts depending on how sensitive their actual portfolio is compared to the futures contract's own underlying instrument.",
+      },
       { type: "heading", text: "Where the Hedge Falls Short" },
-      { type: "paragraph", text: "As with other futures hedges, an interest-rate hedge isn't perfect: the specific bonds a portfolio holds may not move in perfect lockstep with the futures contract's benchmark instrument, and getting the duration-matched sizing wrong can leave the hedge over- or under-protecting the actual position." },
+      {
+        type: "paragraph",
+        text: "As with other futures hedges, an interest-rate hedge isn't perfect: the specific bonds a portfolio holds may not move in perfect lockstep with the futures contract's benchmark instrument, and getting the duration-matched sizing wrong can leave the hedge over- or under-protecting the actual position.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "A manager holds a $10 million bond portfolio with a duration of 7 years and wants to hedge it with Treasury futures, where the futures contract's underlying has a duration of 9 years and each contract has a notional value of $100,000. A duration-matched hedge shorts (portfolio value × portfolio duration) ÷ (futures notional × futures duration) contracts: ($10,000,000 × 7) ÷ ($100,000 × 9) = $70,000,000 ÷ $900,000 ≈ 78 contracts. Shorting roughly 78 contracts, rather than a round number picked without the duration adjustment, is what actually matches the futures position's rate sensitivity to the portfolio's own." },
+      {
+        type: "paragraph",
+        text: "A manager holds a $10 million bond portfolio with a duration of 7 years and wants to hedge it with Treasury futures, where the futures contract's underlying has a duration of 9 years and each contract has a notional value of $100,000. A duration-matched hedge shorts (portfolio value × portfolio duration) ÷ (futures notional × futures duration) contracts: ($10,000,000 × 7) ÷ ($100,000 × 9) = $70,000,000 ÷ $900,000 ≈ 78 contracts. Shorting roughly 78 contracts, rather than a round number picked without the duration adjustment, is what actually matches the futures position's rate sensitivity to the portfolio's own.",
+      },
     ],
     quiz: [
       {
@@ -451,7 +533,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What does \"duration\" measure, in the context of sizing an interest rate hedge?",
+        prompt: 'What does "duration" measure, in the context of sizing an interest rate hedge?',
         choices: [
           "How many days until the futures contract expires",
           "A bond's sensitivity to a given change in interest rates",
@@ -494,15 +576,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "A strategy that bets prices which have moved unusually far from their typical range will snap back toward it — the opposite premise of trend following.",
     body: [
       { type: "heading", text: "The Contrarian Premise" },
-      { type: "paragraph", text: "Mean-reversion, or contrarian, trading is built on the opposite premise from trend following: rather than betting that a move will continue, it bets that a price which has moved unusually far from some reference level — a moving average, a historical range, a statistical band — will tend to snap back toward that level. The trader buys after a sharp, seemingly overdone decline, and sells or shorts after a sharp, seemingly overdone rally." },
+      {
+        type: "paragraph",
+        text: "Mean-reversion, or contrarian, trading is built on the opposite premise from trend following: rather than betting that a move will continue, it bets that a price which has moved unusually far from some reference level — a moving average, a historical range, a statistical band — will tend to snap back toward that level. The trader buys after a sharp, seemingly overdone decline, and sells or shorts after a sharp, seemingly overdone rally.",
+      },
       { type: "heading", text: "A Simple Mean-Reversion Rule" },
-      { type: "paragraph", text: "A simple example rule: when a price falls more than two standard deviations below its 20-day average, buy, expecting a bounce back toward the average; when it rises more than two standard deviations above, sell or short, expecting a pullback. The trader is essentially betting against the crowd at moments of apparent extremes." },
+      {
+        type: "paragraph",
+        text: "A simple example rule: when a price falls more than two standard deviations below its 20-day average, buy, expecting a bounce back toward the average; when it rises more than two standard deviations above, sell or short, expecting a pullback. The trader is essentially betting against the crowd at moments of apparent extremes.",
+      },
       { type: "heading", text: "A High Win Rate, Rare Big Losses" },
-      { type: "paragraph", text: "Mean-reversion strategies tend to have a high win rate with small, frequent gains, punctuated by occasional large losses — almost the mirror image of trend following's profile. Most short-term overshoots do snap back as expected, but the rare times a market keeps moving strongly in one direction — a genuine new trend, not a temporary overshoot — can produce an outsized loss for a contrarian position that keeps fighting the move." },
+      {
+        type: "paragraph",
+        text: "Mean-reversion strategies tend to have a high win rate with small, frequent gains, punctuated by occasional large losses — almost the mirror image of trend following's profile. Most short-term overshoots do snap back as expected, but the rare times a market keeps moving strongly in one direction — a genuine new trend, not a temporary overshoot — can produce an outsized loss for a contrarian position that keeps fighting the move.",
+      },
       { type: "heading", text: "Why Risk Controls Matter" },
-      { type: "paragraph", text: "Because of that loss profile, disciplined risk controls — a hard stop-loss, or limiting how much a position is added to as price keeps moving against the entry — are essential to mean-reversion trading. Without them, the strategy is exposed to the specific risk of being run over by a real, sustained trend that never reverts." },
+      {
+        type: "paragraph",
+        text: "Because of that loss profile, disciplined risk controls — a hard stop-loss, or limiting how much a position is added to as price keeps moving against the entry — are essential to mean-reversion trading. Without them, the strategy is exposed to the specific risk of being run over by a real, sustained trend that never reverts.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "Gold's 20-day average price is $1,950 per ounce with a standard deviation of $15, putting the two-standard-deviation lower band at $1,950 − (2 × $15) = $1,920. Gold drops to $1,915, more than two standard deviations below average, triggering a buy signal. A trader buys 10 contracts (100 ounces each, so 1,000 ounces total). Over the following week, gold reverts to $1,945, and the position gains $30 per ounce × 1,000 ounces = $30,000 — the snapback the mean-reversion rule was betting on." },
+      {
+        type: "paragraph",
+        text: "Gold's 20-day average price is $1,950 per ounce with a standard deviation of $15, putting the two-standard-deviation lower band at $1,950 − (2 × $15) = $1,920. Gold drops to $1,915, more than two standard deviations below average, triggering a buy signal. A trader buys 10 contracts (100 ounces each, so 1,000 ounces total). Over the following week, gold reverts to $1,945, and the position gains $30 per ounce × 1,000 ounces = $30,000 — the snapback the mean-reversion rule was betting on.",
+      },
     ],
     quiz: [
       {
@@ -546,7 +643,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "Why is disciplined risk management, like a hard stop-loss, especially important for mean-reversion trading?",
+        prompt:
+          "Why is disciplined risk management, like a hard stop-loss, especially important for mean-reversion trading?",
         choices: [
           "It isn't — mean-reversion trades never lose money",
           "A real, sustained trend that never reverts can produce an outsized loss if the position isn't cut",
@@ -576,8 +674,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
           "Gold's 20-day average is $1,950 with a $15 standard deviation. What's the two-standard-deviation lower band that would trigger a mean-reversion buy signal?",
         choices: ["$1,935", "$1,920", "$1,905", "$1,950"],
         correctIndex: 1,
-        explanation:
-          "$1,950 − (2 × $15) = $1,920 — the price level two standard deviations below the 20-day average.",
+        explanation: "$1,950 − (2 × $15) = $1,920 — the price level two standard deviations below the 20-day average.",
       },
     ],
   },
@@ -589,15 +686,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "A contrarian approach that reads trading volume and open interest, not just price, to spot when a move may be running out of participants to sustain it.",
     body: [
       { type: "heading", text: "Reading Volume and Open Interest" },
-      { type: "paragraph", text: "This is a variant of contrarian trading that looks beyond price alone and incorporates market activity data — trading volume and open interest, the number of outstanding futures contracts that haven't been closed out — to judge whether a price move is likely to continue or is running out of steam." },
+      {
+        type: "paragraph",
+        text: "This is a variant of contrarian trading that looks beyond price alone and incorporates market activity data — trading volume and open interest, the number of outstanding futures contracts that haven't been closed out — to judge whether a price move is likely to continue or is running out of steam.",
+      },
       { type: "heading", text: "What Rising and Falling Activity Signal" },
-      { type: "paragraph", text: "The logic: a price move backed by strong, rising volume and rising open interest suggests genuine new money and conviction are flowing into the move, making it more likely to persist, at least for now. A price move that continues on thinning volume and falling open interest suggests the move is increasingly running on fumes — fewer participants are willing to keep pushing it further, and existing positions are being closed out rather than added to, which a contrarian trader reads as a warning sign the move could reverse." },
+      {
+        type: "paragraph",
+        text: "The logic: a price move backed by strong, rising volume and rising open interest suggests genuine new money and conviction are flowing into the move, making it more likely to persist, at least for now. A price move that continues on thinning volume and falling open interest suggests the move is increasingly running on fumes — fewer participants are willing to keep pushing it further, and existing positions are being closed out rather than added to, which a contrarian trader reads as a warning sign the move could reverse.",
+      },
       { type: "heading", text: "A Classic Warning Pattern" },
-      { type: "paragraph", text: "A classic pattern: a strong price rally accompanied by declining volume and declining open interest is viewed skeptically by activity-based contrarian traders. It suggests the rally is being sustained by a shrinking pool of participants — often short-covering, where traders who bet against the move are forced to buy back their positions — rather than fresh buying interest, making it a candidate for a reversal once that short-covering is exhausted." },
+      {
+        type: "paragraph",
+        text: "A classic pattern: a strong price rally accompanied by declining volume and declining open interest is viewed skeptically by activity-based contrarian traders. It suggests the rally is being sustained by a shrinking pool of participants — often short-covering, where traders who bet against the move are forced to buy back their positions — rather than fresh buying interest, making it a candidate for a reversal once that short-covering is exhausted.",
+      },
       { type: "heading", text: "Used Alongside Price, Not Alone" },
-      { type: "paragraph", text: "This approach requires more data than a pure price-based contrarian rule, since volume and open interest for futures are typically published daily by the exchange with a delay, and is usually combined with price-based signals rather than used entirely on its own. Activity data adds context about who is driving a move and how sustainable the current participation looks, rather than replacing a price signal outright." },
+      {
+        type: "paragraph",
+        text: "This approach requires more data than a pure price-based contrarian rule, since volume and open interest for futures are typically published daily by the exchange with a delay, and is usually combined with price-based signals rather than used entirely on its own. Activity data adds context about who is driving a move and how sustainable the current participation looks, rather than replacing a price signal outright.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "Natural gas rallies from $2.50 to $3.00 over two weeks. But during that same stretch, daily volume falls from 200,000 contracts to 90,000, and open interest falls from 850,000 contracts to 720,000 — a rally on thinning participation, consistent with short-covering rather than fresh buying. A contrarian trader shorts one contract (10,000 MMBtu) at $3.00. Gas subsequently falls back to $2.70 as the short-covering runs out, and the position gains $0.30 per MMBtu × 10,000 = $3,000." },
+      {
+        type: "paragraph",
+        text: "Natural gas rallies from $2.50 to $3.00 over two weeks. But during that same stretch, daily volume falls from 200,000 contracts to 90,000, and open interest falls from 850,000 contracts to 720,000 — a rally on thinning participation, consistent with short-covering rather than fresh buying. A contrarian trader shorts one contract (10,000 MMBtu) at $3.00. Gas subsequently falls back to $2.70 as the short-covering runs out, and the position gains $0.30 per MMBtu × 10,000 = $3,000.",
+      },
     ],
     quiz: [
       {
@@ -636,7 +748,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
           "The contract is about to expire",
         ],
         correctIndex: 1,
-        explanation: "Rising volume and rising open interest alongside a price move typically signal fresh participation and conviction behind that move.",
+        explanation:
+          "Rising volume and rising open interest alongside a price move typically signal fresh participation and conviction behind that move.",
       },
       {
         id: "q4",
@@ -680,12 +793,13 @@ export const futuresConceptLessons: ConceptLesson[] = [
     kind: "concept",
     slug: "futures-what-are-financial-contracts",
     title: "What are Financial Contracts?",
-    summary: "A forward contract is a private agreement to buy or sell an asset at a set price on a future date — the foundation every futures contract builds on.",
+    summary:
+      "A forward contract is a private agreement to buy or sell an asset at a set price on a future date — the foundation every futures contract builds on.",
     body: [
       { type: "heading", text: "Buying and Selling" },
       {
         type: "paragraph",
-        text: "A forward contract is a private, customized agreement between two parties to buy and sell a specific asset at a specific price on a specific future date. The party agreeing to buy the asset at that future date holds the \"long\" side of the contract, while the party agreeing to sell it holds the \"short\" side — no money changes hands when the contract is signed, in the plain, unfunded version; the exchange of the asset for the agreed price happens entirely at the future settlement date. This is the fundamental building block that futures contracts are built from: a futures contract is essentially a standardized, exchange-traded version of the same basic long/short forward commitment.",
+        text: 'A forward contract is a private, customized agreement between two parties to buy and sell a specific asset at a specific price on a specific future date. The party agreeing to buy the asset at that future date holds the "long" side of the contract, while the party agreeing to sell it holds the "short" side — no money changes hands when the contract is signed, in the plain, unfunded version; the exchange of the asset for the agreed price happens entirely at the future settlement date. This is the fundamental building block that futures contracts are built from: a futures contract is essentially a standardized, exchange-traded version of the same basic long/short forward commitment.',
       },
       { type: "heading", text: "Notional Value of a Forward Contract" },
       {
@@ -789,11 +903,12 @@ export const futuresConceptLessons: ConceptLesson[] = [
     kind: "concept",
     slug: "futures-forward-pricing",
     title: "Forward Pricing",
-    summary: "How a forward's fair price is derived from today's spot price plus the cost of carrying the asset to the future delivery date — and how that cost of carry differs across commodities, stocks, and bonds.",
+    summary:
+      "How a forward's fair price is derived from today's spot price plus the cost of carrying the asset to the future delivery date — and how that cost of carry differs across commodities, stocks, and bonds.",
     body: [
       {
         type: "paragraph",
-        text: "The theoretical, \"fair\" price of a forward contract is derived from a simple no-arbitrage principle: it should equal the asset's current spot price plus the cost of carrying that asset from today until the contract's delivery date. This \"cost of carry\" typically includes the financing cost of holding the asset, the interest that could otherwise have been earned on the cash tied up in buying it today, and, depending on the asset, storage costs, insurance, or other costs of physically holding it, minus any income the asset generates while being held, such as dividends or interest. The exact ingredients that make up the cost of carry differ meaningfully across asset classes, which is why forward pricing looks somewhat different for a physical commodity than for a stock or a bond.",
+        text: 'The theoretical, "fair" price of a forward contract is derived from a simple no-arbitrage principle: it should equal the asset\'s current spot price plus the cost of carrying that asset from today until the contract\'s delivery date. This "cost of carry" typically includes the financing cost of holding the asset, the interest that could otherwise have been earned on the cash tied up in buying it today, and, depending on the asset, storage costs, insurance, or other costs of physically holding it, minus any income the asset generates while being held, such as dividends or interest. The exact ingredients that make up the cost of carry differ meaningfully across asset classes, which is why forward pricing looks somewhat different for a physical commodity than for a stock or a bond.',
       },
       { type: "heading", text: "Physical Commodities (Grains, Energy Products, Precious Metals, etc.)" },
       {
@@ -852,7 +967,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "What additional cost does forward pricing for a physical commodity typically include, beyond financing?",
+        prompt:
+          "What additional cost does forward pricing for a physical commodity typically include, beyond financing?",
         choices: [
           "No additional costs — physical commodities are priced exactly like stocks",
           "Real, tangible storage costs — warehousing, insurance, and sometimes spoilage risk",
@@ -865,7 +981,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "What is \"convenience yield,\" and how does it affect a commodity's forward price?",
+        prompt: 'What is "convenience yield," and how does it affect a commodity\'s forward price?',
         choices: [
           "It has no effect on forward pricing whatsoever",
           "It's the benefit of holding the physical commodity now rather than a future promise of delivery, which can pull the forward price down, sometimes below spot",
@@ -904,7 +1020,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q6",
-        prompt: "What determines whether a currency's forward exchange rate trades at a premium or discount to spot, under covered interest rate parity?",
+        prompt:
+          "What determines whether a currency's forward exchange rate trades at a premium or discount to spot, under covered interest rate parity?",
         choices: [
           "The difference between the domestic and foreign risk-free interest rates",
           "The stock market's overall performance that day",
@@ -917,7 +1034,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q7",
-        prompt: "Why do many option pricing models substitute the forward price for the spot price when pricing an option on a futures contract?",
+        prompt:
+          "Why do many option pricing models substitute the forward price for the spot price when pricing an option on a futures contract?",
         choices: [
           "Because the forward price already embeds the cost of carry and any dividend adjustments, so it captures everything needed without separately tracking financing costs",
           "Because the forward price is always identical to the option's strike price",
@@ -930,7 +1048,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q8",
-        prompt: "In a cash-and-carry arbitrage, what does the arbitrageur do when the forward price is trading above its theoretical fair value?",
+        prompt:
+          "In a cash-and-carry arbitrage, what does the arbitrageur do when the forward price is trading above its theoretical fair value?",
         choices: [
           "Borrow money, buy the asset now, and sell it forward at the higher market price, locking in a riskless profit at delivery",
           "Do nothing, since forward prices can never be mispriced",
@@ -943,7 +1062,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q9",
-        prompt: "What's the difference between modeling dividends as a known dollar amount versus as a continuous dividend yield in forward pricing?",
+        prompt:
+          "What's the difference between modeling dividends as a known dollar amount versus as a continuous dividend yield in forward pricing?",
         choices: [
           "A known dollar amount is subtracted as a present value from spot before compounding, while a continuous yield lowers the effective compounding rate itself — the latter is more natural for a broad index paying dividends continuously",
           "There is no difference — both methods always produce the exact same forward price",
@@ -977,15 +1097,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "How futures contracts stay solvent day to day — initial margin, maintenance margin, and the daily mark-to-market process that settles gains and losses in cash every single day.",
     body: [
       { type: "heading", text: "Initial Margin" },
-      { type: "paragraph", text: "Unlike a forward, which typically requires no cash upfront, opening a futures position requires posting collateral with the broker and clearinghouse called initial margin — a fraction of the contract's notional value, not the full amount, which is what gives futures their capital efficiency and leverage. The exchange sets initial margin based on the contract's historical volatility, and it's required from both the long and short side of every trade, unlike an option, where only the seller posts margin." },
+      {
+        type: "paragraph",
+        text: "Unlike a forward, which typically requires no cash upfront, opening a futures position requires posting collateral with the broker and clearinghouse called initial margin — a fraction of the contract's notional value, not the full amount, which is what gives futures their capital efficiency and leverage. The exchange sets initial margin based on the contract's historical volatility, and it's required from both the long and short side of every trade, unlike an option, where only the seller posts margin.",
+      },
       { type: "heading", text: "Maintenance Margin and Margin Calls" },
-      { type: "paragraph", text: "Maintenance margin is a lower threshold, below the initial margin level, that an account's balance is never allowed to fall under. If a run of daily losses pushes the account below that threshold, the broker issues a margin call, requiring the trader to deposit additional cash — variation margin — back up to the initial margin level, typically within one business day, or have the position liquidated to cap further losses." },
+      {
+        type: "paragraph",
+        text: "Maintenance margin is a lower threshold, below the initial margin level, that an account's balance is never allowed to fall under. If a run of daily losses pushes the account below that threshold, the broker issues a margin call, requiring the trader to deposit additional cash — variation margin — back up to the initial margin level, typically within one business day, or have the position liquidated to cap further losses.",
+      },
       { type: "heading", text: "Daily Mark-to-Market" },
-      { type: "paragraph", text: "Every trading day, the exchange marks every open futures position to that day's settlement price and credits or debits the resulting gain or loss in cash to each account. This is the core structural difference from a forward, which settles its entire profit or loss in a single lump sum at maturity: a futures trader's gains and losses are realized incrementally, in cash, day by day, rather than accumulating unrealized until expiration." },
+      {
+        type: "paragraph",
+        text: "Every trading day, the exchange marks every open futures position to that day's settlement price and credits or debits the resulting gain or loss in cash to each account. This is the core structural difference from a forward, which settles its entire profit or loss in a single lump sum at maturity: a futures trader's gains and losses are realized incrementally, in cash, day by day, rather than accumulating unrealized until expiration.",
+      },
       { type: "heading", text: "Leverage Cuts Both Ways" },
-      { type: "paragraph", text: "Because initial margin is only a small fraction of a contract's notional value, a modest move in the underlying's price translates into a much larger percentage gain or loss on the margin capital actually posted. That same leverage that makes futures capital-efficient for hedgers and speculators also means a string of adverse daily marks can trigger a margin call, or a full liquidation, far faster than an equivalent-sized position in the cash market ever would." },
+      {
+        type: "paragraph",
+        text: "Because initial margin is only a small fraction of a contract's notional value, a modest move in the underlying's price translates into a much larger percentage gain or loss on the margin capital actually posted. That same leverage that makes futures capital-efficient for hedgers and speculators also means a string of adverse daily marks can trigger a margin call, or a full liquidation, far faster than an equivalent-sized position in the cash market ever would.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "A trader buys one crude oil futures contract (1,000 barrels) at $80 per barrel, a notional value of $80,000, posting $6,000 of initial margin (7.5% of notional) against a $5,000 maintenance margin threshold. The next day, crude falls to $78, a $2-per-barrel loss, marked to market as a $2,000 debit: 1,000 × $2 = $2,000. The account balance drops from $6,000 to $4,000 — below the $5,000 maintenance threshold — triggering a margin call for $2,000 in variation margin to bring the balance back up to the $6,000 initial margin level." },
+      {
+        type: "paragraph",
+        text: "A trader buys one crude oil futures contract (1,000 barrels) at $80 per barrel, a notional value of $80,000, posting $6,000 of initial margin (7.5% of notional) against a $5,000 maintenance margin threshold. The next day, crude falls to $78, a $2-per-barrel loss, marked to market as a $2,000 debit: 1,000 × $2 = $2,000. The account balance drops from $6,000 to $4,000 — below the $5,000 maintenance threshold — triggering a margin call for $2,000 in variation margin to bring the balance back up to the $6,000 initial margin level.",
+      },
     ],
     quiz: [
       {
@@ -1077,15 +1212,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "The standardized terms — size, tick, expiration, and quality — that make a futures contract fungible on an exchange, and why that standardization is what a forward trades away for flexibility.",
     body: [
       { type: "heading", text: "What Standardization Means" },
-      { type: "paragraph", text: "Where a forward's terms are fully custom, negotiated privately between two specific parties, a futures contract's terms are standardized by the exchange: a fixed contract size (say, 5,000 bushels of corn, or 1,000 barrels of crude oil), a fixed tick size — the minimum allowed price increment — and its corresponding tick value, and a fixed calendar of expiration and delivery months set well in advance." },
+      {
+        type: "paragraph",
+        text: "Where a forward's terms are fully custom, negotiated privately between two specific parties, a futures contract's terms are standardized by the exchange: a fixed contract size (say, 5,000 bushels of corn, or 1,000 barrels of crude oil), a fixed tick size — the minimum allowed price increment — and its corresponding tick value, and a fixed calendar of expiration and delivery months set well in advance.",
+      },
       { type: "heading", text: "Why Standardization Enables Liquidity" },
-      { type: "paragraph", text: "Because every trader in a given contract is trading the exact same terms, one trader's long position is perfectly interchangeable, or fungible, with any other trader's short position in that same contract. That fungibility is what allows a deep, liquid, anonymous market to exist on an exchange — any buyer can be matched with any seller instantly, with no need to negotiate custom terms the way two parties to a private forward would have to." },
+      {
+        type: "paragraph",
+        text: "Because every trader in a given contract is trading the exact same terms, one trader's long position is perfectly interchangeable, or fungible, with any other trader's short position in that same contract. That fungibility is what allows a deep, liquid, anonymous market to exist on an exchange — any buyer can be matched with any seller instantly, with no need to negotiate custom terms the way two parties to a private forward would have to.",
+      },
       { type: "heading", text: "Grade and Quality Specifications" },
-      { type: "paragraph", text: "For contracts on physical commodities, the specification also pins down an exact grade or quality of the deliverable asset — a specific crude oil grade, or a minimum wheat protein content, for example — along with a list of approved delivery locations. Sellers are sometimes permitted to deliver a different, but contractually allowed, grade at a specified price adjustment, and this precision is exactly what prevents disputes over whether the asset actually delivered was the asset the contract promised." },
+      {
+        type: "paragraph",
+        text: "For contracts on physical commodities, the specification also pins down an exact grade or quality of the deliverable asset — a specific crude oil grade, or a minimum wheat protein content, for example — along with a list of approved delivery locations. Sellers are sometimes permitted to deliver a different, but contractually allowed, grade at a specified price adjustment, and this precision is exactly what prevents disputes over whether the asset actually delivered was the asset the contract promised.",
+      },
       { type: "heading", text: "Expiration Cycles and the Front Month" },
-      { type: "paragraph", text: "Each futures contract trades under a ticker combined with an expiration month code, and several expirations — say, March, June, September, and December — trade simultaneously at any given time. The nearest-to-expire contract with the highest trading volume is called the front month, and it's typically the most liquid one; as it approaches its own expiration, active traders roll their exposure forward into the next expiration rather than let the contract run into its delivery process." },
+      {
+        type: "paragraph",
+        text: "Each futures contract trades under a ticker combined with an expiration month code, and several expirations — say, March, June, September, and December — trade simultaneously at any given time. The nearest-to-expire contract with the highest trading volume is called the front month, and it's typically the most liquid one; as it approaches its own expiration, active traders roll their exposure forward into the next expiration rather than let the contract run into its delivery process.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "The E-mini S&P 500 futures contract has a multiplier of $50 per index point and a minimum tick size of 0.25 points, so each tick is worth 0.25 × $50 = $12.50. If the contract moves from 4,500.00 to 4,502.50, that's a 2.50-point move, or exactly 10 ticks. The dollar gain on one contract is 2.50 × $50 = $125 — the same answer as counting 10 ticks × $12.50 per tick, which is exactly why the standardized tick size and its dollar value matter: they let every trader compute a position's gain or loss the same, unambiguous way." },
+      {
+        type: "paragraph",
+        text: "The E-mini S&P 500 futures contract has a multiplier of $50 per index point and a minimum tick size of 0.25 points, so each tick is worth 0.25 × $50 = $12.50. If the contract moves from 4,500.00 to 4,502.50, that's a 2.50-point move, or exactly 10 ticks. The dollar gain on one contract is 2.50 × $50 = $125 — the same answer as counting 10 ticks × $12.50 per tick, which is exactly why the standardized tick size and its dollar value matter: they let every trader compute a position's gain or loss the same, unambiguous way.",
+      },
     ],
     quiz: [
       {
@@ -1129,7 +1279,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What is the \"front month\" contract?",
+        prompt: 'What is the "front month" contract?',
         choices: [
           "The contract furthest from expiration",
           "The nearest-to-expire contract with the highest trading volume, typically the most liquid one",
@@ -1172,15 +1322,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "Why the overwhelming majority of futures contracts never reach physical delivery — and what actually happens as a contract's expiration approaches.",
     body: [
       { type: "heading", text: "Two Ways a Futures Contract Ends" },
-      { type: "paragraph", text: "A futures position ends in one of two ways: it runs to expiration and settles, either through physical delivery of the underlying asset or, for contracts like stock index futures or VIX futures that have no single physical asset to hand over, through cash settlement — or the trader closes out the position early with an offsetting trade, buying back a short or selling out a long, before expiration ever arrives. The vast majority of speculative traders exit this second way." },
+      {
+        type: "paragraph",
+        text: "A futures position ends in one of two ways: it runs to expiration and settles, either through physical delivery of the underlying asset or, for contracts like stock index futures or VIX futures that have no single physical asset to hand over, through cash settlement — or the trader closes out the position early with an offsetting trade, buying back a short or selling out a long, before expiration ever arrives. The vast majority of speculative traders exit this second way.",
+      },
       { type: "heading", text: "Physical Delivery in Practice" },
-      { type: "paragraph", text: "For a physically-settled contract, only accounts still holding an open position once the exchange's delivery process begins risk being matched for actual delivery, and the exchange runs a formal notice process pairing the remaining longs and shorts. Because that process is operationally demanding — arranging storage, transport, and quality inspection — most speculative and retail accounts close out well before this window opens, leaving physical delivery mainly to the commercial participants, grain elevators, refiners, and the like, who actually want or already hold the underlying commodity." },
+      {
+        type: "paragraph",
+        text: "For a physically-settled contract, only accounts still holding an open position once the exchange's delivery process begins risk being matched for actual delivery, and the exchange runs a formal notice process pairing the remaining longs and shorts. Because that process is operationally demanding — arranging storage, transport, and quality inspection — most speculative and retail accounts close out well before this window opens, leaving physical delivery mainly to the commercial participants, grain elevators, refiners, and the like, who actually want or already hold the underlying commodity.",
+      },
       { type: "heading", text: "Cash-Settled Contracts" },
-      { type: "paragraph", text: "Many modern futures contracts, especially financial futures, are cash-settled by design and have no physical delivery mechanism at all: at expiration, the contract simply settles against an agreed reference price or index level, and the difference is paid in cash. This removes the operational complexity of delivery entirely, at the cost of the contract being a purely financial instrument rather than a claim on a physical asset." },
+      {
+        type: "paragraph",
+        text: "Many modern futures contracts, especially financial futures, are cash-settled by design and have no physical delivery mechanism at all: at expiration, the contract simply settles against an agreed reference price or index level, and the difference is paid in cash. This removes the operational complexity of delivery entirely, at the cost of the contract being a purely financial instrument rather than a claim on a physical asset.",
+      },
       { type: "heading", text: "Rolling a Position Forward" },
-      { type: "paragraph", text: "A trader who wants continuous exposure without ever taking delivery closes out the expiring contract and simultaneously opens an equivalent position in a later-dated contract — a roll. The price difference between the two contracts, driven largely by the same cost-of-carry logic behind forward pricing, becomes a return or a cost of maintaining that exposure over time, which is exactly the dynamic behind both calendar-spread trading and roll yield in commodity futures." },
+      {
+        type: "paragraph",
+        text: "A trader who wants continuous exposure without ever taking delivery closes out the expiring contract and simultaneously opens an equivalent position in a later-dated contract — a roll. The price difference between the two contracts, driven largely by the same cost-of-carry logic behind forward pricing, becomes a return or a cost of maintaining that exposure over time, which is exactly the dynamic behind both calendar-spread trading and roll yield in commodity futures.",
+      },
       { type: "heading", text: "A Worked Example" },
-      { type: "paragraph", text: "A trader is long one September crude oil futures contract (1,000 barrels) entered at $75, and expiration is approaching. They close it out by selling at $76, banking a $1-per-barrel gain, or $1,000. To maintain continuous exposure, they simultaneously buy one December contract at $77 — $1 higher than the September price they just sold at, since the market is in contango. That $1-per-barrel gap costs $1,000 in the new position, a separate roll cost embedded in the switch to a further-dated, more expensive contract, on top of whatever September's realized gain was. Rolled repeatedly through a persistent contango market, this cost is exactly what erodes the return of holding continuous futures exposure over time, independent of what crude's outright spot price does." },
+      {
+        type: "paragraph",
+        text: "A trader is long one September crude oil futures contract (1,000 barrels) entered at $75, and expiration is approaching. They close it out by selling at $76, banking a $1-per-barrel gain, or $1,000. To maintain continuous exposure, they simultaneously buy one December contract at $77 — $1 higher than the September price they just sold at, since the market is in contango. That $1-per-barrel gap costs $1,000 in the new position, a separate roll cost embedded in the switch to a further-dated, more expensive contract, on top of whatever September's realized gain was. Rolled repeatedly through a persistent contango market, this cost is exactly what erodes the return of holding continuous futures exposure over time, independent of what crude's outright spot price does.",
+      },
     ],
     quiz: [
       {
@@ -1224,7 +1389,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What does it mean to \"roll\" a futures position?",
+        prompt: 'What does it mean to "roll" a futures position?',
         choices: [
           "Letting the position run into physical delivery",
           "Closing out the expiring contract and simultaneously opening an equivalent position in a later-dated contract, to maintain continuous exposure",
@@ -1237,7 +1402,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q5",
-        prompt: "What determines the price difference between the contract being rolled out of and the one being rolled into?",
+        prompt:
+          "What determines the price difference between the contract being rolled out of and the one being rolled into?",
         choices: [
           "The difference is always zero",
           "Largely the same cost-of-carry logic behind forward pricing, which is also the dynamic behind calendar spreads and commodity roll yield",
@@ -1272,13 +1438,25 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "A forward contract on an interest rate itself — locking in a borrowing or lending rate for a future period without any principal actually changing hands.",
     body: [
       { type: "heading", text: "What an FRA Is" },
-      { type: "paragraph", text: "A forward rate agreement (FRA) is a forward contract where two parties agree today on an interest rate that will apply to a notional principal amount over a specified future period — for example, a 3-month rate starting 6 months from now. Unlike an actual loan, the notional amount is never exchanged; it exists purely to calculate the settlement payment." },
+      {
+        type: "paragraph",
+        text: "A forward rate agreement (FRA) is a forward contract where two parties agree today on an interest rate that will apply to a notional principal amount over a specified future period — for example, a 3-month rate starting 6 months from now. Unlike an actual loan, the notional amount is never exchanged; it exists purely to calculate the settlement payment.",
+      },
       { type: "heading", text: "How Settlement Works" },
-      { type: "paragraph", text: "At the FRA's settlement date, the difference between the agreed fixed rate and the actual reference rate observed at that time, such as SOFR, is calculated on the notional amount, and one party pays the other that difference in cash. If the realized rate ends up higher than the agreed rate, the party who locked in the fixed rate profits, since they avoided paying the higher rate that materialized." },
+      {
+        type: "paragraph",
+        text: "At the FRA's settlement date, the difference between the agreed fixed rate and the actual reference rate observed at that time, such as SOFR, is calculated on the notional amount, and one party pays the other that difference in cash. If the realized rate ends up higher than the agreed rate, the party who locked in the fixed rate profits, since they avoided paying the higher rate that materialized.",
+      },
       { type: "heading", text: "Hedging a Future Borrowing or Lending Rate" },
-      { type: "paragraph", text: "A company that knows it will need to borrow money in six months, for a three-month term, can use an FRA to lock in today's rate for that future period, protecting against the risk that rates rise before the loan is actually taken out. The FRA settlement payment offsets the difference between the rate they locked in and the rate they'd actually pay on the loan when it's drawn." },
+      {
+        type: "paragraph",
+        text: "A company that knows it will need to borrow money in six months, for a three-month term, can use an FRA to lock in today's rate for that future period, protecting against the risk that rates rise before the loan is actually taken out. The FRA settlement payment offsets the difference between the rate they locked in and the rate they'd actually pay on the loan when it's drawn.",
+      },
       { type: "heading", text: "FRAs vs. Interest Rate Futures" },
-      { type: "paragraph", text: "FRAs serve a similar purpose to the exchange-traded interest rate futures covered elsewhere in this course, but FRAs are private, over-the-counter contracts, custom-tailored between two parties in size and dates, carrying the same counterparty-risk tradeoff as any other forward. An interest rate future is the standardized, exchange-cleared, daily-margined version of essentially the same underlying idea." },
+      {
+        type: "paragraph",
+        text: "FRAs serve a similar purpose to the exchange-traded interest rate futures covered elsewhere in this course, but FRAs are private, over-the-counter contracts, custom-tailored between two parties in size and dates, carrying the same counterparty-risk tradeoff as any other forward. An interest rate future is the standardized, exchange-cleared, daily-margined version of essentially the same underlying idea.",
+      },
     ],
     quiz: [
       {
@@ -1356,18 +1534,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "Once a forward is in place, its market value changes as time passes and the spot price moves — a different question from forward pricing, which only sets the fair price at inception.",
     body: [
       { type: "heading", text: "Pricing at Inception vs. Valuing Mid-Life" },
-      { type: "paragraph", text: "Forward pricing, covered earlier in this module, answers the question \"what delivery price should this contract be struck at today, so that it has zero value to either side at signing?\" Valuing an existing forward answers a different question: once that contract is signed and time has passed, what is it actually worth now to whoever holds it?" },
+      {
+        type: "paragraph",
+        text: 'Forward pricing, covered earlier in this module, answers the question "what delivery price should this contract be struck at today, so that it has zero value to either side at signing?" Valuing an existing forward answers a different question: once that contract is signed and time has passed, what is it actually worth now to whoever holds it?',
+      },
       { type: "heading", text: "Why the Value Isn't Zero Anymore" },
-      { type: "paragraph", text: "A forward is struck at a delivery price, fixed for the life of the contract, but the underlying's spot price and the cost of carry keep changing after that. As the asset's current forward price, recalculated using today's spot and financing cost, drifts away from the original delivery price, the contract accumulates real economic value — positive to one side, and equally negative to the other." },
+      {
+        type: "paragraph",
+        text: "A forward is struck at a delivery price, fixed for the life of the contract, but the underlying's spot price and the cost of carry keep changing after that. As the asset's current forward price, recalculated using today's spot and financing cost, drifts away from the original delivery price, the contract accumulates real economic value — positive to one side, and equally negative to the other.",
+      },
       { type: "heading", text: "The Valuation Formula's Intuition" },
-      { type: "paragraph", text: "The value of a long forward position, at any point before maturity, is approximately the present value of the difference between today's forward price for a brand-new contract of the same remaining maturity, and the original delivery price locked in at inception. If the market's current forward price is now higher than the original delivery price, the long position is in the money and worth something positive." },
+      {
+        type: "paragraph",
+        text: "The value of a long forward position, at any point before maturity, is approximately the present value of the difference between today's forward price for a brand-new contract of the same remaining maturity, and the original delivery price locked in at inception. If the market's current forward price is now higher than the original delivery price, the long position is in the money and worth something positive.",
+      },
       { type: "heading", text: "Why This Matters in Practice" },
-      { type: "paragraph", text: "This mid-life valuation is what a company needs to mark a forward position on its own books, what a bank needs to calculate before agreeing to unwind or assign an existing forward early, and conceptually underlies the daily variation-margin logic used in a futures contract's mark-to-market process — even though a forward itself, unlike a future, doesn't settle any of that accumulated value until the very end." },
+      {
+        type: "paragraph",
+        text: "This mid-life valuation is what a company needs to mark a forward position on its own books, what a bank needs to calculate before agreeing to unwind or assign an existing forward early, and conceptually underlies the daily variation-margin logic used in a futures contract's mark-to-market process — even though a forward itself, unlike a future, doesn't settle any of that accumulated value until the very end.",
+      },
     ],
     quiz: [
       {
         id: "q1",
-        prompt: "What question does \"valuing an existing forward\" answer, as distinct from forward pricing?",
+        prompt: 'What question does "valuing an existing forward" answer, as distinct from forward pricing?',
         choices: [
           "What the contract's delivery price should be set at, for it to have zero value at signing",
           "What the contract is actually worth now to whoever holds it, after time has passed since signing",
@@ -1440,13 +1630,25 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "How a clearinghouse steps into the middle of every futures trade, becoming the buyer to every seller and the seller to every buyer — the mechanism behind the guarantee referenced earlier in this course.",
     body: [
       { type: "heading", text: "What a Clearinghouse Does" },
-      { type: "paragraph", text: "A clearinghouse sits between every buyer and seller in the futures market, becoming the legal counterparty to both sides of every trade through a process called novation. The moment a trade is matched, the original bilateral contract between the two traders is replaced by two new contracts: one between the buyer and the clearinghouse, and one between the clearinghouse and the seller." },
+      {
+        type: "paragraph",
+        text: "A clearinghouse sits between every buyer and seller in the futures market, becoming the legal counterparty to both sides of every trade through a process called novation. The moment a trade is matched, the original bilateral contract between the two traders is replaced by two new contracts: one between the buyer and the clearinghouse, and one between the clearinghouse and the seller.",
+      },
       { type: "heading", text: "Why Novation Matters" },
-      { type: "paragraph", text: "Because every trader's counterparty is now the clearinghouse itself, rather than the specific, possibly unknown trader on the other side of the original trade, no individual trader needs to assess or worry about the creditworthiness of whoever they happened to be matched with — a critical difference from a forward's direct, bilateral counterparty exposure." },
+      {
+        type: "paragraph",
+        text: "Because every trader's counterparty is now the clearinghouse itself, rather than the specific, possibly unknown trader on the other side of the original trade, no individual trader needs to assess or worry about the creditworthiness of whoever they happened to be matched with — a critical difference from a forward's direct, bilateral counterparty exposure.",
+      },
       { type: "heading", text: "How the Clearinghouse Stays Solvent" },
-      { type: "paragraph", text: "The clearinghouse funds this guarantee through the margin system already covered in this module: every member posts initial margin, is marked to market daily, and faces margin calls, which means the clearinghouse is rarely exposed to more than a single day's adverse move on any position before that loss is collected in cash." },
+      {
+        type: "paragraph",
+        text: "The clearinghouse funds this guarantee through the margin system already covered in this module: every member posts initial margin, is marked to market daily, and faces margin calls, which means the clearinghouse is rarely exposed to more than a single day's adverse move on any position before that loss is collected in cash.",
+      },
       { type: "heading", text: "The Guarantee Fund, as a Backstop" },
-      { type: "paragraph", text: "Beyond individual members' margin, clearinghouses maintain a mutualized guarantee, or default, fund, contributed to by all clearing members, that absorbs losses in the rare event a member defaults and its own posted margin isn't enough to cover the loss — a final layer of protection standing behind the daily margining process." },
+      {
+        type: "paragraph",
+        text: "Beyond individual members' margin, clearinghouses maintain a mutualized guarantee, or default, fund, contributed to by all clearing members, that absorbs losses in the rare event a member defaults and its own posted margin isn't enough to cover the loss — a final layer of protection standing behind the daily margining process.",
+      },
     ],
     quiz: [
       {
@@ -1464,7 +1666,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "Why doesn't a futures trader need to assess the creditworthiness of the trader on the other side of their trade?",
+        prompt:
+          "Why doesn't a futures trader need to assess the creditworthiness of the trader on the other side of their trade?",
         choices: [
           "Because the clearinghouse becomes the counterparty to both sides through novation, not the original trader",
           "Because all futures traders are required to be the same size",
@@ -1524,13 +1727,25 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "The rules exchanges use to slow down or pause trading when a futures price moves an unusually large amount in a single session.",
     body: [
       { type: "heading", text: "What a Daily Price Limit Is" },
-      { type: "paragraph", text: "Many futures contracts have an exchange-set daily price limit, a maximum amount the price is allowed to move, up or down, from the prior day's settlement price within a single trading session. Once the price hits that limit, further trades beyond it simply aren't permitted for the rest of the session, or until the limit is expanded." },
+      {
+        type: "paragraph",
+        text: "Many futures contracts have an exchange-set daily price limit, a maximum amount the price is allowed to move, up or down, from the prior day's settlement price within a single trading session. Once the price hits that limit, further trades beyond it simply aren't permitted for the rest of the session, or until the limit is expanded.",
+      },
       { type: "heading", text: "Limit Up and Limit Down" },
-      { type: "paragraph", text: "When a price rises all the way to its upper limit, the market is said to be \"limit up\"; when it falls to its lower limit, it's \"limit down.\" A market stuck there, with buyers or sellers unable to trade beyond the limit despite plenty of demand to do so, is described as \"locked limit\" — trading technically continues, but no one can transact outside the barrier." },
+      {
+        type: "paragraph",
+        text: 'When a price rises all the way to its upper limit, the market is said to be "limit up"; when it falls to its lower limit, it\'s "limit down." A market stuck there, with buyers or sellers unable to trade beyond the limit despite plenty of demand to do so, is described as "locked limit" — trading technically continues, but no one can transact outside the barrier.',
+      },
       { type: "heading", text: "Why Exchanges Use Price Limits" },
-      { type: "paragraph", text: "Price limits are meant to give the market a pause during an unusually sharp, fast move — slowing panic selling or buying, giving participants time to assess new information, and capping how large a single day's mark-to-market loss can be for anyone holding a position, before the clearinghouse's margin system has to absorb it." },
+      {
+        type: "paragraph",
+        text: "Price limits are meant to give the market a pause during an unusually sharp, fast move — slowing panic selling or buying, giving participants time to assess new information, and capping how large a single day's mark-to-market loss can be for anyone holding a position, before the clearinghouse's margin system has to absorb it.",
+      },
       { type: "heading", text: "Circuit Breakers and Trading Halts" },
-      { type: "paragraph", text: "Related but distinct from a price limit, a circuit breaker triggers a temporary trading halt, rather than merely capping the price, once a market moves by some threshold percentage very quickly. Used especially in broad equity index futures, a circuit breaker gives markets a brief cooling-off period before trading resumes, rather than locking the price at a hard ceiling or floor for the rest of the session." },
+      {
+        type: "paragraph",
+        text: "Related but distinct from a price limit, a circuit breaker triggers a temporary trading halt, rather than merely capping the price, once a market moves by some threshold percentage very quickly. Used especially in broad equity index futures, a circuit breaker gives markets a brief cooling-off period before trading resumes, rather than locking the price at a hard ceiling or floor for the rest of the session.",
+      },
     ],
     quiz: [
       {
@@ -1548,7 +1763,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "What does it mean for a market to be \"locked limit\"?",
+        prompt: 'What does it mean for a market to be "locked limit"?',
         choices: [
           "The price is stuck at its daily limit, with participants unable to trade beyond it despite demand to do so",
           "The exchange has permanently closed the contract",
@@ -1557,7 +1772,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
         ],
         correctIndex: 0,
         explanation:
-          "\"Locked limit\" describes a market pinned at its price limit, where buyers or sellers who want to transact beyond that level simply cannot, even though trading in general hasn't stopped.",
+          '"Locked limit" describes a market pinned at its price limit, where buyers or sellers who want to transact beyond that level simply cannot, even though trading in general hasn\'t stopped.',
       },
       {
         id: "q3",
@@ -1608,13 +1823,25 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "The simplest possible definition of a forward contract — two parties agreeing today on a price for something that changes hands later — and why that agreement is worth making at all.",
     body: [
       { type: "heading", text: "A Simple Definition" },
-      { type: "paragraph", text: "At its core, a forward contract is nothing more than an agreement between two parties to buy and sell something at an agreed price, on an agreed future date. Nothing changes hands today except the promise itself; the actual exchange of the asset for the price happens entirely later, at the date both sides agreed to upfront." },
+      {
+        type: "paragraph",
+        text: "At its core, a forward contract is nothing more than an agreement between two parties to buy and sell something at an agreed price, on an agreed future date. Nothing changes hands today except the promise itself; the actual exchange of the asset for the price happens entirely later, at the date both sides agreed to upfront.",
+      },
       { type: "heading", text: "Long and Short" },
-      { type: "paragraph", text: "The party who agrees to buy the asset later is said to be \"long\" the forward; the party who agrees to sell it is \"short.\" These are the same long and short terms used throughout trading more generally, and a forward is really just the simplest possible way to express a long or short view on something's future price, locked in today rather than left to chance." },
+      {
+        type: "paragraph",
+        text: 'The party who agrees to buy the asset later is said to be "long" the forward; the party who agrees to sell it is "short." These are the same long and short terms used throughout trading more generally, and a forward is really just the simplest possible way to express a long or short view on something\'s future price, locked in today rather than left to chance.',
+      },
       { type: "heading", text: "A Real-World Motivation" },
-      { type: "paragraph", text: "Picture a coffee roaster who knows they'll need a large shipment of coffee beans in three months, and worries the price might rise before then. By agreeing today with a coffee grower on a fixed price for that future delivery, the roaster removes the uncertainty entirely — whatever the market price does between now and then, their cost is already locked in." },
+      {
+        type: "paragraph",
+        text: "Picture a coffee roaster who knows they'll need a large shipment of coffee beans in three months, and worries the price might rise before then. By agreeing today with a coffee grower on a fixed price for that future delivery, the roaster removes the uncertainty entirely — whatever the market price does between now and then, their cost is already locked in.",
+      },
       { type: "heading", text: "Why Go to the Trouble" },
-      { type: "paragraph", text: "The whole point of a forward is trading away uncertainty for certainty. Neither side knows for sure whether they'll end up ahead compared to simply waiting and transacting at whatever the market price happens to be later — but both sides get something they value more than that uncertainty: a known, fixed number to plan around." },
+      {
+        type: "paragraph",
+        text: "The whole point of a forward is trading away uncertainty for certainty. Neither side knows for sure whether they'll end up ahead compared to simply waiting and transacting at whatever the market price happens to be later — but both sides get something they value more than that uncertainty: a known, fixed number to plan around.",
+      },
     ],
     quiz: [
       {
@@ -1632,7 +1859,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "What does it mean to be \"long\" a forward contract?",
+        prompt: 'What does it mean to be "long" a forward contract?',
         choices: [
           "You've agreed to sell the asset later",
           "You've agreed to buy the asset later",
@@ -1692,13 +1919,25 @@ export const futuresConceptLessons: ConceptLesson[] = [
       "The simplest possible definition of a futures contract — the same basic long/short agreement as a forward, but standardized and traded on an exchange.",
     body: [
       { type: "heading", text: "A Simple Definition" },
-      { type: "paragraph", text: "A futures contract is an agreement to buy or sell an asset at an agreed price on an agreed future date — the exact same basic idea as the forward contract covered in the previous module. What makes it a \"future\" rather than a plain forward is entirely about how that agreement is made and enforced, not what it fundamentally promises." },
+      {
+        type: "paragraph",
+        text: 'A futures contract is an agreement to buy or sell an asset at an agreed price on an agreed future date — the exact same basic idea as the forward contract covered in the previous module. What makes it a "future" rather than a plain forward is entirely about how that agreement is made and enforced, not what it fundamentally promises.',
+      },
       { type: "heading", text: "Same Long and Short, Different Venue" },
-      { type: "paragraph", text: "Just like a forward, the buyer of a futures contract is long and the seller is short. But rather than being negotiated privately between two specific parties, a futures contract is bought and sold on an organized exchange, where any trader can take the long or short side without ever needing to know, or trust, who's on the other side of the trade." },
+      {
+        type: "paragraph",
+        text: "Just like a forward, the buyer of a futures contract is long and the seller is short. But rather than being negotiated privately between two specific parties, a futures contract is bought and sold on an organized exchange, where any trader can take the long or short side without ever needing to know, or trust, who's on the other side of the trade.",
+      },
       { type: "heading", text: "A Real-World Example" },
-      { type: "paragraph", text: "A trader who believes oil prices will rise over the next few months can go long a crude oil futures contract on an exchange, agreeing to buy oil at today's price for delivery down the road — without ever needing to find a specific seller willing to make that exact private deal, the way a forward would require." },
+      {
+        type: "paragraph",
+        text: "A trader who believes oil prices will rise over the next few months can go long a crude oil futures contract on an exchange, agreeing to buy oil at today's price for delivery down the road — without ever needing to find a specific seller willing to make that exact private deal, the way a forward would require.",
+      },
       { type: "heading", text: "Building on What You Already Know" },
-      { type: "paragraph", text: "Everything covered in the Forward Basics module — long and short positions, agreeing on a price today for a transaction later — carries over directly to futures. The rest of this module covers what's specifically different about a futures contract: the margin and daily settlement, the standardized contract terms, and the clearinghouse that stands behind every trade, none of which a plain forward has." },
+      {
+        type: "paragraph",
+        text: "Everything covered in the Forward Basics module — long and short positions, agreeing on a price today for a transaction later — carries over directly to futures. The rest of this module covers what's specifically different about a futures contract: the margin and daily settlement, the standardized contract terms, and the clearinghouse that stands behind every trade, none of which a plain forward has.",
+      },
     ],
     quiz: [
       {
@@ -1729,7 +1968,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "Why can a trader go long a crude oil futures contract without finding a specific seller willing to make a private deal?",
+        prompt:
+          "Why can a trader go long a crude oil futures contract without finding a specific seller willing to make a private deal?",
         choices: [
           "Because the futures contract is bought and sold on an organized exchange, where any trader can take either side of the trade",
           "Because futures contracts don't actually require a counterparty at all",
