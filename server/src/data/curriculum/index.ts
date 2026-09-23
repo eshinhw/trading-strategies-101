@@ -1,4 +1,5 @@
 import { optionsStrategies } from "../options/index.js";
+import { courses } from "../courses/index.js";
 import { conceptLessons as foundationsConceptLessons } from "./conceptLessons.js";
 import { futuresConceptLessons } from "./futuresConceptLessons.js";
 import { stocksConceptLessons } from "./stocksConceptLessons.js";
@@ -46,6 +47,24 @@ export function resolveLesson(slug: string): ResolvedLesson | undefined {
 
 export function getModuleForLesson(lessonSlug: string): Module | undefined {
   return modules.find((m) => m.lessonSlugs.includes(lessonSlug));
+}
+
+const courseBySlug = new Map(courses.map((c) => [c.slug, c]));
+
+/**
+ * True when a lesson is one of the paper's own numbered strategies, rather
+ * than supplementary content (a "Basics" concept lesson, a worked example,
+ * etc.) written for this course. Every Options strategy lesson qualifies
+ * automatically — that course has no supplementary strategy-kind lessons —
+ * while a concept lesson qualifies only if its title is one of the course's
+ * `strategyTitles`, which are copied verbatim from the paper's table of
+ * contents (see the comment atop courses/index.ts).
+ */
+export function isPaperStrategy(courseSlug: string | null | undefined, resolved: ResolvedLesson): boolean {
+  if (resolved.kind === "strategy") return true;
+  if (!courseSlug) return false;
+  const titles = courseBySlug.get(courseSlug)?.strategyTitles;
+  return titles?.includes(resolved.lesson.title) ?? false;
 }
 
 export function getModule(slug: string): Module | undefined {

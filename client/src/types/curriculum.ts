@@ -12,6 +12,7 @@ export interface ModuleLessonSummary {
   kind: "concept" | "strategy";
   title: string;
   summary: string;
+  isPaperStrategy: boolean;
   completed: boolean;
   bestScore: number | null;
 }
@@ -60,6 +61,7 @@ interface LessonBase {
   prevLessonSlug: string | null;
   nextLessonSlug: string | null;
   progress: LessonProgress | null;
+  isPaperStrategy: boolean;
 }
 
 export interface ConceptQuizPrompt {

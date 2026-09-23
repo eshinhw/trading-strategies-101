@@ -202,6 +202,11 @@ function ModuleSection({ module: m }: { module: ModulesResponse["modules"][numbe
                 {lesson.completed ? "✓" : ""}
               </div>
               <div className="min-w-0 flex-1 truncate text-sm text-[#e6e8ec]">{lesson.title}</div>
+              {lesson.isPaperStrategy && (
+                <span className="shrink-0 rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#898781]">
+                  Strategy
+                </span>
+              )}
             </Link>
           ))}
         </div>

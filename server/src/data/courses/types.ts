@@ -6,7 +6,11 @@ export interface Course {
   description: string;
   status: "available" | "coming-soon";
   strategyCount: number;
-  /** for coming-soon courses only — real strategy titles from the paper, so the
-   * course reads as a populated roadmap rather than an empty placeholder */
+  /** Real strategy titles from the paper's table of contents, verbatim. For a
+   * coming-soon course this lets it read as a populated roadmap rather than an
+   * empty placeholder; for an available course, matching a concept lesson's
+   * title against this list is also how isPaperStrategy() (see curriculum/index.ts)
+   * decides whether that lesson gets the "Strategy" badge. Options has no
+   * entry here since every one of its lessons is kind: "strategy" already. */
   strategyTitles?: string[];
 }

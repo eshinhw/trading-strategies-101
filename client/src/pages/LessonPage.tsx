@@ -135,7 +135,8 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
   return (
     <div>
       <header className="mb-6">
-        <h1 className="text-3xl font-bold text-[#e6e8ec]">{lesson.title}</h1>
+        {lesson.isPaperStrategy && <PlainBadge>Strategy</PlainBadge>}
+        <h1 className={`text-3xl font-bold text-[#e6e8ec] ${lesson.isPaperStrategy ? "mt-3" : ""}`}>{lesson.title}</h1>
         <p className="mt-2 text-lg text-[#9aa3b2]">{lesson.summary}</p>
       </header>
 
@@ -188,6 +189,7 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
     <div>
       <header className="mb-8">
         <div className="mb-3 flex flex-wrap items-center gap-2">
+          {lesson.isPaperStrategy && <PlainBadge>Strategy</PlainBadge>}
           <OutlookBadge outlook={strategy.outlook} />
           <PlainBadge>{strategy.style.replace("-", " ")}</PlainBadge>
           <PlainBadge>{strategy.netPosition.replace("-", " ")}</PlainBadge>

@@ -7,6 +7,7 @@ import {
   getModuleForLesson,
   computeModuleStatuses,
   allLessonSlugs,
+  isPaperStrategy,
 } from "../data/curriculum/index.js";
 import { generatePracticeParams } from "../data/curriculum/practiceParams.js";
 import { buildStrategyQuestions, gradeStrategySubmission, gradeConceptSubmission } from "../lib/grading.js";
@@ -22,6 +23,7 @@ function slugParam(v: string | string[]): string {
 
 function mapLessons(
   lessonSlugs: string[],
+  courseSlug: string,
   progressBySlug: Map<string, { completed: boolean; bestScore: number | null }>,
 ) {
   return lessonSlugs.map((slug) => {
@@ -32,6 +34,7 @@ function mapLessons(
       kind: resolved?.kind,
       title: resolved?.kind === "concept" ? resolved.lesson.title : resolved?.strategy.name,
       summary: resolved?.kind === "concept" ? resolved.lesson.summary : resolved?.strategy.content.summary,
+      isPaperStrategy: resolved ? isPaperStrategy(courseSlug, resolved) : false,
       completed: progress?.completed ?? false,
       bestScore: progress?.bestScore ?? null,
     };
@@ -68,7 +71,7 @@ router.get("/modules", async (req, res) => {
       completedLessons: s.completedLessons,
       unlocked: s.unlocked,
       completed: s.completed,
-      lessons: s.unlocked ? mapLessons(s.module.lessonSlugs, progressBySlug) : [],
+      lessons: s.unlocked ? mapLessons(s.module.lessonSlugs, courseSlug, progressBySlug) : [],
     })),
   });
 });
@@ -97,7 +100,7 @@ router.get("/modules/:slug", async (req, res) => {
     description: module.description,
     unlocked: status.unlocked,
     completed: status.completed,
-    lessons: mapLessons(module.lessonSlugs, progressBySlug),
+    lessons: mapLessons(module.lessonSlugs, module.courseSlug, progressBySlug),
   });
 });
 
@@ -127,6 +130,7 @@ router.get("/lessons/:slug", async (req, res) => {
     prevLessonSlug,
     nextLessonSlug,
     progress,
+    isPaperStrategy: isPaperStrategy(module?.courseSlug, resolved),
   };
 
   if (resolved.kind === "concept") {
