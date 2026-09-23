@@ -223,12 +223,27 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "stocks-fundamentals",
+    slug: "stocks-basics",
     courseSlug: "stocks",
     title: "Stocks Basics",
     description:
-      "A first tour of equity trading strategies — factor investing (momentum and value), statistical arbitrage (pairs trading and cluster mean-reversion), technical trend-following, and market-making.",
+      "What a share of stock actually is, how buying and selling one works, how companies are measured and grouped, and how they return cash to shareholders — the foundation the rest of this course's strategies are built on.",
     order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "stocks-what-is-a-stock",
+      "stocks-how-stock-trading-works",
+      "stocks-market-capitalization-and-sectors",
+      "stocks-dividends-and-corporate-actions",
+    ],
+  },
+  {
+    slug: "stocks-fundamentals",
+    courseSlug: "stocks",
+    title: "Stocks Fundamentals",
+    description:
+      "A first tour of equity trading strategies — factor investing (momentum and value), statistical arbitrage (pairs trading and cluster mean-reversion), technical trend-following, and market-making.",
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "stocks-price-momentum",
@@ -245,7 +260,7 @@ export const modules: Module[] = [
     title: "Factor & Quant Strategies",
     description:
       "Deeper factor investing (earnings-momentum, low-volatility, multifactor, residual momentum), a signal drawn from the options market (implied volatility), and how a real stat-arb desk combines many signals and builds a portfolio from them.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: ["stocks-fundamentals"],
     lessonSlugs: [
       "stocks-earnings-momentum",
@@ -263,7 +278,7 @@ export const modules: Module[] = [
     title: "Technical & Event-Driven Strategies",
     description:
       "Chart-based trend-following (moving-average crossovers, support/resistance, channels), mean-reversion scaled across many industry clusters, merger arbitrage, and a machine-learning approach to single-stock prediction.",
-    order: 3,
+    order: 4,
     prerequisiteModuleSlugs: ["stocks-fundamentals"],
     lessonSlugs: [
       "stocks-mean-reversion-multiple-clusters",

@@ -1722,4 +1722,340 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "stocks-what-is-a-stock",
+    title: "What Is a Stock?",
+    summary:
+      "Owning a share of a company — what that ownership actually entitles you to, and how it differs from lending a company money.",
+    body: [
+      { type: "heading", text: "Ownership, Not a Loan" },
+      { type: "paragraph", text: "A share of stock represents a fractional ownership stake in a company, not a loan to it. Unlike a bondholder, who's owed a fixed repayment, a shareholder owns a proportional slice of everything the company owns and earns, with no promise of repayment at all." },
+      { type: "heading", text: "What Shareholders Are Entitled To" },
+      { type: "paragraph", text: "Owning a share entitles you to a proportional claim on the company's future profits, through dividends if the company pays them and through the growth of the stock's own value, a vote on major corporate matters at the company's shareholder meetings, and a residual claim on the company's assets if it's ever liquidated — after every creditor and bondholder has been paid first." },
+      { type: "heading", text: "Public vs. Private Companies" },
+      { type: "paragraph", text: "A private company's shares are held by a small number of founders, employees, and investors, and aren't available for the general public to buy or sell. A public company has listed its shares on an exchange through an initial public offering (IPO), letting anyone buy or sell shares freely in the open market." },
+      { type: "heading", text: "Why Stock Prices Move" },
+      { type: "paragraph", text: "A stock's price is simply whatever the market is currently willing to pay for one share, constantly being reset by real buy and sell orders. That price reflects the market's collective, ever-changing view of the company's future profits, discounted back to what they're worth today — new information about the business updates that view, and the price along with it." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does owning a share of stock represent?",
+        choices: [
+          "A loan to the company that must be repaid on a fixed schedule",
+          "A fractional ownership stake in the company",
+          "A guarantee of a fixed annual payment",
+          "A right to manage the company's daily operations directly",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A share is ownership, not debt — a shareholder owns a proportional slice of the company itself, with no promise of repayment the way a bondholder has.",
+      },
+      {
+        id: "q2",
+        prompt: "What is a shareholder's claim on a company's assets if it's ever liquidated?",
+        choices: [
+          "Shareholders are paid before any creditor or bondholder",
+          "A residual claim, paid only after every creditor and bondholder has been paid first",
+          "Shareholders have no claim on the company's assets at all",
+          "Shareholders receive a fixed dollar amount regardless of what's left",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Shareholders sit at the bottom of the claims hierarchy in a liquidation — they only receive whatever is left after creditors and bondholders have been paid in full.",
+      },
+      {
+        id: "q3",
+        prompt: "What distinguishes a public company from a private one?",
+        choices: [
+          "A public company's shares are listed on an exchange and can be freely bought or sold by anyone, while a private company's shares are held by a small, fixed group",
+          "Private companies are always larger than public companies",
+          "Public companies cannot ever pay dividends",
+          "There is no meaningful difference between the two",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Going public via an IPO is what opens a company's shares to trading by the general public on an exchange — a private company's ownership stays concentrated among a small group.",
+      },
+      {
+        id: "q4",
+        prompt: "What fundamentally causes a stock's price to move?",
+        choices: [
+          "The price is fixed permanently at the company's IPO price",
+          "The market's collective, ever-changing view of the company's future profits, updated as new information arrives",
+          "Stock prices change randomly with no relationship to the company at all",
+          "Only the company's own management can change the stock price",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A stock's price reflects what buyers and sellers currently believe the company's future profits are worth today — new information shifts that view, and the price moves with it.",
+      },
+      {
+        id: "q5",
+        prompt: "What does a shareholder receive that a bondholder does not?",
+        choices: [
+          "A fixed, guaranteed repayment date",
+          "A vote on major corporate matters at shareholder meetings",
+          "Priority over shareholders in a liquidation",
+          "A fixed coupon payment schedule",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Voting rights on major corporate matters are a feature of equity ownership, not debt — a bondholder is owed fixed payments but generally has no vote in how the company is run.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-how-stock-trading-works",
+    title: "How Stock Trading Works",
+    summary:
+      "The mechanics of actually buying and selling a share — exchanges, order types, and what it means to go long or sell short.",
+    body: [
+      { type: "heading", text: "Exchanges and Market Makers" },
+      { type: "paragraph", text: "Stocks trade on organized exchanges, like the NYSE or Nasdaq, where buy and sell orders from every participant are matched together. Underneath that matching, market makers continuously quote both a price they're willing to buy at, the bid, and a price they're willing to sell at, the ask, providing the liquidity that lets an order actually get filled quickly." },
+      { type: "heading", text: "Market Orders vs. Limit Orders" },
+      { type: "paragraph", text: "A market order buys or sells immediately at whatever the best available price happens to be right now, prioritizing speed of execution over price certainty. A limit order instead specifies the worst price you're willing to accept, guaranteeing the price if it fills, but with no guarantee it fills at all if the market never reaches that level." },
+      { type: "heading", text: "Going Long" },
+      { type: "paragraph", text: "Buying a stock outright, in the ordinary sense, is called going long: you profit if the price rises, and lose if it falls, with your maximum loss limited to what you paid for the shares." },
+      { type: "heading", text: "Selling Short" },
+      { type: "paragraph", text: "Selling short flips that around: borrowing shares you don't own, selling them immediately, and aiming to buy them back later at a lower price to return to the lender, pocketing the difference. A short seller profits if the price falls, but faces theoretically unlimited losses if the price rises instead, since there's no cap on how high a stock can go." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What role do market makers play in stock trading?",
+        choices: [
+          "They continuously quote a bid and an ask price, providing the liquidity that lets orders get filled quickly",
+          "They set the company's earnings reports",
+          "They vote on behalf of all shareholders",
+          "They determine a company's dividend policy",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Market makers stand ready to buy at their quoted bid and sell at their quoted ask, which is what provides the liquidity underlying an exchange's order matching.",
+      },
+      {
+        id: "q2",
+        prompt: "What is the key difference between a market order and a limit order?",
+        choices: [
+          "A market order guarantees a specific price but not speed; a limit order guarantees speed but not price",
+          "A market order fills immediately at the best available price, prioritizing speed; a limit order specifies a price and may not fill at all",
+          "They are identical in every respect",
+          "Limit orders can only be used to sell, never to buy",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A market order trades execution certainty for price uncertainty, while a limit order trades price certainty (if it fills) for execution uncertainty.",
+      },
+      {
+        id: "q3",
+        prompt: "What does it mean to \"go long\" a stock?",
+        choices: [
+          "Borrowing shares and selling them immediately",
+          "Buying the stock outright, profiting if the price rises and losing if it falls",
+          "Holding a stock for at least ten years",
+          "Betting that the stock's price will fall",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Going long is simply the ordinary sense of buying a stock — you own it outright, and your position gains value as the price rises.",
+      },
+      {
+        id: "q4",
+        prompt: "How does selling short work?",
+        choices: [
+          "Borrowing shares, selling them immediately, and aiming to buy them back later at a lower price to return to the lender",
+          "Buying a stock and holding it for a very short period of time",
+          "Selling a stock you already own and never buying it back",
+          "A type of dividend payment",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Short selling borrows shares to sell first, with the plan to repurchase them later at a lower price — profiting from a price decline rather than a rise.",
+      },
+      {
+        id: "q5",
+        prompt: "Why does a short seller face theoretically unlimited losses, unlike a long position?",
+        choices: [
+          "Because there's no cap on how high a stock's price can rise, while a long position's maximum loss is capped at what was paid for the shares",
+          "Short selling is actually less risky than going long",
+          "Short sellers are protected by a guaranteed maximum loss limit",
+          "A stock's price can never rise once it has been sold short",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A long position's downside is capped at the purchase price, since a stock can't fall below zero, but a short position's losses grow without limit as the price keeps rising, since there's no ceiling on how high it can go.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-market-capitalization-and-sectors",
+    title: "Market Capitalization and Sectors",
+    summary:
+      "How a company's total size is measured in the stock market, and the broad industry groupings used to compare similar companies.",
+    body: [
+      { type: "heading", text: "What Market Capitalization Is" },
+      { type: "paragraph", text: "A company's market capitalization, or market cap, is simply its current share price multiplied by the total number of shares outstanding — a single number representing the market's current valuation of the entire company, not just one share of it." },
+      { type: "heading", text: "Large-, Mid-, and Small-Cap" },
+      { type: "paragraph", text: "Companies are commonly grouped by market cap into large-cap (generally the biggest, most established companies), mid-cap, and small-cap (typically newer or less established companies). These groupings matter because company size is correlated with other traits investors care about — liquidity, volatility, and growth potential all tend to differ systematically across the three groups." },
+      { type: "heading", text: "Sectors and Industries" },
+      { type: "paragraph", text: "Companies are also classified by what they actually do — sectors like technology, healthcare, energy, and financials, further broken into narrower industries within each. This classification lets investors compare a company against its closest peers, and lets a portfolio manager measure and control how much exposure they have to any one part of the economy." },
+      { type: "heading", text: "Indices as Benchmarks" },
+      { type: "paragraph", text: "A stock index, like the S&P 500, tracks a defined basket of stocks, often selected and weighted by market cap, to represent the performance of a market or a slice of it. Indices serve as benchmarks that individual stocks, sectors, and entire investment strategies are commonly measured against." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "How is a company's market capitalization calculated?",
+        choices: [
+          "Current share price multiplied by the total number of shares outstanding",
+          "The company's total annual revenue",
+          "The company's total debt outstanding",
+          "The number of employees multiplied by average salary",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Market cap is share price times shares outstanding — a single figure for what the market currently values the entire company at.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does the large-cap/mid-cap/small-cap grouping matter to investors?",
+        choices: [
+          "It has no practical relevance to investing",
+          "Company size is correlated with traits like liquidity, volatility, and growth potential that investors care about",
+          "Only large-cap companies are legally allowed to be publicly traded",
+          "Small-cap companies always outperform large-cap companies",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Market cap groupings are useful because size tends to correlate systematically with liquidity, volatility, and growth characteristics that matter for portfolio construction.",
+      },
+      {
+        id: "q3",
+        prompt: "What does classifying companies into sectors and industries let investors do?",
+        choices: [
+          "Compare a company against its closest peers and measure exposure to a specific part of the economy",
+          "Guarantee that every company in a sector performs identically",
+          "Eliminate the need to analyze individual companies",
+          "Sectors and industries have no practical use for investors",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Sector and industry classification enables peer comparison and lets a portfolio manager measure and control concentration in any one part of the economy.",
+      },
+      {
+        id: "q4",
+        prompt: "What is a stock index like the S&P 500?",
+        choices: [
+          "A single company's stock ticker",
+          "A defined basket of stocks, often weighted by market cap, that represents the performance of a market or a slice of it",
+          "A type of bond issued by the government",
+          "A regulatory body that oversees stock exchanges",
+        ],
+        correctIndex: 1,
+        explanation:
+          "An index tracks a defined basket of stocks to represent broader market or sector performance, and serves as a benchmark for comparison.",
+      },
+      {
+        id: "q5",
+        prompt: "What do indices commonly serve as, for individual stocks and strategies?",
+        choices: [
+          "A legal requirement for all public companies",
+          "Benchmarks that performance is commonly measured against",
+          "A guarantee of a minimum return",
+          "Indices have no practical use in investing",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Indices are widely used as benchmarks — a reference point for judging whether an individual stock, sector, or strategy over- or under-performed the broader market.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "stocks-dividends-and-corporate-actions",
+    title: "Dividends and Corporate Actions",
+    summary:
+      "How a company returns cash to shareholders, and the routine corporate actions that change a stock's share count or price without changing what it's actually worth.",
+    body: [
+      { type: "heading", text: "Dividends" },
+      { type: "paragraph", text: "A dividend is a direct cash payment a company makes to its shareholders, typically out of its profits, usually on a regular quarterly schedule. Not every company pays one — many younger, fast-growing companies reinvest all their profits back into the business instead, favoring share-price growth over a cash payout." },
+      { type: "heading", text: "Stock Splits" },
+      { type: "paragraph", text: "A stock split increases the number of shares outstanding by a fixed ratio, say two-for-one, while proportionally reducing the price per share, so the total value of what any shareholder holds doesn't actually change. Companies typically split their stock to bring a high per-share price back down to a more approachable, easily-traded range." },
+      { type: "heading", text: "Buybacks" },
+      { type: "paragraph", text: "A share buyback, or repurchase, is the mirror image of issuing new shares: the company uses its own cash to buy back and retire some of its outstanding shares, which increases each remaining shareholder's proportional ownership of the company without paying out a cash dividend." },
+      { type: "heading", text: "Earnings Reports" },
+      { type: "paragraph", text: "Public companies report their financial results, typically every quarter, disclosing revenue, profit, and other key business metrics. These earnings reports are closely watched catalysts, since they're often the single biggest source of new information the market uses to reassess what a company, and therefore its stock, is actually worth." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is a dividend?",
+        choices: [
+          "A direct cash payment a company makes to its shareholders, typically out of its profits",
+          "A mandatory fee shareholders must pay the company",
+          "A type of stock split",
+          "A loan shareholders make to the company",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A dividend is a cash distribution to shareholders, usually paid out of company profits on a regular schedule — not every company pays one.",
+      },
+      {
+        id: "q2",
+        prompt: "What happens to a shareholder's total position value in a stock split?",
+        choices: [
+          "It doubles automatically",
+          "It stays the same — the share count increases and the price per share decreases proportionally",
+          "It falls to zero",
+          "Splits always reduce a shareholder's total position value",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A split changes the share count and per-share price by offsetting amounts, so the total value of a shareholder's position is unaffected.",
+      },
+      {
+        id: "q3",
+        prompt: "How does a share buyback affect remaining shareholders?",
+        choices: [
+          "It increases each remaining shareholder's proportional ownership of the company, without a cash dividend payout",
+          "It dilutes every shareholder's ownership stake",
+          "It has no effect on shareholder ownership at all",
+          "It automatically triggers a stock split",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Retiring shares through a buyback reduces the total share count, which increases each remaining shareholder's proportional slice of the company.",
+      },
+      {
+        id: "q4",
+        prompt: "Why do younger, fast-growing companies often choose not to pay dividends?",
+        choices: [
+          "They are legally prohibited from paying dividends",
+          "They typically reinvest profits back into the business instead, favoring share-price growth over a cash payout",
+          "Dividends are only available to private companies",
+          "Fast-growing companies never generate any profit",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Reinvesting profits to fuel further growth is a common alternative to paying a dividend, especially for companies still in a high-growth phase.",
+      },
+      {
+        id: "q5",
+        prompt: "Why are quarterly earnings reports closely watched by the market?",
+        choices: [
+          "They're often the single biggest source of new information used to reassess what a company is actually worth",
+          "They have no effect on a stock's price",
+          "They are only relevant to company employees",
+          "Earnings reports are published just once every ten years",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Quarterly earnings reports deliver fresh, concrete information about a company's actual performance, which is exactly the kind of news that moves the market's view of what the stock is worth.",
+      },
+    ],
+  },
 ];
