@@ -6,6 +6,7 @@ import { etfConceptLessons } from "./etfConceptLessons.js";
 import { fixedIncomeConceptLessons } from "./fixedIncomeConceptLessons.js";
 import { indexesConceptLessons } from "./indexesConceptLessons.js";
 import { volatilityConceptLessons } from "./volatilityConceptLessons.js";
+import { fxConceptLessons } from "./fxConceptLessons.js";
 import { modules } from "./modules.js";
 import type { Module } from "./types.js";
 
@@ -17,6 +18,7 @@ export const conceptLessons = [
   ...fixedIncomeConceptLessons,
   ...indexesConceptLessons,
   ...volatilityConceptLessons,
+  ...fxConceptLessons,
 ];
 export { modules };
 

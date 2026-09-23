@@ -20,6 +20,7 @@ const EXAMINABLE_COURSES = new Set([
   "fixed-income",
   "indexes",
   "volatility",
+  "fx",
 ]);
 
 // Every module contributes at least this many lessons — Options has exactly

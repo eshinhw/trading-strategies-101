@@ -149,7 +149,7 @@ export const courses: Course[] = [
     title: "Foreign Exchange",
     section: "8",
     description: "Carry trades, trend-following, and triangular arbitrage in currency markets.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 6,
     strategyTitles: [
       "Moving averages with HP filter",

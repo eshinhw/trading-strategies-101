@@ -343,4 +343,21 @@ export const modules: Module[] = [
       "volatility-trading-with-variance-swaps",
     ],
   },
+  {
+    slug: "fx-fundamentals",
+    courseSlug: "fx",
+    title: "FX Fundamentals",
+    description:
+      "Trend-following on a filtered signal, the carry trade in three forms (single-pair, cross-sectional, and dollar-centric), combining carry with momentum, and triangular arbitrage.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "fx-moving-averages-with-hp-filter",
+      "fx-carry-trade",
+      "fx-high-minus-low-carry",
+      "fx-dollar-carry-trade",
+      "fx-momentum-and-carry-combo",
+      "fx-triangular-arbitrage",
+    ],
+  },
 ];
