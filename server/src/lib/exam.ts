@@ -12,16 +12,20 @@ import {
 } from "./grading.js";
 import type { NumericAnswer } from "./grading.js";
 
-// Only "options" has real modules today — see server/src/data/courses/index.ts.
-// Generalize this once another course has lessons of its own.
-const EXAMINABLE_COURSES = new Set(["options"]);
+const EXAMINABLE_COURSES = new Set(["options", "futures", "stocks", "etfs", "fixed-income"]);
 
-// Every module contributes at least one question, so the exam always covers
-// the whole course; the first half of a shuffled module order contributes an
-// extra question each, landing the total around 18 without hand-tuning per
-// module.
-function questionBudgetFor(moduleIndex: number, totalModules: number): number {
-  return moduleIndex < Math.ceil(totalModules / 2) ? 2 : 1;
+// Every module contributes at least this many lessons — Options has exactly
+// 12 modules, so 1 lesson/module lands here and this constant preserves its
+// exam exactly as it was. A course with fewer modules (Futures/ETFs have
+// just 1) instead pulls proportionally more lessons from each of its
+// modules, so a single-module course still gets a real, multi-lesson exam
+// instead of one lesson repeated.
+const TARGET_SAMPLED_LESSONS = 12;
+
+// The first half of a shuffled lesson order contributes an extra question
+// each, landing the total around 18 without hand-tuning per course.
+function questionBudgetFor(lessonIndex: number, totalLessons: number): number {
+  return lessonIndex < Math.ceil(totalLessons / 2) ? 2 : 1;
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -57,23 +61,35 @@ export function isExaminableCourse(courseSlug: string): boolean {
 export function generateExamQuestions(courseSlug: string): ExamQuestion[] {
   if (!isExaminableCourse(courseSlug)) return [];
 
-  const shuffledModules = shuffle(modulesForCourse(courseSlug));
+  const modules = modulesForCourse(courseSlug);
+  if (modules.length === 0) return [];
+
+  // Every module contributes at least this many lessons, so the exam always
+  // covers the whole course regardless of how many (or few) modules it has.
+  const lessonsPerModule = Math.max(1, Math.ceil(TARGET_SAMPLED_LESSONS / modules.length));
+
+  const sampledLessons: { moduleSlug: string; moduleTitle: string; lessonSlug: string }[] = [];
+  for (const module of shuffle(modules)) {
+    for (const lessonSlug of shuffle(module.lessonSlugs).slice(0, lessonsPerModule)) {
+      sampledLessons.push({ moduleSlug: module.slug, moduleTitle: module.title, lessonSlug });
+    }
+  }
+
   const questions: ExamQuestion[] = [];
 
-  shuffledModules.forEach((module, i) => {
-    const lessonSlug = shuffle(module.lessonSlugs)[0];
+  sampledLessons.forEach(({ moduleSlug, moduleTitle, lessonSlug }, i) => {
     const resolved = resolveLesson(lessonSlug);
     if (!resolved) return;
 
-    const desiredCount = questionBudgetFor(i, shuffledModules.length);
+    const desiredCount = questionBudgetFor(i, sampledLessons.length);
 
     if (resolved.kind === "concept") {
       const picked = shuffle(resolved.lesson.quiz).slice(0, desiredCount);
       for (const q of picked) {
         questions.push({
           id: `${lessonSlug}:${q.id}`,
-          moduleSlug: module.slug,
-          moduleTitle: module.title,
+          moduleSlug,
+          moduleTitle,
           lessonSlug,
           lessonTitle: resolved.lesson.title,
           kind: "concept",
@@ -90,8 +106,8 @@ export function generateExamQuestions(courseSlug: string): ExamQuestion[] {
       for (const q of picked) {
         questions.push({
           id: `${lessonSlug}:${q.id}`,
-          moduleSlug: module.slug,
-          moduleTitle: module.title,
+          moduleSlug,
+          moduleTitle,
           lessonSlug,
           lessonTitle: strategy.name,
           kind: "strategy",
