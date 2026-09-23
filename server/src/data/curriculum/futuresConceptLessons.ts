@@ -1264,4 +1264,340 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "futures-forward-rate-agreements",
+    title: "Forward Rate Agreements (FRAs)",
+    summary:
+      "A forward contract on an interest rate itself — locking in a borrowing or lending rate for a future period without any principal actually changing hands.",
+    body: [
+      { type: "heading", text: "What an FRA Is" },
+      { type: "paragraph", text: "A forward rate agreement (FRA) is a forward contract where two parties agree today on an interest rate that will apply to a notional principal amount over a specified future period — for example, a 3-month rate starting 6 months from now. Unlike an actual loan, the notional amount is never exchanged; it exists purely to calculate the settlement payment." },
+      { type: "heading", text: "How Settlement Works" },
+      { type: "paragraph", text: "At the FRA's settlement date, the difference between the agreed fixed rate and the actual reference rate observed at that time, such as SOFR, is calculated on the notional amount, and one party pays the other that difference in cash. If the realized rate ends up higher than the agreed rate, the party who locked in the fixed rate profits, since they avoided paying the higher rate that materialized." },
+      { type: "heading", text: "Hedging a Future Borrowing or Lending Rate" },
+      { type: "paragraph", text: "A company that knows it will need to borrow money in six months, for a three-month term, can use an FRA to lock in today's rate for that future period, protecting against the risk that rates rise before the loan is actually taken out. The FRA settlement payment offsets the difference between the rate they locked in and the rate they'd actually pay on the loan when it's drawn." },
+      { type: "heading", text: "FRAs vs. Interest Rate Futures" },
+      { type: "paragraph", text: "FRAs serve a similar purpose to the exchange-traded interest rate futures covered elsewhere in this course, but FRAs are private, over-the-counter contracts, custom-tailored between two parties in size and dates, carrying the same counterparty-risk tradeoff as any other forward. An interest rate future is the standardized, exchange-cleared, daily-margined version of essentially the same underlying idea." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does an FRA let two parties do?",
+        choices: [
+          "Exchange a notional principal amount immediately",
+          "Agree today on an interest rate that will apply to a notional amount over a specified future period, without exchanging the notional itself",
+          "Guarantee that interest rates will never change",
+          "Buy and sell a physical commodity",
+        ],
+        correctIndex: 1,
+        explanation:
+          "An FRA locks in a future interest rate on a notional amount used only to calculate settlement — the notional itself is never actually loaned or exchanged.",
+      },
+      {
+        id: "q2",
+        prompt: "How is an FRA settled?",
+        choices: [
+          "The difference between the agreed fixed rate and the actual reference rate is calculated on the notional amount, and paid in cash by one party to the other",
+          "The full notional amount is physically delivered",
+          "Both parties simply walk away with no payment",
+          "Settlement only happens if interest rates stay exactly the same",
+        ],
+        correctIndex: 0,
+        explanation:
+          "FRA settlement is a cash payment based on the gap between the locked-in rate and the realized reference rate, applied to the notional — not a physical exchange of principal.",
+      },
+      {
+        id: "q3",
+        prompt: "How would a company use an FRA to hedge a future borrowing need?",
+        choices: [
+          "By locking in today's rate for the future borrowing period, so a settlement payment offsets a higher realized rate when the loan is actually taken out",
+          "FRAs cannot be used to hedge borrowing costs",
+          "By borrowing the money immediately instead of waiting",
+          "By canceling the planned loan entirely",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Locking in a rate today via an FRA means that if rates rise before the loan is drawn, the FRA settlement payment offsets the higher cost — the same hedging logic used elsewhere in this course.",
+      },
+      {
+        id: "q4",
+        prompt: "How does an FRA differ from an exchange-traded interest rate future?",
+        choices: [
+          "An FRA is a private, over-the-counter, custom-tailored contract carrying counterparty risk, while a future is standardized, exchange-cleared, and daily-margined",
+          "They are identical in every respect",
+          "FRAs are always exchange-traded, never private",
+          "Interest rate futures cannot be used to hedge borrowing costs",
+        ],
+        correctIndex: 0,
+        explanation:
+          "FRAs and interest rate futures serve a similar hedging purpose, but an FRA is a bespoke bilateral forward while a future is the standardized, clearinghouse-guaranteed version of the same idea.",
+      },
+      {
+        id: "q5",
+        prompt: "Why is the notional amount in an FRA never actually exchanged?",
+        choices: [
+          "Because it exists only to calculate the cash settlement payment, not as a real loan",
+          "Because FRAs are illegal in most jurisdictions",
+          "Because the notional amount is always zero",
+          "Because FRAs always involve physical delivery of a commodity instead",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The notional is purely a reference amount for calculating the interest-rate-difference settlement — no actual loan or deposit of that principal ever takes place between the two parties.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-valuing-an-existing-forward",
+    title: "Valuing an Existing Forward Contract",
+    summary:
+      "Once a forward is in place, its market value changes as time passes and the spot price moves — a different question from forward pricing, which only sets the fair price at inception.",
+    body: [
+      { type: "heading", text: "Pricing at Inception vs. Valuing Mid-Life" },
+      { type: "paragraph", text: "Forward pricing, covered earlier in this module, answers the question \"what delivery price should this contract be struck at today, so that it has zero value to either side at signing?\" Valuing an existing forward answers a different question: once that contract is signed and time has passed, what is it actually worth now to whoever holds it?" },
+      { type: "heading", text: "Why the Value Isn't Zero Anymore" },
+      { type: "paragraph", text: "A forward is struck at a delivery price, fixed for the life of the contract, but the underlying's spot price and the cost of carry keep changing after that. As the asset's current forward price, recalculated using today's spot and financing cost, drifts away from the original delivery price, the contract accumulates real economic value — positive to one side, and equally negative to the other." },
+      { type: "heading", text: "The Valuation Formula's Intuition" },
+      { type: "paragraph", text: "The value of a long forward position, at any point before maturity, is approximately the present value of the difference between today's forward price for a brand-new contract of the same remaining maturity, and the original delivery price locked in at inception. If the market's current forward price is now higher than the original delivery price, the long position is in the money and worth something positive." },
+      { type: "heading", text: "Why This Matters in Practice" },
+      { type: "paragraph", text: "This mid-life valuation is what a company needs to mark a forward position on its own books, what a bank needs to calculate before agreeing to unwind or assign an existing forward early, and conceptually underlies the daily variation-margin logic used in a futures contract's mark-to-market process — even though a forward itself, unlike a future, doesn't settle any of that accumulated value until the very end." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What question does \"valuing an existing forward\" answer, as distinct from forward pricing?",
+        choices: [
+          "What the contract's delivery price should be set at, for it to have zero value at signing",
+          "What the contract is actually worth now to whoever holds it, after time has passed since signing",
+          "Whether the contract should be cancelled",
+          "How much collateral the exchange requires",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Forward pricing sets the fair delivery price at inception; valuing an existing forward asks what that already-signed contract is worth partway through its life.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does an existing forward's value drift away from zero over time?",
+        choices: [
+          "Because the underlying's spot price and cost of carry keep changing after the delivery price was fixed at inception",
+          "Forward contracts always keep a value of exactly zero throughout their life",
+          "Because the contract's delivery price changes automatically every day",
+          "Because forwards are marked to market daily like futures",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The delivery price is locked in at signing, but the market's own forward price for a new, equivalent contract keeps moving with spot and financing costs, creating a gap that gives the existing contract real value.",
+      },
+      {
+        id: "q3",
+        prompt: "What does it mean if a long forward position's current value is positive?",
+        choices: [
+          "Today's forward price for a new, equivalent contract is now higher than the original delivery price locked in at inception",
+          "The contract has already been physically settled",
+          "The holder must immediately pay additional margin",
+          "The underlying asset has been delisted",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A long forward gains value when the market's current forward price rises above the original delivery price — the holder is now locked into buying below today's equivalent market rate.",
+      },
+      {
+        id: "q4",
+        prompt: "Why would a bank need to value an existing forward contract mid-life?",
+        choices: [
+          "To agree on a fair price before unwinding or assigning the contract early, or to mark the position on its books",
+          "Forwards never need to be valued once they're signed",
+          "Only to determine the original delivery price",
+          "To calculate the underlying commodity's storage cost",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Marking a position on the books, or agreeing a fair unwind price before maturity, both require knowing the contract's current value, not just its original delivery price.",
+      },
+      {
+        id: "q5",
+        prompt: "How does a forward's value accumulation compare to a future's daily mark-to-market?",
+        choices: [
+          "A forward's value accumulates but isn't settled until maturity, while a future settles that same kind of value in cash every day",
+          "They are identical — forwards also settle in cash daily",
+          "A forward never accumulates any value at all",
+          "A future never accumulates value between settlements",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The same underlying idea — value building up as the market forward price moves away from the locked-in price — is what a future actually pays out daily via mark-to-market, whereas a forward simply accumulates it unrealized until the end.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-clearinghouses-and-novation",
+    title: "Clearinghouses and Novation",
+    summary:
+      "How a clearinghouse steps into the middle of every futures trade, becoming the buyer to every seller and the seller to every buyer — the mechanism behind the guarantee referenced earlier in this course.",
+    body: [
+      { type: "heading", text: "What a Clearinghouse Does" },
+      { type: "paragraph", text: "A clearinghouse sits between every buyer and seller in the futures market, becoming the legal counterparty to both sides of every trade through a process called novation. The moment a trade is matched, the original bilateral contract between the two traders is replaced by two new contracts: one between the buyer and the clearinghouse, and one between the clearinghouse and the seller." },
+      { type: "heading", text: "Why Novation Matters" },
+      { type: "paragraph", text: "Because every trader's counterparty is now the clearinghouse itself, rather than the specific, possibly unknown trader on the other side of the original trade, no individual trader needs to assess or worry about the creditworthiness of whoever they happened to be matched with — a critical difference from a forward's direct, bilateral counterparty exposure." },
+      { type: "heading", text: "How the Clearinghouse Stays Solvent" },
+      { type: "paragraph", text: "The clearinghouse funds this guarantee through the margin system already covered in this module: every member posts initial margin, is marked to market daily, and faces margin calls, which means the clearinghouse is rarely exposed to more than a single day's adverse move on any position before that loss is collected in cash." },
+      { type: "heading", text: "The Guarantee Fund, as a Backstop" },
+      { type: "paragraph", text: "Beyond individual members' margin, clearinghouses maintain a mutualized guarantee, or default, fund, contributed to by all clearing members, that absorbs losses in the rare event a member defaults and its own posted margin isn't enough to cover the loss — a final layer of protection standing behind the daily margining process." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does novation mean in the context of a futures clearinghouse?",
+        choices: [
+          "The original bilateral trade between buyer and seller is replaced by two new contracts, each with the clearinghouse as counterparty",
+          "The trade is simply cancelled after being matched",
+          "The buyer and seller must renegotiate the price directly",
+          "Novation only applies to forward contracts, never futures",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Novation is the legal substitution that inserts the clearinghouse as the counterparty to both sides, replacing the original buyer-seller contract with two new ones.",
+      },
+      {
+        id: "q2",
+        prompt: "Why doesn't a futures trader need to assess the creditworthiness of the trader on the other side of their trade?",
+        choices: [
+          "Because the clearinghouse becomes the counterparty to both sides through novation, not the original trader",
+          "Because all futures traders are required to be the same size",
+          "Because futures trades are never actually matched with anyone",
+          "Because creditworthiness is irrelevant to any financial contract",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since novation makes the clearinghouse the counterparty to every trade, a trader's actual exposure is to the clearinghouse itself, not to whichever specific trader happened to take the other side.",
+      },
+      {
+        id: "q3",
+        prompt: "How does the clearinghouse limit its own exposure to any single position?",
+        choices: [
+          "Through the same daily margining system covered earlier — initial margin, mark-to-market, and margin calls",
+          "By refusing to guarantee any trades at all",
+          "By requiring physical delivery on every contract the same day it's opened",
+          "The clearinghouse has no mechanism to limit its exposure",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Daily mark-to-market and margin calls mean losses are collected in cash each day, so the clearinghouse is rarely exposed to more than a single day's adverse move on any position.",
+      },
+      {
+        id: "q4",
+        prompt: "What is a clearinghouse's guarantee (or default) fund for?",
+        choices: [
+          "To absorb losses if a member defaults and its own posted margin isn't enough to cover the loss",
+          "To pay dividends to clearing members",
+          "To replace the need for any margin requirements at all",
+          "To fund the exchange's marketing budget",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The mutualized guarantee fund is a backstop beyond individual margin — a final layer of protection for the rare case where a defaulting member's own margin falls short.",
+      },
+      {
+        id: "q5",
+        prompt: "How does novation change a trader's counterparty risk compared to a private forward contract?",
+        choices: [
+          "It replaces exposure to one specific, possibly unknown counterparty with exposure to a well-capitalized, guarantee-fund-backed clearinghouse",
+          "It has no effect on counterparty risk at all",
+          "It increases counterparty risk compared to a forward",
+          "It eliminates the need for a clearinghouse entirely",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Novation is precisely what converts the bilateral counterparty risk of a forward into exposure to a single, well-margined, guarantee-fund-backed clearinghouse instead.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-price-limits-and-trading-halts",
+    title: "Price Limits and Trading Halts",
+    summary:
+      "The rules exchanges use to slow down or pause trading when a futures price moves an unusually large amount in a single session.",
+    body: [
+      { type: "heading", text: "What a Daily Price Limit Is" },
+      { type: "paragraph", text: "Many futures contracts have an exchange-set daily price limit, a maximum amount the price is allowed to move, up or down, from the prior day's settlement price within a single trading session. Once the price hits that limit, further trades beyond it simply aren't permitted for the rest of the session, or until the limit is expanded." },
+      { type: "heading", text: "Limit Up and Limit Down" },
+      { type: "paragraph", text: "When a price rises all the way to its upper limit, the market is said to be \"limit up\"; when it falls to its lower limit, it's \"limit down.\" A market stuck there, with buyers or sellers unable to trade beyond the limit despite plenty of demand to do so, is described as \"locked limit\" — trading technically continues, but no one can transact outside the barrier." },
+      { type: "heading", text: "Why Exchanges Use Price Limits" },
+      { type: "paragraph", text: "Price limits are meant to give the market a pause during an unusually sharp, fast move — slowing panic selling or buying, giving participants time to assess new information, and capping how large a single day's mark-to-market loss can be for anyone holding a position, before the clearinghouse's margin system has to absorb it." },
+      { type: "heading", text: "Circuit Breakers and Trading Halts" },
+      { type: "paragraph", text: "Related but distinct from a price limit, a circuit breaker triggers a temporary trading halt, rather than merely capping the price, once a market moves by some threshold percentage very quickly. Used especially in broad equity index futures, a circuit breaker gives markets a brief cooling-off period before trading resumes, rather than locking the price at a hard ceiling or floor for the rest of the session." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is a daily price limit?",
+        choices: [
+          "A maximum amount a futures price is allowed to move, up or down, from the prior settlement price within one session",
+          "A limit on how many contracts one trader can buy in a lifetime",
+          "The minimum price increment a contract can move by",
+          "A rule that only applies to options, never futures",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A daily price limit caps how far a contract's price can move in a single session relative to the prior day's settlement — once hit, trades beyond that level aren't permitted.",
+      },
+      {
+        id: "q2",
+        prompt: "What does it mean for a market to be \"locked limit\"?",
+        choices: [
+          "The price is stuck at its daily limit, with participants unable to trade beyond it despite demand to do so",
+          "The exchange has permanently closed the contract",
+          "Trading volume has dropped to zero for the entire day",
+          "The clearinghouse has stopped guaranteeing trades",
+        ],
+        correctIndex: 0,
+        explanation:
+          "\"Locked limit\" describes a market pinned at its price limit, where buyers or sellers who want to transact beyond that level simply cannot, even though trading in general hasn't stopped.",
+      },
+      {
+        id: "q3",
+        prompt: "Why do exchanges impose daily price limits?",
+        choices: [
+          "To slow down an unusually sharp move, give participants time to assess new information, and cap the size of a single day's mark-to-market loss",
+          "To guarantee that prices never change at all",
+          "To increase volatility intentionally",
+          "Price limits serve no real purpose",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Price limits act as a circuit-breaker-like pause during extreme moves, giving the market time to digest information and bounding how large a single day's loss can be before margin has to absorb it.",
+      },
+      {
+        id: "q4",
+        prompt: "How does a circuit breaker differ from a simple price limit?",
+        choices: [
+          "A circuit breaker triggers a temporary trading halt once a threshold move happens quickly, rather than just capping the price at a hard ceiling or floor",
+          "They are exactly the same mechanism with different names",
+          "A circuit breaker only applies to interest rate futures",
+          "A circuit breaker permanently closes a contract",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A circuit breaker pauses trading entirely for a cooling-off period, rather than continuing to allow trading up to (and pinned at) a fixed price ceiling or floor the way a daily price limit does.",
+      },
+      {
+        id: "q5",
+        prompt: "Which futures markets commonly use circuit breakers as described in this lesson?",
+        choices: [
+          "Broad equity index futures",
+          "Only single-stock options",
+          "Only physically-settled agricultural futures",
+          "Circuit breakers are never used in any futures market",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Circuit breakers are especially associated with broad equity index futures, where a fast, large move can trigger a brief, market-wide trading halt rather than a simple price cap.",
+      },
+    ],
+  },
 ];

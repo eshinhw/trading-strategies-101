@@ -176,23 +176,30 @@ export const modules: Module[] = [
     courseSlug: "futures",
     title: "Forward Basics",
     description:
-      "Before trading futures, meet their close relative — the forward contract: what it promises, how it's settled, and how its theoretical fair price is derived across commodities, stocks, and bonds.",
+      "Before trading futures, meet their close relative — the forward contract: what it promises, how it's settled, how its theoretical fair price is derived, how an interest-rate version (the FRA) works, and how to value one after it's already been signed.",
     order: 1,
     prerequisiteModuleSlugs: [],
-    lessonSlugs: ["futures-what-are-financial-contracts", "futures-forward-pricing"],
+    lessonSlugs: [
+      "futures-what-are-financial-contracts",
+      "futures-forward-pricing",
+      "futures-forward-rate-agreements",
+      "futures-valuing-an-existing-forward",
+    ],
   },
   {
     slug: "futures-mechanics",
     courseSlug: "futures",
     title: "Futures Basics",
     description:
-      "What actually makes a futures contract a futures contract, mechanically — margin and daily mark-to-market, standardized contract specs, and how (and whether) a contract ever reaches physical delivery.",
+      "What actually makes a futures contract a futures contract, mechanically — margin and daily mark-to-market, standardized contract specs, how (and whether) a contract ever reaches physical delivery, the clearinghouse that guarantees every trade, and the price limits that can pause trading.",
     order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-margin-and-mark-to-market",
       "futures-contract-specifications",
       "futures-delivery-and-close-out",
+      "futures-clearinghouses-and-novation",
+      "futures-price-limits-and-trading-halts",
     ],
   },
   {
