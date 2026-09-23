@@ -87,11 +87,7 @@ function CourseCard({ course, progress }: { course: Course; progress: ModulesRes
     >
       <div className="mb-1 flex items-center justify-between gap-2">
         <h3 className="font-semibold text-[#e6e8ec]">{course.title}</h3>
-        {course.status === "available" ? (
-          <span className="shrink-0 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
-            Available
-          </span>
-        ) : (
+        {course.status === "coming-soon" && (
           <span className="shrink-0 rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-400">
             Coming soon
           </span>

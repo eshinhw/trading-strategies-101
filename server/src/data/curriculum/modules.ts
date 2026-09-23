@@ -7,7 +7,7 @@ export const modules: Module[] = [
   {
     slug: "foundations",
     courseSlug: "options",
-    title: "Foundations",
+    title: "Options Basics",
     description:
       "The vocabulary and mental models every strategy in this course leans on: what an option is, moneyness, reading a payoff diagram, debit vs. credit, and the 'legs' way of thinking about strategies.",
     order: 1,
@@ -174,7 +174,7 @@ export const modules: Module[] = [
   {
     slug: "futures-forwards",
     courseSlug: "futures",
-    title: "Forwards",
+    title: "Forward Basics",
     description:
       "Before trading futures, meet their close relative — the forward contract: what it promises, how it's settled, and how its theoretical fair price is derived across commodities, stocks, and bonds.",
     order: 1,
@@ -184,7 +184,7 @@ export const modules: Module[] = [
   {
     slug: "futures-mechanics",
     courseSlug: "futures",
-    title: "Futures Mechanics",
+    title: "Futures Basics",
     description:
       "What actually makes a futures contract a futures contract, mechanically — margin and daily mark-to-market, standardized contract specs, and how (and whether) a contract ever reaches physical delivery.",
     order: 2,
@@ -198,7 +198,7 @@ export const modules: Module[] = [
   {
     slug: "futures-fundamentals",
     courseSlug: "futures",
-    title: "Futures Fundamentals",
+    title: "Futures Strategies",
     description:
       "How futures contracts are used in practice — hedging price risk, systematic trend following, and trading the shape of the futures curve with calendar spreads.",
     order: 3,
@@ -216,7 +216,7 @@ export const modules: Module[] = [
   {
     slug: "stocks-fundamentals",
     courseSlug: "stocks",
-    title: "Stocks Fundamentals",
+    title: "Stocks Basics",
     description:
       "A first tour of equity trading strategies — factor investing (momentum and value), statistical arbitrage (pairs trading and cluster mean-reversion), technical trend-following, and market-making.",
     order: 1,
@@ -269,7 +269,7 @@ export const modules: Module[] = [
   {
     slug: "etfs-fundamentals",
     courseSlug: "etfs",
-    title: "ETF Fundamentals",
+    title: "ETF Basics",
     description:
       "Sector and alpha rotation strategies (plain, MA-filtered, and dual momentum), the technical tools that refine and complement them (R-squared, mean-reversion), and structural ETF mechanics (leveraged ETF decay, multi-asset trend following).",
     order: 1,
@@ -288,7 +288,7 @@ export const modules: Module[] = [
   {
     slug: "fixed-income-fundamentals",
     courseSlug: "fixed-income",
-    title: "Fixed Income Fundamentals",
+    title: "Fixed Income Basics",
     description:
       "The classic bond-portfolio structures (bullets, barbells, ladders), immunizing a portfolio against rate risk, a duration-neutral curvature trade, and capturing price gains as a bond ages down the yield curve.",
     order: 1,
@@ -336,7 +336,7 @@ export const modules: Module[] = [
   {
     slug: "indexes-fundamentals",
     courseSlug: "indexes",
-    title: "Index Fundamentals",
+    title: "Index Basics",
     description:
       "Arbitrage between an index and its futures or ETF twins, betting on component correlation with dispersion trades, and dynamically sizing index exposure to hold volatility near a target.",
     order: 1,
@@ -352,7 +352,7 @@ export const modules: Module[] = [
   {
     slug: "volatility-fundamentals",
     courseSlug: "volatility",
-    title: "Volatility Fundamentals",
+    title: "Volatility Basics",
     description:
       "Trading volatility itself as an asset class — VIX futures mechanics and carry, harvesting the volatility risk premium (plain and gamma-hedged), skew, and variance swaps.",
     order: 1,
@@ -370,7 +370,7 @@ export const modules: Module[] = [
   {
     slug: "fx-fundamentals",
     courseSlug: "fx",
-    title: "FX Fundamentals",
+    title: "FX Basics",
     description:
       "Trend-following on a filtered signal, the carry trade in three forms (single-pair, cross-sectional, and dollar-centric), combining carry with momentum, and triangular arbitrage.",
     order: 1,
@@ -387,7 +387,7 @@ export const modules: Module[] = [
   {
     slug: "commodities-fundamentals",
     courseSlug: "commodities",
-    title: "Commodities Fundamentals",
+    title: "Commodities Basics",
     description:
       "The futures-curve mechanics behind commodity returns (roll yield and hedging pressure), portfolio diversification, and factor strategies (value, skewness premium) plus fundamentals-based pricing models.",
     order: 1,
@@ -404,7 +404,7 @@ export const modules: Module[] = [
   {
     slug: "real-estate-diversification",
     courseSlug: "real-estate",
-    title: "Real Estate Diversification",
+    title: "Real Estate Basics",
     description:
       "How real estate fits into a broader portfolio, and the different dimensions — property type, region, and economic driver — for diversifying within a real estate allocation itself.",
     order: 1,
@@ -425,6 +425,10 @@ export const modules: Module[] = [
       "How real estate returns behave over time and can be actively traded — regional momentum, inflation hedging, and a hands-on fix-and-flip strategy.",
     order: 2,
     prerequisiteModuleSlugs: [],
-    lessonSlugs: ["real-estate-momentum-regional-approach", "real-estate-inflation-hedging", "real-estate-fix-and-flip"],
+    lessonSlugs: [
+      "real-estate-momentum-regional-approach",
+      "real-estate-inflation-hedging",
+      "real-estate-fix-and-flip",
+    ],
   },
 ];

@@ -9,7 +9,7 @@ import type { Course } from "./types.js";
 export const courses: Course[] = [
   {
     slug: "futures",
-    title: "Futures",
+    title: "Forward & Futures",
     section: "10",
     description:
       "Hedging and speculative strategies built directly on futures contracts — cross-hedging, calendar spreads, and trend following.",
