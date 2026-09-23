@@ -309,4 +309,20 @@ export const modules: Module[] = [
       "fixed-income-swap-spread-arbitrage",
     ],
   },
+  {
+    slug: "indexes-fundamentals",
+    courseSlug: "indexes",
+    title: "Index Fundamentals",
+    description:
+      "Arbitrage between an index and its futures or ETF twins, betting on component correlation with dispersion trades, and dynamically sizing index exposure to hold volatility near a target.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "indexes-cash-and-carry-arbitrage",
+      "indexes-dispersion-trading",
+      "indexes-dispersion-trading-subset-portfolio",
+      "indexes-intraday-etf-arbitrage",
+      "indexes-volatility-targeting",
+    ],
+  },
 ];

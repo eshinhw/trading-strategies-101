@@ -116,7 +116,7 @@ export const courses: Course[] = [
     section: "6",
     description:
       "Arbitrage and dispersion strategies that trade an index against its components or related index products.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 5,
     strategyTitles: [
       "Cash-and-carry arbitrage",
