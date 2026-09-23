@@ -401,4 +401,30 @@ export const modules: Module[] = [
       "commodities-trading-with-pricing-models",
     ],
   },
+  {
+    slug: "real-estate-diversification",
+    courseSlug: "real-estate",
+    title: "Real Estate Diversification",
+    description:
+      "How real estate fits into a broader portfolio, and the different dimensions — property type, region, and economic driver — for diversifying within a real estate allocation itself.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "real-estate-mixed-asset-diversification",
+      "real-estate-intra-asset-diversification",
+      "real-estate-property-type-diversification",
+      "real-estate-economic-diversification",
+      "real-estate-property-type-and-geographic-diversification",
+    ],
+  },
+  {
+    slug: "real-estate-return-drivers",
+    courseSlug: "real-estate",
+    title: "Return Drivers and Active Strategies",
+    description:
+      "How real estate returns behave over time and can be actively traded — regional momentum, inflation hedging, and a hands-on fix-and-flip strategy.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["real-estate-momentum-regional-approach", "real-estate-inflation-hedging", "real-estate-fix-and-flip"],
+  },
 ];

@@ -254,7 +254,7 @@ export const courses: Course[] = [
     title: "Real Estate",
     section: "16",
     description: "Diversification, momentum, and inflation-hedging strategies for real estate portfolios.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 8,
     strategyTitles: [
       "Mixed-asset diversification with real estate",
