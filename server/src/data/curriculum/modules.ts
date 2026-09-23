@@ -172,12 +172,22 @@ export const modules: Module[] = [
     ],
   },
   {
+    slug: "futures-forwards",
+    courseSlug: "futures",
+    title: "Forwards",
+    description:
+      "Before trading futures, meet their close relative — the forward contract: what it promises, how it's settled, and how its theoretical fair price is derived across commodities, stocks, and bonds.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["futures-what-are-financial-contracts", "futures-forward-pricing"],
+  },
+  {
     slug: "futures-fundamentals",
     courseSlug: "futures",
     title: "Futures Fundamentals",
     description:
       "How futures contracts are used in practice — hedging price risk, systematic trend following, and trading the shape of the futures curve with calendar spreads.",
-    order: 1,
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-hedging-with-futures",
