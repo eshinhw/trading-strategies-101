@@ -41,10 +41,6 @@ export function CoursesPage() {
       <div className="mx-auto max-w-5xl px-6 py-10">
         <header className="mb-8">
           <h1 className="text-3xl font-bold text-[#e6e8ec]">All courses</h1>
-          <p className="mt-2 max-w-2xl text-[#9aa3b2]">
-            One course per asset class — 18 in total. Options is live today; the rest are on the
-            roadmap.
-          </p>
         </header>
 
         {error && <p className="text-red-400">{error}</p>}
