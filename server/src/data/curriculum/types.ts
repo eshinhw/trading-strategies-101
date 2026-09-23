@@ -15,10 +15,15 @@ export interface ConceptQuizQuestion {
  * a hand-built illustration component on the client (see
  * client/src/components/lessonDiagrams) — there's no image-hosting pipeline,
  * so diagrams are themed inline SVG rather than uploaded assets. `video` is
- * schema support for a future pass; no lesson populates it yet.
+ * schema support for a future pass; no lesson populates it yet. `heading`
+ * starts a new labeled section — the client breaks the body into one card
+ * per heading (plus a leading, unlabeled card for any paragraphs before the
+ * first heading) rather than rendering it as one long, undifferentiated
+ * block of prose, for lessons with genuinely distinct sub-topics.
  */
 export type LessonBlock =
   | { type: "paragraph"; text: string }
+  | { type: "heading"; text: string }
   | { type: "image"; diagramId: string; caption?: string }
   | { type: "video"; url: string; caption?: string };
 

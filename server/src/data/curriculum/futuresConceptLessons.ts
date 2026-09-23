@@ -567,18 +567,22 @@ export const futuresConceptLessons: ConceptLesson[] = [
     title: "What are Financial Contracts?",
     summary: "A forward contract is a private agreement to buy or sell an asset at a set price on a future date — the foundation every futures contract builds on.",
     body: [
+      { type: "heading", text: "Buying and Selling" },
       {
         type: "paragraph",
         text: "A forward contract is a private, customized agreement between two parties to buy and sell a specific asset at a specific price on a specific future date. The party agreeing to buy the asset at that future date holds the \"long\" side of the contract, while the party agreeing to sell it holds the \"short\" side — no money changes hands when the contract is signed, in the plain, unfunded version; the exchange of the asset for the agreed price happens entirely at the future settlement date. This is the fundamental building block that futures contracts are built from: a futures contract is essentially a standardized, exchange-traded version of the same basic long/short forward commitment.",
       },
+      { type: "heading", text: "Notional Value of a Forward Contract" },
       {
         type: "paragraph",
         text: "The notional value of a forward contract is the total value of the underlying asset the contract controls — calculated as the agreed forward price multiplied by the quantity of the asset being bought or sold. This number, not the, typically zero, amount of cash exchanged upfront, is what determines the actual economic exposure both parties are taking on: a forward on 10,000 bushels of wheat at $6 per bushel has a notional value of $60,000, meaning both the long and short party are exposed to $60,000 worth of price risk, even though neither side put up anything close to that amount at the outset.",
       },
+      { type: "heading", text: "Settlement Procedures" },
       {
         type: "paragraph",
         text: "At the contract's maturity date, a forward is settled in one of two ways: physical settlement, where the seller actually delivers the underlying asset and the buyer pays the agreed forward price, or cash settlement, where instead of exchanging the physical asset, the two parties simply exchange the difference between the agreed forward price and the asset's actual market price at maturity. Which settlement method applies is specified in the contract terms at the outset — physical settlement is more common for commodities where the underlying asset genuinely changes hands, while cash settlement is common when physical delivery is impractical, for a financial index, for example, where there's no single physical asset to deliver.",
       },
+      { type: "heading", text: "Market Integrity" },
       {
         type: "paragraph",
         text: "Because a forward contract is a private, over-the-counter agreement between two specific parties rather than a contract cleared through an exchange, it carries counterparty risk — the risk that the other side simply fails to honor the agreement at maturity, whether from an inability or unwillingness to pay. This is the central structural weakness forwards have relative to futures: an exchange-traded futures contract is guaranteed by a clearinghouse and backed by daily margin requirements that limit how much loss can accumulate before it's collected, while a forward's integrity depends entirely on the creditworthiness and good faith of the specific counterparty on the other side of the deal.",
@@ -662,14 +666,17 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "The theoretical, \"fair\" price of a forward contract is derived from a simple no-arbitrage principle: it should equal the asset's current spot price plus the cost of carrying that asset from today until the contract's delivery date. This \"cost of carry\" typically includes the financing cost of holding the asset, the interest that could otherwise have been earned on the cash tied up in buying it today, and, depending on the asset, storage costs, insurance, or other costs of physically holding it, minus any income the asset generates while being held, such as dividends or interest. The exact ingredients that make up the cost of carry differ meaningfully across asset classes, which is why forward pricing looks somewhat different for a physical commodity than for a stock or a bond.",
       },
+      { type: "heading", text: "Physical Commodities (Grains, Energy Products, Precious Metals, etc.)" },
       {
         type: "paragraph",
         text: "For a physical commodity like grains, energy products, or precious metals, the cost of carry includes not just financing costs but real, tangible costs of physically storing the commodity until delivery — warehousing, insurance, and for some commodities spoilage risk — all of which push the forward price above the spot price, all else equal. Working in the opposite direction is any convenience yield: the benefit a holder gets from having physical access to the commodity right now rather than a promise of future delivery, which is especially valuable when current supply is tight, and which can pull the forward price back down, sometimes even below spot, producing the backwardation curve shapes discussed elsewhere in this course.",
       },
+      { type: "heading", text: "Stock" },
       {
         type: "paragraph",
         text: "For a stock, the cost of carry is simpler: financing costs, the interest foregone on the cash used to buy the stock today, minus any dividends the stock is expected to pay before the forward's delivery date, since a forward buyer doesn't receive those dividends the way an actual shareholder would. This is why a forward price on a dividend-paying stock is typically only modestly above the spot price, financing cost net of the dividend yield, rather than reflecting the full financing cost outright, and why higher expected dividends between now and delivery pull the fair forward price down.",
       },
+      { type: "heading", text: "Bonds and Notes" },
       {
         type: "paragraph",
         text: "For a bond or note, forward pricing follows the same basic logic but nets out the bond's own coupon income instead of dividends: the cost of carry is the financing cost of holding the bond minus the coupon interest earned while holding it, and the forward price must also account for how the bond's own price is expected to change simply from the passage of time as it moves closer to maturity, a bond's price converges toward its face value as maturity approaches, all else equal. Because bonds pay relatively predictable, scheduled coupons and their price behavior near maturity is well understood, bond forward pricing tends to be one of the more mechanically precise applications of the cost-of-carry framework, though it still depends on an accurate financing rate assumption, just like every other asset class.",

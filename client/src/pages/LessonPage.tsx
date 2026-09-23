@@ -101,16 +101,22 @@ function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (
 
 // Groups consecutive paragraph blocks into one shared card (matching the
 // original all-prose look) while letting an image or video block break out
-// into its own full-width card at the point in the body where it appears.
+// into its own full-width card at the point in the body where it appears. A
+// heading block starts a fresh paragraph card labeled with that heading,
+// rather than just being one more line inside the running card, so a lesson
+// with genuinely distinct sub-topics reads as separated sections instead of
+// one undifferentiated block of prose.
 type BodySegment =
-  | { kind: "paragraphs"; items: string[] }
+  | { kind: "paragraphs"; heading?: string; items: string[] }
   | { kind: "image"; diagramId: string; caption?: string }
   | { kind: "video"; url: string; caption?: string };
 
 function groupBodySegments(body: LessonBlock[]): BodySegment[] {
   const segments: BodySegment[] = [];
   for (const block of body) {
-    if (block.type === "paragraph") {
+    if (block.type === "heading") {
+      segments.push({ kind: "paragraphs", heading: block.text, items: [] });
+    } else if (block.type === "paragraph") {
       const last = segments[segments.length - 1];
       if (last?.kind === "paragraphs") last.items.push(block.text);
       else segments.push({ kind: "paragraphs", items: [block.text] });
@@ -142,6 +148,7 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
                 key={i}
                 className="flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6"
               >
+                {seg.heading && <h3 className="text-lg font-semibold text-[#e6e8ec]">{seg.heading}</h3>}
                 {seg.items.map((text, j) => (
                   <p key={j} className="leading-relaxed text-[#e6e8ec]">
                     {text}
