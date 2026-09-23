@@ -132,7 +132,7 @@ export const courses: Course[] = [
     section: "7",
     description:
       "Trading volatility itself as an asset class — VIX futures, variance swaps, and volatility risk premium strategies.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 7,
     strategyTitles: [
       "VIX futures basis trading",

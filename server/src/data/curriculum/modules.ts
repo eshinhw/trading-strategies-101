@@ -325,4 +325,22 @@ export const modules: Module[] = [
       "indexes-volatility-targeting",
     ],
   },
+  {
+    slug: "volatility-fundamentals",
+    courseSlug: "volatility",
+    title: "Volatility Fundamentals",
+    description:
+      "Trading volatility itself as an asset class — VIX futures mechanics and carry, harvesting the volatility risk premium (plain and gamma-hedged), skew, and variance swaps.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "volatility-vix-futures-basis-trading",
+      "volatility-carry-with-two-etns",
+      "volatility-hedging-short-vxx",
+      "volatility-risk-premium",
+      "volatility-risk-premium-with-gamma-hedging",
+      "volatility-skew-long-risk-reversal",
+      "volatility-trading-with-variance-swaps",
+    ],
+  },
 ];

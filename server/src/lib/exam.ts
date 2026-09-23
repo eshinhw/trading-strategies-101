@@ -12,7 +12,15 @@ import {
 } from "./grading.js";
 import type { NumericAnswer } from "./grading.js";
 
-const EXAMINABLE_COURSES = new Set(["options", "futures", "stocks", "etfs", "fixed-income", "indexes"]);
+const EXAMINABLE_COURSES = new Set([
+  "options",
+  "futures",
+  "stocks",
+  "etfs",
+  "fixed-income",
+  "indexes",
+  "volatility",
+]);
 
 // Every module contributes at least this many lessons — Options has exactly
 // 12 modules, so 1 lesson/module lands here and this constant preserves its
