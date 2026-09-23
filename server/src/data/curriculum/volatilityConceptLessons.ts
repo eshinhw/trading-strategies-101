@@ -12,9 +12,13 @@ export const volatilityConceptLessons: ConceptLesson[] = [
     title: "VIX futures basis trading",
     summary: "Trading the gap between VIX futures prices and the spot VIX index, which usually differs because VIX futures price where volatility is expected to be, not where it is today.",
     body: [
+      { type: "heading", text: "What the VIX Measures" },
       { type: "paragraph", text: "The VIX index measures the market's expectation of 30-day forward S&P 500 volatility, calculated from a snapshot of S&P 500 option prices, but the VIX index itself cannot be directly traded — there's no way to simply \"buy the VIX.\" VIX futures let traders get exposure to volatility, but because a futures contract prices where volatility is expected to be at that future date, not where the VIX sits today, VIX futures typically trade at a different level than the spot VIX index. That gap is called the basis." },
+      { type: "heading", text: "Contango and Backwardation" },
       { type: "paragraph", text: "Most of the time, VIX futures trade above spot VIX, a state called contango, because volatility tends to be low and calm most of the time, but the market prices in some probability of a future spike, pulling the futures price up above the current, calm spot level. During periods of market stress, this relationship can flip: VIX spikes sharply on the spot side while futures, which reflect an expectation that the spike will partially fade by the futures' expiration, trade below the elevated spot level — a state called backwardation." },
+      { type: "heading", text: "Trading the Basis" },
       { type: "paragraph", text: "VIX futures basis trading bets on this gap between futures and spot normalizing, or on the shape of the VIX futures curve itself, how far-dated contracts price relative to near-dated ones, reverting to its typical pattern — for example, a trade might bet that an unusually wide contango will narrow as a futures contract approaches expiration and converges toward the calmer spot level, a process related to how any futures contract \"rolls down\" toward spot as expiration nears." },
+      { type: "heading", text: "When the Normal Pattern Breaks" },
       { type: "paragraph", text: "The central risk is that VIX behavior in a real crisis doesn't follow the \"normal\" pattern the trade assumes — spikes in volatility can be sudden, large, and can persist longer than historical norms would suggest, and the VIX futures curve itself can behave unusually during genuine market stress, meaning a basis trade built on typical, calm-period relationships can suffer outsized losses exactly when volatility genuinely breaks out." },
     ],
     quiz: [
@@ -91,9 +95,13 @@ export const volatilityConceptLessons: ConceptLesson[] = [
     title: "Volatility carry with two ETNs",
     summary: "Collecting the roll yield embedded in VIX futures contango by trading exchange-traded notes that hold long and short volatility exposure.",
     body: [
+      { type: "heading", text: "How VIX ETNs Roll" },
       { type: "paragraph", text: "Several exchange-traded notes (ETNs) are built to track VIX futures — some go long volatility, rising in value when VIX futures rise, while others go short, rising in value when VIX futures fall. Because these ETNs hold VIX futures contracts that must be periodically rolled forward as they approach expiration, their returns are affected not just by whether volatility itself rises or falls, but by the shape of the VIX futures curve at each roll — specifically, whether the curve is in contango or backwardation." },
+      { type: "heading", text: "The Contango Drag, and the Flip Side" },
       { type: "paragraph", text: "When the curve is in contango, which is the more common state, a long-volatility ETN loses value from the roll itself: it's continuously selling expiring futures at a lower price and buying further-dated futures at a higher price, a structural drag independent of whether volatility ends up rising or falling. A short-volatility ETN benefits from the same effect in reverse, collecting that roll yield as a form of carry for as long as contango persists." },
+      { type: "heading", text: "Collecting the Roll as Carry" },
       { type: "paragraph", text: "Volatility carry trading with two ETNs typically means taking a short-volatility position, or a position designed to benefit from contango, to collect this roll yield over time, since contango is the more frequent state of the VIX futures curve — this can look like a steady income strategy during calm markets, similar in spirit to any other carry trade collecting a persistent structural premium." },
+      { type: "heading", text: "The Tail Risk" },
       { type: "paragraph", text: "The risk is the same one that applies to any short-volatility position: when markets turn stressful and the curve flips to backwardation, a short-volatility ETN can lose value very quickly, sometimes losing most or all of its value in a single sharp volatility spike — a well-known real-world example is a short-VIX ETN that lost roughly 90% of its value in a single day during a sudden 2018 volatility spike, illustrating how a strategy that looks like steady income most of the time can carry severe tail risk." },
     ],
     quiz: [
@@ -170,9 +178,13 @@ export const volatilityConceptLessons: ConceptLesson[] = [
     title: "Hedging short VXX with VIX futures",
     summary: "Buying VIX futures alongside a short position in a long-volatility ETN like VXX, to collect the contango roll yield while capping the risk of a sudden volatility spike.",
     body: [
+      { type: "heading", text: "What VXX Is" },
       { type: "paragraph", text: "VXX is a widely-traded exchange-traded note designed to track short-term VIX futures, giving long exposure to volatility. Because VXX typically loses value over time in a contango environment, from the same roll-yield drag discussed with volatility-carry ETNs, some traders short VXX directly to collect that decay as a form of income, betting the structural drag from contango outweighs any short-term volatility spikes." },
+      { type: "heading", text: "The Risk of Going Unhedged" },
       { type: "paragraph", text: "The problem with an unhedged short VXX position is the same tail risk that hits short-volatility ETNs generally: a sudden, sharp spike in volatility can cause VXX to jump dramatically in value, and because the position is short, that jump translates into a correspondingly large, fast loss — potentially large enough to wipe out a substantial portion of the position's capital in a single trading session." },
+      { type: "heading", text: "Hedging With VIX Futures" },
       { type: "paragraph", text: "Hedging a short VXX position with a long position in VIX futures addresses this directly: if volatility spikes and VXX jumps against the short position, the VIX futures purchased as a hedge should also rise in value, offsetting some or most of the loss on the short VXX leg. The tradeoff is that this hedge also eats into the carry the trade is trying to collect during calm periods, since the long VIX futures position itself is subject to the same contango drag working against it." },
+      { type: "heading", text: "Sizing the Hedge" },
       { type: "paragraph", text: "Sizing the hedge is the central design challenge: too little VIX futures exposure and the position remains dangerously exposed to a sharp spike, defeating the purpose of hedging at all; too much and the hedge consumes so much of the contango roll yield that the trade barely earns a positive return during calm periods, undermining the reason for putting the trade on in the first place — a hedged short-VXX position is fundamentally a tradeoff between how much protection you buy and how much carry you're willing to give up for it." },
     ],
     quiz: [
@@ -249,9 +261,13 @@ export const volatilityConceptLessons: ConceptLesson[] = [
     title: "Volatility risk premium",
     summary: "Systematically selling options (or variance) to collect the persistent gap between implied volatility and the volatility that actually ends up realized.",
     body: [
+      { type: "heading", text: "What the Premium Is" },
       { type: "paragraph", text: "Implied volatility, the volatility priced into an option, backed out from its market price, has historically tended to run higher, on average, than the volatility that actually ends up being realized by the underlying asset over the same period. This gap is called the volatility risk premium, and it exists for a similar reason other insurance-like premiums exist: buyers of options, protection against big moves, are willing to pay somewhat more than the \"fair,\" purely statistical price, because that protection has value beyond just its expected payout — much like how insurance buyers generally pay more than their expected claims." },
+      { type: "heading", text: "Harvesting the Premium" },
       { type: "paragraph", text: "A strategy built to harvest the volatility risk premium systematically sells options — a common approach is selling a diversified set of short-dated, out-of-the-money options, or a variance swap, across an index or basket of assets — collecting the premium and expecting realized volatility to come in below what the market implied, on average, over many trades." },
+      { type: "heading", text: "A Familiar Risk Profile" },
       { type: "paragraph", text: "Because this premium is a statistical tendency rather than a certainty, the strategy behaves like most volatility-selling approaches: steady, positive returns most of the time as small premiums accumulate across many trades, punctuated by occasional sharp losses when realized volatility spikes well above what was implied — the same \"collecting insurance premiums\" risk profile that shows up across other short-volatility strategies covered elsewhere in this course." },
+      { type: "heading", text: "Why Risk Controls Matter" },
       { type: "paragraph", text: "Because of this asymmetric risk profile, disciplined volatility-risk-premium strategies typically apply risk controls beyond simply selling as much premium as possible — position sizing limits, diversification across many uncorrelated underlyings, and sometimes partial hedges against extreme moves — since the strategy's long-run edge depends on surviving the occasional bad outcome rather than being wiped out by it." },
     ],
     quiz: [
@@ -328,9 +344,13 @@ export const volatilityConceptLessons: ConceptLesson[] = [
     title: "Volatility risk premium with Gamma hedging",
     summary: "Collecting the volatility risk premium from short options while continuously hedging the position's delta, isolating the bet on implied-versus-realized volatility from the stock's direction.",
     body: [
+      { type: "heading", text: "Beyond the Premium: Directional Risk" },
       { type: "paragraph", text: "A short options position collecting the volatility risk premium is exposed to more than just the volatility risk premium itself — it also carries directional risk (delta) from the underlying moving up or down, which can dominate the position's day-to-day profit and loss and obscure whether the volatility bet itself is actually working. Gamma hedging addresses this by continuously adjusting a hedge in the underlying stock, or futures, to keep the position's delta close to zero as the underlying price moves, isolating the volatility risk premium bet from directional risk." },
+      { type: "heading", text: "How Negative Gamma Works" },
       { type: "paragraph", text: "The mechanism works through the position's gamma — how much delta changes as the underlying price moves. A short options position typically has negative gamma, meaning its delta becomes more negative as the stock rises and more positive as the stock falls, opposite to what a simple directional hedge would want, so a gamma-hedger continuously rebalances the underlying hedge as the stock moves, buying or selling shares to bring delta back toward zero." },
+      { type: "heading", text: "Rebalancing and the Core Bet" },
       { type: "paragraph", text: "This continuous rebalancing has a direct link to the position's core bet: each rebalance effectively \"buys high, sells low\" relative to the stock's actual path, a consequence of negative gamma, and the cost of doing this repeatedly is compensated by the option premium collected upfront — if realized volatility, which determines how much rebalancing is needed and how costly it is, comes in below what was implied when the premium was sold, the premium collected exceeds the rebalancing cost, and the position profits; if realized volatility comes in higher than implied, the rebalancing cost can exceed the premium collected." },
+      { type: "heading", text: "A Purer Volatility Bet" },
       { type: "paragraph", text: "This structure is what makes gamma-hedged volatility risk premium strategies a genuinely different exposure than a plain, unhedged short-options position: rather than a bet that also depends heavily on where the stock ends up relative to the strike at expiration, a well-executed gamma-hedged position isolates something close to a pure bet on implied volatility versus realized volatility, though in practice it requires frequent, often daily or more, rebalancing and incurs real transaction costs each time, which themselves eat into the premium being collected." },
     ],
     quiz: [
@@ -407,9 +427,13 @@ export const volatilityConceptLessons: ConceptLesson[] = [
     title: "Volatility skew – long risk reversal",
     summary: "Trading the difference in implied volatility between out-of-the-money puts and calls, buying a call and selling a put to express a bullish view financed by the skew itself.",
     body: [
+      { type: "heading", text: "What Volatility Skew Is" },
       { type: "paragraph", text: "Volatility skew refers to the pattern where options at different strikes on the same underlying, expiring on the same date, trade at different implied volatilities rather than one single volatility level — for most equity indexes and many individual stocks, out-of-the-money puts typically carry higher implied volatility than out-of-the-money calls, reflecting greater demand for downside protection and the market's tendency to price in a higher probability of sharp declines than sharp rallies." },
+      { type: "heading", text: "What a Risk Reversal Is" },
       { type: "paragraph", text: "A risk reversal combines a long call and a short put, typically at different, out-of-the-money, strikes, into a single position that behaves similarly to a leveraged long stock position: it gains as the stock rises and loses as the stock falls, but is constructed entirely from options rather than the stock itself. A \"long risk reversal\" specifically means being long the call and short the put, expressing a bullish view." },
+      { type: "heading", text: "Financed by the Skew" },
       { type: "paragraph", text: "Because of the skew described above, the put being sold typically carries higher implied volatility, and therefore, relatively speaking, is more expensive, than the call being bought at a similar distance from the money — this means a long risk reversal can often be put on at a lower net cost, or even a net credit, than a comparable pure long call position would cost on its own, since the richer put being sold partially or fully offsets the cost of the call being bought." },
+      { type: "heading", text: "A Directional Bet, Plus a Skew Bet" },
       { type: "paragraph", text: "The trade is a genuinely bullish, directional position — its profit or loss is still primarily driven by where the stock ends up — but it also carries an implicit view on the skew itself: if skew moves further in the direction that makes puts even more expensive relative to calls, which can happen during a selloff, when demand for downside protection increases, a risk reversal's P&L can be affected by that skew shift in addition to the stock's own price move, layering a volatility-shape exposure on top of the directional bet." },
     ],
     quiz: [
@@ -486,9 +510,13 @@ export const volatilityConceptLessons: ConceptLesson[] = [
     title: "Volatility trading with variance swaps",
     summary: "Trading realized variance directly via a swap contract, avoiding the path-dependent hedging headaches of replicating a pure volatility bet with options.",
     body: [
+      { type: "heading", text: "What a Variance Swap Pays" },
       { type: "paragraph", text: "A variance swap is a derivative contract that pays out based on the difference between realized variance, volatility squared, over a period and a variance level agreed upon when the contract was entered — the buyer profits if realized volatility comes in higher than what was priced into the swap, and the seller profits if it comes in lower. Unlike an option, a variance swap's payoff depends only on how much the underlying actually moved over the period, not on the specific path it took to get there or where it ended up relative to any particular strike." },
+      { type: "heading", text: "Avoiding the Gamma-Hedging Problem" },
       { type: "paragraph", text: "This is the key advantage variance swaps offer over trying to build a pure volatility bet out of options: a single option's exposure to volatility changes as the stock price moves, its gamma isn't constant, which is exactly the problem gamma hedging is built to manage for an options position — a variance swap, by contrast, provides volatility exposure that doesn't require this kind of continuous delta-hedging to isolate, since its payoff is already defined directly in terms of realized variance rather than built up from the changing sensitivities of an option position." },
+      { type: "heading", text: "How It's Priced in Practice" },
       { type: "paragraph", text: "In practice, a variance swap's payoff can be replicated, and is often priced, using a carefully weighted portfolio of options across many different strikes on the same underlying and expiration — but from the trader's perspective, buying or selling the swap directly gives that same aggregated volatility exposure in one contract, without needing to construct, monitor, and rebalance that whole options portfolio individually." },
+      { type: "heading", text: "Who Trades Variance Swaps" },
       { type: "paragraph", text: "Variance swaps are typically used by more sophisticated institutional participants — hedge funds, volatility-focused funds, and dealers hedging their own options books — since they trade over-the-counter rather than on a public exchange, require a counterparty relationship and negotiated terms, and their payoff is quadratic in the underlying's moves, a \"variance\" swap rather than a \"volatility\" swap, meaning large moves have an outsized effect on the payoff relative to what a simpler linear intuition about volatility might suggest." },
     ],
     quiz: [

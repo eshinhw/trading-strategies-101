@@ -12,9 +12,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Bullets",
     summary: "A bond portfolio concentrated in a single maturity, or a narrow band of maturities, rather than spread across the yield curve.",
     body: [
+      { type: "heading", text: "What a Bullet Portfolio Is" },
       { type: "paragraph", text: "A bullet portfolio concentrates its holdings in bonds clustered around a single target maturity date — for example, a five-year bullet portfolio holds bonds that all mature at or near the five-year mark, rather than spreading holdings evenly across short, medium, and long maturities. The name comes from how the portfolio's maturity distribution looks on a chart: a single sharp spike, like a bullet, rather than a spread-out distribution." },
+      { type: "heading", text: "Precise, Stable Duration" },
       { type: "paragraph", text: "The main appeal of a bullet strategy is precision: because every bond in the portfolio matures around the same date, the portfolio's duration — its sensitivity to interest-rate changes — is easy to target and stays relatively stable over time, without needing much active rebalancing to correct for bonds at different maturities aging at different rates." },
+      { type: "heading", text: "Matching a Known Liability" },
       { type: "paragraph", text: "Bullets are a natural fit when an investor has a specific future liability or cash need at a known date — a pension fund with a payout due in five years, for example, can build a five-year bullet portfolio so the bonds mature right when the cash is needed, minimizing the risk of having to sell bonds early at an unfavorable price." },
+      { type: "heading", text: "The Cost of Concentration" },
       { type: "paragraph", text: "The tradeoff is reduced diversification across the yield curve: because a bullet portfolio's return depends heavily on where interest rates sit at that one point on the curve, it's more exposed to a shift specifically at that maturity, a \"twist\" in the yield curve, than a portfolio spread across many maturities, which averages out its exposure to curve shape changes." },
     ],
     quiz: [
@@ -91,9 +95,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Barbells",
     summary: "A bond portfolio split between very short and very long maturities, with little or nothing in between, betting on the yield curve's shape rather than a single point.",
     body: [
+      { type: "heading", text: "What a Barbell Portfolio Is" },
       { type: "paragraph", text: "A barbell portfolio holds bonds concentrated at two extremes — very short-maturity bonds on one end and very long-maturity bonds on the other — with little or nothing in the middle. Plotted on a chart, the maturity distribution looks like a barbell: weight concentrated at both ends, empty in the middle, which is where the strategy gets its name." },
+      { type: "heading", text: "Matching Duration Differently" },
       { type: "paragraph", text: "This structure can be built to match the same overall average duration as a bullet portfolio concentrated at the midpoint, but the barbell achieves that target duration very differently: by averaging a lot of interest-rate sensitivity from the long end with very little from the short end, rather than getting a moderate, uniform sensitivity from bonds all clustered near that midpoint." },
+      { type: "heading", text: "The Short End's Advantage" },
       { type: "paragraph", text: "The short end of a barbell provides liquidity and reinvestment flexibility — those bonds mature quickly and can be rolled into new short-term bonds as rates change — while the long end captures higher yields typically available on longer-maturity debt. This gives the portfolio manager more room to actively respond to changing market conditions than a bullet portfolio's fixed, single-maturity target does." },
+      { type: "heading", text: "Convexity, at a Cost" },
       { type: "paragraph", text: "A barbell's main advantage over a comparable-duration bullet shows up when the yield curve's shape changes rather than shifting up or down uniformly: because a barbell has convexity advantages from combining very short and very long bonds, it tends to benefit more from large rate swings, in either direction, than a bullet with the same starting duration, though this benefit typically comes at some cost in yield versus a bullet, since the short end tends to earn less than intermediate maturities would." },
     ],
     quiz: [
@@ -170,9 +178,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Ladders",
     summary: "A bond portfolio with holdings spread evenly across many maturities, so a portion matures — and can be reinvested — at regular intervals.",
     body: [
+      { type: "heading", text: "What a Laddered Portfolio Is" },
       { type: "paragraph", text: "A laddered bond portfolio spreads its holdings evenly across a range of maturities — for example, one bond maturing each year for the next ten years — rather than concentrating at one point (a bullet) or at two extremes (a barbell). Each \"rung\" of the ladder is a bond maturing in a different year, giving the portfolio a smooth, staggered maturity structure." },
+      { type: "heading", text: "A Steady Stream of Maturities" },
       { type: "paragraph", text: "The defining benefit of a ladder is a steady, predictable stream of maturing bonds: every year, one rung matures and returns principal, which the investor can either spend or reinvest in a new long-dated bond at the far end of the ladder, keeping the ladder's structure intact over time." },
+      { type: "heading", text: "Averaging Reinvestment Risk" },
       { type: "paragraph", text: "This staggered reinvestment naturally averages the investor's exposure to interest-rate changes over time — rather than committing all capital to reinvestment at whatever rate happens to prevail on a single date, a ladder reinvests a portion of the portfolio at whatever the current rate is each year, smoothing out the effect of any one year's rate environment being unusually high or low." },
+      { type: "heading", text: "Why Income Investors Like It" },
       { type: "paragraph", text: "Ladders are popular with income-focused investors who want a predictable, ongoing cash flow without having to actively time the market or make big rebalancing decisions — the structure is largely mechanical, each maturing rung gets replaced at the long end, which makes it simple to maintain compared to strategies that require actively tracking and adjusting portfolio duration in response to market views." },
     ],
     quiz: [
@@ -249,9 +261,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Bond immunization",
     summary: "Structuring a bond portfolio so its value is protected from interest-rate changes over a specific investment horizon, matching duration to a target date.",
     body: [
+      { type: "heading", text: "What Immunization Protects Against" },
       { type: "paragraph", text: "Bond immunization is a strategy for protecting a portfolio's value against interest-rate risk over a specific, known investment horizon — such as a future liability due in exactly seven years — by matching the portfolio's duration to that horizon. When duration is matched this way, a rate change affects the portfolio's value in two offsetting ways: the price of existing bonds moves one direction, while the rate at which coupon payments can be reinvested moves the opposite way, and matching duration to the horizon makes these two effects approximately cancel out." },
+      { type: "heading", text: "Two Offsetting Effects" },
       { type: "paragraph", text: "Specifically, if rates rise, existing bond prices fall, but the coupons being received can now be reinvested at the new, higher rate; if rates fall, existing bond prices rise, but reinvestment happens at the new, lower rate. An immunized portfolio is structured so that, at the target horizon date, these two effects offset closely enough that the portfolio's value is nearly unaffected by which direction rates moved." },
+      { type: "heading", text: "Why Rebalancing Is Still Needed" },
       { type: "paragraph", text: "Because duration itself changes as time passes and as rates move, a bond's duration naturally shortens as it approaches maturity, and duration can shift with rate-level changes too, an immunized portfolio isn't a \"set it and forget it\" structure — it requires periodic rebalancing to keep the portfolio's duration matched to the shrinking remaining time to the target horizon as that date approaches." },
+      { type: "heading", text: "Who Uses Immunization" },
       { type: "paragraph", text: "Immunization is especially relevant for institutions like pension funds and insurance companies that have well-defined future liabilities and want to lock in the ability to meet them regardless of which direction interest rates move between now and the payout date, rather than taking a directional bet on rates or trying to actively outperform the market." },
     ],
     quiz: [
@@ -328,9 +344,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Dollar-duration-neutral butterfly",
     summary: "A three-maturity bond trade — long the wings, short the body, or vice versa — structured so the position has zero net sensitivity to a parallel shift in rates, isolating a bet on the yield curve's curvature.",
     body: [
+      { type: "heading", text: "Three Points on the Curve" },
       { type: "paragraph", text: "A dollar-duration-neutral butterfly is a trade built from three points on the yield curve — a short maturity and a long maturity (the \"wings\") and an intermediate maturity in between (the \"body\") — combined so that the position's total dollar duration nets to zero. That means if interest rates move up or down by the same amount across the whole curve, a parallel shift, the position's value is largely unaffected either way." },
+      { type: "heading", text: "How the Trade Is Built" },
       { type: "paragraph", text: "The trade is constructed by taking opposite positions in the wings versus the body — for example, short the body and long both wings, sized so the dollar duration of the two wing positions combined exactly offsets the dollar duration of the body position. Because the position is neutral to a parallel shift, its return instead depends on how the curve's curvature changes: specifically, whether the body's yield moves up or down relative to the average of the two wings." },
+      { type: "heading", text: "Isolating a Bet on Curvature" },
       { type: "paragraph", text: "This isolates a bet purely on the shape of the yield curve at that middle point, rather than on the overall level of interest rates. If the curve becomes more \"bowed,\" the body's yield falls relative to the wings, a position short the body and long the wings profits; if the curve flattens out at that point instead, the position loses." },
+      { type: "heading", text: "Getting the Sizing Right" },
       { type: "paragraph", text: "Sizing the wings correctly is the key mechanical challenge: because dollar duration depends on both a bond's price and its duration, the amount invested in each wing has to be carefully calculated, not just an equal dollar amount in each, so that their combined dollar duration truly offsets the body's — get the sizing wrong and the trade retains unwanted exposure to a parallel rate shift instead of being purely a curvature bet." },
     ],
     quiz: [
@@ -402,9 +422,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Rolling down the yield curve",
     summary: "Buying a longer-maturity bond and selling it before maturity, capturing price appreciation as it \"rolls down\" an upward-sloping yield curve toward a lower yield.",
     body: [
+      { type: "heading", text: "What \"Rolling Down\" Means" },
       { type: "paragraph", text: "When the yield curve is upward-sloping, longer maturities carry higher yields than shorter ones, the normal shape, a bond bought today at, say, a 10-year maturity will, one year from now, have only nine years left until maturity. If the yield curve's shape stays roughly the same over that year, the bond's yield \"rolls down\" from the 10-year point on the curve to the 9-year point, which sits at a lower yield since the curve slopes upward." },
+      { type: "heading", text: "Why It Produces a Price Gain" },
       { type: "paragraph", text: "Because bond prices move inversely to yields, that decline in yield as the bond ages produces a price gain, on top of whatever coupon income the bond paid during the holding period. Rolling down the curve strategy exploits this directly: buy a bond somewhere out on the curve, hold it for a period, then sell it before maturity, capturing both the coupon and this yield-decline-driven price appreciation, rather than holding to maturity." },
+      { type: "heading", text: "Where the Strategy Works Best" },
       { type: "paragraph", text: "The strategy works best where the yield curve is steepest, since a steeper slope means a bigger yield decline, and therefore a bigger price gain, for each year the bond \"rolls\" down the curve; a very flat curve offers little or no roll-down benefit, since the yield barely changes as maturity shortens." },
+      { type: "heading", text: "The Risk of a Curve That Shifts" },
       { type: "paragraph", text: "The central risk is that this strategy assumes the yield curve's shape stays roughly stable over the holding period — if the curve shifts upward or flattens unexpectedly while the bond is held, the anticipated roll-down gain can shrink or disappear entirely, and the position can even lose money if rates rise enough to outweigh the roll-down effect." },
     ],
     quiz: [
@@ -481,9 +505,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Fifty-fifty butterfly",
     summary: "A simplified butterfly construction that splits the body's duration equally, 50/50, between the two wings — an easy-to-build alternative to full dollar-duration matching.",
     body: [
+      { type: "heading", text: "A Simpler Butterfly Construction" },
       { type: "paragraph", text: "A fifty-fifty butterfly is a simpler way to construct a butterfly trade than fully solving for dollar-duration neutrality: rather than calculating the precise dollar-duration split needed between the wings based on their individual durations, it simply allocates half of the body's dollar duration to the short wing and half to the long wing, in a fixed 50/50 split, regardless of the wings' actual relative durations." },
+      { type: "heading", text: "The Cost of Simplicity" },
       { type: "paragraph", text: "This makes the trade much easier to set up and explain — no need to solve equations weighting each wing by its specific duration and price sensitivity — but it comes at the cost of precision: because a fifty-fifty split doesn't account for the fact that the short and long wings typically have very different durations from each other, the resulting position usually isn't perfectly dollar-duration-neutral to a parallel shift in rates, unlike a fully weighted dollar-duration-neutral butterfly." },
+      { type: "heading", text: "Residual Parallel-Shift Exposure" },
       { type: "paragraph", text: "In practice, this means a fifty-fifty butterfly retains some residual exposure to the overall level of interest rates, not just to the curve's shape — a parallel shift in the yield curve can move the position's value by a small amount, whereas a true dollar-duration-neutral construction is designed to cancel that out almost entirely." },
+      { type: "heading", text: "Why It Remains Popular" },
       { type: "paragraph", text: "Despite this imprecision, the fifty-fifty approach remains popular for its simplicity and transparency: traders who want a quick, easy-to-communicate butterfly position, and are willing to tolerate a bit of residual parallel-shift exposure in exchange for not having to run a more involved weighting calculation, often default to this construction as a starting point before considering more precisely weighted alternatives." },
     ],
     quiz: [
@@ -560,9 +588,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Regression-weighted butterfly",
     summary: "Weighting a butterfly's wings using a statistical regression of how each maturity has historically moved relative to the body, rather than a simple duration calculation.",
     body: [
+      { type: "heading", text: "Weighting by Historical Data" },
       { type: "paragraph", text: "A regression-weighted butterfly improves on simpler weighting methods by using historical data: instead of weighting the wings purely by dollar duration, which only captures a bond's theoretical price sensitivity, or splitting 50/50, which ignores the wings' relative behavior entirely, it runs a statistical regression of how each wing's yield has actually moved historically relative to the body's yield, and uses those regression coefficients, the \"betas\" of each wing to the body, to set the weights." },
+      { type: "heading", text: "Why Duration Alone Isn't Enough" },
       { type: "paragraph", text: "This matters because, in practice, different points on the yield curve don't always move in the simple, proportional way that a pure duration calculation assumes — the short end of the curve might be more sensitive to central bank policy changes, for example, while the long end responds more to inflation expectations, so their actual historical co-movement with the body can differ from what a dollar-duration calculation alone would predict." },
+      { type: "heading", text: "A More Robust Neutrality" },
       { type: "paragraph", text: "By weighting the wings according to their empirically observed sensitivity to the body, rather than their theoretical duration-based sensitivity, a regression-weighted butterfly aims to be neutral to the kinds of rate moves that have actually occurred historically, which can make it more robust to real-world curve behavior than a purely theoretical dollar-duration-neutral construction." },
+      { type: "heading", text: "The Limits of a Historical Fit" },
       { type: "paragraph", text: "The tradeoff is that regression-based weights depend on the historical period used to estimate them, and historical relationships between yield-curve points aren't guaranteed to hold going forward — a regression fit over a very different rate environment, say, a period of aggressive central-bank tightening, may not describe how the curve behaves in the future, so the weights need to be periodically re-estimated and used with the understanding that they're describing the past, not guaranteeing the future." },
     ],
     quiz: [
@@ -639,9 +671,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Maturity-weighted butterfly",
     summary: "Weighting a butterfly's wings by their maturity distance from the body, a simple rule-of-thumb alternative to duration- or regression-based weighting.",
     body: [
+      { type: "heading", text: "Weighting by Maturity Distance" },
       { type: "paragraph", text: "A maturity-weighted butterfly sets its wing weights based on each wing's maturity distance from the body, rather than on dollar duration or a historical regression — for example, weighting the short wing and long wing inversely to how far their maturities sit from the body's maturity, so a wing closer to the body in maturity terms gets a larger weight than one further away." },
+      { type: "heading", text: "A Simple, Mechanical Rule" },
       { type: "paragraph", text: "This is a simpler, more mechanical rule of thumb than either the dollar-duration-neutral or regression-weighted approaches: it doesn't require calculating each bond's precise duration or running a statistical regression on historical yield relationships, just measuring the maturity gap between each wing and the body, which makes it fast and easy to apply consistently across many different butterfly trades." },
+      { type: "heading", text: "Only a Rough Proxy" },
       { type: "paragraph", text: "The tradeoff is that maturity distance is only a rough proxy for a bond's actual interest-rate sensitivity — two bonds the same distance in years from the body don't necessarily have the same dollar duration or the same historical co-movement with the body, especially since duration doesn't scale in a perfectly linear way with maturity, a bond's duration grows more slowly than its maturity, especially at longer maturities, because of the effect of coupon payments arriving along the way." },
+      { type: "heading", text: "A Starting Point, Not a Final Answer" },
       { type: "paragraph", text: "In practice, a maturity-weighted butterfly is often used as a quick, intuitive starting point for structuring a butterfly trade — especially when a trader wants a fast, rule-of-thumb construction — before potentially refining the position with a more precise dollar-duration or regression-based weighting if the trade is going to be held for a meaningful period or sized significantly." },
     ],
     quiz: [
@@ -718,9 +754,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Yield curve spread (flatteners & steepeners)",
     summary: "Trading the difference in yield between two points on the curve, betting on the curve steepening or flattening rather than on the overall level of rates.",
     body: [
+      { type: "heading", text: "Betting on the Spread, Not the Level" },
       { type: "paragraph", text: "A yield curve spread trade bets on the difference between yields at two points on the curve — commonly a short maturity and a long maturity, such as the 2-year and 10-year — rather than on the overall direction of interest rates. The trader goes long one maturity and short the other, so the position's return depends on how that yield spread changes, not on whether rates broadly rise or fall." },
+      { type: "heading", text: "The Steepener" },
       { type: "paragraph", text: "A \"steepener\" bets that the spread between the long and short yields will widen, the curve becoming steeper, typically constructed by being short the long-maturity bond, or receiving fixed on a long-dated swap, and long the short-maturity bond, profiting if long yields rise relative to short yields, or short yields fall relative to long yields." },
+      { type: "heading", text: "The Flattener" },
       { type: "paragraph", text: "A \"flattener\" bets the opposite: that the spread will narrow, the curve flattening, or even inverting, where short yields exceed long yields, typically constructed with the reverse positioning, long the long-maturity bond and short the short-maturity bond, profiting as the gap between them shrinks." },
+      { type: "heading", text: "A View on Monetary Policy" },
       { type: "paragraph", text: "These trades are often motivated by a view on monetary policy and the economic cycle: central bank rate hikes tend to push up short-term yields more than long-term ones, flattening the curve, while expectations of future rate cuts or economic weakness can pull short yields down faster than long ones, steepening the curve — so curve-spread trades let a trader express a view on the path and shape of policy without taking a pure directional bet on where rates end up overall." },
     ],
     quiz: [
@@ -797,9 +837,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Low-risk factor",
     summary: "The fixed-income analog of the equity low-volatility anomaly — lower-risk bonds have historically delivered comparable or better risk-adjusted returns than higher-risk ones.",
     body: [
+      { type: "heading", text: "The Fixed-Income Low-Volatility Parallel" },
       { type: "paragraph", text: "The low-risk factor in fixed income mirrors the low-volatility anomaly seen in equities: bonds with lower risk, measured by some combination of lower duration, higher credit quality, or lower historical price volatility, have historically delivered risk-adjusted returns comparable to, or better than, higher-risk bonds, even though standard theory suggests investors should be compensated with higher returns for taking on more risk." },
+      { type: "heading", text: "Building a Low-Risk Portfolio" },
       { type: "paragraph", text: "A systematic low-risk factor strategy ranks bonds in a universe by a risk measure such as duration, credit spread, or historical volatility, and tilts the portfolio toward the lower-risk end of that ranking, often while still targeting a competitive overall yield by selecting the least risky bonds within each maturity or credit-quality bucket rather than simply buying the shortest, safest bonds available." },
+      { type: "heading", text: "Why the Factor Persists" },
       { type: "paragraph", text: "One proposed explanation for why this factor persists is similar to the equity version: many fixed-income investors are constrained by mandates that push them toward higher-yielding, higher-risk bonds to hit a target return, or are drawn to riskier bonds for their higher headline yield without fully pricing in the additional risk, which can leave lower-risk bonds comparatively underpriced relative to the risk they actually carry." },
+      { type: "heading", text: "A Defensive Tilt" },
       { type: "paragraph", text: "Because it favors bonds that hold up better in stressed markets, lower duration and higher credit quality both tend to cushion a portfolio during a selloff, a low-risk factor tilt is often used to improve a fixed-income portfolio's resilience during downturns, similar to how the equity low-volatility factor is used, rather than as a strategy for chasing the single highest raw yield." },
     ],
     quiz: [
@@ -871,9 +915,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Value factor",
     summary: "Buying bonds that are cheap relative to a fundamental measure of credit risk, on the premise the market has temporarily mispriced them.",
     body: [
+      { type: "heading", text: "Finding Cheap Credit Spreads" },
       { type: "paragraph", text: "The fixed-income value factor identifies bonds that trade cheaply relative to some measure of their fundamental credit risk — for example, a bond whose credit spread, the extra yield it pays over a comparable risk-free bond, is wider than what its issuer's underlying fundamentals, like leverage, profitability, or credit rating, would seem to justify. The strategy buys these apparently underpriced bonds, betting the market will eventually recognize the mispricing and the spread will narrow." },
+      { type: "heading", text: "Ranking Bonds Against Fair Value" },
       { type: "paragraph", text: "A systematic implementation typically models a bond's \"fair\" credit spread based on issuer fundamentals and market-wide credit conditions, compares that fair-value estimate to the bond's actual traded spread, and ranks bonds by the gap between the two, buying the bonds trading at the widest positive gap, cheapest relative to fair value, and potentially avoiding or shorting the bonds trading tightest relative to their fundamentals." },
+      { type: "heading", text: "The Fixed-Income Value Trap" },
       { type: "paragraph", text: "As with the equity value factor, part of the challenge is distinguishing a genuine, temporary mispricing from a spread that's wide for a good reason: a bond can trade cheap because the market is pricing in a real, elevated risk of default or downgrade that a backward-looking fundamentals model hasn't yet fully captured, which is the fixed-income analog of the equity \"value trap.\"" },
+      { type: "heading", text: "When the Factor Wins and Loses" },
       { type: "paragraph", text: "The value factor in credit has historically shown periods of both strong performance and extended underperformance, similar to equity value — it tends to do well when previously depressed credits recover, but can suffer during periods of sustained credit deterioration or a \"flight to quality,\" when investors broadly move away from cheaper, riskier credits regardless of their fundamentals." },
     ],
     quiz: [
@@ -950,9 +998,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Carry factor",
     summary: "Favoring bonds with the highest yield relative to their risk, on the premise that, absent a change in rates or spreads, higher carry translates directly into higher realized return.",
     body: [
+      { type: "heading", text: "What Carry Means in Fixed Income" },
       { type: "paragraph", text: "Carry, in fixed income, refers to the return an investor earns simply from holding a bond over time if nothing else changes — market rates stay the same, credit spreads stay the same, and the yield curve's shape stays the same. The carry factor strategy tilts a portfolio toward bonds offering the most carry relative to their risk, on the premise that this income comes directly through to realized return unless something moves against the position." },
+      { type: "heading", text: "Sources of Carry" },
       { type: "paragraph", text: "Carry can come from multiple sources: a bond's yield relative to the risk-free rate, credit carry, a longer-maturity bond's higher yield relative to a shorter one on an upward-sloping curve, term carry, closely related to rolling down the yield curve, or the funding-rate difference in a leveraged position. A systematic carry strategy typically ranks available bonds by carry-per-unit-of-risk and tilts toward the highest-ranked ones." },
+      { type: "heading", text: "The Central Assumption — and Risk" },
       { type: "paragraph", text: "The strategy's central assumption, that today's yields and spreads are a reasonable guide to future realized returns, is also its central risk: carry strategies tend to earn steady, positive returns most of the time, but can suffer sharp losses when the conditions the carry was compensating for actually occur, such as a sudden widening of credit spreads or a sharp rise in rates, which erodes bond prices faster than the accumulated carry can offset." },
+      { type: "heading", text: "A Pattern Like Selling Insurance" },
       { type: "paragraph", text: "This risk profile, small, steady gains most of the time, occasional larger losses when the underlying risk materializes, is a recurring pattern across carry strategies in many asset classes, it shows up in currency carry trades and futures roll-yield strategies too, and is often described as resembling an insurance-selling business: collecting a steady premium in exchange for bearing the risk of an occasional larger payout." },
     ],
     quiz: [
@@ -1029,9 +1081,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "CDS basis arbitrage",
     summary: "Trading the gap between a company's bond credit spread and the cost of insuring against its default with a credit default swap, betting the two converge.",
     body: [
+      { type: "heading", text: "What a Credit Default Swap Is" },
       { type: "paragraph", text: "A credit default swap (CDS) is a contract that functions like insurance against a bond issuer defaulting: the buyer pays a periodic premium, the CDS spread, and receives a payout if the issuer defaults, while the seller collects the premium and bears the default risk. In principle, the CDS spread on a company's debt and the credit spread on its actual bonds should be closely linked, since both are compensation for the same underlying default risk, but in practice, the two can and do diverge, and that gap is called the CDS basis." },
+      { type: "heading", text: "The Negative Basis Trade" },
       { type: "paragraph", text: "The basis is defined as the CDS spread minus the bond's credit spread. A \"negative basis\" trade, buying the bond and buying CDS protection on the same issuer, profits if the bond's credit spread is unusually wide relative to the CDS spread and the two converge, since the trader earns the bond's wide credit spread while paying the relatively cheaper CDS premium for protection, largely hedging out the underlying default risk in the process." },
+      { type: "heading", text: "Why It's Close to Risk-Neutral" },
       { type: "paragraph", text: "Because the position is long the bond and long protection against that same bond defaulting, the trade is close to credit-risk-neutral in theory — if the issuer actually defaults, the CDS payout is designed to offset the loss on the bond — which means the trade's expected profit comes mainly from the basis converging, not from taking a view on whether the company will actually default." },
+      { type: "heading", text: "Frictions That Keep the Basis Wide" },
       { type: "paragraph", text: "In practice, the basis doesn't always converge cleanly, and several frictions can keep it persistently wide or even cause it to move further apart: differences in the cheapest-to-deliver bond eligible for CDS settlement, funding costs and balance-sheet constraints for financing the bond position, counterparty risk on the CDS itself, and technical supply-and-demand imbalances between the bond and CDS markets — all of which mean a negative-basis trade, despite being theoretically low-risk, still carries real execution and financing risk." },
     ],
     quiz: [
@@ -1108,9 +1164,13 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
     title: "Swap-spread arbitrage",
     summary: "Trading the gap between a fixed-for-floating interest rate swap's fixed rate and the yield on a government bond of the same maturity, betting the spread reverts to its typical range.",
     body: [
+      { type: "heading", text: "What the Swap Spread Is" },
       { type: "paragraph", text: "An interest rate swap exchanges a stream of fixed payments for a stream of floating payments, typically tied to a short-term reference rate, over a set period. The \"swap spread\" is the difference between the fixed rate on a swap and the yield on a government bond of the same maturity — for example, the 10-year swap rate minus the 10-year government bond yield. Because both reflect the market's view of interest rates over the same horizon, they tend to move together, but the swap spread itself fluctuates within a historical range influenced by factors specific to each market." },
+      { type: "heading", text: "Betting on Reversion" },
       { type: "paragraph", text: "Swap-spread arbitrage bets that a swap spread which has moved unusually wide or narrow relative to its historical range will revert back toward that typical level — a trader might, for example, receive fixed on the swap and simultaneously short the government bond, or the reverse, constructing a position that profits as the swap spread moves back toward its normal range, largely independent of which direction interest rates broadly move." },
+      { type: "heading", text: "What Drives the Spread" },
       { type: "paragraph", text: "Swap spreads are driven by factors distinct from the general level of rates: the perceived credit risk of the bank counterparties in the swap market versus the near-risk-free status of government debt, the relative supply of new government bond issuance versus swap market demand, and, especially since the 2008 financial crisis, regulatory and balance-sheet constraints on banks' capacity to intermediate swap trades, all of which can push the spread away from its historical norm for reasons unrelated to the direction of interest rates." },
+      { type: "heading", text: "Not Risk-Free" },
       { type: "paragraph", text: "Like other spread-arbitrage trades, the position is not risk-free: dealer balance-sheet constraints and shifts in bond supply can cause swap spreads to move further away from historical norms, and can stay unusually wide or narrow for extended periods rather than reverting quickly — a well-known example is when swap spreads turned negative for long-maturity swaps after 2008, a level that would have looked anomalous, and unprofitable to bet against, under pre-crisis assumptions about the swap market's structure." },
     ],
     quiz: [

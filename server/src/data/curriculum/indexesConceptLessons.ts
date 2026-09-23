@@ -11,9 +11,13 @@ export const indexesConceptLessons: ConceptLesson[] = [
     title: "Cash-and-carry arbitrage",
     summary: "Buying an index's stocks and selling index futures against them, capturing a mispricing between the futures price and its fair, cost-of-carry value.",
     body: [
+      { type: "heading", text: "Spot, Futures, and Cost of Carry" },
       { type: "paragraph", text: "Cash-and-carry arbitrage exploits the relationship between an index's futures price and its current (\"spot\") value: in theory, a futures contract on an index should trade at spot plus the cost of carrying that position to expiration — mainly financing costs, minus any dividends the underlying stocks pay out before expiration. When the actual futures price trades above this \"fair value,\" the arbitrage is to buy the underlying basket of stocks, the \"cash\" side, and simultaneously sell the futures contract, going \"short the carry,\" locking in a profit as the two converge by expiration." },
+      { type: "heading", text: "Why It's Close to Risk-Free" },
       { type: "paragraph", text: "The trade is close to risk-free in principle: at expiration, the futures contract settles against the actual index level, so the long stock basket and the short futures position converge to the same value regardless of where the market ends up — the profit comes from the initial mispricing, not from taking a view on market direction. This is why the trade is called \"arbitrage\" rather than a directional bet." },
+      { type: "heading", text: "Real-World Frictions" },
       { type: "paragraph", text: "In practice, real friction narrows or eliminates the opportunity: buying every stock in an index in the correct weights involves transaction costs and tracking error, the financing rate used to compute fair value may differ from what an arbitrageur can actually borrow at, and dividend payments, which reduce the futures' fair value, can be uncertain or change before expiration — all of which mean the \"riskless\" trade carries real execution risk that erodes the theoretical profit." },
+      { type: "heading", text: "Who Actually Trades It" },
       { type: "paragraph", text: "Because index futures are heavily traded and closely watched by many market participants, the cash-and-carry mispricing tends to be small and short-lived in liquid markets — it's a trade that depends on speed and low transaction costs to capture a thin margin reliably, which is why it's typically the domain of large institutional trading desks with the infrastructure to trade a full stock basket efficiently, rather than a place individual traders can easily compete." },
     ],
     quiz: [
@@ -90,9 +94,13 @@ export const indexesConceptLessons: ConceptLesson[] = [
     title: "Dispersion trading in equity indexes",
     summary: "Trading the difference between an index's implied volatility and the average implied volatility of its individual components, betting on how correlated those components will actually be.",
     body: [
+      { type: "heading", text: "Volatility Depends on Correlation" },
       { type: "paragraph", text: "An equity index's volatility isn't just the average of its components' individual volatilities — it also depends heavily on how correlated those components are with each other. When index members move together, high correlation, their individual moves reinforce each other and the index as a whole swings a lot; when they move more independently, low correlation, individual swings partly cancel out and the index itself stays comparatively calm. Dispersion trading is built directly on this relationship between index volatility, component volatility, and their average correlation." },
+      { type: "heading", text: "The Classic Trade" },
       { type: "paragraph", text: "A classic dispersion trade sells options, or variance swaps, on the index while buying options, or variance swaps, on a basket of its individual components, in a ratio designed to be roughly neutral to the overall level of volatility — the trader isn't betting on volatility rising or falling broadly, but on the relationship between index-level and component-level volatility, which is really a bet on correlation. Selling index volatility while buying component volatility profits if realized correlation between the components comes in lower than what was implied when the trade was put on." },
+      { type: "heading", text: "Why Index Options Run Rich" },
       { type: "paragraph", text: "The intuition is that index options often trade at an implied correlation that's elevated relative to what typically materializes — investors buying index protection tend to bid up index-level implied volatility, while single-stock options are driven more by name-specific factors, creating a persistent gap that dispersion trades are designed to harvest, similar in spirit to how other volatility risk premium strategies collect a premium for providing insurance-like protection." },
+      { type: "heading", text: "The Correlation Spike Risk" },
       { type: "paragraph", text: "The central risk is a \"correlation spike\": during broad market stress, individual stocks that normally move somewhat independently often start moving together sharply, a flight to a single risk factor, often just \"the market going down\", pushing realized correlation up rather than down — exactly the scenario a short-index, long-component dispersion trade loses money in, which is why dispersion trading, like other volatility-selling strategies, tends to do well in calm periods and can suffer sharp losses during systemic selloffs." },
     ],
     quiz: [
@@ -169,9 +177,13 @@ export const indexesConceptLessons: ConceptLesson[] = [
     title: "Dispersion trading – subset portfolio",
     summary: "Running dispersion trading against only a subset of an index's components, rather than the full basket, to reduce cost and complexity while keeping the core correlation bet.",
     body: [
+      { type: "heading", text: "The Full-Basket Version" },
       { type: "paragraph", text: "A full dispersion trade, as classically constructed, requires taking a position in every single component of an index alongside the index option itself — for a broad index with dozens or hundreds of members, that means managing a large number of individual option or variance-swap positions, each with its own transaction costs, liquidity constraints, and monitoring burden. A subset-portfolio approach instead selects a smaller, carefully chosen group of components to represent the basket side of the trade, rather than using every single name." },
+      { type: "heading", text: "Choosing the Subset" },
       { type: "paragraph", text: "The subset is typically chosen to preserve as much of the full basket's characteristics as possible with far fewer names — weighting toward the largest, most liquid, most heavily-weighted constituents of the index, since they contribute the most to the index's own volatility and correlation structure, while dropping smaller, less liquid names whose individual contribution to the trade's correlation exposure is minor relative to the added cost and complexity of including them." },
+      { type: "heading", text: "The Basis Risk of Approximating" },
       { type: "paragraph", text: "This tradeoff, approximation versus full replication, means a subset dispersion trade won't track the true, full-basket correlation relationship perfectly; there's a real risk that correlation behaves differently among the excluded smaller names than among the large ones included in the subset, introducing a form of basis risk between the subset's realized correlation and the true index-wide correlation the trade is ultimately trying to capture." },
+      { type: "heading", text: "Lower Cost, Less Precision" },
       { type: "paragraph", text: "In exchange for that approximation risk, a subset portfolio meaningfully cuts transaction costs, margin requirements, and ongoing monitoring effort, which can make dispersion trading practical for participants who can't justify the operational overhead of a full-basket version — the strategy is a deliberate simplification, trading some precision for a meaningfully lower cost to implement and maintain." },
     ],
     quiz: [
@@ -248,9 +260,13 @@ export const indexesConceptLessons: ConceptLesson[] = [
     title: "Intraday arbitrage between index ETFs",
     summary: "Trading brief intraday price gaps between two ETFs that track the same or very similar indexes, exploiting the fact that arbitrage doesn't correct every mispricing instantly.",
     body: [
+      { type: "heading", text: "Why ETFs Normally Stay Aligned" },
       { type: "paragraph", text: "Multiple ETFs often track the same or very similar underlying indexes — for example, several different providers may each offer an S&P 500 ETF. In theory, these ETFs should trade in a tight, predictable relationship to each other and to the underlying index's value throughout the day, since each one's price is kept close to its net asset value by a creation/redemption mechanism that lets authorized participants exchange ETF shares for the underlying basket of stocks, or vice versa. In practice, brief gaps between two such ETFs can still open up intraday." },
+      { type: "heading", text: "Trading the Brief Gap" },
       { type: "paragraph", text: "Intraday arbitrage between index ETFs looks for these brief windows where two ETFs tracking the same or highly similar index diverge from their normal, tight relationship — buying the relatively cheap ETF and selling the relatively expensive one, betting the gap closes as the normal arbitrage mechanism, or simply other traders noticing the same opportunity, pulls the two back into line." },
+      { type: "heading", text: "What Causes a Gap" },
       { type: "paragraph", text: "These gaps tend to be small and short-lived, since the ETF creation/redemption mechanism and other arbitrageurs are constantly working to keep prices aligned — but gaps can still appear from differences in trading volume and liquidity between the two ETFs, small differences in each fund's exact index methodology or rebalancing schedule, or brief periods of stress, like a fast market move, when the creation/redemption mechanism doesn't keep up instantaneously." },
+      { type: "heading", text: "A Game of Speed" },
       { type: "paragraph", text: "Because the opportunity is both small and fleeting, this strategy depends heavily on speed, low transaction costs, and the ability to monitor many ETF pairs simultaneously — it's a strategy dominated by high-frequency and algorithmic trading firms with the technology to detect and act on a brief price gap before it closes on its own, rather than something a slower-moving trader could reliably capture." },
     ],
     quiz: [
@@ -327,9 +343,13 @@ export const indexesConceptLessons: ConceptLesson[] = [
     title: "Index volatility targeting with risk-free asset",
     summary: "Dynamically shifting a portfolio between an index and a risk-free asset to hold the portfolio's overall volatility near a constant target, rather than letting it swing with the market.",
     body: [
+      { type: "heading", text: "Adjusting Exposure to Hold a Target" },
       { type: "paragraph", text: "An index's realized volatility isn't constant — it tends to rise during turbulent, uncertain periods and fall during calm ones. A volatility-targeting strategy responds to this by dynamically adjusting how much of a portfolio is allocated to the index versus a risk-free asset, like short-term Treasury bills, aiming to keep the overall portfolio's volatility close to a fixed target level regardless of how choppy or calm the index itself is behaving." },
+      { type: "heading", text: "The Mechanism" },
       { type: "paragraph", text: "The mechanism is straightforward: when the index's recent realized volatility is running below the target, the strategy increases its allocation to the index, since more index exposure is needed to reach the target volatility, potentially even using leverage if allowed; when the index's volatility rises above the target, the strategy reduces its index allocation and shifts more into the risk-free asset, scaling back exposure to keep overall portfolio volatility from rising along with it." },
+      { type: "heading", text: "A More Stable Risk Level" },
       { type: "paragraph", text: "This produces a portfolio whose risk level stays comparatively stable over time, in contrast to a simple buy-and-hold index position, whose risk level fluctuates directly with whatever the market happens to be doing — proponents argue this is more intuitive for investors who want a consistent risk experience, since a fixed-dollar index position can quietly become much riskier during a volatility spike without the investor taking any action." },
+      { type: "heading", text: "The Lag Problem" },
       { type: "paragraph", text: "The strategy isn't without drawbacks: because it reduces exposure after volatility has already risen, a lagging response, based on backward-looking realized volatility, and increases exposure after volatility has already fallen, it can end up selling into some of a selloff and buying into some of a calm rally — a pattern that resembles a mechanical version of \"sell weakness, buy strength\" rather than genuine market timing, and can underperform a static buy-and-hold approach in markets where volatility and returns aren't cleanly related in the way the strategy assumes." },
     ],
     quiz: [

@@ -11,9 +11,13 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
     title: "Roll yields",
     summary: "Earning (or losing) a return from rolling a commodity futures position forward, depending on whether the futures curve is in backwardation or contango.",
     body: [
+      { type: "heading", text: "What Roll Yield Is" },
       { type: "paragraph", text: "Commodity futures contracts expire, so an investor who wants continuous exposure to a commodity must periodically \"roll\" the position — closing out the expiring contract and opening a new position in a further-dated one. The return earned or lost purely from this rolling process, separate from any change in the commodity's spot price, is called the roll yield." },
+      { type: "heading", text: "Backwardation vs. Contango" },
       { type: "paragraph", text: "When the futures curve is in backwardation, further-dated contracts priced lower than near-dated ones, rolling a long position means selling the expiring, higher-priced, contract and buying the further-dated, cheaper, one, which produces a positive roll yield as the futures price naturally rises toward the higher spot price over time. When the curve is in contango, further-dated contracts priced higher, the same roll produces a negative roll yield, since the position is repeatedly selling cheap and buying expensive." },
+      { type: "heading", text: "Positioning by Curve Shape" },
       { type: "paragraph", text: "A roll-yield strategy explicitly targets this component of return rather than just passively holding whatever curve shape happens to prevail — for example, ranking commodities by the steepness of their backwardation or contango and tilting a portfolio toward those in backwardation, expecting positive roll yield, while avoiding or shorting those in steep contango, expecting a roll-yield drag." },
+      { type: "heading", text: "A Bet on Physical Market Conditions" },
       { type: "paragraph", text: "Historically, backwardation has often been linked to genuine physical scarcity or strong near-term demand for a commodity, sometimes described through the lens of \"hedging pressure,\" where producers wanting to hedge future production push down further-dated prices relative to near-dated ones, while contango often reflects ample supply or high storage costs — so a roll-yield strategy is, at some level, also a bet on the underlying physical market conditions that produce a given curve shape, not merely a mechanical harvesting of a number on a chart." },
     ],
     quiz: [
@@ -90,9 +94,13 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
     title: "Trading based on hedging pressure",
     summary: "Trading commodity futures based on the theory that producers' need to hedge future production systematically pushes down futures prices relative to expected future spot prices.",
     body: [
+      { type: "heading", text: "The Hedging Pressure Hypothesis" },
       { type: "paragraph", text: "The hedging pressure hypothesis holds that commodity producers — farmers, miners, oil drillers — have a natural incentive to hedge their future production by selling futures contracts, locking in a price today for output they'll deliver later. This chronic selling pressure from producers, the theory goes, pushes futures prices somewhat below the level the market actually expects the spot price to be at expiration, creating a structural discount that a buyer of futures, someone willing to take the other side of the producers' hedging, can systematically capture." },
+      { type: "heading", text: "How It Relates to Roll Yield" },
       { type: "paragraph", text: "This is closely related to, but conceptually distinct from, the roll-yield/backwardation-contango framework: while roll yield describes the return that results from a given curve shape, hedging pressure offers an economic explanation for why that curve shape exists in the first place — in commodities where producers dominate the hedging activity, systematic selling pressure from those producers is theorized to bias the futures curve toward backwardation, rewarding those willing to be the counterparty." },
+      { type: "heading", text: "Where the Strategy Looks" },
       { type: "paragraph", text: "A trading strategy built on this idea looks for commodities where the hedging pressure story is strongest, often where a small number of producers are the dominant hedgers and speculators, like the futures buyers on the other side, are relatively scarce, and takes long futures positions in those markets, essentially acting as the counterparty that absorbs producers' hedging demand in exchange for the theorized structural premium." },
+      { type: "heading", text: "When the Imbalance Reverses" },
       { type: "paragraph", text: "The main risk is that this producer-driven imbalance can shift or reverse — if consumers of a commodity, rather than producers, become the dominant hedgers in a particular market, locking in future purchase prices rather than sale prices, the hedging pressure can flip toward pushing futures prices up rather than down, and a strategy built on the assumption of persistent producer-driven backwardation can find itself systematically wrong-footed if that underlying market structure changes." },
     ],
     quiz: [
@@ -169,9 +177,13 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
     title: "Portfolio diversification with commodities",
     summary: "Adding commodities to a traditional stock-and-bond portfolio for their historically low correlation to those asset classes, aiming to improve overall portfolio risk-adjusted return.",
     body: [
+      { type: "heading", text: "Why Commodities Diversify a Portfolio" },
       { type: "paragraph", text: "Commodities as an asset class have historically shown relatively low correlation to traditional stocks and bonds — their prices are driven by different underlying factors, supply and demand for physical goods, weather, geopolitical events affecting production, than what drives equity or fixed-income returns. This low correlation is the core rationale for including commodities in a broader portfolio: even if commodities themselves don't have a spectacular standalone return, their diversification benefit can improve the overall portfolio's risk-adjusted return by smoothing out periods when stocks and bonds are both struggling." },
+      { type: "heading", text: "Implementing a Broad Allocation" },
       { type: "paragraph", text: "A commodities allocation is often implemented via a broad, diversified index or basket spanning multiple commodity sectors — energy, metals, agriculture, livestock — rather than concentrating in just one or two commodities, since a diversified commodities basket itself captures a more stable, \"asset class\" level exposure rather than being dominated by the idiosyncratic behavior of any single commodity." },
+      { type: "heading", text: "A Hedge Against Inflation" },
       { type: "paragraph", text: "One historically notable property of commodities is their tendency to perform relatively well during periods of unexpected inflation, when stocks and bonds have often both struggled — commodity prices, being tied to the physical cost of goods, can rise alongside broad price increases in the economy in a way that fixed-coupon bonds and equities, whose cash flows aren't automatically inflation-linked, generally do not, making commodities a potential inflation hedge as part of a diversified portfolio." },
+      { type: "heading", text: "The Roll-Yield Tradeoff" },
       { type: "paragraph", text: "The tradeoffs include that commodities futures-based exposure carries the same roll-yield dynamics discussed elsewhere in this course — a diversified commodities allocation held via futures can suffer a persistent contango drag over long periods, which has sometimes made commodities' standalone long-run returns disappointing even when their diversification benefit during specific stress periods has been real, meaning the case for commodities in a portfolio rests more on their correlation properties than on a strong expectation of high standalone returns." },
     ],
     quiz: [
@@ -248,9 +260,13 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
     title: "Value",
     summary: "Buying commodities that are cheap relative to their own long-run historical price level, on the premise that commodity prices tend to mean-revert over long horizons.",
     body: [
+      { type: "heading", text: "Comparing Price to Its Own History" },
       { type: "paragraph", text: "Applied to commodities, a value strategy compares a commodity's current price to some measure of its own long-run historical average or fundamental level — commonly a moving average computed over a long window, like five years — and favors commodities trading cheap relative to that long-run reference point, on the premise that commodity prices exhibit some tendency to mean-revert toward their historical norms over long horizons, even though they can deviate substantially in the short and medium term." },
+      { type: "heading", text: "Different From Equity Value" },
       { type: "paragraph", text: "This differs from the equity value factor, which typically compares price to a fundamental accounting measure like earnings or book value — commodities don't have earnings or book value in the same sense, so a commodity value signal instead usually relies on the commodity's own price history as the reference point, essentially asking \"is this commodity cheap relative to where it has typically traded,\" rather than \"is this commodity cheap relative to some external fundamental measure.\"" },
+      { type: "heading", text: "Anchored by Production Costs" },
       { type: "paragraph", text: "The economic rationale is that commodity prices are ultimately anchored by the cost of production and long-run supply-and-demand balance — if a commodity's price falls persistently below what it costs to produce, some producers will eventually cut back supply, pushing the price back up over time, and if price rises persistently far above production costs, new supply tends to eventually enter the market and push it back down, giving commodity prices a long-run gravitational pull toward levels related to production economics." },
+      { type: "heading", text: "When \"Cheap\" Doesn't Revert" },
       { type: "paragraph", text: "As with any mean-reversion approach, the central risk is that a \"cheap\" commodity doesn't always revert — a sustained shift in a commodity's underlying supply-and-demand fundamentals, a permanent decline in demand due to a technology or substitution shift, for example, can mean a commodity that looks statistically cheap relative to its own history stays cheap indefinitely, or even gets cheaper, because the old \"normal\" price level no longer reflects the new underlying reality." },
     ],
     quiz: [
@@ -327,9 +343,13 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
     title: "Skewness premium",
     summary: "Selling commodities (or commodity options) with a history of positively skewed returns — occasional large spikes — to collect the premium investors pay for lottery-like upside exposure.",
     body: [
+      { type: "heading", text: "What Positive Skew Looks Like" },
       { type: "paragraph", text: "Some commodities have historically exhibited positively skewed return distributions — most of the time, prices move in relatively small, unremarkable increments, but occasionally a commodity experiences a sharp, large price spike, often driven by a sudden supply disruption, extreme weather, or a geopolitical shock, producing a return distribution with a long right tail of infrequent but large gains. This pattern is common in commodities exposed to acute supply-shock risk, such as natural gas around extreme weather events, or agricultural commodities around harvest failures." },
+      { type: "heading", text: "The Lottery-Ticket Premise" },
       { type: "paragraph", text: "The skewness premium strategy is built on the idea that investors have a behavioral preference for holding assets with this \"lottery-like\" positive skew, similar to how people are often willing to overpay for a lottery ticket with a small chance of a large payoff, which can lead to these commodities' futures, or their options, trading at prices that overstate their true expected value, since buyers are willing to pay up for the small chance of catching a big spike." },
+      { type: "heading", text: "Harvesting the Premium" },
       { type: "paragraph", text: "A strategy harvesting this premium typically takes the other side, selling futures or options in commodities with a strong history of positive skew, collecting a premium from investors seeking that lottery-like exposure, betting that most of the time, the \"normal\" scenario without a spike, the position profits from the premium collected, even though it will occasionally suffer a large loss when the rare spike scenario actually occurs." },
+      { type: "heading", text: "Why Diversification Matters Here" },
       { type: "paragraph", text: "This risk profile, collecting a steady premium most of the time in exchange for occasional sharp losses when the rare, large event materializes, is structurally similar to other insurance-like, premium-selling strategies covered elsewhere in this course, and the same discipline applies: position sizing and diversification across multiple, ideally uncorrelated, skewed commodities matters, since the strategy's edge depends on surviving the inevitable spike events rather than being wiped out by concentrating too much risk in any single one." },
     ],
     quiz: [
@@ -406,9 +426,13 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
     title: "Trading with pricing models",
     summary: "Using a fundamentals-based model of a commodity's supply, demand, and cost structure to estimate fair value, trading when the market price deviates meaningfully from that model's output.",
     body: [
+      { type: "heading", text: "Building a Fundamentals Model" },
       { type: "paragraph", text: "Rather than relying purely on price patterns, curve shape, or statistical relationships, a pricing-model-based commodities strategy builds an explicit model of the fundamental drivers behind a commodity's price — factors like production costs, inventory levels, supply and demand balances, weather patterns for agricultural commodities, and other structural inputs — to estimate what the commodity's \"fair value\" should be, and compares that model output to the actual market price." },
+      { type: "heading", text: "Trading the Deviation" },
       { type: "paragraph", text: "When the market price deviates meaningfully from the model's fair-value estimate, the strategy takes a position betting the gap will close — buying when the market price sits well below the model's estimate, selling or shorting when it sits well above — on the premise that persistent, large deviations from fundamentally-justified levels tend to correct over time as the market eventually reflects the underlying supply-and-demand reality the model is capturing." },
+      { type: "heading", text: "Why It's Commodity-Specific" },
       { type: "paragraph", text: "Building and maintaining a good pricing model requires deep domain expertise in the specific commodity being modeled — the relevant fundamental drivers, and how they map to price, differ substantially across commodity types, an oil model depends heavily on OPEC production decisions and global demand trends, while an agricultural model depends heavily on planting decisions, weather, and harvest yields, which means this approach tends to be commodity-specific and research-intensive rather than a single generic framework applied uniformly across many different commodities." },
+      { type: "heading", text: "The Risk of a Wrong Model" },
       { type: "paragraph", text: "The central risk is model risk itself: a fundamentals-based pricing model is only as good as the data and assumptions that go into it, and a model that's missing an important driver, or one built on outdated assumptions about the commodity's supply-and-demand structure, can produce a fair-value estimate that's simply wrong — leading the strategy to bet against a price move that actually reflects a real, fundamentally-justified shift the model failed to capture, rather than a genuine market mispricing." },
     ],
     quiz: [

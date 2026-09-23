@@ -11,9 +11,13 @@ export const fxConceptLessons: ConceptLesson[] = [
     title: "Moving averages with HP filter",
     summary: "Filtering out short-term noise from a currency's price with a Hodrick-Prescott filter before applying a moving-average trend rule, to trade the underlying trend more cleanly.",
     body: [
+      { type: "heading", text: "What the HP Filter Does" },
       { type: "paragraph", text: "The Hodrick-Prescott (HP) filter is a statistical technique that decomposes a time series — like a currency's exchange rate — into two components: a smooth, slow-moving \"trend\" component and a \"cyclical\" component capturing the shorter-term noise and fluctuations around that trend. Rather than applying a moving average directly to the raw, noisy exchange-rate series, this strategy first runs the HP filter to extract the smoother trend component, and then applies the moving-average trend-following rule to that filtered series instead." },
+      { type: "heading", text: "Filtering Out Whipsaws" },
       { type: "paragraph", text: "The motivation is that FX rates, like many financial time series, contain a lot of short-term noise that can generate false signals in a standard moving-average crossover — whipsaws where the price crosses the average briefly without reflecting a genuine shift in trend. By filtering out some of that noise first, the HP-filtered trend line should, in principle, cross less erratically, producing a cleaner set of trend signals than working with the raw price series directly." },
+      { type: "heading", text: "Two-Sided vs. Real-Time" },
       { type: "paragraph", text: "A key technical wrinkle is that the HP filter, in its standard form, is a \"two-sided\" filter — it uses both past and future data points to smooth the series, which works well for looking back at history but isn't directly usable for real-time trading, since future data isn't available yet. Practical implementations address this by using a one-sided, or \"real-time,\" version of the filter, which estimates the trend using only data available up to the current point, at the cost of some smoothing quality compared to the full two-sided version." },
+      { type: "heading", text: "Still Needs a Real Trend" },
       { type: "paragraph", text: "Like any trend-following approach, this strategy still depends on genuine, sustained currency trends existing to trade — the HP filter improves the quality of the trend estimate and reduces, but doesn't eliminate, false signals from noise, but it doesn't manufacture a trend where the underlying currency pair is genuinely range-bound; in truly choppy, directionless FX markets, even a filtered trend signal can still whipsaw, just less often than an unfiltered one would." },
     ],
     quiz: [
@@ -90,9 +94,13 @@ export const fxConceptLessons: ConceptLesson[] = [
     title: "Carry trade",
     summary: "Borrowing in a low-interest-rate currency and investing in a high-interest-rate currency, collecting the interest-rate differential as long as the exchange rate doesn't move against the trade.",
     body: [
+      { type: "heading", text: "What a Carry Trade Is" },
       { type: "paragraph", text: "A currency carry trade borrows, or shorts, a currency with a low interest rate and uses the proceeds to invest in, goes long, a currency with a higher interest rate, collecting the difference between the two rates, the \"carry,\" as long as the position is held. If exchange rates stayed perfectly still, this would be pure, riskless profit: borrow cheaply in one currency, earn a higher rate in another, pocket the spread." },
+      { type: "heading", text: "The Interest Rate Parity Puzzle" },
       { type: "paragraph", text: "In theory, uncovered interest rate parity suggests this shouldn't be a reliably profitable strategy: the higher-interest-rate currency should be expected to depreciate against the lower-interest-rate currency by roughly the amount of the interest-rate differential, exactly offsetting the carry earned. In practice, though, this relationship has historically held up poorly, and carry trades have shown a persistent tendency to be profitable on average over time — a well-documented anomaly in currency markets, sometimes attributed to a risk premium investors demand for holding riskier, higher-yielding currencies." },
+      { type: "heading", text: "The Classic Crash Risk" },
       { type: "paragraph", text: "The classic risk of carry trades is a sharp reversal: because carry trades are often crowded, many market participants running similar trades, a shock that causes the higher-yielding currency to suddenly depreciate sharply can trigger many carry positions to unwind at once, compounding the move — a dynamic sometimes described as the trade \"going up by the stairs and down by the elevator,\" since carry profits accumulate slowly but a reversal can happen fast and sharply." },
+      { type: "heading", text: "When Carry Performs Best" },
       { type: "paragraph", text: "Because of this crash risk, carry trades tend to perform best during calm, low-volatility market environments, when the interest-rate differential can be collected with less risk of a sudden reversal, and can suffer sharply during broad risk-off episodes, when investors flee riskier currencies en masse — which is why carry trade returns are often observed to correlate with broader measures of market volatility and risk appetite, rather than behaving as a purely currency-specific strategy." },
     ],
     quiz: [
@@ -169,9 +177,13 @@ export const fxConceptLessons: ConceptLesson[] = [
     title: "High-minus-low carry",
     summary: "A cross-sectional carry strategy that goes long the highest-interest-rate currencies and short the lowest-interest-rate currencies across a broad basket, rather than trading just one currency pair.",
     body: [
+      { type: "heading", text: "Ranking a Basket, Not a Pair" },
       { type: "paragraph", text: "Rather than running a single carry trade between two specific currencies, a high-minus-low (HML) carry strategy ranks a broad basket of currencies by their interest rates, goes long a group of the highest-yielding currencies, and shorts a group of the lowest-yielding currencies — spreading the basic carry-trade logic across many currency pairs simultaneously rather than concentrating it in just one." },
+      { type: "heading", text: "Smoothing Out Pair-Specific Noise" },
       { type: "paragraph", text: "This diversification addresses a specific weakness of a single-pair carry trade: any one currency pair's carry return depends heavily on the idiosyncratic behavior of those two specific currencies, but a broad, ranked basket smooths out some of that pair-specific noise, since the strategy is really trying to capture the general, systematic tendency for high-yielding currencies to outperform low-yielding ones, rather than betting on any one particular pair." },
+      { type: "heading", text: "A Continuously Re-Ranked Basket" },
       { type: "paragraph", text: "The basket is typically rebalanced periodically as interest-rate differentials shift — a currency that was high-yielding might have its rate cut and drop out of the \"long\" group, while another currency's rate might rise enough to newly qualify, so the composition of the long and short baskets isn't fixed, but continuously re-ranked based on current rate levels." },
+      { type: "heading", text: "Diversified, Not Immune" },
       { type: "paragraph", text: "Because it's diversified across many currency pairs rather than concentrated in one, HML carry can reduce some of the idiosyncratic risk of a single-pair carry trade, but it doesn't eliminate the strategy's fundamental crash risk: during a broad risk-off episode, high-yielding currencies as a group tend to depreciate together against low-yielding, \"safe-haven\" currencies, so the strategy's systematic, basket-wide structure doesn't protect against, and is in fact directly exposed to, the same kind of broad carry-unwind event that hurts single-pair carry trades." },
     ],
     quiz: [
@@ -248,9 +260,13 @@ export const fxConceptLessons: ConceptLesson[] = [
     title: "Dollar carry trade",
     summary: "A carry strategy that trades the US dollar as a single unit against a basket of other currencies, based on whether the dollar's interest rate sits above or below the global average.",
     body: [
+      { type: "heading", text: "Dollar Versus the World" },
       { type: "paragraph", text: "Rather than ranking many individual currencies against each other, the dollar carry trade treats the US dollar as one side of the trade and a broad basket of other currencies as the other side, based on a simple rule: when US interest rates are relatively high compared to the global average, go long the dollar, short the basket; when US rates are relatively low compared to the global average, go short the dollar, long the basket — funding or receiving the carry based on the dollar's position relative to the rest of the world, rather than through individual currency-pair rankings." },
+      { type: "heading", text: "Why the Dollar Gets Its Own Trade" },
       { type: "paragraph", text: "This dollar-centric framing reflects the dollar's outsized role in the global financial system: as the world's primary reserve and funding currency, the dollar's interest-rate level relative to the rest of the world tends to have broad, systematic effects on global capital flows and risk appetite that a currency-by-currency ranking approach doesn't directly capture — the dollar carry trade is built specifically to trade that dollar-versus-the-world relationship." },
+      { type: "heading", text: "Tied to Fed Policy" },
       { type: "paragraph", text: "The strategy's return is driven by the same basic carry logic as any other carry trade — earning the rate differential as long as it holds — but concentrated into a single dollar-versus-basket position rather than diversified across many individual currency pairs, which means its behavior is more directly tied to shifts in the Federal Reserve's policy stance relative to other major central banks than to the idiosyncrasies of any particular non-dollar currency pair." },
+      { type: "heading", text: "The Safe-Haven Risk" },
       { type: "paragraph", text: "Because the dollar often serves as a safe-haven currency during periods of global market stress, capital tends to flow toward the dollar when risk appetite deteriorates, regardless of the interest-rate differential at that moment, a short-dollar dollar carry position, betting on a weaker dollar because US rates are relatively low, can be particularly exposed to sudden reversals during risk-off episodes, when the dollar can strengthen sharply for reasons unrelated to interest-rate differentials." },
     ],
     quiz: [
@@ -327,9 +343,13 @@ export const fxConceptLessons: ConceptLesson[] = [
     title: "Momentum & carry combo",
     summary: "Combining a currency's interest-rate carry signal with its price-momentum signal into one blended score, since the two factors tend to be relatively independent sources of currency return.",
     body: [
+      { type: "heading", text: "Two Different Signals" },
       { type: "paragraph", text: "Carry and momentum are two of the best-documented systematic signals in currency markets, and they capture different things: carry ranks currencies by their interest-rate differential, a relatively stable, slow-moving signal, while momentum ranks currencies by their recent price trend, a signal based purely on price action rather than yield. A momentum-and-carry combo strategy combines both signals into a single blended score per currency, rather than trading either one in isolation." },
+      { type: "heading", text: "The Case for Combining Them" },
       { type: "paragraph", text: "The rationale for combining them mirrors the logic behind any multifactor approach: carry and momentum have historically shown relatively low correlation to each other as standalone signals, and each has its own periods of underperformance — carry tends to struggle during sharp risk-off reversals, while momentum can suffer during abrupt trend reversals — so blending the two aims to smooth out the combined strategy's return profile compared to relying on just one signal alone." },
+      { type: "heading", text: "Building the Combined Score" },
       { type: "paragraph", text: "A typical construction standardizes each currency's carry ranking and momentum ranking, combines them, often with equal or near-equal weighting, though this can be tuned, into one composite score, and builds long and short positions from the currencies ranking best and worst on that combined score — a currency that's not simply the highest-yielding or the strongest-trending individually, but the best combination of the two, can end up as a top pick." },
+      { type: "heading", text: "When the Signals Agree or Disagree" },
       { type: "paragraph", text: "One particularly notable interaction between the two signals: carry and momentum sometimes point in the same direction, a high-yielding currency that's also been strengthening, reinforcing the combined signal, and sometimes point in opposite directions, a high-yielding currency that's been weakening, or a low-yielding currency that's been strengthening — in the latter case, the combined score effectively down-weights that currency relative to either signal alone, which can help avoid currencies where the momentum signal is quietly warning against a carry position that's on the verge of unwinding." },
     ],
     quiz: [
@@ -406,9 +426,13 @@ export const fxConceptLessons: ConceptLesson[] = [
     title: "FX triangular arbitrage",
     summary: "Trading three currency pairs in a loop to exploit a brief mispricing between their quoted exchange rates, converting through all three back to the starting currency for a profit.",
     body: [
+      { type: "heading", text: "Three Rates, One Consistency Check" },
       { type: "paragraph", text: "Any three currencies have three exchange rates between them — for example, USD/EUR, EUR/JPY, and USD/JPY — and in an efficient market, these three rates should be mutually consistent: converting USD to EUR, then EUR to JPY, then JPY back to USD should return you to approximately the same amount of USD you started with, since any other outcome would represent a mispricing across the three pairs. Triangular arbitrage exploits the brief moments when this consistency breaks down." },
+      { type: "heading", text: "Executing the Triangle" },
       { type: "paragraph", text: "When the three exchange rates become inconsistent, the implied cross-rate calculated from two of the pairs differs from the directly-quoted rate of the third pair, a trader can execute a sequence of three trades around the \"triangle,\" for example, USD to EUR, EUR to JPY, JPY to USD, and end up with more of the starting currency than they began with, capturing the mispricing as a small, close-to-riskless profit." },
+      { type: "heading", text: "Why It's Close to Riskless" },
       { type: "paragraph", text: "Like other pure arbitrage opportunities, triangular arbitrage in liquid major currency pairs tends to be small and extremely short-lived, since it requires zero directional view — the trader isn't betting on any currency's direction, just on the internal consistency of the three quoted rates — and any persistent mispricing would be rapidly traded away by market participants and automated systems constantly monitoring exchange rates for exactly this kind of inconsistency." },
+      { type: "heading", text: "A Game of Speed and Infrastructure" },
       { type: "paragraph", text: "Because the opportunity is fleeting and the profit margin thin, capturing triangular arbitrage reliably requires very fast execution, low transaction costs, and the ability to simultaneously monitor and trade many currency pairs at once — which is why, much like other high-frequency arbitrage strategies covered elsewhere in this course, it's predominantly the domain of automated trading systems and market makers with direct, low-latency market access, rather than a strategy accessible to slower-moving traders." },
     ],
     quiz: [

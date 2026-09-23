@@ -12,9 +12,13 @@ export const etfConceptLessons: ConceptLesson[] = [
     summary:
       "Rotating capital into the sector ETFs with the strongest recent performance, on the premise that sector-level leadership persists for a while.",
     body: [
+      { type: "heading", text: "Ranking Sectors, Not Stocks" },
       { type: "paragraph", text: "Sector momentum rotation applies the same idea behind single-stock price-momentum, but one level up: instead of ranking individual stocks by trailing performance, it ranks entire sector ETFs — technology, energy, healthcare, financials, and so on — by their trailing return, and rotates the portfolio into whichever sector, or handful of sectors, has been leading recently." },
+      { type: "heading", text: "Why Do It at the Sector Level" },
       { type: "paragraph", text: "The appeal of doing this at the sector level rather than the stock level is breadth and simplicity: a handful of liquid sector ETFs, the S&P sector SPDRs, for example, covers the entire market with a small number of positions, avoids single-stock idiosyncratic risk almost entirely, and can be rebalanced with far fewer trades than a stock-picking momentum strategy touching hundreds of names." },
+      { type: "heading", text: "The Mechanics" },
       { type: "paragraph", text: "The mechanics mirror single-stock momentum closely: compute each sector ETF's trailing return over a lookback window, often 3, 6, or 12 months, rank the sectors, hold the top-ranked one or few, and rebalance periodically — monthly is typical — rotating out of a sector as soon as it falls out of the leading group and into whichever sector has taken its place." },
+      { type: "heading", text: "Concentration and Crash Risk" },
       { type: "paragraph", text: "Because it's concentrated in just one or a few sectors at a time rather than diversified across the whole market, sector rotation carries more concentration risk than a broad-market momentum strategy, and it's vulnerable to the same \"momentum crash\" dynamic as single-stock momentum — a sharp, sudden rotation in market leadership, often around turning points in the economic cycle, can whipsaw the strategy just as it's fully committed to the prior leading sector." },
     ],
     quiz: [
@@ -92,9 +96,13 @@ export const etfConceptLessons: ConceptLesson[] = [
     summary:
       "Adding a moving-average trend filter on top of sector momentum rotation, staying in cash instead of a leading sector when that sector itself is in a downtrend.",
     body: [
+      { type: "heading", text: "The Problem With Plain Rotation" },
       { type: "paragraph", text: "Plain sector momentum rotation always holds whichever sector, or sectors, ranks highest by trailing return, even if that \"leading\" sector is actually falling — it might simply be falling less than everything else. Adding a moving-average filter addresses this: before taking a position in the top-ranked sector, the strategy checks whether that sector ETF's own price is above its moving average, a common absolute-trend confirmation, and only invests if it is; otherwise it holds cash, or a safe asset like short-term Treasury bills, instead." },
+      { type: "heading", text: "Relative Momentum Plus Absolute Trend" },
       { type: "paragraph", text: "This combines two distinct ideas — relative momentum, which sector is leading the others, and absolute trend, is that sector's own price actually rising — because a sector can be relatively strong, the best of a bad group, while still being in an absolute downtrend, and taking a position in a \"leading\" sector that's still falling defeats the purpose of a trend-following approach." },
+      { type: "heading", text: "The Benefit in Downturns" },
       { type: "paragraph", text: "The main benefit shows up during broad market downturns: in a bear market, momentum rotation without a trend filter still forces the strategy to hold the \"least bad\" sector, which can still lose significant money, while the MA filter lets the strategy step aside into cash when even the leading sector fails its own trend test, meaningfully reducing drawdowns during systemic selloffs." },
+      { type: "heading", text: "The Cost in Choppy Markets" },
       { type: "paragraph", text: "The tradeoff is reduced participation during choppy, range-bound periods: since the MA filter can flip on and off as a sector's price oscillates around its moving average, the strategy can end up sitting in cash more often, missing some of the modest gains a fully-invested rotation strategy would have captured, in exchange for the downside protection the filter provides during genuine downturns." },
     ],
     quiz: [
@@ -172,9 +180,13 @@ export const etfConceptLessons: ConceptLesson[] = [
     summary:
       "Combining relative momentum (which sector is leading) with absolute momentum (is that sector's own trailing return positive) before allocating.",
     body: [
+      { type: "heading", text: "Two Momentum Tests" },
       { type: "paragraph", text: "Dual-momentum sector rotation requires a sector to pass two separate momentum tests before earning a position, rather than just one: relative momentum, ranking sector ETFs against each other and favoring the leaders, and absolute momentum, checking whether that sector's own trailing return is positive in absolute terms, not just relative to its peers. A sector only gets an allocation if it clears both hurdles." },
+      { type: "heading", text: "A Different Way to Confirm Strength" },
       { type: "paragraph", text: "This is conceptually similar to pairing momentum rotation with a moving-average filter, but uses the sector's own trailing return, over the same or a similar lookback window used for the relative ranking, as the absolute test, rather than a separate technical indicator like a moving average — it's a slightly different way of asking essentially the same underlying question: is this \"leading\" sector actually going up, or just falling the least?" },
+      { type: "heading", text: "The Cash Fallback" },
       { type: "paragraph", text: "When no sector clears the absolute-momentum hurdle — for example, during a broad, synchronized market decline where every sector's trailing return is negative — the strategy holds cash or a defensive asset instead of forcing an allocation into whichever sector merely ranks highest among a group of losers, which is the central mechanism by which dual momentum tries to sidestep major drawdowns." },
+      { type: "heading", text: "Valued for Its Simplicity" },
       { type: "paragraph", text: "The dual-momentum framework, popularized in the context of simple asset-class rotation strategies and adapted here to sectors, is valued for its simplicity — just two momentum checks, computed from the same basic trailing-return data, no separate technical layer required — while still capturing much of the downside protection that a more elaborate trend-following overlay would provide." },
     ],
     quiz: [
@@ -251,9 +263,13 @@ export const etfConceptLessons: ConceptLesson[] = [
     title: "Alpha rotation",
     summary: "Rotating sector or asset-class ETF exposure based on a broader combined alpha score, rather than raw trailing return alone.",
     body: [
+      { type: "heading", text: "Beyond Trailing Return" },
       { type: "paragraph", text: "Where plain momentum rotation ranks sector ETFs using a single signal — trailing return — alpha rotation ranks them using a broader, combined score built from multiple underlying signals: momentum, but also valuation-style measures, volatility, macro sensitivity, or any other factor a manager believes has predictive power for which sector is likely to lead going forward. The resulting composite \"alpha\" score, much like the alpha combos discussed for individual stocks, is what actually drives the rotation decision." },
+      { type: "heading", text: "Why Go Beyond Momentum" },
       { type: "paragraph", text: "The rationale for going beyond pure price momentum is that trailing return, while a strong and persistent signal on its own, is also noisy and reactive — it only tells the strategy what has already happened, not why, and blending it with other signals, say, a sector's relative valuation, or its typical sensitivity to changes in interest rates or the economic cycle, can produce a more forward-looking, better-timed rotation decision than momentum alone." },
+      { type: "heading", text: "Constructing the Composite Score" },
       { type: "paragraph", text: "Constructing the combined score follows the same basic recipe as any multifactor or alpha-combo approach: standardize each individual signal so they're comparable across sectors, weight them according to each signal's estimated reliability and its independence from the others already in the blend, and combine them into one composite ranking used to decide sector allocations at each rebalance." },
+      { type: "heading", text: "The Tradeoff of a Richer Signal" },
       { type: "paragraph", text: "Because it draws on a richer information set than trailing return alone, alpha rotation in principle can react to shifts in sector leadership earlier or more accurately than pure price momentum — but it also depends on the quality and continued relevance of whichever extra signals are included, and a poorly-chosen or stale additional signal can drag down the combined score rather than improve it, so the same discipline that applies to building any alpha combo applies here too." },
     ],
     quiz: [
@@ -331,14 +347,18 @@ export const etfConceptLessons: ConceptLesson[] = [
     summary:
       "Using how cleanly a trend has been moving — measured by the R-squared of price against time — to filter out choppy, low-quality trends before trading them.",
     body: [
+      { type: "heading", text: "What R-Squared Measures" },
       { type: "paragraph", text: "R-squared is a statistic, familiar from regression analysis, that measures how well a line fits a set of data points, ranging from 0 (no fit at all) to 1 (a perfect fit). Applied to a price trend, it measures how well a straight line fits a sector ETF's price plotted against time over some lookback window: a high R-squared means the price has been moving up, or down, smoothly and consistently, while a low R-squared means the price has been getting to roughly the same place, but bouncing around chaotically on the way." },
       {
         type: "image",
         diagramId: "r-squared-comparison",
         caption: "Two trends that cover the same net move — only the smooth, high-R² one reflects genuine, trustworthy momentum.",
       },
+      { type: "heading", text: "Not All Trends Are Equal" },
       { type: "paragraph", text: "The trading insight is that not all trends are created equal, even if they cover the same total price move — a smooth, high-R-squared uptrend reflects steady, persistent buying pressure and is more likely to continue, while a choppy, low-R-squared uptrend that ends up at the same price might just be noisy, directionless trading that happened to net out positive, and is less trustworthy as a signal of genuine momentum." },
+      { type: "heading", text: "Using It as a Filter" },
       { type: "paragraph", text: "An R-squared-based strategy typically uses this statistic as a filter layered on top of another signal, like momentum or trend-following: before taking a position in a sector, or stock, or any other asset, that's ranked well by trailing return, the strategy checks whether that instrument's price trend also has a sufficiently high R-squared, only trading the cleanest, most consistent trends and skipping ones that technically qualify by raw return but got there through erratic price action." },
+      { type: "heading", text: "Quality Control, Not Direction" },
       { type: "paragraph", text: "This is a form of quality control on top of a directional signal — R-squared doesn't tell you which direction to trade, only how much to trust the trend you've already identified, and combining it with momentum or trend-following aims to concentrate the strategy's capital in the trends most likely to persist, rather than treating every qualifying trend as equally reliable." },
     ],
     quiz: [
@@ -415,14 +435,18 @@ export const etfConceptLessons: ConceptLesson[] = [
     title: "Mean-reversion",
     summary: "Trading an ETF's short-term deviations from its own recent average price, betting those deviations correct rather than persist.",
     body: [
+      { type: "heading", text: "Applying Mean-Reversion to ETFs" },
       { type: "paragraph", text: "Applied to ETFs, mean-reversion follows the same basic logic covered for single stocks, but takes advantage of the fact that an ETF's price is itself already a diversified, relatively smooth aggregate of many underlying holdings — buying an ETF after it has fallen unusually far below its own recent average price, betting on a bounce back, and selling or shorting after it has risen unusually far above that average, betting on a pullback." },
+      { type: "heading", text: "Building the Band" },
       { type: "paragraph", text: "A typical implementation computes a short-term moving average, often just days or a couple of weeks, since this is meant to capture short-lived deviations, not a long-term trend, and a band around it, commonly based on standard deviations of recent price moves, similar in spirit to Bollinger Bands, then trades when price pokes outside that band, on the expectation it reverts back toward the average and inside the band again." },
       {
         type: "image",
         diagramId: "mean-reversion-band",
         caption: "Price wandering outside the band around its moving average triggers a trade betting on reversion back inside it.",
       },
+      { type: "heading", text: "Why Signals Are Cleaner Here" },
       { type: "paragraph", text: "Because a broad-market or sector ETF is diversified across many underlying stocks, its short-term price swings are somewhat less prone to being driven by single-company idiosyncratic news than an individual stock's would be, which can make mean-reversion signals on ETFs a bit cleaner and less noisy — a sharp, unexplained move in a diversified ETF is more likely to reflect a broad, temporary imbalance in buying or selling pressure, rather than a genuine repricing of fundamental value, which is exactly the kind of move mean-reversion is designed to trade." },
+      { type: "heading", text: "When Deviations Don't Revert" },
       { type: "paragraph", text: "The strategy's central risk is the same as for any mean-reversion approach: not every large deviation reverts, and a real, fundamentals-driven shift, a sudden change in the outlook for an entire sector, for example, rather than just a temporary imbalance in short-term buying and selling, can cause the ETF's price to simply keep moving away from its prior average instead of snapping back, turning what looked like a reversion trade into a persistent, growing loss." },
     ],
     quiz: [
@@ -500,14 +524,18 @@ export const etfConceptLessons: ConceptLesson[] = [
     summary:
       "Understanding how daily-reset leverage in LETFs causes long-term returns to diverge from a simple multiple of the underlying index — and how that divergence can itself be traded.",
     body: [
+      { type: "heading", text: "What a Leveraged ETF Is" },
       { type: "paragraph", text: "A leveraged ETF (LETF) aims to deliver a multiple, commonly 2x or 3x, of its underlying index's daily return, using derivatives and daily rebalancing to reset that leverage ratio every single trading day. The word \"daily\" is the crucial detail: an LETF's stated multiple applies only to a single day's return, not to its return over any longer holding period." },
+      { type: "heading", text: "Volatility Decay" },
       { type: "paragraph", text: "This daily reset causes a well-known effect called volatility decay, or beta slippage: because gains and losses compound differently than a simple multiple would suggest, a 2x LETF held over many days in a choppy, sideways market can actually lose money even if the underlying index ends up completely flat over that same period — the daily rebalancing effectively \"buys high and sells low\" on a small scale every day the index reverses direction." },
       {
         type: "image",
         diagramId: "leveraged-etf-decay",
         caption: "A choppy but flat index versus a 2x LETF over the same period — daily rebalancing quietly erodes the LETF's value.",
       },
+      { type: "heading", text: "What Drives the Decay" },
       { type: "paragraph", text: "The size of this decay grows with the underlying index's volatility and the length of the holding period: in a smoothly trending market, a leveraged ETF can track reasonably close to its stated multiple over time, but the more choppy and volatile the underlying index is, the more its long-term LETF return diverges below a simple multiple of the index's own long-term return — which is why LETFs are generally described as tools for short-term, tactical exposure rather than long-term buy-and-hold positions." },
+      { type: "heading", text: "Trading the Decay Itself" },
       { type: "paragraph", text: "This decay effect is itself something traders try to exploit directly: a strategy that shorts a pair of same-underlying leveraged ETFs, say, both the 3x-long and 3x-short versions of the same index, can, under the right conditions, collect the volatility decay from both sides simultaneously, profiting from the structural drag of daily rebalancing rather than betting on the underlying index's direction at all — though this comes with its own risks, since a strong sustained trend in either direction can produce large losses on the side of the pair moving against the position." },
     ],
     quiz: [
@@ -585,9 +613,13 @@ export const etfConceptLessons: ConceptLesson[] = [
     summary:
       "Applying the same trend-following rule simultaneously across ETFs spanning many different asset classes, diversifying a single trading rule across uncorrelated markets.",
     body: [
+      { type: "heading", text: "One Rule Across Many Asset Classes" },
       { type: "paragraph", text: "Multi-asset trend following takes a simple trend-following rule, like a moving-average crossover, and applies it identically across a broad basket of ETFs spanning many different, largely uncorrelated asset classes: equities, bonds, commodities, real estate, and currencies, for example, each represented by a liquid ETF proxy rather than requiring direct access to futures or other specialized markets in each asset class." },
+      { type: "heading", text: "Diversifying Trend Opportunity" },
       { type: "paragraph", text: "The logic for spreading a single trading rule across so many different asset classes is diversification of trend opportunity: any one asset class might be trendless or choppy at a given time, but with a broad enough basket, there's a good chance that at least some of the ETFs in the basket are in a genuine, tradeable trend at any given moment, and the strategy's overall return depends on capturing those trends wherever they happen to show up, rather than betting on trends appearing in any one specific market." },
+      { type: "heading", text: "A Smoother Return Profile" },
       { type: "paragraph", text: "Because the underlying asset classes are relatively uncorrelated with each other, day-to-day and month-to-month, a diversified multi-asset trend portfolio also tends to have a smoother overall return profile than applying the same trend rule to just one or two closely related markets — a trend-following equity ETF position losing money doesn't necessarily mean a trend-following bond or commodity ETF position is losing money at the same time, since they're often responding to different underlying drivers." },
+      { type: "heading", text: "Performing Well in Equity Crises" },
       { type: "paragraph", text: "Multi-asset trend following has historically shown a useful property during equity market crises: because trends can also form during equity selloffs, a sustained downtrend is still a trend, and the strategy can go short or move to cash on the equity leg while simultaneously catching a rising trend in, say, government bonds or gold, the strategy has sometimes performed well precisely during periods when a simple buy-and-hold equity portfolio performs poorly, which is part of why it is often framed as a portfolio diversifier rather than purely a source of standalone returns." },
     ],
     quiz: [
