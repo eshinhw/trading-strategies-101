@@ -273,15 +273,6 @@ function ExamReport({
               : `Course already completed — best score is now ${Math.round(result.bestScore * 100)}%.`
             : "Review what you missed below, then retake the quiz whenever you're ready — it's a fresh set of questions each time."}
         </p>
-        {result.passed && (
-          <a
-            href={`/api/courses/${courseSlug}/summary.pdf`}
-            download
-            className="mt-4 inline-block rounded-lg border border-emerald-500/40 px-4 py-2 text-sm font-medium text-emerald-400 hover:bg-emerald-500/10"
-          >
-            Download course summary (PDF)
-          </a>
-        )}
       </div>
 
       <div className="mt-6 flex flex-col gap-3">

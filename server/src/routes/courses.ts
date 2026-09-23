@@ -5,7 +5,6 @@ import { attachUser, requireAuth } from "../lib/auth.js";
 import { completedLessonSlugs } from "../lib/progress.js";
 import { isExaminableCourse, isCourseFullyComplete, generateExamQuestions, gradeExamSubmission } from "../lib/exam.js";
 import type { ExamAnswerSubmission } from "../lib/exam.js";
-import { buildCourseSummaryPdf } from "../lib/coursePdf.js";
 
 const router = Router();
 router.use(attachUser);
@@ -105,29 +104,6 @@ router.post("/:slug/exam/submit", requireAuth, async (req, res) => {
     courseNewlyCompleted: !wasPassed && nowPassed,
     bestScore,
   });
-});
-
-router.get("/:slug/summary.pdf", requireAuth, async (req, res) => {
-  const courseSlug = slugParam(req.params.slug);
-  if (!isExaminableCourse(courseSlug)) {
-    return res.status(404).json({ error: "This course doesn't have a downloadable summary yet" });
-  }
-
-  const progress = await prisma.courseProgress.findUnique({
-    where: { userId_courseSlug: { userId: req.userId!, courseSlug } },
-  });
-  if (!progress?.passed) {
-    return res.status(403).json({ error: "Pass this course's final quiz to unlock the summary PDF." });
-  }
-
-  const course = courses.find((c) => c.slug === courseSlug);
-  if (!course) return res.status(404).json({ error: "Course not found" });
-
-  res.setHeader("Content-Type", "application/pdf");
-  res.setHeader("Content-Disposition", `attachment; filename="${courseSlug}-summary.pdf"`);
-  const doc = buildCourseSummaryPdf(course);
-  doc.pipe(res);
-  doc.end();
 });
 
 export default router;

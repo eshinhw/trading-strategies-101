@@ -153,23 +153,12 @@ function ExamSection({ slug }: { slug: string }) {
           </p>
         </div>
         {status.unlocked && (
-          <div className="flex shrink-0 items-center gap-3">
-            {passed && (
-              <a
-                href={`/api/courses/${slug}/summary.pdf`}
-                download
-                className="text-sm text-[#4f8cff] hover:underline"
-              >
-                Download summary (PDF)
-              </a>
-            )}
-            <Link
-              to={`/courses/${slug}/exam`}
-              className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0]"
-            >
-              {passed ? "Retake quiz" : "Take the quiz"}
-            </Link>
-          </div>
+          <Link
+            to={`/courses/${slug}/exam`}
+            className="shrink-0 rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0]"
+          >
+            {passed ? "Retake quiz" : "Take the quiz"}
+          </Link>
         )}
       </div>
     </div>
