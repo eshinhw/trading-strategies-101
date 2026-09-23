@@ -46,8 +46,9 @@ function Hero() {
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
             Trading Strategies 101 turns a structured curriculum — 18 asset classes, one course each — into hands-on
-            lessons. Options is live now: adjust real parameters, watch the payoff diagram respond, then prove you
-            understand it with a knowledge check graded against the real math.
+            lessons. Several courses are live today, from options to commodities: work through real strategies,
+            check your understanding after every lesson, then pass a final quiz covering the whole course. Options
+            goes one step further, with a live, interactive payoff tool you can adjust yourself.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
@@ -114,7 +115,8 @@ function HeroDemo() {
         <div className="flex h-[360px] items-center justify-center text-sm text-[#898781]">Loading demo…</div>
       )}
       <p className="mt-3 text-xs text-[#898781]">
-        This is the same tool that's in every options lesson — every chart in the course is live, not a screenshot.
+        This interactive payoff tool is built into every Options lesson — every chart in the course is live, not a
+        screenshot. Other live courses pair each lesson with a written explainer and a knowledge-check quiz instead.
       </p>
     </div>
   );
@@ -124,15 +126,15 @@ function Features() {
   const items = [
     {
       title: "Learn by doing",
-      body: "Every options lesson comes with the real interactive payoff tool. Change strikes, premiums, even volatility, and watch max profit, max loss, and breakeven recalculate live.",
+      body: "Options lessons come with a real interactive payoff tool — change strikes, premiums, even volatility, and watch max profit, max loss, and breakeven recalculate live. Every other course pairs a focused explainer with a knowledge-check quiz after each lesson.",
     },
     {
       title: "Prove it, don't just read it",
-      body: "Each lesson ends with a short check: given a fresh set of numbers, work out the max profit or loss yourself. The numbers are randomized every attempt, so there's nothing to memorize.",
+      body: "Every lesson ends with a knowledge check, and every course wraps up with a final quiz pulling questions from across the whole curriculum. In Options, that means working out max profit or loss from a fresh set of numbers each attempt — nothing to memorize.",
     },
     {
       title: "One course per asset class",
-      body: "The curriculum spans 18 asset classes, from options to distressed debt to cryptocurrencies. Each one gets its own course here, ordered so complex strategies build on simpler ones instead of feeling like a new vocabulary.",
+      body: "The curriculum spans 18 asset classes, from options to distressed debt to cryptocurrencies. A growing set of courses is live already, with the rest ordered so complex strategies build on simpler ones instead of feeling like a new vocabulary.",
     },
   ];
 
@@ -159,10 +161,15 @@ function CoursesPreview() {
       .catch(() => setCourses(null));
   }, []);
 
+  const availableCount = courses?.filter((c) => c.status === "available").length;
+
   return (
     <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="text-2xl font-bold text-[#e6e8ec]">18 courses, one per asset class</h2>
+        {availableCount !== undefined && (
+          <p className="mt-2 text-[#9aa3b2]">{availableCount} available now — the rest are on the roadmap.</p>
+        )}
 
         {courses && (
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
