@@ -1600,4 +1600,172 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "futures-what-is-a-forward-contract",
+    title: "What Is a Forward?",
+    summary:
+      "The simplest possible definition of a forward contract — two parties agreeing today on a price for something that changes hands later — and why that agreement is worth making at all.",
+    body: [
+      { type: "heading", text: "A Simple Definition" },
+      { type: "paragraph", text: "At its core, a forward contract is nothing more than an agreement between two parties to buy and sell something at an agreed price, on an agreed future date. Nothing changes hands today except the promise itself; the actual exchange of the asset for the price happens entirely later, at the date both sides agreed to upfront." },
+      { type: "heading", text: "Long and Short" },
+      { type: "paragraph", text: "The party who agrees to buy the asset later is said to be \"long\" the forward; the party who agrees to sell it is \"short.\" These are the same long and short terms used throughout trading more generally, and a forward is really just the simplest possible way to express a long or short view on something's future price, locked in today rather than left to chance." },
+      { type: "heading", text: "A Real-World Motivation" },
+      { type: "paragraph", text: "Picture a coffee roaster who knows they'll need a large shipment of coffee beans in three months, and worries the price might rise before then. By agreeing today with a coffee grower on a fixed price for that future delivery, the roaster removes the uncertainty entirely — whatever the market price does between now and then, their cost is already locked in." },
+      { type: "heading", text: "Why Go to the Trouble" },
+      { type: "paragraph", text: "The whole point of a forward is trading away uncertainty for certainty. Neither side knows for sure whether they'll end up ahead compared to simply waiting and transacting at whatever the market price happens to be later — but both sides get something they value more than that uncertainty: a known, fixed number to plan around." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "In the simplest terms, what is a forward contract?",
+        choices: [
+          "An agreement between two parties to buy and sell something at an agreed price on an agreed future date",
+          "A loan that must be repaid immediately",
+          "A guarantee that an asset's price will never change",
+          "A contract that can only be used for stocks",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A forward is fundamentally just a promise: a fixed price and a fixed future date, agreed by two parties today, with the actual exchange happening later.",
+      },
+      {
+        id: "q2",
+        prompt: "What does it mean to be \"long\" a forward contract?",
+        choices: [
+          "You've agreed to sell the asset later",
+          "You've agreed to buy the asset later",
+          "You've cancelled the contract",
+          "You have no position in the contract at all",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The long side of a forward is the party who has agreed to buy the underlying asset at the agreed future date — the short side is whoever agreed to sell it.",
+      },
+      {
+        id: "q3",
+        prompt: "In the coffee roaster example, why does the roaster enter into a forward with a coffee grower?",
+        choices: [
+          "To remove the uncertainty of not knowing what coffee will cost in three months, by locking in a fixed price today",
+          "To immediately receive the coffee beans today",
+          "To guarantee a lower price than the grower's cost",
+          "Forwards cannot be used for physical commodities like coffee",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The roaster's motivation is certainty: locking in today's agreed price removes the risk that coffee prices might rise before the shipment is actually needed.",
+      },
+      {
+        id: "q4",
+        prompt: "What is the fundamental tradeoff both sides of a forward contract accept?",
+        choices: [
+          "Both sides guarantee themselves a profit no matter what happens",
+          "Both sides give up the chance of a better outcome from waiting, in exchange for a known, fixed number to plan around",
+          "Only one side takes on any risk at all",
+          "Forwards eliminate risk for the entire market, not just the two parties involved",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Neither side knows in advance whether the locked-in price will end up better or worse than the eventual market price — the value of a forward is the certainty itself, not a guaranteed favorable outcome.",
+      },
+      {
+        id: "q5",
+        prompt: "What actually changes hands when a forward contract is first agreed?",
+        choices: [
+          "The full purchase price, paid immediately",
+          "The underlying asset itself, delivered immediately",
+          "Nothing but the promise — the actual exchange of asset for price happens later, at the agreed future date",
+          "A cash deposit equal to half the contract's value",
+        ],
+        correctIndex: 2,
+        explanation:
+          "A forward is just an agreement at signing — no cash or asset actually changes hands until the agreed future date arrives.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "futures-what-is-futures",
+    title: "What Is Futures?",
+    summary:
+      "The simplest possible definition of a futures contract — the same basic long/short agreement as a forward, but standardized and traded on an exchange.",
+    body: [
+      { type: "heading", text: "A Simple Definition" },
+      { type: "paragraph", text: "A futures contract is an agreement to buy or sell an asset at an agreed price on an agreed future date — the exact same basic idea as the forward contract covered in the previous module. What makes it a \"future\" rather than a plain forward is entirely about how that agreement is made and enforced, not what it fundamentally promises." },
+      { type: "heading", text: "Same Long and Short, Different Venue" },
+      { type: "paragraph", text: "Just like a forward, the buyer of a futures contract is long and the seller is short. But rather than being negotiated privately between two specific parties, a futures contract is bought and sold on an organized exchange, where any trader can take the long or short side without ever needing to know, or trust, who's on the other side of the trade." },
+      { type: "heading", text: "A Real-World Example" },
+      { type: "paragraph", text: "A trader who believes oil prices will rise over the next few months can go long a crude oil futures contract on an exchange, agreeing to buy oil at today's price for delivery down the road — without ever needing to find a specific seller willing to make that exact private deal, the way a forward would require." },
+      { type: "heading", text: "Building on What You Already Know" },
+      { type: "paragraph", text: "Everything covered in the Forward Basics module — long and short positions, agreeing on a price today for a transaction later — carries over directly to futures. The rest of this module covers what's specifically different about a futures contract: the margin and daily settlement, the standardized contract terms, and the clearinghouse that stands behind every trade, none of which a plain forward has." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "In the simplest terms, what is a futures contract?",
+        choices: [
+          "An agreement to buy or sell an asset at an agreed price on an agreed future date, the same basic idea as a forward",
+          "A contract that guarantees a fixed profit",
+          "A type of loan with no fixed repayment date",
+          "An agreement that only applies to stocks, never commodities",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A futures contract promises exactly the same basic thing a forward does — buy or sell at an agreed price on an agreed future date.",
+      },
+      {
+        id: "q2",
+        prompt: "What fundamentally distinguishes a futures contract from a forward contract?",
+        choices: [
+          "Futures promise something completely different from what a forward promises",
+          "How the agreement is made and enforced — traded on an organized exchange rather than negotiated privately between two parties",
+          "Only futures contracts involve a long and a short side",
+          "Forwards can never be used for commodities like oil",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The underlying promise is identical to a forward's — what changes is that a futures contract is exchange-traded and standardized, rather than a private, bilateral agreement.",
+      },
+      {
+        id: "q3",
+        prompt: "Why can a trader go long a crude oil futures contract without finding a specific seller willing to make a private deal?",
+        choices: [
+          "Because the futures contract is bought and sold on an organized exchange, where any trader can take either side of the trade",
+          "Because futures contracts don't actually require a counterparty at all",
+          "Because oil futures are the only type of futures contract that exists",
+          "Because the trader is required to physically own oil first",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The exchange, not a specific counterparty, is what makes it possible to go long or short a futures contract instantly, without negotiating a private deal the way a forward would require.",
+      },
+      {
+        id: "q4",
+        prompt: "Which concepts from the Forward Basics module carry over directly to futures?",
+        choices: [
+          "Nothing carries over — futures and forwards are entirely unrelated",
+          "Long and short positions, and the idea of agreeing on a price today for a transaction later",
+          "Only the idea of daily margin calls",
+          "Only the concept of a clearinghouse",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The core long/short, price-agreed-today-for-later logic is shared between forwards and futures — what the rest of this module covers is what's specifically different about futures.",
+      },
+      {
+        id: "q5",
+        prompt: "What does the rest of the Futures Basics module go on to cover, building on this lesson?",
+        choices: [
+          "What's specifically different about futures — margin and daily settlement, standardized contract terms, and the clearinghouse",
+          "A repeat of exactly the same forward-contract content already covered",
+          "Only how to physically deliver a commodity",
+          "Nothing further — this lesson covers everything about futures",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Having established what a futures contract fundamentally is, the module moves on to the mechanics that actually distinguish it from a forward — margin, standardization, and the clearinghouse guarantee.",
+      },
+    ],
+  },
 ];

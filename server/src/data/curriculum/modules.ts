@@ -180,6 +180,7 @@ export const modules: Module[] = [
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
+      "futures-what-is-a-forward-contract",
       "futures-what-are-financial-contracts",
       "futures-forward-pricing",
       "futures-forward-rate-agreements",
@@ -195,6 +196,7 @@ export const modules: Module[] = [
     order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
+      "futures-what-is-futures",
       "futures-margin-and-mark-to-market",
       "futures-contract-specifications",
       "futures-delivery-and-close-out",
