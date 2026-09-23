@@ -709,6 +709,31 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "For a bond or note, forward pricing follows the same basic logic but nets out the bond's own coupon income instead of dividends: the cost of carry is the financing cost of holding the bond minus the coupon interest earned while holding it, and the forward price must also account for how the bond's own price is expected to change simply from the passage of time as it moves closer to maturity, a bond's price converges toward its face value as maturity approaches, all else equal. Because bonds pay relatively predictable, scheduled coupons and their price behavior near maturity is well understood, bond forward pricing tends to be one of the more mechanically precise applications of the cost-of-carry framework, though it still depends on an accurate financing rate assumption, just like every other asset class.",
       },
+      { type: "heading", text: "Foreign Currencies" },
+      {
+        type: "paragraph",
+        text: "A foreign currency fits the same cost-of-carry framework by treating the foreign risk-free interest rate as if it were a continuous dividend yield: holding a foreign currency lets you earn interest in that currency in the meantime, just as holding a stock earns dividends. This relationship is known as covered interest rate parity, and it means the forward exchange rate depends on the gap between the domestic and foreign interest rates — if domestic rates are higher than foreign rates, the foreign currency trades at a forward premium; if foreign rates are higher, it trades at a forward discount, so that borrowing in one currency and lending in the other, hedged with a forward, can never produce a riskless profit.",
+      },
+      { type: "heading", text: "Stock and Futures Options" },
+      {
+        type: "paragraph",
+        text: "The forward price is more than just a fair-value benchmark for the forward contract itself — it's also a direct input for pricing options on stocks and futures. Because the forward price already embeds the cost of carry and any expected dividend income, models like the Black model for pricing options on futures substitute the forward or futures price for the spot price, letting an option on a futures contract be priced with a formula nearly identical to a standard stock option, just swapping in forward price for spot. The same substitution is why European put-call parity is often expressed directly in terms of the forward price rather than tracking spot price and financing cost as two separate pieces.",
+      },
+      { type: "heading", text: "Arbitrage" },
+      {
+        type: "paragraph",
+        text: "The cost-of-carry price isn't just a theoretical prediction — it's enforced in real markets by arbitrageurs. If the market's forward price trades above its fair value, a trader can run a cash-and-carry arbitrage: borrow cash, buy the asset today, simultaneously sell it forward at the richer market price, then deliver the asset at maturity and repay the loan, locking in a riskless profit from the mispricing. If the forward instead trades below fair value, the mirror-image reverse cash-and-carry arbitrage applies: short the asset today, invest the proceeds at the risk-free rate, and buy it forward, again locking in a riskless profit as the position unwinds at delivery. This buying and selling pressure from arbitrageurs is exactly what keeps real-world forward prices anchored close to the cost-of-carry formula.",
+      },
+      { type: "heading", text: "Dividends" },
+      {
+        type: "paragraph",
+        text: "Forward pricing models a stock's dividends in one of two ways, depending on what's more realistic for the asset. For a single stock with a known, scheduled dividend, the dividend is treated as a specific dollar amount: its present value is subtracted from today's spot price before compounding the rest forward at the risk-free rate. For a broad stock index, where dozens or hundreds of underlying stocks pay dividends on staggered schedules throughout the year, it's more natural to treat the combined effect as a continuous dividend yield — a steady percentage rate that simply lowers the effective rate used to compound the forward price, rather than tracking every individual payment.",
+      },
+      { type: "heading", text: "Short Sales" },
+      {
+        type: "paragraph",
+        text: "Short selling means borrowing an asset from a current holder, through a broker, selling it in the market, and later buying it back to return to the lender — a trade used either as a standalone bet that the asset's price will fall, or, as seen above, as the tool that makes reverse cash-and-carry arbitrage possible when a forward is underpriced. Not every asset can be shorted easily: many physical commodities are difficult or impractical to borrow and short because of the logistics of storage and delivery, which weakens the arbitrage force that would normally correct an underpriced forward and is part of why convenience yield plays such an outsized role in commodity forward pricing specifically.",
+      },
     ],
     quiz: [
       {
@@ -775,6 +800,71 @@ export const futuresConceptLessons: ConceptLesson[] = [
         correctIndex: 1,
         explanation:
           "Like dividends for a stock, a bond's coupon payments are income the forward buyer misses out on until delivery, so they're subtracted from the financing cost, and the pricing must also reflect the bond's natural price convergence toward face value over time.",
+      },
+      {
+        id: "q6",
+        prompt: "What determines whether a currency's forward exchange rate trades at a premium or discount to spot, under covered interest rate parity?",
+        choices: [
+          "The difference between the domestic and foreign risk-free interest rates",
+          "The stock market's overall performance that day",
+          "A fixed rate set once a year by central banks",
+          "The trade balance between the two countries alone",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Covered interest rate parity ties the forward FX rate directly to the interest rate differential between the two currencies — the currency with the higher rate trades at a forward discount, and the one with the lower rate at a forward premium.",
+      },
+      {
+        id: "q7",
+        prompt: "Why do many option pricing models substitute the forward price for the spot price when pricing an option on a futures contract?",
+        choices: [
+          "Because the forward price already embeds the cost of carry and any dividend adjustments, so it captures everything needed without separately tracking financing costs",
+          "Because the forward price is always identical to the option's strike price",
+          "Because spot prices cannot legally be used in option pricing",
+          "Because futures options never actually expire",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since the forward or futures price already reflects financing costs and expected income, models like the Black model can price the option directly off that single number instead of the spot price plus a separate cost-of-carry adjustment.",
+      },
+      {
+        id: "q8",
+        prompt: "In a cash-and-carry arbitrage, what does the arbitrageur do when the forward price is trading above its theoretical fair value?",
+        choices: [
+          "Borrow money, buy the asset now, and sell it forward at the higher market price, locking in a riskless profit at delivery",
+          "Do nothing, since forward prices can never be mispriced",
+          "Short the asset and buy it back immediately",
+          "Only trade options, never the underlying asset",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Cash-and-carry arbitrage exploits an overpriced forward by buying the asset today, financed with borrowed cash, and locking in the sale at the richer forward price — this buying and selling pressure is what pulls the market's forward price back toward fair value.",
+      },
+      {
+        id: "q9",
+        prompt: "What's the difference between modeling dividends as a known dollar amount versus as a continuous dividend yield in forward pricing?",
+        choices: [
+          "A known dollar amount is subtracted as a present value from spot before compounding, while a continuous yield lowers the effective compounding rate itself — the latter is more natural for a broad index paying dividends continuously",
+          "There is no difference — both methods always produce the exact same forward price",
+          "Dividend yield only applies to bonds, never to stocks",
+          "A known dollar amount can only be used for foreign currencies",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A single stock's specific, scheduled dividend is usually modeled as a discrete cash amount netted from spot, while a broad index's many staggered dividends are better approximated as a smooth percentage yield that lowers the effective compounding rate.",
+      },
+      {
+        id: "q10",
+        prompt: "Why does the difficulty of short-selling certain physical commodities matter for forward pricing?",
+        choices: [
+          "It weakens the arbitrage force that would normally correct an underpriced forward, since reverse cash-and-carry arbitrage requires being able to short the underlying asset",
+          "It has no effect on forward pricing at all",
+          "It only matters for pricing stock forwards, never commodities",
+          "It makes commodity forwards impossible to trade",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Reverse cash-and-carry arbitrage — the correction for an underpriced forward — depends on being able to short the physical asset; when that's impractical, as it often is for commodities, forward prices can drift further from the pure cost-of-carry value, which is part of why convenience yield matters so much for commodities specifically.",
       },
     ],
   },
