@@ -20,6 +20,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "The mirror image is a long hedge: a cereal manufacturer who will need to buy wheat in three months and is worried prices will rise buys (goes long) wheat futures now. If the cash price rises, the higher cost of the physical wheat is offset by a gain on the long futures position." },
       { type: "heading", text: "Basis Risk and Tradeoffs" },
       { type: "paragraph", text: "Hedging with futures doesn't eliminate risk — it trades price risk for basis risk, the risk that the futures price and the cash price don't move in perfect lockstep. A hedger also gives up the benefit of a favorable price move in exchange for protection against an unfavorable one; certainty has a cost." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A farmer expects to harvest 50,000 bushels of wheat in six months and sells wheat futures today at $6.00 per bushel, locking in $300,000 of notional value. At harvest, the cash price has fallen to $5.50 per bushel. Selling the physical wheat now brings in only 50,000 × $5.50 = $275,000, but the short futures position has gained ($6.00 − $5.50) × 50,000 = $25,000, since the trader locked in the higher price and can buy back the futures cheaper than they sold it. Adding the two together, $275,000 + $25,000 = $300,000, the farmer nets almost exactly the $300,000 they locked in — the futures gain offset the cash-market loss, aside from any small basis gap between the futures and cash markets." },
     ],
     quiz: [
       {
@@ -87,6 +89,20 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "Exchange-traded futures are marked to market daily — the account is credited or debited each day for gains and losses, unlike a simple one-time-settlement forward agreement.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A farmer sells 50,000 bushels of wheat futures at $6.00/bushel. At harvest, the cash price is $5.50/bushel. What's the total from selling the physical wheat plus the futures gain?",
+        choices: [
+          "$275,000, since the futures position had no effect",
+          "$300,000 — the $25,000 futures gain offsets the lower cash-market proceeds",
+          "$325,000, an unexpected extra profit",
+          "$250,000, a loss on both legs",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Cash proceeds of $275,000 (50,000 × $5.50) plus a $25,000 futures gain (50,000 × $0.50) add up to $300,000 — close to the price the farmer originally locked in by hedging.",
+      },
     ],
   },
   {
@@ -103,6 +119,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Trend following is defined by a low win rate paired with positive expectancy. Most individual trades are small losses — the trend didn't continue, or the market chopped sideways — but the few trades that do catch a real, sustained trend are large enough winners to more than make up for the many losers. Because of this, disciplined risk management (small, consistent position sizing and cutting losers quickly) matters more to this strategy's success than being right often." },
       { type: "heading", text: "Trading Many Markets at Once" },
       { type: "paragraph", text: "Trend-following programs typically trade across many uncorrelated futures markets at once — grains, energy, metals, currencies, interest rates, equity indexes — rather than concentrating on one. Since nobody knows in advance which market will trend next, spreading the strategy across many markets is what lets a handful of big winners offset the frequent small losses elsewhere." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A trader with a $500,000 account risks 1% of capital, $5,000, on each new trend trade. Crude oil crosses above its 200-day moving average at $75 per barrel, triggering a long entry, with a stop-loss set at $73 — a $2-per-barrel risk. Since one contract covers 1,000 barrels, that's $2,000 of risk per contract, so the trader buys $5,000 ÷ $2,000 ≈ 2 contracts. The trend continues and crude eventually reaches $85: the position gains $10 per barrel × 1,000 barrels × 2 contracts = $20,000 — four times the $5,000 originally risked, from a single trade that worked." },
     ],
     quiz: [
       {
@@ -172,6 +190,15 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "Standardized, liquid futures contracts let a trend follower take long or short exposure to dozens of markets — commodities, currencies, rates, indexes — with relatively modest capital, which is much harder to do with individual stocks.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A trader risks $5,000 on a trade with a $2,000-per-contract stop-loss distance. How many contracts do they buy?",
+        choices: ["1 contract", "About 2 contracts ($5,000 ÷ $2,000)", "10 contracts", "50 contracts"],
+        correctIndex: 1,
+        explanation:
+          "Dividing the dollar amount the trader is willing to risk by the dollar risk per contract gives the position size — $5,000 ÷ $2,000 per contract ≈ 2 contracts.",
+      },
     ],
   },
   {
@@ -193,6 +220,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Because both legs of the spread move together with the overall commodity price most of the time, a calendar spread is far less exposed to day-to-day price noise than an outright long or short futures position. The trader is isolating a narrower bet on the shape of the futures curve — the supply, demand, and storage dynamics between two dates — rather than on the commodity's absolute price level." },
       { type: "heading", text: "A Classic Use Case" },
       { type: "paragraph", text: "A classic use case: heading into a season where a supply crunch is expected, such as a natural gas contract approaching a cold winter with low storage, a trader might buy the near-month contract and sell a further-out month, expecting the near-term squeeze to push the front contract's price up relative to the back one. That profits from the change in the spread, largely independent of whether natural gas prices broadly rise or fall." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "December crude oil trades at $78 and November crude trades at $76 — a $2 contango spread. A trader expecting the near-term squeeze to tighten buys November and sells December. Over the following weeks, November rises to $77.50 (a $1.50 gain on the long leg) while December stays flat at $78.00 (no gain or loss on the short leg), narrowing the spread from $2.00 down to $0.50. The trade nets $1.50 per barrel — $1,500 on a single 1,000-barrel contract — purely from the spread narrowing, regardless of what crude's outright price did in the meantime." },
     ],
     quiz: [
       {
@@ -255,6 +284,15 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "Since both legs are on the same underlying and tend to move together with the broad commodity price, much of that outright price risk cancels out, leaving a narrower bet on the shape of the futures curve.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A trader buys November crude at $76 and sells December crude at $78. November later rises to $77.50 while December stays at $78.00. What's the profit per barrel?",
+        choices: ["$0.50", "$1.50", "$2.00", "There is no profit"],
+        correctIndex: 1,
+        explanation:
+          "The long November leg gained $1.50 ($77.50 − $76.00) and the short December leg was flat, so the spread's narrowing from $2.00 to $0.50 nets $1.50 per barrel.",
+      },
     ],
   },
   {
@@ -272,6 +310,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Cross-hedging introduces an additional layer of basis risk beyond a normal direct hedge. Not only can the futures price diverge from the spot price of its own underlying — ordinary basis risk — but the price of the asset you actually hold can also diverge from the price of the futures' underlying asset. Jet fuel and heating oil don't always move in perfect lockstep, even though they're closely related refined products." },
       { type: "heading", text: "Sizing With a Hedge Ratio" },
       { type: "paragraph", text: "To size a cross-hedge, traders often compute a hedge ratio, commonly estimated by regressing the exposed asset's price changes against the hedging instrument's price changes. That regression's slope — sometimes called the minimum-variance hedge ratio — tells them how many futures contracts to use per unit of exposure, rather than assuming a naive one-for-one match." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A regional jet-fuel buyer needs to hedge 100,000 gallons of future purchases. Regressing historical jet-fuel price changes against heating oil futures price changes gives a hedge ratio of 0.85 — jet fuel has typically moved about 85 cents for every dollar move in heating oil. The buyer needs 0.85 × 100,000 = 85,000 gallon-equivalents of heating oil futures exposure. If one heating oil futures contract covers 42,000 gallons, that works out to 85,000 ÷ 42,000 ≈ 2 contracts, rather than a naive 100,000 ÷ 42,000 ≈ 2.4 contracts a one-to-one hedge would suggest." },
     ],
     quiz: [
       {
@@ -334,6 +374,20 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "Jet fuel prices tend to move closely with other refined petroleum products like heating oil and crude oil, making them a workable, if imperfect, cross-hedge.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A regression gives a hedge ratio of 0.85 for a 100,000-gallon jet-fuel exposure hedged with heating oil futures. How many gallon-equivalents of heating oil futures exposure should be used?",
+        choices: [
+          "100,000 gallons, a full one-to-one hedge",
+          "85,000 gallons (0.85 × 100,000)",
+          "15,000 gallons",
+          "185,000 gallons",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The hedge ratio scales the notional hedge size: 0.85 × 100,000 gallons = 85,000 gallon-equivalents of heating oil futures, not a naive one-to-one match.",
+      },
     ],
   },
   {
@@ -350,6 +404,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Because bonds of different maturities respond differently to a given change in rates — longer-maturity bonds are more sensitive — hedgers commonly account for duration, a measure of interest-rate sensitivity, when sizing a rate hedge, using more or fewer futures contracts depending on how sensitive their actual portfolio is compared to the futures contract's own underlying instrument." },
       { type: "heading", text: "Where the Hedge Falls Short" },
       { type: "paragraph", text: "As with other futures hedges, an interest-rate hedge isn't perfect: the specific bonds a portfolio holds may not move in perfect lockstep with the futures contract's benchmark instrument, and getting the duration-matched sizing wrong can leave the hedge over- or under-protecting the actual position." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A manager holds a $10 million bond portfolio with a duration of 7 years and wants to hedge it with Treasury futures, where the futures contract's underlying has a duration of 9 years and each contract has a notional value of $100,000. A duration-matched hedge shorts (portfolio value × portfolio duration) ÷ (futures notional × futures duration) contracts: ($10,000,000 × 7) ÷ ($100,000 × 9) = $70,000,000 ÷ $900,000 ≈ 78 contracts. Shorting roughly 78 contracts, rather than a round number picked without the duration adjustment, is what actually matches the futures position's rate sensitivity to the portfolio's own." },
     ],
     quiz: [
       {
@@ -419,6 +475,15 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "As with any futures hedge, the hedged position and the futures' own underlying benchmark aren't identical, so their prices can diverge — a source of basis risk that keeps even a well-sized hedge from being perfect.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A $10 million portfolio with 7-year duration is hedged with Treasury futures (9-year duration, $100,000 notional each). About how many contracts should be shorted?",
+        choices: ["9 contracts", "70 contracts", "About 78 contracts", "900 contracts"],
+        correctIndex: 2,
+        explanation:
+          "($10,000,000 × 7) ÷ ($100,000 × 9) = $70,000,000 ÷ $900,000 ≈ 78 contracts — the duration-weighted hedge size, not a round or unadjusted number.",
+      },
     ],
   },
   {
@@ -436,6 +501,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Mean-reversion strategies tend to have a high win rate with small, frequent gains, punctuated by occasional large losses — almost the mirror image of trend following's profile. Most short-term overshoots do snap back as expected, but the rare times a market keeps moving strongly in one direction — a genuine new trend, not a temporary overshoot — can produce an outsized loss for a contrarian position that keeps fighting the move." },
       { type: "heading", text: "Why Risk Controls Matter" },
       { type: "paragraph", text: "Because of that loss profile, disciplined risk controls — a hard stop-loss, or limiting how much a position is added to as price keeps moving against the entry — are essential to mean-reversion trading. Without them, the strategy is exposed to the specific risk of being run over by a real, sustained trend that never reverts." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "Gold's 20-day average price is $1,950 per ounce with a standard deviation of $15, putting the two-standard-deviation lower band at $1,950 − (2 × $15) = $1,920. Gold drops to $1,915, more than two standard deviations below average, triggering a buy signal. A trader buys 10 contracts (100 ounces each, so 1,000 ounces total). Over the following week, gold reverts to $1,945, and the position gains $30 per ounce × 1,000 ounces = $30,000 — the snapback the mean-reversion rule was betting on." },
     ],
     quiz: [
       {
@@ -503,6 +570,15 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "The core contrarian bet is that an extreme, fast move is more likely to partially reverse than to keep extending in the same direction.",
       },
+      {
+        id: "q6",
+        prompt:
+          "Gold's 20-day average is $1,950 with a $15 standard deviation. What's the two-standard-deviation lower band that would trigger a mean-reversion buy signal?",
+        choices: ["$1,935", "$1,920", "$1,905", "$1,950"],
+        correctIndex: 1,
+        explanation:
+          "$1,950 − (2 × $15) = $1,920 — the price level two standard deviations below the 20-day average.",
+      },
     ],
   },
   {
@@ -520,6 +596,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A classic pattern: a strong price rally accompanied by declining volume and declining open interest is viewed skeptically by activity-based contrarian traders. It suggests the rally is being sustained by a shrinking pool of participants — often short-covering, where traders who bet against the move are forced to buy back their positions — rather than fresh buying interest, making it a candidate for a reversal once that short-covering is exhausted." },
       { type: "heading", text: "Used Alongside Price, Not Alone" },
       { type: "paragraph", text: "This approach requires more data than a pure price-based contrarian rule, since volume and open interest for futures are typically published daily by the exchange with a delay, and is usually combined with price-based signals rather than used entirely on its own. Activity data adds context about who is driving a move and how sustainable the current participation looks, rather than replacing a price signal outright." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "Natural gas rallies from $2.50 to $3.00 over two weeks. But during that same stretch, daily volume falls from 200,000 contracts to 90,000, and open interest falls from 850,000 contracts to 720,000 — a rally on thinning participation, consistent with short-covering rather than fresh buying. A contrarian trader shorts one contract (10,000 MMBtu) at $3.00. Gas subsequently falls back to $2.70 as the short-covering runs out, and the position gains $0.30 per MMBtu × 10,000 = $3,000." },
     ],
     quiz: [
       {
@@ -587,6 +665,15 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "Volume and open interest add context about the sustainability and conviction behind a move, but are typically used alongside price signals rather than as a standalone trading rule.",
       },
+      {
+        id: "q6",
+        prompt:
+          "Natural gas rallies on falling volume and falling open interest, then a contrarian trader shorts at $3.00 and covers at $2.70. What's the gain on 10,000 MMBtu?",
+        choices: ["$300", "$3,000", "$30,000", "There is no gain"],
+        correctIndex: 1,
+        explanation:
+          "The $0.30 decline per MMBtu times the 10,000 MMBtu contract size gives a $3,000 gain on the short position.",
+      },
     ],
   },
   {
@@ -614,6 +701,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
       {
         type: "paragraph",
         text: "Because a forward contract is a private, over-the-counter agreement between two specific parties rather than a contract cleared through an exchange, it carries counterparty risk — the risk that the other side simply fails to honor the agreement at maturity, whether from an inability or unwillingness to pay. This is the central structural weakness forwards have relative to futures: an exchange-traded futures contract is guaranteed by a clearinghouse and backed by daily margin requirements that limit how much loss can accumulate before it's collected, while a forward's integrity depends entirely on the creditworthiness and good faith of the specific counterparty on the other side of the deal.",
+      },
+      { type: "heading", text: "A Worked Example" },
+      {
+        type: "paragraph",
+        text: "A flour mill agrees to buy 10,000 bushels of wheat in six months from a grain merchant at a forward price of $6.50 per bushel, giving the contract a notional value of 10,000 × $6.50 = $65,000. At maturity, the actual market price of wheat is $7.00 per bushel. If the contract is cash-settled, the merchant simply pays the mill the difference: ($7.00 − $6.50) × 10,000 = $5,000, since the mill locked in a price $0.50 below where wheat ended up trading. If instead it's physically settled, the merchant delivers 10,000 bushels and the mill pays the agreed $65,000 — either way, the mill's economic outcome is the same: wheat at an effective $6.50 per bushel, regardless of where the market price actually landed.",
       },
     ],
     quiz: [
@@ -681,6 +773,15 @@ export const futuresConceptLessons: ConceptLesson[] = [
         correctIndex: 1,
         explanation:
           "A futures contract's clearinghouse guarantee and daily margining process is specifically what protects against the kind of counterparty default risk that a private forward agreement is exposed to.",
+      },
+      {
+        id: "q6",
+        prompt:
+          "A forward on 10,000 bushels of wheat at $6.50/bushel is cash-settled when the market price is $7.00/bushel. What does the merchant pay the mill?",
+        choices: ["$65,000", "$70,000", "$5,000", "Nothing — cash settlement means no payment is made"],
+        correctIndex: 2,
+        explanation:
+          "Cash settlement pays only the difference between the agreed and market price: ($7.00 − $6.50) × 10,000 = $5,000, which gives the mill the same $6.50-per-bushel economic outcome as physical delivery would.",
       },
     ],
   },
@@ -883,6 +984,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Every trading day, the exchange marks every open futures position to that day's settlement price and credits or debits the resulting gain or loss in cash to each account. This is the core structural difference from a forward, which settles its entire profit or loss in a single lump sum at maturity: a futures trader's gains and losses are realized incrementally, in cash, day by day, rather than accumulating unrealized until expiration." },
       { type: "heading", text: "Leverage Cuts Both Ways" },
       { type: "paragraph", text: "Because initial margin is only a small fraction of a contract's notional value, a modest move in the underlying's price translates into a much larger percentage gain or loss on the margin capital actually posted. That same leverage that makes futures capital-efficient for hedgers and speculators also means a string of adverse daily marks can trigger a margin call, or a full liquidation, far faster than an equivalent-sized position in the cash market ever would." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A trader buys one crude oil futures contract (1,000 barrels) at $80 per barrel, a notional value of $80,000, posting $6,000 of initial margin (7.5% of notional) against a $5,000 maintenance margin threshold. The next day, crude falls to $78, a $2-per-barrel loss, marked to market as a $2,000 debit: 1,000 × $2 = $2,000. The account balance drops from $6,000 to $4,000 — below the $5,000 maintenance threshold — triggering a margin call for $2,000 in variation margin to bring the balance back up to the $6,000 initial margin level." },
     ],
     quiz: [
       {
@@ -950,6 +1053,20 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "Since margin is a small fraction of notional value, the same dollar move in the underlying is a much larger percentage move on the margin posted — leverage that cuts both ways.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A trader posts $6,000 initial margin on a crude oil contract (1,000 barrels). Crude falls $2/barrel, a $2,000 loss. If maintenance margin is $5,000, what happens?",
+        choices: [
+          "Nothing — the account still has a positive balance",
+          "A margin call, since $6,000 − $2,000 = $4,000 is below the $5,000 maintenance threshold",
+          "The position automatically doubles in size",
+          "The exchange refunds the loss",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The account balance falls to $4,000, below the $5,000 maintenance margin, so the broker issues a margin call requiring a deposit back up to the $6,000 initial margin level.",
+      },
     ],
   },
   {
@@ -967,6 +1084,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "For contracts on physical commodities, the specification also pins down an exact grade or quality of the deliverable asset — a specific crude oil grade, or a minimum wheat protein content, for example — along with a list of approved delivery locations. Sellers are sometimes permitted to deliver a different, but contractually allowed, grade at a specified price adjustment, and this precision is exactly what prevents disputes over whether the asset actually delivered was the asset the contract promised." },
       { type: "heading", text: "Expiration Cycles and the Front Month" },
       { type: "paragraph", text: "Each futures contract trades under a ticker combined with an expiration month code, and several expirations — say, March, June, September, and December — trade simultaneously at any given time. The nearest-to-expire contract with the highest trading volume is called the front month, and it's typically the most liquid one; as it approaches its own expiration, active traders roll their exposure forward into the next expiration rather than let the contract run into its delivery process." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "The E-mini S&P 500 futures contract has a multiplier of $50 per index point and a minimum tick size of 0.25 points, so each tick is worth 0.25 × $50 = $12.50. If the contract moves from 4,500.00 to 4,502.50, that's a 2.50-point move, or exactly 10 ticks. The dollar gain on one contract is 2.50 × $50 = $125 — the same answer as counting 10 ticks × $12.50 per tick, which is exactly why the standardized tick size and its dollar value matter: they let every trader compute a position's gain or loss the same, unambiguous way." },
     ],
     quiz: [
       {
@@ -1034,6 +1153,15 @@ export const futuresConceptLessons: ConceptLesson[] = [
         explanation:
           "Rolling lets a trader keep continuous exposure to the underlying without going through delivery, by closing the expiring contract and opening an equivalent position further out.",
       },
+      {
+        id: "q6",
+        prompt:
+          "The E-mini S&P 500 has a $50 multiplier and a 0.25-point tick. If the price moves from 4,500.00 to 4,502.50, what's the dollar gain on one contract?",
+        choices: ["$12.50", "$50", "$125", "$250"],
+        correctIndex: 2,
+        explanation:
+          "A 2.50-point move is 10 ticks; 10 ticks × $12.50 per tick = $125, the same result as multiplying the 2.50-point move directly by the $50 multiplier.",
+      },
     ],
   },
   {
@@ -1051,6 +1179,8 @@ export const futuresConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Many modern futures contracts, especially financial futures, are cash-settled by design and have no physical delivery mechanism at all: at expiration, the contract simply settles against an agreed reference price or index level, and the difference is paid in cash. This removes the operational complexity of delivery entirely, at the cost of the contract being a purely financial instrument rather than a claim on a physical asset." },
       { type: "heading", text: "Rolling a Position Forward" },
       { type: "paragraph", text: "A trader who wants continuous exposure without ever taking delivery closes out the expiring contract and simultaneously opens an equivalent position in a later-dated contract — a roll. The price difference between the two contracts, driven largely by the same cost-of-carry logic behind forward pricing, becomes a return or a cost of maintaining that exposure over time, which is exactly the dynamic behind both calendar-spread trading and roll yield in commodity futures." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A trader is long one September crude oil futures contract (1,000 barrels) entered at $75, and expiration is approaching. They close it out by selling at $76, banking a $1-per-barrel gain, or $1,000. To maintain continuous exposure, they simultaneously buy one December contract at $77 — $1 higher than the September price they just sold at, since the market is in contango. That $1-per-barrel gap costs $1,000 in the new position, a separate roll cost embedded in the switch to a further-dated, more expensive contract, on top of whatever September's realized gain was. Rolled repeatedly through a persistent contango market, this cost is exactly what erodes the return of holding continuous futures exposure over time, independent of what crude's outright spot price does." },
     ],
     quiz: [
       {
@@ -1117,6 +1247,20 @@ export const futuresConceptLessons: ConceptLesson[] = [
         correctIndex: 1,
         explanation:
           "The roll's price difference reflects cost-of-carry between the two expirations — the same underlying dynamic that drives calendar-spread trading and roll yield in commodities.",
+      },
+      {
+        id: "q6",
+        prompt:
+          "A trader closes September crude at $76 and buys December at $77 to roll the position forward. What does the $1-per-barrel gap represent?",
+        choices: [
+          "A trading error that should never happen",
+          "A roll cost from contango — the new position starts $1,000 more expensive on 1,000 barrels",
+          "A guaranteed $1,000 profit",
+          "The exchange's transaction fee",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Buying the further-dated December contract at a $1 premium to the September contract just sold is a contango-driven roll cost — $1,000 on a 1,000-barrel contract, separate from whatever gain or loss was realized on September itself.",
       },
     ],
   },
