@@ -170,9 +170,7 @@ function ModuleSection({ module: m }: { module: ModulesResponse["modules"][numbe
     <div>
       <div className="mb-3 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <Link to={`/module/${m.slug}`} className="font-semibold text-[#e6e8ec] hover:text-[#4f8cff]">
-            {m.title}
-          </Link>
+          <h3 className="font-semibold text-[#e6e8ec]">{m.title}</h3>
           {!m.unlocked && (
             <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#898781]">Locked</span>
           )}
