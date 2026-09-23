@@ -360,4 +360,21 @@ export const modules: Module[] = [
       "fx-triangular-arbitrage",
     ],
   },
+  {
+    slug: "commodities-fundamentals",
+    courseSlug: "commodities",
+    title: "Commodities Fundamentals",
+    description:
+      "The futures-curve mechanics behind commodity returns (roll yield and hedging pressure), portfolio diversification, and factor strategies (value, skewness premium) plus fundamentals-based pricing models.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "commodities-roll-yields",
+      "commodities-hedging-pressure",
+      "commodities-portfolio-diversification",
+      "commodities-value",
+      "commodities-skewness-premium",
+      "commodities-trading-with-pricing-models",
+    ],
+  },
 ];

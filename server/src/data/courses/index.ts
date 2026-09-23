@@ -165,7 +165,7 @@ export const courses: Course[] = [
     title: "Commodities",
     section: "9",
     description: "Roll yield, hedging pressure, and value and skewness-premium strategies across commodity futures.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 6,
     strategyTitles: [
       "Roll yields",
