@@ -17,7 +17,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[#2a3040] bg-[#0e1117]">
       <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
           <div className="col-span-2 sm:col-span-1">
             <Link to="/" className="flex items-center gap-2 font-semibold text-[#e6e8ec]">
               <svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true" className="shrink-0">
@@ -39,22 +39,6 @@ export function Footer() {
 
           <FooterColumn title="Learn" links={LEARN_LINKS} />
           <FooterColumn title="Account" links={ACCOUNT_LINKS} />
-
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wide text-[#9aa3b2]">Project</h4>
-            <ul className="mt-3 flex flex-col gap-2">
-              <li>
-                <a
-                  href="https://github.com/eshinhw/trading-strategies-101"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]"
-                >
-                  GitHub
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-[#2a3040] pt-6 text-xs text-[#898781] sm:flex-row sm:items-center sm:justify-between">
