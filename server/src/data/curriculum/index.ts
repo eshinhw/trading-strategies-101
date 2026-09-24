@@ -96,8 +96,17 @@ export interface ModuleStatus {
  * of completed lesson slugs — nothing about module status is stored; it's
  * always computed fresh from the curriculum structure plus the learner's
  * LessonProgress rows.
+ *
+ * `forceUnlockAll` skips the prerequisite check entirely (every module comes
+ * back unlocked) without touching `completed`/`completedLessons`, which stay
+ * tied to real progress — used to give specific accounts full visibility
+ * into content without faking their progress.
  */
-export function computeModuleStatuses(courseSlug: string, completedLessonSlugs: Set<string>): ModuleStatus[] {
+export function computeModuleStatuses(
+  courseSlug: string,
+  completedLessonSlugs: Set<string>,
+  forceUnlockAll = false,
+): ModuleStatus[] {
   const completedModules = new Set<string>();
 
   // modules are declared in an order where prerequisites precede dependents,
@@ -107,7 +116,7 @@ export function computeModuleStatuses(courseSlug: string, completedLessonSlugs: 
     const totalLessons = module.lessonSlugs.length;
     const completedLessons = module.lessonSlugs.filter((s) => completedLessonSlugs.has(s)).length;
     const completed = completedLessons === totalLessons;
-    const unlocked = module.prerequisiteModuleSlugs.every((p) => completedModules.has(p));
+    const unlocked = forceUnlockAll || module.prerequisiteModuleSlugs.every((p) => completedModules.has(p));
     if (completed) completedModules.add(module.slug);
     return { module, totalLessons, completedLessons, unlocked, completed };
   });

@@ -21,6 +21,18 @@ function slugParam(v: string | string[]): string {
   return Array.isArray(v) ? v[0] : v;
 }
 
+// Accounts here see every module unlocked regardless of prerequisite
+// progress, so course content can be reviewed end-to-end without manually
+// clearing every quiz first. Real progress (completed/bestScore) is
+// unaffected — this only bypasses the unlock check.
+const FULL_ACCESS_EMAILS = new Set(["examtest@example.com"]);
+
+async function hasFullContentAccess(userId?: string): Promise<boolean> {
+  if (!userId) return false;
+  const user = await prisma.user.findUnique({ where: { id: userId }, select: { email: true } });
+  return user ? FULL_ACCESS_EMAILS.has(user.email) : false;
+}
+
 function mapLessons(
   lessonSlugs: string[],
   courseSlug: string,
@@ -44,7 +56,8 @@ function mapLessons(
 router.get("/modules", async (req, res) => {
   const courseSlug = typeof req.query.course === "string" ? req.query.course : "options";
   const completed = await completedLessonSlugs(req.userId);
-  const statuses = computeModuleStatuses(courseSlug, completed);
+  const fullAccess = await hasFullContentAccess(req.userId);
+  const statuses = computeModuleStatuses(courseSlug, completed, fullAccess);
   const courseLessonSlugs = allLessonSlugs(courseSlug);
   const courseCompleted = new Set([...completed].filter((s) => courseLessonSlugs.includes(s)));
 
@@ -81,7 +94,8 @@ router.get("/modules/:slug", async (req, res) => {
   if (!module) return res.status(404).json({ error: "Module not found" });
 
   const completed = await completedLessonSlugs(req.userId);
-  const statuses = computeModuleStatuses(module.courseSlug, completed);
+  const fullAccess = await hasFullContentAccess(req.userId);
+  const statuses = computeModuleStatuses(module.courseSlug, completed, fullAccess);
   const status = statuses.find((s) => s.module.slug === module.slug)!;
 
   let progressRows: { lessonSlug: string; completed: boolean; bestScore: number | null }[] = [];
