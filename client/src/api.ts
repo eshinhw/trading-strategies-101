@@ -8,6 +8,7 @@ import type {
 import type { Course } from "./types/course";
 import type { ExamStatus, ExamQuestion, ExamAnswerSubmission, ExamGradeResponse } from "./types/exam";
 import type { BooksResponse } from "./types/book";
+import type { PapersResponse } from "./types/paper";
 import type { ConstructionExerciseSummary, ConstructionExerciseDetail, ConstructionGradeResult } from "./types/construction";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -73,6 +74,12 @@ export function submitExam(courseSlug: string, answers: ExamAnswerSubmission[]):
 
 export function fetchBooks(): Promise<BooksResponse> {
   return request("/api/books");
+}
+
+// --- papers ---
+
+export function fetchPapers(): Promise<PapersResponse> {
+  return request("/api/papers");
 }
 
 // --- construction exercises ---

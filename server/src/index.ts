@@ -6,6 +6,7 @@ import authRouter from "./routes/auth.js";
 import curriculumRouter from "./routes/curriculum.js";
 import coursesRouter from "./routes/courses.js";
 import booksRouter from "./routes/books.js";
+import papersRouter from "./routes/papers.js";
 import constructionRouter from "./routes/construction.js";
 
 const app = express();
@@ -23,6 +24,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/curriculum", curriculumRouter);
 app.use("/api/courses", coursesRouter);
 app.use("/api/books", booksRouter);
+app.use("/api/papers", papersRouter);
 app.use("/api/construction", constructionRouter);
 
 app.listen(PORT, () => {

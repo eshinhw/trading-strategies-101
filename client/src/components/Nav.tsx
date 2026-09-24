@@ -36,6 +36,9 @@ export function Nav() {
             <Link to="/books" className="text-slate-300 hover:text-white">
               Books
             </Link>
+            <Link to="/papers" className="text-slate-300 hover:text-white">
+              Papers
+            </Link>
           </div>
 
           <div className="h-5 w-px bg-white/15" />

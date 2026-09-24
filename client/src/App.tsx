@@ -12,6 +12,7 @@ const LandingPage = lazy(() => import("./pages/LandingPage").then((m) => ({ defa
 const CoursesPage = lazy(() => import("./pages/CoursesPage").then((m) => ({ default: m.CoursesPage })));
 const CoursePage = lazy(() => import("./pages/CoursePage").then((m) => ({ default: m.CoursePage })));
 const BooksPage = lazy(() => import("./pages/BooksPage").then((m) => ({ default: m.BooksPage })));
+const PapersPage = lazy(() => import("./pages/PapersPage").then((m) => ({ default: m.PapersPage })));
 const ExamPage = lazy(() => import("./pages/ExamPage").then((m) => ({ default: m.ExamPage })));
 const ModulePage = lazy(() => import("./pages/ModulePage").then((m) => ({ default: m.ModulePage })));
 const LessonPage = lazy(() => import("./pages/LessonPage").then((m) => ({ default: m.LessonPage })));
@@ -33,6 +34,7 @@ function App() {
               <Route path="/courses/:slug" element={<CoursePage />} />
               <Route path="/courses/:slug/exam" element={<ExamPage />} />
               <Route path="/books" element={<BooksPage />} />
+              <Route path="/papers" element={<PapersPage />} />
               <Route path="/module/:slug" element={<ModulePage />} />
               <Route path="/lesson/:slug" element={<LessonPage />} />
               <Route path="/construction/:slug" element={<ConstructionPage />} />
