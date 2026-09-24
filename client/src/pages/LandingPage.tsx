@@ -8,6 +8,7 @@ import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
 import { Footer } from "../components/Footer";
+import { CourseCard } from "../components/CourseCard";
 
 const DEMO_LESSON_SLUG = "long-straddle";
 
@@ -174,26 +175,7 @@ function CoursesPreview() {
         {courses && (
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {courses.map((c) => (
-              <Link
-                key={c.slug}
-                to={`/courses/${c.slug}`}
-                className={`flex flex-col rounded-xl border p-5 transition ${
-                  c.status === "available"
-                    ? "card-glow border-[#2a3040] bg-[#141821] hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
-                    : "border-[#2a3040]/60 bg-[#101319] hover:border-[#2a3040]"
-                }`}
-              >
-                <div className="mb-1 flex items-center justify-between gap-2">
-                  <h3 className="font-semibold text-[#e6e8ec]">{c.title}</h3>
-                  {c.status === "coming-soon" && (
-                    <span className="shrink-0 rounded-full border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-xs font-medium text-amber-400">
-                      Coming soon
-                    </span>
-                  )}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">{c.description}</p>
-                <div className="mt-auto pt-3 text-xs text-[#898781]">{c.strategyCount} strategies</div>
-              </Link>
+              <CourseCard key={c.slug} course={c} />
             ))}
           </div>
         )}
