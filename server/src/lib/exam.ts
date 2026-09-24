@@ -24,6 +24,7 @@ const EXAMINABLE_COURSES = new Set([
   "commodities",
   "real-estate",
   "structured-assets",
+  "convertibles",
 ]);
 
 // Every module contributes at least this many lessons — Options has exactly

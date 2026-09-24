@@ -587,4 +587,19 @@ export const modules: Module[] = [
       "structured-assets-mbs-trading",
     ],
   },
+  {
+    slug: "convertibles-basics",
+    courseSlug: "convertibles",
+    title: "Convertibles Basics",
+    description:
+      "What a convertible bond actually is, the conversion ratio/price/value mechanics, how its price behaves between a bond floor and the stock's own value, and why issuers and investors both reach for them.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "convertibles-what-is-a-convertible-bond",
+      "convertibles-conversion-ratio-and-price",
+      "convertibles-how-price-behaves",
+      "convertibles-why-issue-and-buy",
+    ],
+  },
 ];

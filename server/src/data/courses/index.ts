@@ -198,7 +198,7 @@ export const courses: Course[] = [
     title: "Convertibles",
     section: "12",
     description: "Arbitrage strategies that trade a convertible bond against the issuer's stock and credit.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 2,
     strategyTitles: ["Convertible arbitrage", "Convertible option-adjusted spread"],
   },
