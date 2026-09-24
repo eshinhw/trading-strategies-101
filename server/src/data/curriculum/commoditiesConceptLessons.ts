@@ -503,4 +503,340 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "commodities-what-is-a-commodity",
+    title: "What Is a Commodity?",
+    summary:
+      "A raw, standardized economic good — interchangeable unit for unit — that's why a bushel of wheat from one farm can trade against a bushel from another as if they were identical.",
+    body: [
+      { type: "heading", text: "A Raw, Basic Economic Good" },
+      { type: "paragraph", text: "A commodity is a raw or primary economic good — something extracted, grown, or minimally processed, rather than a finished, branded product. Crude oil, wheat, copper, and gold are all commodities; a car or a smartphone, built from many processed inputs and sold on brand and features, is not." },
+      { type: "heading", text: "Fungibility: The Defining Property" },
+      { type: "paragraph", text: "What makes something tradable as a commodity is fungibility: one unit has to be functionally interchangeable with another unit of the same grade, regardless of who produced it. A barrel of a given crude oil grade from one producer is treated as identical to a barrel of the same grade from another — unlike, say, two different companies' stocks, which are never interchangeable with each other." },
+      { type: "heading", text: "Major Commodity Categories" },
+      { type: "paragraph", text: "Commodities are typically grouped into a few broad categories: energy (crude oil, natural gas), metals (gold, silver, copper), and agriculture (wheat, corn, soybeans, livestock) — each category driven by a different mix of supply, demand, and seasonal factors, even though they share the same basic fungibility property that makes standardized trading possible." },
+      { type: "heading", text: "Why Standardization Matters" },
+      { type: "paragraph", text: "Because commodities are fungible, an exchange can define one standardized contract, specifying exact grade, quantity, and delivery terms, as already covered in this course's Futures Basics module, and have that single contract represent countless individual producers' output. That standardization is precisely what allows deep, liquid commodity futures markets to exist in the first place." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is a commodity?",
+        choices: [
+          "A raw or primary economic good, extracted, grown, or minimally processed, rather than a finished branded product",
+          "Any manufactured product sold under a specific brand name",
+          "A type of company stock",
+          "A government-issued bond",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Commodities are basic, raw goods like oil, wheat, or copper — in contrast to finished, differentiated products like a car or a smartphone.",
+      },
+      {
+        id: "q2",
+        prompt: "What does fungibility mean in the context of a commodity?",
+        choices: [
+          "One unit of a given grade is functionally interchangeable with another unit of the same grade, regardless of producer",
+          "Every commodity is completely unique and cannot be compared to another unit",
+          "Fungibility only applies to precious metals",
+          "Fungibility means a commodity can never be traded on an exchange",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Fungibility is the defining property that lets standardized units of a commodity trade interchangeably, unlike differentiated goods or individual company stocks.",
+      },
+      {
+        id: "q3",
+        prompt: "What are the three broad commodity categories mentioned in this lesson?",
+        choices: [
+          "Energy, metals, and agriculture",
+          "Stocks, bonds, and cash",
+          "Technology, healthcare, and financials",
+          "Domestic, international, and emerging markets",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Energy (like crude oil), metals (like gold), and agriculture (like wheat) are the standard broad groupings used to organize commodities.",
+      },
+      {
+        id: "q4",
+        prompt: "Why does fungibility matter for how commodities are traded?",
+        choices: [
+          "It's what allows an exchange to define one standardized contract representing countless individual producers' output",
+          "Fungibility has no relationship to how commodities are traded",
+          "Fungibility only matters for over-the-counter trades, never exchange trading",
+          "Fungibility means every commodity trades at exactly the same price",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because units are interchangeable, a single standardized contract can represent any producer's output of that grade, which is what enables deep, liquid futures markets.",
+      },
+      {
+        id: "q5",
+        prompt: "How does a smartphone differ from a commodity like crude oil?",
+        choices: [
+          "A smartphone is a finished, differentiated product built from many processed inputs, not a raw, fungible good",
+          "A smartphone is actually a commodity, just like crude oil",
+          "There is no meaningful difference between the two",
+          "Smartphones are fungible in the exact same way crude oil is",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A smartphone is sold on brand, features, and differentiation, the opposite of a fungible, interchangeable raw good like crude oil.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "commodities-how-commodities-are-traded",
+    title: "How Commodities Are Traded",
+    summary:
+      "Why most commodity exposure runs through standardized futures contracts rather than owning barrels of oil or bushels of wheat directly.",
+    body: [
+      { type: "heading", text: "The Spot Market" },
+      { type: "paragraph", text: "The spot market is where a commodity is bought or sold for immediate (or near-immediate) delivery, at today's price — the market that producers, refiners, and end users transact in when they actually need the physical commodity itself, right now." },
+      { type: "heading", text: "Why Futures, Not Physical Ownership" },
+      { type: "paragraph", text: "For an investor or trader without any actual use for physical barrels of oil or bushels of wheat, taking on the storage, insurance, and transport that come with owning the physical commodity is entirely impractical. Futures contracts, covered in depth in this course's Futures Basics module, let a trader gain price exposure to a commodity without ever touching the physical good itself." },
+      { type: "heading", text: "Closing Out Before Delivery" },
+      { type: "paragraph", text: "As covered in Futures Basics, the overwhelming majority of commodity futures positions are closed out with an offsetting trade well before the contract's delivery window, specifically so a speculative trader never actually has to deal with taking or making physical delivery — only commercial participants who actually want the physical commodity typically carry a contract through to delivery." },
+      { type: "heading", text: "Other Ways to Get Commodity Exposure" },
+      { type: "paragraph", text: "Beyond trading futures directly, investors can get commodity exposure through commodity-linked ETFs (which themselves typically hold futures rather than physical barrels or bushels, aside from a few exceptions like certain gold funds), or through the stocks of companies whose businesses are tied to a commodity's price, such as an oil producer or a mining company — an indirect, imperfect substitute that also carries that company's own business risk." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is the spot market?",
+        choices: [
+          "Where a commodity is bought or sold for immediate delivery at today's price",
+          "A market that only trades commodities scheduled for delivery a year from now",
+          "A market exclusively for commodity futures contracts",
+          "A market where only governments can transact",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The spot market handles immediate, physical transactions — where producers, refiners, and end users actually exchange the commodity itself for current delivery.",
+      },
+      {
+        id: "q2",
+        prompt: "Why do most investors and traders use futures rather than owning the physical commodity directly?",
+        choices: [
+          "Storage, insurance, and transport of a physical commodity are impractical for someone without an actual use for it",
+          "Futures contracts are illegal to trade for anyone other than producers",
+          "Physical ownership is always cheaper than futures",
+          "There is no difference between owning physical commodities and trading futures",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The practical burdens of storing and transporting a physical commodity make futures the natural way for most traders to gain price exposure without that operational hassle.",
+      },
+      {
+        id: "q3",
+        prompt: "What happens to most commodity futures positions before the delivery window arrives?",
+        choices: [
+          "They're closed out with an offsetting trade, avoiding physical delivery entirely",
+          "Every position is automatically converted into a physical delivery",
+          "Positions are frozen and cannot be traded at all",
+          "All positions are cancelled by the exchange",
+        ],
+        correctIndex: 0,
+        explanation:
+          "As covered in Futures Basics, speculative positions are overwhelmingly closed out before delivery, leaving physical delivery mainly to commercial participants who actually want the commodity.",
+      },
+      {
+        id: "q4",
+        prompt: "How do most commodity-linked ETFs typically gain their exposure?",
+        choices: [
+          "By holding futures contracts, rather than the physical commodity itself, aside from a few exceptions",
+          "By storing physical barrels of oil in a warehouse for every fund",
+          "Commodity ETFs never actually track commodity prices",
+          "By directly owning mining and drilling operations",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Most commodity ETFs replicate exposure through futures contracts rather than physical storage, with a handful of exceptions like certain physically-backed gold funds.",
+      },
+      {
+        id: "q5",
+        prompt: "What extra risk comes with getting commodity exposure through a company's stock, like an oil producer, instead of futures?",
+        choices: [
+          "That company's own business-specific risk, on top of the underlying commodity's price risk",
+          "Stocks provide a purer, more direct commodity exposure than futures",
+          "There is no additional risk from using a company's stock",
+          "Stock-based commodity exposure eliminates all price risk",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A commodity producer's stock is an indirect, imperfect substitute — its price reflects the company's overall business risk, not just the commodity's price alone.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "commodities-contango-and-backwardation",
+    title: "Contango and Backwardation",
+    summary:
+      "Why commodity futures curves so often slope in one particular direction — and the storage-cost and convenience-yield forces that explain why.",
+    body: [
+      { type: "heading", text: "Two Curve Shapes" },
+      { type: "paragraph", text: "As introduced elsewhere in this course, a commodity's futures curve can sit in contango, where further-dated contracts are priced higher than near-dated ones, or in backwardation, where further-dated contracts are priced lower — this lesson focuses specifically on why commodities, more than other asset classes, tend to show one or the other so persistently." },
+      { type: "heading", text: "Storage Costs Push Toward Contango" },
+      { type: "paragraph", text: "Physically storing a commodity until a later delivery date costs real money — warehousing, insurance, and for some commodities, spoilage risk. Those costs get built directly into the futures price for later-dated contracts, pushing the curve toward contango, all else equal, since a later contract has to compensate for a longer stretch of storage costs." },
+      { type: "heading", text: "Convenience Yield Pushes Toward Backwardation" },
+      { type: "paragraph", text: "Working in the opposite direction is convenience yield: the real benefit of holding the physical commodity right now rather than a promise of future delivery, which becomes especially valuable when current supply is tight and a business genuinely needs the commodity on hand to keep operating. A high convenience yield can outweigh storage costs entirely, pulling the curve into backwardation." },
+      { type: "heading", text: "Why This Differs From Financial Futures" },
+      { type: "paragraph", text: "This tug-of-war between storage cost and convenience yield is specific to physical commodities — a financial futures contract, like one on a stock index, has no storage cost and no convenience yield, since there's nothing physical to store or find useful to have on hand, which is exactly why commodity curves behave so differently, and are so much more variable, than financial futures curves." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does it mean for a commodity futures curve to be in contango?",
+        choices: [
+          "Further-dated contracts are priced higher than near-dated ones",
+          "Further-dated contracts are priced lower than near-dated ones",
+          "All contracts are priced identically regardless of maturity",
+          "The commodity cannot be traded via futures at all",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Contango describes a curve where later-dated contracts cost more than near-dated ones, in contrast to backwardation, where the opposite holds.",
+      },
+      {
+        id: "q2",
+        prompt: "How do storage costs push a commodity's futures curve toward contango?",
+        choices: [
+          "The cost of storing the commodity until a later date gets built into later contracts' prices, pushing them higher",
+          "Storage costs have no effect on futures pricing",
+          "Storage costs only affect the spot price, never futures prices",
+          "Storage costs always push the curve into backwardation instead",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Physically holding a commodity until a later delivery date costs money, and that cost is reflected in a higher price for later-dated contracts — the classic driver of contango.",
+      },
+      {
+        id: "q3",
+        prompt: "What is convenience yield, and how does it affect the futures curve?",
+        choices: [
+          "The benefit of holding the physical commodity right now, which can pull the curve into backwardation when it's high",
+          "A fee charged for storing a commodity",
+          "It only applies to financial futures, never physical commodities",
+          "Convenience yield always pushes the curve toward contango",
+        ],
+        correctIndex: 0,
+        explanation:
+          "When having the physical commodity on hand right now is especially valuable, that convenience yield can outweigh storage costs and pull the curve into backwardation.",
+      },
+      {
+        id: "q4",
+        prompt: "Why don't financial futures, like stock index futures, experience the same contango/backwardation dynamics from storage and convenience yield?",
+        choices: [
+          "There's no physical asset to store and no convenience benefit to holding it right now, since it's not a physical good",
+          "Financial futures always trade in backwardation for unrelated reasons",
+          "Financial futures curves behave in exactly the same way as commodity curves",
+          "Stock index futures have higher storage costs than physical commodities",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The storage-cost and convenience-yield forces are specific to physical goods — a financial futures contract has neither, which is why its curve behaves differently.",
+      },
+      {
+        id: "q5",
+        prompt: "What happens when convenience yield outweighs storage costs?",
+        choices: [
+          "The curve can be pulled into backwardation",
+          "The curve is always pushed further into contango",
+          "The futures contract stops trading entirely",
+          "Storage costs and convenience yield can never offset each other",
+        ],
+        correctIndex: 0,
+        explanation:
+          "When the benefit of holding the physical commodity now outweighs the cost of storing it for later delivery, the curve tends toward backwardation rather than contango.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "commodities-supply-demand-and-prices",
+    title: "Supply, Demand, and Commodity Prices",
+    summary:
+      "The fundamental forces — production, weather, geopolitics, and inventories — that drive commodity prices, and why they hit commodities differently than other asset classes.",
+    body: [
+      { type: "heading", text: "Production and Supply Shocks" },
+      { type: "paragraph", text: "A commodity's supply depends on how much is actually being produced — pumped, mined, or harvested — at any given time, and that supply can be disrupted suddenly by events like a mine closure, a pipeline outage, or a major producing country's political instability, often causing sharp, fast price moves that a slower-moving stock or bond market wouldn't experience from a comparable event." },
+      { type: "heading", text: "Weather and Seasonality" },
+      { type: "paragraph", text: "Agricultural commodities in particular are exposed to weather directly — a drought, flood, or early frost can meaningfully cut a harvest's size, and energy commodities like natural gas see strong seasonal demand swings tied to heating and cooling needs across the year, giving many commodities a recurring, seasonal pattern that few other asset classes share." },
+      { type: "heading", text: "Geopolitical Risk" },
+      { type: "paragraph", text: "Because commodity production is often concentrated in a relatively small number of countries or regions, geopolitical events — sanctions, conflict, export restrictions — can have an outsized effect on global supply and price, a channel that's especially pronounced in energy and certain metals markets." },
+      { type: "heading", text: "Inventory Levels" },
+      { type: "paragraph", text: "Reported inventory levels — how much of a commodity is currently sitting in storage — are closely watched as a real-time signal of the balance between supply and demand: unusually low inventories tend to signal tight supply and support higher prices (and often backwardation), while unusually high inventories tend to signal oversupply and pressure prices lower (and often contango)." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "Why can commodity supply shocks cause sharper, faster price moves than comparable events in other markets?",
+        choices: [
+          "Sudden disruptions like a mine closure or pipeline outage can immediately cut available supply in a way slower-moving markets don't experience",
+          "Commodity markets are immune to any kind of price shock",
+          "Supply shocks only ever affect the stock market, never commodities",
+          "Commodity prices never actually respond to supply changes",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because commodity supply can be disrupted suddenly and directly, price reactions can be sharper and faster than in markets less tied to physical production events.",
+      },
+      {
+        id: "q2",
+        prompt: "How does weather specifically affect agricultural commodities?",
+        choices: [
+          "Events like droughts, floods, or early frosts can meaningfully cut a harvest's size",
+          "Weather has no effect on agricultural commodity prices",
+          "Weather only affects energy commodities, never agriculture",
+          "Weather effects are identical across every commodity category",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Agricultural commodities are directly exposed to growing-season weather, which can significantly reduce supply through a poor harvest.",
+      },
+      {
+        id: "q3",
+        prompt: "Why does geopolitical risk have an outsized effect on some commodity markets?",
+        choices: [
+          "Commodity production is often concentrated in a relatively small number of countries or regions",
+          "Geopolitical events have no relationship to commodity prices",
+          "Commodities are the only asset class immune to geopolitical risk",
+          "Geopolitical risk only affects agricultural commodities",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because production is often geographically concentrated, disruptions from sanctions, conflict, or export restrictions in those regions can meaningfully affect global supply and price.",
+      },
+      {
+        id: "q4",
+        prompt: "What do unusually low commodity inventory levels tend to signal?",
+        choices: [
+          "Tight supply, often supporting higher prices and backwardation",
+          "Oversupply and falling prices",
+          "Inventory levels have no relationship to prices or curve shape",
+          "A guaranteed price crash",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Low inventories typically signal a tight supply-demand balance, which tends to support prices and can push the futures curve toward backwardation.",
+      },
+      {
+        id: "q5",
+        prompt: "Why do energy commodities like natural gas show strong seasonal demand patterns?",
+        choices: [
+          "Demand swings with heating and cooling needs across the year",
+          "Energy commodities have no seasonal demand pattern at all",
+          "Seasonal patterns only apply to agricultural commodities",
+          "Natural gas demand is constant year-round with no variation",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Heating and cooling needs create recurring, predictable seasonal swings in energy demand that show up as a repeating pattern few other asset classes share.",
+      },
+    ],
+  },
 ];

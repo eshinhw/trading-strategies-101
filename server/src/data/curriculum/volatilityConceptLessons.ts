@@ -587,4 +587,340 @@ export const volatilityConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "volatility-what-is-volatility",
+    title: "What Is Volatility?",
+    summary:
+      "A statistical measure of how much a price fluctuates — and the crucial difference between volatility that already happened and volatility the market expects.",
+    body: [
+      { type: "heading", text: "Volatility as a Measure of Movement" },
+      { type: "paragraph", text: "Volatility measures how much a price fluctuates over time, typically expressed as an annualized percentage — a stock with 20% volatility is expected, statistically, to see its price wander within roughly a 20% range up or down over the course of a year, though it says nothing about which direction the price actually ends up moving." },
+      { type: "heading", text: "Historical (Realized) Volatility" },
+      { type: "paragraph", text: "Historical volatility, also called realized volatility, is calculated by looking backward: measuring how much a price actually moved over some past period, using its recorded daily (or other interval) returns. It's a factual, after-the-fact number — a description of what happened, not a forecast." },
+      { type: "heading", text: "Implied Volatility" },
+      { type: "paragraph", text: "Implied volatility looks forward instead: it's the volatility level that, when plugged into an option pricing model, produces the option's actual current market price. Rather than being calculated directly from past price data, implied volatility is backed out from what option traders are collectively willing to pay right now, making it a market-based estimate of future volatility." },
+      { type: "heading", text: "Why the Distinction Matters" },
+      { type: "paragraph", text: "Historical and implied volatility can, and often do, diverge — implied volatility can run higher or lower than what realized volatility ends up being once the period actually plays out. That gap is the foundation for an entire category of volatility trading strategies, covered later in this course, built around betting on the relationship between what the market expects and what actually happens." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does volatility measure?",
+        choices: [
+          "How much a price fluctuates over time, typically expressed as an annualized percentage",
+          "The direction a price is expected to move",
+          "A company's total market capitalization",
+          "The dividend yield of a stock",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Volatility is a measure of the magnitude of price movement, not its direction — it says how much a price might wander, not which way.",
+      },
+      {
+        id: "q2",
+        prompt: "What is historical (realized) volatility?",
+        choices: [
+          "A backward-looking measurement of how much a price actually moved over some past period",
+          "A forecast of future price movement derived from option prices",
+          "The volatility level guaranteed by an exchange",
+          "A measure of a company's revenue growth",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Historical volatility is calculated directly from actual past price data — a factual record of what happened, not a prediction.",
+      },
+      {
+        id: "q3",
+        prompt: "What is implied volatility?",
+        choices: [
+          "The volatility level that, plugged into an option pricing model, produces the option's actual current market price",
+          "The exact volatility a stock will have next year, guaranteed",
+          "A measure calculated purely from historical price data",
+          "The volatility of a company's earnings reports",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Implied volatility is backed out from current option prices, making it a market-based, forward-looking estimate rather than a backward-looking calculation.",
+      },
+      {
+        id: "q4",
+        prompt: "Why can historical and implied volatility diverge?",
+        choices: [
+          "Implied volatility reflects the market's current expectation, which can end up higher or lower than what realized volatility turns out to be",
+          "They are mathematically required to always be identical",
+          "Historical volatility is always higher than implied volatility",
+          "Implied volatility never changes once set",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Implied volatility is an expectation baked into option prices today, while realized volatility is what actually happens later — the two can and do diverge.",
+      },
+      {
+        id: "q5",
+        prompt: "Why does the gap between historical and implied volatility matter for this course?",
+        choices: [
+          "It's the foundation for an entire category of volatility trading strategies covered later in the course",
+          "It has no practical relevance to trading",
+          "It only matters for calculating dividends",
+          "The gap is always exactly zero, so it's not a useful signal",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Strategies that bet on the relationship between what the market expects (implied) and what actually happens (realized) are built directly on this distinction.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "volatility-the-vix",
+    title: "The VIX: Measuring Market Fear",
+    summary:
+      "What the VIX index actually measures, why it's called the market's \"fear gauge,\" and why it tends to rise when stocks fall.",
+    body: [
+      { type: "heading", text: "What the VIX Measures" },
+      { type: "paragraph", text: "The VIX index measures the market's expectation of S&P 500 volatility over the next 30 days, calculated directly from the prices of a wide range of S&P 500 index options. It's not a prediction from a single model or forecaster — it's a real-time distillation of what options traders, collectively, are actually paying for protection and exposure right now." },
+      { type: "heading", text: "Why It's Called the \"Fear Gauge\"" },
+      { type: "paragraph", text: "The VIX earned its nickname because it tends to spike sharply during market selloffs and periods of investor anxiety, as demand for downside protection, in the form of put options, drives up the options prices the VIX is calculated from. During calm, steadily rising markets, the VIX tends to sit at low, quiet levels." },
+      { type: "heading", text: "The Inverse Relationship With Stocks" },
+      { type: "paragraph", text: "The VIX and the S&P 500 have a strong, well-documented negative correlation: the VIX tends to rise when stocks fall, and settle back down when stocks recover or grind higher. This persistent inverse relationship is exactly what makes VIX-linked instruments appealing as a potential hedge against a stock portfolio's own downside." },
+      { type: "heading", text: "The VIX Itself Isn't Directly Tradable" },
+      { type: "paragraph", text: "The VIX index is a calculated number, not a tradable security — there's no way to simply buy or sell the VIX the way you'd buy a stock. Trading exposure to it requires derivatives built on top of the index, like VIX futures or VIX options, or exchange-traded products built on those derivatives, all covered in the next lesson." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does the VIX index measure?",
+        choices: [
+          "The market's expectation of S&P 500 volatility over the next 30 days, derived from S&P 500 index option prices",
+          "The S&P 500's actual historical return over the past year",
+          "The dividend yield of S&P 500 companies",
+          "The total trading volume of the stock market",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The VIX is a forward-looking, options-derived measure of expected volatility over the next 30 days, not a backward-looking or unrelated statistic.",
+      },
+      {
+        id: "q2",
+        prompt: "Why is the VIX nicknamed the \"fear gauge\"?",
+        choices: [
+          "It tends to spike sharply during market selloffs as demand for downside protection rises",
+          "It only moves when the government makes policy announcements",
+          "It measures investor happiness during bull markets",
+          "It has no relationship to actual market conditions",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Rising demand for protective puts during selloffs pushes up the option prices the VIX is calculated from, causing the VIX to spike during periods of market anxiety.",
+      },
+      {
+        id: "q3",
+        prompt: "How does the VIX typically relate to the S&P 500's own movement?",
+        choices: [
+          "They have a strong negative correlation — the VIX tends to rise when stocks fall",
+          "They always move in exactly the same direction",
+          "There is no relationship between the two at all",
+          "The VIX only moves after the S&P 500 has been flat for a month",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The VIX's well-documented inverse relationship with the S&P 500 is central to why VIX-linked instruments are used as a potential portfolio hedge.",
+      },
+      {
+        id: "q4",
+        prompt: "Can an investor directly buy or sell \"the VIX\" itself?",
+        choices: [
+          "No — the VIX is a calculated index, not a tradable security; exposure requires derivatives built on top of it",
+          "Yes, the VIX trades directly on the NYSE like a stock",
+          "Yes, but only during the first hour of trading each day",
+          "The VIX can only be purchased by government entities",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The VIX itself is just a calculated number — actually trading exposure to it requires VIX futures, options, or exchange-traded products built on those derivatives.",
+      },
+      {
+        id: "q5",
+        prompt: "What tends to happen to the VIX during calm, steadily rising markets?",
+        choices: [
+          "It tends to sit at low, quiet levels",
+          "It always spikes to record highs",
+          "It becomes completely unpredictable",
+          "It stops being calculated entirely",
+        ],
+        correctIndex: 0,
+        explanation:
+          "With low demand for downside protection during calm markets, the option prices feeding into the VIX stay subdued, keeping the index itself low.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "volatility-trading-vix-futures-and-etns",
+    title: "Trading Volatility: VIX Futures and ETNs",
+    summary:
+      "Since the VIX itself can't be bought or sold, these are the actual instruments traders use to get exposure to volatility — and the curve dynamics that come with them.",
+    body: [
+      { type: "heading", text: "VIX Futures" },
+      { type: "paragraph", text: "VIX futures are exchange-traded contracts on the future value of the VIX index, letting a trader go long or short expected volatility directly, the same basic long/short mechanics covered in the Futures course, just applied to an index of expected volatility instead of a physical commodity or a stock index." },
+      { type: "heading", text: "The VIX Futures Curve" },
+      { type: "paragraph", text: "Like any futures market, VIX futures of different expirations trade at different prices, forming a curve. Because the VIX tends to spike temporarily and then settle back toward its long-run average, VIX futures typically sit in contango, with longer-dated contracts priced higher than the near-term VIX level — the same contango and backwardation concepts already covered for commodity futures, here reflecting expectations about volatility rather than storage costs." },
+      { type: "heading", text: "Exchange-Traded Notes (ETNs)" },
+      { type: "paragraph", text: "Rather than trading VIX futures directly, many investors get volatility exposure through exchange-traded notes (ETNs) built on top of a basket of VIX futures, tradable on an exchange just like a stock or ETF. Unlike an ETF, an ETN is technically an unsecured debt obligation of the issuing bank, carrying issuer credit risk on top of whatever the underlying VIX futures do." },
+      { type: "heading", text: "Why These Products Decay Over Time" },
+      { type: "paragraph", text: "Because the VIX futures curve typically sits in contango, a fund that continuously rolls its futures forward, always selling a cheaper near-term contract and buying a pricier longer-dated one, tends to erode in value over time even if the VIX itself doesn't trend in either direction — the same structural roll-cost drag covered for commodity futures, which is why these products are generally viewed as short-term trading tools rather than long-term holdings." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What do VIX futures let a trader do?",
+        choices: [
+          "Go long or short expected future volatility directly, using the same long/short mechanics as any other futures contract",
+          "Buy the VIX index directly, the same way you'd buy a stock",
+          "Guarantee a fixed return regardless of market volatility",
+          "Trade only on the last day of every month",
+        ],
+        correctIndex: 0,
+        explanation:
+          "VIX futures apply standard futures long/short mechanics to expected volatility, since the VIX index itself can't be directly bought or sold.",
+      },
+      {
+        id: "q2",
+        prompt: "Why do VIX futures typically trade in contango?",
+        choices: [
+          "The VIX tends to spike temporarily and settle back toward its long-run average, so longer-dated contracts price in a return toward that average level",
+          "Contango only happens in physical commodity markets, never in VIX futures",
+          "VIX futures always trade at the exact same price regardless of expiration",
+          "Contango means the VIX is expected to keep rising forever",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since VIX spikes are typically temporary, longer-dated futures tend to price toward the VIX's long-run average, which is usually above the current, possibly-depressed near-term level — producing contango.",
+      },
+      {
+        id: "q3",
+        prompt: "What is a key structural difference between an ETN and an ETF?",
+        choices: [
+          "An ETN is an unsecured debt obligation of the issuing bank, carrying issuer credit risk that an ETF does not have",
+          "ETNs cannot be traded on an exchange at all",
+          "ETFs and ETNs are functionally identical in every respect",
+          "ETNs always guarantee a fixed return",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Unlike an ETF, which holds actual underlying assets, an ETN is a debt note from its issuer, adding issuer credit risk on top of the underlying exposure.",
+      },
+      {
+        id: "q4",
+        prompt: "Why do VIX futures-based products tend to decay in value over time?",
+        choices: [
+          "Continuously rolling from a cheaper near-term contract into a pricier longer-dated one (contango) creates a structural drag, even if the VIX itself doesn't trend",
+          "These products are required by regulation to lose a fixed percentage each year",
+          "The VIX always falls to zero eventually",
+          "Decay only happens if the VIX rises, never when it's flat",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The same roll-cost dynamic covered for commodity futures applies here — rolling forward through a contango curve erodes value over time, independent of whether the VIX itself trends up or down.",
+      },
+      {
+        id: "q5",
+        prompt: "Why are VIX futures-based ETNs generally viewed as short-term trading tools rather than long-term holdings?",
+        choices: [
+          "Their structural roll-cost decay from contango tends to erode value the longer they're held",
+          "They are legally prohibited from being held for more than a day",
+          "They always deliver higher returns the longer they're held",
+          "There is no reason to avoid holding them long-term",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The contango-driven decay described above compounds over time, which is why these products are typically used for short-term tactical trades rather than buy-and-hold positions.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "volatility-implied-vol-and-the-risk-premium",
+    title: "Implied Volatility and the Volatility Risk Premium",
+    summary:
+      "The well-documented tendency for implied volatility to run higher than the volatility that actually ends up being realized — and why that gap is tradable.",
+    body: [
+      { type: "heading", text: "Revisiting Implied Volatility" },
+      { type: "paragraph", text: "As covered earlier in this module, implied volatility is the market's forward-looking estimate of future volatility, backed out of current option prices, in contrast to realized volatility, which is only known after the fact, once the period has actually played out." },
+      { type: "heading", text: "A Persistent Gap" },
+      { type: "paragraph", text: "Across long historical samples, implied volatility has tended to run higher, on average, than the volatility that subsequently gets realized — options, in other words, have tended to be priced a bit more expensively than the underlying's actual future movement would have justified in hindsight." },
+      { type: "heading", text: "Why This Gap Might Exist" },
+      { type: "paragraph", text: "The leading explanation is that option buyers are willing to pay a premium for the insurance-like protection options provide against sharp, sudden losses, much like an insurance buyer accepts a policy priced above the insurer's expected payout — that willingness to overpay for protection is what creates the volatility risk premium, compensating whoever is on the other side of that trade for bearing the corresponding risk." },
+      { type: "heading", text: "Where This Leads" },
+      { type: "paragraph", text: "This persistent gap between implied and realized volatility is exactly what a family of strategies covered later in this course, from selling straddles and strangles to more sophisticated gamma-hedged and variance-swap approaches, is built to systematically harvest — collecting the premium embedded in option prices, while managing the real risk of a period where realized volatility spikes well above what was priced in." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What has implied volatility tended to do relative to subsequently realized volatility, historically?",
+        choices: [
+          "Run higher, on average, than the volatility that actually ends up being realized",
+          "Run consistently lower than realized volatility",
+          "Always match realized volatility exactly",
+          "Have no measurable relationship to realized volatility at all",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Across long historical samples, implied volatility has on average priced options a bit richer than what subsequently realized volatility would have justified.",
+      },
+      {
+        id: "q2",
+        prompt: "What is the leading explanation for why this gap exists?",
+        choices: [
+          "Option buyers are willing to pay a premium for insurance-like protection against sharp losses, similar to how insurance is priced above expected payouts",
+          "Option sellers are legally required to overcharge for every contract",
+          "The gap is purely a data error with no real economic explanation",
+          "Implied volatility is always miscalculated by the exchange",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The willingness to pay for downside protection, much like buying insurance, is the standard explanation for why options tend to be priced a bit richer than realized outcomes justify.",
+      },
+      {
+        id: "q3",
+        prompt: "What is the volatility risk premium?",
+        choices: [
+          "The compensation earned by whoever is on the other side of that protection-buying demand, for bearing the corresponding risk",
+          "A fee charged by exchanges for trading options",
+          "The difference between two different stocks' volatility levels",
+          "A tax applied to volatility-linked products",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The volatility risk premium is the reward for selling that insurance-like protection — collecting the gap between implied and (typically lower) realized volatility.",
+      },
+      {
+        id: "q4",
+        prompt: "What kind of strategies are built to harvest this premium, according to this lesson?",
+        choices: [
+          "Strategies like selling straddles/strangles and more sophisticated gamma-hedged or variance-swap approaches, covered later in this course",
+          "Only strategies that buy options, never sell them",
+          "Strategies with no relationship to option prices at all",
+          "Strategies exclusively focused on individual stock picking",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Premium-harvesting strategies generally involve selling volatility exposure (straddles, strangles, and more refined variants), collecting the gap between implied and realized volatility.",
+      },
+      {
+        id: "q5",
+        prompt: "What real risk does a strategy harvesting the volatility risk premium have to manage?",
+        choices: [
+          "The risk of a period where realized volatility spikes well above what was priced in",
+          "There is no real risk once the premium is collected",
+          "The only risk is that implied volatility might fall to zero",
+          "The strategy is risk-free by construction",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Collecting the premium works most of the time, but a sudden spike in realized volatility beyond what was implied can produce a sharp loss — the core risk these strategies have to manage.",
+      },
+    ],
+  },
 ];

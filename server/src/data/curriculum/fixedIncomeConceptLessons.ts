@@ -1241,4 +1241,340 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "fixed-income-what-is-a-bond",
+    title: "What Is a Bond?",
+    summary:
+      "A loan in security form — the issuer borrows money and promises fixed payments back, in contrast to a stock's ownership stake with no promised repayment.",
+    body: [
+      { type: "heading", text: "A Loan, Packaged as a Security" },
+      { type: "paragraph", text: "A bond is a loan in tradable form: the issuer, a government, a municipality, or a corporation, borrows a sum of money, called the face value or par value, from investors and promises to repay it, plus interest, according to a fixed schedule. Buying a bond means becoming that issuer's lender, not its owner." },
+      { type: "heading", text: "Coupons and Maturity" },
+      { type: "paragraph", text: "Most bonds pay a fixed interest payment, called a coupon, at regular intervals, commonly every six months, until the bond's maturity date, when the issuer repays the full face value. A bond's coupon rate is normally set once, at issuance, and doesn't change over the bond's life even as market interest rates move around it." },
+      { type: "heading", text: "A Fixed Claim, Not an Ownership Stake" },
+      { type: "paragraph", text: "This is the core contrast with a stock: a bondholder is owed a specific, contractually fixed stream of payments regardless of how well or poorly the issuer's business performs, while a shareholder's payoff is entirely open-ended, tied to the company's actual profits and residual value. In exchange for that fixed, more predictable claim, a bondholder also ranks ahead of shareholders in a bankruptcy or liquidation." },
+      { type: "heading", text: "Why Investors Hold Bonds" },
+      { type: "paragraph", text: "Bonds are held for the combination of predictable income and, relative to stocks, lower volatility — useful for an investor who needs cash flow on a known schedule, or who wants to offset the swings of a stock-heavy portfolio with a steadier asset. That predictability comes at the cost of giving up the unlimited upside a shareholder retains if the underlying business does extremely well." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is a bond, fundamentally?",
+        choices: [
+          "A loan in tradable form — the issuer borrows money and promises to repay it, plus interest, on a fixed schedule",
+          "An ownership stake in the issuing company",
+          "A guarantee of unlimited upside tied to the issuer's profits",
+          "A type of insurance policy",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A bond is debt: the buyer lends money to the issuer, who promises fixed repayment terms, in contrast to equity ownership.",
+      },
+      {
+        id: "q2",
+        prompt: "What is a bond's coupon?",
+        choices: [
+          "A discount applied at the time of purchase",
+          "The fixed interest payment made at regular intervals until maturity",
+          "The bond's final repayment of face value",
+          "A fee charged by the bond's issuer",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The coupon is the periodic interest payment a bondholder receives, set at issuance and typically unchanged for the bond's life.",
+      },
+      {
+        id: "q3",
+        prompt: "How does a bondholder's claim differ from a shareholder's?",
+        choices: [
+          "A bondholder is owed a fixed, contractual stream of payments, while a shareholder's payoff is open-ended and tied to company performance",
+          "A bondholder owns a proportional stake in the company, exactly like a shareholder",
+          "A shareholder is guaranteed a fixed repayment schedule",
+          "There is no meaningful difference between the two claims",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A bond promises fixed payments regardless of how the business performs, while a stock's payoff depends entirely on the company's actual results — a core distinction between debt and equity.",
+      },
+      {
+        id: "q4",
+        prompt: "In a bankruptcy or liquidation, how do bondholders rank relative to shareholders?",
+        choices: [
+          "Bondholders rank ahead of shareholders and are paid first",
+          "Shareholders are always paid before bondholders",
+          "Both are paid simultaneously in equal amounts",
+          "Neither bondholders nor shareholders have any claim in a liquidation",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Bondholders, as creditors, have a senior claim to shareholders, who only receive whatever residual value remains after all debt has been repaid.",
+      },
+      {
+        id: "q5",
+        prompt: "Why might an investor hold bonds instead of, or alongside, stocks?",
+        choices: [
+          "For predictable income and typically lower volatility, even though that means giving up a stock's unlimited upside",
+          "Because bonds always outperform stocks in every market environment",
+          "Because bonds carry no risk whatsoever",
+          "Because bonds are legally required to be held by all investors",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Bonds trade unlimited upside for a steadier, more predictable payment stream — a useful complement to the more volatile, open-ended payoff of stocks.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-yield-and-price",
+    title: "Yield, Price, and the Inverse Relationship",
+    summary:
+      "Why a bond's price and its yield move in opposite directions — the single most important relationship in fixed income.",
+    body: [
+      { type: "heading", text: "What Yield Means" },
+      { type: "paragraph", text: "A bond's yield is the annualized return an investor earns by holding it, accounting for both its coupon payments and any difference between the price paid and the face value received back at maturity. Yield to maturity, the most commonly quoted figure, captures the total return an investor would earn holding the bond all the way to maturity, reinvesting coupons along the way." },
+      { type: "heading", text: "Why Price and Yield Move Oppositely" },
+      { type: "paragraph", text: "A bond's coupon is fixed at issuance, so when market interest rates rise, newly issued bonds offer higher coupons, making existing, lower-coupon bonds less attractive at their original price — their price must fall for their fixed coupon to translate into a competitive yield. The reverse happens when rates fall: existing higher-coupon bonds become more attractive, and their price rises." },
+      { type: "heading", text: "A Concrete Illustration" },
+      { type: "paragraph", text: "A bond issued at par with a 4% coupon pays $40 a year on a $1,000 face value, regardless of what happens to rates afterward. If market rates rise to 5%, a new buyer of that same bond wouldn't pay $1,000 for only a 4% return when 5% is available elsewhere — the bond's price has to drop below $1,000 until its fixed $40 coupon, plus the price discount, works out to a competitive 5% yield." },
+      { type: "heading", text: "Current Yield vs. Yield to Maturity" },
+      { type: "paragraph", text: "Current yield is a simpler, cruder measure: just the annual coupon divided by the bond's current market price, ignoring any gain or loss from the price converging to face value at maturity. Yield to maturity is the more complete measure, since it accounts for that convergence too, which is why the two figures diverge whenever a bond trades away from par." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does a bond's yield to maturity capture?",
+        choices: [
+          "The total annualized return from holding the bond to maturity, including coupons and the difference between purchase price and face value",
+          "Only the bond's coupon rate, with nothing else considered",
+          "The issuer's credit rating",
+          "The bond's original face value alone",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Yield to maturity is the more complete return measure, folding in both the coupon income and any price gain or loss as the bond converges to face value.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does a bond's price fall when market interest rates rise?",
+        choices: [
+          "Its fixed coupon becomes less attractive relative to newly issued bonds offering higher coupons, so its price must drop to remain competitive",
+          "Rising rates have no effect on existing bond prices",
+          "The issuer is required to lower the bond's face value",
+          "Bond prices only change when the issuer's credit rating changes",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since a bond's coupon is fixed, a rise in prevailing rates makes its existing coupon relatively less attractive, and the price has to fall for its yield to stay competitive.",
+      },
+      {
+        id: "q3",
+        prompt: "A 4%-coupon bond was issued at $1,000 par. If market rates rise to 5%, what happens to the bond's price?",
+        choices: [
+          "It falls below $1,000, so the fixed $40 coupon plus the price discount produces a competitive 5% yield",
+          "It rises above $1,000",
+          "It stays exactly at $1,000 regardless of rate changes",
+          "The bond's coupon automatically increases to 5%",
+        ],
+        correctIndex: 0,
+        explanation:
+          "With a fixed $40 coupon, the only way the bond can offer a competitive 5% yield after rates rise is for its price to fall below the original $1,000.",
+      },
+      {
+        id: "q4",
+        prompt: "What does current yield measure, and how does it differ from yield to maturity?",
+        choices: [
+          "Current yield is just annual coupon divided by current price, ignoring the price's eventual convergence to face value that yield to maturity accounts for",
+          "Current yield and yield to maturity always produce identical numbers",
+          "Current yield accounts for reinvestment risk, while yield to maturity does not",
+          "Current yield only applies to bonds trading exactly at par",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Current yield is a simpler, cruder snapshot that ignores the price/face-value convergence over time, which is exactly what yield to maturity captures.",
+      },
+      {
+        id: "q5",
+        prompt: "What happens to existing bond prices when market interest rates fall?",
+        choices: [
+          "Existing, higher-coupon bonds become more attractive and their prices rise",
+          "Existing bond prices fall",
+          "Bond prices are unaffected by falling rates",
+          "All existing bonds are recalled by their issuers",
+        ],
+        correctIndex: 0,
+        explanation:
+          "When new bonds offer lower coupons, existing bonds with higher, fixed coupons become relatively more attractive, pushing their prices up — the mirror image of the rate-rise case.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-duration",
+    title: "Duration: Measuring Interest Rate Sensitivity",
+    summary:
+      "A single number that summarizes how much a bond's price is expected to move for a given change in interest rates.",
+    body: [
+      { type: "heading", text: "What Duration Measures" },
+      { type: "paragraph", text: "Duration measures a bond's sensitivity to interest rate changes, expressed in years, but functioning as a percentage-price-change figure: a bond with a duration of 7 is expected to lose roughly 7% of its value for each 1-percentage-point rise in rates, and gain roughly 7% for each 1-point fall, all else equal." },
+      { type: "heading", text: "Why Duration Isn't Just Time to Maturity" },
+      { type: "paragraph", text: "Duration is related to, but not the same as, a bond's time to maturity — it's more precisely a weighted average of when the bond's cash flows (coupons and final principal) actually arrive, weighted by their present value. A bond that pays a large coupon early on has some of its value returned sooner, which pulls its duration below its raw maturity date." },
+      { type: "heading", text: "What Drives a Bond's Duration Higher or Lower" },
+      { type: "paragraph", text: "Longer maturity generally means higher duration, since more of the bond's value depends on a cash flow far in the future, which is more sensitive to a change in the discount rate. Lower coupons also raise duration, since more of the bond's total value sits in the single, far-off principal repayment rather than being returned steadily through coupons along the way — a zero-coupon bond has the highest duration of all, for a given maturity." },
+      { type: "heading", text: "Why Duration Matters for Portfolio Construction" },
+      { type: "paragraph", text: "Duration is the tool that lets a bond portfolio manager size a position, compare bonds of different maturities and coupons on a common basis, or construct a hedge, by matching the dollar duration of a hedging instrument to the dollar duration of the exposure being hedged, rather than relying on maturity alone, which can be a misleading measure of actual rate sensitivity." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does a bond's duration of 7 approximately tell you?",
+        choices: [
+          "The bond's price is expected to move roughly 7% for each 1-percentage-point change in interest rates",
+          "The bond matures in exactly 7 months",
+          "The bond pays a 7% coupon",
+          "The bond has 7 different coupon payment dates remaining",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Duration translates directly into an expected percentage price change per 1-point move in rates — a duration of 7 means roughly a 7% move for a 1-point rate change.",
+      },
+      {
+        id: "q2",
+        prompt: "How does duration differ from a bond's simple time to maturity?",
+        choices: [
+          "Duration is a present-value-weighted average of when all the bond's cash flows arrive, not just the final maturity date",
+          "Duration and time to maturity are always exactly identical",
+          "Duration only considers the bond's final principal repayment",
+          "Duration has no relationship to a bond's cash flow timing",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Duration weights every cash flow's timing by its present value, so a bond returning value earlier (larger coupons) has a duration below its raw maturity date.",
+      },
+      {
+        id: "q3",
+        prompt: "Why does a zero-coupon bond have the highest duration for a given maturity?",
+        choices: [
+          "All of its value is returned in a single, far-off principal payment, with no earlier coupons pulling the weighted average down",
+          "Zero-coupon bonds are not sensitive to interest rates at all",
+          "Zero-coupon bonds always mature faster than coupon bonds",
+          "Duration does not apply to zero-coupon bonds",
+        ],
+        correctIndex: 0,
+        explanation:
+          "With no coupons returning value along the way, a zero-coupon bond's entire value depends on that one distant principal payment, maximizing its duration relative to a coupon-paying bond of the same maturity.",
+      },
+      {
+        id: "q4",
+        prompt: "Why is duration more useful than raw maturity for comparing bonds' rate sensitivity?",
+        choices: [
+          "Two bonds with the same maturity but different coupons can have meaningfully different rate sensitivity, which duration captures and maturity alone does not",
+          "Maturity and duration always produce identical comparisons",
+          "Duration ignores coupon size entirely, just like maturity does",
+          "Duration is only relevant for bonds trading at a premium",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because duration accounts for coupon size and timing, not just the final maturity date, it gives a more accurate, comparable measure of actual interest-rate sensitivity across different bonds.",
+      },
+      {
+        id: "q5",
+        prompt: "How is duration used when constructing a hedge for a bond position?",
+        choices: [
+          "By matching the dollar duration of the hedging instrument to the dollar duration of the exposure being hedged",
+          "By simply matching the maturity dates of the two instruments, ignoring duration",
+          "Duration has no practical use in hedging",
+          "By matching the coupon rates of the two instruments exactly",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Sizing a hedge by dollar duration, not just maturity, is what actually matches the rate sensitivity of the hedge to the position being protected.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fixed-income-the-yield-curve",
+    title: "The Yield Curve",
+    summary:
+      "Plotting yields across every maturity at once reveals a curve whose shape carries information about what the market expects from the economy.",
+    body: [
+      { type: "heading", text: "What the Yield Curve Shows" },
+      { type: "paragraph", text: "The yield curve plots the yield of otherwise-comparable bonds (typically government bonds of the same issuer) against their time to maturity, from very short-term to very long-term. Reading across the curve at any moment shows the entire term structure of interest rates the market is currently pricing, not just a single rate." },
+      { type: "heading", text: "The Normal, Upward-Sloping Curve" },
+      { type: "paragraph", text: "Most of the time, the yield curve slopes upward: longer-maturity bonds yield more than shorter-maturity ones, compensating investors for the extra risk and uncertainty of locking up money for longer, and reflecting typical expectations that rates or inflation will run higher over a longer horizon than a shorter one." },
+      { type: "heading", text: "Flattening and Inverting" },
+      { type: "paragraph", text: "The curve can flatten, when the gap between short- and long-term yields narrows, or even invert, when short-term yields rise above long-term ones — historically a closely watched signal, since an inverted curve has often preceded economic slowdowns, reflecting a market expectation that central banks will eventually need to cut rates in response to weaker growth ahead." },
+      { type: "heading", text: "Why the Curve Matters Beyond Prediction" },
+      { type: "paragraph", text: "Even setting aside what it might predict about the economy, the yield curve's shape directly drives which fixed income strategies make sense at a given moment — a steep curve favors strategies like rolling down the curve, discussed elsewhere in this course, while a flat or inverted curve changes the relative appeal of different maturities and the curve-trade strategies built around them." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does the yield curve plot?",
+        choices: [
+          "The yield of comparable bonds against their time to maturity, all at a single point in time",
+          "A single bond's price history over many years",
+          "The credit ratings of different issuers",
+          "Stock market returns compared to bond returns",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The yield curve shows the full term structure of rates at one moment — yields at every maturity, from short-term to long-term, plotted together.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does the yield curve normally slope upward?",
+        choices: [
+          "Longer-maturity bonds compensate investors for the extra risk and uncertainty of locking up money for longer",
+          "Longer-maturity bonds are always safer than short-term bonds",
+          "Short-term bonds are illegal to issue with a yield",
+          "The upward slope has no economic explanation",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A normal, upward-sloping curve reflects investors demanding higher compensation for the added risk and uncertainty of tying up money over a longer horizon.",
+      },
+      {
+        id: "q3",
+        prompt: "What does it mean for the yield curve to \"invert\"?",
+        choices: [
+          "Short-term yields rise above long-term yields",
+          "All yields across every maturity become identical",
+          "Long-term yields rise far above short-term yields",
+          "Bond prices stop being quoted entirely",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Inversion is specifically when short-term yields exceed long-term yields — the reverse of the normal upward-sloping shape.",
+      },
+      {
+        id: "q4",
+        prompt: "Why is an inverted yield curve closely watched by economists and investors?",
+        choices: [
+          "It has historically often preceded economic slowdowns",
+          "It guarantees the stock market will rise",
+          "It means bond issuers are no longer able to borrow money",
+          "It has no historical significance at all",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Yield curve inversion has a track record of showing up before economic slowdowns, reflecting a market expectation that rates will eventually need to fall in response to weaker growth.",
+      },
+      {
+        id: "q5",
+        prompt: "Beyond any predictive signal, why does the yield curve's shape matter for fixed income strategy?",
+        choices: [
+          "It directly affects which maturities and curve-trade strategies are relatively attractive at a given moment",
+          "It has no effect on which strategies make sense",
+          "Only the overall level of rates matters, never the curve's shape",
+          "The curve's shape only matters for corporate bonds, never government bonds",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A steep curve favors different strategies (like rolling down the curve) than a flat or inverted one, making the curve's shape directly relevant to strategy selection, not just economic forecasting.",
+      },
+    ],
+  },
 ];

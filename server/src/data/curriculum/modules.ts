@@ -303,7 +303,7 @@ export const modules: Module[] = [
   {
     slug: "etfs-fundamentals",
     courseSlug: "etfs",
-    title: "ETF Fundamentals",
+    title: "ETF Strategies",
     description:
       "Sector and alpha rotation strategies (plain, MA-filtered, and dual momentum), the technical tools that refine and complement them (R-squared, mean-reversion), and structural ETF mechanics (leveraged ETF decay, multi-asset trend following).",
     order: 2,
@@ -320,12 +320,27 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "fixed-income-fundamentals",
+    slug: "fixed-income-basics",
     courseSlug: "fixed-income",
     title: "Fixed Income Basics",
     description:
-      "The classic bond-portfolio structures (bullets, barbells, ladders), immunizing a portfolio against rate risk, a duration-neutral curvature trade, and capturing price gains as a bond ages down the yield curve.",
+      "What a bond actually is, why price and yield move inversely, duration as the measure of rate sensitivity, and the yield curve whose shape drives most of this course's strategies.",
     order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "fixed-income-what-is-a-bond",
+      "fixed-income-yield-and-price",
+      "fixed-income-duration",
+      "fixed-income-the-yield-curve",
+    ],
+  },
+  {
+    slug: "fixed-income-fundamentals",
+    courseSlug: "fixed-income",
+    title: "Fixed Income Fundamentals",
+    description:
+      "The classic bond-portfolio structures (bullets, barbells, ladders), immunizing a portfolio against rate risk, a duration-neutral curvature trade, and capturing price gains as a bond ages down the yield curve.",
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fixed-income-bullets",
@@ -342,7 +357,7 @@ export const modules: Module[] = [
     title: "Butterfly & Curve Trades",
     description:
       "Three more ways to weight a butterfly trade's wings — fixed split, historical regression, and maturity distance — plus betting on the curve steepening or flattening rather than on rates overall.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: ["fixed-income-fundamentals"],
     lessonSlugs: [
       "fixed-income-fifty-fifty-butterfly",
@@ -357,7 +372,7 @@ export const modules: Module[] = [
     title: "Factor & Credit Strategies",
     description:
       "Factor investing applied to bonds (low-risk, value, and carry), plus two spread-arbitrage trades that isolate a mispricing between related credit and rates markets.",
-    order: 3,
+    order: 4,
     prerequisiteModuleSlugs: ["fixed-income-fundamentals"],
     lessonSlugs: [
       "fixed-income-low-risk-factor",
@@ -368,12 +383,27 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "indexes-fundamentals",
+    slug: "indexes-basics",
     courseSlug: "indexes",
     title: "Index Basics",
     description:
-      "Arbitrage between an index and its futures or ETF twins, betting on component correlation with dispersion trades, and dynamically sizing index exposure to hold volatility near a target.",
+      "What a stock index actually is, how its level is calculated (and kept consistent through splits and reconstitution), index futures and options, and how funds track an index in practice.",
     order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "indexes-what-is-a-stock-index",
+      "indexes-how-index-values-are-calculated",
+      "indexes-index-futures-and-options",
+      "indexes-tracking-an-index",
+    ],
+  },
+  {
+    slug: "indexes-fundamentals",
+    courseSlug: "indexes",
+    title: "Index Fundamentals",
+    description:
+      "Arbitrage between an index and its futures or ETF twins, betting on component correlation with dispersion trades, and dynamically sizing index exposure to hold volatility near a target.",
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "indexes-cash-and-carry-arbitrage",
@@ -384,12 +414,27 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "volatility-fundamentals",
+    slug: "volatility-basics",
     courseSlug: "volatility",
     title: "Volatility Basics",
     description:
-      "Trading volatility itself as an asset class — VIX futures mechanics and carry, harvesting the volatility risk premium (plain and gamma-hedged), skew, and variance swaps.",
+      "What volatility actually is (and the historical-vs-implied distinction), the VIX and why it's called the fear gauge, how to actually trade volatility, and the volatility risk premium that many strategies in this course harvest.",
     order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "volatility-what-is-volatility",
+      "volatility-the-vix",
+      "volatility-trading-vix-futures-and-etns",
+      "volatility-implied-vol-and-the-risk-premium",
+    ],
+  },
+  {
+    slug: "volatility-fundamentals",
+    courseSlug: "volatility",
+    title: "Volatility Fundamentals",
+    description:
+      "Trading volatility itself as an asset class — VIX futures mechanics and carry, harvesting the volatility risk premium (plain and gamma-hedged), skew, and variance swaps.",
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "volatility-vix-futures-basis-trading",
@@ -402,12 +447,27 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "fx-fundamentals",
+    slug: "fx-basics",
     courseSlug: "fx",
     title: "FX Basics",
     description:
-      "Trend-following on a filtered signal, the carry trade in three forms (single-pair, cross-sectional, and dollar-centric), combining carry with momentum, and triangular arbitrage.",
+      "What a currency pair actually is, how FX trading works (the decentralized market, pips, and lots), what fundamentally moves exchange rates, and interest rate parity — the relationship behind the carry trade.",
     order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "fx-what-is-a-currency-pair",
+      "fx-how-currencies-are-traded",
+      "fx-what-moves-exchange-rates",
+      "fx-interest-rate-parity",
+    ],
+  },
+  {
+    slug: "fx-fundamentals",
+    courseSlug: "fx",
+    title: "FX Fundamentals",
+    description:
+      "Trend-following on a filtered signal, the carry trade in three forms (single-pair, cross-sectional, and dollar-centric), combining carry with momentum, and triangular arbitrage.",
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fx-moving-averages-with-hp-filter",
@@ -419,12 +479,27 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "commodities-fundamentals",
+    slug: "commodities-basics",
     courseSlug: "commodities",
     title: "Commodities Basics",
     description:
-      "The futures-curve mechanics behind commodity returns (roll yield and hedging pressure), portfolio diversification, and factor strategies (value, skewness premium) plus fundamentals-based pricing models.",
+      "What a commodity actually is (and why fungibility matters), how commodities are traded via futures rather than physical ownership, why their curves sit in contango or backwardation, and the supply/demand forces behind their prices.",
     order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "commodities-what-is-a-commodity",
+      "commodities-how-commodities-are-traded",
+      "commodities-contango-and-backwardation",
+      "commodities-supply-demand-and-prices",
+    ],
+  },
+  {
+    slug: "commodities-fundamentals",
+    courseSlug: "commodities",
+    title: "Commodities Fundamentals",
+    description:
+      "The futures-curve mechanics behind commodity returns (roll yield and hedging pressure), portfolio diversification, and factor strategies (value, skewness premium) plus fundamentals-based pricing models.",
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "commodities-roll-yields",
@@ -436,12 +511,27 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "real-estate-diversification",
+    slug: "real-estate-basics",
     courseSlug: "real-estate",
     title: "Real Estate Basics",
     description:
-      "How real estate fits into a broader portfolio, and the different dimensions — property type, region, and economic driver — for diversifying within a real estate allocation itself.",
+      "What real estate investing actually is (direct vs. indirect, income vs. appreciation), REITs, how property value is actually determined, and the leverage that's central to how real estate is typically bought.",
     order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "real-estate-what-is-real-estate-investing",
+      "real-estate-reits",
+      "real-estate-how-value-is-determined",
+      "real-estate-leverage",
+    ],
+  },
+  {
+    slug: "real-estate-diversification",
+    courseSlug: "real-estate",
+    title: "Real Estate Diversification",
+    description:
+      "How real estate fits into a broader portfolio, and the different dimensions — property type, region, and economic driver — for diversifying within a real estate allocation itself.",
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "real-estate-mixed-asset-diversification",
@@ -457,7 +547,7 @@ export const modules: Module[] = [
     title: "Return Drivers and Active Strategies",
     description:
       "How real estate returns behave over time and can be actively traded — regional momentum, inflation hedging, and a hands-on fix-and-flip strategy.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "real-estate-momentum-regional-approach",

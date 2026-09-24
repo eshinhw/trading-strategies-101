@@ -503,4 +503,340 @@ export const fxConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "fx-what-is-a-currency-pair",
+    title: "What Is a Currency Pair?",
+    summary:
+      "Every FX trade is a simultaneous bet on two currencies at once — the base and the quote — and understanding that pairing is the starting point for everything else in this course.",
+    body: [
+      { type: "heading", text: "Trading Two Currencies at Once" },
+      { type: "paragraph", text: "Unlike a stock, which has a single price, a currency only has a value relative to another currency — you can't simply buy \"a dollar,\" only a dollar in exchange for some other currency. A currency pair, like EUR/USD, expresses exactly that relationship: how much of the second currency it takes to buy one unit of the first." },
+      { type: "heading", text: "Base and Quote Currency" },
+      { type: "paragraph", text: "In a pair like EUR/USD, the first currency listed, EUR, is the base currency, and the second, USD, is the quote currency. The quoted price tells you how many units of the quote currency one unit of the base currency is worth — a EUR/USD price of 1.10 means one euro buys $1.10." },
+      { type: "heading", text: "Going Long or Short a Pair" },
+      { type: "paragraph", text: "Going long a currency pair means buying the base currency and simultaneously selling the quote currency, profiting if the base strengthens relative to the quote. Going short does the reverse — selling the base and buying the quote, profiting if the base weakens instead." },
+      { type: "heading", text: "Major, Minor, and Exotic Pairs" },
+      { type: "paragraph", text: "Pairs are commonly grouped by how heavily they trade: major pairs involve the U.S. dollar and another large, freely-traded currency (like EUR/USD or USD/JPY) and are the most liquid; minor pairs pair two major currencies without the dollar (like EUR/GBP); and exotic pairs involve a major currency against a smaller or less liquid one (like USD/TRY), typically trading with wider spreads and less liquidity." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "Why does a currency always need to be quoted against another currency?",
+        choices: [
+          "A currency only has a value relative to another currency — there's no single, standalone price the way a stock has",
+          "Currencies are always quoted against gold specifically",
+          "It's purely a regulatory requirement with no economic reason",
+          "Currencies actually do have a single, standalone price like stocks",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Unlike a stock's single price, an exchange rate is inherently relative — expressing how much of one currency it takes to buy another.",
+      },
+      {
+        id: "q2",
+        prompt: "In the pair EUR/USD, which is the base currency and which is the quote currency?",
+        choices: [
+          "EUR is the base currency, USD is the quote currency",
+          "USD is the base currency, EUR is the quote currency",
+          "Both are considered base currencies",
+          "Neither is a base or quote currency",
+        ],
+        correctIndex: 0,
+        explanation:
+          "By convention, the first currency listed in a pair is the base currency, and the second is the quote currency, which expresses the base's price.",
+      },
+      {
+        id: "q3",
+        prompt: "What does going long EUR/USD mean?",
+        choices: [
+          "Buying euros and simultaneously selling dollars, profiting if the euro strengthens against the dollar",
+          "Buying dollars and selling euros",
+          "Holding cash in a savings account",
+          "Betting the euro will weaken against the dollar",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Going long a pair means buying the base currency (EUR) against the quote currency (USD), profiting when the base strengthens relative to the quote.",
+      },
+      {
+        id: "q4",
+        prompt: "What distinguishes a \"major\" currency pair from an \"exotic\" one?",
+        choices: [
+          "Major pairs involve the U.S. dollar and another large, freely-traded currency and are highly liquid; exotic pairs involve smaller, less liquid currencies with wider spreads",
+          "Major pairs never involve the U.S. dollar",
+          "Exotic pairs are always more liquid than major pairs",
+          "There is no meaningful difference between major and exotic pairs",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Major pairs are the most heavily traded and liquid, typically involving the dollar, while exotic pairs involve less liquid currencies and tend to trade with wider spreads.",
+      },
+      {
+        id: "q5",
+        prompt: "What is a \"minor\" currency pair?",
+        choices: [
+          "A pair that combines two major currencies without the U.S. dollar, like EUR/GBP",
+          "A pair that only exists between two exotic currencies",
+          "Any pair with a price below 1.00",
+          "A pair that cannot legally be traded",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Minor pairs sit between majors and exotics — two significant, liquid currencies paired together, just without the U.S. dollar on either side.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fx-how-currencies-are-traded",
+    title: "How Currencies Are Traded",
+    summary:
+      "The FX market's decentralized, round-the-clock structure, and the basic units — pips and lots — used to size and measure a trade.",
+    body: [
+      { type: "heading", text: "A Decentralized, Over-the-Counter Market" },
+      { type: "paragraph", text: "Unlike stocks, which trade on centralized exchanges, the FX market is over-the-counter: trading happens directly between banks, brokers, and other participants across a decentralized global network, rather than through one central exchange that all trades pass through." },
+      { type: "heading", text: "Trading Around the Clock" },
+      { type: "paragraph", text: "Because major financial centers around the world (Tokyo, London, New York) operate in different time zones, the FX market is open nearly 24 hours a day during the trading week, with trading activity handing off from one region to the next as each one's business day begins." },
+      { type: "heading", text: "Pips: The Basic Unit of Price Movement" },
+      { type: "paragraph", text: "A pip is the standard, smallest conventional unit of price movement for most currency pairs, typically the fourth decimal place (for a pair like EUR/USD moving from 1.1050 to 1.1051, that's a one-pip move). Pips give traders a common, comparable way to talk about price changes across different pairs, regardless of the pair's actual price level." },
+      { type: "heading", text: "Lot Sizes" },
+      { type: "paragraph", text: "A lot is the standard trade size in FX: a standard lot is typically 100,000 units of the base currency, with mini (10,000 units) and micro (1,000 units) lots available for smaller position sizes. Because a full lot represents a large notional amount, leverage is commonly used in FX trading to control a position of that size with a smaller amount of posted capital." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "How does the FX market's structure differ from a stock exchange?",
+        choices: [
+          "FX is an over-the-counter market, with trading happening directly between participants rather than through one central exchange",
+          "FX only trades on a single centralized exchange, just like stocks",
+          "FX trading is illegal in most countries",
+          "There is no structural difference between FX and stock markets",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Unlike a centralized stock exchange, FX trading is decentralized and over-the-counter, happening directly between banks, brokers, and other participants.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does the FX market trade nearly 24 hours a day during the week?",
+        choices: [
+          "Major financial centers around the world operate in different time zones, handing trading activity off from one region to the next",
+          "FX trading is required by law to run continuously",
+          "There is only one trading session per day, but it's very long",
+          "FX markets are only open during a single country's business hours",
+        ],
+        correctIndex: 0,
+        explanation:
+          "As different global financial centers open and close throughout the day, FX trading activity continues nearly around the clock during the week.",
+      },
+      {
+        id: "q3",
+        prompt: "What is a pip?",
+        choices: [
+          "The standard, smallest conventional unit of price movement for most currency pairs",
+          "A type of currency pair involving only exotic currencies",
+          "A fee charged on every FX trade",
+          "The maximum position size allowed in FX trading",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A pip is the standard unit traders use to talk about price moves consistently across different currency pairs.",
+      },
+      {
+        id: "q4",
+        prompt: "What is a standard lot in FX trading?",
+        choices: [
+          "Typically 100,000 units of the base currency",
+          "Exactly 1 unit of the base currency",
+          "A fixed dollar amount regardless of currency",
+          "The total daily trading volume of the FX market",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A standard lot is conventionally 100,000 units of the base currency, with mini and micro lots available for smaller position sizes.",
+      },
+      {
+        id: "q5",
+        prompt: "Why is leverage commonly used in FX trading?",
+        choices: [
+          "A full lot represents a large notional amount, so leverage lets a trader control that size position with a smaller amount of posted capital",
+          "Leverage is required by regulation for every FX trade",
+          "FX trading never involves any notion of position size",
+          "Leverage eliminates all risk from a position",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because standard lot sizes represent large notional amounts, leverage allows traders to control that exposure without posting the full notional value in capital.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fx-what-moves-exchange-rates",
+    title: "What Moves Exchange Rates",
+    summary:
+      "The fundamental forces — interest rates, inflation, trade flows, and risk sentiment — that drive one currency to strengthen or weaken against another.",
+    body: [
+      { type: "heading", text: "Interest Rate Differentials" },
+      { type: "paragraph", text: "A country offering higher interest rates tends to attract capital seeking that better return, increasing demand for its currency and pushing it stronger — the same interest rate differential that underlies the carry trade strategies covered later in this course." },
+      { type: "heading", text: "Inflation" },
+      { type: "paragraph", text: "A currency in a country with persistently higher inflation than its trading partners tends to weaken over time, since that inflation erodes the currency's real purchasing power relative to currencies from lower-inflation countries — a relationship formalized in purchasing power parity." },
+      { type: "heading", text: "Trade Balances and Capital Flows" },
+      { type: "paragraph", text: "A country running a large trade deficit, importing much more than it exports, tends to see steady selling pressure on its own currency, since importers need to convert their currency into foreign currency to pay for those goods, while a trade surplus creates the opposite, currency-supportive pressure." },
+      { type: "heading", text: "Central Bank Policy and Risk Sentiment" },
+      { type: "paragraph", text: "Beyond the interest rate level itself, central bank policy decisions and signals about future rate changes can move a currency sharply on the expectation of what's coming, not just what's already happened. Broader risk sentiment matters too: in periods of global uncertainty, capital often flows toward currencies seen as safe havens, regardless of what any single country's fundamentals are doing at that moment." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "Why do higher interest rates tend to strengthen a currency?",
+        choices: [
+          "They attract capital seeking a better return, increasing demand for that currency",
+          "Higher interest rates always weaken a currency, with no exceptions",
+          "Interest rates have no relationship to currency values",
+          "Higher rates automatically reduce a country's money supply to zero",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Capital flows toward higher-yielding currencies seeking better returns, and that increased demand tends to push the currency stronger.",
+      },
+      {
+        id: "q2",
+        prompt: "How does persistently higher inflation tend to affect a currency?",
+        choices: [
+          "It tends to weaken the currency over time, as inflation erodes its real purchasing power relative to other currencies",
+          "Higher inflation always strengthens a currency",
+          "Inflation has no relationship to currency values",
+          "Inflation only affects a currency's interest rate, never its exchange rate",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A currency eroded by high inflation loses purchasing power relative to lower-inflation currencies, a relationship captured by purchasing power parity.",
+      },
+      {
+        id: "q3",
+        prompt: "How does a large trade deficit tend to affect a country's currency?",
+        choices: [
+          "It tends to create selling pressure on the currency, since importers must convert to foreign currency to pay for imports",
+          "A trade deficit always strengthens the currency",
+          "Trade balances have no effect on currency values",
+          "A trade deficit automatically raises interest rates",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Importing more than is exported means more of the domestic currency is being sold to buy foreign currency, creating downward pressure on it.",
+      },
+      {
+        id: "q4",
+        prompt: "Why can central bank policy signals move a currency even before any actual rate change happens?",
+        choices: [
+          "Markets price in expectations about future policy, not just rates that have already changed",
+          "Central bank signals have no effect on currency markets",
+          "Currency markets only react to changes after they officially happen",
+          "Central banks are prohibited from making any policy signals",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Forward-looking markets react to expected future policy changes, not just realized ones, which is why signals and guidance can move a currency on their own.",
+      },
+      {
+        id: "q5",
+        prompt: "What happens to \"safe haven\" currencies during periods of global risk aversion?",
+        choices: [
+          "Capital tends to flow toward them, regardless of what any single country's own fundamentals are doing",
+          "They are universally sold off during uncertainty",
+          "Safe haven currencies do not exist in practice",
+          "They become completely illiquid during uncertain periods",
+        ],
+        correctIndex: 0,
+        explanation:
+          "During global uncertainty, investors often seek currencies perceived as safe havens, a flow that can happen independent of that country's own individual economic conditions.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "fx-interest-rate-parity",
+    title: "Interest Rate Parity",
+    summary:
+      "The no-arbitrage relationship linking spot and forward exchange rates to the interest rate gap between two currencies — the same relationship behind forward FX pricing and the carry trade.",
+    body: [
+      { type: "heading", text: "Revisiting Covered Interest Rate Parity" },
+      { type: "paragraph", text: "As introduced in this curriculum's Forward Pricing lesson, covered interest rate parity ties a currency pair's forward exchange rate to the gap between the two countries' interest rates: the currency with the higher interest rate trades at a forward discount, and the currency with the lower rate trades at a forward premium, so that borrowing in one currency and lending in the other, fully hedged with a forward, can't produce a riskless profit." },
+      { type: "heading", text: "Why It Has to Hold" },
+      { type: "paragraph", text: "If this relationship didn't hold, an arbitrageur could borrow in the low-rate currency, convert it to the high-rate currency, invest at the higher rate, and lock in the future conversion back with a forward contract, pocketing a riskless profit funded entirely by the interest rate gap. The forward rate adjusts, through active trading, until that opportunity disappears." },
+      { type: "heading", text: "Uncovered Interest Rate Parity" },
+      { type: "paragraph", text: "A related, looser idea is uncovered interest rate parity: the theory that a higher-yielding currency should be expected to depreciate over time by roughly the size of its interest rate advantage, so that an investor gains nothing extra, on average, from simply holding the higher-rate currency unhedged. Unlike the covered version, this is a market expectation, not an enforced no-arbitrage relationship." },
+      { type: "heading", text: "Why the Carry Trade Exists At All" },
+      { type: "paragraph", text: "If uncovered interest rate parity held perfectly and consistently, there would be no expected profit from the carry trade covered later in this course, since the higher-rate currency's interest advantage would be expected to be offset exactly by its own depreciation. In practice, that offsetting depreciation doesn't show up reliably enough, or by the theoretically \"correct\" amount, which is precisely the persistent anomaly the carry trade is designed to exploit." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does covered interest rate parity say about a currency pair's forward exchange rate?",
+        choices: [
+          "It's tied to the gap between the two countries' interest rates, with the higher-rate currency trading at a forward discount",
+          "The forward rate is always identical to the spot rate",
+          "Interest rates have no relationship to forward exchange rates",
+          "The forward rate is set arbitrarily by each country's government",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Covered interest rate parity directly links the forward rate to the interest rate differential, ensuring no riskless arbitrage from borrowing in one currency and lending in the other.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does covered interest rate parity have to hold, in an efficient market?",
+        choices: [
+          "Otherwise an arbitrageur could borrow low, invest high, hedge with a forward, and lock in a riskless profit, which trading pressure would eliminate",
+          "It's simply a rule imposed by international regulators",
+          "It only holds by coincidence, with no underlying economic force",
+          "It has nothing to do with arbitrage opportunities",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The relationship is enforced by arbitrage: any deviation would let a trader lock in a riskless profit, and that trading activity pushes the forward rate back into line.",
+      },
+      {
+        id: "q3",
+        prompt: "What does uncovered interest rate parity suggest?",
+        choices: [
+          "A higher-yielding currency should be expected to depreciate over time by roughly the size of its interest rate advantage",
+          "A higher-yielding currency should be expected to appreciate indefinitely",
+          "Interest rate differentials should have no relationship to future currency moves",
+          "Uncovered interest rate parity is identical to the covered version in every way",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Uncovered interest rate parity is the looser, expectations-based theory that currency depreciation should offset the interest rate gap on average, unlike the covered version's enforced no-arbitrage relationship.",
+      },
+      {
+        id: "q4",
+        prompt: "How does uncovered interest rate parity differ from the covered version?",
+        choices: [
+          "It's a market expectation, not an enforced no-arbitrage relationship like the covered version",
+          "They are exactly the same concept with different names",
+          "Uncovered parity is enforced by arbitrage, while covered parity is not",
+          "Uncovered parity applies only to forward contracts, never spot rates",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Covered interest rate parity is enforced by arbitrage using a forward contract; uncovered parity is just a theoretical expectation about future spot rate movement, with no hedge locking it in.",
+      },
+      {
+        id: "q5",
+        prompt: "Why does the carry trade have a potential edge to exploit, given uncovered interest rate parity?",
+        choices: [
+          "In practice, higher-rate currencies don't reliably depreciate by the theoretically \"correct\" amount, leaving a persistent gap the carry trade targets",
+          "Uncovered interest rate parity always holds perfectly, leaving no room for any strategy",
+          "The carry trade has no relationship to interest rate parity at all",
+          "Higher-rate currencies always appreciate, guaranteeing carry trade profits",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because the depreciation predicted by uncovered interest rate parity doesn't show up reliably in practice, that persistent gap is exactly what carry trade strategies are built to capture.",
+      },
+    ],
+  },
 ];

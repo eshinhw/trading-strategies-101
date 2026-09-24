@@ -677,4 +677,340 @@ export const realEstateConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "real-estate-what-is-real-estate-investing",
+    title: "What Is Real Estate Investing?",
+    summary:
+      "Owning property directly, or indirectly through a fund, to earn a return from two sources: the income it generates and the change in its own value.",
+    body: [
+      { type: "heading", text: "Two Sources of Return" },
+      { type: "paragraph", text: "Real estate investing earns a return from two distinct sources: income, the rent collected from tenants after operating costs, and appreciation, any increase in the property's own value over time. Some real estate strategies lean heavily on one source over the other, but most returns are some blend of both." },
+      { type: "heading", text: "Direct Ownership" },
+      { type: "paragraph", text: "Direct ownership means actually holding title to a specific property yourself, whether a single rental home or a large commercial building, giving full control over how it's managed, financed, and eventually sold, but also full responsibility for maintenance, tenants, and every other operational detail." },
+      { type: "heading", text: "Indirect Ownership" },
+      { type: "paragraph", text: "Indirect ownership means holding real estate exposure through a fund or security — a REIT, a private real estate fund, or a real estate-focused ETF — rather than a specific property itself, trading some of direct ownership's control for liquidity, diversification, and none of the hands-on management burden." },
+      { type: "heading", text: "Residential vs. Commercial" },
+      { type: "paragraph", text: "Real estate is also commonly split by property use: residential (homes, apartments) versus commercial (office, retail, industrial, and more), each with distinct tenant relationships, lease structures, and demand drivers, as covered in more depth in this course's property type diversification lesson." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What are the two sources of return in real estate investing?",
+        choices: [
+          "Income from rent, and appreciation in the property's own value",
+          "Dividends and stock buybacks",
+          "Interest payments and coupon income",
+          "Only capital gains, with no income component at all",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Real estate returns typically combine rental income (after costs) with any change in the property's own value over the holding period.",
+      },
+      {
+        id: "q2",
+        prompt: "What does direct ownership of real estate involve?",
+        choices: [
+          "Holding title to a specific property yourself, with full control but full operational responsibility",
+          "Owning shares in a publicly traded real estate fund",
+          "Never having any responsibility for property management",
+          "Direct ownership is identical to owning a stock",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Direct ownership means actually holding the property's title, which brings full control over management decisions but also full responsibility for its upkeep and operation.",
+      },
+      {
+        id: "q3",
+        prompt: "What does indirect ownership trade away, in exchange for liquidity and diversification?",
+        choices: [
+          "Direct control over the specific property and hands-on management",
+          "Any possibility of earning a return at all",
+          "The ability to ever sell the investment",
+          "Exposure to real estate as an asset class entirely",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Holding real estate through a fund or security gives up the direct control and hands-on management that comes with owning a specific property yourself.",
+      },
+      {
+        id: "q4",
+        prompt: "What is the basic distinction between residential and commercial real estate?",
+        choices: [
+          "Residential covers homes and apartments, while commercial covers office, retail, industrial, and similar property uses",
+          "Residential and commercial are two names for the exact same thing",
+          "Commercial real estate never generates any rental income",
+          "Residential real estate can never be owned indirectly",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The residential/commercial split is based on property use, and each category has its own distinct tenant relationships and demand drivers.",
+      },
+      {
+        id: "q5",
+        prompt: "Why might most real estate returns be a blend of income and appreciation, rather than purely one or the other?",
+        choices: [
+          "Most properties generate ongoing rental income while their value also changes over the holding period",
+          "Real estate investments never generate any rental income",
+          "Appreciation is legally required to be zero for all properties",
+          "Income and appreciation cannot both occur for the same property",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A typical property collects rent throughout the holding period while its market value also moves, so realized returns usually reflect both sources together.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "real-estate-reits",
+    title: "REITs: Real Estate Investment Trusts",
+    summary:
+      "The structure that lets ordinary investors buy real estate exposure like a stock — and the payout requirement that defines what a REIT actually is.",
+    body: [
+      { type: "heading", text: "What a REIT Is" },
+      { type: "paragraph", text: "A real estate investment trust (REIT) is a company that owns, and usually operates, income-producing real estate — office buildings, apartments, malls, warehouses — and whose shares trade on an exchange (for publicly traded REITs) just like an ordinary stock, letting investors buy real estate exposure without acquiring any property directly." },
+      { type: "heading", text: "The Payout Requirement" },
+      { type: "paragraph", text: "To qualify for REIT tax status, a company must distribute the large majority of its taxable income, typically at least 90%, directly to shareholders as dividends each year. In exchange, the REIT itself generally doesn't pay corporate income tax on that distributed income, avoiding the double taxation an ordinary corporation's dividends would face." },
+      { type: "heading", text: "Public vs. Private REITs" },
+      { type: "paragraph", text: "Publicly traded REITs list their shares on a stock exchange, offering the same intraday liquidity as any other stock; private REITs are not exchange-listed, typically requiring a longer commitment and larger minimum investment, but potentially offering exposure to different property types or strategies than what's available publicly." },
+      { type: "heading", text: "Why REITs Made Real Estate More Accessible" },
+      { type: "paragraph", text: "Before REITs existed, meaningful real estate exposure generally required enough capital to buy a property outright, or the connections to join a private real estate partnership. A publicly traded REIT reduces the minimum investment to the price of a single share, which is a large part of why REITs have become such a common way for ordinary investors to add real estate to a portfolio." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is a REIT?",
+        choices: [
+          "A company that owns and operates income-producing real estate, with shares that trade like an ordinary stock (if publicly traded)",
+          "A type of government bond backed by property taxes",
+          "A private club that only wealthy individuals can join",
+          "A loan made directly to a homeowner",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A REIT owns and typically operates income-producing property, and for publicly traded REITs, ownership is expressed through exchange-traded shares.",
+      },
+      {
+        id: "q2",
+        prompt: "What is the key payout requirement for REIT tax status?",
+        choices: [
+          "Distributing the large majority (typically at least 90%) of taxable income to shareholders as dividends",
+          "Distributing exactly 10% of income to shareholders",
+          "REITs have no payout requirement at all",
+          "REITs must reinvest 100% of their income and pay no dividends",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The at-least-90% distribution requirement is central to REIT tax status, and in exchange the REIT generally avoids paying corporate tax on that distributed income.",
+      },
+      {
+        id: "q3",
+        prompt: "How does a publicly traded REIT differ from a private REIT?",
+        choices: [
+          "A publicly traded REIT's shares trade on an exchange with intraday liquidity, while a private REIT is not exchange-listed and typically requires a longer commitment",
+          "Private REITs always have lower minimum investments than public REITs",
+          "Public REITs cannot be purchased by individual investors",
+          "There is no meaningful difference between the two",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Public REITs offer stock-like liquidity via exchange listing, while private REITs generally trade liquidity for potentially different property exposure and typically larger minimums.",
+      },
+      {
+        id: "q4",
+        prompt: "Why do REITs generally avoid paying corporate income tax on distributed income?",
+        choices: [
+          "In exchange for meeting the required payout threshold, avoiding the double taxation an ordinary corporation's dividends would face",
+          "REITs are exempt from all forms of taxation under any circumstances",
+          "Only private REITs avoid corporate income tax",
+          "REITs pay corporate tax at a higher rate than ordinary corporations",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Meeting the distribution requirement is what qualifies a REIT for this favorable tax treatment, avoiding the double taxation that would otherwise apply.",
+      },
+      {
+        id: "q5",
+        prompt: "Why did REITs make real estate investing more accessible to ordinary investors?",
+        choices: [
+          "They reduced the minimum investment needed for real estate exposure down to the price of a single share",
+          "REITs eliminated all risk from real estate investing",
+          "REITs are only available to institutional investors, not individuals",
+          "REITs require a larger minimum investment than buying property directly",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Before REITs, meaningful real estate exposure typically required substantial capital or private connections — a publicly traded REIT share lowers that bar dramatically.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "real-estate-how-value-is-determined",
+    title: "How Real Estate Value Is Determined",
+    summary:
+      "The three standard approaches appraisers use to value a property — income, comparable sales, and replacement cost — and when each one is most reliable.",
+    body: [
+      { type: "heading", text: "The Income Approach and Cap Rate" },
+      { type: "paragraph", text: "The income approach values a property based on the income it generates, using the capitalization rate, or cap rate: a property's annual net operating income divided by its value. A lower cap rate implies the market is paying more for each dollar of income the property produces, similar in spirit to a higher price-to-earnings ratio for a stock." },
+      { type: "heading", text: "The Comparable Sales Approach" },
+      { type: "paragraph", text: "The comparable sales approach, most common for residential property, values a property by looking at what similar properties nearby have recently sold for, adjusting for differences in size, condition, and features — essentially, what a buyer would actually be willing to pay based on real, recent transactions for similar assets." },
+      { type: "heading", text: "The Replacement Cost Approach" },
+      { type: "paragraph", text: "The replacement cost approach values a property based on what it would cost to build an equivalent new structure today, on similar land, minus depreciation for the existing building's age and condition — a useful check, especially for unique properties where good income or sales comparisons are hard to find, and a concept already touched on in this course's inflation hedging lesson." },
+      { type: "heading", text: "Using Multiple Approaches Together" },
+      { type: "paragraph", text: "In practice, a thorough valuation often blends more than one approach, since each has blind spots: income and comparable sales approaches can both be distorted by a temporarily overheated or depressed market, while replacement cost ignores whether there's actually demand for more space of that type in the first place." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does the income approach use to value a property?",
+        choices: [
+          "The capitalization rate — the property's annual net operating income divided by its value",
+          "Only the price of the land, ignoring any structure on it",
+          "The age of the building alone",
+          "The number of tenants currently occupying the property",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The income approach centers on the cap rate, tying a property's value directly to the income it generates.",
+      },
+      {
+        id: "q2",
+        prompt: "What does a lower cap rate imply about a property?",
+        choices: [
+          "The market is paying more for each dollar of income the property produces",
+          "The property generates no income at all",
+          "The property is guaranteed to be a poor investment",
+          "The property's value is unrelated to its income",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A lower cap rate means a higher price is being paid relative to income, conceptually similar to a higher P/E ratio for a stock.",
+      },
+      {
+        id: "q3",
+        prompt: "What does the comparable sales approach rely on?",
+        choices: [
+          "What similar nearby properties have recently sold for, adjusted for differences",
+          "The property's projected income over the next decade",
+          "The original construction cost of the property",
+          "The property owner's own asking price alone",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Comparable sales values a property against real, recent transactions for similar nearby properties, most commonly used for residential real estate.",
+      },
+      {
+        id: "q4",
+        prompt: "What does the replacement cost approach measure?",
+        choices: [
+          "What it would cost to build an equivalent new structure today, minus depreciation for the existing building's age and condition",
+          "The exact price the property last sold for",
+          "The property's rental income over its entire history",
+          "The property's distance from the nearest city center",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Replacement cost estimates the cost of building a new equivalent structure today, then adjusts down for the existing building's depreciation.",
+      },
+      {
+        id: "q5",
+        prompt: "Why might a valuation blend more than one approach?",
+        choices: [
+          "Each approach has blind spots — income and sales comparisons can be distorted by market conditions, while replacement cost ignores actual demand",
+          "Using multiple approaches is required by law in every case",
+          "Only one approach is ever valid, and using more than one is a mistake",
+          "Blending approaches always produces exactly the same result as using just one",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since each approach has weaknesses in certain situations, combining them gives a more complete, cross-checked view of a property's value.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "real-estate-leverage",
+    title: "Leverage in Real Estate",
+    summary:
+      "Why debt financing is central to how most real estate is actually purchased, and how it amplifies both the gains and the losses on the investor's own capital.",
+    body: [
+      { type: "heading", text: "Debt Financing Is the Norm" },
+      { type: "paragraph", text: "Unlike buying a stock, where paying the full price upfront is standard, most real estate purchases are financed with a mortgage: the buyer puts down a fraction of the purchase price in cash and borrows the rest, making debt financing, and the leverage that comes with it, a defining feature of how real estate is typically bought." },
+      { type: "heading", text: "How Leverage Amplifies Returns" },
+      { type: "paragraph", text: "Because only a fraction of the purchase price is the investor's own money, a given percentage change in the property's value translates into a much larger percentage change in the investor's actual equity. A property bought with 20% down that appreciates 10% has actually returned roughly 50% on the cash originally invested, before financing costs." },
+      { type: "heading", text: "Leverage Cuts Both Ways" },
+      { type: "paragraph", text: "That same amplification works in reverse: a decline in property value is similarly magnified as a percentage loss on the investor's equity, and because mortgage payments are due regardless of whether the property is appreciating, a highly leveraged position can turn a moderate price decline into a much more serious loss, or even negative equity, where the loan balance exceeds the property's value." },
+      { type: "heading", text: "Loan-to-Value Ratio" },
+      { type: "paragraph", text: "The loan-to-value (LTV) ratio, the loan amount divided by the property's value, is the standard measure of how leveraged a real estate position is: a higher LTV means less of the investor's own capital is at risk relative to the total position size, but also less equity cushion before a price decline wipes out the investor's stake entirely." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "How does financing a real estate purchase typically differ from buying a stock?",
+        choices: [
+          "Most real estate purchases are financed with a mortgage, borrowing a large portion of the purchase price, while buying a stock typically means paying the full price upfront",
+          "Real estate is always purchased with 100% cash, just like stocks",
+          "Stocks are typically bought using a mortgage",
+          "There is no difference in how the two are typically financed",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Debt financing via a mortgage is the standard way most real estate is purchased, in contrast to the full-price-upfront norm for buying stock.",
+      },
+      {
+        id: "q2",
+        prompt: "A property bought with 20% down appreciates 10%. Roughly what return does that represent on the investor's actual cash invested?",
+        choices: [
+          "Roughly 50%, before financing costs",
+          "Exactly 10%, the same as the property's own appreciation",
+          "Roughly 2%",
+          "0%, since leverage has no effect on returns",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since only 20% of the purchase price was the investor's own cash, a 10% gain on the full property value translates into roughly a 50% gain on that smaller equity base.",
+      },
+      {
+        id: "q3",
+        prompt: "How does leverage affect losses, not just gains?",
+        choices: [
+          "A decline in property value is similarly magnified as a percentage loss on the investor's equity",
+          "Leverage only amplifies gains, never losses",
+          "Losses are always smaller than gains when leverage is used",
+          "Leverage has no effect on losses at all",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The same amplification that boosts gains on a smaller equity base also magnifies losses, which is why leverage is often described as cutting both ways.",
+      },
+      {
+        id: "q4",
+        prompt: "What is \"negative equity\" in the context of a leveraged real estate position?",
+        choices: [
+          "When the loan balance exceeds the property's current value",
+          "When a property generates no rental income",
+          "When a property is owned with no mortgage at all",
+          "A term with no real meaning in real estate",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Negative equity describes a highly leveraged position where a price decline has pushed the outstanding loan balance above what the property is now actually worth.",
+      },
+      {
+        id: "q5",
+        prompt: "What does the loan-to-value (LTV) ratio measure?",
+        choices: [
+          "The loan amount divided by the property's value, indicating how leveraged the position is",
+          "The property's total rental income for the year",
+          "The number of years remaining on the mortgage",
+          "The property's appreciation rate over the past decade",
+        ],
+        correctIndex: 0,
+        explanation:
+          "LTV is the standard measure of leverage in a real estate position — a higher LTV means more borrowed capital relative to the property's value, and less equity cushion.",
+      },
+    ],
+  },
 ];

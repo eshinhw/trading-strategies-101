@@ -420,4 +420,340 @@ export const indexesConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "indexes-what-is-a-stock-index",
+    title: "What Is a Stock Index?",
+    summary:
+      "A single number built from a defined basket of stocks, meant to represent the performance of a market or a slice of it.",
+    body: [
+      { type: "heading", text: "A Basket, Reduced to One Number" },
+      { type: "paragraph", text: "A stock index tracks a defined group of stocks — say, the 500 largest U.S. companies for the S&P 500 — and combines their individual prices into a single number meant to represent how that group is performing as a whole, without an investor needing to track every constituent individually." },
+      { type: "heading", text: "Price-Weighted Indices" },
+      { type: "paragraph", text: "A price-weighted index, like the Dow Jones Industrial Average, gives each stock influence in proportion to its raw share price — a $500 stock moves the index far more than a $50 stock, regardless of which company is actually larger, an odd quirk that's mostly a historical artifact of how the earliest indices were built before better methods existed." },
+      { type: "heading", text: "Market-Cap-Weighted Indices" },
+      { type: "paragraph", text: "Most major indices today, including the S&P 500, are market-cap-weighted instead: each stock's influence on the index is proportional to its total market capitalization, so a company's actual economic size, not its arbitrary per-share price, determines how much it moves the index." },
+      { type: "heading", text: "Equal-Weighted Indices" },
+      { type: "paragraph", text: "A less common alternative is an equal-weighted index, which gives every constituent the same influence regardless of size, deliberately reducing the outsized impact the largest few companies otherwise have in a market-cap-weighted version — a choice that changes an index's behavior meaningfully, especially when a handful of giant companies dominate a market-cap-weighted benchmark." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does a stock index do?",
+        choices: [
+          "Combines the prices of a defined basket of stocks into a single number representing that group's overall performance",
+          "Tracks the price of exactly one company",
+          "Guarantees a fixed annual return to investors",
+          "Sets interest rates for the broader economy",
+        ],
+        correctIndex: 0,
+        explanation:
+          "An index reduces many individual stock prices into one representative figure, letting the market's performance be tracked without following every constituent separately.",
+      },
+      {
+        id: "q2",
+        prompt: "In a price-weighted index, what determines a stock's influence?",
+        choices: [
+          "Its raw per-share price, regardless of the company's actual size",
+          "Its total market capitalization",
+          "The number of employees the company has",
+          "Every stock has identical influence",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A price-weighted index like the Dow gives more influence to stocks with a higher raw share price, an artifact of how the index was originally constructed rather than a measure of company size.",
+      },
+      {
+        id: "q3",
+        prompt: "How does a market-cap-weighted index differ from a price-weighted one?",
+        choices: [
+          "Each stock's influence is proportional to its total market capitalization, reflecting actual company size rather than share price",
+          "Every constituent has exactly equal influence",
+          "Only the largest company in the index is counted at all",
+          "There is no difference between the two weighting methods",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Market-cap weighting ties a stock's influence to its real economic size (price times shares outstanding), which is why most major indices, including the S&P 500, use this method.",
+      },
+      {
+        id: "q4",
+        prompt: "What does an equal-weighted index do differently?",
+        choices: [
+          "It gives every constituent the same influence, reducing the outsized impact of the largest few companies",
+          "It only includes the single largest company",
+          "It weights stocks by their raw share price",
+          "It excludes all technology companies",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Equal weighting deliberately flattens each constituent's influence to the same level, in contrast to market-cap weighting, where a handful of giant companies can dominate the index's behavior.",
+      },
+      {
+        id: "q5",
+        prompt: "Why does weighting methodology matter for how an index behaves?",
+        choices: [
+          "It determines how much any individual stock's price move actually affects the overall index level",
+          "Weighting methodology has no effect on an index's behavior",
+          "All weighting methods always produce identical index values",
+          "Weighting only matters for bond indices, never stock indices",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because different weighting schemes give different stocks different amounts of influence, the same set of constituent price moves can produce meaningfully different index results depending on the method used.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "indexes-how-index-values-are-calculated",
+    title: "How Index Values Are Calculated",
+    summary:
+      "The mechanics behind an index's headline number, and the divisor adjustments that keep it consistent through stock splits and constituent changes.",
+    body: [
+      { type: "heading", text: "From Constituent Prices to One Level" },
+      { type: "paragraph", text: "An index level is calculated by combining every constituent's price (or market cap, depending on the weighting method) into a weighted sum, then dividing by a number called the divisor — a scaling factor chosen so the resulting index level lands at a convenient, readable number rather than some arbitrary large sum." },
+      { type: "heading", text: "Why the Divisor Has to Change" },
+      { type: "paragraph", text: "The divisor isn't fixed forever — it has to be adjusted whenever something happens that would otherwise cause the index to jump or drop for reasons that have nothing to do with actual market performance, such as a stock split, a company being added to or removed from the index, or a constituent issuing new shares." },
+      { type: "heading", text: "A Stock Split Example" },
+      { type: "paragraph", text: "If a constituent does a 2-for-1 stock split, its share price is cut in half overnight even though the company's actual value hasn't changed at all — without any adjustment, a price-weighted index would show an artificial drop purely from the split. The divisor is recalculated at that moment specifically to cancel out that mechanical effect, so the index level reflects real market moves only." },
+      { type: "heading", text: "Rebalancing and Reconstitution" },
+      { type: "paragraph", text: "Indices are also periodically rebalanced, adjusting each constituent's weight back toward its target methodology, and reconstituted, adding newly qualifying companies and removing ones that no longer fit the index's rules — both processes that, again, require divisor adjustments so the index's continuity isn't broken by changes to its own membership or weights." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is an index's divisor used for?",
+        choices: [
+          "Scaling the weighted sum of constituent prices or market caps down to a convenient, readable index level",
+          "Setting the index's daily price limit",
+          "Determining which companies qualify for index membership",
+          "Calculating each company's individual stock price",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The divisor is the scaling factor applied to the weighted sum of constituents, producing the familiar index level rather than some large, arbitrary raw number.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does the divisor need to be adjusted after a stock split?",
+        choices: [
+          "To cancel out the mechanical price drop from the split, so the index reflects only real market moves",
+          "Stock splits have no effect on an index and require no adjustment",
+          "To permanently remove the split company from the index",
+          "To double the index's overall level",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A stock split changes a share price without changing the company's actual value, so the divisor is recalculated to prevent that purely mechanical change from distorting the index level.",
+      },
+      {
+        id: "q3",
+        prompt: "What is index reconstitution?",
+        choices: [
+          "Adding newly qualifying companies to the index and removing ones that no longer fit its rules",
+          "Recalculating every constituent's stock price from scratch",
+          "Permanently freezing the index's membership forever",
+          "A one-time event that only happens when an index first launches",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Reconstitution periodically updates index membership to reflect companies that now qualify (or no longer qualify) under the index's rules.",
+      },
+      {
+        id: "q4",
+        prompt: "Why do rebalancing and reconstitution require divisor adjustments?",
+        choices: [
+          "So changes to constituent weights or membership don't create an artificial jump or drop in the index level",
+          "Divisor adjustments are unrelated to rebalancing or reconstitution",
+          "To increase the index's level every time a rebalance occurs",
+          "Because rebalancing removes the need for a divisor entirely",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Just like a stock split, changes to weights or membership would mechanically shift the index level without the divisor being recalculated to absorb that change.",
+      },
+      {
+        id: "q5",
+        prompt: "What would happen to a price-weighted index without any divisor adjustment after a 2-for-1 split?",
+        choices: [
+          "The index would show an artificial drop purely from the split, unrelated to actual market performance",
+          "The index level would be completely unaffected",
+          "The index would automatically double in value",
+          "The split company would be instantly removed from the index",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Without adjusting the divisor, the split's mechanical price halving would show up as a real-looking decline in the index, even though nothing about the company's actual value changed.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "indexes-index-futures-and-options",
+    title: "Index Futures and Options",
+    summary:
+      "Derivatives written directly on an index, cash-settled since there's no physical basket to deliver — used to hedge or speculate on the broad market in a single trade.",
+    body: [
+      { type: "heading", text: "Trading the Whole Market in One Contract" },
+      { type: "paragraph", text: "An index future or index option is a derivative contract written on the index level itself, rather than on any single underlying stock, letting a trader take a long or short position on an entire market or sector in one trade instead of assembling and managing dozens or hundreds of individual positions." },
+      { type: "heading", text: "Why They're Cash-Settled" },
+      { type: "paragraph", text: "Because an index is just a calculated number, not a single physical or financial asset that can actually be delivered, index futures and options are cash-settled: at expiration, the difference between the contract's price and the index's actual level is paid in cash, rather than any attempt to deliver a basket of every constituent stock." },
+      { type: "heading", text: "Hedging Broad Market Exposure" },
+      { type: "paragraph", text: "A portfolio manager holding a diversified stock portfolio can hedge against a broad market downturn by selling index futures, without having to sell any of the individual stocks they actually want to keep — a much faster and cheaper way to reduce market exposure temporarily than trading the underlying portfolio directly." },
+      { type: "heading", text: "Speculating on Market Direction" },
+      { type: "paragraph", text: "Index derivatives are also a common way to speculate directly on the broad market's direction, or on the relative performance of one index against another, without taking a view on any specific individual company — a genuinely different kind of bet from picking individual stocks." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is an index future or option written on?",
+        choices: [
+          "The index level itself, rather than any single underlying stock",
+          "One specific company chosen at random from the index",
+          "A physical basket of gold matching the index's value",
+          "The index's dividend yield only",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Index derivatives are written directly on the calculated index level, letting a trader take a position on an entire market in a single contract.",
+      },
+      {
+        id: "q2",
+        prompt: "Why are index futures and options cash-settled?",
+        choices: [
+          "Because an index is just a calculated number, not a physical or financial asset that can actually be delivered",
+          "Because cash settlement is required by law for all derivatives",
+          "Because index derivatives never actually expire",
+          "Because physical delivery of an index is always preferred but rarely available",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since there's no single physical asset an index level represents, settlement has to be a cash payment reflecting the difference between the contract price and the actual index level.",
+      },
+      {
+        id: "q3",
+        prompt: "How can a portfolio manager hedge broad market exposure using index futures?",
+        choices: [
+          "By selling index futures, reducing market exposure without having to sell the individual stocks they want to keep",
+          "By buying every individual stock in the index separately",
+          "Index futures cannot be used for hedging purposes",
+          "By only hedging one stock at a time",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Selling index futures offsets broad market risk in a single trade, letting a manager keep their actual stock holdings intact while temporarily reducing overall market exposure.",
+      },
+      {
+        id: "q4",
+        prompt: "What kind of view does trading an index derivative let a trader express?",
+        choices: [
+          "A view on the broad market's direction, or one index's performance relative to another, without picking individual companies",
+          "A view on a single company's upcoming earnings report",
+          "A view solely on interest rates, unrelated to the stock market",
+          "Index derivatives cannot express any market view",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Index derivatives express a broad, market-level or relative-index view, a fundamentally different kind of bet than picking individual stocks.",
+      },
+      {
+        id: "q5",
+        prompt: "What is a key advantage of using index futures to adjust market exposure, compared to trading the underlying portfolio directly?",
+        choices: [
+          "It's generally faster and cheaper than buying or selling many individual stocks to achieve the same change in exposure",
+          "Index futures always cost more than trading individual stocks",
+          "Index futures require physical delivery of every constituent",
+          "There is no advantage to using index futures over trading individual stocks",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A single index futures trade can adjust broad market exposure far more efficiently than executing many individual stock trades to achieve the same net effect.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "indexes-tracking-an-index",
+    title: "Tracking an Index: ETFs and Index Funds",
+    summary:
+      "How a fund actually replicates an index's return, and the tracking error that measures how closely it succeeds.",
+    body: [
+      { type: "heading", text: "Full Replication" },
+      { type: "paragraph", text: "The most straightforward way for a fund to track an index is full replication: buying every single constituent in exactly the same proportion as the index itself, so the fund's return should match the index almost exactly, aside from fees and minor trading costs." },
+      { type: "heading", text: "Sampling for Large or Illiquid Indices" },
+      { type: "paragraph", text: "For an index with thousands of constituents, or ones that include illiquid securities, full replication can be impractical or expensive. Instead, a fund may use sampling: holding a carefully chosen subset of the index's constituents, statistically selected to behave as much like the full index as possible, without literally holding every single name." },
+      { type: "heading", text: "Tracking Error" },
+      { type: "paragraph", text: "Tracking error measures how closely a fund's actual return matches its target index's return over time — a full-replication fund on a liquid index typically has very low tracking error, while a sampling-based fund on a harder-to-replicate index tends to show more, since its holdings are only an approximation of the real thing." },
+      { type: "heading", text: "This Connects Directly Back to ETFs" },
+      { type: "paragraph", text: "This is exactly the mechanism behind most index-tracking ETFs, already covered in this curriculum's ETF Basics module: an ETF issuer chooses full replication or sampling to build the fund's underlying basket, and the same creation and redemption process that keeps an ETF's price near its net asset value is what lets the fund's holdings stay aligned with the index it's meant to track." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What is full replication?",
+        choices: [
+          "Buying every single constituent of an index in exactly the same proportion as the index itself",
+          "Buying only the single largest stock in the index",
+          "Holding cash instead of any index constituents",
+          "Randomly selecting a handful of unrelated stocks",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Full replication means literally owning every constituent at the index's own weights, the most direct way to track an index's return.",
+      },
+      {
+        id: "q2",
+        prompt: "Why might a fund use sampling instead of full replication?",
+        choices: [
+          "For an index with thousands of constituents or illiquid securities, full replication can be impractical or expensive",
+          "Sampling always produces a better return than full replication",
+          "Sampling is required by regulation for every index fund",
+          "Full replication is illegal for large indices",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Sampling is a practical compromise for hard-to-replicate indices, holding a representative subset rather than every single constituent.",
+      },
+      {
+        id: "q3",
+        prompt: "What does tracking error measure?",
+        choices: [
+          "How closely a fund's actual return matches its target index's return over time",
+          "The fund's total assets under management",
+          "The number of constituents in the underlying index",
+          "The fund's annual expense ratio",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Tracking error is specifically about return fidelity — how well the fund's performance actually mirrors the index it's supposed to track.",
+      },
+      {
+        id: "q4",
+        prompt: "Which fund would typically show lower tracking error?",
+        choices: [
+          "A full-replication fund tracking a liquid index",
+          "A sampling-based fund tracking a hard-to-replicate index",
+          "Tracking error is unrelated to replication method",
+          "Both approaches always produce identical tracking error",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Full replication of a liquid index tends to match the index most precisely, producing lower tracking error than a sampling approach on a harder-to-replicate index.",
+      },
+      {
+        id: "q5",
+        prompt: "How does this connect to what's covered in the ETF Basics module?",
+        choices: [
+          "The same creation/redemption mechanism that keeps an ETF's price near NAV is what lets its holdings stay aligned with the index it tracks",
+          "ETFs and index tracking are completely unrelated topics",
+          "ETFs never track an index — only mutual funds do",
+          "Index funds and ETFs use entirely different, unrelated mechanisms",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Index-tracking ETFs use exactly the replication/sampling choice described here, built and maintained through the creation/redemption process covered in ETF Basics.",
+      },
+    ],
+  },
 ];
