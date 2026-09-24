@@ -1,15 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchLesson, fetchCourses } from "../api";
-import type { LessonDetail } from "../types/curriculum";
+import { fetchCourses } from "../api";
 import type { Course } from "../types/course";
-import type { ParamValues } from "../engine/payoff";
-import { computePayoffStats, defaultRange } from "../engine/payoff";
-import { PayoffChart } from "../components/PayoffChart";
-import { StatTile } from "../components/StatTile";
 import { CourseCard } from "../components/CourseCard";
 
-const DEMO_LESSON_SLUG = "long-straddle";
+// Lazy-loaded because it's the only landing-page component that pulls in
+// recharts (via PayoffChart) — see HeroDemo.tsx for why this split exists.
+const HeroDemo = lazy(() => import("../components/HeroDemo").then((m) => ({ default: m.HeroDemo })));
 
 export function LandingPage() {
   // Support deep-linking to the courses section (e.g. "back to all modules"
@@ -62,62 +59,17 @@ function Hero() {
           </div>
           <p className="mt-4 text-sm text-[#898781]">No credit card. Browse and try any lesson before you sign up.</p>
         </div>
-        <HeroDemo />
+        <Suspense
+          fallback={
+            <div className="flex h-[458px] items-center justify-center rounded-2xl border border-[#2a3040] bg-[#141821] card-glow text-sm text-[#898781]">
+              Loading demo…
+            </div>
+          }
+        >
+          <HeroDemo />
+        </Suspense>
       </div>
     </section>
-  );
-}
-
-function defaultsFor(params: { key: string; default: number }[]): ParamValues {
-  const values: ParamValues = {};
-  for (const p of params) values[p.key] = p.default;
-  return values;
-}
-
-function HeroDemo() {
-  const [lesson, setLesson] = useState<LessonDetail | null>(null);
-
-  useEffect(() => {
-    fetchLesson(DEMO_LESSON_SLUG)
-      .then(setLesson)
-      .catch(() => setLesson(null));
-  }, []);
-
-  const stats = useMemo(() => {
-    if (!lesson || lesson.kind !== "strategy") return null;
-    const params = defaultsFor(lesson.strategy.params);
-    const [lo, hi] = defaultRange(lesson.strategy, params);
-    return computePayoffStats(lesson.strategy, params, lo, hi);
-  }, [lesson]);
-
-  return (
-    <div className="rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5 shadow-2xl shadow-black/40">
-      <div className="mb-3 flex items-center justify-between">
-        <div>
-          <div className="text-xs uppercase tracking-wide text-[#898781]">Live from the Options course</div>
-          <h3 className="font-semibold text-[#e6e8ec]">
-            {lesson?.kind === "strategy" ? lesson.strategy.name : "Long straddle"}
-          </h3>
-        </div>
-        <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-xs text-[#9aa3b2]">Interactive</span>
-      </div>
-
-      {stats ? (
-        <>
-          <PayoffChart curve={stats.curve} breakevens={stats.breakevens} />
-          <div className="mt-3 grid grid-cols-2 gap-2">
-            <StatTile label="Max profit" value={stats.maxProfit} tone="good" />
-            <StatTile label="Max loss" value={stats.maxLoss} tone="critical" />
-          </div>
-        </>
-      ) : (
-        <div className="flex h-[360px] items-center justify-center text-sm text-[#898781]">Loading demo…</div>
-      )}
-      <p className="mt-3 text-xs text-[#898781]">
-        This interactive payoff tool is built into every Options lesson — every chart in the course is live, not a
-        screenshot. Other live courses pair each lesson with a written explainer and a knowledge-check quiz instead.
-      </p>
-    </div>
   );
 }
 
