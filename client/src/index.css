@@ -33,6 +33,10 @@ body {
   box-sizing: border-box;
 }
 
+button:not(:disabled) {
+  cursor: pointer;
+}
+
 .input {
   width: 100%;
   border-radius: 0.5rem;
