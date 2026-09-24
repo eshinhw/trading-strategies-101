@@ -5,6 +5,9 @@ import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { submitLesson } from "../api";
 import { QuizResultPanel } from "./QuizResultPanel";
 import { QuizProgress } from "./QuizProgress";
+import { QuizChoiceOption } from "./QuizChoiceOption";
+import { QuizFeedback } from "./QuizFeedback";
+import { QuizNavButtons } from "./QuizNavButtons";
 import { ParamLabel } from "./ParamLabel";
 
 type NumericAnswer = { unlimited: boolean; text: string };
@@ -220,69 +223,36 @@ export function StrategyKnowledgeCheck({
         </div>
       ) : (
         <div className="flex flex-col gap-1.5">
-          {q.choices!.map((choice, ci) => {
-            const isSelected = mcqAnswers[q.id] === ci;
-            const isCorrectChoice = choice === correctAnswerFor(q);
-            return (
-              <label
-                key={ci}
-                className={`flex items-center gap-2 rounded-md border px-3 py-2 text-sm capitalize transition ${
-                  isChecked ? "" : "cursor-pointer"
-                } ${
-                  isChecked
-                    ? isCorrectChoice
-                      ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                      : isSelected
-                        ? "border-red-500/40 bg-red-500/10 text-red-300"
-                        : "border-[#2a3040] text-[#9aa3b2]"
-                    : isSelected
-                      ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
-                      : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
-                }`}
-              >
-                <input
-                  type="radio"
-                  name={q.id}
-                  className="accent-[#4f8cff]"
-                  disabled={isChecked}
-                  checked={isSelected}
-                  onChange={() => selectChoice(ci)}
-                />
-                {choice}
-              </label>
-            );
-          })}
+          {q.choices!.map((choice, ci) => (
+            <QuizChoiceOption
+              key={ci}
+              name={q.id}
+              label={choice}
+              isSelected={mcqAnswers[q.id] === ci}
+              isCorrectChoice={choice === correctAnswerFor(q)}
+              isChecked={isChecked}
+              disabled={isChecked}
+              capitalize
+              onSelect={() => selectChoice(ci)}
+            />
+          ))}
         </div>
       )}
 
       {isChecked && (
-        <div
-          className={`mt-3 rounded-md border px-3 py-2 text-sm ${
-            correct ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300" : "border-red-500/30 bg-red-500/10 text-red-300"
-          }`}
-        >
+        <QuizFeedback correct={correct}>
           {correct ? "Correct." : `Not quite — correct answer: ${correctAnswerFor(q)}`}
-        </div>
+        </QuizFeedback>
       )}
 
-      <div className="mt-5 flex items-center justify-between">
-        <button
-          onClick={() => setCurrentIndex((i) => i - 1)}
-          disabled={currentIndex === 0}
-          className="text-sm text-[#4f8cff] hover:underline disabled:cursor-not-allowed disabled:text-[#898781] disabled:no-underline"
-        >
-          ← Back
-        </button>
-        {isChecked && (
-          <button
-            onClick={next}
-            disabled={submitting}
-            className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            {submitting ? "Grading…" : isLast ? "Finish" : "Next question →"}
-          </button>
-        )}
-      </div>
+      <QuizNavButtons
+        onBack={() => setCurrentIndex((i) => i - 1)}
+        backDisabled={currentIndex === 0}
+        isChecked={isChecked}
+        isLast={isLast}
+        submitting={submitting}
+        onNext={next}
+      />
 
       {authRequired && (
         <p className="mt-3 text-sm text-amber-400">

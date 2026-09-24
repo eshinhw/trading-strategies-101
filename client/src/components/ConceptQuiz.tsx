@@ -3,6 +3,9 @@ import type { ConceptQuizPrompt } from "../types/curriculum";
 import { submitLesson } from "../api";
 import { QuizResultPanel } from "./QuizResultPanel";
 import { QuizProgress } from "./QuizProgress";
+import { QuizChoiceOption } from "./QuizChoiceOption";
+import { QuizFeedback } from "./QuizFeedback";
+import { QuizNavButtons } from "./QuizNavButtons";
 import type { GradeResponse } from "../types/curriculum";
 
 export function ConceptQuiz({
@@ -80,78 +83,44 @@ export function ConceptQuiz({
 
       <p className="mb-3 text-sm text-[#e6e8ec]">{q.prompt}</p>
       <div className="flex flex-col gap-1.5">
-        {q.choices.map((choice, ci) => {
-          const isSelected = answers[q.id] === ci;
-          const isCorrectChoice = ci === q.correctIndex;
-          return (
-            <label
-              key={ci}
-              className={`flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition ${
-                isChecked ? "" : "cursor-pointer"
-              } ${
-                isChecked
-                  ? isCorrectChoice
-                    ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
-                    : isSelected
-                      ? "border-red-500/40 bg-red-500/10 text-red-300"
-                      : "border-[#2a3040] text-[#9aa3b2]"
-                  : isSelected
-                    ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
-                    : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
-              }`}
-            >
-              <input
-                type="radio"
-                name={q.id}
-                className="accent-[#4f8cff]"
-                checked={isSelected}
-                onChange={() => selectChoice(ci)}
-                onKeyDown={(e) => {
-                  // once checked, Enter advances — kept on the input (rather
-                  // than disabling it) so it's still focused and can receive
-                  // the keypress; selectChoice() already no-ops further
-                  // changes once checked.
-                  if (e.key === "Enter" && isChecked) {
-                    e.preventDefault();
-                    next();
-                  }
-                }}
-              />
-              {choice}
-            </label>
-          );
-        })}
+        {q.choices.map((choice, ci) => (
+          <QuizChoiceOption
+            key={ci}
+            name={q.id}
+            label={choice}
+            isSelected={answers[q.id] === ci}
+            isCorrectChoice={ci === q.correctIndex}
+            isChecked={isChecked}
+            onSelect={() => selectChoice(ci)}
+            onKeyDown={(e) => {
+              // once checked, Enter advances — kept on the input (rather
+              // than disabling it) so it's still focused and can receive
+              // the keypress; selectChoice() already no-ops further
+              // changes once checked.
+              if (e.key === "Enter" && isChecked) {
+                e.preventDefault();
+                next();
+              }
+            }}
+          />
+        ))}
       </div>
 
       {isChecked && (
-        <div
-          className={`mt-3 rounded-md border px-3 py-2 text-sm ${
-            isCorrect ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300" : "border-red-500/30 bg-red-500/10 text-red-300"
-          }`}
-        >
+        <QuizFeedback correct={isCorrect}>
           <span className="font-medium">{isCorrect ? "Correct." : "Not quite."}</span>{" "}
           <span className="text-[#9aa3b2]">{q.explanation}</span>
-        </div>
+        </QuizFeedback>
       )}
 
-      <div className="mt-5 flex items-center justify-between">
-        <button
-          onClick={() => setCurrentIndex((i) => i - 1)}
-          disabled={currentIndex === 0}
-          className="text-sm text-[#4f8cff] hover:underline disabled:cursor-not-allowed disabled:text-[#898781] disabled:no-underline"
-        >
-          ← Back
-        </button>
-        {isChecked && (
-          <button
-            onClick={next}
-            disabled={submitting}
-            className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            {submitting ? "Grading…" : isLast ? "Finish" : "Next question →"}
-          </button>
-        )}
-      </div>
+      <QuizNavButtons
+        onBack={() => setCurrentIndex((i) => i - 1)}
+        backDisabled={currentIndex === 0}
+        isChecked={isChecked}
+        isLast={isLast}
+        submitting={submitting}
+        onNext={next}
+      />
 
       {authRequired && (
         <p className="mt-3 text-sm text-amber-400">
