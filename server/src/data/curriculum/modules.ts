@@ -602,4 +602,14 @@ export const modules: Module[] = [
       "convertibles-why-issue-and-buy",
     ],
   },
+  {
+    slug: "convertibles-strategies",
+    courseSlug: "convertibles",
+    title: "Convertibles Strategies",
+    description:
+      "Buying a convertible and delta-hedging with the underlying stock to harvest coupon and convexity, and a relative-value approach that trades convertibles on option-adjusted spread.",
+    order: 2,
+    prerequisiteModuleSlugs: ["convertibles-basics"],
+    lessonSlugs: ["convertible-arbitrage", "convertible-option-adjusted-spread"],
+  },
 ];

@@ -336,4 +336,172 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "convertible-arbitrage",
+    title: "Convertible arbitrage",
+    summary:
+      "Buying a convertible bond and shorting a hedge ratio of the underlying stock, aiming to profit from the bond's own income and convexity while staying largely neutral to the stock's direction.",
+    body: [
+      { type: "heading", text: "The Basic Trade" },
+      { type: "paragraph", text: "A convertible arbitrage position buys the convertible bond and simultaneously sells short a calculated number of shares of the underlying stock, sized to offset the bond's own sensitivity to the stock price — its delta. The two legs together are designed to be far less exposed to the stock's outright direction than either leg would be alone." },
+      { type: "heading", text: "Why Hedge With a Short Stock Position" },
+      { type: "paragraph", text: "Because the convertible's embedded conversion option makes its price sensitive to the stock, shorting stock in proportion to that sensitivity neutralizes the position's directional exposure — the trade isn't a bet on whether the stock rises or falls, but on something else entirely." },
+      { type: "heading", text: "Where the Profit Comes From" },
+      { type: "paragraph", text: "Profit comes from several sources layered together: the convertible's own coupon income, interest earned on the cash proceeds from the short sale, and gains from convexity, since the bond's delta itself changes as the stock moves — rising as the stock climbs, falling as it drops — in a way that resembles being long an option's gamma." },
+      { type: "heading", text: "Dynamic Hedging and Its Costs" },
+      { type: "paragraph", text: "As the stock price moves, the convertible's delta changes, so the position's hedge has to be periodically rebalanced — adding to or trimming the short as needed to stay neutral. That ongoing rebalancing is exactly what captures the convexity profit, but it isn't free: transaction costs, the cost of borrowing stock to short, and the issuer's own credit risk all cut into what the strategy actually nets." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What are the two legs of a convertible arbitrage position?",
+        choices: [
+          "Buying the convertible bond and simultaneously shorting a calculated number of shares of the underlying stock",
+          "Buying the convertible bond and buying more of the underlying stock",
+          "Shorting the convertible bond with no stock position at all",
+          "Only ever holding the convertible bond with no hedge",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Convertible arbitrage pairs a long convertible position with a short stock position sized to the bond's delta, rather than holding either leg alone.",
+      },
+      {
+        id: "q2",
+        prompt: "Why does shorting stock neutralize the position's directional exposure?",
+        choices: [
+          "The short stock offsets the convertible's own price sensitivity to the stock, which comes from its embedded conversion option",
+          "Shorting stock has no effect on the position's directional exposure",
+          "The convertible bond has no sensitivity to the stock price at all",
+          "Shorting stock only works if the stock price never changes",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since the convertible's value moves with the stock through its embedded option, an offsetting short stock position cancels out that directional sensitivity.",
+      },
+      {
+        id: "q3",
+        prompt: "What are the layered sources of profit in convertible arbitrage?",
+        choices: [
+          "The convertible's coupon income, interest on short-sale proceeds, and convexity gains as the bond's delta changes with the stock",
+          "Only the convertible's coupon income, with no other source",
+          "Profit comes exclusively from the stock's price direction",
+          "There is no realistic source of profit in this strategy",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Convertible arbitrage combines coupon income, short-rebate interest, and gamma-like convexity gains from rebalancing the hedge as the stock moves.",
+      },
+      {
+        id: "q4",
+        prompt: "Why does the position's hedge need to be rebalanced over time?",
+        choices: [
+          "The convertible's delta changes as the stock price moves, so the short position needs to be adjusted to stay properly hedged",
+          "The hedge never needs to be adjusted once it's set",
+          "Rebalancing is only needed if the bond's coupon changes",
+          "The stock's price has no effect on the required hedge size",
+        ],
+        correctIndex: 0,
+        explanation:
+          "As the convertible's delta shifts with the stock price, the short stock position must be adjusted to keep the overall position properly hedged — and that rebalancing is what captures convexity profit.",
+      },
+      {
+        id: "q5",
+        prompt: "What costs can erode a convertible arbitrage position's profitability?",
+        choices: [
+          "Transaction costs from rebalancing, the cost of borrowing stock to short, and the issuer's credit risk",
+          "There are no real costs associated with this strategy",
+          "Only the convertible's own coupon payment is a cost",
+          "The strategy has zero exposure to the issuer's creditworthiness",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Rebalancing costs, stock borrow costs, and issuer credit risk are all real frictions that reduce the strategy's net profitability despite its largely market-neutral design.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "convertible-option-adjusted-spread",
+    title: "Convertible option-adjusted spread",
+    summary:
+      "Using option-adjusted spread to strip the embedded conversion option out of a convertible's price, isolating the credit-and-liquidity compensation it actually offers for relative-value comparison.",
+    body: [
+      { type: "heading", text: "Isolating the Bond's True Compensation" },
+      { type: "paragraph", text: "Just as with mortgage-backed securities covered elsewhere in this curriculum, a convertible bond's price reflects both a bond component and an embedded option value, so comparing convertibles on price or yield alone is misleading. Option-adjusted spread (OAS) strips out the value of the conversion option to isolate the spread genuinely compensating for the issuer's credit and liquidity risk." },
+      { type: "heading", text: "How OAS Is Calculated" },
+      { type: "paragraph", text: "Using an option-pricing model that accounts for the stock's volatility, the issuer's credit spread, and the bond's specific conversion terms, a trader solves for the discount spread over the risk-free curve that makes the model's theoretical price match the convertible's actual market price — that solved-for spread is the OAS." },
+      { type: "heading", text: "Spotting Relative Value" },
+      { type: "paragraph", text: "A convertible trading with a wider OAS than similar-credit-quality, similar-duration convertibles, or wider than what the issuer's own straight-bond credit spread implies is fair, looks cheap on a relative-value basis. One trading with a noticeably tighter OAS looks rich by the same comparison." },
+      { type: "heading", text: "Trading the Signal" },
+      { type: "paragraph", text: "A trader buys convertibles that look cheap on an OAS basis and can short similar convertibles, or the issuer's other outstanding debt, that look rich, aiming to profit as the spreads converge toward fair value. Like convertible arbitrage, this relative-value approach is often paired with a stock hedge, isolating the credit and spread view from the embedded option's own sensitivity to the stock price." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "Why is comparing convertible bonds on price or yield alone misleading?",
+        choices: [
+          "A convertible's price reflects both a bond component and an embedded option value, which raw price or yield doesn't separate out",
+          "Convertible bonds never actually have a market price",
+          "Yield is completely irrelevant to any bond's valuation",
+          "Convertibles and plain bonds are priced using identical methods with no adjustment needed",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because part of a convertible's price comes from its embedded conversion option, comparing convertibles on price or yield alone conflates option value with genuine credit compensation.",
+      },
+      {
+        id: "q2",
+        prompt: "What does option-adjusted spread (OAS) do for a convertible bond?",
+        choices: [
+          "Strips out the value of the conversion option to isolate the spread compensating for credit and liquidity risk",
+          "Measures only the bond's stated coupon rate",
+          "Ignores the issuer's credit risk entirely",
+          "Only applies to government bonds, never convertibles",
+        ],
+        correctIndex: 0,
+        explanation:
+          "OAS removes the embedded option's value from the price, leaving the spread that genuinely reflects the issuer's credit and liquidity risk — the same logic used for MBS.",
+      },
+      {
+        id: "q3",
+        prompt: "How is a convertible's OAS actually calculated?",
+        choices: [
+          "By solving, with an option-pricing model, for the discount spread that makes the model's theoretical price match the bond's actual market price",
+          "By simply subtracting the coupon rate from the face value",
+          "By looking up a fixed number published by the issuer",
+          "OAS cannot be calculated for convertible bonds",
+        ],
+        correctIndex: 0,
+        explanation:
+          "OAS is solved for using an option-pricing model that accounts for volatility, credit spread, and conversion terms, finding the spread that reconciles theoretical and market prices.",
+      },
+      {
+        id: "q4",
+        prompt: "What does a wider-than-peers OAS suggest about a convertible?",
+        choices: [
+          "It looks cheap on a relative-value basis",
+          "It looks rich on a relative-value basis",
+          "OAS has no relationship to relative value",
+          "The bond is guaranteed to default",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A wider OAS than similar convertibles (or than the issuer's straight-bond credit spread implies) suggests the market is offering more compensation than comparable bonds — a sign it may be cheap.",
+      },
+      {
+        id: "q5",
+        prompt: "How is this OAS-based relative-value view typically traded?",
+        choices: [
+          "Buying convertibles that look cheap on OAS and shorting ones that look rich, often paired with a stock hedge to isolate the credit view",
+          "Only ever buying convertibles, regardless of their relative OAS",
+          "The strategy never involves any hedge of any kind",
+          "By buying the issuer's stock alone, with no bond position",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The strategy pairs long cheap-OAS convertibles against short rich-OAS ones, frequently combined with a stock hedge so the trade isolates the spread view rather than the embedded option's stock sensitivity.",
+      },
+    ],
+  },
 ];
