@@ -39,7 +39,7 @@ export function BooksPage() {
   }, [data, query, level]);
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10">
+    <div className="mx-auto max-w-7xl px-6 py-10">
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-[#e6e8ec]">Books</h1>
         <p className="mt-2 max-w-2xl text-[#9aa3b2]">

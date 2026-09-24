@@ -40,7 +40,7 @@ function Hero() {
         className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
         style={{ background: "radial-gradient(closest-side, #4f8cff, transparent)" }}
       />
-      <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
           <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6e8ec] sm:text-5xl">
             Learn trading strategies by using them, not memorizing them.
@@ -140,7 +140,7 @@ function Features() {
   ];
 
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-7xl px-6 py-16">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
         {items.map((it) => (
           <div key={it.title} className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6">
@@ -166,14 +166,14 @@ function CoursesPreview() {
 
   return (
     <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-2xl font-bold text-[#e6e8ec]">18 courses, one per asset class</h2>
         {availableCount !== undefined && (
           <p className="mt-2 text-[#9aa3b2]">{availableCount} available now — the rest are on the roadmap.</p>
         )}
 
         {courses && (
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {courses.map((c) => (
               <CourseCard key={c.slug} course={c} />
             ))}
@@ -186,7 +186,7 @@ function CoursesPreview() {
 
 function FinalCta() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16 text-center">
+    <section className="mx-auto max-w-7xl px-6 py-16 text-center">
       <h2 className="text-2xl font-bold text-[#e6e8ec]">Ready to start?</h2>
       <p className="mx-auto mt-2 max-w-md text-[#9aa3b2]">
         Create a free account to save your progress and unlock modules as you complete them.

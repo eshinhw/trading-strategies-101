@@ -22,7 +22,7 @@ export function CoursePage() {
 
   if (error) {
     return (
-      <div className="mx-auto max-w-5xl px-6 py-16 text-center">
+      <div className="mx-auto max-w-7xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
         <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
           ← All Courses
@@ -32,11 +32,11 @@ export function CoursePage() {
   }
 
   if (!course) {
-    return <div className="mx-auto max-w-5xl px-6 py-16 text-center text-[#898781]">Loading…</div>;
+    return <div className="mx-auto max-w-7xl px-6 py-16 text-center text-[#898781]">Loading…</div>;
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10">
+    <div className="mx-auto max-w-7xl px-6 py-10">
       <Link to="/courses" className="text-sm text-[#4f8cff] hover:underline">
         ← All Courses
       </Link>

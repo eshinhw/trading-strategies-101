@@ -38,7 +38,7 @@ export function CoursesPage() {
 
   return (
     <div>
-      <div className="mx-auto max-w-5xl px-6 py-10">
+      <div className="mx-auto max-w-7xl px-6 py-10">
         <header className="mb-8">
           <h1 className="text-3xl font-bold text-[#e6e8ec]">All Courses</h1>
         </header>
@@ -59,7 +59,7 @@ export function CoursesPage() {
             {filteredCourses.length === 0 ? (
               <p className="text-[#898781]">No courses match your search.</p>
             ) : (
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredCourses.map((c) => (
                   <CourseCard key={c.slug} course={c} progress={progressByCourse[c.slug] ?? null} />
                 ))}

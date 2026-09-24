@@ -47,7 +47,7 @@ export function LessonPage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10">
+    <div className="mx-auto max-w-7xl px-6 py-10">
       <Breadcrumb lesson={lesson} />
       {lesson.kind === "concept" ? <ConceptLessonBody lesson={lesson} /> : <StrategyLessonBody lesson={lesson} />}
       <LessonNav lesson={lesson} onNavigate={(s) => navigate(`/lesson/${s}`)} />
