@@ -240,7 +240,7 @@ export const modules: Module[] = [
   {
     slug: "stocks-fundamentals",
     courseSlug: "stocks",
-    title: "Stocks Fundamentals",
+    title: "Basic Strategies",
     description:
       "A first tour of equity trading strategies — factor investing (momentum and value), statistical arbitrage (pairs trading and cluster mean-reversion), technical trend-following, and market-making.",
     order: 2,
@@ -291,12 +291,22 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "etfs-fundamentals",
+    slug: "etf-basics",
     courseSlug: "etfs",
     title: "ETF Basics",
     description:
-      "Sector and alpha rotation strategies (plain, MA-filtered, and dual momentum), the technical tools that refine and complement them (R-squared, mean-reversion), and structural ETF mechanics (leveraged ETF decay, multi-asset trend following).",
+      "What an ETF actually is, how the creation/redemption mechanism manufactures and retires shares (and keeps price tethered to NAV), how to actually trade one, and why investors reach for ETFs in the first place.",
     order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["etf-what-is-an-etf", "etf-creation-and-redemption", "etf-how-to-trade-etfs", "etf-why-trade-etfs"],
+  },
+  {
+    slug: "etfs-fundamentals",
+    courseSlug: "etfs",
+    title: "ETF Fundamentals",
+    description:
+      "Sector and alpha rotation strategies (plain, MA-filtered, and dual momentum), the technical tools that refine and complement them (R-squared, mean-reversion), and structural ETF mechanics (leveraged ETF decay, multi-asset trend following).",
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "etf-sector-momentum-rotation",

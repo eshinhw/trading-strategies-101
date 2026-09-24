@@ -690,4 +690,340 @@ export const etfConceptLessons: ConceptLesson[] = [
       },
     ],
   },
+  {
+    kind: "concept",
+    slug: "etf-what-is-an-etf",
+    title: "What Is an ETF?",
+    summary:
+      "A fund that holds a basket of assets but trades on an exchange like a single stock — combining a mutual fund's diversification with a stock's liquidity.",
+    body: [
+      { type: "heading", text: "A Basket of Assets in One Security" },
+      { type: "paragraph", text: "An ETF (exchange-traded fund) holds a basket of underlying assets — stocks, bonds, commodities, or a mix — and issues shares that represent a proportional claim on that whole basket. Buying one share of an ETF gives an investor instant, diversified exposure to everything inside it, rather than having to buy each underlying asset separately." },
+      { type: "heading", text: "Traded Like a Stock" },
+      { type: "paragraph", text: "Unlike a traditional mutual fund, which is only priced and traded once per day after markets close, an ETF's shares trade continuously on an exchange throughout the day, at whatever price buyers and sellers agree to in that moment — just like a share of any individual stock." },
+      { type: "heading", text: "Tracking an Index" },
+      { type: "paragraph", text: "Most ETFs are designed to track a specific index, like the S&P 500, or a defined slice of the market — a sector, a country, a commodity — aiming to replicate that index's return as closely as possible rather than trying to beat it through active stock-picking." },
+      { type: "heading", text: "Why ETFs Became So Popular" },
+      { type: "paragraph", text: "ETFs combine three things investors want at once: the diversification of a fund, the intraday liquidity of a stock, and, for most index-tracking ETFs, a much lower cost than an actively managed mutual fund — a combination that's driven their explosive growth since the first ETFs launched in the early 1990s." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What does an ETF share represent?",
+        choices: [
+          "A proportional claim on a basket of underlying assets held by the fund",
+          "A direct loan to a single company",
+          "Ownership of exactly one stock, chosen by the investor",
+          "A guarantee of a fixed annual return",
+        ],
+        correctIndex: 0,
+        explanation:
+          "An ETF pools many underlying assets into one fund, and each share represents a proportional slice of that whole basket, not a single holding.",
+      },
+      {
+        id: "q2",
+        prompt: "How does ETF trading differ from a traditional mutual fund?",
+        choices: [
+          "An ETF trades continuously on an exchange throughout the day, while a mutual fund is only priced and traded once per day",
+          "Mutual funds trade continuously, while ETFs only trade once per day",
+          "There is no difference between the two",
+          "ETFs cannot be bought or sold by individual investors",
+        ],
+        correctIndex: 0,
+        explanation:
+          "ETF shares trade intraday on an exchange like a stock, in contrast to a mutual fund, which is only transacted once a day at a single end-of-day price.",
+      },
+      {
+        id: "q3",
+        prompt: "What do most ETFs aim to do relative to an index?",
+        choices: [
+          "Replicate the index's return as closely as possible, rather than trying to beat it",
+          "Guarantee a return significantly higher than the index",
+          "Ignore any index entirely and pick stocks at random",
+          "Short the index at all times",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Most ETFs are passively managed to track a specific index or market segment, aiming for close replication rather than active outperformance.",
+      },
+      {
+        id: "q4",
+        prompt: "What combination of features has driven ETFs' popularity?",
+        choices: [
+          "Fund-like diversification, stock-like intraday liquidity, and typically lower cost than active management",
+          "Guaranteed profits with no risk",
+          "Being available only to institutional investors",
+          "Requiring investors to pick individual stocks themselves",
+        ],
+        correctIndex: 0,
+        explanation:
+          "ETFs blend diversification, liquidity, and low cost in one product, which is the core reason they've grown so much since the early 1990s.",
+      },
+      {
+        id: "q5",
+        prompt: "What kinds of assets can an ETF's underlying basket hold?",
+        choices: [
+          "Only individual company stocks, and nothing else",
+          "Stocks, bonds, commodities, or a mix, depending on the ETF",
+          "Only physical gold",
+          "ETFs never actually hold any underlying assets",
+        ],
+        correctIndex: 1,
+        explanation:
+          "An ETF's underlying basket can be built from stocks, bonds, commodities, or a combination, depending on what the fund is designed to track.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "etf-creation-and-redemption",
+    title: "How ETFs Are Created",
+    summary:
+      "The creation and redemption mechanism that lets large institutional players manufacture or dissolve ETF shares on demand — and why that keeps an ETF's price in line with its underlying holdings.",
+    body: [
+      { type: "heading", text: "Authorized Participants" },
+      { type: "paragraph", text: "New ETF shares aren't created by the fund manager selling shares directly to the public; they're created through large institutional intermediaries called authorized participants (APs) — typically big broker-dealers — who are the only parties allowed to deal directly with the ETF issuer to create or redeem shares." },
+      { type: "heading", text: "The Creation Process" },
+      { type: "paragraph", text: "To create new ETF shares, an AP assembles the exact basket of underlying securities the ETF is meant to hold, or in some cases delivers cash instead, and delivers it to the ETF issuer in exchange for a large block of new ETF shares, called a creation unit, typically representing tens of thousands of shares at once." },
+      { type: "heading", text: "The Redemption Process" },
+      { type: "paragraph", text: "Redemption runs the reverse: an AP hands back a creation unit's worth of ETF shares to the issuer and receives the underlying basket of securities in return, effectively retiring those ETF shares and shrinking the fund." },
+      { type: "heading", text: "Why This Keeps Prices in Line" },
+      { type: "paragraph", text: "Because APs can profit from any gap between an ETF's market price and the actual value of its underlying holdings — buying whichever is cheaper and creating or redeeming to capture the difference — this arbitrage mechanism is what keeps an ETF's trading price closely tethered to its net asset value, without the fund itself having to intervene." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "Who is allowed to create or redeem ETF shares directly with the issuer?",
+        choices: [
+          "Any individual retail investor",
+          "Authorized participants (APs), typically large broker-dealers",
+          "Only the ETF's original founder",
+          "No one — ETF share counts never change",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Authorized participants are the specific institutional intermediaries permitted to deal directly with the ETF issuer to create or redeem shares.",
+      },
+      {
+        id: "q2",
+        prompt: "What does an AP deliver to the ETF issuer to create new shares?",
+        choices: [
+          "The exact basket of underlying securities the ETF holds (or cash, in some cases)",
+          "A written request with no assets attached",
+          "A single share of the ETF itself",
+          "A loan from a bank",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Creating new ETF shares works by exchanging the underlying basket of securities (or cash) for a large block of new shares called a creation unit.",
+      },
+      {
+        id: "q3",
+        prompt: "What happens during redemption?",
+        choices: [
+          "An AP hands back ETF shares to the issuer and receives the underlying basket of securities in return",
+          "The ETF issuer pays cash directly to every retail shareholder",
+          "Redemption is identical to creation, with no differences",
+          "ETF shares can never be redeemed once created",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Redemption is the mirror image of creation: an AP returns a creation unit's worth of shares and receives the underlying basket back, shrinking the fund.",
+      },
+      {
+        id: "q4",
+        prompt: "Why does the creation/redemption mechanism keep an ETF's market price close to its net asset value?",
+        choices: [
+          "APs can profit from any price gap by creating or redeeming shares, which is an arbitrage force that pulls the market price back in line",
+          "The mechanism has no effect on the ETF's market price",
+          "The government sets the ETF's price directly every day",
+          "ETF prices are fixed and never actually change",
+        ],
+        correctIndex: 0,
+        explanation:
+          "APs are financially motivated to exploit any gap between market price and underlying value, and doing so via creation/redemption is exactly what keeps that gap small.",
+      },
+      {
+        id: "q5",
+        prompt: "What is a \"creation unit\"?",
+        choices: [
+          "A single ETF share",
+          "A large block of ETF shares, typically tens of thousands, created or redeemed at once by an AP",
+          "A type of underlying bond",
+          "The ETF issuer's corporate headquarters",
+        ],
+        correctIndex: 1,
+        explanation:
+          "A creation unit is the large block size in which shares are actually created or redeemed — not a single-share transaction.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "etf-how-to-trade-etfs",
+    title: "How to Trade ETFs",
+    summary:
+      "Buying and selling ETF shares works just like trading a stock — with a few ETF-specific details worth understanding, like the bid-ask spread and premium/discount to NAV.",
+    body: [
+      { type: "heading", text: "Same Order Types as a Stock" },
+      { type: "paragraph", text: "Because ETF shares trade continuously on an exchange, they use exactly the same order types as individual stocks — market orders, limit orders, and the same considerations around going long or, for some ETFs, selling short." },
+      { type: "heading", text: "Bid-Ask Spread and Liquidity" },
+      { type: "paragraph", text: "An ETF's bid-ask spread — the gap between the price a buyer will pay and a seller will accept — is influenced not just by how heavily the ETF itself trades, but by how liquid its underlying holdings are, since market makers can lean on the creation and redemption mechanism to source or offload the basket whenever needed." },
+      { type: "heading", text: "Premium and Discount to NAV" },
+      { type: "paragraph", text: "An ETF's market price can trade slightly above (a premium) or below (a discount) its net asset value (NAV), the per-share value of its actual underlying holdings, especially for less liquid ETFs or during volatile markets — though the creation and redemption arbitrage described in the previous lesson usually keeps this gap small and short-lived." },
+      { type: "heading", text: "Expense Ratios" },
+      { type: "paragraph", text: "Every ETF charges an expense ratio, an annual fee expressed as a percentage of assets and deducted directly from the fund's returns rather than billed separately, which is why comparing expense ratios across similar ETFs tracking the same index is one of the simplest ways to compare their cost to an investor." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "What order types can be used to trade an ETF?",
+        choices: [
+          "The same order types used for individual stocks — market orders, limit orders, and so on",
+          "Only market orders are ever allowed",
+          "ETFs require a completely different, specialized order system",
+          "ETFs cannot be bought or sold using orders at all",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since ETF shares trade like stocks on an exchange, the same familiar order types apply directly.",
+      },
+      {
+        id: "q2",
+        prompt: "What influences an ETF's bid-ask spread, beyond how heavily the ETF itself trades?",
+        choices: [
+          "How liquid the ETF's underlying holdings are",
+          "The ETF's ticker symbol length",
+          "Only the time of day, with no other factors",
+          "The color scheme of the ETF issuer's website",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Market makers can source or offload the underlying basket via creation/redemption, so the liquidity of those underlying holdings feeds directly into how tight the ETF's own spread can be.",
+      },
+      {
+        id: "q3",
+        prompt: "What does it mean if an ETF is trading at a \"premium\" to its NAV?",
+        choices: [
+          "Its market price is trading above the per-share value of its actual underlying holdings",
+          "Its market price is trading below its underlying value",
+          "The ETF has stopped trading entirely",
+          "The ETF has no underlying holdings at all",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A premium means the market price sits above NAV — the arbitrage mechanism from creation/redemption usually keeps this gap small and temporary.",
+      },
+      {
+        id: "q4",
+        prompt: "What is an ETF's expense ratio?",
+        choices: [
+          "An annual fee, as a percentage of assets, deducted directly from the fund's returns",
+          "A one-time fee paid only when first buying shares",
+          "A fee charged exclusively to authorized participants",
+          "A tax paid to the government on every trade",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The expense ratio is an ongoing annual cost taken out of the fund's returns, making it a useful way to compare the cost of similar ETFs.",
+      },
+      {
+        id: "q5",
+        prompt: "Why does comparing expense ratios matter when choosing between similar ETFs?",
+        choices: [
+          "It's one of the simplest ways to compare the cost of ETFs tracking the same index",
+          "Expense ratios are identical across every ETF, so comparison is pointless",
+          "Expense ratios only apply to actively managed mutual funds, never ETFs",
+          "Lower expense ratios always guarantee higher returns",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since expense ratios directly reduce returns over time, comparing them across similar index-tracking ETFs is a straightforward way to judge relative cost.",
+      },
+    ],
+  },
+  {
+    kind: "concept",
+    slug: "etf-why-trade-etfs",
+    title: "Why Trade ETFs?",
+    summary:
+      "The practical reasons investors and traders reach for an ETF instead of individual stocks, a mutual fund, or futures — diversification, cost, tax efficiency, and precise, targeted exposure.",
+    body: [
+      { type: "heading", text: "Instant Diversification" },
+      { type: "paragraph", text: "Buying a single ETF share can provide exposure to dozens, hundreds, or even thousands of underlying securities at once, letting an investor diversify away single-company risk without having to research and buy each holding individually." },
+      { type: "heading", text: "Targeted, Precise Exposure" },
+      { type: "paragraph", text: "Beyond broad market index ETFs, there are ETFs built around specific sectors, countries, factors, or themes, letting a trader take a precise, targeted position — say, on semiconductor stocks or emerging-market bonds — without having to build that exact basket themselves." },
+      { type: "heading", text: "Lower Cost Than Active Management" },
+      { type: "paragraph", text: "Most ETFs are passively managed, tracking an index rather than paying a team of analysts to pick stocks, which is why their expense ratios are typically far lower than a comparable actively managed mutual fund's." },
+      { type: "heading", text: "Tax Efficiency" },
+      { type: "paragraph", text: "The in-kind creation and redemption mechanism, trading baskets of securities rather than cash, lets most ETFs avoid triggering the capital gains distributions that a traditional mutual fund often passes on to all its shareholders when it sells appreciated holdings — making ETFs, in many cases, a more tax-efficient way to hold a diversified position." },
+    ],
+    quiz: [
+      {
+        id: "q1",
+        prompt: "How does a single ETF share help with diversification?",
+        choices: [
+          "It can provide exposure to many underlying securities at once, without researching and buying each individually",
+          "It only ever provides exposure to a single company",
+          "Diversification is not possible through ETFs",
+          "It requires buying a separate share for every underlying holding",
+        ],
+        correctIndex: 0,
+        explanation:
+          "One ETF share can represent a claim on dozens, hundreds, or thousands of underlying holdings, delivering diversification in a single transaction.",
+      },
+      {
+        id: "q2",
+        prompt: "What does a sector or thematic ETF let a trader do?",
+        choices: [
+          "Take a precise, targeted position on a specific slice of the market without assembling that basket themselves",
+          "Only invest in the entire stock market at once",
+          "Avoid diversification entirely",
+          "Trade exclusively in government bonds",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Sector, country, factor, and thematic ETFs let a trader express a narrower view without manually building and managing that specific basket of securities.",
+      },
+      {
+        id: "q3",
+        prompt: "Why do most ETFs have lower expense ratios than actively managed mutual funds?",
+        choices: [
+          "Most ETFs are passively managed, tracking an index rather than paying analysts to actively pick stocks",
+          "ETFs are required by law to charge no fees",
+          "ETFs never have any underlying costs at all",
+          "Actively managed funds are always cheaper than ETFs",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Passive index-tracking avoids the cost of active stock-picking research and management, which is reflected in typically lower ETF expense ratios.",
+      },
+      {
+        id: "q4",
+        prompt: "How does the in-kind creation/redemption process help ETFs be more tax-efficient?",
+        choices: [
+          "It lets most ETFs avoid triggering the capital gains distributions that mutual funds often pass on to shareholders",
+          "It has no effect on taxes at all",
+          "It guarantees ETFs are entirely tax-free",
+          "It only applies to bond ETFs, never equity ETFs",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because creation and redemption trade baskets of securities rather than cash, ETFs can often sidestep the capital gains events that a mutual fund selling holdings for cash redemptions would trigger.",
+      },
+      {
+        id: "q5",
+        prompt: "What is one reason a trader might choose an ETF over trying to build the same exposure themselves?",
+        choices: [
+          "An ETF already assembles the precise basket of securities, saving the effort of building and managing it individually",
+          "ETFs are the only way to ever own more than one stock",
+          "Building a custom basket is always cheaper than buying an ETF",
+          "ETFs cannot replicate any specific sector or theme",
+        ],
+        correctIndex: 0,
+        explanation:
+          "An ETF does the work of assembling and maintaining a specific basket, which is often far more convenient than a trader replicating that exposure manually.",
+      },
+    ],
+  },
 ];
