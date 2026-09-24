@@ -1,4 +1,9 @@
-export type BookCategory = "quant-derivatives" | "market-structure" | "psychology-process" | "memoirs-history";
+export type BookCategory =
+  | "quant-derivatives"
+  | "market-structure"
+  | "psychology-process"
+  | "fundamentals-valuation"
+  | "memoirs-history";
 
 export type BookLevel = "beginner" | "intermediate" | "advanced";
 
