@@ -205,7 +205,7 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "futures-fundamentals",
+    slug: "futures-strategies",
     courseSlug: "futures",
     title: "Futures Strategies",
     description:
@@ -238,7 +238,7 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "stocks-fundamentals",
+    slug: "stocks-strategies",
     courseSlug: "stocks",
     title: "Basic Strategies",
     description:
@@ -301,7 +301,7 @@ export const modules: Module[] = [
     lessonSlugs: ["etf-what-is-an-etf", "etf-creation-and-redemption", "etf-how-to-trade-etfs", "etf-why-trade-etfs"],
   },
   {
-    slug: "etfs-fundamentals",
+    slug: "etfs-strategies",
     courseSlug: "etfs",
     title: "ETF Strategies",
     description:
@@ -335,9 +335,9 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "fixed-income-fundamentals",
+    slug: "fixed-income-strategies",
     courseSlug: "fixed-income",
-    title: "Fixed Income Fundamentals",
+    title: "Fixed Income Strategies",
     description:
       "The classic bond-portfolio structures (bullets, barbells, ladders), immunizing a portfolio against rate risk, a duration-neutral curvature trade, and capturing price gains as a bond ages down the yield curve.",
     order: 2,
@@ -398,9 +398,9 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "indexes-fundamentals",
+    slug: "indexes-strategies",
     courseSlug: "indexes",
-    title: "Index Fundamentals",
+    title: "Index Strategies",
     description:
       "Arbitrage between an index and its futures or ETF twins, betting on component correlation with dispersion trades, and dynamically sizing index exposure to hold volatility near a target.",
     order: 2,
@@ -429,9 +429,9 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "volatility-fundamentals",
+    slug: "volatility-strategies",
     courseSlug: "volatility",
-    title: "Volatility Fundamentals",
+    title: "Volatility Strategies",
     description:
       "Trading volatility itself as an asset class — VIX futures mechanics and carry, harvesting the volatility risk premium (plain and gamma-hedged), skew, and variance swaps.",
     order: 2,
@@ -462,9 +462,9 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "fx-fundamentals",
+    slug: "fx-strategies",
     courseSlug: "fx",
-    title: "FX Fundamentals",
+    title: "FX Strategies",
     description:
       "Trend-following on a filtered signal, the carry trade in three forms (single-pair, cross-sectional, and dollar-centric), combining carry with momentum, and triangular arbitrage.",
     order: 2,
@@ -494,9 +494,9 @@ export const modules: Module[] = [
     ],
   },
   {
-    slug: "commodities-fundamentals",
+    slug: "commodities-strategies",
     courseSlug: "commodities",
-    title: "Commodities Fundamentals",
+    title: "Commodities Strategies",
     description:
       "The futures-curve mechanics behind commodity returns (roll yield and hedging pressure), portfolio diversification, and factor strategies (value, skewness premium) plus fundamentals-based pricing models.",
     order: 2,
