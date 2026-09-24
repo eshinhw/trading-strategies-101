@@ -85,7 +85,7 @@ export function ConstructionPage() {
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-amber-400">{error}</p>
         <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
-          ← All courses
+          ← All Courses
         </Link>
       </div>
     );
@@ -172,9 +172,7 @@ export function ConstructionPage() {
           </div>
 
           <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-              Payoff at expiration
-            </h3>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
             <PayoffChart
               curve={stats.curve}
               breakevens={stats.breakevens.filter((b) => b >= stats.displayRange[0] && b <= stats.displayRange[1])}

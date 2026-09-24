@@ -16,7 +16,9 @@ export function ModulePage() {
   useEffect(() => {
     if (!slug) return;
     setModule(null);
-    fetchModule(slug).then(setModule).catch((e) => setError(e.message));
+    fetchModule(slug)
+      .then(setModule)
+      .catch((e) => setError(e.message));
     fetchConstructionExercises()
       .then((all) => setExercises(all.filter((ex) => ex.moduleSlug === slug)))
       .catch(() => setExercises([]));
@@ -27,7 +29,7 @@ export function ModulePage() {
       <div className="mx-auto max-w-5xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
         <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
-          ← All courses
+          ← All Courses
         </Link>
       </div>
     );
@@ -62,9 +64,7 @@ export function ModulePage() {
 
       {module.unlocked && exercises.length > 0 && (
         <div className="mt-8">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-            Construction exercises
-          </h2>
+          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Construction exercises</h2>
           <p className="mb-4 text-sm text-[#898781]">
             No pre-picked strategy — you're given a goal and pick + configure the strategy yourself.
           </p>

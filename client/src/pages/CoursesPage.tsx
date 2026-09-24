@@ -40,7 +40,7 @@ export function CoursesPage() {
     <div>
       <div className="mx-auto max-w-5xl px-6 py-10">
         <header className="mb-8">
-          <h1 className="text-3xl font-bold text-[#e6e8ec]">All courses</h1>
+          <h1 className="text-3xl font-bold text-[#e6e8ec]">All Courses</h1>
         </header>
 
         {error && <p className="text-red-400">{error}</p>}

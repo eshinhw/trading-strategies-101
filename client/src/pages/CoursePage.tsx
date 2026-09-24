@@ -25,7 +25,7 @@ export function CoursePage() {
       <div className="mx-auto max-w-5xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
         <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
-          ← All courses
+          ← All Courses
         </Link>
       </div>
     );
@@ -38,7 +38,7 @@ export function CoursePage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-10">
       <Link to="/courses" className="text-sm text-[#4f8cff] hover:underline">
-        ← All courses
+        ← All Courses
       </Link>
 
       <header className="mt-4 mb-8">
