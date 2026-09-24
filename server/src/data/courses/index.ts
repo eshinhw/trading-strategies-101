@@ -221,54 +221,6 @@ export const courses: Course[] = [
     ],
   },
   {
-    slug: "tax-arbitrage",
-    title: "Tax Arbitrage",
-    section: "13",
-    description:
-      "Strategies that exploit differences in how jurisdictions tax income, including cross-border and municipal bond arbitrage.",
-    status: "coming-soon",
-    strategyCount: 3,
-    strategyTitles: [
-      "Municipal bond tax arbitrage",
-      "Cross-border tax arbitrage",
-      "Cross-border tax arbitrage with options",
-    ],
-  },
-  {
-    slug: "miscellaneous-assets",
-    title: "Miscellaneous Assets",
-    section: "14",
-    description:
-      "Inflation hedging, weather risk, and energy spread strategies that don't fit neatly into a single asset class.",
-    status: "coming-soon",
-    strategyCount: 4,
-    strategyTitles: [
-      "Inflation hedging – inflation swaps",
-      "TIPS-Treasury arbitrage",
-      "Weather risk – demand hedging",
-      "Energy – spark spread",
-    ],
-  },
-  {
-    slug: "distressed-assets",
-    title: "Distressed Assets",
-    section: "15",
-    description:
-      "Investing in distressed and defaulted debt — from passive buy-and-hold to active reorganization and loan-to-own strategies.",
-    status: "coming-soon",
-    strategyCount: 7,
-    strategyTitles: [
-      "Buying and holding distressed debt",
-      "Active distressed investing",
-      "Planning a reorganization",
-      "Buying outstanding debt",
-      "Loan-to-own",
-      "Distress risk puzzle",
-      "Distress risk puzzle – risk management",
-    ],
-  },
-
-  {
     slug: "cash",
     title: "Cash",
     section: "17",
@@ -306,6 +258,53 @@ export const courses: Course[] = [
       "Global macro inflation hedge",
       "Global fixed-income strategy",
       "Trading on economic announcements",
+    ],
+  },
+  {
+    slug: "distressed-assets",
+    title: "Distressed Assets",
+    section: "15",
+    description:
+      "Investing in distressed and defaulted debt — from passive buy-and-hold to active reorganization and loan-to-own strategies.",
+    status: "coming-soon",
+    strategyCount: 7,
+    strategyTitles: [
+      "Buying and holding distressed debt",
+      "Active distressed investing",
+      "Planning a reorganization",
+      "Buying outstanding debt",
+      "Loan-to-own",
+      "Distress risk puzzle",
+      "Distress risk puzzle – risk management",
+    ],
+  },
+  {
+    slug: "tax-arbitrage",
+    title: "Tax Arbitrage",
+    section: "13",
+    description:
+      "Strategies that exploit differences in how jurisdictions tax income, including cross-border and municipal bond arbitrage.",
+    status: "coming-soon",
+    strategyCount: 3,
+    strategyTitles: [
+      "Municipal bond tax arbitrage",
+      "Cross-border tax arbitrage",
+      "Cross-border tax arbitrage with options",
+    ],
+  },
+  {
+    slug: "miscellaneous-assets",
+    title: "Miscellaneous Assets",
+    section: "14",
+    description:
+      "Inflation hedging, weather risk, and energy spread strategies that don't fit neatly into a single asset class.",
+    status: "coming-soon",
+    strategyCount: 4,
+    strategyTitles: [
+      "Inflation hedging – inflation swaps",
+      "TIPS-Treasury arbitrage",
+      "Weather risk – demand hedging",
+      "Energy – spark spread",
     ],
   },
 ];
