@@ -357,6 +357,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Much of the equity tranche's day-to-day price movement comes from the same broad credit-spread-widening or narrowing moves that push the whole index around, not from tranche-specific developments. A trader hedges out that broad, systematic exposure by taking an offsetting position in the plain index CDS." },
       { type: "heading", text: "What's Left After the Hedge" },
       { type: "paragraph", text: "Once the broad index exposure is hedged away, what remains is a more isolated bet: collecting the tranche's rich carry in exchange for bearing correlation risk — the pool's tendency toward clustered, correlated defaults rather than broad, market-wide spread moves — a subtler and harder-to-hedge risk than simple market direction." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A trader sells protection on $10 million notional of the CDX equity tranche (0-3%), collecting a running coupon of 500 basis points a year — $500,000. To hedge away broad index risk, the trader buys protection on the plain index, sized to the tranche's index delta at roughly $3 million notional, paying a running coupon of about 60 basis points, or $18,000 a year. The net carry remaining, about $482,000 a year, is compensation specifically for correlation risk, not for the market's overall direction, which the index leg has already neutralized." },
     ],
     quiz: [
       {
@@ -424,6 +426,20 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
         explanation:
           "Selling protection on the tranche means taking on its default risk — the first-loss exposure — in exchange for the coupon income that compensates for that risk.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A trader collects $500,000/year selling protection on the equity tranche and pays $18,000/year hedging with the index. What does the roughly $482,000 of remaining net carry compensate for?",
+        choices: [
+          "Correlation risk, since the broad index exposure has already been hedged away",
+          "Interest rate risk alone",
+          "It is pure, riskless profit with nothing being compensated",
+          "The risk that the index itself defaults",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Once the index hedge strips out systematic, broad market exposure, the remaining carry is compensation for correlation risk — the tranche-specific risk that survives the hedge.",
+      },
     ],
   },
   {
@@ -441,6 +457,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "As with the equity tranche trade, the position is hedged against the broad index to strip out systematic spread-widening risk, isolating the tranche-specific compensation from the market's overall direction." },
       { type: "heading", text: "A Different Correlation Bet" },
       { type: "paragraph", text: "Because senior and mezzanine tranches are only touched by losses once more junior tranches are wiped out, being long one of these tranches, after the index hedge, is a bet that defaults will be relatively idiosyncratic and spread out, rather than a correlated wave that burns through the entire capital structure at once — the opposite correlation exposure from the equity tranche trade." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A trader sells protection on $10 million notional of the mezzanine tranche (7-15%), collecting a running coupon of 150 basis points a year — $150,000. Hedging with the plain index, sized to the mezzanine tranche's smaller index delta at roughly $1.5 million notional, costs about 60 basis points, or $9,000 a year. The remaining net carry, about $141,000 a year, compensates for the risk that losses climb far enough up the capital structure to reach this tranche — a much less likely, but still real, event." },
     ],
     quiz: [
       {
@@ -508,6 +526,15 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
         explanation:
           "The two trades sit at opposite ends of the capital structure — different coupon size, different loss protection, and opposite exposure to correlated versus idiosyncratic default risk.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A trader collects $150,000/year selling protection on a mezzanine tranche and pays $9,000/year hedging with the index. What is the approximate net carry remaining?",
+        choices: ["$141,000", "$159,000", "$9,000", "$150,000"],
+        correctIndex: 0,
+        explanation:
+          "$150,000 in coupon collected minus $9,000 paid on the index hedge leaves roughly $141,000 a year in net carry, compensating for the tranche-specific risk that survives the hedge.",
+      },
     ],
   },
   {
@@ -525,6 +552,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "After hedging with a nearby tranche, what's left is a more precise bet on the compensation for that specific tranche's position in the capital structure — its exact attachment and detachment points — rather than a broader bet muddied by exposure to the whole index's composition." },
       { type: "heading", text: "The Cost of Precision" },
       { type: "paragraph", text: "A tranche-versus-tranche hedge is harder to execute than an index hedge, since specific tranches of a given structure are less liquid than the plain index, and the hedge ratio between two tranches of the same structure requires a more detailed model of how losses propagate through the capital structure than a simple index hedge does." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A trader sells protection on $10 million notional of the mezzanine tranche (7-15%), collecting $150,000 a year in running coupon. Instead of hedging with the broad index, the trader buys protection on $800,000 notional of the equity tranche (0-3%) from the same underlying structure, paying 500 basis points running, about $40,000 a year. The resulting net carry, roughly $110,000 a year, is a more tightly targeted bet on the mezzanine tranche's specific subordination, since both legs are drawn from the identical pool of names rather than the broader, more diluted index." },
     ],
     quiz: [
       {
@@ -592,6 +621,15 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
         explanation:
           "The tradeoff is precision: a tranche-versus-tranche hedge targets structure-specific risk more accurately, at the cost of liquidity and modeling complexity.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A trader collects $150,000/year on a mezzanine tranche and pays $40,000/year hedging with the equity tranche of the same structure. What is the approximate net carry?",
+        choices: ["$110,000", "$190,000", "$40,000", "$150,000"],
+        correctIndex: 0,
+        explanation:
+          "$150,000 collected minus $40,000 paid on the equity-tranche hedge leaves roughly $110,000 a year — a more tightly isolated bet on the mezzanine tranche's specific subordination.",
+      },
     ],
   },
   {
@@ -609,6 +647,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Hedging away single-name spread risk this way leaves a position that's now primarily exposed to correlation — how likely defaults are to cluster together rather than happen independently — since both the broad, market-wide risk and the name-specific spread risk have been stripped out, leaving a purer bet on the shape of the loss distribution itself." },
       { type: "heading", text: "A Dynamic, Rebalancing Hedge" },
       { type: "paragraph", text: "Because each name's delta to the tranche changes as spreads move and as the pool ages, a CDS-hedged tranche position requires continuous rebalancing to stay properly hedged, unlike a simpler, more static index or tranche hedge — making this the most operationally intensive of the carry-hedging variants." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A trader sells protection on $10 million notional of the mezzanine tranche, collecting $150,000 a year in coupon. To hedge single-name risk, they buy CDS protection on the pool's five highest-delta names, sized according to each name's computed delta to the tranche, totaling $2 million of combined notional at an average spread of 80 basis points — about $16,000 a year. The remaining $134,000 of net carry is compensation for correlation risk alone, with both broad market and single-name spread risk stripped out — though as spreads move, those five deltas, and the hedge notionals sized to them, need to be recalculated and rebalanced." },
     ],
     quiz: [
       {
@@ -676,6 +716,20 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
         explanation:
           "Managing single-name deltas across every name in the pool, and rebalancing as those deltas shift, makes CDS hedging considerably more hands-on than a single index or tranche hedge.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A trader collects $150,000/year on a mezzanine tranche and pays $16,000/year hedging with five single-name CDS. What must happen to those five hedge positions over time?",
+        choices: [
+          "They need to be recalculated and rebalanced as each name's delta to the tranche shifts with spreads and pool aging",
+          "They can be set once and never touched again",
+          "They automatically hedge every other name in the pool as well",
+          "They expire and cannot be renewed",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because single-name deltas change as spreads move and the pool ages, a CDS-hedged position requires ongoing rebalancing to stay properly sized — the operational cost of this more precise hedge.",
+      },
     ],
   },
   {
@@ -693,6 +747,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A typical curve trade goes long protection on one maturity and sells protection on another, in a ratio sized so the position's sensitivity to a parallel shift in the whole curve roughly cancels out, leaving a position that mainly profits or loses based on the curve's shape changing — similar in spirit to the yield-curve spread trades used in fixed income." },
       { type: "heading", text: "What Moves the Credit Curve" },
       { type: "paragraph", text: "A credit curve's shape often reflects the market's view of near-term versus longer-term default risk. An unusually steep curve can signal near-term stability with longer-run concerns, while an inverted or flat curve can signal acute near-term stress that's expected to either resolve, or is already priced in across every maturity." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "The 5-year tranche on a given structure trades at a 400 basis point spread, and the 10-year trades at 550 basis points — a 150bps gap. A trader believes that gap will widen and puts on a steepener: selling protection on $10 million of the 5-year tranche and buying protection on a duration-matched notional of the 10-year tranche, sized so the position's sensitivity to a parallel shift in both spreads roughly cancels out. If the gap later widens to 200bps, the position profits from that additional 50bps of steepening, regardless of whether the overall level of spreads rose or fell in the meantime." },
     ],
     quiz: [
       {
@@ -760,6 +816,20 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
         explanation:
           "Both trade types isolate a bet on how a term structure's shape changes — steepening or flattening — independent of the market's overall level of rates or spreads.",
       },
+      {
+        id: "q6",
+        prompt:
+          "A steepener is put on when the 5-year/10-year credit curve gap is 150bps (400bps vs. 550bps). The gap later widens to 200bps. What does the position profit from?",
+        choices: [
+          "The additional 50bps of curve steepening, regardless of the overall direction spreads moved",
+          "A rise in the 5-year spread alone, unrelated to the 10-year spread",
+          "The position only profits if both spreads fall to zero",
+          "There is no profit, since curve trades never respond to spread changes",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Because the position is sized to cancel out a parallel shift in the curve, its P&L comes from the change in the gap itself — here, the additional 50bps of steepening — not from the overall spread level.",
+      },
     ],
   },
   {
@@ -777,6 +847,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Because an MBS's effective cash flows depend on a borrower's prepayment option, comparing MBS to Treasuries on yield alone is misleading. Traders instead use option-adjusted spread (OAS), which strips out the value of the prepayment option to compare an MBS's compensation for genuine credit and liquidity risk against similar-duration Treasuries on a like-for-like basis." },
       { type: "heading", text: "TBA Trading" },
       { type: "paragraph", text: "Much MBS trading happens not in specific, identified pools but in the TBA (to-be-announced) market, where the specific pool of mortgages backing the trade isn't specified until just before settlement. That standardization makes the broader MBS market far more liquid, similar in spirit to how standardized futures contracts enable a liquidity a private forward agreement can't match." },
+      { type: "heading", text: "A Worked Example" },
+      { type: "paragraph", text: "A pass-through backed by 4%-coupon mortgages trades at a discount price of 98 (98 cents on the dollar), with the market pricing in an 8% annual prepayment speed (CPR). A trader believes refinancing activity will actually run faster, at a 12% CPR, and buys the pass-through at that discount. Because it was bought below par, every dollar of principal that comes back faster than the market expected is effectively principal bought at a discount and returned at full face value sooner — the faster prepayment shows up as extra realized yield on top of the quoted 4% coupon, precisely because the trader's prepayment view diverged from what was priced in." },
     ],
     quiz: [
       {
@@ -843,6 +915,20 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
         correctIndex: 0,
         explanation:
           "Raw yield ignores the prepayment option embedded in an MBS, which materially affects its actual cash flow timing — OAS exists specifically to correct for that.",
+      },
+      {
+        id: "q6",
+        prompt:
+          "A trader buys a discount pass-through priced with an 8% CPR assumption, expecting a 12% CPR instead. Why does that view, if correct, boost the trader's realized yield?",
+        choices: [
+          "Because the security was bought below par, faster-than-expected prepayment returns principal at full face value sooner than priced in",
+          "Faster prepayment always reduces a discount pass-through's yield",
+          "The trader's prepayment view has no effect on realized yield",
+          "CPR assumptions only matter for premium pass-throughs, never discount ones",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Since the pass-through was purchased below par, principal returned faster than the market priced in effectively converts that discount into extra realized yield — the core mechanic behind trading a prepayment view.",
       },
     ],
   },
