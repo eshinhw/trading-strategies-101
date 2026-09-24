@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
 import { Nav } from "./components/Nav";
+import { Footer } from "./components/Footer";
 
 // Lazy-loaded per route so a heavy, page-specific dependency — recharts and
 // katex, both pulled in only by the Options strategy-lesson view — ships in
@@ -25,23 +26,26 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <div className="min-h-screen bg-[#0b0d12]">
+        <div className="flex min-h-screen flex-col bg-[#0b0d12]">
           <Nav />
-          <Suspense fallback={null}>
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/courses" element={<CoursesPage />} />
-              <Route path="/courses/:slug" element={<CoursePage />} />
-              <Route path="/courses/:slug/exam" element={<ExamPage />} />
-              <Route path="/books" element={<BooksPage />} />
-              <Route path="/papers" element={<PapersPage />} />
-              <Route path="/module/:slug" element={<ModulePage />} />
-              <Route path="/lesson/:slug" element={<LessonPage />} />
-              <Route path="/construction/:slug" element={<ConstructionPage />} />
-              <Route path="/login" element={<AuthPage mode="login" />} />
-              <Route path="/signup" element={<AuthPage mode="signup" />} />
-            </Routes>
-          </Suspense>
+          <div className="flex-1">
+            <Suspense fallback={null}>
+              <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/courses" element={<CoursesPage />} />
+                <Route path="/courses/:slug" element={<CoursePage />} />
+                <Route path="/courses/:slug/exam" element={<ExamPage />} />
+                <Route path="/books" element={<BooksPage />} />
+                <Route path="/papers" element={<PapersPage />} />
+                <Route path="/module/:slug" element={<ModulePage />} />
+                <Route path="/lesson/:slug" element={<LessonPage />} />
+                <Route path="/construction/:slug" element={<ConstructionPage />} />
+                <Route path="/login" element={<AuthPage mode="login" />} />
+                <Route path="/signup" element={<AuthPage mode="signup" />} />
+              </Routes>
+            </Suspense>
+          </div>
+          <Footer />
         </div>
       </BrowserRouter>
     </AuthProvider>

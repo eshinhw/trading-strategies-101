@@ -7,7 +7,6 @@ import type { ParamValues } from "../engine/payoff";
 import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
-import { Footer } from "../components/Footer";
 import { CourseCard } from "../components/CourseCard";
 
 const DEMO_LESSON_SLUG = "long-straddle";
@@ -28,7 +27,6 @@ export function LandingPage() {
       <Features />
       <CoursesPreview />
       <FinalCta />
-      <Footer />
     </div>
   );
 }
