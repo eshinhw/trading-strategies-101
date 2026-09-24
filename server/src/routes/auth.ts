@@ -42,7 +42,7 @@ router.post("/signup", async (req, res) => {
     data: { email: normalizedEmail, passwordHash, name: name.trim() },
   });
 
-  setAuthCookie(res, signToken({ userId: user.id }));
+  setAuthCookie(res, signToken({ userId: user.id, email: user.email }));
   res.status(201).json({ user: publicUser(user) });
 });
 
@@ -59,7 +59,7 @@ router.post("/login", async (req, res) => {
     return res.status(401).json({ error: "Invalid email or password." });
   }
 
-  setAuthCookie(res, signToken({ userId: user.id }));
+  setAuthCookie(res, signToken({ userId: user.id, email: user.email }));
   res.json({ user: publicUser(user) });
 });
 

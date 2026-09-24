@@ -12,6 +12,7 @@ export const AUTH_COOKIE = "trading_strategies_101_session";
 
 export interface AuthTokenPayload {
   userId: string;
+  email: string;
 }
 
 export function hashPassword(password: string): Promise<string> {
@@ -51,16 +52,20 @@ declare global {
   namespace Express {
     interface Request {
       userId?: string;
+      userEmail?: string;
     }
   }
 }
 
-/** Attaches req.userId when a valid session cookie is present; does not reject otherwise. */
+/** Attaches req.userId/req.userEmail when a valid session cookie is present; does not reject otherwise. */
 export function attachUser(req: Request, _res: Response, next: NextFunction) {
   const token = req.cookies?.[AUTH_COOKIE];
   if (token) {
     const payload = verifyToken(token);
-    if (payload) req.userId = payload.userId;
+    if (payload) {
+      req.userId = payload.userId;
+      req.userEmail = payload.email;
+    }
   }
   next();
 }
