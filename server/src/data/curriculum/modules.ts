@@ -49,6 +49,16 @@ export const modules: Module[] = [
     lessonSlugs: ["bull-call-spread", "bull-put-spread", "bear-call-spread", "bear-put-spread"],
   },
   {
+    slug: "straddles-and-strangles",
+    courseSlug: "options",
+    title: "Straddles & Strangles",
+    description:
+      "Non-directional strategies that bet on how much the stock moves rather than which way: long versions bet on a big move, short versions bet on the stock staying put.",
+    order: 6,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["long-straddle", "long-strangle", "long-guts", "short-straddle", "short-strangle", "short-guts"],
+  },
+  {
     slug: "synthetics-and-combos",
     courseSlug: "options",
     title: "Synthetics & Combos",
@@ -69,14 +79,33 @@ export const modules: Module[] = [
     lessonSlugs: ["bull-call-ladder", "bull-put-ladder", "bear-call-ladder", "bear-put-ladder"],
   },
   {
-    slug: "straddles-and-strangles",
+    slug: "butterflies",
     courseSlug: "options",
-    title: "Straddles & Strangles",
+    title: "Butterflies",
     description:
-      "Non-directional strategies that bet on how much the stock moves rather than which way: long versions bet on a big move, short versions bet on the stock staying put.",
-    order: 6,
-    prerequisiteModuleSlugs: [],
-    lessonSlugs: ["long-straddle", "long-strangle", "long-guts", "short-straddle", "short-strangle", "short-guts"],
+      "Three-strike, low-cost bets on the stock pinning near a specific price (or, in the short versions, on it moving away from one) — built from two vertical spreads stacked against each other.",
+    order: 9,
+    prerequisiteModuleSlugs: ["vertical-spreads"],
+    lessonSlugs: [
+      "long-call-butterfly",
+      "modified-call-butterfly",
+      "long-put-butterfly",
+      "modified-put-butterfly",
+      "short-call-butterfly",
+      "short-put-butterfly",
+      "long-iron-butterfly",
+      "short-iron-butterfly",
+    ],
+  },
+  {
+    slug: "calendar-and-diagonal-spreads",
+    courseSlug: "options",
+    title: "Calendar & Diagonal Spreads",
+    description:
+      "Strategies that span two different expirations, profiting from the near-term option losing time value faster than the longer-dated one. Introduces Black-Scholes valuation for the still-alive leg.",
+    order: 11,
+    prerequisiteModuleSlugs: ["vertical-spreads"],
+    lessonSlugs: ["calendar-call-spread", "calendar-put-spread", "diagonal-call-spread", "diagonal-put-spread"],
   },
   {
     slug: "synthetic-straddles",
@@ -110,25 +139,7 @@ export const modules: Module[] = [
       "ratio-put-spread",
     ],
   },
-  {
-    slug: "butterflies",
-    courseSlug: "options",
-    title: "Butterflies",
-    description:
-      "Three-strike, low-cost bets on the stock pinning near a specific price (or, in the short versions, on it moving away from one) — built from two vertical spreads stacked against each other.",
-    order: 9,
-    prerequisiteModuleSlugs: ["vertical-spreads"],
-    lessonSlugs: [
-      "long-call-butterfly",
-      "modified-call-butterfly",
-      "long-put-butterfly",
-      "modified-put-butterfly",
-      "short-call-butterfly",
-      "short-put-butterfly",
-      "long-iron-butterfly",
-      "short-iron-butterfly",
-    ],
-  },
+
   {
     slug: "condors",
     courseSlug: "options",
@@ -146,16 +157,7 @@ export const modules: Module[] = [
       "short-iron-condor",
     ],
   },
-  {
-    slug: "calendar-and-diagonal-spreads",
-    courseSlug: "options",
-    title: "Calendar & Diagonal Spreads",
-    description:
-      "Strategies that span two different expirations, profiting from the near-term option losing time value faster than the longer-dated one. Introduces Black-Scholes valuation for the still-alive leg.",
-    order: 11,
-    prerequisiteModuleSlugs: ["vertical-spreads"],
-    lessonSlugs: ["calendar-call-spread", "calendar-put-spread", "diagonal-call-spread", "diagonal-put-spread"],
-  },
+
   {
     slug: "seagulls",
     courseSlug: "options",
