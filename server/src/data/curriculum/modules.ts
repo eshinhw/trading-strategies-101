@@ -27,7 +27,7 @@ export const modules: Module[] = [
     description:
       "Strategies built around an existing (or hypothetical) stock position, designed to generate recurring premium income: covered calls, covered puts, protective hedges, and the collar.",
     order: 2,
-    prerequisiteModuleSlugs: ["foundations"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "covered-call",
       "covered-put",
@@ -45,7 +45,7 @@ export const modules: Module[] = [
     description:
       "The core building block for most of the rest of this course: buying one option and selling another at a different strike, same expiration, to define your risk in a directional bet.",
     order: 3,
-    prerequisiteModuleSlugs: ["foundations"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: ["bull-call-spread", "bull-put-spread", "bear-call-spread", "bear-put-spread"],
   },
   {
@@ -75,7 +75,7 @@ export const modules: Module[] = [
     description:
       "Non-directional strategies that bet on how much the stock moves rather than which way: long versions bet on a big move, short versions bet on the stock staying put.",
     order: 6,
-    prerequisiteModuleSlugs: ["foundations"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: ["long-straddle", "long-strangle", "long-guts", "short-straddle", "short-strangle", "short-guts"],
   },
   {
@@ -260,7 +260,7 @@ export const modules: Module[] = [
     description:
       "Deeper factor investing (earnings-momentum, low-volatility, multifactor, residual momentum), a signal drawn from the options market (implied volatility), and how a real stat-arb desk combines many signals and builds a portfolio from them.",
     order: 3,
-    prerequisiteModuleSlugs: ["stocks-fundamentals"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "stocks-earnings-momentum",
       "stocks-low-volatility-anomaly",
@@ -278,7 +278,7 @@ export const modules: Module[] = [
     description:
       "Chart-based trend-following (moving-average crossovers, support/resistance, channels), mean-reversion scaled across many industry clusters, merger arbitrage, and a machine-learning approach to single-stock prediction.",
     order: 4,
-    prerequisiteModuleSlugs: ["stocks-fundamentals"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "stocks-mean-reversion-multiple-clusters",
       "stocks-two-moving-averages",
@@ -357,7 +357,7 @@ export const modules: Module[] = [
     description:
       "Three more ways to weight a butterfly trade's wings — fixed split, historical regression, and maturity distance — plus betting on the curve steepening or flattening rather than on rates overall.",
     order: 3,
-    prerequisiteModuleSlugs: ["fixed-income-fundamentals"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fixed-income-fifty-fifty-butterfly",
       "fixed-income-regression-weighted-butterfly",
@@ -372,7 +372,7 @@ export const modules: Module[] = [
     description:
       "Factor investing applied to bonds (low-risk, value, and carry), plus two spread-arbitrage trades that isolate a mispricing between related credit and rates markets.",
     order: 4,
-    prerequisiteModuleSlugs: ["fixed-income-fundamentals"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fixed-income-low-risk-factor",
       "fixed-income-value-factor",
@@ -576,7 +576,7 @@ export const modules: Module[] = [
     description:
       "Carry trades across the tranche capital structure, hedged with the index, another tranche, or single-name CDS; betting on the shape of the credit curve; and trading MBS on prepayment and relative value.",
     order: 2,
-    prerequisiteModuleSlugs: ["structured-assets-basics"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "structured-assets-carry-equity-tranche-index-hedging",
       "structured-assets-carry-senior-mezzanine-index-hedging",
@@ -608,7 +608,7 @@ export const modules: Module[] = [
     description:
       "Buying a convertible and delta-hedging with the underlying stock to harvest coupon and convexity, and a relative-value approach that trades convertibles on option-adjusted spread.",
     order: 2,
-    prerequisiteModuleSlugs: ["convertibles-basics"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: ["convertible-arbitrage", "convertible-option-adjusted-spread"],
   },
   {
@@ -633,7 +633,7 @@ export const modules: Module[] = [
     description:
       "Five real cash-based practices from the book's own table of contents, some entirely legitimate (repo, liquidity management, pawnbroking) and some illegal (money laundering, loan sharking) — covered for regulatory and historical context, not as guidance.",
     order: 2,
-    prerequisiteModuleSlugs: ["cash-basics"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "cash-money-laundering",
       "cash-liquidity-management",
@@ -664,7 +664,7 @@ export const modules: Module[] = [
     description:
       "Two machine-learning approaches to crypto trading: a neural network learning non-linear patterns in price and volume data, and a Naive Bayes classifier turning social-media sentiment into a trading signal.",
     order: 2,
-    prerequisiteModuleSlugs: ["crypto-basics"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: ["crypto-artificial-neural-network", "crypto-sentiment-analysis-naive-bayes"],
   },
   {
@@ -689,7 +689,7 @@ export const modules: Module[] = [
     description:
       "Trading confirmed macro trends with momentum, hedging inflation across bonds/commodities/swaps, positioning across countries' government bond markets, and trading the immediate surprise around scheduled economic announcements.",
     order: 2,
-    prerequisiteModuleSlugs: ["macro-basics"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "macro-fundamental-macro-momentum",
       "macro-global-macro-inflation-hedge",
@@ -719,7 +719,7 @@ export const modules: Module[] = [
     description:
       "Seven approaches spanning passive buy-and-hold, active creditor-committee influence, shaping the reorganization plan itself, diversified debt sourcing, loan-to-own control bids, and the well-documented distress risk puzzle and how to manage around it.",
     order: 2,
-    prerequisiteModuleSlugs: ["distressed-basics"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "distressed-buying-and-holding-distressed-debt",
       "distressed-active-distressed-investing",
@@ -752,7 +752,7 @@ export const modules: Module[] = [
     description:
       "Trading municipal bond yield gaps against their taxable-equivalent fair value, structuring cross-border investments through treaty-favorable jurisdictions, and using options to replicate foreign-security exposure under more favorable tax treatment.",
     order: 2,
-    prerequisiteModuleSlugs: ["tax-basics"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "tax-municipal-bond-tax-arbitrage",
       "tax-cross-border-tax-arbitrage",
@@ -781,7 +781,7 @@ export const modules: Module[] = [
     description:
       "Trading inflation swaps directly, the TIPS-Treasury breakeven-inflation basis trade financed via repo, sizing a weather hedge to a business's actual demand exposure, and locking in a power generator's spark-spread margin.",
     order: 2,
-    prerequisiteModuleSlugs: ["misc-assets-basics"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "misc-inflation-hedging-inflation-swaps",
       "misc-tips-treasury-arbitrage",
