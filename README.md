@@ -1,8 +1,14 @@
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/eshinhw/trading-strategies-101)
+![GitHub issues](https://img.shields.io/github/issues/eshinhw/trading-strategies-101)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/eshinhw/trading-strategies-101)
+
 # Trading Strategies 101
+
+<img width="1426" alt="Trading Strategies 101 Landing Page" src="https://github.com/user-attachments/assets/1b996256-3d60-4081-b179-23cb48820476">
 
 An educational course platform for early-career analysts and traders, built from
 [*151 Trading Strategies*](https://ssrn.com/abstract=3247865) (Kakushadze & Serur, 2018).
-The book's 18 asset-class chapters are all live as courses — 173 strategies in
+The paper's 18 asset-class chapters are all live as courses — 173 strategies in
 total, from a simple covered call to municipal bond tax arbitrage, weather
 derivatives, and (covered for historical and regulatory context, not as
 guidance) money laundering and loan sharking.
