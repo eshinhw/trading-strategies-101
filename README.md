@@ -2,7 +2,7 @@
 
 An educational course platform for early-career analysts and traders, built from
 [*151 Trading Strategies*](https://ssrn.com/abstract=3247865) (Kakushadze & Serur, 2018).
-The book's 18 asset-class chapters are all live as courses — 173 strategies in
+The paper's 18 asset-class chapters are all live as courses — 173 strategies in
 total, from a simple covered call to municipal bond tax arbitrage, weather
 derivatives, and (covered for historical and regulatory context, not as
 guidance) money laundering and loan sharking.
