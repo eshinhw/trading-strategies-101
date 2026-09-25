@@ -1244,7 +1244,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-what-is-a-bond",
-    title: "What Is a Bond?",
+    title: "The bond",
     summary:
       "A loan in security form — the issuer borrows money and promises fixed payments back, in contrast to a stock's ownership stake with no promised repayment.",
     body: [
@@ -1330,7 +1330,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-yield-and-price",
-    title: "Yield, Price, and the Inverse Relationship",
+    title: "Yield, price, and the inverse relationship",
     summary:
       "Why a bond's price and its yield move in opposite directions — the single most important relationship in fixed income.",
     body: [
@@ -1416,7 +1416,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-duration",
-    title: "Duration: Measuring Interest Rate Sensitivity",
+    title: "Duration: measuring interest rate sensitivity",
     summary:
       "A single number that summarizes how much a bond's price is expected to move for a given change in interest rates.",
     body: [
@@ -1502,7 +1502,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-the-yield-curve",
-    title: "The Yield Curve",
+    title: "The yield curve",
     summary:
       "Plotting yields across every maturity at once reveals a curve whose shape carries information about what the market expects from the economy.",
     body: [

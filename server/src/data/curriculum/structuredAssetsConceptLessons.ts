@@ -9,7 +9,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-what-is-a-structured-asset",
-    title: "What Is a Structured Asset?",
+    title: "The structured asset",
     summary:
       "How securitization pools many individual loans or debts into a single structure, and repackages their combined cash flows into new securities.",
     body: [
@@ -95,7 +95,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-tranches-and-the-waterfall",
-    title: "Tranches and the Waterfall",
+    title: "Tranches and the waterfall",
     summary:
       "How a structured deal splits pooled cash flows into tranches of different risk and seniority, and the payment order — the waterfall — that decides who gets paid first.",
     body: [
@@ -181,7 +181,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-credit-default-swaps-and-indices",
-    title: "Credit Default Swaps and Credit Indices",
+    title: "Credit default swaps and credit indices",
     summary:
       "How a CDS transfers credit risk without transferring the underlying bond or loan, and how a credit index bundles many single-name CDS into one tradable basket.",
     body: [
@@ -267,7 +267,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-mortgage-backed-securities",
-    title: "Mortgage-Backed Securities and Prepayment Risk",
+    title: "Mortgage-backed securities and prepayment risk",
     summary:
       "How a pool of mortgages becomes a tradable security, and the unique risk that comes from homeowners being free to repay their mortgage early.",
     body: [

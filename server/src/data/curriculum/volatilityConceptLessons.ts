@@ -590,7 +590,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-what-is-volatility",
-    title: "What Is Volatility?",
+    title: "Volatility",
     summary:
       "A statistical measure of how much a price fluctuates — and the crucial difference between volatility that already happened and volatility the market expects.",
     body: [
@@ -676,7 +676,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-the-vix",
-    title: "The VIX: Measuring Market Fear",
+    title: "The VIX: measuring market fear",
     summary:
       "What the VIX index actually measures, why it's called the market's \"fear gauge,\" and why it tends to rise when stocks fall.",
     body: [
@@ -762,7 +762,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-trading-vix-futures-and-etns",
-    title: "Trading Volatility: VIX Futures and ETNs",
+    title: "Trading volatility: VIX futures and ETNs",
     summary:
       "Since the VIX itself can't be bought or sold, these are the actual instruments traders use to get exposure to volatility — and the curve dynamics that come with them.",
     body: [
@@ -848,7 +848,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-implied-vol-and-the-risk-premium",
-    title: "Implied Volatility and the Volatility Risk Premium",
+    title: "Implied volatility and the volatility risk premium",
     summary:
       "The well-documented tendency for implied volatility to run higher than the volatility that actually ends up being realized — and why that gap is tradable.",
     body: [

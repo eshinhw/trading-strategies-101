@@ -506,7 +506,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-what-is-a-currency-pair",
-    title: "What Is a Currency Pair?",
+    title: "The currency pair",
     summary:
       "Every FX trade is a simultaneous bet on two currencies at once — the base and the quote — and understanding that pairing is the starting point for everything else in this course.",
     body: [
@@ -592,7 +592,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-how-currencies-are-traded",
-    title: "How Currencies Are Traded",
+    title: "How currencies are traded",
     summary:
       "The FX market's decentralized, round-the-clock structure, and the basic units — pips and lots — used to size and measure a trade.",
     body: [
@@ -678,7 +678,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-what-moves-exchange-rates",
-    title: "What Moves Exchange Rates",
+    title: "What moves exchange rates",
     summary:
       "The fundamental forces — interest rates, inflation, trade flows, and risk sentiment — that drive one currency to strengthen or weaken against another.",
     body: [
@@ -764,7 +764,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-interest-rate-parity",
-    title: "Interest Rate Parity",
+    title: "Interest rate parity",
     summary:
       "The no-arbitrage relationship linking spot and forward exchange rates to the interest rate gap between two currencies — the same relationship behind forward FX pricing and the carry trade.",
     body: [

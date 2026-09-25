@@ -4,7 +4,7 @@ export const conceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "concept-what-is-an-option",
-    title: "What is an option?",
+    title: "The option contract",
     summary: "The two basic contracts every strategy in this course is built from.",
     body: [
       { type: "heading", text: "Calls and Puts" },
@@ -319,7 +319,7 @@ export const conceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "concept-legs-and-combinations",
-    title: "Strategies are built from legs",
+    title: "Legs and combinations",
     summary: "The mental model that makes 58 strategies feel like far fewer.",
     body: [
       { type: "heading", text: "What a Leg Is" },

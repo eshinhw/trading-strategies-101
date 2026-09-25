@@ -423,7 +423,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-what-is-a-stock-index",
-    title: "What Is a Stock Index?",
+    title: "The stock index",
     summary:
       "A single number built from a defined basket of stocks, meant to represent the performance of a market or a slice of it.",
     body: [
@@ -509,7 +509,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-how-index-values-are-calculated",
-    title: "How Index Values Are Calculated",
+    title: "How index values are calculated",
     summary:
       "The mechanics behind an index's headline number, and the divisor adjustments that keep it consistent through stock splits and constituent changes.",
     body: [
@@ -595,7 +595,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-index-futures-and-options",
-    title: "Index Futures and Options",
+    title: "Index futures and options",
     summary:
       "Derivatives written directly on an index, cash-settled since there's no physical basket to deliver — used to hedge or speculate on the broad market in a single trade.",
     body: [
@@ -681,7 +681,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-tracking-an-index",
-    title: "Tracking an Index: ETFs and Index Funds",
+    title: "Tracking an index: ETFs and index funds",
     summary:
       "How a fund actually replicates an index's return, and the tracking error that measures how closely it succeeds.",
     body: [

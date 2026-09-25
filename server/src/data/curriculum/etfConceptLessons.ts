@@ -693,7 +693,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-what-is-an-etf",
-    title: "What Is an ETF?",
+    title: "The ETF",
     summary:
       "A fund that holds a basket of assets but trades on an exchange like a single stock — combining a mutual fund's diversification with a stock's liquidity.",
     body: [
@@ -779,7 +779,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-creation-and-redemption",
-    title: "How ETFs Are Created",
+    title: "How ETFs are created",
     summary:
       "The creation and redemption mechanism that lets large institutional players manufacture or dissolve ETF shares on demand — and why that keeps an ETF's price in line with its underlying holdings.",
     body: [
@@ -865,7 +865,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-how-to-trade-etfs",
-    title: "How to Trade ETFs",
+    title: "How to trade ETFs",
     summary:
       "Buying and selling ETF shares works just like trading a stock — with a few ETF-specific details worth understanding, like the bid-ask spread and premium/discount to NAV.",
     body: [
@@ -951,7 +951,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-why-trade-etfs",
-    title: "Why Trade ETFs?",
+    title: "Reasons to trade ETFs",
     summary:
       "The practical reasons investors and traders reach for an ETF instead of individual stocks, a mutual fund, or futures — diversification, cost, tax efficiency, and precise, targeted exposure.",
     body: [

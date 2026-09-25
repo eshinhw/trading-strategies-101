@@ -792,7 +792,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-forward-pricing",
-    title: "Forward Pricing",
+    title: "Forward pricing",
     summary:
       "How a forward's fair price is derived from today's spot price plus the cost of carrying the asset to the future delivery date — and how that cost of carry differs across commodities, stocks, and bonds.",
     body: [
@@ -987,7 +987,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-margin-and-mark-to-market",
-    title: "Margin and Daily Settlement",
+    title: "Margin and daily settlement",
     summary:
       "How futures contracts stay solvent day to day — initial margin, maintenance margin, and the daily mark-to-market process that settles gains and losses in cash every single day.",
     body: [
@@ -1107,7 +1107,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-contract-specifications",
-    title: "Contract Specifications",
+    title: "Contract specifications",
     summary:
       "The standardized terms — size, tick, expiration, and quality — that make a futures contract fungible on an exchange, and why that standardization is what a forward trades away for flexibility.",
     body: [
@@ -1222,7 +1222,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-delivery-and-close-out",
-    title: "Delivery and Closing Out a Position",
+    title: "Delivery and closing out a position",
     summary:
       "Why the overwhelming majority of futures contracts never reach physical delivery — and what actually happens as a contract's expiration approaches.",
     body: [
@@ -1343,7 +1343,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-forward-rate-agreements",
-    title: "Forward Rate Agreements (FRAs)",
+    title: "Forward rate agreements (FRAs)",
     summary:
       "A forward contract on an interest rate itself — locking in a borrowing or lending rate for a future period without any principal actually changing hands.",
     body: [
@@ -1444,7 +1444,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-valuing-an-existing-forward",
-    title: "Valuing an Existing Forward Contract",
+    title: "Valuing an existing forward contract",
     summary:
       "Once a forward is in place, its market value changes as time passes and the spot price moves — a different question from forward pricing, which only sets the fair price at inception.",
     body: [
@@ -1545,7 +1545,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-clearinghouses-and-novation",
-    title: "Clearinghouses and Novation",
+    title: "Clearinghouses and novation",
     summary:
       "How a clearinghouse steps into the middle of every futures trade, becoming the buyer to every seller and the seller to every buyer — the mechanism behind the guarantee referenced earlier in this course.",
     body: [
@@ -1647,7 +1647,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-price-limits-and-trading-halts",
-    title: "Price Limits and Trading Halts",
+    title: "Price limits and trading halts",
     summary:
       "The rules exchanges use to slow down or pause trading when a futures price moves an unusually large amount in a single session.",
     body: [
@@ -1748,7 +1748,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-what-is-a-forward-contract",
-    title: "What Is a Forward?",
+    title: "The forward contract",
     summary:
       "The simplest possible definition of a forward contract, why it's worth agreeing to one at all, and the mechanics — notional value, settlement, counterparty risk — that every futures contract builds on.",
     body: [
@@ -1904,7 +1904,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-what-is-futures",
-    title: "What Is Futures?",
+    title: "The futures contract",
     summary:
       "The simplest possible definition of a futures contract — the same basic long/short agreement as a forward, but standardized and traded on an exchange.",
     body: [

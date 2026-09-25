@@ -680,7 +680,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-what-is-real-estate-investing",
-    title: "What Is Real Estate Investing?",
+    title: "Real estate investing",
     summary:
       "Owning property directly, or indirectly through a fund, to earn a return from two sources: the income it generates and the change in its own value.",
     body: [
@@ -766,7 +766,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-reits",
-    title: "REITs: Real Estate Investment Trusts",
+    title: "REITs: real estate investment trusts",
     summary:
       "The structure that lets ordinary investors buy real estate exposure like a stock — and the payout requirement that defines what a REIT actually is.",
     body: [
@@ -852,7 +852,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-how-value-is-determined",
-    title: "How Real Estate Value Is Determined",
+    title: "How real estate value is determined",
     summary:
       "The three standard approaches appraisers use to value a property — income, comparable sales, and replacement cost — and when each one is most reliable.",
     body: [
@@ -938,7 +938,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-leverage",
-    title: "Leverage in Real Estate",
+    title: "Leverage in real estate",
     summary:
       "Why debt financing is central to how most real estate is actually purchased, and how it amplifies both the gains and the losses on the investor's own capital.",
     body: [

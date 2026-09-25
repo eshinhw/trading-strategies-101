@@ -1725,7 +1725,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-what-is-a-stock",
-    title: "What Is a Stock?",
+    title: "The stock",
     summary:
       "Owning a share of a company — what that ownership actually entitles you to, and how it differs from lending a company money.",
     body: [
@@ -1811,7 +1811,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-how-stock-trading-works",
-    title: "How Stock Trading Works",
+    title: "How stock trading works",
     summary:
       "The mechanics of actually buying and selling a share — exchanges, order types, and what it means to go long or sell short.",
     body: [
@@ -1897,7 +1897,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-market-capitalization-and-sectors",
-    title: "Market Capitalization and Sectors",
+    title: "Market capitalization and sectors",
     summary:
       "How a company's total size is measured in the stock market, and the broad industry groupings used to compare similar companies.",
     body: [
@@ -1983,7 +1983,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-dividends-and-corporate-actions",
-    title: "Dividends and Corporate Actions",
+    title: "Dividends and corporate actions",
     summary:
       "How a company returns cash to shareholders, and the routine corporate actions that change a stock's share count or price without changing what it's actually worth.",
     body: [

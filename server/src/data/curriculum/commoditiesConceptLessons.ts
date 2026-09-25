@@ -506,7 +506,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-what-is-a-commodity",
-    title: "What Is a Commodity?",
+    title: "The commodity",
     summary:
       "A raw, standardized economic good — interchangeable unit for unit — that's why a bushel of wheat from one farm can trade against a bushel from another as if they were identical.",
     body: [
@@ -592,7 +592,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-how-commodities-are-traded",
-    title: "How Commodities Are Traded",
+    title: "How commodities are traded",
     summary:
       "Why most commodity exposure runs through standardized futures contracts rather than owning barrels of oil or bushels of wheat directly.",
     body: [
@@ -678,7 +678,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-contango-and-backwardation",
-    title: "Contango and Backwardation",
+    title: "Contango and backwardation",
     summary:
       "Why commodity futures curves so often slope in one particular direction — and the storage-cost and convenience-yield forces that explain why.",
     body: [
@@ -764,7 +764,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-supply-demand-and-prices",
-    title: "Supply, Demand, and Commodity Prices",
+    title: "Supply, demand, and commodity prices",
     summary:
       "The fundamental forces — production, weather, geopolitics, and inventories — that drive commodity prices, and why they hit commodities differently than other asset classes.",
     body: [

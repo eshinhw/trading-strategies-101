@@ -8,7 +8,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertibles-what-is-a-convertible-bond",
-    title: "What Is a Convertible Bond?",
+    title: "The convertible bond",
     summary:
       "A hybrid security — a bond that gives its holder the right to convert it into a fixed number of the issuer's shares, blending fixed-income and equity characteristics in one instrument.",
     body: [
@@ -94,7 +94,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertibles-conversion-ratio-and-price",
-    title: "Conversion Ratio and Conversion Price",
+    title: "Conversion ratio and conversion price",
     summary:
       "The two numbers that define exactly how many shares a convertible bond can become, and the breakeven stock price where conversion starts to make sense.",
     body: [
@@ -175,7 +175,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertibles-how-price-behaves",
-    title: "How a Convertible's Price Behaves",
+    title: "How a convertible's price behaves",
     summary:
       "Why a convertible bond's price traces out a curve between a bond floor at low stock prices and the stock's own value at high stock prices.",
     body: [
@@ -261,7 +261,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertibles-why-issue-and-buy",
-    title: "Why Companies Issue, and Investors Buy, Convertibles",
+    title: "Why companies issue, and investors buy, convertibles",
     summary:
       "The tradeoff at the heart of a convertible bond — cheaper financing and delayed dilution for the issuer, in exchange for downside protection plus upside participation for the investor.",
     body: [
