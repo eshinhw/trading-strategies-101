@@ -4,6 +4,8 @@
 
 # Trading Strategies 101
 
+<img width="1426" alt="Trading Strategies 101 Landing Page" src="https://github.com/user-attachments/assets/1b996256-3d60-4081-b179-23cb48820476">
+
 An educational course platform for early-career analysts and traders, built from
 [*151 Trading Strategies*](https://ssrn.com/abstract=3247865) (Kakushadze & Serur, 2018).
 The paper's 18 asset-class chapters are all live as courses — 173 strategies in
