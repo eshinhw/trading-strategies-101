@@ -83,7 +83,18 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-[#e6e8ec]">{title}</h1>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h1 className="text-3xl font-bold text-[#e6e8ec]">{title}</h1>
+          {data && (
+            <input
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={searchPlaceholder}
+              className="input w-full sm:max-w-xs"
+            />
+          )}
+        </div>
         <p className="mt-2 max-w-2xl text-[#9aa3b2]">{description}</p>
       </header>
 
@@ -92,20 +103,11 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
 
       {data && (
         <>
-          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={searchPlaceholder}
-              className="input w-full sm:max-w-xs"
-            />
-            <div className="flex flex-wrap items-center gap-1.5">
-              <LevelChip label="All levels" active={level === "all"} onClick={() => setLevel("all")} />
-              {levels.map((lvl) => (
-                <LevelChip key={lvl} label={levelLabel[lvl]} active={level === lvl} onClick={() => setLevel(lvl)} />
-              ))}
-            </div>
+          <div className="mb-8 flex flex-wrap items-center gap-1.5">
+            <LevelChip label="All levels" active={level === "all"} onClick={() => setLevel("all")} />
+            {levels.map((lvl) => (
+              <LevelChip key={lvl} label={levelLabel[lvl]} active={level === lvl} onClick={() => setLevel(lvl)} />
+            ))}
           </div>
 
           {filteredItems.length === 0 ? (
