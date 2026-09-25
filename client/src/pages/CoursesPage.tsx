@@ -37,8 +37,17 @@ export function CoursesPage() {
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
-      <header className="mb-8">
+      <header className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-3xl font-bold text-[#e6e8ec]">All Courses</h1>
+        {courses && (
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search courses or strategies…"
+            className="input w-full sm:max-w-xs"
+          />
+        )}
       </header>
 
       {error && <p className="text-red-400">{error}</p>}
@@ -46,14 +55,6 @@ export function CoursesPage() {
 
       {courses && (
         <>
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search courses or strategies…"
-            className="input mb-6 w-full sm:max-w-xs"
-          />
-
           {filteredCourses.length === 0 ? (
             <p className="text-[#898781]">No courses match your search.</p>
           ) : (
