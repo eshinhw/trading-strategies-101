@@ -1,3 +1,7 @@
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/eshinhw/trading-strategies-101)
+![GitHub issues](https://img.shields.io/github/issues/eshinhw/trading-strategies-101)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/eshinhw/trading-strategies-101)
+
 # Trading Strategies 101
 
 An educational course platform for early-career analysts and traders, built from
