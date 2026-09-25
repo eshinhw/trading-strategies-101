@@ -38,13 +38,12 @@ function Hero() {
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
           <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6e8ec] sm:text-5xl">
-            Learn trading strategies by using them, not memorizing them.
+            Master trading strategies by understanding them, not memorizing.
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
-            Trading Strategies 101 turns a structured curriculum — 18 asset classes, one course each — into hands-on
-            lessons. Several courses are live today, from options to commodities: work through real strategies,
-            check your understanding after every lesson, then pass a final quiz covering the whole course. Options
-            goes one step further, with a live, interactive payoff tool you can adjust yourself.
+            Learn trading strategies by doing—not just reading. Explore real-world lessons across options, commodities,
+            and more, test your knowledge as you go, and use interactive payoff tools to see how strategies perform in
+            real time for options.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
@@ -57,7 +56,7 @@ function Hero() {
               Browse all courses ↓
             </a>
           </div>
-          <p className="mt-4 text-sm text-[#898781]">No credit card. Browse and try any lesson before you sign up.</p>
+          <p className="mt-4 text-sm text-[#898781]">Browse and try any lesson before you sign up.</p>
         </div>
         <Suspense
           fallback={
