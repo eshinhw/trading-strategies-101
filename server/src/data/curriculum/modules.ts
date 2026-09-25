@@ -697,4 +697,96 @@ export const modules: Module[] = [
       "macro-trading-on-economic-announcements",
     ],
   },
+  {
+    slug: "distressed-basics",
+    courseSlug: "distressed-assets",
+    title: "Distressed Assets Basics",
+    description:
+      "What distressed debt is, how bankruptcy and reorganization work, why priority of claims in the capital structure determines recovery, and the passive-to-active spectrum of distressed investing approaches.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "distressed-what-is-distressed-debt",
+      "distressed-bankruptcy-and-reorganization",
+      "distressed-capital-structure-and-priority",
+      "distressed-investing-approaches",
+    ],
+  },
+  {
+    slug: "distressed-strategies",
+    courseSlug: "distressed-assets",
+    title: "Distressed Assets Strategies",
+    description:
+      "Seven approaches spanning passive buy-and-hold, active creditor-committee influence, shaping the reorganization plan itself, diversified debt sourcing, loan-to-own control bids, and the well-documented distress risk puzzle and how to manage around it.",
+    order: 2,
+    prerequisiteModuleSlugs: ["distressed-basics"],
+    lessonSlugs: [
+      "distressed-buying-and-holding-distressed-debt",
+      "distressed-active-distressed-investing",
+      "distressed-planning-a-reorganization",
+      "distressed-buying-outstanding-debt",
+      "distressed-loan-to-own",
+      "distressed-distress-risk-puzzle",
+      "distressed-distress-risk-puzzle-risk-management",
+    ],
+  },
+  {
+    slug: "tax-basics",
+    courseSlug: "tax-arbitrage",
+    title: "Tax Arbitrage Basics",
+    description:
+      "How investment income is taxed differently by type, investor, and jurisdiction, why municipal bonds trade tax-exempt, how cross-border withholding tax and treaties work, and the general legal principle behind every strategy in this module.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "tax-taxation-of-investment-income",
+      "tax-municipal-bonds-and-tax-exempt-income",
+      "tax-cross-border-taxation-and-withholding-tax",
+      "tax-the-basic-idea-of-tax-arbitrage",
+    ],
+  },
+  {
+    slug: "tax-strategies",
+    courseSlug: "tax-arbitrage",
+    title: "Tax Arbitrage Strategies",
+    description:
+      "Trading municipal bond yield gaps against their taxable-equivalent fair value, structuring cross-border investments through treaty-favorable jurisdictions, and using options to replicate foreign-security exposure under more favorable tax treatment.",
+    order: 2,
+    prerequisiteModuleSlugs: ["tax-basics"],
+    lessonSlugs: [
+      "tax-municipal-bond-tax-arbitrage",
+      "tax-cross-border-tax-arbitrage",
+      "tax-cross-border-tax-arbitrage-with-options",
+    ],
+  },
+  {
+    slug: "misc-assets-basics",
+    courseSlug: "miscellaneous-assets",
+    title: "Miscellaneous Assets Basics",
+    description:
+      "What makes an instrument a niche, hedging-first asset class, breakeven inflation as read from inflation-linked bonds, how weather derivatives work, and the general logic of trading a spread rather than a price.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "misc-alternative-and-niche-asset-classes",
+      "misc-inflation-linked-instruments",
+      "misc-weather-derivatives",
+      "misc-spread-and-basis-trading",
+    ],
+  },
+  {
+    slug: "misc-assets-strategies",
+    courseSlug: "miscellaneous-assets",
+    title: "Miscellaneous Assets Strategies",
+    description:
+      "Trading inflation swaps directly, the TIPS-Treasury breakeven-inflation basis trade financed via repo, sizing a weather hedge to a business's actual demand exposure, and locking in a power generator's spark-spread margin.",
+    order: 2,
+    prerequisiteModuleSlugs: ["misc-assets-basics"],
+    lessonSlugs: [
+      "misc-inflation-hedging-inflation-swaps",
+      "misc-tips-treasury-arbitrage",
+      "misc-weather-risk-demand-hedging",
+      "misc-energy-spark-spread",
+    ],
+  },
 ];

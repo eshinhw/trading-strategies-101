@@ -266,7 +266,7 @@ export const courses: Course[] = [
     section: "15",
     description:
       "Investing in distressed and defaulted debt — from passive buy-and-hold to active reorganization and loan-to-own strategies.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 7,
     strategyTitles: [
       "Buying and Holding Distressed Debt",
@@ -284,7 +284,7 @@ export const courses: Course[] = [
     section: "13",
     description:
       "Strategies that exploit differences in how jurisdictions tax income, including cross-border and municipal bond arbitrage.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 3,
     strategyTitles: [
       "Municipal Bond Tax Arbitrage",
@@ -298,7 +298,7 @@ export const courses: Course[] = [
     section: "14",
     description:
       "Inflation hedging, weather risk, and energy spread strategies that don't fit neatly into a single asset class.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 4,
     strategyTitles: [
       "Inflation Hedging – Inflation Swaps",

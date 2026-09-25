@@ -28,6 +28,9 @@ const EXAMINABLE_COURSES = new Set([
   "cash",
   "cryptocurrencies",
   "global-macro",
+  "distressed-assets",
+  "tax-arbitrage",
+  "miscellaneous-assets",
 ]);
 
 // Every module contributes at least this many lessons — Options has exactly
