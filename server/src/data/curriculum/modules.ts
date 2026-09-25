@@ -642,4 +642,59 @@ export const modules: Module[] = [
       "cash-loan-sharking",
     ],
   },
+  {
+    slug: "crypto-basics",
+    courseSlug: "cryptocurrencies",
+    title: "Cryptocurrencies Basics",
+    description:
+      "What a cryptocurrency and blockchain actually are, how crypto markets trade and get custodied, the volatility and risk layered on top of that, and a primer on machine learning in trading that sets up this module's two strategies.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "crypto-what-is-cryptocurrency",
+      "crypto-how-crypto-markets-trade",
+      "crypto-volatility-and-risk",
+      "crypto-machine-learning-in-trading",
+    ],
+  },
+  {
+    slug: "crypto-strategies",
+    courseSlug: "cryptocurrencies",
+    title: "Cryptocurrencies Strategies",
+    description:
+      "Two machine-learning approaches to crypto trading: a neural network learning non-linear patterns in price and volume data, and a Naive Bayes classifier turning social-media sentiment into a trading signal.",
+    order: 2,
+    prerequisiteModuleSlugs: ["crypto-basics"],
+    lessonSlugs: ["crypto-artificial-neural-network", "crypto-sentiment-analysis-naive-bayes"],
+  },
+  {
+    slug: "macro-basics",
+    courseSlug: "global-macro",
+    title: "Global Macro Basics",
+    description:
+      "What top-down, cross-asset macro investing actually is, the economic indicators and central-bank policy tools that drive a macro view, and how that view gets translated into a specific trade before this module's four strategies.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "macro-what-is-global-macro",
+      "macro-key-economic-indicators",
+      "macro-central-banks-and-monetary-policy",
+      "macro-translating-a-view-into-a-trade",
+    ],
+  },
+  {
+    slug: "macro-strategies",
+    courseSlug: "global-macro",
+    title: "Global Macro Strategies",
+    description:
+      "Trading confirmed macro trends with momentum, hedging inflation across bonds/commodities/swaps, positioning across countries' government bond markets, and trading the immediate surprise around scheduled economic announcements.",
+    order: 2,
+    prerequisiteModuleSlugs: ["macro-basics"],
+    lessonSlugs: [
+      "macro-fundamental-macro-momentum",
+      "macro-global-macro-inflation-hedge",
+      "macro-global-fixed-income-strategy",
+      "macro-trading-on-economic-announcements",
+    ],
+  },
 ];

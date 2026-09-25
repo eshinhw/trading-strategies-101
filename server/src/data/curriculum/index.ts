@@ -13,6 +13,8 @@ import { realEstateConceptLessons } from "./realEstateConceptLessons.js";
 import { structuredAssetsConceptLessons } from "./structuredAssetsConceptLessons.js";
 import { convertiblesConceptLessons } from "./convertiblesConceptLessons.js";
 import { cashConceptLessons } from "./cashConceptLessons.js";
+import { cryptocurrenciesConceptLessons } from "./cryptocurrenciesConceptLessons.js";
+import { globalMacroConceptLessons } from "./globalMacroConceptLessons.js";
 import { modules } from "./modules.js";
 import type { Module } from "./types.js";
 
@@ -30,6 +32,8 @@ export const conceptLessons = [
   ...structuredAssetsConceptLessons,
   ...convertiblesConceptLessons,
   ...cashConceptLessons,
+  ...cryptocurrenciesConceptLessons,
+  ...globalMacroConceptLessons,
 ];
 export { modules };
 

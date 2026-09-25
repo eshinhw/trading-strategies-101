@@ -26,6 +26,8 @@ const EXAMINABLE_COURSES = new Set([
   "structured-assets",
   "convertibles",
   "cash",
+  "cryptocurrencies",
+  "global-macro",
 ]);
 
 // Every module contributes at least this many lessons — Options has exactly

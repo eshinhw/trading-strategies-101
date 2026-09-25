@@ -241,7 +241,7 @@ export const courses: Course[] = [
     title: "Cryptocurrencies",
     section: "18",
     description: "Machine-learning and sentiment-based approaches to trading cryptocurrencies.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 2,
     strategyTitles: ["Artificial Neural Network (ANN)", "Sentiment Analysis – Naive Bayes Bernoulli"],
   },
@@ -251,7 +251,7 @@ export const courses: Course[] = [
     section: "19",
     description:
       "Top-down strategies that trade macroeconomic views — inflation, fixed income, and economic announcements.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 4,
     strategyTitles: [
       "Fundamental Macro Momentum",
