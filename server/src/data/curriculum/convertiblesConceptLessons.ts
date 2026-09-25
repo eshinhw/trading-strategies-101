@@ -8,7 +8,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertibles-what-is-a-convertible-bond",
-    title: "The convertible bond",
+    title: "The Convertible Bond",
     summary:
       "A hybrid security — a bond that gives its holder the right to convert it into a fixed number of the issuer's shares, blending fixed-income and equity characteristics in one instrument.",
     body: [
@@ -94,7 +94,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertibles-conversion-ratio-and-price",
-    title: "Conversion ratio and conversion price",
+    title: "Conversion Ratio and Conversion Price",
     summary:
       "The two numbers that define exactly how many shares a convertible bond can become, and the breakeven stock price where conversion starts to make sense.",
     body: [
@@ -175,7 +175,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertibles-how-price-behaves",
-    title: "How a convertible's price behaves",
+    title: "How a Convertible's Price Behaves",
     summary:
       "Why a convertible bond's price traces out a curve between a bond floor at low stock prices and the stock's own value at high stock prices.",
     body: [
@@ -261,7 +261,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertibles-why-issue-and-buy",
-    title: "Why companies issue, and investors buy, convertibles",
+    title: "Why Companies Issue, and Investors Buy, Convertibles",
     summary:
       "The tradeoff at the heart of a convertible bond — cheaper financing and delayed dilution for the issuer, in exchange for downside protection plus upside participation for the investor.",
     body: [
@@ -347,7 +347,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertible-arbitrage",
-    title: "Convertible arbitrage",
+    title: "Convertible Arbitrage",
     summary:
       "Buying a convertible bond and shorting a hedge ratio of the underlying stock, aiming to profit from the bond's own income and convexity while staying largely neutral to the stock's direction.",
     body: [
@@ -431,7 +431,7 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "convertible-option-adjusted-spread",
-    title: "Convertible option-adjusted spread",
+    title: "Convertible Option-Adjusted Spread",
     summary:
       "Using option-adjusted spread to strip the embedded conversion option out of a convertible's price, isolating the credit-and-liquidity compensation it actually offers for relative-value comparison.",
     body: [

@@ -258,7 +258,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-bond-immunization",
-    title: "Bond immunization",
+    title: "Bond Immunization",
     summary: "Structuring a bond portfolio so its value is protected from interest-rate changes over a specific investment horizon, matching duration to a target date.",
     body: [
       { type: "heading", text: "What Immunization Protects Against" },
@@ -341,7 +341,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-dollar-duration-neutral-butterfly",
-    title: "Dollar-duration-neutral butterfly",
+    title: "Dollar-Duration-Neutral Butterfly",
     summary: "A three-maturity bond trade — long the wings, short the body, or vice versa — structured so the position has zero net sensitivity to a parallel shift in rates, isolating a bet on the yield curve's curvature.",
     body: [
       { type: "heading", text: "Three Points on the Curve" },
@@ -419,7 +419,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-rolling-down-the-yield-curve",
-    title: "Rolling down the yield curve",
+    title: "Rolling Down the Yield Curve",
     summary: "Buying a longer-maturity bond and selling it before maturity, capturing price appreciation as it \"rolls down\" an upward-sloping yield curve toward a lower yield.",
     body: [
       { type: "heading", text: "What \"Rolling Down\" Means" },
@@ -502,7 +502,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-fifty-fifty-butterfly",
-    title: "Fifty-fifty butterfly",
+    title: "Fifty-Fifty Butterfly",
     summary: "A simplified butterfly construction that splits the body's duration equally, 50/50, between the two wings — an easy-to-build alternative to full dollar-duration matching.",
     body: [
       { type: "heading", text: "A Simpler Butterfly Construction" },
@@ -585,7 +585,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-regression-weighted-butterfly",
-    title: "Regression-weighted butterfly",
+    title: "Regression-Weighted Butterfly",
     summary: "Weighting a butterfly's wings using a statistical regression of how each maturity has historically moved relative to the body, rather than a simple duration calculation.",
     body: [
       { type: "heading", text: "Weighting by Historical Data" },
@@ -668,7 +668,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-maturity-weighted-butterfly",
-    title: "Maturity-weighted butterfly",
+    title: "Maturity-Weighted Butterfly",
     summary: "Weighting a butterfly's wings by their maturity distance from the body, a simple rule-of-thumb alternative to duration- or regression-based weighting.",
     body: [
       { type: "heading", text: "Weighting by Maturity Distance" },
@@ -751,7 +751,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-yield-curve-spread",
-    title: "Yield curve spread (flatteners & steepeners)",
+    title: "Yield Curve Spread (Flatteners & Steepeners)",
     summary: "Trading the difference in yield between two points on the curve, betting on the curve steepening or flattening rather than on the overall level of rates.",
     body: [
       { type: "heading", text: "Betting on the Spread, Not the Level" },
@@ -834,7 +834,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-low-risk-factor",
-    title: "Low-risk factor",
+    title: "Low-Risk Factor",
     summary: "The fixed-income analog of the equity low-volatility anomaly — lower-risk bonds have historically delivered comparable or better risk-adjusted returns than higher-risk ones.",
     body: [
       { type: "heading", text: "The Fixed-Income Low-Volatility Parallel" },
@@ -912,7 +912,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-value-factor",
-    title: "Value factor",
+    title: "Value Factor",
     summary: "Buying bonds that are cheap relative to a fundamental measure of credit risk, on the premise the market has temporarily mispriced them.",
     body: [
       { type: "heading", text: "Finding Cheap Credit Spreads" },
@@ -995,7 +995,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-carry-factor",
-    title: "Carry factor",
+    title: "Carry Factor",
     summary: "Favoring bonds with the highest yield relative to their risk, on the premise that, absent a change in rates or spreads, higher carry translates directly into higher realized return.",
     body: [
       { type: "heading", text: "What Carry Means in Fixed Income" },
@@ -1078,7 +1078,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-cds-basis-arbitrage",
-    title: "CDS basis arbitrage",
+    title: "CDS Basis Arbitrage",
     summary: "Trading the gap between a company's bond credit spread and the cost of insuring against its default with a credit default swap, betting the two converge.",
     body: [
       { type: "heading", text: "What a Credit Default Swap Is" },
@@ -1161,7 +1161,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-swap-spread-arbitrage",
-    title: "Swap-spread arbitrage",
+    title: "Swap-Spread Arbitrage",
     summary: "Trading the gap between a fixed-for-floating interest rate swap's fixed rate and the yield on a government bond of the same maturity, betting the spread reverts to its typical range.",
     body: [
       { type: "heading", text: "What the Swap Spread Is" },
@@ -1244,7 +1244,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-what-is-a-bond",
-    title: "The bond",
+    title: "The Bond",
     summary:
       "A loan in security form — the issuer borrows money and promises fixed payments back, in contrast to a stock's ownership stake with no promised repayment.",
     body: [
@@ -1330,7 +1330,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-yield-and-price",
-    title: "Yield, price, and the inverse relationship",
+    title: "Yield, Price, and the Inverse Relationship",
     summary:
       "Why a bond's price and its yield move in opposite directions — the single most important relationship in fixed income.",
     body: [
@@ -1416,7 +1416,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-duration",
-    title: "Duration: measuring interest rate sensitivity",
+    title: "Duration: Measuring Interest Rate Sensitivity",
     summary:
       "A single number that summarizes how much a bond's price is expected to move for a given change in interest rates.",
     body: [
@@ -1502,7 +1502,7 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fixed-income-the-yield-curve",
-    title: "The yield curve",
+    title: "The Yield Curve",
     summary:
       "Plotting yields across every maturity at once reveals a curve whose shape carries information about what the market expects from the economy.",
     body: [

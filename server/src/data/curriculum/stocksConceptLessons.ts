@@ -8,7 +8,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-price-momentum",
-    title: "Price-momentum",
+    title: "Price-Momentum",
     summary:
       "Buying stocks that have recently outperformed and avoiding or shorting recent laggards, betting relative performance persists.",
     body: [
@@ -175,7 +175,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-pairs-trading",
-    title: "Pairs trading",
+    title: "Pairs Trading",
     summary: "A market-neutral strategy that trades the price spread between two historically correlated stocks, betting the spread reverts when it diverges.",
     body: [
       { type: "heading", text: "What a Pairs Trade Is" },
@@ -263,7 +263,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-mean-reversion-single-cluster",
-    title: "Mean-reversion – single cluster",
+    title: "Mean-Reversion – Single Cluster",
     summary: "Betting a stock's price will revert toward the average of a tightly related group of peers, after diverging from that group.",
     body: [
       { type: "heading", text: "Defining the Cluster" },
@@ -351,7 +351,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-single-moving-average",
-    title: "Single moving average",
+    title: "Single Moving Average",
     summary: "A basic trend-following rule that goes long when price is above its moving average and exits or shorts when price falls below it.",
     body: [
       { type: "heading", text: "What a Moving Average Is" },
@@ -439,7 +439,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-market-making",
-    title: "Market-making",
+    title: "Market-Making",
     summary: "Continuously quoting both a buy and a sell price for a stock, earning the spread between them while managing the inventory risk that comes with it.",
     body: [
       { type: "heading", text: "Earning the Bid-Ask Spread" },
@@ -527,7 +527,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-earnings-momentum",
-    title: "Earnings-momentum",
+    title: "Earnings-Momentum",
     summary:
       "Buying stocks following positive earnings surprises and avoiding or shorting those with negative surprises, since the market tends to underreact to earnings news.",
     body: [
@@ -611,7 +611,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-low-volatility-anomaly",
-    title: "Low-volatility anomaly",
+    title: "Low-Volatility Anomaly",
     summary:
       "Buying stocks with lower historical volatility than the market, an anomaly because standard theory says taking more risk should be rewarded with higher, not lower, returns.",
     body: [
@@ -696,7 +696,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-implied-volatility",
-    title: "Implied volatility",
+    title: "Implied Volatility",
     summary:
       "Using the volatility priced into a stock's options — rather than its own historical volatility — as a forward-looking signal for trading the stock itself.",
     body: [
@@ -781,7 +781,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-multifactor-portfolio",
-    title: "Multifactor portfolio",
+    title: "Multifactor Portfolio",
     summary:
       "Combining several independent factors — like value, momentum, and quality — into a single composite score, rather than relying on any one factor alone.",
     body: [
@@ -865,7 +865,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-residual-momentum",
-    title: "Residual momentum",
+    title: "Residual Momentum",
     summary:
       "Trading momentum in a stock's return after stripping out the part explained by broad factors, isolating the stock-specific component of the trend.",
     body: [
@@ -949,7 +949,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-mean-reversion-multiple-clusters",
-    title: "Mean-reversion – multiple clusters",
+    title: "Mean-Reversion – Multiple Clusters",
     summary:
       "Running single-cluster mean-reversion simultaneously across many industry or peer groups at once, diversifying the strategy across the whole market.",
     body: [
@@ -1033,7 +1033,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-two-moving-averages",
-    title: "Two moving averages",
+    title: "Two Moving Averages",
     summary:
       "A trend-following rule based on the crossover of a fast and a slow moving average, rather than comparing price to just one reference line.",
     body: [
@@ -1122,7 +1122,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-three-moving-averages",
-    title: "Three moving averages",
+    title: "Three Moving Averages",
     summary:
       "A trend-following rule using three moving averages of different lengths together, requiring stronger alignment before signaling a trade.",
     body: [
@@ -1211,7 +1211,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-support-and-resistance",
-    title: "Support and resistance",
+    title: "Support and Resistance",
     summary:
       "Trading around price levels where a stock has historically struggled to fall below (support) or rise above (resistance), betting on bounces or breakouts at those levels.",
     body: [
@@ -1389,7 +1389,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-event-driven-ma",
-    title: "Event-driven – M&A",
+    title: "Event-Driven – M&A",
     summary:
       "Trading the price gap between a target company's stock and the announced acquisition price after a merger is announced — commonly called merger arbitrage.",
     body: [
@@ -1473,7 +1473,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-machine-learning-knn",
-    title: "Machine learning – single-stock KNN",
+    title: "Machine Learning – Single-Stock KNN",
     summary:
       "Using the k-nearest-neighbors algorithm to predict a stock's next move by finding historical periods with the most similar pattern of features and seeing what happened next.",
     body: [
@@ -1557,7 +1557,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-statistical-arbitrage-optimization",
-    title: "Statistical arbitrage – optimization",
+    title: "Statistical Arbitrage – Optimization",
     summary:
       "Building a large statistical-arbitrage portfolio as a formal optimization problem, balancing expected return, risk, and trading costs across many simultaneous positions.",
     body: [
@@ -1641,7 +1641,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-alpha-combos",
-    title: "Alpha combos",
+    title: "Alpha Combos",
     summary:
       "Combining multiple distinct alpha-generating signals into a single blended forecast, on the same diversification logic as a multifactor portfolio but applied more broadly to any source of edge.",
     body: [
@@ -1725,7 +1725,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-what-is-a-stock",
-    title: "The stock",
+    title: "The Stock",
     summary:
       "Owning a share of a company — what that ownership actually entitles you to, and how it differs from lending a company money.",
     body: [
@@ -1811,7 +1811,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-how-stock-trading-works",
-    title: "How stock trading works",
+    title: "How Stock Trading Works",
     summary:
       "The mechanics of actually buying and selling a share — exchanges, order types, and what it means to go long or sell short.",
     body: [
@@ -1897,7 +1897,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-market-capitalization-and-sectors",
-    title: "Market capitalization and sectors",
+    title: "Market Capitalization and Sectors",
     summary:
       "How a company's total size is measured in the stock market, and the broad industry groupings used to compare similar companies.",
     body: [
@@ -1983,7 +1983,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-dividends-and-corporate-actions",
-    title: "Dividends and corporate actions",
+    title: "Dividends and Corporate Actions",
     summary:
       "How a company returns cash to shareholders, and the routine corporate actions that change a stock's share count or price without changing what it's actually worth.",
     body: [

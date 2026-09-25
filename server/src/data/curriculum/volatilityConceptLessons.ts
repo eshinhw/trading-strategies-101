@@ -9,7 +9,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-vix-futures-basis-trading",
-    title: "VIX futures basis trading",
+    title: "VIX Futures Basis Trading",
     summary: "Trading the gap between VIX futures prices and the spot VIX index, which usually differs because VIX futures price where volatility is expected to be, not where it is today.",
     body: [
       { type: "heading", text: "What the VIX Measures" },
@@ -92,7 +92,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-carry-with-two-etns",
-    title: "Volatility carry with two ETNs",
+    title: "Volatility Carry with Two ETNs",
     summary: "Collecting the roll yield embedded in VIX futures contango by trading exchange-traded notes that hold long and short volatility exposure.",
     body: [
       { type: "heading", text: "How VIX ETNs Roll" },
@@ -175,7 +175,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-hedging-short-vxx",
-    title: "Hedging short VXX with VIX futures",
+    title: "Hedging Short VXX with VIX Futures",
     summary: "Buying VIX futures alongside a short position in a long-volatility ETN like VXX, to collect the contango roll yield while capping the risk of a sudden volatility spike.",
     body: [
       { type: "heading", text: "What VXX Is" },
@@ -258,7 +258,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-risk-premium",
-    title: "Volatility risk premium",
+    title: "Volatility Risk Premium",
     summary: "Systematically selling options (or variance) to collect the persistent gap between implied volatility and the volatility that actually ends up realized.",
     body: [
       { type: "heading", text: "What the Premium Is" },
@@ -341,7 +341,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-risk-premium-with-gamma-hedging",
-    title: "Volatility risk premium with Gamma hedging",
+    title: "Volatility Risk Premium with Gamma Hedging",
     summary: "Collecting the volatility risk premium from short options while continuously hedging the position's delta, isolating the bet on implied-versus-realized volatility from the stock's direction.",
     body: [
       { type: "heading", text: "Beyond the Premium: Directional Risk" },
@@ -424,7 +424,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-skew-long-risk-reversal",
-    title: "Volatility skew – long risk reversal",
+    title: "Volatility Skew – Long Risk Reversal",
     summary: "Trading the difference in implied volatility between out-of-the-money puts and calls, buying a call and selling a put to express a bullish view financed by the skew itself.",
     body: [
       { type: "heading", text: "What Volatility Skew Is" },
@@ -507,7 +507,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-trading-with-variance-swaps",
-    title: "Volatility trading with variance swaps",
+    title: "Volatility Trading with Variance Swaps",
     summary: "Trading realized variance directly via a swap contract, avoiding the path-dependent hedging headaches of replicating a pure volatility bet with options.",
     body: [
       { type: "heading", text: "What a Variance Swap Pays" },
@@ -676,7 +676,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-the-vix",
-    title: "The VIX: measuring market fear",
+    title: "The VIX: Measuring Market Fear",
     summary:
       "What the VIX index actually measures, why it's called the market's \"fear gauge,\" and why it tends to rise when stocks fall.",
     body: [
@@ -762,7 +762,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-trading-vix-futures-and-etns",
-    title: "Trading volatility: VIX futures and ETNs",
+    title: "Trading Volatility: VIX Futures and ETNs",
     summary:
       "Since the VIX itself can't be bought or sold, these are the actual instruments traders use to get exposure to volatility — and the curve dynamics that come with them.",
     body: [
@@ -848,7 +848,7 @@ export const volatilityConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "volatility-implied-vol-and-the-risk-premium",
-    title: "Implied volatility and the volatility risk premium",
+    title: "Implied Volatility and the Volatility Risk Premium",
     summary:
       "The well-documented tendency for implied volatility to run higher than the volatility that actually ends up being realized — and why that gap is tradable.",
     body: [

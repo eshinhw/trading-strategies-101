@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const syntheticStraddles: Strategy[] = [
   {
     slug: "long-call-synthetic-straddle",
-    name: "Long call synthetic straddle",
+    name: "Long Call Synthetic Straddle",
     section: "2.28",
     outlook: "neutral",
     style: "capital-gain",
@@ -35,7 +35,7 @@ export const syntheticStraddles: Strategy[] = [
   },
   {
     slug: "long-put-synthetic-straddle",
-    name: "Long put synthetic straddle",
+    name: "Long Put Synthetic Straddle",
     section: "2.29",
     outlook: "neutral",
     style: "capital-gain",
@@ -67,7 +67,7 @@ export const syntheticStraddles: Strategy[] = [
   },
   {
     slug: "short-call-synthetic-straddle",
-    name: "Short call synthetic straddle",
+    name: "Short Call Synthetic Straddle",
     section: "2.30",
     outlook: "neutral",
     style: "capital-gain",
@@ -99,7 +99,7 @@ export const syntheticStraddles: Strategy[] = [
   },
   {
     slug: "short-put-synthetic-straddle",
-    name: "Short put synthetic straddle",
+    name: "Short Put Synthetic Straddle",
     section: "2.31",
     outlook: "neutral",
     style: "capital-gain",

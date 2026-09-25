@@ -65,7 +65,7 @@ export const strapStripAndRatios: Strategy[] = [
   },
   {
     slug: "call-ratio-backspread",
-    name: "Call ratio backspread",
+    name: "Call Ratio Backspread",
     section: "2.36",
     outlook: "bullish",
     style: "capital-gain",
@@ -99,7 +99,7 @@ export const strapStripAndRatios: Strategy[] = [
   },
   {
     slug: "put-ratio-backspread",
-    name: "Put ratio backspread",
+    name: "Put Ratio Backspread",
     section: "2.37",
     outlook: "bearish",
     style: "capital-gain",
@@ -133,7 +133,7 @@ export const strapStripAndRatios: Strategy[] = [
   },
   {
     slug: "ratio-call-spread",
-    name: "Ratio call spread",
+    name: "Ratio Call Spread",
     section: "2.38",
     outlook: "bearish",
     style: "income",
@@ -167,7 +167,7 @@ export const strapStripAndRatios: Strategy[] = [
   },
   {
     slug: "ratio-put-spread",
-    name: "Ratio put spread",
+    name: "Ratio Put Spread",
     section: "2.39",
     outlook: "bullish",
     style: "income",

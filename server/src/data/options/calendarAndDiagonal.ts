@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const calendarAndDiagonal: Strategy[] = [
   {
     slug: "calendar-call-spread",
-    name: "Calendar call spread",
+    name: "Calendar Call Spread",
     aka: "Horizontal call spread / time spread",
     section: "2.18",
     outlook: "neutral",
@@ -45,7 +45,7 @@ export const calendarAndDiagonal: Strategy[] = [
   },
   {
     slug: "calendar-put-spread",
-    name: "Calendar put spread",
+    name: "Calendar Put Spread",
     aka: "Horizontal put spread / time spread",
     section: "2.19",
     outlook: "neutral",
@@ -87,7 +87,7 @@ export const calendarAndDiagonal: Strategy[] = [
   },
   {
     slug: "diagonal-call-spread",
-    name: "Diagonal call spread",
+    name: "Diagonal Call Spread",
     section: "2.20",
     outlook: "bullish",
     style: "income",
@@ -129,7 +129,7 @@ export const calendarAndDiagonal: Strategy[] = [
   },
   {
     slug: "diagonal-put-spread",
-    name: "Diagonal put spread",
+    name: "Diagonal Put Spread",
     section: "2.21",
     outlook: "bearish",
     style: "income",

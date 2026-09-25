@@ -8,7 +8,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-sector-momentum-rotation",
-    title: "Sector momentum rotation",
+    title: "Sector Momentum Rotation",
     summary:
       "Rotating capital into the sector ETFs with the strongest recent performance, on the premise that sector-level leadership persists for a while.",
     body: [
@@ -92,7 +92,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-sector-momentum-rotation-with-ma-filter",
-    title: "Sector momentum rotation with MA filter",
+    title: "Sector Momentum Rotation with MA Filter",
     summary:
       "Adding a moving-average trend filter on top of sector momentum rotation, staying in cash instead of a leading sector when that sector itself is in a downtrend.",
     body: [
@@ -176,7 +176,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-dual-momentum-sector-rotation",
-    title: "Dual-momentum sector rotation",
+    title: "Dual-Momentum Sector Rotation",
     summary:
       "Combining relative momentum (which sector is leading) with absolute momentum (is that sector's own trailing return positive) before allocating.",
     body: [
@@ -260,7 +260,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-alpha-rotation",
-    title: "Alpha rotation",
+    title: "Alpha Rotation",
     summary: "Rotating sector or asset-class ETF exposure based on a broader combined alpha score, rather than raw trailing return alone.",
     body: [
       { type: "heading", text: "Beyond Trailing Return" },
@@ -343,7 +343,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-r-squared",
-    title: "R-squared",
+    title: "R-Squared",
     summary:
       "Using how cleanly a trend has been moving — measured by the R-squared of price against time — to filter out choppy, low-quality trends before trading them.",
     body: [
@@ -432,7 +432,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-mean-reversion",
-    title: "Mean-reversion",
+    title: "Mean-Reversion",
     summary: "Trading an ETF's short-term deviations from its own recent average price, betting those deviations correct rather than persist.",
     body: [
       { type: "heading", text: "Applying Mean-Reversion to ETFs" },
@@ -609,7 +609,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-multi-asset-trend-following",
-    title: "Multi-asset trend following",
+    title: "Multi-Asset Trend Following",
     summary:
       "Applying the same trend-following rule simultaneously across ETFs spanning many different asset classes, diversifying a single trading rule across uncorrelated markets.",
     body: [
@@ -779,7 +779,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-creation-and-redemption",
-    title: "How ETFs are created",
+    title: "How ETFs Are Created",
     summary:
       "The creation and redemption mechanism that lets large institutional players manufacture or dissolve ETF shares on demand — and why that keeps an ETF's price in line with its underlying holdings.",
     body: [
@@ -865,7 +865,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-how-to-trade-etfs",
-    title: "How to trade ETFs",
+    title: "How to Trade ETFs",
     summary:
       "Buying and selling ETF shares works just like trading a stock — with a few ETF-specific details worth understanding, like the bid-ask spread and premium/discount to NAV.",
     body: [
@@ -951,7 +951,7 @@ export const etfConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "etf-why-trade-etfs",
-    title: "Reasons to trade ETFs",
+    title: "Reasons to Trade ETFs",
     summary:
       "The practical reasons investors and traders reach for an ETF instead of individual stocks, a mutual fund, or futures — diversification, cost, tax efficiency, and precise, targeted exposure.",
     body: [

@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const syntheticsAndCombos: Strategy[] = [
   {
     slug: "long-synthetic-forward",
-    name: "Long synthetic forward",
+    name: "Long Synthetic Forward",
     section: "2.10",
     outlook: "bullish",
     style: "capital-gain",
@@ -34,7 +34,7 @@ export const syntheticsAndCombos: Strategy[] = [
   },
   {
     slug: "short-synthetic-forward",
-    name: "Short synthetic forward",
+    name: "Short Synthetic Forward",
     section: "2.11",
     outlook: "bearish",
     style: "capital-gain",
@@ -65,7 +65,7 @@ export const syntheticsAndCombos: Strategy[] = [
   },
   {
     slug: "long-combo",
-    name: "Long combo",
+    name: "Long Combo",
     aka: "Long risk reversal",
     section: "2.12",
     outlook: "bullish",
@@ -98,7 +98,7 @@ export const syntheticsAndCombos: Strategy[] = [
   },
   {
     slug: "short-combo",
-    name: "Short combo",
+    name: "Short Combo",
     aka: "Short risk reversal",
     section: "2.13",
     outlook: "bearish",
@@ -131,7 +131,7 @@ export const syntheticsAndCombos: Strategy[] = [
   },
   {
     slug: "long-box",
-    name: "Long box",
+    name: "Long Box",
     section: "2.52",
     outlook: "neutral",
     style: "capital-gain",

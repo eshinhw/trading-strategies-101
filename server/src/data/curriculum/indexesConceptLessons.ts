@@ -8,7 +8,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-cash-and-carry-arbitrage",
-    title: "Cash-and-carry arbitrage",
+    title: "Cash-and-Carry Arbitrage",
     summary: "Buying an index's stocks and selling index futures against them, capturing a mispricing between the futures price and its fair, cost-of-carry value.",
     body: [
       { type: "heading", text: "Spot, Futures, and Cost of Carry" },
@@ -91,7 +91,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-dispersion-trading",
-    title: "Dispersion trading in equity indexes",
+    title: "Dispersion Trading in Equity Indexes",
     summary: "Trading the difference between an index's implied volatility and the average implied volatility of its individual components, betting on how correlated those components will actually be.",
     body: [
       { type: "heading", text: "Volatility Depends on Correlation" },
@@ -174,7 +174,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-dispersion-trading-subset-portfolio",
-    title: "Dispersion trading – subset portfolio",
+    title: "Dispersion Trading – Subset Portfolio",
     summary: "Running dispersion trading against only a subset of an index's components, rather than the full basket, to reduce cost and complexity while keeping the core correlation bet.",
     body: [
       { type: "heading", text: "The Full-Basket Version" },
@@ -257,7 +257,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-intraday-etf-arbitrage",
-    title: "Intraday arbitrage between index ETFs",
+    title: "Intraday Arbitrage Between Index ETFs",
     summary: "Trading brief intraday price gaps between two ETFs that track the same or very similar indexes, exploiting the fact that arbitrage doesn't correct every mispricing instantly.",
     body: [
       { type: "heading", text: "Why ETFs Normally Stay Aligned" },
@@ -340,7 +340,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-volatility-targeting",
-    title: "Index volatility targeting with risk-free asset",
+    title: "Index Volatility Targeting with Risk-Free Asset",
     summary: "Dynamically shifting a portfolio between an index and a risk-free asset to hold the portfolio's overall volatility near a constant target, rather than letting it swing with the market.",
     body: [
       { type: "heading", text: "Adjusting Exposure to Hold a Target" },
@@ -423,7 +423,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-what-is-a-stock-index",
-    title: "The stock index",
+    title: "The Stock Index",
     summary:
       "A single number built from a defined basket of stocks, meant to represent the performance of a market or a slice of it.",
     body: [
@@ -509,7 +509,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-how-index-values-are-calculated",
-    title: "How index values are calculated",
+    title: "How Index Values Are Calculated",
     summary:
       "The mechanics behind an index's headline number, and the divisor adjustments that keep it consistent through stock splits and constituent changes.",
     body: [
@@ -595,7 +595,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-index-futures-and-options",
-    title: "Index futures and options",
+    title: "Index Futures and Options",
     summary:
       "Derivatives written directly on an index, cash-settled since there's no physical basket to deliver — used to hedge or speculate on the broad market in a single trade.",
     body: [
@@ -681,7 +681,7 @@ export const indexesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "indexes-tracking-an-index",
-    title: "Tracking an index: ETFs and index funds",
+    title: "Tracking an Index: ETFs and Index Funds",
     summary:
       "How a fund actually replicates an index's return, and the tracking error that measures how closely it succeeds.",
     body: [

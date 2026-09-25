@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const straddlesAndStrangles: Strategy[] = [
   {
     slug: "long-straddle",
-    name: "Long straddle",
+    name: "Long Straddle",
     section: "2.22",
     outlook: "neutral",
     style: "volatility",
@@ -34,7 +34,7 @@ export const straddlesAndStrangles: Strategy[] = [
   },
   {
     slug: "long-strangle",
-    name: "Long strangle",
+    name: "Long Strangle",
     section: "2.23",
     outlook: "neutral",
     style: "volatility",
@@ -66,7 +66,7 @@ export const straddlesAndStrangles: Strategy[] = [
   },
   {
     slug: "long-guts",
-    name: "Long guts",
+    name: "Long Guts",
     section: "2.24",
     outlook: "neutral",
     style: "volatility",
@@ -98,7 +98,7 @@ export const straddlesAndStrangles: Strategy[] = [
   },
   {
     slug: "short-straddle",
-    name: "Short straddle",
+    name: "Short Straddle",
     section: "2.25",
     outlook: "neutral",
     style: "income",
@@ -129,7 +129,7 @@ export const straddlesAndStrangles: Strategy[] = [
   },
   {
     slug: "short-strangle",
-    name: "Short strangle",
+    name: "Short Strangle",
     section: "2.26",
     outlook: "neutral",
     style: "income",
@@ -161,7 +161,7 @@ export const straddlesAndStrangles: Strategy[] = [
   },
   {
     slug: "short-guts",
-    name: "Short guts",
+    name: "Short Guts",
     section: "2.27",
     outlook: "neutral",
     style: "income",

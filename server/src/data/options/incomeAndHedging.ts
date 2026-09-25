@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const incomeAndHedging: Strategy[] = [
   {
     slug: "covered-call",
-    name: "Covered call",
+    name: "Covered Call",
     aka: "Buy-write",
     section: "2.2",
     outlook: "neutral",
@@ -36,7 +36,7 @@ export const incomeAndHedging: Strategy[] = [
   },
   {
     slug: "covered-put",
-    name: "Covered put",
+    name: "Covered Put",
     aka: "Sell-write",
     section: "2.3",
     outlook: "bearish",
@@ -69,7 +69,7 @@ export const incomeAndHedging: Strategy[] = [
   },
   {
     slug: "protective-put",
-    name: "Protective put",
+    name: "Protective Put",
     aka: "Married put / synthetic call",
     section: "2.4",
     outlook: "bullish",
@@ -102,7 +102,7 @@ export const incomeAndHedging: Strategy[] = [
   },
   {
     slug: "protective-call",
-    name: "Protective call",
+    name: "Protective Call",
     aka: "Married call / synthetic put",
     section: "2.5",
     outlook: "bearish",
@@ -170,7 +170,7 @@ export const incomeAndHedging: Strategy[] = [
   },
   {
     slug: "covered-short-straddle",
-    name: "Covered short straddle",
+    name: "Covered Short Straddle",
     section: "2.32",
     outlook: "bullish",
     style: "income",
@@ -203,7 +203,7 @@ export const incomeAndHedging: Strategy[] = [
   },
   {
     slug: "covered-short-strangle",
-    name: "Covered short strangle",
+    name: "Covered Short Strangle",
     section: "2.33",
     outlook: "bullish",
     style: "income",

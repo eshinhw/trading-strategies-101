@@ -8,7 +8,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-moving-averages-with-hp-filter",
-    title: "Moving averages with HP filter",
+    title: "Moving Averages with HP Filter",
     summary: "Filtering out short-term noise from a currency's price with a Hodrick-Prescott filter before applying a moving-average trend rule, to trade the underlying trend more cleanly.",
     body: [
       { type: "heading", text: "What the HP Filter Does" },
@@ -91,7 +91,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-carry-trade",
-    title: "Carry trade",
+    title: "Carry Trade",
     summary: "Borrowing in a low-interest-rate currency and investing in a high-interest-rate currency, collecting the interest-rate differential as long as the exchange rate doesn't move against the trade.",
     body: [
       { type: "heading", text: "What a Carry Trade Is" },
@@ -174,7 +174,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-high-minus-low-carry",
-    title: "High-minus-low carry",
+    title: "High-Minus-Low Carry",
     summary: "A cross-sectional carry strategy that goes long the highest-interest-rate currencies and short the lowest-interest-rate currencies across a broad basket, rather than trading just one currency pair.",
     body: [
       { type: "heading", text: "Ranking a Basket, Not a Pair" },
@@ -257,7 +257,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-dollar-carry-trade",
-    title: "Dollar carry trade",
+    title: "Dollar Carry Trade",
     summary: "A carry strategy that trades the US dollar as a single unit against a basket of other currencies, based on whether the dollar's interest rate sits above or below the global average.",
     body: [
       { type: "heading", text: "Dollar Versus the World" },
@@ -340,7 +340,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-momentum-and-carry-combo",
-    title: "Momentum & carry combo",
+    title: "Momentum & Carry Combo",
     summary: "Combining a currency's interest-rate carry signal with its price-momentum signal into one blended score, since the two factors tend to be relatively independent sources of currency return.",
     body: [
       { type: "heading", text: "Two Different Signals" },
@@ -423,7 +423,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-triangular-arbitrage",
-    title: "FX triangular arbitrage",
+    title: "FX Triangular Arbitrage",
     summary: "Trading three currency pairs in a loop to exploit a brief mispricing between their quoted exchange rates, converting through all three back to the starting currency for a profit.",
     body: [
       { type: "heading", text: "Three Rates, One Consistency Check" },
@@ -506,7 +506,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-what-is-a-currency-pair",
-    title: "The currency pair",
+    title: "The Currency Pair",
     summary:
       "Every FX trade is a simultaneous bet on two currencies at once — the base and the quote — and understanding that pairing is the starting point for everything else in this course.",
     body: [
@@ -592,7 +592,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-how-currencies-are-traded",
-    title: "How currencies are traded",
+    title: "How Currencies Are Traded",
     summary:
       "The FX market's decentralized, round-the-clock structure, and the basic units — pips and lots — used to size and measure a trade.",
     body: [
@@ -678,7 +678,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-what-moves-exchange-rates",
-    title: "What moves exchange rates",
+    title: "What Moves Exchange Rates",
     summary:
       "The fundamental forces — interest rates, inflation, trade flows, and risk sentiment — that drive one currency to strengthen or weaken against another.",
     body: [
@@ -764,7 +764,7 @@ export const fxConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "fx-interest-rate-parity",
-    title: "Interest rate parity",
+    title: "Interest Rate Parity",
     summary:
       "The no-arbitrage relationship linking spot and forward exchange rates to the interest rate gap between two currencies — the same relationship behind forward FX pricing and the carry trade.",
     body: [

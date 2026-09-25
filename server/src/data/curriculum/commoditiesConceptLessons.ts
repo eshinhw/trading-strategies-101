@@ -8,7 +8,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-roll-yields",
-    title: "Roll yields",
+    title: "Roll Yields",
     summary: "Earning (or losing) a return from rolling a commodity futures position forward, depending on whether the futures curve is in backwardation or contango.",
     body: [
       { type: "heading", text: "What Roll Yield Is" },
@@ -91,7 +91,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-hedging-pressure",
-    title: "Trading based on hedging pressure",
+    title: "Trading Based on Hedging Pressure",
     summary: "Trading commodity futures based on the theory that producers' need to hedge future production systematically pushes down futures prices relative to expected future spot prices.",
     body: [
       { type: "heading", text: "The Hedging Pressure Hypothesis" },
@@ -174,7 +174,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-portfolio-diversification",
-    title: "Portfolio diversification with commodities",
+    title: "Portfolio Diversification with Commodities",
     summary: "Adding commodities to a traditional stock-and-bond portfolio for their historically low correlation to those asset classes, aiming to improve overall portfolio risk-adjusted return.",
     body: [
       { type: "heading", text: "Why Commodities Diversify a Portfolio" },
@@ -340,7 +340,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-skewness-premium",
-    title: "Skewness premium",
+    title: "Skewness Premium",
     summary: "Selling commodities (or commodity options) with a history of positively skewed returns — occasional large spikes — to collect the premium investors pay for lottery-like upside exposure.",
     body: [
       { type: "heading", text: "What Positive Skew Looks Like" },
@@ -423,7 +423,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-trading-with-pricing-models",
-    title: "Trading with pricing models",
+    title: "Trading with Pricing Models",
     summary: "Using a fundamentals-based model of a commodity's supply, demand, and cost structure to estimate fair value, trading when the market price deviates meaningfully from that model's output.",
     body: [
       { type: "heading", text: "Building a Fundamentals Model" },
@@ -506,7 +506,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-what-is-a-commodity",
-    title: "The commodity",
+    title: "The Commodity",
     summary:
       "A raw, standardized economic good — interchangeable unit for unit — that's why a bushel of wheat from one farm can trade against a bushel from another as if they were identical.",
     body: [
@@ -592,7 +592,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-how-commodities-are-traded",
-    title: "How commodities are traded",
+    title: "How Commodities Are Traded",
     summary:
       "Why most commodity exposure runs through standardized futures contracts rather than owning barrels of oil or bushels of wheat directly.",
     body: [
@@ -678,7 +678,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-contango-and-backwardation",
-    title: "Contango and backwardation",
+    title: "Contango and Backwardation",
     summary:
       "Why commodity futures curves so often slope in one particular direction — and the storage-cost and convenience-yield forces that explain why.",
     body: [
@@ -764,7 +764,7 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "commodities-supply-demand-and-prices",
-    title: "Supply, demand, and commodity prices",
+    title: "Supply, Demand, and Commodity Prices",
     summary:
       "The fundamental forces — production, weather, geopolitics, and inventories — that drive commodity prices, and why they hit commodities differently than other asset classes.",
     body: [

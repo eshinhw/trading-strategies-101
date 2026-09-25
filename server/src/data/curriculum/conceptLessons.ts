@@ -4,7 +4,7 @@ export const conceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "concept-what-is-an-option",
-    title: "The option contract",
+    title: "The Option Contract",
     summary: "The two basic contracts every strategy in this course is built from.",
     body: [
       { type: "heading", text: "Calls and Puts" },
@@ -157,7 +157,7 @@ export const conceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "concept-reading-a-payoff-diagram",
-    title: "Reading a payoff diagram",
+    title: "Reading a Payoff Diagram",
     summary: "How to read the chart you'll see on every strategy lesson in this course.",
     body: [
       { type: "heading", text: "What the Chart Shows" },
@@ -235,7 +235,7 @@ export const conceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "concept-debit-vs-credit",
-    title: "Debit vs. credit trades",
+    title: "Debit vs. Credit Trades",
     summary: "Do you pay to enter the trade, or get paid?",
     body: [
       { type: "heading", text: "Net Cash Flow at Entry" },
@@ -319,7 +319,7 @@ export const conceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "concept-legs-and-combinations",
-    title: "Legs and combinations",
+    title: "Legs and Combinations",
     summary: "The mental model that makes 58 strategies feel like far fewer.",
     body: [
       { type: "heading", text: "What a Leg Is" },

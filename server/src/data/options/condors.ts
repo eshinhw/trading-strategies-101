@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const condors: Strategy[] = [
   {
     slug: "long-call-condor",
-    name: "Long call condor",
+    name: "Long Call Condor",
     section: "2.46",
     outlook: "neutral",
     style: "capital-gain",
@@ -39,7 +39,7 @@ export const condors: Strategy[] = [
   },
   {
     slug: "long-put-condor",
-    name: "Long put condor",
+    name: "Long Put Condor",
     section: "2.47",
     outlook: "neutral",
     style: "capital-gain",
@@ -75,7 +75,7 @@ export const condors: Strategy[] = [
   },
   {
     slug: "short-call-condor",
-    name: "Short call condor",
+    name: "Short Call Condor",
     section: "2.48",
     outlook: "neutral",
     style: "capital-gain",
@@ -111,7 +111,7 @@ export const condors: Strategy[] = [
   },
   {
     slug: "short-put-condor",
-    name: "Short put condor",
+    name: "Short Put Condor",
     section: "2.49",
     outlook: "neutral",
     style: "capital-gain",
@@ -147,7 +147,7 @@ export const condors: Strategy[] = [
   },
   {
     slug: "long-iron-condor",
-    name: "Long iron condor",
+    name: "Long Iron Condor",
     section: "2.50",
     outlook: "neutral",
     style: "income",
@@ -183,7 +183,7 @@ export const condors: Strategy[] = [
   },
   {
     slug: "short-iron-condor",
-    name: "Short iron condor",
+    name: "Short Iron Condor",
     section: "2.51",
     outlook: "neutral",
     style: "capital-gain",

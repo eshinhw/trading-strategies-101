@@ -9,7 +9,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-what-is-a-structured-asset",
-    title: "The structured asset",
+    title: "The Structured Asset",
     summary:
       "How securitization pools many individual loans or debts into a single structure, and repackages their combined cash flows into new securities.",
     body: [
@@ -95,7 +95,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-tranches-and-the-waterfall",
-    title: "Tranches and the waterfall",
+    title: "Tranches and the Waterfall",
     summary:
       "How a structured deal splits pooled cash flows into tranches of different risk and seniority, and the payment order — the waterfall — that decides who gets paid first.",
     body: [
@@ -181,7 +181,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-credit-default-swaps-and-indices",
-    title: "Credit default swaps and credit indices",
+    title: "Credit Default Swaps and Credit Indices",
     summary:
       "How a CDS transfers credit risk without transferring the underlying bond or loan, and how a credit index bundles many single-name CDS into one tradable basket.",
     body: [
@@ -267,7 +267,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-mortgage-backed-securities",
-    title: "Mortgage-backed securities and prepayment risk",
+    title: "Mortgage-Backed Securities and Prepayment Risk",
     summary:
       "How a pool of mortgages becomes a tradable security, and the unique risk that comes from homeowners being free to repay their mortgage early.",
     body: [
@@ -353,7 +353,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-carry-equity-tranche-index-hedging",
-    title: "Carry, equity tranche – index hedging",
+    title: "Carry, Equity Tranche – Index Hedging",
     summary:
       "Collecting the high coupon of a credit index's equity tranche while hedging away the index's broad market and spread risk.",
     body: [
@@ -453,7 +453,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-carry-senior-mezzanine-index-hedging",
-    title: "Carry, senior/mezzanine – index hedging",
+    title: "Carry, Senior/Mezzanine – Index Hedging",
     summary:
       "The same index-hedged carry idea as the equity tranche trade, applied further up the capital structure, where the coupon is thinner but the loss protection is deeper.",
     body: [
@@ -548,7 +548,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-carry-tranche-hedging",
-    title: "Carry – tranche hedging",
+    title: "Carry – Tranche Hedging",
     summary:
       "Hedging a tranche's carry position with a different tranche from the same capital structure, instead of the broad index, for a more precisely targeted hedge.",
     body: [
@@ -643,7 +643,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-carry-cds-hedging",
-    title: "Carry – CDS hedging",
+    title: "Carry – CDS Hedging",
     summary:
       "Hedging a tranche position's carry using single-name CDS on the underlying reference entities, weighted by each name's contribution to the tranche's risk.",
     body: [
@@ -743,7 +743,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-cdos-curve-trades",
-    title: "CDOs – curve trades",
+    title: "CDOs – Curve Trades",
     summary:
       "Betting on how the credit curve across different tranche maturities steepens or flattens, rather than on the outright level of spreads.",
     body: [
@@ -843,7 +843,7 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "structured-assets-mbs-trading",
-    title: "Mortgage-backed security (MBS) trading",
+    title: "Mortgage-Backed Security (MBS) Trading",
     summary:
       "Trading MBS based on views about prepayment speed and relative value against Treasuries, rather than simply holding for yield.",
     body: [

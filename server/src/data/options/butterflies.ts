@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const butterflies: Strategy[] = [
   {
     slug: "long-call-butterfly",
-    name: "Long call butterfly",
+    name: "Long Call Butterfly",
     section: "2.40",
     outlook: "neutral",
     style: "capital-gain",
@@ -37,7 +37,7 @@ export const butterflies: Strategy[] = [
   },
   {
     slug: "modified-call-butterfly",
-    name: "Modified call butterfly",
+    name: "Modified Call Butterfly",
     section: "2.40.1",
     outlook: "bullish",
     style: "sideways",
@@ -71,7 +71,7 @@ export const butterflies: Strategy[] = [
   },
   {
     slug: "long-put-butterfly",
-    name: "Long put butterfly",
+    name: "Long Put Butterfly",
     section: "2.41",
     outlook: "neutral",
     style: "capital-gain",
@@ -105,7 +105,7 @@ export const butterflies: Strategy[] = [
   },
   {
     slug: "modified-put-butterfly",
-    name: "Modified put butterfly",
+    name: "Modified Put Butterfly",
     section: "2.41.1",
     outlook: "bullish",
     style: "sideways",
@@ -139,7 +139,7 @@ export const butterflies: Strategy[] = [
   },
   {
     slug: "short-call-butterfly",
-    name: "Short call butterfly",
+    name: "Short Call Butterfly",
     section: "2.42",
     outlook: "neutral",
     style: "volatility",
@@ -173,7 +173,7 @@ export const butterflies: Strategy[] = [
   },
   {
     slug: "short-put-butterfly",
-    name: "Short put butterfly",
+    name: "Short Put Butterfly",
     section: "2.43",
     outlook: "neutral",
     style: "volatility",
@@ -207,7 +207,7 @@ export const butterflies: Strategy[] = [
   },
   {
     slug: "long-iron-butterfly",
-    name: '"Long" iron butterfly',
+    name: '"Long" Iron Butterfly',
     section: "2.44",
     outlook: "neutral",
     style: "income",
@@ -242,7 +242,7 @@ export const butterflies: Strategy[] = [
   },
   {
     slug: "short-iron-butterfly",
-    name: '"Short" iron butterfly',
+    name: '"Short" Iron Butterfly',
     section: "2.45",
     outlook: "neutral",
     style: "capital-gain",

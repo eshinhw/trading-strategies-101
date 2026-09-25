@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const seagulls: Strategy[] = [
   {
     slug: "bullish-short-seagull-spread",
-    name: "Bullish short seagull spread",
+    name: "Bullish Short Seagull Spread",
     section: "2.54",
     outlook: "bullish",
     style: "capital-gain",
@@ -37,7 +37,7 @@ export const seagulls: Strategy[] = [
   },
   {
     slug: "bearish-long-seagull-spread",
-    name: "Bearish long seagull spread",
+    name: "Bearish Long Seagull Spread",
     section: "2.55",
     outlook: "bearish",
     style: "capital-gain",
@@ -71,7 +71,7 @@ export const seagulls: Strategy[] = [
   },
   {
     slug: "bearish-short-seagull-spread",
-    name: "Bearish short seagull spread",
+    name: "Bearish Short Seagull Spread",
     section: "2.56",
     outlook: "bearish",
     style: "capital-gain",
@@ -105,7 +105,7 @@ export const seagulls: Strategy[] = [
   },
   {
     slug: "bullish-long-seagull-spread",
-    name: "Bullish long seagull spread",
+    name: "Bullish Long Seagull Spread",
     section: "2.57",
     outlook: "bullish",
     style: "capital-gain",

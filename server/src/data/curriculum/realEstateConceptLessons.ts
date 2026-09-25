@@ -8,7 +8,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-mixed-asset-diversification",
-    title: "Mixed-asset diversification with real estate",
+    title: "Mixed-Asset Diversification with Real Estate",
     summary:
       "Adding real estate to a traditional stock-and-bond portfolio to capture a return stream that doesn't move in lockstep with public markets.",
     body: [
@@ -92,7 +92,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-intra-asset-diversification",
-    title: "Intra-asset diversification within real estate",
+    title: "Intra-Asset Diversification Within Real Estate",
     summary:
       "Spreading a real estate allocation across many properties and vehicles rather than concentrating it in one building or one fund.",
     body: [
@@ -176,7 +176,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-property-type-diversification",
-    title: "Property type diversification",
+    title: "Property Type Diversification",
     summary:
       "Spreading real estate exposure across residential, office, retail, industrial, and hospitality properties, each with distinct demand drivers and cycles.",
     body: [
@@ -260,7 +260,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-economic-diversification",
-    title: "Economic diversification",
+    title: "Economic Diversification",
     summary:
       "Avoiding real estate concentration in regions dependent on a single industry or employer, so one local economic shock can't dominate the whole allocation.",
     body: [
@@ -344,7 +344,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-property-type-and-geographic-diversification",
-    title: "Property type and geographic diversification",
+    title: "Property Type and Geographic Diversification",
     summary:
       "Combining property type and geographic diversification into a single two-dimensional approach, since spreading along just one dimension leaves the other exposed.",
     body: [
@@ -428,7 +428,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-momentum-regional-approach",
-    title: "Real estate momentum – regional approach",
+    title: "Real Estate Momentum – Regional Approach",
     summary:
       "Applying momentum investing to regional real estate markets — favoring regions with strong recent price appreciation on the bet that the trend continues.",
     body: [
@@ -512,7 +512,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-inflation-hedging",
-    title: "Inflation hedging with real estate",
+    title: "Inflation Hedging with Real Estate",
     summary:
       "Why real estate values and rental income tend to rise with inflation — and where that hedge can break down.",
     body: [
@@ -596,7 +596,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-fix-and-flip",
-    title: "Fix-and-flip",
+    title: "Fix-and-Flip",
     summary:
       "An active real estate strategy that buys an undervalued property, renovates it, and resells it quickly — profiting from value creation and a discount purchase, not from rental income or market appreciation.",
     body: [
@@ -680,7 +680,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-what-is-real-estate-investing",
-    title: "Real estate investing",
+    title: "Real Estate Investing",
     summary:
       "Owning property directly, or indirectly through a fund, to earn a return from two sources: the income it generates and the change in its own value.",
     body: [
@@ -766,7 +766,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-reits",
-    title: "REITs: real estate investment trusts",
+    title: "REITs: Real Estate Investment Trusts",
     summary:
       "The structure that lets ordinary investors buy real estate exposure like a stock — and the payout requirement that defines what a REIT actually is.",
     body: [
@@ -852,7 +852,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-how-value-is-determined",
-    title: "How real estate value is determined",
+    title: "How Real Estate Value Is Determined",
     summary:
       "The three standard approaches appraisers use to value a property — income, comparable sales, and replacement cost — and when each one is most reliable.",
     body: [
@@ -938,7 +938,7 @@ export const realEstateConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "real-estate-leverage",
-    title: "Leverage in real estate",
+    title: "Leverage in Real Estate",
     summary:
       "Why debt financing is central to how most real estate is actually purchased, and how it amplifies both the gains and the losses on the investor's own capital.",
     body: [

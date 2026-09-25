@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const ladders: Strategy[] = [
   {
     slug: "bull-call-ladder",
-    name: "Bull call ladder",
+    name: "Bull Call Ladder",
     section: "2.14",
     outlook: "neutral",
     style: "income",
@@ -37,7 +37,7 @@ export const ladders: Strategy[] = [
   },
   {
     slug: "bull-put-ladder",
-    name: "Bull put ladder",
+    name: "Bull Put Ladder",
     section: "2.15",
     outlook: "bearish",
     style: "capital-gain",
@@ -71,7 +71,7 @@ export const ladders: Strategy[] = [
   },
   {
     slug: "bear-call-ladder",
-    name: "Bear call ladder",
+    name: "Bear Call Ladder",
     section: "2.16",
     outlook: "bullish",
     style: "capital-gain",
@@ -105,7 +105,7 @@ export const ladders: Strategy[] = [
   },
   {
     slug: "bear-put-ladder",
-    name: "Bear put ladder",
+    name: "Bear Put Ladder",
     section: "2.17",
     outlook: "neutral",
     style: "income",

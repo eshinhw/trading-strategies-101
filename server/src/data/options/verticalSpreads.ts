@@ -3,7 +3,7 @@ import type { Strategy } from "../../types.js";
 export const verticalSpreads: Strategy[] = [
   {
     slug: "bull-call-spread",
-    name: "Bull call spread",
+    name: "Bull Call Spread",
     section: "2.6",
     outlook: "bullish",
     style: "capital-gain",
@@ -35,7 +35,7 @@ export const verticalSpreads: Strategy[] = [
   },
   {
     slug: "bull-put-spread",
-    name: "Bull put spread",
+    name: "Bull Put Spread",
     section: "2.7",
     outlook: "bullish",
     style: "income",
@@ -67,7 +67,7 @@ export const verticalSpreads: Strategy[] = [
   },
   {
     slug: "bear-call-spread",
-    name: "Bear call spread",
+    name: "Bear Call Spread",
     section: "2.8",
     outlook: "bearish",
     style: "income",
@@ -99,7 +99,7 @@ export const verticalSpreads: Strategy[] = [
   },
   {
     slug: "bear-put-spread",
-    name: "Bear put spread",
+    name: "Bear Put Spread",
     section: "2.9",
     outlook: "bearish",
     style: "capital-gain",

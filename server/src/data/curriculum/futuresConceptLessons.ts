@@ -9,7 +9,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-hedging-with-futures",
-    title: "Hedging risk with futures",
+    title: "Hedging Risk with Futures",
     summary: "Using a futures contract to offset the price risk of a position you already hold, or will hold.",
     body: [
       { type: "heading", text: "What a Futures Hedge Is" },
@@ -123,7 +123,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-trend-following",
-    title: "Trend following (momentum)",
+    title: "Trend Following (Momentum)",
     summary: "A systematic strategy that buys assets going up and sells assets going down, betting trends persist.",
     body: [
       { type: "heading", text: "What Trend Following Is" },
@@ -233,7 +233,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-calendar-spread",
-    title: "Calendar spread",
+    title: "Calendar Spread",
     summary:
       "Trading the price relationship between two futures contracts on the same underlying that expire at different times.",
     body: [
@@ -344,7 +344,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-cross-hedging",
-    title: "Cross-hedging",
+    title: "Cross-Hedging",
     summary:
       "Hedging with futures on a different but closely related asset, when no futures contract exists on the exact one you hold.",
     body: [
@@ -459,7 +459,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-interest-rate-risk-hedging",
-    title: "Interest rate risk hedging",
+    title: "Interest Rate Risk Hedging",
     summary:
       "Using interest rate futures to protect a bond portfolio, loan, or borrowing plan against unfavorable rate moves.",
     body: [
@@ -571,7 +571,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-contrarian-trading-mean-reversion",
-    title: "Contrarian trading (mean-reversion)",
+    title: "Contrarian Trading (Mean-Reversion)",
     summary:
       "A strategy that bets prices which have moved unusually far from their typical range will snap back toward it — the opposite premise of trend following.",
     body: [
@@ -681,7 +681,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-contrarian-trading-market-activity",
-    title: "Contrarian trading – market activity",
+    title: "Contrarian Trading – Market Activity",
     summary:
       "A contrarian approach that reads trading volume and open interest, not just price, to spot when a move may be running out of participants to sustain it.",
     body: [
@@ -792,7 +792,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-forward-pricing",
-    title: "Forward pricing",
+    title: "Forward Pricing",
     summary:
       "How a forward's fair price is derived from today's spot price plus the cost of carrying the asset to the future delivery date — and how that cost of carry differs across commodities, stocks, and bonds.",
     body: [
@@ -987,7 +987,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-margin-and-mark-to-market",
-    title: "Margin and daily settlement",
+    title: "Margin and Daily Settlement",
     summary:
       "How futures contracts stay solvent day to day — initial margin, maintenance margin, and the daily mark-to-market process that settles gains and losses in cash every single day.",
     body: [
@@ -1107,7 +1107,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-contract-specifications",
-    title: "Contract specifications",
+    title: "Contract Specifications",
     summary:
       "The standardized terms — size, tick, expiration, and quality — that make a futures contract fungible on an exchange, and why that standardization is what a forward trades away for flexibility.",
     body: [
@@ -1222,7 +1222,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-delivery-and-close-out",
-    title: "Delivery and closing out a position",
+    title: "Delivery and Closing Out a Position",
     summary:
       "Why the overwhelming majority of futures contracts never reach physical delivery — and what actually happens as a contract's expiration approaches.",
     body: [
@@ -1343,7 +1343,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-forward-rate-agreements",
-    title: "Forward rate agreements (FRAs)",
+    title: "Forward Rate Agreements (FRAs)",
     summary:
       "A forward contract on an interest rate itself — locking in a borrowing or lending rate for a future period without any principal actually changing hands.",
     body: [
@@ -1444,7 +1444,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-valuing-an-existing-forward",
-    title: "Valuing an existing forward contract",
+    title: "Valuing an Existing Forward Contract",
     summary:
       "Once a forward is in place, its market value changes as time passes and the spot price moves — a different question from forward pricing, which only sets the fair price at inception.",
     body: [
@@ -1545,7 +1545,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-clearinghouses-and-novation",
-    title: "Clearinghouses and novation",
+    title: "Clearinghouses and Novation",
     summary:
       "How a clearinghouse steps into the middle of every futures trade, becoming the buyer to every seller and the seller to every buyer — the mechanism behind the guarantee referenced earlier in this course.",
     body: [
@@ -1647,7 +1647,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-price-limits-and-trading-halts",
-    title: "Price limits and trading halts",
+    title: "Price Limits and Trading Halts",
     summary:
       "The rules exchanges use to slow down or pause trading when a futures price moves an unusually large amount in a single session.",
     body: [
@@ -1748,7 +1748,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-what-is-a-forward-contract",
-    title: "The forward contract",
+    title: "The Forward Contract",
     summary:
       "The simplest possible definition of a forward contract, why it's worth agreeing to one at all, and the mechanics — notional value, settlement, counterparty risk — that every futures contract builds on.",
     body: [
@@ -1904,7 +1904,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-what-is-futures",
-    title: "The futures contract",
+    title: "The Futures Contract",
     summary:
       "The simplest possible definition of a futures contract — the same basic long/short agreement as a forward, but standardized and traded on an exchange.",
     body: [
