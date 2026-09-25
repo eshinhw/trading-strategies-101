@@ -611,4 +611,35 @@ export const modules: Module[] = [
     prerequisiteModuleSlugs: ["convertibles-basics"],
     lessonSlugs: ["convertible-arbitrage", "convertible-option-adjusted-spread"],
   },
+  {
+    slug: "cash-basics",
+    courseSlug: "cash",
+    title: "Cash Basics",
+    description:
+      "Cash as a real portfolio choice, the money market instruments that let it earn a modest return, how collateralized short-term lending works, and the regulatory backdrop — AML rules and usury law — behind this module's strategies.",
+    order: 1,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "cash-what-is-cash",
+      "cash-money-market-instruments",
+      "cash-collateralized-lending",
+      "cash-financial-regulation",
+    ],
+  },
+  {
+    slug: "cash-strategies",
+    courseSlug: "cash",
+    title: "Cash Strategies",
+    description:
+      "Five real cash-based practices from the book's own table of contents, some entirely legitimate (repo, liquidity management, pawnbroking) and some illegal (money laundering, loan sharking) — covered for regulatory and historical context, not as guidance.",
+    order: 2,
+    prerequisiteModuleSlugs: ["cash-basics"],
+    lessonSlugs: [
+      "cash-money-laundering",
+      "cash-liquidity-management",
+      "cash-repo",
+      "cash-pawnbroking",
+      "cash-loan-sharking",
+    ],
+  },
 ];

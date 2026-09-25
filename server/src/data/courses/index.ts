@@ -226,7 +226,7 @@ export const courses: Course[] = [
     section: "17",
     description:
       "Strategies built on cash and short-term liquidity, from repo to — for historical and educational completeness — pawnbroking and loan sharking.",
-    status: "coming-soon",
+    status: "available",
     strategyCount: 5,
     strategyTitles: [
       "Money Laundering – the Dark Side of Cash",
