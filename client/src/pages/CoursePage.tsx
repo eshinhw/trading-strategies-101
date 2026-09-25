@@ -99,7 +99,7 @@ function AvailableCourseModules({ slug }: { slug: string }) {
           .slice()
           .sort((a, b) => a.order - b.order)
           .map((m) => (
-            <ModuleSection key={m.slug} module={m} />
+            <ModuleSection key={m.slug} module={m} allModules={data.modules} />
           ))}
       </div>
 
@@ -166,7 +166,23 @@ function ExamSection({ slug }: { slug: string }) {
   );
 }
 
-function ModuleSection({ module: m }: { module: ModulesResponse["modules"][number] }) {
+function joinNaturally(items: string[]): string {
+  if (items.length <= 1) return items[0] ?? "";
+  if (items.length === 2) return `${items[0]} and ${items[1]}`;
+  return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
+}
+
+function ModuleSection({
+  module: m,
+  allModules,
+}: {
+  module: ModulesResponse["modules"][number];
+  allModules: ModulesResponse["modules"];
+}) {
+  const prerequisiteTitles = m.prerequisiteModuleSlugs.map(
+    (slug) => allModules.find((other) => other.slug === slug)?.title ?? slug,
+  );
+
   return (
     <div>
       <div className="mb-3 flex items-center justify-between gap-2">
@@ -184,7 +200,11 @@ function ModuleSection({ module: m }: { module: ModulesResponse["modules"][numbe
       </div>
 
       {!m.unlocked ? (
-        <p className="text-sm text-[#898781]">Complete the prerequisite module(s) above to unlock.</p>
+        <p className="text-sm text-[#898781]">
+          {prerequisiteTitles.length > 0
+            ? `Complete ${joinNaturally(prerequisiteTitles)} to unlock.`
+            : "Complete the prerequisite module(s) above to unlock."}
+        </p>
       ) : (
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {m.lessons.map((lesson) => (
