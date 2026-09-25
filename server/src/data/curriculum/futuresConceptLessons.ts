@@ -791,121 +791,6 @@ export const futuresConceptLessons: ConceptLesson[] = [
   },
   {
     kind: "concept",
-    slug: "futures-what-are-financial-contracts",
-    title: "What are Financial Contracts?",
-    summary:
-      "A forward contract is a private agreement to buy or sell an asset at a set price on a future date — the foundation every futures contract builds on.",
-    body: [
-      { type: "heading", text: "Buying and Selling" },
-      {
-        type: "paragraph",
-        text: 'A forward contract is a private, customized agreement between two parties to buy and sell a specific asset at a specific price on a specific future date. The party agreeing to buy the asset at that future date holds the "long" side of the contract, while the party agreeing to sell it holds the "short" side — no money changes hands when the contract is signed, in the plain, unfunded version; the exchange of the asset for the agreed price happens entirely at the future settlement date. This is the fundamental building block that futures contracts are built from: a futures contract is essentially a standardized, exchange-traded version of the same basic long/short forward commitment.',
-      },
-      { type: "heading", text: "Notional Value of a Forward Contract" },
-      {
-        type: "paragraph",
-        text: "The notional value of a forward contract is the total value of the underlying asset the contract controls — calculated as the agreed forward price multiplied by the quantity of the asset being bought or sold. This number, not the, typically zero, amount of cash exchanged upfront, is what determines the actual economic exposure both parties are taking on: a forward on 10,000 bushels of wheat at $6 per bushel has a notional value of $60,000, meaning both the long and short party are exposed to $60,000 worth of price risk, even though neither side put up anything close to that amount at the outset.",
-      },
-      { type: "heading", text: "Settlement Procedures" },
-      {
-        type: "paragraph",
-        text: "At the contract's maturity date, a forward is settled in one of two ways: physical settlement, where the seller actually delivers the underlying asset and the buyer pays the agreed forward price, or cash settlement, where instead of exchanging the physical asset, the two parties simply exchange the difference between the agreed forward price and the asset's actual market price at maturity. Which settlement method applies is specified in the contract terms at the outset — physical settlement is more common for commodities where the underlying asset genuinely changes hands, while cash settlement is common when physical delivery is impractical, for a financial index, for example, where there's no single physical asset to deliver.",
-      },
-      { type: "heading", text: "Market Integrity" },
-      {
-        type: "paragraph",
-        text: "Because a forward contract is a private, over-the-counter agreement between two specific parties rather than a contract cleared through an exchange, it carries counterparty risk — the risk that the other side simply fails to honor the agreement at maturity, whether from an inability or unwillingness to pay. This is the central structural weakness forwards have relative to futures: an exchange-traded futures contract is guaranteed by a clearinghouse and backed by daily margin requirements that limit how much loss can accumulate before it's collected, while a forward's integrity depends entirely on the creditworthiness and good faith of the specific counterparty on the other side of the deal.",
-      },
-      { type: "heading", text: "A Worked Example" },
-      {
-        type: "paragraph",
-        text: "A flour mill agrees to buy 10,000 bushels of wheat in six months from a grain merchant at a forward price of $6.50 per bushel, giving the contract a notional value of 10,000 × $6.50 = $65,000. At maturity, the actual market price of wheat is $7.00 per bushel. If the contract is cash-settled, the merchant simply pays the mill the difference: ($7.00 − $6.50) × 10,000 = $5,000, since the mill locked in a price $0.50 below where wheat ended up trading. If instead it's physically settled, the merchant delivers 10,000 bushels and the mill pays the agreed $65,000 — either way, the mill's economic outcome is the same: wheat at an effective $6.50 per bushel, regardless of where the market price actually landed.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A U.S. exporter expects to receive 10 million euros from a European customer in three months and wants to know today exactly how many dollars that will convert to, rather than gambling on where the exchange rate lands. It signs a forward with its bank to sell those euros at a fixed rate on the payment date — the notional value is the full 10 million euros, no cash changes hands at signing, and if the bank were to fail before the contract settles, the exporter would be left exposed to exactly the counterparty risk this lesson describes.",
-      },
-    ],
-    quiz: [
-      {
-        id: "q1",
-        prompt: "What is a forward contract?",
-        choices: [
-          "A contract that can only be traded on a public exchange",
-          "A private agreement between two parties to buy and sell a specific asset at a specific price on a specific future date",
-          "A type of stock option",
-          "A contract that requires immediate payment of the full purchase price",
-        ],
-        correctIndex: 1,
-        explanation:
-          "A forward contract is a private, customized agreement fixing the price and date for a future exchange of an asset between two specific parties.",
-      },
-      {
-        id: "q2",
-        prompt: "How is a forward contract's notional value calculated?",
-        choices: [
-          "The amount of cash exchanged when the contract is signed",
-          "The agreed forward price multiplied by the quantity of the underlying asset",
-          "The total profit the long party expects to earn",
-          "A fixed fee charged by the exchange",
-        ],
-        correctIndex: 1,
-        explanation:
-          "Notional value represents the total economic exposure of the contract — the forward price times the quantity of the asset — even though little or no cash typically changes hands upfront.",
-      },
-      {
-        id: "q3",
-        prompt: "What are the two ways a forward contract can be settled at maturity?",
-        choices: [
-          "Physical settlement (delivering the actual asset) or cash settlement (exchanging the price difference)",
-          "Early settlement or late settlement, with no other options",
-          "Settlement can only ever happen through physical delivery",
-          "Settlement always happens automatically without any agreement",
-        ],
-        correctIndex: 0,
-        explanation:
-          "A forward can be settled either through actual physical delivery of the underlying asset against payment, or through a cash payment reflecting the difference between the agreed and actual market price.",
-      },
-      {
-        id: "q4",
-        prompt: "Why does a forward contract carry counterparty risk?",
-        choices: [
-          "Because forwards are always guaranteed by a central clearinghouse",
-          "Because it's a private, over-the-counter agreement, so its fulfillment depends entirely on the other party's willingness and ability to honor it",
-          "Because forward contracts cannot legally be enforced",
-          "Counterparty risk does not apply to forward contracts",
-        ],
-        correctIndex: 1,
-        explanation:
-          "Unlike an exchange-cleared contract, a forward's integrity rests entirely on the specific counterparty actually following through at maturity, with no clearinghouse guarantee behind it.",
-      },
-      {
-        id: "q5",
-        prompt: "How does a futures contract's structure address the counterparty risk inherent in forwards?",
-        choices: [
-          "Futures contracts have the exact same counterparty risk as forwards, with no differences",
-          "Futures are guaranteed by a clearinghouse and backed by daily margin requirements that limit how much loss can accumulate",
-          "Futures contracts eliminate the need for any settlement at maturity",
-          "Futures contracts are always settled a year in advance",
-        ],
-        correctIndex: 1,
-        explanation:
-          "A futures contract's clearinghouse guarantee and daily margining process is specifically what protects against the kind of counterparty default risk that a private forward agreement is exposed to.",
-      },
-      {
-        id: "q6",
-        prompt:
-          "A forward on 10,000 bushels of wheat at $6.50/bushel is cash-settled when the market price is $7.00/bushel. What does the merchant pay the mill?",
-        choices: ["$65,000", "$70,000", "$5,000", "Nothing — cash settlement means no payment is made"],
-        correctIndex: 2,
-        explanation:
-          "Cash settlement pays only the difference between the agreed and market price: ($7.00 − $6.50) × 10,000 = $5,000, which gives the mill the same $6.50-per-bushel economic outcome as physical delivery would.",
-      },
-    ],
-  },
-  {
-    kind: "concept",
     slug: "futures-forward-pricing",
     title: "Forward Pricing",
     summary:
@@ -1865,7 +1750,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
     slug: "futures-what-is-a-forward-contract",
     title: "What Is a Forward?",
     summary:
-      "The simplest possible definition of a forward contract — two parties agreeing today on a price for something that changes hands later — and why that agreement is worth making at all.",
+      "The simplest possible definition of a forward contract, why it's worth agreeing to one at all, and the mechanics — notional value, settlement, counterparty risk — that every futures contract builds on.",
     body: [
       { type: "heading", text: "A Simple Definition" },
       {
@@ -1887,10 +1772,30 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "The whole point of a forward is trading away uncertainty for certainty. Neither side knows for sure whether they'll end up ahead compared to simply waiting and transacting at whatever the market price happens to be later — but both sides get something they value more than that uncertainty: a known, fixed number to plan around.",
       },
+      { type: "heading", text: "Notional Value" },
+      {
+        type: "paragraph",
+        text: "The notional value of a forward contract is the total value of the underlying asset the contract controls — the agreed forward price multiplied by the quantity of the asset being bought or sold. This number, not the (typically zero) amount of cash exchanged upfront, is what determines the actual economic exposure both parties are taking on, as the worked example below shows.",
+      },
+      { type: "heading", text: "Settlement: Physical or Cash" },
+      {
+        type: "paragraph",
+        text: "At the contract's maturity date, a forward is settled in one of two ways: physical settlement, where the seller actually delivers the underlying asset and the buyer pays the agreed forward price, or cash settlement, where instead of exchanging the physical asset, the two parties simply exchange the difference between the agreed forward price and the asset's actual market price at maturity. Which settlement method applies is specified in the contract terms at the outset — physical settlement is more common for commodities where the underlying asset genuinely changes hands, while cash settlement is common when physical delivery is impractical, for a financial index, for example, where there's no single physical asset to deliver.",
+      },
+      { type: "heading", text: "A Worked Example" },
+      {
+        type: "paragraph",
+        text: "A flour mill agrees to buy 10,000 bushels of wheat in six months from a grain merchant at a forward price of $6.50 per bushel, giving the contract a notional value of 10,000 × $6.50 = $65,000. At maturity, the actual market price of wheat is $7.00 per bushel. If the contract is cash-settled, the merchant simply pays the mill the difference: ($7.00 − $6.50) × 10,000 = $5,000, since the mill locked in a price $0.50 below where wheat ended up trading. If instead it's physically settled, the merchant delivers 10,000 bushels and the mill pays the agreed $65,000 — either way, the mill's economic outcome is the same: wheat at an effective $6.50 per bushel, regardless of where the market price actually landed.",
+      },
+      { type: "heading", text: "Counterparty Risk" },
+      {
+        type: "paragraph",
+        text: "Because a forward contract is a private, over-the-counter agreement between two specific parties rather than a contract cleared through an exchange, it carries counterparty risk — the risk that the other side simply fails to honor the agreement at maturity, whether from an inability or unwillingness to pay. This is the central structural weakness forwards have relative to futures: an exchange-traded futures contract is guaranteed by a clearinghouse and backed by daily margin requirements that limit how much loss can accumulate before it's collected, while a forward's integrity depends entirely on the creditworthiness and good faith of the specific counterparty on the other side of the deal.",
+      },
       { type: "heading", text: "In Practice" },
       {
         type: "paragraph",
-        text: "A vineyard expects to harvest a large crop of grapes next fall and worries a bumper crop across the region could push prices down before then. By agreeing today with a wine distributor on a fixed price for next fall's harvest, the vineyard locks in its revenue well before a single grape is picked — trading away the chance of an even higher spot price later for the certainty of knowing exactly what the crop will be worth.",
+        text: "A U.S. exporter expects to receive 10 million euros from a European customer in three months and wants to know today exactly how many dollars that will convert to, rather than gambling on where the exchange rate lands. It signs a forward with its bank to sell those euros at a fixed rate on the payment date — the notional value is the full 10 million euros, no cash changes hands at signing, and if the bank were to fail before the contract settles, the exporter would be left exposed to exactly the counterparty risk this lesson describes.",
       },
     ],
     quiz: [
@@ -1948,16 +1853,51 @@ export const futuresConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q5",
-        prompt: "What actually changes hands when a forward contract is first agreed?",
+        prompt: "How is a forward contract's notional value calculated?",
         choices: [
-          "The full purchase price, paid immediately",
-          "The underlying asset itself, delivered immediately",
-          "Nothing but the promise — the actual exchange of asset for price happens later, at the agreed future date",
-          "A cash deposit equal to half the contract's value",
+          "The amount of cash exchanged when the contract is signed",
+          "The agreed forward price multiplied by the quantity of the underlying asset",
+          "The total profit the long party expects to earn",
+          "A fixed fee charged by the exchange",
         ],
+        correctIndex: 1,
+        explanation:
+          "Notional value represents the total economic exposure of the contract — the forward price times the quantity of the asset — even though little or no cash typically changes hands upfront.",
+      },
+      {
+        id: "q6",
+        prompt: "What are the two ways a forward contract can be settled at maturity?",
+        choices: [
+          "Physical settlement (delivering the actual asset) or cash settlement (exchanging the price difference)",
+          "Early settlement or late settlement, with no other options",
+          "Settlement can only ever happen through physical delivery",
+          "Settlement always happens automatically without any agreement",
+        ],
+        correctIndex: 0,
+        explanation:
+          "A forward can be settled either through actual physical delivery of the underlying asset against payment, or through a cash payment reflecting the difference between the agreed and actual market price.",
+      },
+      {
+        id: "q7",
+        prompt:
+          "A forward on 10,000 bushels of wheat at $6.50/bushel is cash-settled when the market price is $7.00/bushel. What does the merchant pay the mill?",
+        choices: ["$65,000", "$70,000", "$5,000", "Nothing — cash settlement means no payment is made"],
         correctIndex: 2,
         explanation:
-          "A forward is just an agreement at signing — no cash or asset actually changes hands until the agreed future date arrives.",
+          "Cash settlement pays only the difference between the agreed and market price: ($7.00 − $6.50) × 10,000 = $5,000, which gives the mill the same $6.50-per-bushel economic outcome as physical delivery would.",
+      },
+      {
+        id: "q8",
+        prompt: "Why does a forward contract carry counterparty risk?",
+        choices: [
+          "Because forwards are always guaranteed by a central clearinghouse",
+          "Because it's a private, over-the-counter agreement, so its fulfillment depends entirely on the other party's willingness and ability to honor it",
+          "Because forward contracts cannot legally be enforced",
+          "Counterparty risk does not apply to forward contracts",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Unlike an exchange-cleared contract, a forward's integrity rests entirely on the specific counterparty actually following through at maturity, with no clearinghouse guarantee behind it.",
       },
     ],
   },

@@ -181,7 +181,6 @@ export const modules: Module[] = [
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-what-is-a-forward-contract",
-      "futures-what-are-financial-contracts",
       "futures-forward-pricing",
       "futures-forward-rate-agreements",
       "futures-valuing-an-existing-forward",
