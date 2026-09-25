@@ -681,7 +681,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "futures-contrarian-trading-market-activity",
-    title: "Contrarian Trading – Market Activity",
+    title: "Contrarian Trading (Market Activity)",
     summary:
       "A contrarian approach that reads trading volume and open interest, not just price, to spot when a move may be running out of participants to sustain it.",
     body: [

@@ -84,7 +84,7 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
     <div className="mx-auto max-w-7xl px-6 py-10">
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-[#e6e8ec]">{title}</h1>
-        <p className="mt-2 max-w-2xl text-[#9aa3b2]">{description}</p>
+        <p className="mt-4 max-w-2xl text-[#9aa3b2]">{description}</p>
       </header>
 
       {error && <p className="text-red-400">{error}</p>}

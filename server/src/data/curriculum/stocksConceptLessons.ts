@@ -13,13 +13,25 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Buying stocks that have recently outperformed and avoiding or shorting recent laggards, betting relative performance persists.",
     body: [
       { type: "heading", text: "What Price-Momentum Is" },
-      { type: "paragraph", text: "Price-momentum is one of the best-documented anomalies in finance: stocks that have outperformed over the past several months to a year tend to keep outperforming over the next few months, while recent laggards tend to keep lagging. A classic implementation ranks stocks by their trailing 12-month return, often skipping the most recent month which behaves differently, buys the top decile, and shorts or avoids the bottom decile." },
+      {
+        type: "paragraph",
+        text: "Price-momentum is one of the best-documented anomalies in finance: stocks that have outperformed over the past several months to a year tend to keep outperforming over the next few months, while recent laggards tend to keep lagging. A classic implementation ranks stocks by their trailing 12-month return, often skipping the most recent month which behaves differently, buys the top decile, and shorts or avoids the bottom decile.",
+      },
       { type: "heading", text: "Relative, Not Absolute" },
-      { type: "paragraph", text: "Unlike trend-following in futures, which reacts to an individual instrument's own price path, cross-sectional momentum ranks assets relative to each other at a point in time — it's a relative-strength approach, not an absolute-price one. A stock can be in a momentum uptrend relative to its peers even while its own absolute price is roughly flat, if its peers are falling faster." },
+      {
+        type: "paragraph",
+        text: "Unlike trend-following in futures, which reacts to an individual instrument's own price path, cross-sectional momentum ranks assets relative to each other at a point in time — it's a relative-strength approach, not an absolute-price one. A stock can be in a momentum uptrend relative to its peers even while its own absolute price is roughly flat, if its peers are falling faster.",
+      },
       { type: "heading", text: "The Momentum Crash" },
-      { type: "paragraph", text: "Momentum's most notorious risk is the \"momentum crash\": during sharp market reversals, especially recoveries after a crash, the stocks that fell hardest often bounce back hardest, and a momentum strategy that's short the recent losers can suffer a severe, rapid loss exactly when the broad market is recovering. This tail risk is why momentum strategies typically pair the signal with volatility controls or position limits rather than running it unhedged." },
+      {
+        type: "paragraph",
+        text: "Momentum's most notorious risk is the \"momentum crash\": during sharp market reversals, especially recoveries after a crash, the stocks that fell hardest often bounce back hardest, and a momentum strategy that's short the recent losers can suffer a severe, rapid loss exactly when the broad market is recovering. This tail risk is why momentum strategies typically pair the signal with volatility controls or position limits rather than running it unhedged.",
+      },
       { type: "heading", text: "Why Momentum Gets Rebalanced" },
-      { type: "paragraph", text: "Momentum is typically rebalanced periodically — monthly is common — reranking the universe and rotating out of names that have fallen out of the top ranks and into new leaders, since a stock's momentum ranking isn't a permanent property; the whole point is that leadership rotates as new price trends emerge." },
+      {
+        type: "paragraph",
+        text: "Momentum is typically rebalanced periodically — monthly is common — reranking the universe and rotating out of names that have fallen out of the top ranks and into new leaders, since a stock's momentum ranking isn't a permanent property; the whole point is that leadership rotates as new price trends emerge.",
+      },
     ],
     quiz: [
       {
@@ -63,7 +75,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What is a \"momentum crash\"?",
+        prompt: 'What is a "momentum crash"?',
         choices: [
           "A momentum strategy's steady, gradual outperformance over many years",
           "A sharp, rapid loss that can occur when recent losers, which the strategy is short, bounce back hard during a market recovery",
@@ -93,16 +105,29 @@ export const stocksConceptLessons: ConceptLesson[] = [
     kind: "concept",
     slug: "stocks-value",
     title: "Value",
-    summary: "Buying stocks that are cheap relative to a fundamental measure of worth, betting the market will eventually recognize the mispricing.",
+    summary:
+      "Buying stocks that are cheap relative to a fundamental measure of worth, betting the market will eventually recognize the mispricing.",
     body: [
       { type: "heading", text: "What Value Investing Is" },
-      { type: "paragraph", text: "Value investing buys stocks that trade cheaply relative to some measure of fundamental worth — common metrics include price-to-earnings, price-to-book, price-to-cash-flow, or dividend yield — on the premise that the market has temporarily underpriced the company relative to its underlying economics, and that price will eventually converge back toward fair value." },
+      {
+        type: "paragraph",
+        text: "Value investing buys stocks that trade cheaply relative to some measure of fundamental worth — common metrics include price-to-earnings, price-to-book, price-to-cash-flow, or dividend yield — on the premise that the market has temporarily underpriced the company relative to its underlying economics, and that price will eventually converge back toward fair value.",
+      },
       { type: "heading", text: "Building a Value Portfolio" },
-      { type: "paragraph", text: "A systematic value strategy typically ranks the investable universe by one or more of these cheapness metrics, buys the cheapest decile or quintile, and either holds long-only or pairs it with a short position in the most expensive names to isolate the value factor from the overall direction of the market." },
+      {
+        type: "paragraph",
+        text: "A systematic value strategy typically ranks the investable universe by one or more of these cheapness metrics, buys the cheapest decile or quintile, and either holds long-only or pairs it with a short position in the most expensive names to isolate the value factor from the overall direction of the market.",
+      },
       { type: "heading", text: "The Value Trap" },
-      { type: "paragraph", text: "The value premium's persistence has been debated: cheap stocks are often cheap for a real reason — declining industries, weaker growth prospects, or elevated risk — so a value strategy is partly compensated for bearing that risk, not just for exploiting a pure mispricing. This is why some value stocks, called \"value traps,\" stay cheap indefinitely rather than reverting." },
+      {
+        type: "paragraph",
+        text: 'The value premium\'s persistence has been debated: cheap stocks are often cheap for a real reason — declining industries, weaker growth prospects, or elevated risk — so a value strategy is partly compensated for bearing that risk, not just for exploiting a pure mispricing. This is why some value stocks, called "value traps," stay cheap indefinitely rather than reverting.',
+      },
       { type: "heading", text: "Value and Momentum Together" },
-      { type: "paragraph", text: "Value and momentum have historically shown low or even negative correlation to each other — a stock the value factor likes (cheap) is often one that momentum dislikes (a recent laggard, which is often why it got cheap), and vice versa. This makes combining value and momentum signals in one portfolio a common way to diversify factor exposure rather than relying on either alone." },
+      {
+        type: "paragraph",
+        text: "Value and momentum have historically shown low or even negative correlation to each other — a stock the value factor likes (cheap) is often one that momentum dislikes (a recent laggard, which is often why it got cheap), and vice versa. This makes combining value and momentum signals in one portfolio a common way to diversify factor exposure rather than relying on either alone.",
+      },
     ],
     quiz: [
       {
@@ -120,7 +145,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "Which of these is a common metric used to identify \"cheap\" stocks in a value strategy?",
+        prompt: 'Which of these is a common metric used to identify "cheap" stocks in a value strategy?',
         choices: [
           "Price-to-earnings (P/E) ratio",
           "The company's stock ticker symbol",
@@ -133,7 +158,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "Why might the \"value premium\" partly reflect compensation for risk, rather than a pure mispricing?",
+        prompt: 'Why might the "value premium" partly reflect compensation for risk, rather than a pure mispricing?',
         choices: [
           "Cheap stocks are always mispriced with no underlying reason",
           "Stocks are often cheap because of real risks — weaker growth, declining industries, higher uncertainty — that the market is pricing in",
@@ -146,7 +171,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What is a \"value trap\"?",
+        prompt: 'What is a "value trap"?',
         choices: [
           "A stock that is cheap and quickly reverts to a higher, fairer price",
           "A stock that stays cheap indefinitely rather than reverting, because its low valuation reflects a real, lasting problem",
@@ -176,21 +201,34 @@ export const stocksConceptLessons: ConceptLesson[] = [
     kind: "concept",
     slug: "stocks-pairs-trading",
     title: "Pairs Trading",
-    summary: "A market-neutral strategy that trades the price spread between two historically correlated stocks, betting the spread reverts when it diverges.",
+    summary:
+      "A market-neutral strategy that trades the price spread between two historically correlated stocks, betting the spread reverts when it diverges.",
     body: [
       { type: "heading", text: "What a Pairs Trade Is" },
-      { type: "paragraph", text: "Pairs trading identifies two stocks whose prices have historically moved together — often companies in the same industry, like two large retailers or two airlines — and monitors the spread, or ratio, between their prices. When that spread diverges further than usual from its typical relationship, the trader shorts the outperforming stock and buys the underperforming one, betting the spread will converge back to its historical norm regardless of which direction the overall market moves." },
+      {
+        type: "paragraph",
+        text: "Pairs trading identifies two stocks whose prices have historically moved together — often companies in the same industry, like two large retailers or two airlines — and monitors the spread, or ratio, between their prices. When that spread diverges further than usual from its typical relationship, the trader shorts the outperforming stock and buys the underperforming one, betting the spread will converge back to its historical norm regardless of which direction the overall market moves.",
+      },
       {
         type: "image",
         diagramId: "pairs-trading",
         caption: "Two correlated stocks track each other, then diverge — the pairs trade bets the spread closes again.",
       },
       { type: "heading", text: "Why It's Market-Neutral" },
-      { type: "paragraph", text: "Because the strategy is simultaneously long one stock and short a similarly-sized position in a closely related one, it is largely market-neutral: if the whole market rises or falls, both legs move together and much of that common exposure cancels out, leaving a position that profits or loses mainly based on the relative performance between the two stocks, not the market's direction." },
+      {
+        type: "paragraph",
+        text: "Because the strategy is simultaneously long one stock and short a similarly-sized position in a closely related one, it is largely market-neutral: if the whole market rises or falls, both legs move together and much of that common exposure cancels out, leaving a position that profits or loses mainly based on the relative performance between the two stocks, not the market's direction.",
+      },
       { type: "heading", text: "Selecting a Good Pair" },
-      { type: "paragraph", text: "Identifying a good pair usually starts with a statistical measure of how tightly the two stocks' prices have historically tracked each other — commonly cointegration or a high, stable correlation over time — and defining the spread's normal range, often in terms of standard deviations from its historical average, to decide when a divergence is large enough to trade." },
+      {
+        type: "paragraph",
+        text: "Identifying a good pair usually starts with a statistical measure of how tightly the two stocks' prices have historically tracked each other — commonly cointegration or a high, stable correlation over time — and defining the spread's normal range, often in terms of standard deviations from its historical average, to decide when a divergence is large enough to trade.",
+      },
       { type: "heading", text: "When the Relationship Breaks" },
-      { type: "paragraph", text: "The central risk is that the relationship breaks down permanently rather than reverting — a merger, a company-specific event, or a structural shift in one company's business can cause the historical relationship to stop holding, in which case the spread never reverts and the trade can lose money on both legs at once instead of the offsetting behavior the strategy relies on." },
+      {
+        type: "paragraph",
+        text: "The central risk is that the relationship breaks down permanently rather than reverting — a merger, a company-specific event, or a structural shift in one company's business can cause the historical relationship to stop holding, in which case the spread never reverts and the trade can lose money on both legs at once instead of the offsetting behavior the strategy relies on.",
+      },
     ],
     quiz: [
       {
@@ -208,7 +246,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "Why is pairs trading described as largely \"market-neutral\"?",
+        prompt: 'Why is pairs trading described as largely "market-neutral"?',
         choices: [
           "It never involves any risk",
           "Being simultaneously long one stock and short a related one cancels out much of the shared exposure to overall market moves",
@@ -263,22 +301,36 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-mean-reversion-single-cluster",
-    title: "Mean-Reversion – Single Cluster",
-    summary: "Betting a stock's price will revert toward the average of a tightly related group of peers, after diverging from that group.",
+    title: "Mean-Reversion: Single Cluster",
+    summary:
+      "Betting a stock's price will revert toward the average of a tightly related group of peers, after diverging from that group.",
     body: [
       { type: "heading", text: "Defining the Cluster" },
-      { type: "paragraph", text: "This is a form of mean-reversion trading applied to a single, well-defined cluster of closely related stocks — for example, all the major stocks within one narrow industry, like large regional banks or big-box retailers — rather than to a broad, diverse market index. The trader computes some measure of the group's collective typical behavior, such as the cluster's average return over a short window, and looks for individual members whose price has deviated unusually far from that group average." },
+      {
+        type: "paragraph",
+        text: "This is a form of mean-reversion trading applied to a single, well-defined cluster of closely related stocks — for example, all the major stocks within one narrow industry, like large regional banks or big-box retailers — rather than to a broad, diverse market index. The trader computes some measure of the group's collective typical behavior, such as the cluster's average return over a short window, and looks for individual members whose price has deviated unusually far from that group average.",
+      },
       { type: "heading", text: "The Trading Rule" },
-      { type: "paragraph", text: "The trading rule follows directly: when one stock in the cluster has fallen well below the group's recent average performance while its close peers haven't, buy it, expecting it to catch back up toward the cluster; when one stock has risen well above the group's average, sell or short it, expecting it to fall back in line." },
+      {
+        type: "paragraph",
+        text: "The trading rule follows directly: when one stock in the cluster has fallen well below the group's recent average performance while its close peers haven't, buy it, expecting it to catch back up toward the cluster; when one stock has risen well above the group's average, sell or short it, expecting it to fall back in line.",
+      },
       {
         type: "image",
         diagramId: "cluster-deviation",
-        caption: "One stock falls away from its peers while the rest of the cluster holds its band — the laggard is the buy candidate.",
+        caption:
+          "One stock falls away from its peers while the rest of the cluster holds its band — the laggard is the buy candidate.",
       },
       { type: "heading", text: "Cluster vs. Pair" },
-      { type: "paragraph", text: "This differs from pairs trading in scope: a pair looks at the relationship between exactly two stocks, while a single-cluster mean-reversion strategy looks at one stock's deviation from a whole group of peers at once, which can make the signal more statistically robust — a genuine outlier relative to five or ten closely related peers is a stronger signal than a divergence measured against just one other stock." },
+      {
+        type: "paragraph",
+        text: "This differs from pairs trading in scope: a pair looks at the relationship between exactly two stocks, while a single-cluster mean-reversion strategy looks at one stock's deviation from a whole group of peers at once, which can make the signal more statistically robust — a genuine outlier relative to five or ten closely related peers is a stronger signal than a divergence measured against just one other stock.",
+      },
       { type: "heading", text: "Choosing the Right Cluster" },
-      { type: "paragraph", text: "Choosing the right cluster matters enormously: the stocks need to be similar enough in what drives their business — same industry, similar size, similar exposure to the same economic factors — that reverting to the group average is actually a sensible expectation, rather than grouping together stocks that only superficially resemble each other and have no real reason to move together." },
+      {
+        type: "paragraph",
+        text: "Choosing the right cluster matters enormously: the stocks need to be similar enough in what drives their business — same industry, similar size, similar exposure to the same economic factors — that reverting to the group average is actually a sensible expectation, rather than grouping together stocks that only superficially resemble each other and have no real reason to move together.",
+      },
     ],
     quiz: [
       {
@@ -292,11 +344,12 @@ export const stocksConceptLessons: ConceptLesson[] = [
         ],
         correctIndex: 1,
         explanation:
-          "This strategy defines \"normal\" relative to a specific, closely related cluster of peers — like major regional bank stocks — rather than the broad market or a single other name.",
+          'This strategy defines "normal" relative to a specific, closely related cluster of peers — like major regional bank stocks — rather than the broad market or a single other name.',
       },
       {
         id: "q2",
-        prompt: "If one stock in a cluster has fallen well below the group's recent average performance, the strategy would typically:",
+        prompt:
+          "If one stock in a cluster has fallen well below the group's recent average performance, the strategy would typically:",
         choices: [
           "Sell or short that stock, expecting it to keep falling",
           "Buy that stock, expecting it to catch back up toward the cluster average",
@@ -322,7 +375,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "Why can comparing a stock against a whole cluster of peers produce a more robust signal than comparing it to just one other stock?",
+        prompt:
+          "Why can comparing a stock against a whole cluster of peers produce a more robust signal than comparing it to just one other stock?",
         choices: [
           "It doesn't — smaller comparisons are always more reliable",
           "A genuine outlier relative to several closely related peers is a stronger signal than a divergence measured against only one other name",
@@ -338,7 +392,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
         prompt: "Why does the choice of which stocks belong in the cluster matter so much?",
         choices: [
           "It doesn't matter — any group of stocks works equally well",
-          "The stocks need a real, shared reason to move together for \"reverting to the group average\" to be a sensible expectation",
+          'The stocks need a real, shared reason to move together for "reverting to the group average" to be a sensible expectation',
           "Clusters must always contain exactly ten stocks by convention",
           "The cluster should include stocks from as many different industries as possible",
         ],
@@ -352,21 +406,34 @@ export const stocksConceptLessons: ConceptLesson[] = [
     kind: "concept",
     slug: "stocks-single-moving-average",
     title: "Single Moving Average",
-    summary: "A basic trend-following rule that goes long when price is above its moving average and exits or shorts when price falls below it.",
+    summary:
+      "A basic trend-following rule that goes long when price is above its moving average and exits or shorts when price falls below it.",
     body: [
       { type: "heading", text: "What a Moving Average Is" },
-      { type: "paragraph", text: "A moving average smooths out day-to-day price noise by averaging a stock's closing price over a fixed lookback window — a 50-day or 200-day moving average is common — recalculated fresh each day as the window rolls forward. A single-moving-average strategy uses just one such average as its entire trading signal." },
+      {
+        type: "paragraph",
+        text: "A moving average smooths out day-to-day price noise by averaging a stock's closing price over a fixed lookback window — a 50-day or 200-day moving average is common — recalculated fresh each day as the window rolls forward. A single-moving-average strategy uses just one such average as its entire trading signal.",
+      },
       { type: "heading", text: "The Trading Rule" },
-      { type: "paragraph", text: "The rule is simple: when the stock's price is above its moving average, hold a long position, or stay long; when price falls below the moving average, exit the position, or go short in strategies that allow it. The moving average acts as a dynamic line in the sand — price crossing above or below it is treated as a shift from an uptrend to a downtrend, or vice versa." },
+      {
+        type: "paragraph",
+        text: "The rule is simple: when the stock's price is above its moving average, hold a long position, or stay long; when price falls below the moving average, exit the position, or go short in strategies that allow it. The moving average acts as a dynamic line in the sand — price crossing above or below it is treated as a shift from an uptrend to a downtrend, or vice versa.",
+      },
       {
         type: "image",
         diagramId: "single-moving-average",
         caption: "Price crossing above the moving average signals a long entry; crossing below signals an exit.",
       },
       { type: "heading", text: "Compared to a Crossover Rule" },
-      { type: "paragraph", text: "This approach is a trend-following rule, closely related in spirit to the moving-average-crossover rule used in futures trend-following, but simpler: it compares price to just one reference line rather than comparing two moving averages of different lengths to each other. That simplicity is both its appeal, easy to compute and explain, and its main weakness." },
+      {
+        type: "paragraph",
+        text: "This approach is a trend-following rule, closely related in spirit to the moving-average-crossover rule used in futures trend-following, but simpler: it compares price to just one reference line rather than comparing two moving averages of different lengths to each other. That simplicity is both its appeal, easy to compute and explain, and its main weakness.",
+      },
       { type: "heading", text: "The Whipsaw Problem" },
-      { type: "paragraph", text: "The single-moving-average rule's main drawback shows up in sideways, choppy markets: when price oscillates back and forth across the moving average without establishing a real trend, the strategy generates a series of \"whipsaw\" trades — buying just before a small dip below the average, then selling just before it climbs back above — each one a small loss, with transaction costs compounding the damage. It performs best in markets with sustained, clear directional trends and worst in range-bound, noisy ones." },
+      {
+        type: "paragraph",
+        text: 'The single-moving-average rule\'s main drawback shows up in sideways, choppy markets: when price oscillates back and forth across the moving average without establishing a real trend, the strategy generates a series of "whipsaw" trades — buying just before a small dip below the average, then selling just before it climbs back above — each one a small loss, with transaction costs compounding the damage. It performs best in markets with sustained, clear directional trends and worst in range-bound, noisy ones.',
+      },
     ],
     quiz: [
       {
@@ -410,7 +477,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What is a \"whipsaw,\" in the context of a moving-average strategy?",
+        prompt: 'What is a "whipsaw," in the context of a moving-average strategy?',
         choices: [
           "A large, sustained profit from a strong trend",
           "A series of small losing trades caused by price oscillating back and forth across the moving average in a choppy market",
@@ -440,21 +507,35 @@ export const stocksConceptLessons: ConceptLesson[] = [
     kind: "concept",
     slug: "stocks-market-making",
     title: "Market-Making",
-    summary: "Continuously quoting both a buy and a sell price for a stock, earning the spread between them while managing the inventory risk that comes with it.",
+    summary:
+      "Continuously quoting both a buy and a sell price for a stock, earning the spread between them while managing the inventory risk that comes with it.",
     body: [
       { type: "heading", text: "Earning the Bid-Ask Spread" },
-      { type: "paragraph", text: "A market maker continuously posts both a bid — a price at which they're willing to buy — and an ask — a price at which they're willing to sell — for a stock, profiting from the difference between the two, the bid-ask spread, by buying from sellers and selling to buyers throughout the day, rather than making a directional bet on where the stock is headed." },
+      {
+        type: "paragraph",
+        text: "A market maker continuously posts both a bid — a price at which they're willing to buy — and an ask — a price at which they're willing to sell — for a stock, profiting from the difference between the two, the bid-ask spread, by buying from sellers and selling to buyers throughout the day, rather than making a directional bet on where the stock is headed.",
+      },
       {
         type: "image",
         diagramId: "bid-ask-spread",
-        caption: "The market maker earns the spread between bid and ask, and skews both quotes lower as unwanted long inventory builds up.",
+        caption:
+          "The market maker earns the spread between bid and ask, and skews both quotes lower as unwanted long inventory builds up.",
       },
       { type: "heading", text: "Accumulating Inventory" },
-      { type: "paragraph", text: "Because a market maker is constantly trading with whoever shows up, they inevitably accumulate inventory — if more people sell to them than buy from them over some stretch, their inventory of the stock grows; if more people buy than sell, it shrinks, or goes negative, meaning they end up short. Managing that inventory, rather than picking direction, is the central skill of market-making." },
+      {
+        type: "paragraph",
+        text: "Because a market maker is constantly trading with whoever shows up, they inevitably accumulate inventory — if more people sell to them than buy from them over some stretch, their inventory of the stock grows; if more people buy than sell, it shrinks, or goes negative, meaning they end up short. Managing that inventory, rather than picking direction, is the central skill of market-making.",
+      },
       { type: "heading", text: "Managing Inventory by Repricing" },
-      { type: "paragraph", text: "Market makers actively adjust their quoted prices to manage inventory risk: if they've accumulated more of a stock than they want to hold, they'll lower both their bid and ask slightly to encourage buyers and discourage further sellers, nudging their inventory back toward a comfortable level, and do the reverse if they've built up an unwanted short position. This constant, small repricing is a defining feature of the strategy, distinct from a directional trader who holds a fixed view." },
+      {
+        type: "paragraph",
+        text: "Market makers actively adjust their quoted prices to manage inventory risk: if they've accumulated more of a stock than they want to hold, they'll lower both their bid and ask slightly to encourage buyers and discourage further sellers, nudging their inventory back toward a comfortable level, and do the reverse if they've built up an unwanted short position. This constant, small repricing is a defining feature of the strategy, distinct from a directional trader who holds a fixed view.",
+      },
       { type: "heading", text: "The Risk of Adverse Selection" },
-      { type: "paragraph", text: "The central risk in market-making is adverse selection: on average, the people most eager to trade with you right now are often the ones who know something you don't — informed traders who trade aggressively just before news moves the price. A market maker who can't tell informed order flow from routine liquidity-driven trading risks systematically buying right before a stock falls and selling right before it rises, which is why market makers widen their spreads when uncertainty or the risk of informed trading is elevated." },
+      {
+        type: "paragraph",
+        text: "The central risk in market-making is adverse selection: on average, the people most eager to trade with you right now are often the ones who know something you don't — informed traders who trade aggressively just before news moves the price. A market maker who can't tell informed order flow from routine liquidity-driven trading risks systematically buying right before a stock falls and selling right before it rises, which is why market makers widen their spreads when uncertainty or the risk of informed trading is elevated.",
+      },
     ],
     quiz: [
       {
@@ -472,7 +553,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "What happens to a market maker's inventory if more traders sell to them than buy from them over some period?",
+        prompt:
+          "What happens to a market maker's inventory if more traders sell to them than buy from them over some period?",
         choices: [
           "Their inventory of the stock automatically resets to zero",
           "Their inventory of the stock grows",
@@ -485,7 +567,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "How does a market maker typically respond to having accumulated more inventory of a stock than they want?",
+        prompt:
+          "How does a market maker typically respond to having accumulated more inventory of a stock than they want?",
         choices: [
           "They stop quoting prices entirely",
           "They slightly lower both their bid and ask to encourage buyers and discourage further sellers",
@@ -498,7 +581,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What is \"adverse selection\" risk in market-making?",
+        prompt: 'What is "adverse selection" risk in market-making?',
         choices: [
           "The risk that exchange fees rise unexpectedly",
           "The risk of systematically trading against informed traders who know something the market maker doesn't, just before news moves the price",
@@ -532,13 +615,25 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Buying stocks following positive earnings surprises and avoiding or shorting those with negative surprises, since the market tends to underreact to earnings news.",
     body: [
       { type: "heading", text: "What Earnings-Momentum Is" },
-      { type: "paragraph", text: "Earnings-momentum, also called post-earnings-announcement drift or PEAD, is a close cousin of price-momentum, but the signal comes from a company's earnings surprise — the difference between its actual reported earnings and what analysts expected — rather than from its raw stock-price trend. Stocks that beat expectations tend to keep drifting higher for weeks or months after the announcement, and stocks that miss tend to keep drifting lower." },
+      {
+        type: "paragraph",
+        text: "Earnings-momentum, also called post-earnings-announcement drift or PEAD, is a close cousin of price-momentum, but the signal comes from a company's earnings surprise — the difference between its actual reported earnings and what analysts expected — rather than from its raw stock-price trend. Stocks that beat expectations tend to keep drifting higher for weeks or months after the announcement, and stocks that miss tend to keep drifting lower.",
+      },
       { type: "heading", text: "Why Markets Underreact" },
-      { type: "paragraph", text: "The core explanation is that markets underreact to earnings news: the initial price move on the announcement day doesn't fully capture the information, so the stock keeps adjusting gradually as more investors process the surprise, analysts revise their estimates, and the market gradually re-rates the stock. A standardized unexpected earnings (SUE) score — the surprise scaled by its own historical volatility — is a common way to rank stocks by how significant the surprise really was." },
+      {
+        type: "paragraph",
+        text: "The core explanation is that markets underreact to earnings news: the initial price move on the announcement day doesn't fully capture the information, so the stock keeps adjusting gradually as more investors process the surprise, analysts revise their estimates, and the market gradually re-rates the stock. A standardized unexpected earnings (SUE) score — the surprise scaled by its own historical volatility — is a common way to rank stocks by how significant the surprise really was.",
+      },
       { type: "heading", text: "A Signal Tied to a Catalyst" },
-      { type: "paragraph", text: "Unlike pure price-momentum, which reacts purely to price action and says nothing about why a stock moved, earnings-momentum ties directly to a specific, discrete, and repeatable catalyst — the quarterly earnings release — which makes the signal easier to time around, since a strategy typically re-evaluates its holdings shortly after each earnings season, but also concentrates risk around those release dates, when volatility is elevated." },
+      {
+        type: "paragraph",
+        text: "Unlike pure price-momentum, which reacts purely to price action and says nothing about why a stock moved, earnings-momentum ties directly to a specific, discrete, and repeatable catalyst — the quarterly earnings release — which makes the signal easier to time around, since a strategy typically re-evaluates its holdings shortly after each earnings season, but also concentrates risk around those release dates, when volatility is elevated.",
+      },
       { type: "heading", text: "Where the Drift Is Strongest" },
-      { type: "paragraph", text: "The drift tends to be strongest in smaller, less-covered stocks, where fewer analysts and less trading activity slow down the market's absorption of new information — in large, heavily-covered names, the drift after an earnings surprise is much smaller because so much capital is already competing to process the news instantly." },
+      {
+        type: "paragraph",
+        text: "The drift tends to be strongest in smaller, less-covered stocks, where fewer analysts and less trading activity slow down the market's absorption of new information — in large, heavily-covered names, the drift after an earnings surprise is much smaller because so much capital is already competing to process the news instantly.",
+      },
     ],
     quiz: [
       {
@@ -556,7 +651,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "What does \"post-earnings-announcement drift\" refer to?",
+        prompt: 'What does "post-earnings-announcement drift" refer to?',
         choices: [
           "Stock prices staying perfectly flat after an earnings announcement",
           "The tendency for a stock's price to keep moving in the direction of an earnings surprise for weeks or months afterward",
@@ -569,7 +664,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "What is a \"standardized unexpected earnings\" (SUE) score used for?",
+        prompt: 'What is a "standardized unexpected earnings" (SUE) score used for?',
         choices: [
           "Measuring a company's total revenue",
           "Scaling an earnings surprise by its own historical volatility, to rank how significant the surprise really was",
@@ -616,13 +711,25 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Buying stocks with lower historical volatility than the market, an anomaly because standard theory says taking more risk should be rewarded with higher, not lower, returns.",
     body: [
       { type: "heading", text: "The Anomaly, Defined" },
-      { type: "paragraph", text: "Standard finance theory, like the CAPM, predicts that riskier stocks — those with higher volatility or higher beta relative to the market — should earn higher expected returns to compensate investors for bearing that extra risk. The low-volatility anomaly is the empirical observation that this relationship doesn't hold in practice: low-volatility and low-beta stocks have historically delivered returns roughly comparable to, or even better than, high-volatility stocks on a risk-adjusted basis, quietly outperforming what theory would predict." },
+      {
+        type: "paragraph",
+        text: "Standard finance theory, like the CAPM, predicts that riskier stocks — those with higher volatility or higher beta relative to the market — should earn higher expected returns to compensate investors for bearing that extra risk. The low-volatility anomaly is the empirical observation that this relationship doesn't hold in practice: low-volatility and low-beta stocks have historically delivered returns roughly comparable to, or even better than, high-volatility stocks on a risk-adjusted basis, quietly outperforming what theory would predict.",
+      },
       { type: "heading", text: "Building a Low-Volatility Portfolio" },
-      { type: "paragraph", text: "A systematic low-volatility strategy ranks stocks by trailing realized volatility, or beta estimated against a market index, and buys the lowest-volatility decile, often while shorting or underweighting the highest-volatility names to isolate the anomaly from the market's overall direction." },
+      {
+        type: "paragraph",
+        text: "A systematic low-volatility strategy ranks stocks by trailing realized volatility, or beta estimated against a market index, and buys the lowest-volatility decile, often while shorting or underweighting the highest-volatility names to isolate the anomaly from the market's overall direction.",
+      },
       { type: "heading", text: "Why the Anomaly Persists" },
-      { type: "paragraph", text: "Several explanations have been proposed for why this anomaly persists: many investors are constrained from using leverage and instead reach for extra return by buying inherently risky, high-volatility \"lottery-like\" stocks directly, which bids up the price and lowers the future return of exactly those risky names, while boring, low-volatility stocks get relatively overlooked and undervalued." },
+      {
+        type: "paragraph",
+        text: 'Several explanations have been proposed for why this anomaly persists: many investors are constrained from using leverage and instead reach for extra return by buying inherently risky, high-volatility "lottery-like" stocks directly, which bids up the price and lowers the future return of exactly those risky names, while boring, low-volatility stocks get relatively overlooked and undervalued.',
+      },
       { type: "heading", text: "A Defensive, Not Aggressive, Edge" },
-      { type: "paragraph", text: "Because it tends to hold up defensively in market downturns — low-volatility stocks fall less than the market during selloffs, almost by definition — while still capturing most of the market's upside over a full cycle, the low-volatility anomaly is often framed as a way to improve a portfolio's risk-adjusted return rather than as a strategy for chasing the single highest raw return." },
+      {
+        type: "paragraph",
+        text: "Because it tends to hold up defensively in market downturns — low-volatility stocks fall less than the market during selloffs, almost by definition — while still capturing most of the market's upside over a full cycle, the low-volatility anomaly is often framed as a way to improve a portfolio's risk-adjusted return rather than as a strategy for chasing the single highest raw return.",
+      },
     ],
     quiz: [
       {
@@ -641,7 +748,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "What is the \"low-volatility anomaly\"?",
+        prompt: 'What is the "low-volatility anomaly"?',
         choices: [
           "The observation that low-volatility stocks have historically delivered comparable or better risk-adjusted returns than high-volatility stocks, contrary to standard theory",
           "The fact that all stocks have identical volatility",
@@ -670,7 +777,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
         prompt: "What is one proposed explanation for why the low-volatility anomaly persists?",
         choices: [
           "All investors are legally required to avoid risky stocks",
-          "Leverage-constrained investors reach for extra return by buying inherently risky \"lottery-like\" stocks directly, bidding up their price and lowering their future returns",
+          'Leverage-constrained investors reach for extra return by buying inherently risky "lottery-like" stocks directly, bidding up their price and lowering their future returns',
           "Low-volatility stocks are illegal to trade in most markets",
           "The anomaly has never actually been observed",
         ],
@@ -701,18 +808,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Using the volatility priced into a stock's options — rather than its own historical volatility — as a forward-looking signal for trading the stock itself.",
     body: [
       { type: "heading", text: "What Implied Volatility Is" },
-      { type: "paragraph", text: "Implied volatility (IV) is the volatility level that, when plugged into an option pricing model, produces the option's current market price — it represents what options traders collectively expect the stock's future volatility to be, in contrast to historical (realized) volatility, which just measures how much the stock actually moved in the past. Because options prices are forward-looking, IV often reacts to information before it's fully reflected in the stock price itself." },
+      {
+        type: "paragraph",
+        text: "Implied volatility (IV) is the volatility level that, when plugged into an option pricing model, produces the option's current market price — it represents what options traders collectively expect the stock's future volatility to be, in contrast to historical (realized) volatility, which just measures how much the stock actually moved in the past. Because options prices are forward-looking, IV often reacts to information before it's fully reflected in the stock price itself.",
+      },
       { type: "heading", text: "Trading IV Level and Changes" },
-      { type: "paragraph", text: "A stock-selection strategy built on implied volatility typically looks at IV level or IV changes — a level far above or below the stock's own historical volatility, or a sudden spike or divergence in IV relative to peers, can signal that informed options traders expect an unusual move, which the strategy then trades in the underlying stock rather than the option itself." },
+      {
+        type: "paragraph",
+        text: "A stock-selection strategy built on implied volatility typically looks at IV level or IV changes — a level far above or below the stock's own historical volatility, or a sudden spike or divergence in IV relative to peers, can signal that informed options traders expect an unusual move, which the strategy then trades in the underlying stock rather than the option itself.",
+      },
       { type: "heading", text: "Comparing IV to Peers" },
-      { type: "paragraph", text: "One common variant compares a stock's IV to the IV of related stocks or its own sector — a stock whose IV is rising relative to its peers, without an obvious public news catalyst, can be a signal that informed money is positioning ahead of an anticipated event, such as an acquisition rumor, which the strategy tries to front-run or ride." },
+      {
+        type: "paragraph",
+        text: "One common variant compares a stock's IV to the IV of related stocks or its own sector — a stock whose IV is rising relative to its peers, without an obvious public news catalyst, can be a signal that informed money is positioning ahead of an anticipated event, such as an acquisition rumor, which the strategy tries to front-run or ride.",
+      },
       { type: "heading", text: "Why It Needs Other Filters" },
-      { type: "paragraph", text: "Because IV also reflects the volatility risk premium — investors generally paying up for the insurance-like protection options provide, especially during periods of uncertainty — sustained differences between a stock's implied and realized volatility can reflect risk-aversion sentiment as much as directional information, so this signal is typically combined with other filters rather than traded in isolation." },
+      {
+        type: "paragraph",
+        text: "Because IV also reflects the volatility risk premium — investors generally paying up for the insurance-like protection options provide, especially during periods of uncertainty — sustained differences between a stock's implied and realized volatility can reflect risk-aversion sentiment as much as directional information, so this signal is typically combined with other filters rather than traded in isolation.",
+      },
     ],
     quiz: [
       {
         id: "q1",
-        prompt: "What does \"implied volatility\" represent?",
+        prompt: 'What does "implied volatility" represent?',
         choices: [
           "The volatility level that, plugged into an option pricing model, produces the option's current market price",
           "The stock's actual historical price volatility",
@@ -765,7 +884,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q5",
-        prompt: "Why must the implied-volatility signal typically be combined with other filters rather than traded alone?",
+        prompt:
+          "Why must the implied-volatility signal typically be combined with other filters rather than traded alone?",
         choices: [
           "Implied volatility never changes",
           "Elevated implied volatility can also reflect a general volatility risk premium or risk-aversion sentiment, not just informed directional information",
@@ -786,13 +906,25 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Combining several independent factors — like value, momentum, and quality — into a single composite score, rather than relying on any one factor alone.",
     body: [
       { type: "heading", text: "Why Combine Factors" },
-      { type: "paragraph", text: "Individual factors like value, momentum, and low-volatility each capture a different, partial explanation for why some stocks outperform others, and each one goes through extended stretches of underperformance on its own — value can lag for years, momentum can suffer sharp reversals. A multifactor portfolio combines several factors into a single composite score per stock, on the idea that factors with low correlation to each other smooth out the ride, since it's unlikely all of them underperform at the same time." },
+      {
+        type: "paragraph",
+        text: "Individual factors like value, momentum, and low-volatility each capture a different, partial explanation for why some stocks outperform others, and each one goes through extended stretches of underperformance on its own — value can lag for years, momentum can suffer sharp reversals. A multifactor portfolio combines several factors into a single composite score per stock, on the idea that factors with low correlation to each other smooth out the ride, since it's unlikely all of them underperform at the same time.",
+      },
       { type: "heading", text: "Building the Composite Score" },
-      { type: "paragraph", text: "A typical construction ranks every stock in the universe on each individual factor, say value, momentum, and quality, converts each ranking to a standardized score, a z-score for example, so factors measured in different units become comparable, and then averages or weights those scores into one combined ranking used to build the final portfolio." },
+      {
+        type: "paragraph",
+        text: "A typical construction ranks every stock in the universe on each individual factor, say value, momentum, and quality, converts each ranking to a standardized score, a z-score for example, so factors measured in different units become comparable, and then averages or weights those scores into one combined ranking used to build the final portfolio.",
+      },
       { type: "heading", text: "Choosing the Right Factors" },
-      { type: "paragraph", text: "Choosing which factors to combine matters as much as the combining method: factors should ideally be reasonably independent of each other, so they're not really just the same signal twice, and each should have a sound economic or behavioral rationale for existing, rather than being included just because it looked good in a backtest — a risk sometimes called \"factor mining.\"" },
+      {
+        type: "paragraph",
+        text: 'Choosing which factors to combine matters as much as the combining method: factors should ideally be reasonably independent of each other, so they\'re not really just the same signal twice, and each should have a sound economic or behavioral rationale for existing, rather than being included just because it looked good in a backtest — a risk sometimes called "factor mining."',
+      },
       { type: "heading", text: "Consistency Over Peak Performance" },
-      { type: "paragraph", text: "Multifactor portfolios trade off peak performance for consistency: a single-factor portfolio might outperform a multifactor blend in the specific years that factor is most in favor, but the multifactor blend is designed to avoid the multi-year underperformance stretches that any single factor eventually goes through, which is often the more important property for an investor who has to actually hold the strategy through difficult periods." },
+      {
+        type: "paragraph",
+        text: "Multifactor portfolios trade off peak performance for consistency: a single-factor portfolio might outperform a multifactor blend in the specific years that factor is most in favor, but the multifactor blend is designed to avoid the multi-year underperformance stretches that any single factor eventually goes through, which is often the more important property for an investor who has to actually hold the strategy through difficult periods.",
+      },
     ],
     quiz: [
       {
@@ -823,7 +955,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "Why does it matter that the factors combined in a multifactor portfolio be reasonably independent of each other?",
+        prompt:
+          "Why does it matter that the factors combined in a multifactor portfolio be reasonably independent of each other?",
         choices: [
           "It doesn't matter — any factors can be combined with equal benefit",
           "If factors are highly correlated, combining them doesn't provide real diversification — they're effectively the same signal counted twice",
@@ -836,7 +969,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What is \"factor mining\"?",
+        prompt: 'What is "factor mining"?',
         choices: [
           "A rigorous, economically justified process for selecting factors",
           "The risk of including a factor just because it looked good in a backtest, without a sound economic or behavioral rationale",
@@ -870,13 +1003,25 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Trading momentum in a stock's return after stripping out the part explained by broad factors, isolating the stock-specific component of the trend.",
     body: [
       { type: "heading", text: "Stripping Out Common Factors" },
-      { type: "paragraph", text: "Ordinary price-momentum ranks stocks by their raw total return, but some of that return is really just the stock's exposure to broad factors — market direction, sector performance, or its beta — rather than anything specific to the company. Residual momentum first strips out those explained components, typically by regressing the stock's return against a factor model, like the market and a few other common factors, and then measures momentum only in what's left over: the residual, stock-specific return." },
+      {
+        type: "paragraph",
+        text: "Ordinary price-momentum ranks stocks by their raw total return, but some of that return is really just the stock's exposure to broad factors — market direction, sector performance, or its beta — rather than anything specific to the company. Residual momentum first strips out those explained components, typically by regressing the stock's return against a factor model, like the market and a few other common factors, and then measures momentum only in what's left over: the residual, stock-specific return.",
+      },
       { type: "heading", text: "Why a Cleaner Signal" },
-      { type: "paragraph", text: "The rationale is that momentum driven by a stock-specific residual is a cleaner, more genuine signal than momentum in the raw return, since raw-return momentum can just be a proxy for \"this stock happens to be in a sector that's been hot\" rather than anything distinctive about the company itself — residual momentum tries to isolate the latter." },
+      {
+        type: "paragraph",
+        text: 'The rationale is that momentum driven by a stock-specific residual is a cleaner, more genuine signal than momentum in the raw return, since raw-return momentum can just be a proxy for "this stock happens to be in a sector that\'s been hot" rather than anything distinctive about the company itself — residual momentum tries to isolate the latter.',
+      },
       { type: "heading", text: "Building the Residual Ranking" },
-      { type: "paragraph", text: "In practice, this means computing each stock's residual return over a rolling window, after removing its typical factor exposures, ranking stocks by the cumulative or average residual, and building a long-short portfolio from the top and bottom of that ranking, much like ordinary momentum but applied to the \"cleaned\" return series." },
+      {
+        type: "paragraph",
+        text: 'In practice, this means computing each stock\'s residual return over a rolling window, after removing its typical factor exposures, ranking stocks by the cumulative or average residual, and building a long-short portfolio from the top and bottom of that ranking, much like ordinary momentum but applied to the "cleaned" return series.',
+      },
       { type: "heading", text: "A Steadier Momentum Profile" },
-      { type: "paragraph", text: "Because it removes common factor exposure, residual momentum portfolios tend to run closer to market-neutral than raw-return momentum portfolios do, and empirical studies have found the residual version can produce steadier, more consistent momentum profits with less of the severe tail risk — the momentum crash — that plagues the raw-return version." },
+      {
+        type: "paragraph",
+        text: "Because it removes common factor exposure, residual momentum portfolios tend to run closer to market-neutral than raw-return momentum portfolios do, and empirical studies have found the residual version can produce steadier, more consistent momentum profits with less of the severe tail risk — the momentum crash — that plagues the raw-return version.",
+      },
     ],
     quiz: [
       {
@@ -894,7 +1039,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "How is a stock's \"residual return\" typically computed?",
+        prompt: 'How is a stock\'s "residual return" typically computed?',
         choices: [
           "By adding together every factor's return",
           "By regressing the stock's return against a factor model and taking what's left unexplained",
@@ -920,7 +1065,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "How does a residual momentum portfolio typically compare to a raw-return momentum portfolio in terms of market exposure?",
+        prompt:
+          "How does a residual momentum portfolio typically compare to a raw-return momentum portfolio in terms of market exposure?",
         choices: [
           "It has identical market exposure",
           "It tends to run closer to market-neutral, since common factor exposure has already been removed",
@@ -933,7 +1079,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q5",
-        prompt: "What potential benefit have empirical studies found for residual momentum compared to raw-return momentum?",
+        prompt:
+          "What potential benefit have empirical studies found for residual momentum compared to raw-return momentum?",
         choices: [
           "It always produces exactly double the returns",
           "Steadier, more consistent momentum profits with less severe tail risk, such as the momentum crash",
@@ -949,18 +1096,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-mean-reversion-multiple-clusters",
-    title: "Mean-Reversion – Multiple Clusters",
+    title: "Mean-Reversion: Multiple Clusters",
     summary:
       "Running single-cluster mean-reversion simultaneously across many industry or peer groups at once, diversifying the strategy across the whole market.",
     body: [
       { type: "heading", text: "Scaling Up from One Cluster" },
-      { type: "paragraph", text: "Single-cluster mean-reversion trades one group of closely related stocks — say, regional banks — looking for members that have diverged from that group's average and betting on reversion. Mean-reversion across multiple clusters simply runs this same process simultaneously across many such clusters spanning the whole market — banks, retailers, airlines, utilities, and so on — each cluster generating its own independent set of long and short candidates." },
+      {
+        type: "paragraph",
+        text: "Single-cluster mean-reversion trades one group of closely related stocks — say, regional banks — looking for members that have diverged from that group's average and betting on reversion. Mean-reversion across multiple clusters simply runs this same process simultaneously across many such clusters spanning the whole market — banks, retailers, airlines, utilities, and so on — each cluster generating its own independent set of long and short candidates.",
+      },
       { type: "heading", text: "The Diversification Advantage" },
-      { type: "paragraph", text: "The main advantage over trading a single cluster is diversification: a single cluster's mean-reversion signal can go quiet for a long stretch, if that particular industry isn't experiencing much internal divergence, or can suffer if that one industry undergoes a structural shift that breaks its typical peer relationships. Spreading the same strategy across dozens of independent clusters means the overall portfolio isn't dependent on any single group behaving as expected." },
+      {
+        type: "paragraph",
+        text: "The main advantage over trading a single cluster is diversification: a single cluster's mean-reversion signal can go quiet for a long stretch, if that particular industry isn't experiencing much internal divergence, or can suffer if that one industry undergoes a structural shift that breaks its typical peer relationships. Spreading the same strategy across dozens of independent clusters means the overall portfolio isn't dependent on any single group behaving as expected.",
+      },
       { type: "heading", text: "Building Clusters Systematically" },
-      { type: "paragraph", text: "Constructing the clusters well becomes a bigger and more systematic task at this scale — rather than hand-picking one obviously related group of stocks, a multi-cluster strategy typically uses a formal industry classification system, like GICS, or a statistical clustering method, grouping stocks by historical correlation, to partition the entire investable universe into clusters automatically, then applies the identical mean-reversion rule inside each one." },
+      {
+        type: "paragraph",
+        text: "Constructing the clusters well becomes a bigger and more systematic task at this scale — rather than hand-picking one obviously related group of stocks, a multi-cluster strategy typically uses a formal industry classification system, like GICS, or a statistical clustering method, grouping stocks by historical correlation, to partition the entire investable universe into clusters automatically, then applies the identical mean-reversion rule inside each one.",
+      },
       { type: "heading", text: "More Balanced in Aggregate" },
-      { type: "paragraph", text: "Because the resulting long and short positions are spread across many unrelated industries rather than concentrated in one, a multi-cluster mean-reversion portfolio tends to be much more balanced and market-neutral in aggregate than a single-cluster version, even though each individual cluster's trades are exactly the same simple rule: buy the laggard, sell the leader, relative to that cluster's own average." },
+      {
+        type: "paragraph",
+        text: "Because the resulting long and short positions are spread across many unrelated industries rather than concentrated in one, a multi-cluster mean-reversion portfolio tends to be much more balanced and market-neutral in aggregate than a single-cluster version, even though each individual cluster's trades are exactly the same simple rule: buy the laggard, sell the leader, relative to that cluster's own average.",
+      },
     ],
     quiz: [
       {
@@ -1017,7 +1176,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q5",
-        prompt: "Why does a multi-cluster mean-reversion portfolio tend to be more market-neutral in aggregate than a single-cluster version?",
+        prompt:
+          "Why does a multi-cluster mean-reversion portfolio tend to be more market-neutral in aggregate than a single-cluster version?",
         choices: [
           "It isn't — multi-cluster portfolios are always more directional",
           "Long and short positions are spread across many unrelated industries rather than concentrated in just one",
@@ -1038,18 +1198,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "A trend-following rule based on the crossover of a fast and a slow moving average, rather than comparing price to just one reference line.",
     body: [
       { type: "heading", text: "The Crossover Rule" },
-      { type: "paragraph", text: "A two-moving-average, or moving-average crossover, strategy uses a pair of moving averages computed over different lookback windows — a shorter, \"fast\" one, say 20 days, and a longer, \"slow\" one, say 100 days — and generates trading signals from their relationship to each other rather than from price alone. When the fast average crosses above the slow average, that's read as the start of an uptrend and triggers a buy; when the fast average crosses below the slow average, that's read as the start of a downtrend and triggers a sell or short." },
+      {
+        type: "paragraph",
+        text: 'A two-moving-average, or moving-average crossover, strategy uses a pair of moving averages computed over different lookback windows — a shorter, "fast" one, say 20 days, and a longer, "slow" one, say 100 days — and generates trading signals from their relationship to each other rather than from price alone. When the fast average crosses above the slow average, that\'s read as the start of an uptrend and triggers a buy; when the fast average crosses below the slow average, that\'s read as the start of a downtrend and triggers a sell or short.',
+      },
       {
         type: "image",
         diagramId: "moving-average-crossover",
         caption: "The fast average crossing above the slow average signals a buy; crossing below signals a sell.",
       },
       { type: "heading", text: "Why It's Smoother" },
-      { type: "paragraph", text: "This differs from a single-moving-average rule mainly in smoothness: comparing price to a single moving average reacts very quickly to price moves, since raw price is noisy, while comparing two moving averages to each other is inherently smoother, since both lines are already averaged, which tends to filter out some of the noise that causes whipsaws in the single-average version." },
+      {
+        type: "paragraph",
+        text: "This differs from a single-moving-average rule mainly in smoothness: comparing price to a single moving average reacts very quickly to price moves, since raw price is noisy, while comparing two moving averages to each other is inherently smoother, since both lines are already averaged, which tends to filter out some of the noise that causes whipsaws in the single-average version.",
+      },
       { type: "heading", text: "Choosing the Lookback Windows" },
-      { type: "paragraph", text: "The choice of the two lookback windows is itself a meaningful design decision: a shorter fast/slow pair, like 10/50 days, reacts to trend changes more quickly but generates more signals and more whipsaws in choppy markets, while a longer pair, like 50/200 days, the classic \"golden cross\" and \"death cross\" levels, reacts more slowly but with fewer false signals — there's a real tradeoff between responsiveness and reliability." },
+      {
+        type: "paragraph",
+        text: 'The choice of the two lookback windows is itself a meaningful design decision: a shorter fast/slow pair, like 10/50 days, reacts to trend changes more quickly but generates more signals and more whipsaws in choppy markets, while a longer pair, like 50/200 days, the classic "golden cross" and "death cross" levels, reacts more slowly but with fewer false signals — there\'s a real tradeoff between responsiveness and reliability.',
+      },
       { type: "heading", text: "Where It Works Best" },
-      { type: "paragraph", text: "Like any trend-following rule, the two-moving-average crossover performs best in markets with a sustained, persistent trend and worst in sideways, range-bound markets, where the fast and slow averages can cross back and forth repeatedly without either crossover reflecting a real, lasting shift in direction." },
+      {
+        type: "paragraph",
+        text: "Like any trend-following rule, the two-moving-average crossover performs best in markets with a sustained, persistent trend and worst in sideways, range-bound markets, where the fast and slow averages can cross back and forth repeatedly without either crossover reflecting a real, lasting shift in direction.",
+      },
     ],
     quiz: [
       {
@@ -1080,7 +1252,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "Why does comparing two moving averages to each other tend to be smoother than comparing price to a single moving average?",
+        prompt:
+          "Why does comparing two moving averages to each other tend to be smoother than comparing price to a single moving average?",
         choices: [
           "It isn't smoother — it's identical in behavior",
           "Both lines being compared are already averaged, which filters out more of the noise that causes whipsaws",
@@ -1093,7 +1266,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q4",
-        prompt: "What is the tradeoff between using a shorter fast/slow pair (e.g., 10/50 days) versus a longer pair (e.g., 50/200 days)?",
+        prompt:
+          "What is the tradeoff between using a shorter fast/slow pair (e.g., 10/50 days) versus a longer pair (e.g., 50/200 days)?",
         choices: [
           "There is no tradeoff — longer and shorter pairs behave identically",
           "A shorter pair reacts to trend changes more quickly but generates more whipsaws, while a longer pair reacts more slowly but with fewer false signals",
@@ -1127,18 +1301,31 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "A trend-following rule using three moving averages of different lengths together, requiring stronger alignment before signaling a trade.",
     body: [
       { type: "heading", text: "Adding a Third Average" },
-      { type: "paragraph", text: "A three-moving-average strategy extends the two-average crossover idea by adding a third moving average — typically a short, medium, and long window, say 10, 50, and 200 days — and requiring some form of alignment among all three before generating a signal, rather than relying on just one crossover event. A common version requires the short average to be above the medium, and the medium above the long, before treating the trend as confirmed bullish, and the reverse ordering for bearish." },
+      {
+        type: "paragraph",
+        text: "A three-moving-average strategy extends the two-average crossover idea by adding a third moving average — typically a short, medium, and long window, say 10, 50, and 200 days — and requiring some form of alignment among all three before generating a signal, rather than relying on just one crossover event. A common version requires the short average to be above the medium, and the medium above the long, before treating the trend as confirmed bullish, and the reverse ordering for bearish.",
+      },
       {
         type: "image",
         diagramId: "three-moving-average-alignment",
-        caption: "Short, medium, and long averages stacking in order confirms the trend rather than relying on a single crossover.",
+        caption:
+          "Short, medium, and long averages stacking in order confirms the trend rather than relying on a single crossover.",
       },
       { type: "heading", text: "Filtering Out False Signals" },
-      { type: "paragraph", text: "The motivation is filtering out false signals: a single two-average crossover can occasionally be a brief, noisy blip rather than a real trend shift, but requiring three averages to line up in the same order is a stronger, more demanding condition, which tends to trigger less often but with somewhat more confidence that a genuine trend is underway." },
+      {
+        type: "paragraph",
+        text: "The motivation is filtering out false signals: a single two-average crossover can occasionally be a brief, noisy blip rather than a real trend shift, but requiring three averages to line up in the same order is a stronger, more demanding condition, which tends to trigger less often but with somewhat more confidence that a genuine trend is underway.",
+      },
       { type: "heading", text: "The Cost of Being Stricter" },
-      { type: "paragraph", text: "This comes at a real cost, though: because the three-average alignment condition is stricter, the strategy tends to enter trends later, after more of the early move has already happened, and can also exit later, giving back more of a trend's late-stage reversal before the signal flips — there's a persistent tradeoff between signal quality and timeliness." },
+      {
+        type: "paragraph",
+        text: "This comes at a real cost, though: because the three-average alignment condition is stricter, the strategy tends to enter trends later, after more of the early move has already happened, and can also exit later, giving back more of a trend's late-stage reversal before the signal flips — there's a persistent tradeoff between signal quality and timeliness.",
+      },
       { type: "heading", text: "Using the Middle Average as a Warning" },
-      { type: "paragraph", text: "Traders sometimes also use the middle-length average as an early-warning layer, watching for the short average to cross the medium average as a heads-up signal, while still waiting for full three-way alignment, including the long average, before treating the trend as confirmed and taking a full position — using the three lines together rather than just picking one crossover to act on." },
+      {
+        type: "paragraph",
+        text: "Traders sometimes also use the middle-length average as an early-warning layer, watching for the short average to cross the medium average as a heads-up signal, while still waiting for full three-way alignment, including the long average, before treating the trend as confirmed and taking a full position — using the three lines together rather than just picking one crossover to act on.",
+      },
     ],
     quiz: [
       {
@@ -1156,7 +1343,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "Why might requiring three moving averages to align reduce false signals compared to a single crossover?",
+        prompt:
+          "Why might requiring three moving averages to align reduce false signals compared to a single crossover?",
         choices: [
           "It doesn't reduce false signals at all",
           "The stricter, more demanding condition of three-way alignment is less likely to be triggered by brief, noisy price blips",
@@ -1195,7 +1383,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q5",
-        prompt: "What is the fundamental tradeoff illustrated by adding a third moving average to a trend-following rule?",
+        prompt:
+          "What is the fundamental tradeoff illustrated by adding a third moving average to a trend-following rule?",
         choices: [
           "There is no tradeoff; more averages are always strictly better",
           "Signal quality (fewer false signals) versus timeliness (entering and exiting trends later)",
@@ -1216,23 +1405,35 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Trading around price levels where a stock has historically struggled to fall below (support) or rise above (resistance), betting on bounces or breakouts at those levels.",
     body: [
       { type: "heading", text: "What Support and Resistance Are" },
-      { type: "paragraph", text: "Support and resistance are price levels where a stock's decline or rally has repeatedly stalled in the past — support is a level where buying pressure has historically emerged to stop further declines, and resistance is a level where selling pressure has historically emerged to cap further rallies. These levels are typically identified from a stock's own price history: a price that the stock has bounced off of, or been rejected from, multiple times." },
+      {
+        type: "paragraph",
+        text: "Support and resistance are price levels where a stock's decline or rally has repeatedly stalled in the past — support is a level where buying pressure has historically emerged to stop further declines, and resistance is a level where selling pressure has historically emerged to cap further rallies. These levels are typically identified from a stock's own price history: a price that the stock has bounced off of, or been rejected from, multiple times.",
+      },
       {
         type: "image",
         diagramId: "support-resistance",
         caption: "Price repeatedly bounces off support and is repeatedly rejected at resistance.",
       },
       { type: "heading", text: "The Bounce Strategy" },
-      { type: "paragraph", text: "One common way to trade these levels is a \"bounce\" strategy: buying near support on the expectation the stock will again fail to break through it and bounce higher, or shorting near resistance on the expectation it will again fail to break through and pull back — betting on the level continuing to hold, as it has in the past." },
+      {
+        type: "paragraph",
+        text: 'One common way to trade these levels is a "bounce" strategy: buying near support on the expectation the stock will again fail to break through it and bounce higher, or shorting near resistance on the expectation it will again fail to break through and pull back — betting on the level continuing to hold, as it has in the past.',
+      },
       { type: "heading", text: "The Breakout Strategy" },
-      { type: "paragraph", text: "The opposite approach is a breakout strategy: rather than betting the level holds, it bets that when the stock does finally break decisively through support or resistance, that breakout often continues, since a level breaking after multiple failed attempts can signal a genuine shift in the underlying balance between buyers and sellers, not just another temporary test of the level." },
+      {
+        type: "paragraph",
+        text: "The opposite approach is a breakout strategy: rather than betting the level holds, it bets that when the stock does finally break decisively through support or resistance, that breakout often continues, since a level breaking after multiple failed attempts can signal a genuine shift in the underlying balance between buyers and sellers, not just another temporary test of the level.",
+      },
       { type: "heading", text: "Why It's Subjective, and Risky" },
-      { type: "paragraph", text: "The core risk with support and resistance is that these levels are somewhat subjective and self-referential — different traders may draw slightly different levels from the same price chart, and a level's significance can fade over time as new information arrives, meaning that trading a stale or overly precise level, or being caught on the wrong side of an unexpected breakout, are the main ways this approach can lose." },
+      {
+        type: "paragraph",
+        text: "The core risk with support and resistance is that these levels are somewhat subjective and self-referential — different traders may draw slightly different levels from the same price chart, and a level's significance can fade over time as new information arrives, meaning that trading a stale or overly precise level, or being caught on the wrong side of an unexpected breakout, are the main ways this approach can lose.",
+      },
     ],
     quiz: [
       {
         id: "q1",
-        prompt: "What is a \"support\" level, in this context?",
+        prompt: 'What is a "support" level, in this context?',
         choices: [
           "A price level where a stock's decline has repeatedly stalled in the past, due to historical buying pressure",
           "A level that guarantees a stock's price will never fall below it",
@@ -1245,7 +1446,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "What does a \"bounce\" strategy around support and resistance bet on?",
+        prompt: 'What does a "bounce" strategy around support and resistance bet on?',
         choices: [
           "That support and resistance levels will always break immediately",
           "That the level will continue to hold, as it has in the past — buying near support, shorting near resistance",
@@ -1305,18 +1506,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Trading a stock within a well-defined price range bounded by parallel trendlines, buying near the lower bound and selling near the upper bound.",
     body: [
       { type: "heading", text: "What a Price Channel Is" },
-      { type: "paragraph", text: "A price channel is formed by two roughly parallel trendlines — an upper line connecting a series of recent highs, and a lower line connecting a series of recent lows — within which a stock's price has been oscillating for some period. Unlike a single support or resistance level, a channel captures the stock's entire recent trading range as a structure, and that structure can itself be flat (sideways), rising (an uptrend channel), or falling (a downtrend channel)." },
+      {
+        type: "paragraph",
+        text: "A price channel is formed by two roughly parallel trendlines — an upper line connecting a series of recent highs, and a lower line connecting a series of recent lows — within which a stock's price has been oscillating for some period. Unlike a single support or resistance level, a channel captures the stock's entire recent trading range as a structure, and that structure can itself be flat (sideways), rising (an uptrend channel), or falling (a downtrend channel).",
+      },
       { type: "heading", text: "Trading the Range" },
-      { type: "paragraph", text: "A basic channel-trading strategy buys the stock when its price approaches the lower boundary of the channel and sells or shorts when it approaches the upper boundary, on the expectation that the price will continue oscillating within the established range — effectively a mean-reversion strategy applied within the geometric structure of the channel rather than around a single average." },
+      {
+        type: "paragraph",
+        text: "A basic channel-trading strategy buys the stock when its price approaches the lower boundary of the channel and sells or shorts when it approaches the upper boundary, on the expectation that the price will continue oscillating within the established range — effectively a mean-reversion strategy applied within the geometric structure of the channel rather than around a single average.",
+      },
       {
         type: "image",
         diagramId: "channel",
         caption: "Price oscillates between the channel's support and resistance lines until it finally breaks out.",
       },
       { type: "heading", text: "Trading the Breakout" },
-      { type: "paragraph", text: "Channels are also used to trade breakouts: a decisive move outside either boundary, especially on higher-than-normal volume, is read as a signal that the established range no longer holds and a new trend may be starting, at which point a channel trader may reverse from range-trading the interior to trading the breakout in its new direction." },
+      {
+        type: "paragraph",
+        text: "Channels are also used to trade breakouts: a decisive move outside either boundary, especially on higher-than-normal volume, is read as a signal that the established range no longer holds and a new trend may be starting, at which point a channel trader may reverse from range-trading the interior to trading the breakout in its new direction.",
+      },
       { type: "heading", text: "The Risk of a Failed Channel" },
-      { type: "paragraph", text: "As with support and resistance, the main challenge is that channel boundaries are drawn somewhat subjectively from the trader's own reading of recent highs and lows, and a channel that has held reliably for a long stretch can still fail without warning — so channel strategies typically pair the range-trading rule with a stop-loss or a plan for handling the breakout scenario, rather than assuming the channel will hold indefinitely." },
+      {
+        type: "paragraph",
+        text: "As with support and resistance, the main challenge is that channel boundaries are drawn somewhat subjectively from the trader's own reading of recent highs and lows, and a channel that has held reliably for a long stretch can still fail without warning — so channel strategies typically pair the range-trading rule with a stop-loss or a plan for handling the breakout scenario, rather than assuming the channel will hold indefinitely.",
+      },
     ],
     quiz: [
       {
@@ -1334,7 +1547,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "What does a basic channel-trading strategy do when price approaches the lower boundary of the channel?",
+        prompt:
+          "What does a basic channel-trading strategy do when price approaches the lower boundary of the channel?",
         choices: [
           "Sell or short the stock",
           "Buy the stock, expecting it to bounce back within the established range",
@@ -1389,18 +1603,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-event-driven-ma",
-    title: "Event-Driven – M&A",
+    title: "Event-Driven: M&A",
     summary:
       "Trading the price gap between a target company's stock and the announced acquisition price after a merger is announced — commonly called merger arbitrage.",
     body: [
       { type: "heading", text: "The Deal-Price Discount" },
-      { type: "paragraph", text: "When one company announces it will acquire another, the target company's stock typically jumps toward the announced deal price but usually still trades at a discount to it, reflecting the market's assessment of the risk that the deal might not close, due to financing issues, regulatory objections, shareholder rejection, or a competing bid falling through. Merger arbitrage buys the target's stock at that discount, betting the deal closes and the stock converges to the full deal price." },
+      {
+        type: "paragraph",
+        text: "When one company announces it will acquire another, the target company's stock typically jumps toward the announced deal price but usually still trades at a discount to it, reflecting the market's assessment of the risk that the deal might not close, due to financing issues, regulatory objections, shareholder rejection, or a competing bid falling through. Merger arbitrage buys the target's stock at that discount, betting the deal closes and the stock converges to the full deal price.",
+      },
       { type: "heading", text: "Structuring the Hedge" },
-      { type: "paragraph", text: "In a stock-for-stock deal, where the target's shareholders receive shares of the acquirer rather than cash, the standard structure is to go long the target's stock and simultaneously short the acquirer's stock in the ratio specified by the deal terms — this hedges out the acquirer's own stock-price moves, isolating a bet purely on whether the deal closes, rather than on where the acquirer's stock happens to trade." },
+      {
+        type: "paragraph",
+        text: "In a stock-for-stock deal, where the target's shareholders receive shares of the acquirer rather than cash, the standard structure is to go long the target's stock and simultaneously short the acquirer's stock in the ratio specified by the deal terms — this hedges out the acquirer's own stock-price moves, isolating a bet purely on whether the deal closes, rather than on where the acquirer's stock happens to trade.",
+      },
       { type: "heading", text: "Deal-Completion Risk" },
-      { type: "paragraph", text: "The primary source of the discount, and the primary risk to the strategy, is deal-completion risk: mergers can fall apart due to antitrust challenges, financing falling through, a shareholder vote failing, or a material adverse change clause being invoked — and if a deal does collapse, the target's stock typically falls sharply back toward its pre-announcement price, which can produce a loss much larger than the modest discount the strategy was trying to capture." },
+      {
+        type: "paragraph",
+        text: "The primary source of the discount, and the primary risk to the strategy, is deal-completion risk: mergers can fall apart due to antitrust challenges, financing falling through, a shareholder vote failing, or a material adverse change clause being invoked — and if a deal does collapse, the target's stock typically falls sharply back toward its pre-announcement price, which can produce a loss much larger than the modest discount the strategy was trying to capture.",
+      },
       { type: "heading", text: "A Return Profile Like Selling Insurance" },
-      { type: "paragraph", text: "Because the return on a single deal is capped, the stock can only converge up to the deal price, while the downside on a collapsed deal is comparatively large and sudden, merger arbitrage return profiles resemble selling insurance — collecting a steady stream of small, positive spreads across many deals, punctuated by occasional sharp losses when a deal breaks, which is why diversifying across many uncorrelated deals is central to managing the strategy's risk." },
+      {
+        type: "paragraph",
+        text: "Because the return on a single deal is capped, the stock can only converge up to the deal price, while the downside on a collapsed deal is comparatively large and sudden, merger arbitrage return profiles resemble selling insurance — collecting a steady stream of small, positive spreads across many deals, punctuated by occasional sharp losses when a deal breaks, which is why diversifying across many uncorrelated deals is central to managing the strategy's risk.",
+      },
     ],
     quiz: [
       {
@@ -1466,25 +1692,37 @@ export const stocksConceptLessons: ConceptLesson[] = [
         ],
         correctIndex: 1,
         explanation:
-          "Like selling insurance, the strategy earns small, consistent premiums (the deal spread) most of the time, but faces occasional large losses when a \"claim\" (a broken deal) occurs — which is why diversifying across many deals matters.",
+          'Like selling insurance, the strategy earns small, consistent premiums (the deal spread) most of the time, but faces occasional large losses when a "claim" (a broken deal) occurs — which is why diversifying across many deals matters.',
       },
     ],
   },
   {
     kind: "concept",
     slug: "stocks-machine-learning-knn",
-    title: "Machine Learning – Single-Stock KNN",
+    title: "Machine Learning: Single-Stock KNN",
     summary:
       "Using the k-nearest-neighbors algorithm to predict a stock's next move by finding historical periods with the most similar pattern of features and seeing what happened next.",
     body: [
       { type: "heading", text: "What KNN Is" },
-      { type: "paragraph", text: "K-nearest-neighbors (KNN) is a simple, non-parametric machine learning algorithm: to predict something about a new data point, it looks for the k most similar past data points, its \"nearest neighbors,\" measured by some distance metric across a set of features, and bases the prediction on what happened in those similar cases, rather than fitting a specific mathematical formula to the whole dataset in advance." },
+      {
+        type: "paragraph",
+        text: 'K-nearest-neighbors (KNN) is a simple, non-parametric machine learning algorithm: to predict something about a new data point, it looks for the k most similar past data points, its "nearest neighbors," measured by some distance metric across a set of features, and bases the prediction on what happened in those similar cases, rather than fitting a specific mathematical formula to the whole dataset in advance.',
+      },
       { type: "heading", text: "Building a Feature Vector" },
-      { type: "paragraph", text: "Applied to a single stock, a KNN strategy defines a feature vector describing the stock's current state — for example, its recent returns over several lookback windows, its recent volatility, and maybe a volume measure — and searches through the stock's own trading history for the k historical days whose feature vectors were most similar to today's. The strategy then predicts the stock's next move based on the average of what actually happened on those k similar historical days." },
+      {
+        type: "paragraph",
+        text: "Applied to a single stock, a KNN strategy defines a feature vector describing the stock's current state — for example, its recent returns over several lookback windows, its recent volatility, and maybe a volume measure — and searches through the stock's own trading history for the k historical days whose feature vectors were most similar to today's. The strategy then predicts the stock's next move based on the average of what actually happened on those k similar historical days.",
+      },
       { type: "heading", text: "Flexibility and Its Cost" },
-      { type: "paragraph", text: "Because KNN makes no assumption about the shape of the relationship between features and future returns, unlike, say, a linear regression, which assumes a straight-line relationship, it can in principle capture more complex, nonlinear patterns in a stock's behavior — but this flexibility comes at the cost of needing a reasonably long price history to have enough genuinely similar past examples to draw from, and of being more prone to overfitting to noise if the feature set or the value of k isn't chosen carefully." },
+      {
+        type: "paragraph",
+        text: "Because KNN makes no assumption about the shape of the relationship between features and future returns, unlike, say, a linear regression, which assumes a straight-line relationship, it can in principle capture more complex, nonlinear patterns in a stock's behavior — but this flexibility comes at the cost of needing a reasonably long price history to have enough genuinely similar past examples to draw from, and of being more prone to overfitting to noise if the feature set or the value of k isn't chosen carefully.",
+      },
       { type: "heading", text: "Choosing k and a Distance Metric" },
-      { type: "paragraph", text: "Two of the most important design choices in a KNN strategy are k itself, how many neighbors to average over, since too few makes the prediction noisy and unstable while too many dilutes it toward the average, losing its ability to react to anything distinctive about the current setup, and the distance metric used to measure \"similarity\" between feature vectors, since different features may need to be weighted or scaled differently for the notion of \"nearest\" to be meaningful." },
+      {
+        type: "paragraph",
+        text: 'Two of the most important design choices in a KNN strategy are k itself, how many neighbors to average over, since too few makes the prediction noisy and unstable while too many dilutes it toward the average, losing its ability to react to anything distinctive about the current setup, and the distance metric used to measure "similarity" between feature vectors, since different features may need to be weighted or scaled differently for the notion of "nearest" to be meaningful.',
+      },
     ],
     quiz: [
       {
@@ -1502,7 +1740,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q2",
-        prompt: "In a single-stock KNN strategy, what is a \"feature vector\"?",
+        prompt: 'In a single-stock KNN strategy, what is a "feature vector"?',
         choices: [
           "The stock's ticker symbol alone",
           "A description of the stock's current state, such as recent returns, volatility, and volume, used to find similar historical periods",
@@ -1544,7 +1782,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
         prompt: "Why does the choice of distance metric matter in a KNN strategy?",
         choices: [
           "It doesn't matter — any distance metric produces identical results",
-          "Different features may need to be weighted or scaled differently for the notion of \"nearest\" or \"most similar\" to be meaningful",
+          'Different features may need to be weighted or scaled differently for the notion of "nearest" or "most similar" to be meaningful',
           "Distance metrics are only used in unrelated geometry problems",
           "The distance metric determines the company's stock ticker",
         ],
@@ -1557,23 +1795,36 @@ export const stocksConceptLessons: ConceptLesson[] = [
   {
     kind: "concept",
     slug: "stocks-statistical-arbitrage-optimization",
-    title: "Statistical Arbitrage – Optimization",
+    title: "Statistical Arbitrage: Optimization",
     summary:
       "Building a large statistical-arbitrage portfolio as a formal optimization problem, balancing expected return, risk, and trading costs across many simultaneous positions.",
     body: [
       { type: "heading", text: "From Forecasts to Positions" },
-      { type: "paragraph", text: "A large statistical arbitrage, or \"stat arb,\" operation typically generates hundreds or thousands of individual return forecasts across a broad universe of stocks — one per name, updated frequently, often blending several of the signals covered elsewhere in this course, such as momentum, mean-reversion, and factor scores. The question of exactly how much of each stock to actually hold, given all those simultaneous forecasts plus real-world constraints, is itself treated as a formal optimization problem rather than decided name-by-name." },
+      {
+        type: "paragraph",
+        text: 'A large statistical arbitrage, or "stat arb," operation typically generates hundreds or thousands of individual return forecasts across a broad universe of stocks — one per name, updated frequently, often blending several of the signals covered elsewhere in this course, such as momentum, mean-reversion, and factor scores. The question of exactly how much of each stock to actually hold, given all those simultaneous forecasts plus real-world constraints, is itself treated as a formal optimization problem rather than decided name-by-name.',
+      },
       { type: "heading", text: "The Optimization's Objective" },
-      { type: "paragraph", text: "The optimization typically maximizes expected portfolio return, built from the individual stock forecasts, minus a penalty for risk, usually estimated portfolio variance from a factor-based risk model, minus a penalty for transaction costs, since trading hundreds of names, especially quickly, isn't free — subject to a set of constraints: dollar-neutrality, roughly equal long and short exposure, sector or factor neutrality, not accidentally making a big bet on one industry or common factor, and position-size limits per stock." },
+      {
+        type: "paragraph",
+        text: "The optimization typically maximizes expected portfolio return, built from the individual stock forecasts, minus a penalty for risk, usually estimated portfolio variance from a factor-based risk model, minus a penalty for transaction costs, since trading hundreds of names, especially quickly, isn't free — subject to a set of constraints: dollar-neutrality, roughly equal long and short exposure, sector or factor neutrality, not accidentally making a big bet on one industry or common factor, and position-size limits per stock.",
+      },
       { type: "heading", text: "Penalizing Turnover" },
-      { type: "paragraph", text: "Because the forecasts, the risk model, and the cost model can all disagree with each other, and because a portfolio that's optimal for today's forecasts can require large trades away from yesterday's portfolio, in practice the optimizer typically also penalizes turnover, trading too much too fast, to keep transaction costs manageable, which means the resulting portfolio is a genuine compromise, not simply \"the highest-conviction bets, sized as large as possible.\"" },
+      {
+        type: "paragraph",
+        text: "Because the forecasts, the risk model, and the cost model can all disagree with each other, and because a portfolio that's optimal for today's forecasts can require large trades away from yesterday's portfolio, in practice the optimizer typically also penalizes turnover, trading too much too fast, to keep transaction costs manageable, which means the resulting portfolio is a genuine compromise, not simply \"the highest-conviction bets, sized as large as possible.\"",
+      },
       { type: "heading", text: "A Discipline of Its Own" },
-      { type: "paragraph", text: "This portfolio-construction-as-optimization approach is what elevates statistical arbitrage from a collection of individual trading signals into a coherent, risk-managed system — the same underlying signals could produce very different real portfolios, and very different risk and return profiles, depending on how the optimization is set up, which is why the optimization step is treated as its own discipline within a stat-arb operation, separate from generating the underlying forecasts themselves." },
+      {
+        type: "paragraph",
+        text: "This portfolio-construction-as-optimization approach is what elevates statistical arbitrage from a collection of individual trading signals into a coherent, risk-managed system — the same underlying signals could produce very different real portfolios, and very different risk and return profiles, depending on how the optimization is set up, which is why the optimization step is treated as its own discipline within a stat-arb operation, separate from generating the underlying forecasts themselves.",
+      },
     ],
     quiz: [
       {
         id: "q1",
-        prompt: "In a large statistical arbitrage operation, how is the exact size of each individual stock position typically decided?",
+        prompt:
+          "In a large statistical arbitrage operation, how is the exact size of each individual stock position typically decided?",
         choices: [
           "By trading a fixed dollar amount in every stock regardless of forecast",
           "As a formal optimization problem that weighs all simultaneous forecasts and constraints together, rather than name-by-name",
@@ -1599,7 +1850,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "What is \"dollar-neutrality,\" as a constraint in stat-arb portfolio construction?",
+        prompt: 'What is "dollar-neutrality," as a constraint in stat-arb portfolio construction?',
         choices: [
           "Holding only long positions, never short",
           "Keeping roughly equal long and short dollar exposure in the portfolio",
@@ -1621,11 +1872,12 @@ export const stocksConceptLessons: ConceptLesson[] = [
         ],
         correctIndex: 1,
         explanation:
-          "Moving quickly toward an \"optimal\" portfolio based on today's forecasts can require large trades, which are costly at scale — penalizing turnover keeps the resulting trading manageable and cost-effective.",
+          'Moving quickly toward an "optimal" portfolio based on today\'s forecasts can require large trades, which are costly at scale — penalizing turnover keeps the resulting trading manageable and cost-effective.',
       },
       {
         id: "q5",
-        prompt: "Why is portfolio-construction optimization treated as its own discipline, separate from generating the underlying return forecasts?",
+        prompt:
+          "Why is portfolio-construction optimization treated as its own discipline, separate from generating the underlying return forecasts?",
         choices: [
           "Because forecasts and portfolio construction are always exactly the same thing",
           "Because the same underlying forecasts can produce very different real portfolios, with very different risk and return profiles, depending on how the optimization is set up",
@@ -1645,19 +1897,31 @@ export const stocksConceptLessons: ConceptLesson[] = [
     summary:
       "Combining multiple distinct alpha-generating signals into a single blended forecast, on the same diversification logic as a multifactor portfolio but applied more broadly to any source of edge.",
     body: [
-      { type: "heading", text: "What an \"Alpha\" Is" },
-      { type: "paragraph", text: "An individual trading signal — momentum, an earnings surprise, a statistical mean-reversion score, a machine-learning prediction, and so on — is typically called an \"alpha\" in quantitative trading, shorthand for a forecast of a stock's expected excess return. An alpha combo blends several distinct alphas together into one combined forecast per stock, used as the actual signal driving the portfolio, rather than trading off of any single alpha alone." },
+      { type: "heading", text: 'What an "Alpha" Is' },
+      {
+        type: "paragraph",
+        text: 'An individual trading signal — momentum, an earnings surprise, a statistical mean-reversion score, a machine-learning prediction, and so on — is typically called an "alpha" in quantitative trading, shorthand for a forecast of a stock\'s expected excess return. An alpha combo blends several distinct alphas together into one combined forecast per stock, used as the actual signal driving the portfolio, rather than trading off of any single alpha alone.',
+      },
       { type: "heading", text: "Beyond Named Factors" },
-      { type: "paragraph", text: "The logic closely parallels a multifactor portfolio, but generalizes beyond named academic factors like value and momentum to include any source of predictive signal a firm has access to — proprietary data, alternative datasets, machine-learning model outputs, or even a human analyst's discretionary view — combined via the same basic principle: individually noisy or unreliable signals, when combined, average out much of their independent noise if they're not too correlated with each other." },
+      {
+        type: "paragraph",
+        text: "The logic closely parallels a multifactor portfolio, but generalizes beyond named academic factors like value and momentum to include any source of predictive signal a firm has access to — proprietary data, alternative datasets, machine-learning model outputs, or even a human analyst's discretionary view — combined via the same basic principle: individually noisy or unreliable signals, when combined, average out much of their independent noise if they're not too correlated with each other.",
+      },
       { type: "heading", text: "Weighting by Quality and Independence" },
-      { type: "paragraph", text: "Combining alphas well requires more than just averaging them together: each alpha typically needs its own estimate of quality, how reliable has this particular alpha historically been, and how correlated is it with the others already in the combo, so that more reliable, more independent alphas are weighted more heavily than noisier or redundant ones — this weighting is often itself estimated statistically, similar in spirit to how a multifactor portfolio might use factor z-scores, but is usually a more involved, ongoing calibration process given the larger and more heterogeneous set of signals typically involved." },
+      {
+        type: "paragraph",
+        text: "Combining alphas well requires more than just averaging them together: each alpha typically needs its own estimate of quality, how reliable has this particular alpha historically been, and how correlated is it with the others already in the combo, so that more reliable, more independent alphas are weighted more heavily than noisier or redundant ones — this weighting is often itself estimated statistically, similar in spirit to how a multifactor portfolio might use factor z-scores, but is usually a more involved, ongoing calibration process given the larger and more heterogeneous set of signals typically involved.",
+      },
       { type: "heading", text: "Diversifying Across Sources of Edge" },
-      { type: "paragraph", text: "A well-built alpha combo captures a form of diversification that goes beyond just diversifying across stocks — it diversifies across sources of edge itself, so that if any one alpha decays over time, a common risk as a signal becomes more widely known and arbitraged away by other traders, the overall combined forecast is far less damaged than if the whole strategy had depended on that one alpha alone." },
+      {
+        type: "paragraph",
+        text: "A well-built alpha combo captures a form of diversification that goes beyond just diversifying across stocks — it diversifies across sources of edge itself, so that if any one alpha decays over time, a common risk as a signal becomes more widely known and arbitraged away by other traders, the overall combined forecast is far less damaged than if the whole strategy had depended on that one alpha alone.",
+      },
     ],
     quiz: [
       {
         id: "q1",
-        prompt: "In quantitative trading, what is an \"alpha\"?",
+        prompt: 'In quantitative trading, what is an "alpha"?',
         choices: [
           "A stock's ticker symbol",
           "A forecast, or trading signal, of a stock's expected excess return",
@@ -1666,11 +1930,11 @@ export const stocksConceptLessons: ConceptLesson[] = [
         ],
         correctIndex: 1,
         explanation:
-          "\"Alpha\" is standard quant shorthand for an individual signal or forecast predicting a stock's expected excess return, whether from momentum, an earnings surprise, or any other source.",
+          '"Alpha" is standard quant shorthand for an individual signal or forecast predicting a stock\'s expected excess return, whether from momentum, an earnings surprise, or any other source.',
       },
       {
         id: "q2",
-        prompt: "What does an \"alpha combo\" do?",
+        prompt: 'What does an "alpha combo" do?',
         choices: [
           "Trades off of a single alpha signal exclusively",
           "Blends several distinct alpha signals together into one combined forecast used to drive the portfolio",
@@ -1730,15 +1994,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "Owning a share of a company — what that ownership actually entitles you to, and how it differs from lending a company money.",
     body: [
       { type: "heading", text: "Ownership, Not a Loan" },
-      { type: "paragraph", text: "A share of stock represents a fractional ownership stake in a company, not a loan to it. Unlike a bondholder, who's owed a fixed repayment, a shareholder owns a proportional slice of everything the company owns and earns, with no promise of repayment at all." },
+      {
+        type: "paragraph",
+        text: "A share of stock represents a fractional ownership stake in a company, not a loan to it. Unlike a bondholder, who's owed a fixed repayment, a shareholder owns a proportional slice of everything the company owns and earns, with no promise of repayment at all.",
+      },
       { type: "heading", text: "What Shareholders Are Entitled To" },
-      { type: "paragraph", text: "Owning a share entitles you to a proportional claim on the company's future profits, through dividends if the company pays them and through the growth of the stock's own value, a vote on major corporate matters at the company's shareholder meetings, and a residual claim on the company's assets if it's ever liquidated — after every creditor and bondholder has been paid first." },
+      {
+        type: "paragraph",
+        text: "Owning a share entitles you to a proportional claim on the company's future profits, through dividends if the company pays them and through the growth of the stock's own value, a vote on major corporate matters at the company's shareholder meetings, and a residual claim on the company's assets if it's ever liquidated — after every creditor and bondholder has been paid first.",
+      },
       { type: "heading", text: "Public vs. Private Companies" },
-      { type: "paragraph", text: "A private company's shares are held by a small number of founders, employees, and investors, and aren't available for the general public to buy or sell. A public company has listed its shares on an exchange through an initial public offering (IPO), letting anyone buy or sell shares freely in the open market." },
+      {
+        type: "paragraph",
+        text: "A private company's shares are held by a small number of founders, employees, and investors, and aren't available for the general public to buy or sell. A public company has listed its shares on an exchange through an initial public offering (IPO), letting anyone buy or sell shares freely in the open market.",
+      },
       { type: "heading", text: "Why Stock Prices Move" },
-      { type: "paragraph", text: "A stock's price is simply whatever the market is currently willing to pay for one share, constantly being reset by real buy and sell orders. That price reflects the market's collective, ever-changing view of the company's future profits, discounted back to what they're worth today — new information about the business updates that view, and the price along with it." },
+      {
+        type: "paragraph",
+        text: "A stock's price is simply whatever the market is currently willing to pay for one share, constantly being reset by real buy and sell orders. That price reflects the market's collective, ever-changing view of the company's future profits, discounted back to what they're worth today — new information about the business updates that view, and the price along with it.",
+      },
       { type: "heading", text: "In Practice" },
-      { type: "paragraph", text: "When a fast-growing private company decides to go public, it's converting itself from a business owned by a handful of founders and early investors into one that anyone can own a piece of by buying shares on an exchange. A retail investor who buys shares right after that IPO isn't lending the company money that has to be paid back — they now own a small, permanent slice of the business itself, sharing in its future profits and its future losses alike, with no one obligated to ever hand that money back." },
+      {
+        type: "paragraph",
+        text: "When a fast-growing private company decides to go public, it's converting itself from a business owned by a handful of founders and early investors into one that anyone can own a piece of by buying shares on an exchange. A retail investor who buys shares right after that IPO isn't lending the company money that has to be paid back — they now own a small, permanent slice of the business itself, sharing in its future profits and its future losses alike, with no one obligated to ever hand that money back.",
+      },
     ],
     quiz: [
       {
@@ -1816,15 +2095,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "The mechanics of actually buying and selling a share — exchanges, order types, and what it means to go long or sell short.",
     body: [
       { type: "heading", text: "Exchanges and Market Makers" },
-      { type: "paragraph", text: "Stocks trade on organized exchanges, like the NYSE or Nasdaq, where buy and sell orders from every participant are matched together. Underneath that matching, market makers continuously quote both a price they're willing to buy at, the bid, and a price they're willing to sell at, the ask, providing the liquidity that lets an order actually get filled quickly." },
+      {
+        type: "paragraph",
+        text: "Stocks trade on organized exchanges, like the NYSE or Nasdaq, where buy and sell orders from every participant are matched together. Underneath that matching, market makers continuously quote both a price they're willing to buy at, the bid, and a price they're willing to sell at, the ask, providing the liquidity that lets an order actually get filled quickly.",
+      },
       { type: "heading", text: "Market Orders vs. Limit Orders" },
-      { type: "paragraph", text: "A market order buys or sells immediately at whatever the best available price happens to be right now, prioritizing speed of execution over price certainty. A limit order instead specifies the worst price you're willing to accept, guaranteeing the price if it fills, but with no guarantee it fills at all if the market never reaches that level." },
+      {
+        type: "paragraph",
+        text: "A market order buys or sells immediately at whatever the best available price happens to be right now, prioritizing speed of execution over price certainty. A limit order instead specifies the worst price you're willing to accept, guaranteeing the price if it fills, but with no guarantee it fills at all if the market never reaches that level.",
+      },
       { type: "heading", text: "Going Long" },
-      { type: "paragraph", text: "Buying a stock outright, in the ordinary sense, is called going long: you profit if the price rises, and lose if it falls, with your maximum loss limited to what you paid for the shares." },
+      {
+        type: "paragraph",
+        text: "Buying a stock outright, in the ordinary sense, is called going long: you profit if the price rises, and lose if it falls, with your maximum loss limited to what you paid for the shares.",
+      },
       { type: "heading", text: "Selling Short" },
-      { type: "paragraph", text: "Selling short flips that around: borrowing shares you don't own, selling them immediately, and aiming to buy them back later at a lower price to return to the lender, pocketing the difference. A short seller profits if the price falls, but faces theoretically unlimited losses if the price rises instead, since there's no cap on how high a stock can go." },
+      {
+        type: "paragraph",
+        text: "Selling short flips that around: borrowing shares you don't own, selling them immediately, and aiming to buy them back later at a lower price to return to the lender, pocketing the difference. A short seller profits if the price falls, but faces theoretically unlimited losses if the price rises instead, since there's no cap on how high a stock can go.",
+      },
       { type: "heading", text: "In Practice" },
-      { type: "paragraph", text: "Picture a trader who believes a heavily hyped stock has run up further than its actual business justifies. Instead of buying, they borrow shares from their broker and sell them immediately at today's price, planning to buy them back later once the price comes back down and return the borrowed shares to close out the trade. If they're right, they pocket the difference; but if the stock keeps climbing instead, they have to buy back at a higher and higher price with no ceiling in sight, which is exactly why short selling carries a kind of risk that a simple long position never does." },
+      {
+        type: "paragraph",
+        text: "Picture a trader who believes a heavily hyped stock has run up further than its actual business justifies. Instead of buying, they borrow shares from their broker and sell them immediately at today's price, planning to buy them back later once the price comes back down and return the borrowed shares to close out the trade. If they're right, they pocket the difference; but if the stock keeps climbing instead, they have to buy back at a higher and higher price with no ceiling in sight, which is exactly why short selling carries a kind of risk that a simple long position never does.",
+      },
     ],
     quiz: [
       {
@@ -1855,7 +2149,7 @@ export const stocksConceptLessons: ConceptLesson[] = [
       },
       {
         id: "q3",
-        prompt: "What does it mean to \"go long\" a stock?",
+        prompt: 'What does it mean to "go long" a stock?',
         choices: [
           "Borrowing shares and selling them immediately",
           "Buying the stock outright, profiting if the price rises and losing if it falls",
@@ -1902,15 +2196,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "How a company's total size is measured in the stock market, and the broad industry groupings used to compare similar companies.",
     body: [
       { type: "heading", text: "What Market Capitalization Is" },
-      { type: "paragraph", text: "A company's market capitalization, or market cap, is simply its current share price multiplied by the total number of shares outstanding — a single number representing the market's current valuation of the entire company, not just one share of it." },
+      {
+        type: "paragraph",
+        text: "A company's market capitalization, or market cap, is simply its current share price multiplied by the total number of shares outstanding — a single number representing the market's current valuation of the entire company, not just one share of it.",
+      },
       { type: "heading", text: "Large-, Mid-, and Small-Cap" },
-      { type: "paragraph", text: "Companies are commonly grouped by market cap into large-cap (generally the biggest, most established companies), mid-cap, and small-cap (typically newer or less established companies). These groupings matter because company size is correlated with other traits investors care about — liquidity, volatility, and growth potential all tend to differ systematically across the three groups." },
+      {
+        type: "paragraph",
+        text: "Companies are commonly grouped by market cap into large-cap (generally the biggest, most established companies), mid-cap, and small-cap (typically newer or less established companies). These groupings matter because company size is correlated with other traits investors care about — liquidity, volatility, and growth potential all tend to differ systematically across the three groups.",
+      },
       { type: "heading", text: "Sectors and Industries" },
-      { type: "paragraph", text: "Companies are also classified by what they actually do — sectors like technology, healthcare, energy, and financials, further broken into narrower industries within each. This classification lets investors compare a company against its closest peers, and lets a portfolio manager measure and control how much exposure they have to any one part of the economy." },
+      {
+        type: "paragraph",
+        text: "Companies are also classified by what they actually do — sectors like technology, healthcare, energy, and financials, further broken into narrower industries within each. This classification lets investors compare a company against its closest peers, and lets a portfolio manager measure and control how much exposure they have to any one part of the economy.",
+      },
       { type: "heading", text: "Indices as Benchmarks" },
-      { type: "paragraph", text: "A stock index, like the S&P 500, tracks a defined basket of stocks, often selected and weighted by market cap, to represent the performance of a market or a slice of it. Indices serve as benchmarks that individual stocks, sectors, and entire investment strategies are commonly measured against." },
+      {
+        type: "paragraph",
+        text: "A stock index, like the S&P 500, tracks a defined basket of stocks, often selected and weighted by market cap, to represent the performance of a market or a slice of it. Indices serve as benchmarks that individual stocks, sectors, and entire investment strategies are commonly measured against.",
+      },
       { type: "heading", text: "In Practice" },
-      { type: "paragraph", text: "A portfolio manager building a technology-focused fund doesn't just buy the single largest tech company by market cap and call it done — they weigh exposure across large-cap software firms, mid-cap semiconductor makers, and smaller, newer companies, because a portfolio concentrated only in the very largest names behaves differently than one spread across the full size spectrum. Comparing that fund's return against a broad benchmark like the S&P 500 is then how the manager judges whether their sector bets actually added value beyond just being invested in stocks generally." },
+      {
+        type: "paragraph",
+        text: "A portfolio manager building a technology-focused fund doesn't just buy the single largest tech company by market cap and call it done — they weigh exposure across large-cap software firms, mid-cap semiconductor makers, and smaller, newer companies, because a portfolio concentrated only in the very largest names behaves differently than one spread across the full size spectrum. Comparing that fund's return against a broad benchmark like the S&P 500 is then how the manager judges whether their sector bets actually added value beyond just being invested in stocks generally.",
+      },
     ],
     quiz: [
       {
@@ -1988,15 +2297,30 @@ export const stocksConceptLessons: ConceptLesson[] = [
       "How a company returns cash to shareholders, and the routine corporate actions that change a stock's share count or price without changing what it's actually worth.",
     body: [
       { type: "heading", text: "Dividends" },
-      { type: "paragraph", text: "A dividend is a direct cash payment a company makes to its shareholders, typically out of its profits, usually on a regular quarterly schedule. Not every company pays one — many younger, fast-growing companies reinvest all their profits back into the business instead, favoring share-price growth over a cash payout." },
+      {
+        type: "paragraph",
+        text: "A dividend is a direct cash payment a company makes to its shareholders, typically out of its profits, usually on a regular quarterly schedule. Not every company pays one — many younger, fast-growing companies reinvest all their profits back into the business instead, favoring share-price growth over a cash payout.",
+      },
       { type: "heading", text: "Stock Splits" },
-      { type: "paragraph", text: "A stock split increases the number of shares outstanding by a fixed ratio, say two-for-one, while proportionally reducing the price per share, so the total value of what any shareholder holds doesn't actually change. Companies typically split their stock to bring a high per-share price back down to a more approachable, easily-traded range." },
+      {
+        type: "paragraph",
+        text: "A stock split increases the number of shares outstanding by a fixed ratio, say two-for-one, while proportionally reducing the price per share, so the total value of what any shareholder holds doesn't actually change. Companies typically split their stock to bring a high per-share price back down to a more approachable, easily-traded range.",
+      },
       { type: "heading", text: "Buybacks" },
-      { type: "paragraph", text: "A share buyback, or repurchase, is the mirror image of issuing new shares: the company uses its own cash to buy back and retire some of its outstanding shares, which increases each remaining shareholder's proportional ownership of the company without paying out a cash dividend." },
+      {
+        type: "paragraph",
+        text: "A share buyback, or repurchase, is the mirror image of issuing new shares: the company uses its own cash to buy back and retire some of its outstanding shares, which increases each remaining shareholder's proportional ownership of the company without paying out a cash dividend.",
+      },
       { type: "heading", text: "Earnings Reports" },
-      { type: "paragraph", text: "Public companies report their financial results, typically every quarter, disclosing revenue, profit, and other key business metrics. These earnings reports are closely watched catalysts, since they're often the single biggest source of new information the market uses to reassess what a company, and therefore its stock, is actually worth." },
+      {
+        type: "paragraph",
+        text: "Public companies report their financial results, typically every quarter, disclosing revenue, profit, and other key business metrics. These earnings reports are closely watched catalysts, since they're often the single biggest source of new information the market uses to reassess what a company, and therefore its stock, is actually worth.",
+      },
       { type: "heading", text: "In Practice" },
-      { type: "paragraph", text: "Consider a mature utility company that generates steady, predictable cash flow every quarter: rather than plowing all of it back into new growth projects, it distributes a portion directly to shareholders as a dividend, rewarding investors who bought the stock for steady income. Contrast that with a pharmaceutical company awaiting the results of a late-stage drug trial — its stock can swing sharply within minutes of the readout being announced, since that single piece of news instantly changes what the market thinks the company's future earnings, and therefore its stock, are worth." },
+      {
+        type: "paragraph",
+        text: "Consider a mature utility company that generates steady, predictable cash flow every quarter: rather than plowing all of it back into new growth projects, it distributes a portion directly to shareholders as a dividend, rewarding investors who bought the stock for steady income. Contrast that with a pharmaceutical company awaiting the results of a late-stage drug trial — its stock can swing sharply within minutes of the readout being announced, since that single piece of news instantly changes what the market thinks the company's future earnings, and therefore its stock, are worth.",
+      },
     ],
     quiz: [
       {
