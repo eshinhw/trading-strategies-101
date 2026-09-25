@@ -435,6 +435,8 @@ export const indexesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Most major indices today, including the S&P 500, are market-cap-weighted instead: each stock's influence on the index is proportional to its total market capitalization, so a company's actual economic size, not its arbitrary per-share price, determines how much it moves the index." },
       { type: "heading", text: "Equal-Weighted Indices" },
       { type: "paragraph", text: "A less common alternative is an equal-weighted index, which gives every constituent the same influence regardless of size, deliberately reducing the outsized impact the largest few companies otherwise have in a market-cap-weighted version — a choice that changes an index's behavior meaningfully, especially when a handful of giant companies dominate a market-cap-weighted benchmark." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An investor who wants exposure to \"the market\" without picking individual winners buys a fund tracking a broad, market-cap-weighted index like the S&P 500, effectively betting on the combined fortunes of hundreds of large companies weighted by their actual economic size. If that same investor instead wanted a bet less dominated by a handful of giant companies, they might choose an equal-weighted version of the same universe, trading the concentration of the standard index for broader, more even exposure across every constituent." },
     ],
     quiz: [
       {
@@ -519,6 +521,8 @@ export const indexesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "If a constituent does a 2-for-1 stock split, its share price is cut in half overnight even though the company's actual value hasn't changed at all — without any adjustment, a price-weighted index would show an artificial drop purely from the split. The divisor is recalculated at that moment specifically to cancel out that mechanical effect, so the index level reflects real market moves only." },
       { type: "heading", text: "Rebalancing and Reconstitution" },
       { type: "paragraph", text: "Indices are also periodically rebalanced, adjusting each constituent's weight back toward its target methodology, and reconstituted, adding newly qualifying companies and removing ones that no longer fit the index's rules — both processes that, again, require divisor adjustments so the index's continuity isn't broken by changes to its own membership or weights." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "When a company in a widely followed index announces a multi-for-one stock split, the index provider recalculates the divisor that same day so the index's published level doesn't move at all because of the split itself — anyone watching the index sees only the moves caused by actual buying and selling, not by a change in how one constituent's shares happen to be counted. The same quiet divisor adjustment happens whenever the index provider swaps one company out for another during its periodic reconstitution." },
     ],
     quiz: [
       {
@@ -603,6 +607,8 @@ export const indexesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A portfolio manager holding a diversified stock portfolio can hedge against a broad market downturn by selling index futures, without having to sell any of the individual stocks they actually want to keep — a much faster and cheaper way to reduce market exposure temporarily than trading the underlying portfolio directly." },
       { type: "heading", text: "Speculating on Market Direction" },
       { type: "paragraph", text: "Index derivatives are also a common way to speculate directly on the broad market's direction, or on the relative performance of one index against another, without taking a view on any specific individual company — a genuinely different kind of bet from picking individual stocks." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Ahead of a heavy week of earnings reports and economic data, a portfolio manager who believes their individual stock picks are strong but is nervous about the broad market pulling everything down sells index futures against the portfolio's value. If the market does drop, gains on the futures position offset the paper losses across the stock portfolio, letting the manager ride out the volatility without having to unwind carefully built individual positions." },
     ],
     quiz: [
       {
@@ -687,6 +693,8 @@ export const indexesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Tracking error measures how closely a fund's actual return matches its target index's return over time — a full-replication fund on a liquid index typically has very low tracking error, while a sampling-based fund on a harder-to-replicate index tends to show more, since its holdings are only an approximation of the real thing." },
       { type: "heading", text: "This Connects Directly Back to ETFs" },
       { type: "paragraph", text: "This is exactly the mechanism behind most index-tracking ETFs, already covered in this curriculum's ETF Basics module: an ETF issuer chooses full replication or sampling to build the fund's underlying basket, and the same creation and redemption process that keeps an ETF's price near its net asset value is what lets the fund's holdings stay aligned with the index it's meant to track." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An index-fund manager spends the days around each quarterly reconstitution buying the shares of newly added companies and selling the shares of names being dropped, timing the trades to land as close as possible to the moment the index itself officially changes. Getting that timing wrong, or settling for a sampled basket that only approximates the full index, is exactly what shows up later as tracking error between the fund's return and the index's." },
     ],
     quiz: [
       {

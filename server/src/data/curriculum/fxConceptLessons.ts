@@ -518,6 +518,8 @@ export const fxConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Going long a currency pair means buying the base currency and simultaneously selling the quote currency, profiting if the base strengthens relative to the quote. Going short does the reverse — selling the base and buying the quote, profiting if the base weakens instead." },
       { type: "heading", text: "Major, Minor, and Exotic Pairs" },
       { type: "paragraph", text: "Pairs are commonly grouped by how heavily they trade: major pairs involve the U.S. dollar and another large, freely-traded currency (like EUR/USD or USD/JPY) and are the most liquid; minor pairs pair two major currencies without the dollar (like EUR/GBP); and exotic pairs involve a major currency against a smaller or less liquid one (like USD/TRY), typically trading with wider spreads and less liquidity." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A U.S. tourist arriving in Japan and exchanging dollars for yen at the airport is executing, in miniature, exactly what a currency pair describes: they're simultaneously selling their base currency (USD) and buying the quote currency (JPY) at whatever the USD/JPY rate happens to be that day, and the number of yen they walk away with depends entirely on where that pair is trading at the moment of the exchange." },
     ],
     quiz: [
       {
@@ -602,6 +604,8 @@ export const fxConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A pip is the standard, smallest conventional unit of price movement for most currency pairs, typically the fourth decimal place (for a pair like EUR/USD moving from 1.1050 to 1.1051, that's a one-pip move). Pips give traders a common, comparable way to talk about price changes across different pairs, regardless of the pair's actual price level." },
       { type: "heading", text: "Lot Sizes" },
       { type: "paragraph", text: "A lot is the standard trade size in FX: a standard lot is typically 100,000 units of the base currency, with mini (10,000 units) and micro (1,000 units) lots available for smaller position sizes. Because a full lot represents a large notional amount, leverage is commonly used in FX trading to control a position of that size with a smaller amount of posted capital." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A multinational corporate treasurer needing to convert a large batch of foreign sales revenue back into dollars doesn't place that order on a centralized exchange the way a stock trader would — instead, the company's bank quotes a price directly, over the counter, and because the FX market is open somewhere in the world nearly around the clock, that conversion can be timed to whichever trading session offers the tightest pricing, rather than waiting for a single exchange's opening bell." },
     ],
     quiz: [
       {
@@ -686,6 +690,8 @@ export const fxConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A country running a large trade deficit, importing much more than it exports, tends to see steady selling pressure on its own currency, since importers need to convert their currency into foreign currency to pay for those goods, while a trade surplus creates the opposite, currency-supportive pressure." },
       { type: "heading", text: "Central Bank Policy and Risk Sentiment" },
       { type: "paragraph", text: "Beyond the interest rate level itself, central bank policy decisions and signals about future rate changes can move a currency sharply on the expectation of what's coming, not just what's already happened. Broader risk sentiment matters too: in periods of global uncertainty, capital often flows toward currencies seen as safe havens, regardless of what any single country's fundamentals are doing at that moment." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An exporter watching their home country's central bank signal that interest rates are likely to rise sees two forces pulling in different directions: higher rates tend to attract foreign capital and strengthen the home currency, which is good news for the value of money already earned abroad, but a stronger currency also makes that exporter's goods more expensive for foreign buyers going forward — the same fundamental forces this lesson covers, working through to a real business's bottom line from both directions at once." },
     ],
     quiz: [
       {
@@ -770,6 +776,8 @@ export const fxConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A related, looser idea is uncovered interest rate parity: the theory that a higher-yielding currency should be expected to depreciate over time by roughly the size of its interest rate advantage, so that an investor gains nothing extra, on average, from simply holding the higher-rate currency unhedged. Unlike the covered version, this is a market expectation, not an enforced no-arbitrage relationship." },
       { type: "heading", text: "Why the Carry Trade Exists At All" },
       { type: "paragraph", text: "If uncovered interest rate parity held perfectly and consistently, there would be no expected profit from the carry trade covered later in this course, since the higher-rate currency's interest advantage would be expected to be offset exactly by its own depreciation. In practice, that offsetting depreciation doesn't show up reliably enough, or by the theoretically \"correct\" amount, which is precisely the persistent anomaly the carry trade is designed to exploit." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A carry trader borrowing in a currency with a low interest rate and investing the proceeds in a currency with a higher interest rate is explicitly betting against uncovered interest rate parity — wagering that the higher-yielding currency won't depreciate by enough to wipe out the rate advantage — while a corporate treasurer hedging that same currency exposure with a forward contract instead locks in the return covered interest rate parity says should be arbitrage-free, accepting a known, hedged outcome rather than the carry trader's open bet." },
     ],
     quiz: [
       {

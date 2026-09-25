@@ -21,6 +21,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Rather than issuing one type of security representing an equal slice of the pool, most structured deals split the pool's cash flows into several different securities, each with its own risk-and-return profile. That splitting, not just the pooling itself, is the defining feature of a genuinely \"structured\" asset — in contrast to a plain pass-through, where every investor's claim on the pool is identical." },
       { type: "heading", text: "A Family of Structures" },
       { type: "paragraph", text: "Mortgage-backed securities, collateralized loan obligations, collateralized debt obligations, and other asset-backed securities all share this same basic pooling-and-repackaging idea. They mainly differ in what type of underlying debt gets pooled, and how elaborately the resulting cash flows are split among the securities issued against it." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Consider an auto lender that has originated ten thousand car loans: each loan is too small and too specific to sell on its own, but the lender can pool all ten thousand into a trust and have that trust issue bonds backed by the pool's combined payments. Investors who buy those bonds never touch an individual auto loan; they're buying a claim on the cash flowing from the whole pool. The lender, meanwhile, gets cash back today instead of waiting years to collect each loan, freeing up capital to originate new loans." },
     ],
     quiz: [
       {
@@ -105,6 +107,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "That same waterfall runs in reverse when the pool suffers losses. The most junior tranche — often called the equity or first-loss tranche — absorbs the pool's first losses before any loss touches a more senior tranche. Each senior tranche is protected by a subordination cushion equal to the combined size of every junior tranche sitting beneath it." },
       { type: "heading", text: "Risk and Return Across the Stack" },
       { type: "paragraph", text: "Because the equity tranche is first in line to absorb losses, it demands, and receives, a much higher coupon than the senior tranche, which is designed to stay nearly untouched unless losses far exceed the cushion beneath it. Mezzanine tranches sit in between on both dimensions — more risk and more yield than senior, less than equity." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Picture a CLO backed by a pool of leveraged corporate loans, split into a senior tranche, a mezzanine tranche, and a small equity tranche at the bottom. An insurance company buying the senior tranche cares mainly about the near-certainty of getting paid, and accepts a modest coupon for that safety; a hedge fund buying the equity tranche is underwriting the pool's first losses in exchange for a coupon several times larger. Both investors are exposed to the very same underlying loans — what differs is only where each one sits in the waterfall." },
     ],
     quiz: [
       {
@@ -189,6 +193,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A credit index like CDX, for North American names, or iTraxx, for European names, is a standardized basket of single-name CDS on a fixed list of reference entities, often 125 companies. It lets a trader buy or sell protection on the whole basket in a single trade, instead of executing well over a hundred separate single-name CDS trades." },
       { type: "heading", text: "Index Tranches" },
       { type: "paragraph", text: "Beyond the plain index, tranches can also be written on the index itself — for example, a 0-3% equity tranche or a 3-7% mezzanine tranche of the index — absorbing losses only once the index's cumulative default losses fall within that specific tranche's range. This is directly analogous to CDO tranching, but built on a standardized index rather than a bespoke pool of loans." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Suppose a bank holds a large position in a company's bonds and wants to reduce its exposure to that company's credit without selling the bonds outright, perhaps because selling would signal distress or disrupt a lending relationship. Buying CDS protection on that reference entity lets the bank keep the bonds on its books while paying a periodic premium to transfer the default risk elsewhere. A macro fund that instead wants broad, quick exposure to overall corporate credit conditions, rather than a view on any single issuer, can buy or sell protection on a credit index like CDX in one trade rather than assembling the same exposure across a hundred separate single-name CDS." },
     ],
     quiz: [
       {
@@ -273,6 +279,8 @@ export const structuredAssetsConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Unlike a corporate bond, a mortgage borrower can pay off their loan early at any time, whether by refinancing, selling the home, or simply paying down the balance ahead of schedule. This option to prepay is the defining risk of MBS investing, since it returns an investor's principal early — often right when interest rates have fallen and reinvestment options have gotten worse." },
       { type: "heading", text: "What Drives Prepayment Speed" },
       { type: "paragraph", text: "The biggest driver of prepayment speed is the gap between a pool's existing mortgage rates and current market mortgage rates. When rates fall well below what homeowners in the pool are paying, refinancing accelerates and prepayments speed up; when rates rise, homeowners are less likely to move or refinance, and prepayments slow down." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An investor buying into a pool of mortgages originated when rates were 6% is really betting on how long that 6% income stream will last. If market rates later drop to 4%, homeowners across the pool refinance in large numbers, the investor's principal comes back far earlier than planned, and that returned cash can only be reinvested at the new, lower 4% rate — the opposite of what the investor wanted. That's exactly why MBS pricing has to account for how prepayment speed itself reacts to rates, not just for the pool's stated coupon and maturity." },
     ],
     quiz: [
       {

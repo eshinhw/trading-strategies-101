@@ -821,6 +821,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "A flour mill agrees to buy 10,000 bushels of wheat in six months from a grain merchant at a forward price of $6.50 per bushel, giving the contract a notional value of 10,000 × $6.50 = $65,000. At maturity, the actual market price of wheat is $7.00 per bushel. If the contract is cash-settled, the merchant simply pays the mill the difference: ($7.00 − $6.50) × 10,000 = $5,000, since the mill locked in a price $0.50 below where wheat ended up trading. If instead it's physically settled, the merchant delivers 10,000 bushels and the mill pays the agreed $65,000 — either way, the mill's economic outcome is the same: wheat at an effective $6.50 per bushel, regardless of where the market price actually landed.",
       },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "A U.S. exporter expects to receive 10 million euros from a European customer in three months and wants to know today exactly how many dollars that will convert to, rather than gambling on where the exchange rate lands. It signs a forward with its bank to sell those euros at a fixed rate on the payment date — the notional value is the full 10 million euros, no cash changes hands at signing, and if the bank were to fail before the contract settles, the exporter would be left exposed to exactly the counterparty risk this lesson describes.",
+      },
     ],
     quiz: [
       {
@@ -949,6 +954,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
       {
         type: "paragraph",
         text: "Short selling means borrowing an asset from a current holder, through a broker, selling it in the market, and later buying it back to return to the lender — a trade used either as a standalone bet that the asset's price will fall, or, as seen above, as the tool that makes reverse cash-and-carry arbitrage possible when a forward is underpriced. Not every asset can be shorted easily: many physical commodities are difficult or impractical to borrow and short because of the logistics of storage and delivery, which weakens the arbitrage force that would normally correct an underpriced forward and is part of why convenience yield plays such an outsized role in commodity forward pricing specifically.",
+      },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "A jewelry manufacturer wants to lock in the price of gold it will need in six months, and a bank quotes a forward price built from today's spot price plus the cost of financing that gold and storing it securely until delivery. If the bank's quoted forward price ever drifted meaningfully above that cost-of-carry level, a trading desk could buy gold today, pay to store and finance it, and sell it forward at the richer quoted price — a cash-and-carry arbitrage that keeps real-world forward quotes anchored close to the formula.",
       },
     ],
     quiz: [
@@ -1121,6 +1131,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "A trader buys one crude oil futures contract (1,000 barrels) at $80 per barrel, a notional value of $80,000, posting $6,000 of initial margin (7.5% of notional) against a $5,000 maintenance margin threshold. The next day, crude falls to $78, a $2-per-barrel loss, marked to market as a $2,000 debit: 1,000 × $2 = $2,000. The account balance drops from $6,000 to $4,000 — below the $5,000 maintenance threshold — triggering a margin call for $2,000 in variation margin to bring the balance back up to the $6,000 initial margin level.",
       },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "A commodities trading desk holding a large, leveraged futures position through an unexpected overnight price swing can watch its account get debited the full loss the very next morning, well before the position is ever closed out. That daily cash settlement is exactly why a desk sizes its futures positions around how much adverse daily movement its margin capital can actually absorb, rather than just the position's total notional exposure.",
+      },
     ],
     quiz: [
       {
@@ -1236,6 +1251,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "The E-mini S&P 500 futures contract has a multiplier of $50 per index point and a minimum tick size of 0.25 points, so each tick is worth 0.25 × $50 = $12.50. If the contract moves from 4,500.00 to 4,502.50, that's a 2.50-point move, or exactly 10 ticks. The dollar gain on one contract is 2.50 × $50 = $125 — the same answer as counting 10 ticks × $12.50 per tick, which is exactly why the standardized tick size and its dollar value matter: they let every trader compute a position's gain or loss the same, unambiguous way.",
       },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "A grain elevator that needs to hedge corn purchases every harvest season doesn't have to renegotiate a private contract's size, quality grade, and delivery terms each time — it simply buys or sells the exchange's standardized corn futures contract, which specifies all of that upfront. That standardization is exactly what lets the elevator get a hedge on or off within seconds during a trading session, instead of spending days lining up a custom forward with a specific counterparty.",
+      },
     ],
     quiz: [
       {
@@ -1345,6 +1365,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
       {
         type: "paragraph",
         text: "A trader is long one September crude oil futures contract (1,000 barrels) entered at $75, and expiration is approaching. They close it out by selling at $76, banking a $1-per-barrel gain, or $1,000. To maintain continuous exposure, they simultaneously buy one December contract at $77 — $1 higher than the September price they just sold at, since the market is in contango. That $1-per-barrel gap costs $1,000 in the new position, a separate roll cost embedded in the switch to a further-dated, more expensive contract, on top of whatever September's realized gain was. Rolled repeatedly through a persistent contango market, this cost is exactly what erodes the return of holding continuous futures exposure over time, independent of what crude's outright spot price does.",
+      },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "A retail trader who went long a natural gas futures contract purely as a short-term price bet has no storage tanks, pipeline access, or any actual use for physical natural gas. As the contract's expiration and delivery window approaches, the trader simply closes out the position with an offsetting trade, just like the vast majority of speculative futures traders do, leaving physical delivery to the utilities and energy companies that actually need the gas.",
       },
     ],
     quiz: [
@@ -1457,6 +1482,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "FRAs serve a similar purpose to the exchange-traded interest rate futures covered elsewhere in this course, but FRAs are private, over-the-counter contracts, custom-tailored between two parties in size and dates, carrying the same counterparty-risk tradeoff as any other forward. An interest rate future is the standardized, exchange-cleared, daily-margined version of essentially the same underlying idea.",
       },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "A corporate treasurer knows the company will issue a large bond in three months but is worried benchmark rates could climb before pricing, raising the company's borrowing cost. Rather than wait and hope, the treasurer enters an FRA that locks in today's rate for that future period — if rates do rise, the FRA payout offsets the higher coupon the company ends up paying on the actual bond, leaving its effective borrowing cost close to what was locked in today.",
+      },
     ],
     quiz: [
       {
@@ -1553,6 +1583,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "This mid-life valuation is what a company needs to mark a forward position on its own books, what a bank needs to calculate before agreeing to unwind or assign an existing forward early, and conceptually underlies the daily variation-margin logic used in a futures contract's mark-to-market process — even though a forward itself, unlike a future, doesn't settle any of that accumulated value until the very end.",
       },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "A company hedged its future fuel purchase with a forward six months ago, and its auditors now need to know what that unmatured contract is worth for the quarterly financial statements — not what it was worth at signing. By comparing today's forward price for an equivalent new contract against the original locked-in price, the company's finance team can put a real number on the books, and that same number is what a bank would use if the company wanted to unwind the position early instead of waiting for it to mature.",
+      },
     ],
     quiz: [
       {
@@ -1648,6 +1683,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
       {
         type: "paragraph",
         text: "Beyond individual members' margin, clearinghouses maintain a mutualized guarantee, or default, fund, contributed to by all clearing members, that absorbs losses in the rare event a member defaults and its own posted margin isn't enough to cover the loss — a final layer of protection standing behind the daily margining process.",
+      },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "Two traders who have never met, one buying and one selling a crude oil futures contract through an exchange, don't need to check each other's credit before trading, because the moment their trade is matched, the clearinghouse steps in as the legal counterparty to both. If the seller's account were later to default, the clearinghouse — not the buyer — would absorb that gap, drawing on the defaulting member's margin and, if needed, the mutualized guarantee fund, so the buyer's contract is honored regardless.",
       },
     ],
     quiz: [
@@ -1746,6 +1786,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Related but distinct from a price limit, a circuit breaker triggers a temporary trading halt, rather than merely capping the price, once a market moves by some threshold percentage very quickly. Used especially in broad equity index futures, a circuit breaker gives markets a brief cooling-off period before trading resumes, rather than locking the price at a hard ceiling or floor for the rest of the session.",
       },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "When a surprise government crop report signals a much smaller harvest than traders expected, an agricultural futures contract can rocket straight to its daily limit up within minutes of the report's release, leaving traders who want to buy more unable to do so until the next session. In a fast, broad selloff in equity index futures, a circuit breaker can kick in instead, pausing trading entirely for a few minutes rather than pinning the price at a hard ceiling, giving panicked markets a moment to reset before trading resumes.",
+      },
     ],
     quiz: [
       {
@@ -1842,6 +1887,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "The whole point of a forward is trading away uncertainty for certainty. Neither side knows for sure whether they'll end up ahead compared to simply waiting and transacting at whatever the market price happens to be later — but both sides get something they value more than that uncertainty: a known, fixed number to plan around.",
       },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "A vineyard expects to harvest a large crop of grapes next fall and worries a bumper crop across the region could push prices down before then. By agreeing today with a wine distributor on a fixed price for next fall's harvest, the vineyard locks in its revenue well before a single grape is picked — trading away the chance of an even higher spot price later for the certainty of knowing exactly what the crop will be worth.",
+      },
     ],
     quiz: [
       {
@@ -1937,6 +1987,11 @@ export const futuresConceptLessons: ConceptLesson[] = [
       {
         type: "paragraph",
         text: "Everything covered in the Forward Basics module — long and short positions, agreeing on a price today for a transaction later — carries over directly to futures. The rest of this module covers what's specifically different about a futures contract: the margin and daily settlement, the standardized contract terms, and the clearinghouse that stands behind every trade, none of which a plain forward has.",
+      },
+      { type: "heading", text: "In Practice" },
+      {
+        type: "paragraph",
+        text: "Two strangers on opposite sides of the country, one a wheat farmer and one a commodities trading desk, can both go long or short a wheat futures contract on an exchange without ever exchanging names or credit histories. Compare that to a private forward, where the farmer would first have to find a specific buyer willing to negotiate a custom deal — the exchange listing does that matching instantly, for anyone.",
       },
     ],
     quiz: [

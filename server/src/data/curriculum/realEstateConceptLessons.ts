@@ -692,6 +692,8 @@ export const realEstateConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Indirect ownership means holding real estate exposure through a fund or security — a REIT, a private real estate fund, or a real estate-focused ETF — rather than a specific property itself, trading some of direct ownership's control for liquidity, diversification, and none of the hands-on management burden." },
       { type: "heading", text: "Residential vs. Commercial" },
       { type: "paragraph", text: "Real estate is also commonly split by property use: residential (homes, apartments) versus commercial (office, retail, industrial, and more), each with distinct tenant relationships, lease structures, and demand drivers, as covered in more depth in this course's property type diversification lesson." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Consider an investor who buys a small apartment building: each month the rent checks come in, cover the mortgage, taxes, and repairs, and whatever's left over is the income return, landing in the investor's pocket whether or not the building's market value has moved at all. Years later, when the investor sells the building for more than they paid, that gain is the appreciation return — a second, separate payoff that had nothing to do with the monthly rent checks along the way." },
     ],
     quiz: [
       {
@@ -776,6 +778,8 @@ export const realEstateConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Publicly traded REITs list their shares on a stock exchange, offering the same intraday liquidity as any other stock; private REITs are not exchange-listed, typically requiring a longer commitment and larger minimum investment, but potentially offering exposure to different property types or strategies than what's available publicly." },
       { type: "heading", text: "Why REITs Made Real Estate More Accessible" },
       { type: "paragraph", text: "Before REITs existed, meaningful real estate exposure generally required enough capital to buy a property outright, or the connections to join a private real estate partnership. A publicly traded REIT reduces the minimum investment to the price of a single share, which is a large part of why REITs have become such a common way for ordinary investors to add real estate to a portfolio." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An investor who wants exposure to a portfolio of shopping malls or warehouses, but has neither the millions of dollars nor the appetite to manage tenants directly, can simply buy shares of a publicly traded REIT that already owns and operates a large collection of those properties. Each quarter the REIT collects rent across its whole portfolio, and because it must pass along the large majority of that income to keep its tax status, the investor sees a steady dividend show up in their brokerage account, much like owning a diversified slice of commercial real estate without ever touching a lease." },
     ],
     quiz: [
       {
@@ -860,6 +864,8 @@ export const realEstateConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "The replacement cost approach values a property based on what it would cost to build an equivalent new structure today, on similar land, minus depreciation for the existing building's age and condition — a useful check, especially for unique properties where good income or sales comparisons are hard to find, and a concept already touched on in this course's inflation hedging lesson." },
       { type: "heading", text: "Using Multiple Approaches Together" },
       { type: "paragraph", text: "In practice, a thorough valuation often blends more than one approach, since each has blind spots: income and comparable sales approaches can both be distorted by a temporarily overheated or depressed market, while replacement cost ignores whether there's actually demand for more space of that type in the first place." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An appraiser valuing a small office building will typically start with the income approach, capitalizing its net rental income at a market cap rate, then sanity-check that number against what a few similar office buildings nearby have actually sold for recently. If the two approaches land far apart, that gap itself is a signal worth investigating — maybe the building's leases are priced well above or below what the current market would actually support." },
     ],
     quiz: [
       {
@@ -944,6 +950,8 @@ export const realEstateConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "That same amplification works in reverse: a decline in property value is similarly magnified as a percentage loss on the investor's equity, and because mortgage payments are due regardless of whether the property is appreciating, a highly leveraged position can turn a moderate price decline into a much more serious loss, or even negative equity, where the loan balance exceeds the property's value." },
       { type: "heading", text: "Loan-to-Value Ratio" },
       { type: "paragraph", text: "The loan-to-value (LTV) ratio, the loan amount divided by the property's value, is the standard measure of how leveraged a real estate position is: a higher LTV means less of the investor's own capital is at risk relative to the total position size, but also less equity cushion before a price decline wipes out the investor's stake entirely." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A homebuyer who puts 10% down on a house is using far more leverage than one who puts 50% down on an identical house, so if local prices then fall 15%, the 10%-down buyer's entire stake is wiped out and then some, while the 50%-down buyer still has a comfortable equity cushion left over. The same math is exactly why highly leveraged property investors got hit so much harder than cash buyers whenever a housing market has turned down sharply — the leverage that juiced their gains on the way up amplified their losses just as directly on the way down." },
     ],
     quiz: [
       {

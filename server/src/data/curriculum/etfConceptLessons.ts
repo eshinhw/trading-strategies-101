@@ -705,6 +705,8 @@ export const etfConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Most ETFs are designed to track a specific index, like the S&P 500, or a defined slice of the market — a sector, a country, a commodity — aiming to replicate that index's return as closely as possible rather than trying to beat it through active stock-picking." },
       { type: "heading", text: "Why ETFs Became So Popular" },
       { type: "paragraph", text: "ETFs combine three things investors want at once: the diversification of a fund, the intraday liquidity of a stock, and, for most index-tracking ETFs, a much lower cost than an actively managed mutual fund — a combination that's driven their explosive growth since the first ETFs launched in the early 1990s." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A new investor who wants exposure to hundreds of large companies at once, but doesn't have the money or time to buy shares of each one individually, can instead buy a single share of a broad-market ETF and instantly own a proportional slice of every company inside it. Because that ETF share trades on an exchange all day long, the investor can buy it in the morning and sell it that same afternoon if they choose to, something a traditional mutual fund's once-a-day pricing would never allow." },
     ],
     quiz: [
       {
@@ -789,6 +791,8 @@ export const etfConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Redemption runs the reverse: an AP hands back a creation unit's worth of ETF shares to the issuer and receives the underlying basket of securities in return, effectively retiring those ETF shares and shrinking the fund." },
       { type: "heading", text: "Why This Keeps Prices in Line" },
       { type: "paragraph", text: "Because APs can profit from any gap between an ETF's market price and the actual value of its underlying holdings — buying whichever is cheaper and creating or redeeming to capture the difference — this arbitrage mechanism is what keeps an ETF's trading price closely tethered to its net asset value, without the fund itself having to intervene." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Suppose an ETF's shares start trading noticeably above the combined value of the stocks it actually holds, because a wave of buying demand has pushed the ETF's price up faster than its underlying basket. An authorized participant can step in, buy up the cheaper underlying stocks, hand them to the ETF issuer in exchange for newly created ETF shares, and sell those new shares into the market at the higher price — pocketing the spread while also increasing the ETF's share count, which pushes its price back down toward the value of its actual holdings." },
     ],
     quiz: [
       {
@@ -873,6 +877,8 @@ export const etfConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "An ETF's market price can trade slightly above (a premium) or below (a discount) its net asset value (NAV), the per-share value of its actual underlying holdings, especially for less liquid ETFs or during volatile markets — though the creation and redemption arbitrage described in the previous lesson usually keeps this gap small and short-lived." },
       { type: "heading", text: "Expense Ratios" },
       { type: "paragraph", text: "Every ETF charges an expense ratio, an annual fee expressed as a percentage of assets and deducted directly from the fund's returns rather than billed separately, which is why comparing expense ratios across similar ETFs tracking the same index is one of the simplest ways to compare their cost to an investor." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An investor comparing two ETFs that both track the same broad stock index will often find their long-run performance nearly identical before costs — so the expense ratio becomes the real differentiator, since a fund charging even a few tenths of a percent more each year quietly compounds into a meaningfully larger gap in what the investor keeps after a decade or two of holding it. Checking the bid-ask spread before placing a large order matters too: an ETF built on thinly traded holdings can have a much wider spread than one built on heavily traded large-cap stocks, even when both ETFs see similar trading volume in their own shares." },
     ],
     quiz: [
       {
@@ -957,6 +963,8 @@ export const etfConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Most ETFs are passively managed, tracking an index rather than paying a team of analysts to pick stocks, which is why their expense ratios are typically far lower than a comparable actively managed mutual fund's." },
       { type: "heading", text: "Tax Efficiency" },
       { type: "paragraph", text: "The in-kind creation and redemption mechanism, trading baskets of securities rather than cash, lets most ETFs avoid triggering the capital gains distributions that a traditional mutual fund often passes on to all its shareholders when it sells appreciated holdings — making ETFs, in many cases, a more tax-efficient way to hold a diversified position." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A pension fund that wants to add exposure to emerging-market stocks doesn't need to open brokerage accounts in a dozen different countries and hand-pick individual companies — it can buy shares of a single emerging-markets ETF and get diversified, professionally selected exposure to that entire asset class in one trade. And because that ETF relies on in-kind creation and redemption rather than selling holdings for cash, the fund is less likely to receive a surprise year-end capital gains distribution the way it might from a similarly invested mutual fund, letting more of its return compound untaxed until it actually sells." },
     ],
     quiz: [
       {

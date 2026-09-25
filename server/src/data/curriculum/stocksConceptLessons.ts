@@ -1737,6 +1737,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A private company's shares are held by a small number of founders, employees, and investors, and aren't available for the general public to buy or sell. A public company has listed its shares on an exchange through an initial public offering (IPO), letting anyone buy or sell shares freely in the open market." },
       { type: "heading", text: "Why Stock Prices Move" },
       { type: "paragraph", text: "A stock's price is simply whatever the market is currently willing to pay for one share, constantly being reset by real buy and sell orders. That price reflects the market's collective, ever-changing view of the company's future profits, discounted back to what they're worth today — new information about the business updates that view, and the price along with it." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "When a fast-growing private company decides to go public, it's converting itself from a business owned by a handful of founders and early investors into one that anyone can own a piece of by buying shares on an exchange. A retail investor who buys shares right after that IPO isn't lending the company money that has to be paid back — they now own a small, permanent slice of the business itself, sharing in its future profits and its future losses alike, with no one obligated to ever hand that money back." },
     ],
     quiz: [
       {
@@ -1821,6 +1823,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Buying a stock outright, in the ordinary sense, is called going long: you profit if the price rises, and lose if it falls, with your maximum loss limited to what you paid for the shares." },
       { type: "heading", text: "Selling Short" },
       { type: "paragraph", text: "Selling short flips that around: borrowing shares you don't own, selling them immediately, and aiming to buy them back later at a lower price to return to the lender, pocketing the difference. A short seller profits if the price falls, but faces theoretically unlimited losses if the price rises instead, since there's no cap on how high a stock can go." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Picture a trader who believes a heavily hyped stock has run up further than its actual business justifies. Instead of buying, they borrow shares from their broker and sell them immediately at today's price, planning to buy them back later once the price comes back down and return the borrowed shares to close out the trade. If they're right, they pocket the difference; but if the stock keeps climbing instead, they have to buy back at a higher and higher price with no ceiling in sight, which is exactly why short selling carries a kind of risk that a simple long position never does." },
     ],
     quiz: [
       {
@@ -1905,6 +1909,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Companies are also classified by what they actually do — sectors like technology, healthcare, energy, and financials, further broken into narrower industries within each. This classification lets investors compare a company against its closest peers, and lets a portfolio manager measure and control how much exposure they have to any one part of the economy." },
       { type: "heading", text: "Indices as Benchmarks" },
       { type: "paragraph", text: "A stock index, like the S&P 500, tracks a defined basket of stocks, often selected and weighted by market cap, to represent the performance of a market or a slice of it. Indices serve as benchmarks that individual stocks, sectors, and entire investment strategies are commonly measured against." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A portfolio manager building a technology-focused fund doesn't just buy the single largest tech company by market cap and call it done — they weigh exposure across large-cap software firms, mid-cap semiconductor makers, and smaller, newer companies, because a portfolio concentrated only in the very largest names behaves differently than one spread across the full size spectrum. Comparing that fund's return against a broad benchmark like the S&P 500 is then how the manager judges whether their sector bets actually added value beyond just being invested in stocks generally." },
     ],
     quiz: [
       {
@@ -1989,6 +1995,8 @@ export const stocksConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A share buyback, or repurchase, is the mirror image of issuing new shares: the company uses its own cash to buy back and retire some of its outstanding shares, which increases each remaining shareholder's proportional ownership of the company without paying out a cash dividend." },
       { type: "heading", text: "Earnings Reports" },
       { type: "paragraph", text: "Public companies report their financial results, typically every quarter, disclosing revenue, profit, and other key business metrics. These earnings reports are closely watched catalysts, since they're often the single biggest source of new information the market uses to reassess what a company, and therefore its stock, is actually worth." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Consider a mature utility company that generates steady, predictable cash flow every quarter: rather than plowing all of it back into new growth projects, it distributes a portion directly to shareholders as a dividend, rewarding investors who bought the stock for steady income. Contrast that with a pharmaceutical company awaiting the results of a late-stage drug trial — its stock can swing sharply within minutes of the readout being announced, since that single piece of news instantly changes what the market thinks the company's future earnings, and therefore its stock, are worth." },
     ],
     quiz: [
       {

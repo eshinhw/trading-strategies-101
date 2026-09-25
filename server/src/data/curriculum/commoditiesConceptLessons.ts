@@ -518,6 +518,8 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Commodities are typically grouped into a few broad categories: energy (crude oil, natural gas), metals (gold, silver, copper), and agriculture (wheat, corn, soybeans, livestock) — each category driven by a different mix of supply, demand, and seasonal factors, even though they share the same basic fungibility property that makes standardized trading possible." },
       { type: "heading", text: "Why Standardization Matters" },
       { type: "paragraph", text: "Because commodities are fungible, an exchange can define one standardized contract, specifying exact grade, quantity, and delivery terms, as already covered in this course's Futures Basics module, and have that single contract represent countless individual producers' output. That standardization is precisely what allows deep, liquid commodity futures markets to exist in the first place." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A grain elevator buys wheat from hundreds of different farms across a growing region, and once it's dumped into the same storage bin, nobody tracks which bushel came from which farm — a buyer downstream just orders a given grade of wheat and gets whatever the elevator has on hand. That's fungibility doing real work: it's the reason a wheat futures contract can be written against \"wheat of a certain grade\" in general, rather than against one specific farmer's harvest." },
     ],
     quiz: [
       {
@@ -602,6 +604,8 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "As covered in Futures Basics, the overwhelming majority of commodity futures positions are closed out with an offsetting trade well before the contract's delivery window, specifically so a speculative trader never actually has to deal with taking or making physical delivery — only commercial participants who actually want the physical commodity typically carry a contract through to delivery." },
       { type: "heading", text: "Other Ways to Get Commodity Exposure" },
       { type: "paragraph", text: "Beyond trading futures directly, investors can get commodity exposure through commodity-linked ETFs (which themselves typically hold futures rather than physical barrels or bushels, aside from a few exceptions like certain gold funds), or through the stocks of companies whose businesses are tied to a commodity's price, such as an oil producer or a mining company — an indirect, imperfect substitute that also carries that company's own business risk." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A jewelry manufacturer that needs gold every month to keep production running doesn't want to deal with vaulting bars of physical metal, so it instead buys and rolls gold futures contracts to lock in a price, closing each one out for cash well before delivery and buying the actual metal separately from its usual bullion supplier. A retail investor with no use for physical gold at all can get similar price exposure even more simply, by buying shares of a gold ETF instead of opening a futures account at all." },
     ],
     quiz: [
       {
@@ -686,6 +690,8 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Working in the opposite direction is convenience yield: the real benefit of holding the physical commodity right now rather than a promise of future delivery, which becomes especially valuable when current supply is tight and a business genuinely needs the commodity on hand to keep operating. A high convenience yield can outweigh storage costs entirely, pulling the curve into backwardation." },
       { type: "heading", text: "Why This Differs From Financial Futures" },
       { type: "paragraph", text: "This tug-of-war between storage cost and convenience yield is specific to physical commodities — a financial futures contract, like one on a stock index, has no storage cost and no convenience yield, since there's nothing physical to store or find useful to have on hand, which is exactly why commodity curves behave so differently, and are so much more variable, than financial futures curves." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An oil refiner that keeps a few weeks of crude sitting in tanks pays for that tank space and the insurance on it, and normally expects a later-dated contract to cost a bit more to compensate — a market in contango. But if a pipeline outage suddenly makes crude hard to get right now, that same refiner will pay up for oil in hand today rather than a promise of oil next month, since running dry shuts down the plant; that scramble for immediate supply is convenience yield showing up as backwardation." },
     ],
     quiz: [
       {
@@ -770,6 +776,8 @@ export const commoditiesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Because commodity production is often concentrated in a relatively small number of countries or regions, geopolitical events — sanctions, conflict, export restrictions — can have an outsized effect on global supply and price, a channel that's especially pronounced in energy and certain metals markets." },
       { type: "heading", text: "Inventory Levels" },
       { type: "paragraph", text: "Reported inventory levels — how much of a commodity is currently sitting in storage — are closely watched as a real-time signal of the balance between supply and demand: unusually low inventories tend to signal tight supply and support higher prices (and often backwardation), while unusually high inventories tend to signal oversupply and pressure prices lower (and often contango)." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A run of dry weather across a major corn-growing region during the critical summer growing weeks can shrink the expected harvest before a single bushel is even cut, and traders often bid corn futures higher immediately on the forecast alone, well before any actual shortage shows up at a grain elevator. Weekly government inventory reports work the same way in energy markets — a surprisingly large build in crude oil stockpiles tends to push prices down the same day, as traders read it as a sign that supply is outrunning demand." },
     ],
     quiz: [
       {

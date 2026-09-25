@@ -20,6 +20,8 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Building on what a bond and a stock each are, covered in this curriculum's Fixed Income and Stocks Basics, a convertible sits in between: it behaves like a bond when the stock price is low, since conversion isn't attractive and the fixed coupon and principal dominate its value, and increasingly like the underlying stock as the stock price rises and conversion becomes the better choice." },
       { type: "heading", text: "A Common Financing Tool" },
       { type: "paragraph", text: "Convertible bonds are widely issued by companies, particularly growth companies that want to raise debt financing at a lower coupon than a plain bond would require, in exchange for offering investors the upside potential of eventual conversion into equity — a tradeoff explored in more depth later in this module." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A young biotech or software company that isn't yet generating steady cash flow often struggles to issue a plain bond at an affordable rate, since lenders see real default risk and price it in, and issuing more stock outright dilutes existing shareholders immediately at what the company may see as a depressed price. Issuing a convertible bond splits the difference: the company locks in a lower coupon than a straight bond would cost, and investors accept that lower coupon because they're also buying the chance to convert into equity later if the stock takes off." },
     ],
     quiz: [
       {
@@ -104,6 +106,8 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "At any point, the conversion value, also called parity, is what the bond would be worth if converted right now: the conversion ratio multiplied by the stock's current price. If the stock trades at $60 and the conversion ratio is 20, the conversion value is $1,200 — more than the bond's $1,000 face value, meaning conversion is already worth considering." },
       { type: "heading", text: "Why These Numbers Matter" },
       { type: "paragraph", text: "Conversion ratio and conversion price are fixed at issuance, but the conversion value moves every day with the stock price, which is exactly what creates the tension between a convertible's bond-like and stock-like behavior covered in the next lesson — the higher the stock climbs above the conversion price, the more the bond starts trading like the stock underneath it." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Suppose an investor buys a $1,000 convertible bond with a conversion ratio of 25, giving it a conversion price of $40 a share. If the company's stock is trading at $30, converting would only be worth $750, so the bond trades mainly on its bond-like merits; but if the stock later climbs to $55, those same 25 shares are worth $1,375, well above face value, and the investor now has a real reason to convert instead of just collecting coupons. That single ratio, fixed on day one, is what ties the bond's ultimate value to wherever the stock ends up." },
     ],
     quiz: [
       {
@@ -183,6 +187,8 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "In between those two extremes, a convertible typically trades above both its bond floor and its conversion value, a gap called the convertible premium — compensation for holding an instrument that offers the better of two outcomes, bond-like safety or stock-like upside, without having to commit to either one in advance." },
       { type: "heading", text: "A Curved, Not Straight, Relationship" },
       { type: "paragraph", text: "Plotting a convertible's price against the underlying stock's price traces out a curve: flat and bond-like at low stock prices, rising and increasingly stock-like at high stock prices, with the premium most pronounced in between. That shape is what gives convertible investors participation in a rising stock while cushioning a falling one — the central appeal covered in the next lesson." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Think of a convertible desk tracking the same bond over a year in which the underlying stock first drops 30% and then rallies 80%. During the drop, the convertible's price barely moves, since it's anchored to its bond floor and investors are still confident in the coupon and principal; during the rally, once the stock pushes well past the conversion price, the convertible's price starts moving almost dollar-for-dollar with the stock. Somewhere in between, when the stock is hovering near the conversion price, the desk sees the convertible command its richest premium, since neither the bond floor nor the stock value alone fully explains what buyers are willing to pay for keeping both outcomes open." },
     ],
     quiz: [
       {
@@ -267,6 +273,8 @@ export const convertiblesConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "In exchange, an investor gives up some coupon income compared to a plain bond, but gains the bond floor described in the previous lesson: if the stock falls or stagnates, the convertible still behaves like a bond, protecting much of the investor's principal in a way an outright stock purchase never would." },
       { type: "heading", text: "Upside Participation for the Investor" },
       { type: "paragraph", text: "If the stock instead rises substantially, the investor isn't stuck earning only a fixed coupon — the conversion option lets them participate in that stock's gains. This combination of downside protection and upside participation is the fundamental reason convertibles appeal to a certain kind of investor, and is also exactly what convertible arbitrage strategies, covered later in this course, are built to exploit." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A retirement-focused investor who wants some exposure to a fast-growing company's stock, but can't stomach the idea of a 50% drawdown, might choose that company's convertible bond over its common stock: if the stock craters, the bond floor cushions the loss and coupons keep arriving, and if the stock instead doubles, the investor still participates through conversion. The company on the other side of that trade likes the arrangement too — it raises capital more cheaply than a plain bond, and if the stock does well enough to trigger conversion, the debt disappears from its balance sheet at the same moment its equity story is working out." },
     ],
     quiz: [
       {

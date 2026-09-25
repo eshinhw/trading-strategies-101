@@ -15,6 +15,8 @@ export const conceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Every strategy in this course, no matter how many legs it has, is built from just four raw building blocks: long a call, short a call, long a put, short a put — often combined with a stock position. Once you're comfortable reasoning about those four positions individually, every multi-leg strategy is just addition." },
       { type: "heading", text: "A Habit Worth Building" },
       { type: "paragraph", text: "One habit worth building now: always ask 'who benefits if the stock goes up, and who benefits if it goes down?' for each leg separately, before you look at the combined position. It's the fastest way to understand any strategy, including ones you've never seen before." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A right without an obligation shows up outside the options market too — when a homebuyer pays a deposit for the exclusive right to buy a house at an agreed price within 60 days, they've effectively bought a call option on that house: if the market moves further in their favor they can still buy at the locked-in price, and if it doesn't, they can walk away and lose only the deposit." },
     ],
     quiz: [
       {
@@ -93,6 +95,8 @@ export const conceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "For a put option, it's flipped: the put is ITM when the stock is below the strike, and OTM when the stock is above the strike." },
       { type: "heading", text: "Why It Affects Price" },
       { type: "paragraph", text: "As a rule of thumb, ITM options are more expensive (they have real, immediate value) and OTM options are cheaper (they're 'betting' on a move that hasn't happened yet). You'll see this pattern show up in almost every strategy: buying OTM options to keep cost down, selling OTM options to collect a safer premium." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Traders shorthand this constantly on a trading desk: a market maker scanning an options chain on an earnings day will describe strikes as 'deep ITM,' 'ATM,' or 'way OTM' without doing any math — moneyness is the mental sorting tool that lets them instantly tell which of dozens of strikes are worth quoting tightly and which are near-worthless lottery tickets." },
     ],
     quiz: [
       {
@@ -164,6 +168,8 @@ export const conceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Max profit and max loss are the best and worst outcomes the strategy can produce. For some strategies these are hard caps (a butterfly can't lose more than its debit); for others one side is 'unlimited' — the line keeps sloping away from zero as the stock keeps moving, with no ceiling or floor." },
       { type: "heading", text: "Reading the Shape" },
       { type: "paragraph", text: "The shape itself tells a story: a flat line means 'this outcome doesn't depend on the stock price here.' A sloped line means 'I'm exposed dollar-for-dollar in this zone.' A kink is where a leg's strike price is — that's where its behavior changes. Learning to read the shape at a glance, before looking at the exact numbers, is the single most useful skill this course builds." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "Risk desks at banks and hedge funds build a payoff diagram like this for every position before it's approved, precisely so a risk manager who has never seen the trade can glance at the shape and immediately spot an uncapped loss or a lopsided bet — the diagram is a real underwriting tool, not just a teaching aid." },
     ],
     quiz: [
       {
@@ -240,6 +246,8 @@ export const conceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A net credit trade means you sold more option value than you bought. You keep the credit if things go your way, but now you're the one with an obligation — your risk is on the other side, and depending on the strategy it can be capped or uncapped." },
       { type: "heading", text: "Choosing Between Them" },
       { type: "paragraph", text: "Neither is inherently 'better' — a debit trade risks a known, limited amount for a shot at a bigger (sometimes unlimited) gain; a credit trade collects a known, limited amount upfront in exchange for taking on the risk side of that same trade. Matching the type to your market view and risk tolerance is most of the job." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "This split matches how brokers actually size margin requirements: a net debit trade only ties up the cash you already paid, while a net credit trade requires posting margin against the risk you've taken on — which is why two trades that look similar on a payoff chart can tie up very different amounts of capital in a real account." },
     ],
     quiz: [
       {
@@ -322,6 +330,8 @@ export const conceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "This course's modules are ordered around that idea: simple 2-leg strategies first, then the 3- and 4-leg strategies that are built by combining or adjusting them. When you hit a new strategy, your first move should be to count the legs and ask which simpler strategies (if any) you can already see inside it." },
       { type: "heading", text: "Seeing It in the Tool" },
       { type: "paragraph", text: "The interactive payoff tool in every strategy lesson is designed to reinforce this: watch how the combined line is really just the sum of what each leg would do on its own." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "This is exactly how professional options traders read an unfamiliar position on a risk report: rather than memorizing the P&L shape of every possible combination, they mentally decompose it into legs they already know — the same way a musician recognizes a complicated chord as two simpler chords played together." },
     ],
     quiz: [
       {

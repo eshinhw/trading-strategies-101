@@ -602,6 +602,8 @@ export const volatilityConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Implied volatility looks forward instead: it's the volatility level that, when plugged into an option pricing model, produces the option's actual current market price. Rather than being calculated directly from past price data, implied volatility is backed out from what option traders are collectively willing to pay right now, making it a market-based estimate of future volatility." },
       { type: "heading", text: "Why the Distinction Matters" },
       { type: "paragraph", text: "Historical and implied volatility can, and often do, diverge — implied volatility can run higher or lower than what realized volatility ends up being once the period actually plays out. That gap is the foundation for an entire category of volatility trading strategies, covered later in this course, built around betting on the relationship between what the market expects and what actually happens." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "An options market maker quoting a stock ahead of a major public announcement doesn't know whether the stock will end up 2% higher or 15% lower — but by comparing the price the options market is currently charging (implied volatility) against how much the stock has actually swung around similar events in the past (historical volatility), the market maker can judge whether current option prices look rich, cheap, or roughly fair relative to the stock's own track record." },
     ],
     quiz: [
       {
@@ -686,6 +688,8 @@ export const volatilityConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "The VIX and the S&P 500 have a strong, well-documented negative correlation: the VIX tends to rise when stocks fall, and settle back down when stocks recover or grind higher. This persistent inverse relationship is exactly what makes VIX-linked instruments appealing as a potential hedge against a stock portfolio's own downside." },
       { type: "heading", text: "The VIX Itself Isn't Directly Tradable" },
       { type: "paragraph", text: "The VIX index is a calculated number, not a tradable security — there's no way to simply buy or sell the VIX the way you'd buy a stock. Trading exposure to it requires derivatives built on top of the index, like VIX futures or VIX options, or exchange-traded products built on those derivatives, all covered in the next lesson." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A portfolio manager checking the market open each morning often glances at the VIX level the same way a driver glances at a dashboard warning light: a VIX sitting quietly at a low level signals a market that's calm and complacent, while a VIX jumping sharply higher signals that other market participants are suddenly paying up for downside protection — a useful gut-check on overall market stress well before it shows up in the manager's own portfolio." },
     ],
     quiz: [
       {
@@ -770,6 +774,8 @@ export const volatilityConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Rather than trading VIX futures directly, many investors get volatility exposure through exchange-traded notes (ETNs) built on top of a basket of VIX futures, tradable on an exchange just like a stock or ETF. Unlike an ETF, an ETN is technically an unsecured debt obligation of the issuing bank, carrying issuer credit risk on top of whatever the underlying VIX futures do." },
       { type: "heading", text: "Why These Products Decay Over Time" },
       { type: "paragraph", text: "Because the VIX futures curve typically sits in contango, a fund that continuously rolls its futures forward, always selling a cheaper near-term contract and buying a pricier longer-dated one, tends to erode in value over time even if the VIX itself doesn't trend in either direction — the same structural roll-cost drag covered for commodity futures, which is why these products are generally viewed as short-term trading tools rather than long-term holdings." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A trader anticipating a rocky week around a major economic data release might buy a VIX-linked ETN as a short-term hedge, planning to sell it within days if the anticipated turbulence doesn't fully materialize — the kind of tactical, days-not-years holding period these products are actually built for, since the same contango-driven roll cost that could work in the trader's favor during a sudden spike quietly erodes the position's value the longer it's held afterward." },
     ],
     quiz: [
       {
@@ -854,6 +860,8 @@ export const volatilityConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "The leading explanation is that option buyers are willing to pay a premium for the insurance-like protection options provide against sharp, sudden losses, much like an insurance buyer accepts a policy priced above the insurer's expected payout — that willingness to overpay for protection is what creates the volatility risk premium, compensating whoever is on the other side of that trade for bearing the corresponding risk." },
       { type: "heading", text: "Where This Leads" },
       { type: "paragraph", text: "This persistent gap between implied and realized volatility is exactly what a family of strategies covered later in this course, from selling straddles and strangles to more sophisticated gamma-hedged and variance-swap approaches, is built to systematically harvest — collecting the premium embedded in option prices, while managing the real risk of a period where realized volatility spikes well above what was priced in." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A trader who systematically sells index options, collecting premium month after month, is functioning much like an insurance company that sells policies against events that rarely happen: most months the options expire with little drama and the premium is pure profit, but the strategy's entire viability depends on setting aside enough of that collected premium to absorb the occasional month when realized volatility spikes far beyond what was priced in and a large payout comes due." },
     ],
     quiz: [
       {

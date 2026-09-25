@@ -1256,6 +1256,8 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "This is the core contrast with a stock: a bondholder is owed a specific, contractually fixed stream of payments regardless of how well or poorly the issuer's business performs, while a shareholder's payoff is entirely open-ended, tied to the company's actual profits and residual value. In exchange for that fixed, more predictable claim, a bondholder also ranks ahead of shareholders in a bankruptcy or liquidation." },
       { type: "heading", text: "Why Investors Hold Bonds" },
       { type: "paragraph", text: "Bonds are held for the combination of predictable income and, relative to stocks, lower volatility — useful for an investor who needs cash flow on a known schedule, or who wants to offset the swings of a stock-heavy portfolio with a steadier asset. That predictability comes at the cost of giving up the unlimited upside a shareholder retains if the underlying business does extremely well." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "When a corporate treasurer needs to fund a new factory, they weigh two paths: sell shares in the company, diluting existing owners and giving up a claim on future profits forever, or issue bonds, borrowing a fixed sum from investors under a known schedule of interest and principal payments. Most established companies lean on bonds for routine financing needs precisely because that fixed, contractual obligation is typically cheaper than what equity investors would demand in return for taking on open-ended risk." },
     ],
     quiz: [
       {
@@ -1340,6 +1342,8 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "A bond issued at par with a 4% coupon pays $40 a year on a $1,000 face value, regardless of what happens to rates afterward. If market rates rise to 5%, a new buyer of that same bond wouldn't pay $1,000 for only a 4% return when 5% is available elsewhere — the bond's price has to drop below $1,000 until its fixed $40 coupon, plus the price discount, works out to a competitive 5% yield." },
       { type: "heading", text: "Current Yield vs. Yield to Maturity" },
       { type: "paragraph", text: "Current yield is a simpler, cruder measure: just the annual coupon divided by the bond's current market price, ignoring any gain or loss from the price converging to face value at maturity. Yield to maturity is the more complete measure, since it accounts for that convergence too, which is why the two figures diverge whenever a bond trades away from par." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A bond fund manager holding a portfolio of 10-year government bonds watches its value drop the moment a central bank signals it will raise rates, even though not a single bond in the portfolio has changed hands. The market simply re-prices every existing bond downward so that its fixed coupon, relative to its now-lower price, offers a yield competitive with the higher-coupon bonds being issued at the new, higher rate." },
     ],
     quiz: [
       {
@@ -1424,6 +1428,8 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "Longer maturity generally means higher duration, since more of the bond's value depends on a cash flow far in the future, which is more sensitive to a change in the discount rate. Lower coupons also raise duration, since more of the bond's total value sits in the single, far-off principal repayment rather than being returned steadily through coupons along the way — a zero-coupon bond has the highest duration of all, for a given maturity." },
       { type: "heading", text: "Why Duration Matters for Portfolio Construction" },
       { type: "paragraph", text: "Duration is the tool that lets a bond portfolio manager size a position, compare bonds of different maturities and coupons on a common basis, or construct a hedge, by matching the dollar duration of a hedging instrument to the dollar duration of the exposure being hedged, rather than relying on maturity alone, which can be a misleading measure of actual rate sensitivity." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A pension fund has to pay out a known stream of benefits stretching decades into the future, so its manager builds a bond portfolio whose duration is deliberately matched to the duration of those future payments. If rates move, the value of the bonds held and the present value of the benefits owed shift by roughly the same amount, keeping the fund's ability to meet its obligations largely insulated from swings in interest rates." },
     ],
     quiz: [
       {
@@ -1508,6 +1514,8 @@ export const fixedIncomeConceptLessons: ConceptLesson[] = [
       { type: "paragraph", text: "The curve can flatten, when the gap between short- and long-term yields narrows, or even invert, when short-term yields rise above long-term ones — historically a closely watched signal, since an inverted curve has often preceded economic slowdowns, reflecting a market expectation that central banks will eventually need to cut rates in response to weaker growth ahead." },
       { type: "heading", text: "Why the Curve Matters Beyond Prediction" },
       { type: "paragraph", text: "Even setting aside what it might predict about the economy, the yield curve's shape directly drives which fixed income strategies make sense at a given moment — a steep curve favors strategies like rolling down the curve, discussed elsewhere in this course, while a flat or inverted curve changes the relative appeal of different maturities and the curve-trade strategies built around them." },
+      { type: "heading", text: "In Practice" },
+      { type: "paragraph", text: "A corporate treasurer deciding whether to issue 2-year or 10-year debt checks the shape of the yield curve first: a steep curve means locking in the 10-year rate costs noticeably more than the shorter option, while a flat or inverted curve can make the longer-term borrowing look relatively cheap by comparison. Bond investors read the same curve from the other side, using its shape to judge whether the market is pricing in future rate cuts or a stronger economy ahead." },
     ],
     quiz: [
       {
