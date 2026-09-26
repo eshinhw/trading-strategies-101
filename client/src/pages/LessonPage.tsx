@@ -132,12 +132,28 @@ function groupBodySegments(body: LessonBlock[]): BodySegment[] {
   return segments;
 }
 
+// Distinguishes these two recurring section types at a glance in both the
+// section heading itself and the "on this page" outline — every lesson uses
+// this exact heading text (see conceptLessons/*.ts), so a lookup here covers
+// all of them without touching 100+ content files.
+const HEADING_EMOJI: Record<string, string> = {
+  "In Practice": "🧭",
+  "A Worked Example": "🧮",
+};
+
+function headingWithEmoji(heading: string): string {
+  const emoji = HEADING_EMOJI[heading];
+  return emoji ? `${emoji} ${heading}` : heading;
+}
+
 function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "concept" }> }) {
   const segments = useMemo(() => groupBodySegments(lesson.body), [lesson.body]);
   const outlineItems = useMemo(
     () =>
       segments
-        .map((seg, i) => (seg.kind === "paragraphs" && seg.heading ? { id: `section-${i}`, text: seg.heading } : null))
+        .map((seg, i) =>
+          seg.kind === "paragraphs" && seg.heading ? { id: `section-${i}`, text: headingWithEmoji(seg.heading) } : null,
+        )
         .filter((item): item is { id: string; text: string } => item !== null),
     [segments],
   );
@@ -151,16 +167,16 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
       </header>
 
       <div className="lg:grid lg:grid-cols-[1fr_200px] lg:items-start lg:gap-10">
-        <div className="mb-8 flex flex-col gap-6">
+        <div className="mb-8 flex flex-col gap-10">
           {segments.map((seg, i) => {
             if (seg.kind === "paragraphs") {
               return (
-                <div
-                  key={i}
-                  id={seg.heading ? `section-${i}` : undefined}
-                  className="scroll-mt-6 flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6"
-                >
-                  {seg.heading && <h3 className="text-lg font-semibold text-[#e6e8ec]">{seg.heading}</h3>}
+                <div key={i} id={seg.heading ? `section-${i}` : undefined} className="scroll-mt-6 flex flex-col gap-4">
+                  {seg.heading && (
+                    <h3 className="border-b border-[#2a3040] pb-2 text-xl font-semibold text-[#e6e8ec]">
+                      {headingWithEmoji(seg.heading)}
+                    </h3>
+                  )}
                   {seg.items.map((text, j) => (
                     <p key={j} className="leading-relaxed text-[#e6e8ec]">
                       {text}
