@@ -6,7 +6,7 @@ export function Nav() {
   const navigate = useNavigate();
 
   return (
-    <nav className="relative overflow-hidden bg-gradient-to-r from-[#1c1949] via-[#231f5e] to-[#1c1949]">
+    <nav className="relative overflow-hidden bg-gradient-to-r from-[#1a1408] via-[#2b2110] to-[#1a1408]">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-28 left-1/4 h-64 w-64 rounded-full bg-[#f5a623]/15 blur-3xl" />
         <div className="absolute -top-32 right-1/4 h-72 w-72 rounded-full bg-[#f5a623]/10 blur-3xl" />
