@@ -206,12 +206,32 @@ export const modules: Module[] = [
     ],
   },
   {
+    slug: "futures-markets-and-trading",
+    courseSlug: "futures",
+    title: "Futures Markets & Trading",
+    description:
+      "Why futures markets exist and who trades in them, a tour of the major markets, how the futures price relates to spot, how orders actually get filled, how to read a quote or a chart, and the risk-management, regulatory, and beginner-mistake ground every trader should cover before risking real money.",
+    order: 3,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "futures-why-futures-markets-exist",
+      "futures-market-participants",
+      "futures-major-futures-markets",
+      "futures-basis-and-contango-backwardation",
+      "futures-trading-mechanics-orders-and-liquidity",
+      "futures-reading-quotes-and-charts",
+      "futures-risk-management",
+      "futures-regulation-and-trader-protections",
+      "futures-common-beginner-mistakes",
+    ],
+  },
+  {
     slug: "futures-strategies",
     courseSlug: "futures",
     title: "Futures Strategies",
     description:
       "How futures contracts are used in practice — hedging price risk, systematic trend following, and trading the shape of the futures curve with calendar spreads.",
-    order: 3,
+    order: 4,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-hedging-with-futures",
