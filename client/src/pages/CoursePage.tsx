@@ -24,7 +24,7 @@ export function CoursePage() {
     return (
       <div className="mx-auto max-w-7xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
+        <Link to="/courses" className="mt-4 inline-block text-[#f5a623] hover:underline">
           ← All Courses
         </Link>
       </div>
@@ -37,7 +37,7 @@ export function CoursePage() {
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
-      <Link to="/courses" className="text-sm text-[#4f8cff] hover:underline">
+      <Link to="/courses" className="text-sm text-[#f5a623] hover:underline">
         ← All Courses
       </Link>
 
@@ -53,7 +53,7 @@ export function CoursePage() {
           )}
         </div>
         <h1 className="text-3xl font-bold text-[#e6e8ec]">{course.title}</h1>
-        <p className="mt-2 max-w-2xl text-[#9aa3b2]">{course.description}</p>
+        <p className="mt-2 text-[#9aa3b2]">{course.description}</p>
       </header>
 
       {course.status === "available" ? (
@@ -85,7 +85,7 @@ function AvailableCourseModules({ slug }: { slug: string }) {
       <div className="mb-6 flex items-center gap-3">
         <div className="h-2 flex-1 overflow-hidden rounded-full bg-[#1b2029]">
           <div
-            className="h-full rounded-full bg-[#4f8cff] transition-all"
+            className="h-full rounded-full bg-[#f5a623] transition-all"
             style={{ width: `${(data.totalCompleted / data.totalLessons) * 100}%` }}
           />
         </div>
@@ -128,7 +128,7 @@ function ExamSection({ slug }: { slug: string }) {
         status.unlocked
           ? passed
             ? "card-glow border-emerald-500/30 bg-emerald-500/10"
-            : "card-glow border-[#4f8cff]/30 bg-[#4f8cff]/10"
+            : "card-glow border-[#f5a623]/30 bg-[#f5a623]/10"
           : "border-[#2a3040]/60 bg-[#101319] opacity-60"
       }`}
     >
@@ -156,7 +156,7 @@ function ExamSection({ slug }: { slug: string }) {
         {status.unlocked && (
           <Link
             to={`/courses/${slug}/exam`}
-            className="shrink-0 rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0]"
+            className="shrink-0 rounded-lg bg-[#f5a623] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#d98f12]"
           >
             {passed ? "Retake quiz" : "Take the quiz"}
           </Link>
@@ -227,7 +227,7 @@ function ComingSoonStrategies({ course }: { course: Course }) {
       <ul className="grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
         {course.strategyTitles?.map((title) => (
           <li key={title} className="flex items-start gap-2 text-sm text-[#e6e8ec]">
-            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#4f8cff]" />
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#f5a623]" />
             {title}
           </li>
         ))}

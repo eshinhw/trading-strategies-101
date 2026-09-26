@@ -12,7 +12,7 @@ export function LevelChip({ label, active, onClick }: { label: string; active: b
       onClick={onClick}
       className={`shrink-0 rounded-full border px-3 py-1 text-xs font-medium transition ${
         active
-          ? "border-[#4f8cff]/30 bg-[#4f8cff]/10 text-[#4f8cff]"
+          ? "border-[#f5a623]/30 bg-[#f5a623]/10 text-[#f5a623]"
           : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150] hover:text-[#e6e8ec]"
       }`}
     >
@@ -84,7 +84,7 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
     <div className="mx-auto max-w-7xl px-6 py-10">
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-[#e6e8ec]">{title}</h1>
-        <p className="mt-4 max-w-2xl text-[#9aa3b2]">{description}</p>
+        <p className="mt-4 text-[#9aa3b2]">{description}</p>
       </header>
 
       {error && <p className="text-red-400">{error}</p>}
@@ -118,7 +118,7 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                 return (
                   <section key={category.slug}>
                     <h2 className="text-xl font-bold text-[#e6e8ec]">{category.title}</h2>
-                    <p className="mt-1 max-w-2xl text-sm text-[#9aa3b2]">{category.description}</p>
+                    <p className="mt-1 text-sm text-[#9aa3b2]">{category.description}</p>
                     <div className={`mt-4 grid grid-cols-1 gap-4 ${gridColsClassName}`}>
                       {items.map((item) => renderCard(item))}
                     </div>

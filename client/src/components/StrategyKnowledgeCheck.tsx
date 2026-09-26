@@ -138,7 +138,7 @@ export function StrategyKnowledgeCheck({
             <span className="text-[#898781]">
               <ParamLabel label={p.label} />:
             </span>{" "}
-            <span className="font-mono text-[#4f8cff]">{practiceParams[p.key]}</span>
+            <span className="font-mono text-[#f5a623]">{practiceParams[p.key]}</span>
           </span>
         ))}
       </div>
@@ -207,7 +207,7 @@ export function StrategyKnowledgeCheck({
                   [q.id]: { unlimited: e.target.checked, text: a[q.id]?.text ?? "" },
                 }))
               }
-              className="accent-[#4f8cff]"
+              className="accent-[#f5a623]"
             />
             Unlimited
           </label>
@@ -215,7 +215,7 @@ export function StrategyKnowledgeCheck({
             <button
               onClick={checkNumeric}
               disabled={!isNumericAnswered(numericAnswers[q.id])}
-              className="rounded-lg bg-[#4f8cff] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-[#f5a623] px-3 py-1.5 text-sm font-medium text-[#0b0d12] hover:bg-[#d98f12] disabled:cursor-not-allowed disabled:opacity-40"
             >
               Check answer
             </button>

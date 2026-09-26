@@ -35,7 +35,7 @@ export function LessonPage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
+        <Link to="/courses" className="mt-4 inline-block text-[#f5a623] hover:underline">
           ← All Courses
         </Link>
       </div>
@@ -60,14 +60,14 @@ function Breadcrumb({ lesson }: { lesson: LessonDetail }) {
     <div className="mb-4 flex items-center gap-2 text-sm">
       <Link
         to={lesson.courseSlug ? `/courses/${lesson.courseSlug}` : "/courses"}
-        className="text-[#4f8cff] hover:underline"
+        className="text-[#f5a623] hover:underline"
       >
         Course
       </Link>
       {lesson.moduleSlug && (
         <>
           <span className="text-[#898781]">/</span>
-          <Link to={`/module/${lesson.moduleSlug}`} className="text-[#4f8cff] hover:underline">
+          <Link to={`/module/${lesson.moduleSlug}`} className="text-[#f5a623] hover:underline">
             {lesson.moduleTitle}
           </Link>
         </>
@@ -81,19 +81,19 @@ function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (
   return (
     <div className="mt-10 flex items-center justify-between border-t border-[#2a3040] pt-6">
       {lesson.prevLessonSlug ? (
-        <button onClick={() => onNavigate(lesson.prevLessonSlug!)} className="text-sm text-[#4f8cff] hover:underline">
+        <button onClick={() => onNavigate(lesson.prevLessonSlug!)} className="text-sm text-[#f5a623] hover:underline">
           ← Previous lesson
         </button>
       ) : (
         <span />
       )}
       {lesson.nextLessonSlug ? (
-        <button onClick={() => onNavigate(lesson.nextLessonSlug!)} className="text-sm text-[#4f8cff] hover:underline">
+        <button onClick={() => onNavigate(lesson.nextLessonSlug!)} className="text-sm text-[#f5a623] hover:underline">
           Next lesson →
         </button>
       ) : (
         lesson.moduleSlug && (
-          <Link to={`/module/${lesson.moduleSlug}`} className="text-sm text-[#4f8cff] hover:underline">
+          <Link to={`/module/${lesson.moduleSlug}`} className="text-sm text-[#f5a623] hover:underline">
             Back to module →
           </Link>
         )
@@ -256,7 +256,7 @@ function LessonOutline({ items }: { items: { id: string; text: string }[] }) {
               href={`#${item.id}`}
               className={`block border-l-2 py-1 pl-3 text-sm transition ${
                 activeId === item.id
-                  ? "border-[#4f8cff] font-medium text-[#4f8cff]"
+                  ? "border-[#f5a623] font-medium text-[#f5a623]"
                   : "border-[#2a3040] text-[#898781] hover:border-[#3a4150] hover:text-[#e6e8ec]"
               }`}
             >
@@ -361,7 +361,7 @@ function FormulaReference({ strategy }: { strategy: Extract<LessonDetail, { kind
   const [show, setShow] = useState(false);
   return (
     <div>
-      <button onClick={() => setShow((v) => !v)} className="text-sm text-[#4f8cff] hover:underline">
+      <button onClick={() => setShow((v) => !v)} className="text-sm text-[#f5a623] hover:underline">
         {show ? "Hide" : "Show"} the formulas (§{strategy.section})
       </button>
       {show && (

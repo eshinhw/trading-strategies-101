@@ -84,7 +84,7 @@ export function ConstructionPage() {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-amber-400">{error}</p>
-        <Link to="/courses" className="mt-4 inline-block text-[#4f8cff] hover:underline">
+        <Link to="/courses" className="mt-4 inline-block text-[#f5a623] hover:underline">
           ← All Courses
         </Link>
       </div>
@@ -97,7 +97,7 @@ export function ConstructionPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
-      <Link to={`/module/${exercise.moduleSlug}`} className="text-sm text-[#4f8cff] hover:underline">
+      <Link to={`/module/${exercise.moduleSlug}`} className="text-sm text-[#f5a623] hover:underline">
         ← {exercise.moduleTitle ?? "Back to module"}
       </Link>
 
@@ -134,7 +134,7 @@ export function ConstructionPage() {
               <button
                 key={c.slug}
                 onClick={() => pickCandidate(c.slug)}
-                className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-4 text-left transition hover:border-[#4f8cff]/50 hover:bg-[#171c26]"
+                className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-4 text-left transition hover:border-[#f5a623]/50 hover:bg-[#171c26]"
               >
                 <div className="font-medium text-[#e6e8ec]">{c.name}</div>
               </button>
@@ -154,7 +154,7 @@ export function ConstructionPage() {
         <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <div className="font-medium text-[#e6e8ec]">Building: {strategy.name}</div>
-            <button onClick={changeStrategy} className="text-xs text-[#4f8cff] hover:underline">
+            <button onClick={changeStrategy} className="text-xs text-[#f5a623] hover:underline">
               Pick a different strategy
             </button>
           </div>
@@ -183,7 +183,7 @@ export function ConstructionPage() {
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="self-start rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-50"
+            className="self-start rounded-lg bg-[#f5a623] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#d98f12] disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? "Checking…" : "Check my build"}
           </button>
@@ -223,7 +223,7 @@ function ConstructionResult({
       <div className="mt-6 flex justify-center gap-4">
         <button
           onClick={onTryAgain}
-          className="rounded-lg bg-[#4f8cff] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#3d7ce0]"
+          className="rounded-lg bg-[#f5a623] px-5 py-2.5 text-sm font-medium text-[#0b0d12] hover:bg-[#d98f12]"
         >
           Adjust and retry
         </button>

@@ -34,7 +34,7 @@ export function QuizChoiceOption({
         ? "border-red-500/40 bg-red-500/10 text-red-300"
         : "border-[#2a3040] text-[#9aa3b2]"
     : isSelected
-      ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
+      ? "border-[#f5a623] bg-[#f5a623]/10 text-[#e6e8ec]"
       : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]";
 
   return (
@@ -51,7 +51,7 @@ export function QuizChoiceOption({
       <input
         type="radio"
         name={name}
-        className="accent-[#4f8cff]"
+        className="accent-[#f5a623]"
         disabled={disabled}
         checked={isSelected}
         onChange={onSelect}

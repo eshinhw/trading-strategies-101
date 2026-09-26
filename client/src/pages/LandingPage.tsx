@@ -33,7 +33,7 @@ function Hero() {
     <section className="relative overflow-hidden border-b border-[#2a3040]">
       <div
         className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, #4f8cff, transparent)" }}
+        style={{ background: "radial-gradient(closest-side, #f5a623, transparent)" }}
       />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
@@ -48,7 +48,7 @@ function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               to="/signup"
-              className="rounded-lg bg-[#4f8cff] px-5 py-2.5 font-medium text-white hover:bg-[#3d7ce0]"
+              className="rounded-lg bg-[#f5a623] px-5 py-2.5 font-medium text-[#0b0d12] hover:bg-[#d98f12]"
             >
               Start learning — it's free
             </Link>
@@ -117,9 +117,6 @@ function CoursesPreview() {
     <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-2xl font-bold text-[#e6e8ec]">18 courses, one per asset class</h2>
-        {availableCount !== undefined && (
-          <p className="mt-2 text-[#9aa3b2]">{availableCount} available now — the rest are on the roadmap.</p>
-        )}
 
         {courses && (
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -141,7 +138,7 @@ function FinalCta() {
         Create a free account to save your progress and unlock modules as you complete them.
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-        <Link to="/signup" className="rounded-lg bg-[#4f8cff] px-5 py-2.5 font-medium text-white hover:bg-[#3d7ce0]">
+        <Link to="/signup" className="rounded-lg bg-[#f5a623] px-5 py-2.5 font-medium text-[#0b0d12] hover:bg-[#d98f12]">
           Sign up free
         </Link>
         <Link to="/login" className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">

@@ -14,7 +14,7 @@ export function QuizProgress({ current, total }: { current: number; total: numbe
           <div
             key={i}
             className={`h-1.5 flex-1 rounded-full transition-colors ${
-              i < current ? "bg-[#4f8cff]" : i === current ? "bg-[#4f8cff]/40" : "bg-[#1b2029]"
+              i < current ? "bg-[#f5a623]" : i === current ? "bg-[#f5a623]/40" : "bg-[#1b2029]"
             }`}
           />
         ))}

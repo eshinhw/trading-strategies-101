@@ -80,7 +80,7 @@ export function ExamPage() {
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
         <p className="text-amber-400">{error}</p>
         {slug && (
-          <Link to={`/courses/${slug}`} className="mt-4 inline-block text-[#4f8cff] hover:underline">
+          <Link to={`/courses/${slug}`} className="mt-4 inline-block text-[#f5a623] hover:underline">
             ← Back to course
           </Link>
         )}
@@ -102,7 +102,7 @@ export function ExamPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
-      <Link to={`/courses/${slug}`} className="text-sm text-[#4f8cff] hover:underline">
+      <Link to={`/courses/${slug}`} className="text-sm text-[#f5a623] hover:underline">
         ← Exit quiz
       </Link>
 
@@ -132,7 +132,7 @@ export function ExamPage() {
                   <span className="text-[#898781]">
                     <ParamLabel label={p.label} />:
                   </span>{" "}
-                  <span className="font-mono text-[#4f8cff]">{q.practiceParams![p.key]}</span>
+                  <span className="font-mono text-[#f5a623]">{q.practiceParams![p.key]}</span>
                 </span>
               ))}
             </div>
@@ -171,7 +171,7 @@ export function ExamPage() {
                     [q.id]: { kind: "numeric", unlimited: e.target.checked, text: a?.kind === "numeric" ? a.text : "" },
                   }))
                 }
-                className="accent-[#4f8cff]"
+                className="accent-[#f5a623]"
               />
               Unlimited
             </label>
@@ -185,14 +185,14 @@ export function ExamPage() {
                   key={ci}
                   className={`flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-sm capitalize transition ${
                     isSelected
-                      ? "border-[#4f8cff] bg-[#4f8cff]/10 text-[#e6e8ec]"
+                      ? "border-[#f5a623] bg-[#f5a623]/10 text-[#e6e8ec]"
                       : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
                   }`}
                 >
                   <input
                     type="radio"
                     name={q.id}
-                    className="accent-[#4f8cff]"
+                    className="accent-[#f5a623]"
                     checked={isSelected}
                     onChange={() => setAnswers((prev) => ({ ...prev, [q.id]: { kind: "mcq", choiceIndex: ci } }))}
                   />
@@ -207,7 +207,7 @@ export function ExamPage() {
           <button
             onClick={() => setCurrentIndex((i) => i - 1)}
             disabled={currentIndex === 0}
-            className="text-sm text-[#4f8cff] hover:underline disabled:cursor-not-allowed disabled:text-[#898781] disabled:no-underline"
+            className="text-sm text-[#f5a623] hover:underline disabled:cursor-not-allowed disabled:text-[#898781] disabled:no-underline"
           >
             ← Back
           </button>
@@ -215,14 +215,14 @@ export function ExamPage() {
             <button
               onClick={handleSubmit}
               disabled={!allAnswered || submitting}
-              className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0] disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-[#f5a623] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#d98f12] disabled:cursor-not-allowed disabled:opacity-40"
             >
               {submitting ? "Grading…" : "Submit quiz"}
             </button>
           ) : (
             <button
               onClick={() => setCurrentIndex((i) => i + 1)}
-              className="rounded-lg bg-[#4f8cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#3d7ce0]"
+              className="rounded-lg bg-[#f5a623] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#d98f12]"
             >
               Next question →
             </button>
@@ -253,7 +253,7 @@ function ExamReport({
   const pct = Math.round(result.score * 100);
   return (
     <div className="mx-auto max-w-3xl px-6 py-10">
-      <Link to={`/courses/${courseSlug}`} className="text-sm text-[#4f8cff] hover:underline">
+      <Link to={`/courses/${courseSlug}`} className="text-sm text-[#f5a623] hover:underline">
         ← Back to course
       </Link>
 
@@ -286,7 +286,7 @@ function ExamReport({
             <div className="mb-1 flex flex-wrap items-center gap-2 text-xs text-[#898781]">
               <span>{i + 1}.</span>
               <span className="rounded-full border border-[#2a3040] px-2 py-0.5">{r.moduleTitle}</span>
-              <Link to={`/lesson/${r.lessonSlug}`} className="text-[#4f8cff] hover:underline">
+              <Link to={`/lesson/${r.lessonSlug}`} className="text-[#f5a623] hover:underline">
                 {r.lessonTitle}
               </Link>
             </div>
@@ -302,7 +302,7 @@ function ExamReport({
       <div className="mt-8 flex justify-center gap-4">
         <button
           onClick={onRetake}
-          className="rounded-lg bg-[#4f8cff] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#3d7ce0]"
+          className="rounded-lg bg-[#f5a623] px-5 py-2.5 text-sm font-medium text-[#0b0d12] hover:bg-[#d98f12]"
         >
           Retake quiz
         </button>

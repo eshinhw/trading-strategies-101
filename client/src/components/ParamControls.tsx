@@ -21,7 +21,7 @@ export function ParamControls({
         </h3>
         <button
           onClick={onReset}
-          className="text-xs text-[#4f8cff] hover:underline"
+          className="text-xs text-[#f5a623] hover:underline"
         >
           Reset to defaults
         </button>
@@ -50,7 +50,7 @@ export function ParamControls({
               step={p.step}
               value={values[p.key] ?? p.default}
               onChange={(e) => onChange(p.key, Number(e.target.value))}
-              className="w-full accent-[#4f8cff]"
+              className="w-full accent-[#f5a623]"
             />
             {p.hint && <div className="mt-1 text-xs text-[#898781]">{p.hint}</div>}
           </div>
@@ -106,7 +106,7 @@ function NumberField({
         setText(String(clamped));
         onCommit(clamped);
       }}
-      className="w-20 rounded-md border border-[#2a3040] bg-[#0e1117] px-2 py-0.5 text-right font-mono text-sm text-[#4f8cff] focus:border-[#4f8cff]/60 focus:outline-none"
+      className="w-20 rounded-md border border-[#2a3040] bg-[#0e1117] px-2 py-0.5 text-right font-mono text-sm text-[#f5a623] focus:border-[#f5a623]/60 focus:outline-none"
     />
   );
 }

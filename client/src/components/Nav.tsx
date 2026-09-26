@@ -8,8 +8,8 @@ export function Nav() {
   return (
     <nav className="relative overflow-hidden bg-gradient-to-r from-[#1c1949] via-[#231f5e] to-[#1c1949]">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-28 left-1/4 h-64 w-64 rounded-full bg-[#6d5ef5]/20 blur-3xl" />
-        <div className="absolute -top-32 right-1/4 h-72 w-72 rounded-full bg-[#4338ca]/25 blur-3xl" />
+        <div className="absolute -top-28 left-1/4 h-64 w-64 rounded-full bg-[#f5a623]/15 blur-3xl" />
+        <div className="absolute -top-32 right-1/4 h-72 w-72 rounded-full bg-[#f5a623]/10 blur-3xl" />
       </div>
 
       <div className="relative flex w-full flex-wrap items-center justify-between gap-x-6 gap-y-2 px-6 py-4 sm:px-10">
@@ -67,7 +67,7 @@ export function Nav() {
                 </Link>
                 <Link
                   to="/signup"
-                  className="rounded-full bg-[#6d5ef5] px-4 py-2 font-medium text-white hover:bg-[#5b4ce0]"
+                  className="rounded-full bg-[#f5a623] px-4 py-2 font-medium text-[#0b0d12] hover:bg-[#d98f12]"
                 >
                   Sign up
                 </Link>
