@@ -42,12 +42,12 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-[#2a3040] pt-6 text-xs text-[#898781] sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Trading Strategies 101.</p>
-          <p className="max-w-2xl sm:text-right">
+          <p>© {year} Trading Strategies 101. All rights reserved.</p>
+          {/* <p className="max-w-2xl sm:text-right">
             Strategy mechanics, formulas, and categorization are drawn from Kakushadze, Z. and Serur, J.A.,{" "}
             <em>151 Trading Strategies</em> (2018). Plain-English explanations, scenarios, and course content are
             original to this project.
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>
