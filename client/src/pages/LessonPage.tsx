@@ -137,8 +137,8 @@ function groupBodySegments(body: LessonBlock[]): BodySegment[] {
 // this exact heading text (see conceptLessons/*.ts), so a lookup here covers
 // all of them without touching 100+ content files.
 const HEADING_EMOJI: Record<string, string> = {
-  "In Practice": "🧭",
-  "A Worked Example": "🧮",
+  "In Practice": "💡",
+  "A Worked Example": "📐",
 };
 
 function headingWithEmoji(heading: string): string {
