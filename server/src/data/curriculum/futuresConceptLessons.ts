@@ -32,7 +32,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Hedging with futures doesn't eliminate risk — it trades price risk for basis risk, the risk that the futures price and the cash price don't move in perfect lockstep. A hedger also gives up the benefit of a favorable price move in exchange for protection against an unfavorable one; certainty has a cost.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
         text: "A farmer expects to harvest 50,000 bushels of wheat in six months and sells wheat futures today at $6.00 per bushel, locking in $300,000 of notional value. At harvest, the cash price has fallen to $5.50 per bushel. Selling the physical wheat now brings in only 50,000 × $5.50 = $275,000, but the short futures position has gained ($6.00 − $5.50) × 50,000 = $25,000, since the trader locked in the higher price and can buy back the futures cheaper than they sold it. Adding the two together, $275,000 + $25,000 = $300,000, the farmer nets almost exactly the $300,000 they locked in — the futures gain offset the cash-market loss, aside from any small basis gap between the futures and cash markets.",
@@ -146,7 +146,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Trend-following programs typically trade across many uncorrelated futures markets at once — grains, energy, metals, currencies, interest rates, equity indexes — rather than concentrating on one. Since nobody knows in advance which market will trend next, spreading the strategy across many markets is what lets a handful of big winners offset the frequent small losses elsewhere.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
         text: "A trader with a $500,000 account risks 1% of capital, $5,000, on each new trend trade. Crude oil crosses above its 200-day moving average at $75 per barrel, triggering a long entry, with a stop-loss set at $73 — a $2-per-barrel risk. Since one contract covers 1,000 barrels, that's $2,000 of risk per contract, so the trader buys $5,000 ÷ $2,000 ≈ 2 contracts. The trend continues and crude eventually reaches $85: the position gains $10 per barrel × 1,000 barrels × 2 contracts = $20,000 — four times the $5,000 originally risked, from a single trade that worked.",
@@ -262,7 +262,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "A classic use case: heading into a season where a supply crunch is expected, such as a natural gas contract approaching a cold winter with low storage, a trader might buy the near-month contract and sell a further-out month, expecting the near-term squeeze to push the front contract's price up relative to the back one. That profits from the change in the spread, largely independent of whether natural gas prices broadly rise or fall.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
         text: "December crude oil trades at $78 and November crude trades at $76 — a $2 contango spread. A trader expecting the near-term squeeze to tighten buys November and sells December. Over the following weeks, November rises to $77.50 (a $1.50 gain on the long leg) while December stays flat at $78.00 (no gain or loss on the short leg), narrowing the spread from $2.00 down to $0.50. The trade nets $1.50 per barrel — $1,500 on a single 1,000-barrel contract — purely from the spread narrowing, regardless of what crude's outright price did in the meantime.",
@@ -368,7 +368,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "To size a cross-hedge, traders often compute a hedge ratio, commonly estimated by regressing the exposed asset's price changes against the hedging instrument's price changes. That regression's slope — sometimes called the minimum-variance hedge ratio — tells them how many futures contracts to use per unit of exposure, rather than assuming a naive one-for-one match.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
         text: "A regional jet-fuel buyer needs to hedge 100,000 gallons of future purchases. Regressing historical jet-fuel price changes against heating oil futures price changes gives a hedge ratio of 0.85 — jet fuel has typically moved about 85 cents for every dollar move in heating oil. The buyer needs 0.85 × 100,000 = 85,000 gallon-equivalents of heating oil futures exposure. If one heating oil futures contract covers 42,000 gallons, that works out to 85,000 ÷ 42,000 ≈ 2 contracts, rather than a naive 100,000 ÷ 42,000 ≈ 2.4 contracts a one-to-one hedge would suggest.",
@@ -483,7 +483,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "As with other futures hedges, an interest-rate hedge isn't perfect: the specific bonds a portfolio holds may not move in perfect lockstep with the futures contract's benchmark instrument, and getting the duration-matched sizing wrong can leave the hedge over- or under-protecting the actual position.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
         text: "A manager holds a $10 million bond portfolio with a duration of 7 years and wants to hedge it with Treasury futures, where the futures contract's underlying has a duration of 9 years and each contract has a notional value of $100,000. A duration-matched hedge shorts (portfolio value × portfolio duration) ÷ (futures notional × futures duration) contracts: ($10,000,000 × 7) ÷ ($100,000 × 9) = $70,000,000 ÷ $900,000 ≈ 78 contracts. Shorting roughly 78 contracts, rather than a round number picked without the duration adjustment, is what actually matches the futures position's rate sensitivity to the portfolio's own.",
@@ -595,7 +595,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Because of that loss profile, disciplined risk controls — a hard stop-loss, or limiting how much a position is added to as price keeps moving against the entry — are essential to mean-reversion trading. Without them, the strategy is exposed to the specific risk of being run over by a real, sustained trend that never reverts.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
         text: "Gold's 20-day average price is $1,950 per ounce with a standard deviation of $15, putting the two-standard-deviation lower band at $1,950 − (2 × $15) = $1,920. Gold drops to $1,915, more than two standard deviations below average, triggering a buy signal. A trader buys 10 contracts (100 ounces each, so 1,000 ounces total). Over the following week, gold reverts to $1,945, and the position gains $30 per ounce × 1,000 ounces = $30,000 — the snapback the mean-reversion rule was betting on.",
@@ -705,7 +705,7 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "This approach requires more data than a pure price-based contrarian rule, since volume and open interest for futures are typically published daily by the exchange with a delay, and is usually combined with price-based signals rather than used entirely on its own. Activity data adds context about who is driving a move and how sustainable the current participation looks, rather than replacing a price signal outright.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
         text: "Natural gas rallies from $2.50 to $3.00 over two weeks. But during that same stretch, daily volume falls from 200,000 contracts to 90,000, and open interest falls from 850,000 contracts to 720,000 — a rally on thinning participation, consistent with short-covering rather than fresh buying. A contrarian trader shorts one contract (10,000 MMBtu) at $3.00. Gas subsequently falls back to $2.70 as the short-covering runs out, and the position gains $0.30 per MMBtu × 10,000 = $3,000.",
@@ -840,10 +840,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Short selling means borrowing an asset from a current holder, through a broker, selling it in the market, and later buying it back to return to the lender — a trade used either as a standalone bet that the asset's price will fall, or, as seen above, as the tool that makes reverse cash-and-carry arbitrage possible when a forward is underpriced. Not every asset can be shorted easily: many physical commodities are difficult or impractical to borrow and short because of the logistics of storage and delivery, which weakens the arbitrage force that would normally correct an underpriced forward and is part of why convenience yield plays such an outsized role in commodity forward pricing specifically.",
       },
-      { type: "heading", text: "In Practice" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A jewelry manufacturer wants to lock in the price of gold it will need in six months, and a bank quotes a forward price built from today's spot price plus the cost of financing that gold and storing it securely until delivery. If the bank's quoted forward price ever drifted meaningfully above that cost-of-carry level, a trading desk could buy gold today, pay to store and finance it, and sell it forward at the richer quoted price — a cash-and-carry arbitrage that keeps real-world forward quotes anchored close to the formula.",
+        text: "A jewelry manufacturer wants to lock in the price of gold it will need in six months. With gold's spot price at $2,000 an ounce, and the cost of financing and securely storing that gold for six months working out to roughly $30 an ounce, the bank quotes a forward price of about $2,030. If the bank ever quoted something noticeably richer than that — say $2,080 — a trading desk could buy gold today at $2,000, pay the $30 to finance and store it, and sell it forward at $2,080, locking in a riskless $50-an-ounce cash-and-carry profit. That arbitrage pressure is exactly what keeps real-world forward quotes anchored close to the cost-of-carry formula instead of drifting away from it.",
       },
     ],
     quiz: [
@@ -1011,15 +1011,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Because initial margin is only a small fraction of a contract's notional value, a modest move in the underlying's price translates into a much larger percentage gain or loss on the margin capital actually posted. That same leverage that makes futures capital-efficient for hedgers and speculators also means a string of adverse daily marks can trigger a margin call, or a full liquidation, far faster than an equivalent-sized position in the cash market ever would.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A trader buys one crude oil futures contract (1,000 barrels) at $80 per barrel, a notional value of $80,000, posting $6,000 of initial margin (7.5% of notional) against a $5,000 maintenance margin threshold. The next day, crude falls to $78, a $2-per-barrel loss, marked to market as a $2,000 debit: 1,000 × $2 = $2,000. The account balance drops from $6,000 to $4,000 — below the $5,000 maintenance threshold — triggering a margin call for $2,000 in variation margin to bring the balance back up to the $6,000 initial margin level.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A commodities trading desk holding a large, leveraged futures position through an unexpected overnight price swing can watch its account get debited the full loss the very next morning, well before the position is ever closed out. That daily cash settlement is exactly why a desk sizes its futures positions around how much adverse daily movement its margin capital can actually absorb, rather than just the position's total notional exposure.",
+        text: "A trader at a commodities desk buys one crude oil futures contract (1,000 barrels) at $80 per barrel — an $80,000 notional position — posting just $6,000 of initial margin (7.5% of notional) against a $5,000 maintenance threshold, exactly the kind of leveraged position a desk takes on every day. Overnight, crude unexpectedly falls to $78 a barrel. The next morning, before the trader has even had a chance to react, the exchange debits the account $2,000 (1,000 barrels × $2) for that loss — dropping the balance from $6,000 to $4,000, below the $5,000 maintenance threshold, and triggering a margin call for $2,000 to restore it. That's the daily mark-to-market machine in action: gains and losses hit the account in cash every single day, whether or not the trader is watching, which is exactly why an experienced desk sizes its futures positions around how much adverse overnight movement its margin capital can actually absorb — not just the position's total notional value.",
       },
     ],
     quiz: [
@@ -1131,15 +1126,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Each futures contract trades under a ticker combined with an expiration month code, and several expirations — say, March, June, September, and December — trade simultaneously at any given time. The nearest-to-expire contract with the highest trading volume is called the front month, and it's typically the most liquid one; as it approaches its own expiration, active traders roll their exposure forward into the next expiration rather than let the contract run into its delivery process.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "The E-mini S&P 500 futures contract has a multiplier of $50 per index point and a minimum tick size of 0.25 points, so each tick is worth 0.25 × $50 = $12.50. If the contract moves from 4,500.00 to 4,502.50, that's a 2.50-point move, or exactly 10 ticks. The dollar gain on one contract is 2.50 × $50 = $125 — the same answer as counting 10 ticks × $12.50 per tick, which is exactly why the standardized tick size and its dollar value matter: they let every trader compute a position's gain or loss the same, unambiguous way.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A grain elevator that needs to hedge corn purchases every harvest season doesn't have to renegotiate a private contract's size, quality grade, and delivery terms each time — it simply buys or sells the exchange's standardized corn futures contract, which specifies all of that upfront. That standardization is exactly what lets the elevator get a hedge on or off within seconds during a trading session, instead of spending days lining up a custom forward with a specific counterparty.",
+        text: "A grain elevator that hedges corn purchases every harvest season doesn't negotiate a private contract's size, grade, and delivery terms from scratch each time — it simply trades the exchange's standardized corn futures contract, getting a hedge on or off within seconds instead of spending days lining up a custom deal. That same standardization is what lets a trader in a completely different market, say the E-mini S&P 500, know exactly what a price move is worth without ever calling anyone to check: the contract's $50-per-point multiplier and 0.25-point minimum tick mean every tick is worth 0.25 × $50 = $12.50. If the index moves from 4,500.00 up to 4,502.50 — a 2.50-point, or 10-tick, move — the gain on one contract is 2.50 × $50 = $125, the same number every trader watching that contract would compute, because the specification behind it is identical for everyone.",
       },
     ],
     quiz: [
@@ -1246,15 +1236,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "A trader who wants continuous exposure without ever taking delivery closes out the expiring contract and simultaneously opens an equivalent position in a later-dated contract — a roll. The price difference between the two contracts, driven largely by the same cost-of-carry logic behind forward pricing, becomes a return or a cost of maintaining that exposure over time, which is exactly the dynamic behind both calendar-spread trading and roll yield in commodity futures.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A trader is long one September crude oil futures contract (1,000 barrels) entered at $75, and expiration is approaching. They close it out by selling at $76, banking a $1-per-barrel gain, or $1,000. To maintain continuous exposure, they simultaneously buy one December contract at $77 — $1 higher than the September price they just sold at, since the market is in contango. That $1-per-barrel gap costs $1,000 in the new position, a separate roll cost embedded in the switch to a further-dated, more expensive contract, on top of whatever September's realized gain was. Rolled repeatedly through a persistent contango market, this cost is exactly what erodes the return of holding continuous futures exposure over time, independent of what crude's outright spot price does.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A retail trader who went long a natural gas futures contract purely as a short-term price bet has no storage tanks, pipeline access, or any actual use for physical natural gas. As the contract's expiration and delivery window approaches, the trader simply closes out the position with an offsetting trade, just like the vast majority of speculative futures traders do, leaving physical delivery to the utilities and energy companies that actually need the gas.",
+        text: "A retail trader who went long a natural gas futures contract purely as a short-term price bet has no storage tanks, pipeline access, or any real use for physical natural gas — so as expiration nears, they simply close the position out with an offsetting trade, leaving delivery to the utilities and energy companies that actually need the gas. A trader rolling a crude oil position runs through that same close-out step, just with an extra wrinkle: long one September contract (1,000 barrels) at $75, they sell it at $76 as expiration nears, banking a $1-per-barrel, $1,000 gain. To keep the exposure going, they simultaneously buy a December contract at $77 — $1 more expensive, since the market's in contango — a $1,000 roll cost on top of whatever September earned. Repeated month after month through a persistent contango market, that recurring roll cost is exactly what quietly erodes the return of holding continuous futures exposure, regardless of what crude's outright price does.",
       },
     ],
     quiz: [
@@ -1367,10 +1352,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "FRAs serve a similar purpose to the exchange-traded interest rate futures covered elsewhere in this course, but FRAs are private, over-the-counter contracts, custom-tailored between two parties in size and dates, carrying the same counterparty-risk tradeoff as any other forward. An interest rate future is the standardized, exchange-cleared, daily-margined version of essentially the same underlying idea.",
       },
-      { type: "heading", text: "In Practice" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A corporate treasurer knows the company will issue a large bond in three months but is worried benchmark rates could climb before pricing, raising the company's borrowing cost. Rather than wait and hope, the treasurer enters an FRA that locks in today's rate for that future period — if rates do rise, the FRA payout offsets the higher coupon the company ends up paying on the actual bond, leaving its effective borrowing cost close to what was locked in today.",
+        text: "A corporate treasurer knows the company will issue a $50 million bond in three months but is worried benchmark rates could climb before pricing, raising the company's borrowing cost. Rather than wait and hope, the treasurer locks in today's 5% rate for that period with an FRA. If rates do climb to 5.75% by the time the bond actually prices, the FRA pays the company roughly the 0.75-percentage-point gap applied to the $50 million notional for that period — offsetting the higher coupon the bond ends up carrying and leaving the company's effective borrowing cost close to the 5% it locked in three months earlier.",
       },
     ],
     quiz: [
@@ -1468,10 +1453,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "This mid-life valuation is what a company needs to mark a forward position on its own books, what a bank needs to calculate before agreeing to unwind or assign an existing forward early, and conceptually underlies the daily variation-margin logic used in a futures contract's mark-to-market process — even though a forward itself, unlike a future, doesn't settle any of that accumulated value until the very end.",
       },
-      { type: "heading", text: "In Practice" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A company hedged its future fuel purchase with a forward six months ago, and its auditors now need to know what that unmatured contract is worth for the quarterly financial statements — not what it was worth at signing. By comparing today's forward price for an equivalent new contract against the original locked-in price, the company's finance team can put a real number on the books, and that same number is what a bank would use if the company wanted to unwind the position early instead of waiting for it to mature.",
+        text: "A company hedged a future jet-fuel purchase with a forward a year ago, locking in 100,000 barrels at $70 a barrel for delivery in three months, and its auditors now need to know what that unmatured contract is worth for the quarterly financial statements — not what it was worth at signing. Today's price for a brand-new, equivalent three-month forward on the same fuel has since risen to $76 a barrel, so the finance team marks the position at roughly ($76 − $70) × 100,000 = $600,000 in the company's favor. That same $600,000 figure is what a bank would use if the company wanted to unwind the position early instead of waiting three more months for it to mature.",
       },
     ],
     quiz: [
@@ -1569,10 +1554,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Beyond individual members' margin, clearinghouses maintain a mutualized guarantee, or default, fund, contributed to by all clearing members, that absorbs losses in the rare event a member defaults and its own posted margin isn't enough to cover the loss — a final layer of protection standing behind the daily margining process.",
       },
-      { type: "heading", text: "In Practice" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "Two traders who have never met, one buying and one selling a crude oil futures contract through an exchange, don't need to check each other's credit before trading, because the moment their trade is matched, the clearinghouse steps in as the legal counterparty to both. If the seller's account were later to default, the clearinghouse — not the buyer — would absorb that gap, drawing on the defaulting member's margin and, if needed, the mutualized guarantee fund, so the buyer's contract is honored regardless.",
+        text: "Two traders who have never met — one buying, one selling a crude oil futures contract through an exchange — don't need to check each other's credit before trading, because the moment their trade is matched, the clearinghouse steps in as the legal counterparty to both. Say the seller had posted the standard $6,000 initial margin against the position and then defaulted after a sharp adverse move. The clearinghouse, not the buyer, absorbs that gap — drawing first on the defaulting member's own $6,000 of posted margin, and if the loss runs deeper than that, on the mutualized guarantee fund behind it — so the buyer's contract is honored in full regardless of what happened on the other side of the trade.",
       },
     ],
     quiz: [
@@ -1671,10 +1656,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Related but distinct from a price limit, a circuit breaker triggers a temporary trading halt, rather than merely capping the price, once a market moves by some threshold percentage very quickly. Used especially in broad equity index futures, a circuit breaker gives markets a brief cooling-off period before trading resumes, rather than locking the price at a hard ceiling or floor for the rest of the session.",
       },
-      { type: "heading", text: "In Practice" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "When a surprise government crop report signals a much smaller harvest than traders expected, an agricultural futures contract can rocket straight to its daily limit up within minutes of the report's release, leaving traders who want to buy more unable to do so until the next session. In a fast, broad selloff in equity index futures, a circuit breaker can kick in instead, pausing trading entirely for a few minutes rather than pinning the price at a hard ceiling, giving panicked markets a moment to reset before trading resumes.",
+        text: "When a surprise government crop report signals a much smaller soybean harvest than traders expected, a soybean futures contract trading at $14.00 a bushel with a $0.70 daily limit can rocket straight up to $14.70 — its limit-up price — within minutes of the report, leaving traders who want to buy more locked out until the next session. Equity index futures handle an extreme move differently: in a fast, broad selloff, a circuit breaker can kick in instead, pausing trading entirely for a few minutes rather than pinning the price at a hard ceiling, giving panicked markets a moment to reset before trading resumes.",
       },
     ],
     quiz: [
@@ -1792,20 +1777,19 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "At the contract's maturity date, a forward is settled in one of two ways: physical settlement, where the seller actually delivers the underlying asset and the buyer pays the agreed forward price, or cash settlement, where instead of exchanging the physical asset, the two parties simply exchange the difference between the agreed forward price and the asset's actual market price at maturity. Which settlement method applies is specified in the contract terms at the outset — physical settlement is more common for commodities where the underlying asset genuinely changes hands, while cash settlement is common when physical delivery is impractical, for a financial index, for example, where there's no single physical asset to deliver.",
       },
-      { type: "heading", text: "A Worked Example" },
-      {
-        type: "paragraph",
-        text: "A flour mill agrees to buy 10,000 bushels of wheat in six months from a grain merchant at a forward price of $6.50 per bushel, giving the contract a notional value of 10,000 × $6.50 = $65,000. At maturity, the actual market price of wheat is $7.00 per bushel. If the contract is cash-settled, the merchant simply pays the mill the difference: ($7.00 − $6.50) × 10,000 = $5,000, since the mill locked in a price $0.50 below where wheat ended up trading. If instead it's physically settled, the merchant delivers 10,000 bushels and the mill pays the agreed $65,000 — either way, the mill's economic outcome is the same: wheat at an effective $6.50 per bushel, regardless of where the market price actually landed.",
-      },
       { type: "heading", text: "Counterparty Risk" },
       {
         type: "paragraph",
         text: "Because a forward contract is a private, over-the-counter agreement between two specific parties rather than a contract cleared through an exchange, it carries counterparty risk — the risk that the other side simply fails to honor the agreement at maturity, whether from an inability or unwillingness to pay. This is the central structural weakness forwards have relative to futures: an exchange-traded futures contract is guaranteed by a clearinghouse and backed by daily margin requirements that limit how much loss can accumulate before it's collected, while a forward's integrity depends entirely on the creditworthiness and good faith of the specific counterparty on the other side of the deal.",
       },
-      { type: "heading", text: "In Practice" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A U.S. exporter expects to receive 10 million euros from a European customer in three months and wants to know today exactly how many dollars that will convert to, rather than gambling on where the exchange rate lands. It signs a forward with its bank to sell those euros at a fixed rate on the payment date — the notional value is the full 10 million euros, no cash changes hands at signing, and if the bank were to fail before the contract settles, the exporter would be left exposed to exactly the counterparty risk this lesson describes.",
+        text: "A flour mill and a U.S. exporter never need to have heard of each other to use the exact same tool for two completely different problems. The mill agrees today to buy 10,000 bushels of wheat in six months from a grain merchant at a forward price of $6.50 per bushel — a $65,000 notional contract (10,000 × $6.50). Six months later, wheat is actually trading at $7.00 a bushel. If the contract is cash-settled, the merchant simply pays the mill the $5,000 difference (($7.00 − $6.50) × 10,000); if it's physically settled, the merchant delivers the wheat and the mill pays the full $65,000. Either way, the mill ends up paying an effective $6.50 a bushel, exactly what it locked in six months earlier, regardless of where the market actually landed.",
+      },
+      {
+        type: "paragraph",
+        text: "The exporter's forward looks nothing like a wheat contract on the surface, but it solves the identical problem. Expecting to receive 10 million euros from a European customer in three months, the exporter signs a forward with its bank to sell those euros at a fixed rate on the payment date — no cash changes hands today, but the dollar value of that future payment is locked in just as firmly as the mill's wheat cost was. The one real difference: if the bank were to fail before the contract settles, the exporter would be exposed to exactly the counterparty risk described above, a risk the mill's forward carries too, just with a grain merchant standing in for a bank.",
       },
     ],
     quiz: [
@@ -1974,15 +1958,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "A long futures position gains when the price rises and loses when it falls; a short position is the exact mirror image, gaining when the price falls and losing when it rises. In both cases, the dollar gain or loss is simply the price change multiplied by the contract's multiplier (or its size, for a physical commodity) — the same arithmetic whether you're long or short, just with the sign flipped.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "Two traders take opposite sides of the same E-mini S&P 500 contract ($50 multiplier) at 4,500.00. The next day it settles at 4,510.00, a 10-point gain. The long trader is credited 10 × $50 = $500; the short trader, who agreed to sell at 4,500.00 something now worth more, is debited that same $500 — one side's gain is exactly the other side's loss, which is what it means for long and short to be the two mirror-image sides of the identical contract.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "Two strangers on opposite sides of the country, one a wheat farmer and one a commodities trading desk, can both go long or short a wheat futures contract on an exchange without ever exchanging names or credit histories. Compare that to a private forward, where the farmer would first have to find a specific buyer willing to negotiate a custom deal — the exchange listing does that matching instantly, for anyone.",
+        text: "Two strangers on opposite sides of the country — a wheat farmer and a commodities trading desk — can go long or short a wheat futures contract on the same exchange without ever exchanging names or credit histories, something a private forward would never allow; the exchange does that matching instantly, for anyone. The same anonymous mechanics played out for two traders on opposite sides of an E-mini S&P 500 contract at 4,500.00 ($50 multiplier). Neither had to know the other existed, but when the index settled the next day at 4,510.00, a 10-point gain, the exchange credited the long trader 10 × $50 = $500 and debited the short trader that identical $500 — one side's gain is exactly the other's loss, the same mirror-image relationship whether the underlying is a stock index or a truckload of wheat.",
       },
     ],
     quiz: [
@@ -2108,15 +2087,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "None of hedging, speculation, or price discovery works well in a thin market. Speculators supply the trading volume and depth that let hedgers get in and out of positions quickly and at a fair price, and that same depth is exactly what makes the resulting price trustworthy enough to serve as a public benchmark that others rely on.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A wheat farmer wants to lock in a sale price and sells wheat futures short. A trading firm with no interest in ever owning wheat takes the other side, betting prices will fall. Their trade sets the day's futures price at $6.20 a bushel — a number a neighboring farmer, who has never placed a futures trade in their life, checks that same afternoon before deciding how much wheat to plant next season.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A grain elevator buying wheat from local farmers doesn't set its cash price in a vacuum — it prices off the exchange's published futures price, plus or minus a local adjustment, precisely because that futures price is the most liquid, most current public estimate of wheat's value available anywhere. Every one of the market's three jobs — hedging, speculation, and price discovery — is working in the background of that single number on the elevator's price board.",
+        text: "A wheat farmer wanting to lock in a sale price sells wheat futures short; a trading firm with no interest in ever owning wheat takes the other side, betting prices will fall. Their trade sets the day's futures price at $6.20 a bushel. A neighboring farmer, who has never placed a futures trade in their life, checks that same number that afternoon before deciding how much wheat to plant next season, and the local grain elevator prices what it pays walk-in farmers off that same $6.20, plus or minus a local adjustment — because it's the most current, most liquid public estimate of wheat's value anywhere. One trade between a farmer and a speculator, and three of the market's core jobs (hedging, speculation, and price discovery) are all doing real work behind a single number on the elevator's price board.",
       },
     ],
     quiz: [
@@ -2219,15 +2193,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Hedgers create the underlying demand to transfer risk; speculators supply the capital willing to absorb it; market makers supply the continuous liquidity that lets both trade instantly; and arbitrageurs enforce the pricing discipline that keeps the whole structure trustworthy. Remove any one role and the market becomes thinner, less efficient, or less reliable as a pricing benchmark.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A soybean processor (hedger) wants to lock in a purchase price and buys futures. A trend-following fund (speculator) happens to be selling that same contract on a bearish view, providing the size the processor needs. Between trades, a market maker keeps a tight bid-ask quote so both can transact instantly rather than waiting for a perfect match, while an arbitrage desk keeps that futures price consistent with soybean's spot price and the cost of carrying it — four different motives, one functioning market.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A retail trader placing a single crude oil futures order rarely thinks about who's on the other side, but in practice their order might be filled by a market maker's standing quote, ultimately absorbed by a speculative fund, while an arbitrage desk elsewhere keeps that day's price from drifting too far from what spot crude and financing costs say it should be. All four participant types are present in essentially every liquid futures market, whether or not any individual trader ever thinks about them.",
+        text: "A retail trader placing a single crude oil futures order rarely thinks about who's actually on the other side of the trade — but every one of this lesson's four roles is usually there, working quietly in the background. A soybean processor (hedger) wanting to lock in a purchase price buys futures; a trend-following fund (speculator) happens to be selling that same contract on a bearish view, supplying the size the processor needs. A market maker keeps a tight bid-ask quote so both sides can transact instantly instead of waiting for a perfect match, while an arbitrage desk keeps that day's price from drifting too far from what soybean's spot price and cost of carry actually justify. Four different motives, one functioning, liquid market — whether or not any single trader in it ever stops to think about who's on the other side.",
       },
     ],
     quiz: [
@@ -2336,15 +2305,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Bitcoin and Ether futures, now listed on regulated exchanges alongside traditional contracts, let institutional and retail traders gain long or short exposure to cryptocurrency prices without directly holding and custodying the underlying coins.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A single E-mini S&P 500 contract at 4,500 with a $50 multiplier controls $225,000 of notional equity exposure, while a single crude oil contract (1,000 barrels) at $80 controls $80,000 of notional exposure — very different dollar sizes per contract, which is exactly why position sizing has to be worked out market by market rather than assumed to be the same everywhere.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "An asset manager running a diversified commodity strategy might hold long positions across crude oil, gold, corn, and copper futures simultaneously, each one a small piece of a much larger portfolio, rather than trading any single physical commodity directly — one reason futures, not the physical goods themselves, are the standard vehicle for getting broad commodity exposure.",
+        text: "An asset manager running a diversified commodity strategy might hold long positions across crude oil, gold, corn, and copper futures all at once, each a small slice of a much larger portfolio — one reason futures, rather than the physical goods themselves, are the standard way to get broad commodity exposure. But those slices aren't sized the same way, because the markets aren't the same size: a single E-mini S&P 500 contract at 4,500 ($50 multiplier) controls $225,000 of notional equity exposure, while a single crude oil contract (1,000 barrels) at $80 controls only $80,000. A manager sizing a position in each market has to work out that real dollar exposure contract by contract, rather than assuming one contract means the same thing everywhere.",
       },
     ],
     quiz: [
@@ -2443,15 +2407,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "The cost-of-carry model covered in the Forward Pricing lesson explains a large part of typical basis behavior — storage and financing costs pushing many markets into contango — but real markets also reflect supply and demand imbalances the pure cost-of-carry formula doesn't capture, which is exactly what shows up as backwardation when it happens.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "Crude oil's spot price is $78 and the three-month futures price is $80 — a $2 negative basis, meaning the market is in contango, consistent with the cost of storing and financing oil for three months. If instead the three-month futures price were $75 while spot stayed at $78, that's a $3 positive basis: backwardation, likely reflecting tight current supply that's pushing buyers to pay up for oil now rather than wait.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A trader holding a long futures position through a market that's persistently in contango, and repeatedly rolling that position forward as covered in an earlier lesson, tends to buy each new contract at a premium to the one just closed — a real, recurring cost of maintaining continuous exposure that has nothing to do with whether the trader's view on the commodity's price direction was right.",
+        text: "Crude oil's spot price sits at $78 while the three-month futures price trades at $80 — a $2 negative basis, meaning the market is in contango, consistent with the ordinary cost of storing and financing oil for three months. A trader who holds a long futures position through a market like that, and keeps rolling it forward the way covered in an earlier lesson, ends up buying each new contract at a small premium to the one just closed — a real, recurring cost that has nothing to do with whether their view on crude's price direction was right. Flip the numbers — a $75 three-month future against the same $78 spot, a $3 positive basis — and the market is in backwardation instead, usually a sign that current supply is tight enough that buyers are willing to pay up for oil now rather than wait three months for it.",
       },
     ],
     quiz: [
@@ -2550,15 +2509,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Volume counts the number of contracts traded during a given period (a day, an hour), reset to zero each new period. Open interest counts the total number of contracts currently open — not yet closed out, expired, or delivered — and only changes when a new position is opened or an existing one is closed, not with every trade. Rising open interest alongside a rising price is often read as new money confirming an uptrend, while rising open interest alongside a falling price can suggest fresh short positions being built.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A contract shows 50,000 contracts of trading volume today, but open interest only rose from 200,000 to 202,000. That gap between the two numbers means most of today's volume was existing positions being traded back and forth (closing out and re-opening), while only a net 2,000 contracts represent genuinely new exposure added to the market.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A trader deciding whether to use a market or a limit order on a thinly-traded agricultural contract checks the bid-ask spread first — a wide spread on a low-open-interest contract is a signal that a market order could get a materially worse fill than expected, making a limit order the safer choice even at the cost of the order possibly not filling right away.",
+        text: "A trader deciding whether to use a market or a limit order on a thinly-traded agricultural contract checks the bid-ask spread first, since a wide spread on a low-open-interest contract is a warning sign that a market order could fill at a materially worse price than expected — often reason enough to use a limit order instead, even at the cost of the order possibly not filling right away. Open interest is exactly the number that flags a thin market in the first place: a contract might show 50,000 contracts of volume today, but if open interest only rose from 200,000 to 202,000, that gap says most of the day's trading was existing positions being closed and reopened, with only a net 2,000 contracts of genuinely new exposure — a market that looks busy on volume alone but isn't necessarily deep.",
       },
     ],
     quiz: [
@@ -2657,15 +2611,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "A futures price chart typically pairs candlesticks or a line showing price over time with a volume bar chart underneath, letting a trader see not just where price moved but how much conviction (trading activity) accompanied that move. A price move on unusually high volume is generally read as more significant than the same move on quiet, low volume.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A trader sees the quote ESZ6 4,512.25, +8.50 (+0.19%), Vol 1,245,000, OI 2.1M. Decoding it: this is the December 2026 E-mini S&P contract, last traded at 4,512.25, up 8.50 points (0.19%) on the day, with 1.245 million contracts traded so far and 2.1 million contracts currently open across all expirations of this product.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A new futures trader pulling up a 10-year Treasury note quote for the first time and seeing a price like 112'165 needs to recognize the tick mark before doing any math — reading it as a plain decimal (112.165 instead of 112 and 16.5/32nds) would badly misstate the contract's actual value.",
+        text: "A new futures trader pulling up a 10-year Treasury note quote for the first time and seeing a price like 112'16 needs to recognize the tick mark before doing any math — reading it as a plain decimal, 112.16 instead of 112 and 16/32nds, would badly misstate what the contract is actually worth. A quote line for a completely different product reads just as precisely once you know the code: ESZ6 4,512.25, +8.50 (+0.19%), Vol 1,245,000, OI 2.1M decodes to the December 2026 E-mini S&P contract, last traded at 4,512.25, up 8.50 points on the day, with 1.245 million contracts traded so far and 2.1 million currently open across every expiration of the product — the same handful of columns, whether the underlying is an equity index or a government bond.",
       },
     ],
     quiz: [
@@ -2768,15 +2717,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Because margin is only a fraction of a contract's notional value, it's possible to control far more exposure than an account can actually absorb a loss on — over-leverage. Keeping total notional exposure across all open positions proportionate to account size, not just to what the margin requirement technically allows, is the core discipline that prevents a string of losses from escalating into a full account wipeout.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A trader with a $50,000 account decides, as a rule, to risk no more than 1% of capital ($500) on any single trade. Trading one crude oil contract (1,000 barrels), a $0.50-per-barrel stop-loss caps the trade's risk at exactly $500 — the stop-loss level is derived from the risk budget, not picked arbitrarily after the fact, which is the risk plan operating independently of how strong the trader's bullish or bearish thesis on oil happens to be.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A desk holding a large futures position ahead of a major central bank rate announcement, a known high-impact event, will typically trim the position or widen its stop beforehand, accepting a smaller expected payoff in exchange for less exposure to the sharp, gap-prone price move such announcements often trigger — risk management overriding what the desk's underlying thesis on rates might otherwise suggest holding through the event.",
+        text: "A desk holding a large futures position ahead of a major central bank rate announcement — a known high-impact event — will typically trim the position or widen its stop beforehand, accepting a smaller expected payoff in exchange for less exposure to the sharp, gap-prone move such announcements often trigger, no matter how strongly the desk believes in its underlying rate thesis. A retail trader applies the same discipline at a smaller scale with a hard number instead of a headline: with a $50,000 account and a rule of risking no more than 1% ($500) on any single trade, a $0.50-per-barrel stop-loss on one crude oil contract (1,000 barrels) caps that trade's risk at exactly $500. The stop distance comes from the risk budget, not from how bullish or bearish the trader feels about oil that day — which is the whole point of having a risk plan separate from a trading thesis.",
       },
     ],
     quiz: [
@@ -2875,15 +2819,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "None of this regulatory structure eliminates market risk itself — a well-regulated exchange, a fully-funded clearinghouse, and full broker disclosure all still leave a trader fully exposed to ordinary price movement and leverage. Regulation protects against fraud, counterparty default, and unsuitable product sales; it isn't, and doesn't claim to be, a guarantee against losing money on a losing trade.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A new customer opening a futures account is required to review and acknowledge a risk disclosure document describing leverage and loss potential in plain terms, and the broker records information about the customer's financial situation before approving the account — two separate protections working together, neither of which changes the actual market risk once a position is opened.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A trader who loses money on a well-executed but ultimately wrong directional bet has no regulatory recourse — the loss is ordinary market risk, the very thing every disclosure document warns about. Regulatory protection instead becomes relevant in a very different scenario: if a broker were found to have misused customer funds, or an exchange's clearinghouse guarantee were ever actually tested by a member default, this is the structure that's meant to respond.",
+        text: "A new customer opening a futures account has to review and acknowledge a risk disclosure document describing leverage and loss potential in plain terms, and the broker records the customer's financial situation before approving the account at all — two protections working together before a single trade is ever placed. But once that account is open and trading, those protections cover a narrower slice of risk than a new trader might expect: a trader who loses money on a well-executed but ultimately wrong directional bet has no regulatory recourse, since that loss is exactly the ordinary market risk the disclosure document warned about. Regulatory protection becomes relevant in a different scenario instead — if a broker were found to have misused customer funds, or a clearinghouse's guarantee were ever actually tested by a member default, this is the structure built to respond.",
       },
     ],
     quiz: [
@@ -2986,15 +2925,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Putting on a position sized to what feels exciting, rather than to a predetermined fraction of account capital, is the single fastest way a string of ordinary losing trades turns into a career-ending drawdown — precisely the discipline the risk-management lesson's position-sizing and stop-loss framework exists to prevent.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A new trader with a $10,000 account puts on five crude oil contracts (5,000 barrels) purely because the margin requirement allowed it, without separately checking that a routine $2 move against the position would cost $10,000 — the account's entire value — a mistake that combines ignoring true notional exposure with over-risking a single position, and one a simple pre-trade dollar-risk calculation would have caught immediately.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "An experienced desk's onboarding checklist for a new trader typically covers exactly these five points explicitly — confirm you understand margin isn't a down payment, know the contract's tick value before sizing a trade, know its first notice date, check its typical bid-ask spread and open interest, and cap risk per trade as a fixed percentage of capital — precisely because these are the mistakes new traders make often enough to be worth spelling out up front.",
+        text: "An experienced desk's onboarding checklist for a new trader covers exactly the five mistakes in this lesson explicitly — confirm margin isn't a down payment, know the contract's tick value before sizing a trade, know its first notice date, check its typical bid-ask spread and open interest, and cap risk per trade as a fixed share of capital — precisely because they're common enough to be worth spelling out up front. A trader who skipped that checklist shows exactly why it exists: with a $10,000 account, they put on five crude oil contracts (5,000 barrels) purely because the margin requirement allowed it, without separately checking that a routine $2 adverse move would cost $10,000 — the entire account — a mistake combining ignored notional exposure with over-risking a single position that a two-minute, pre-trade dollar-risk calculation would have caught.",
       },
     ],
     quiz: [
@@ -3099,15 +3033,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "As covered in the previous lesson, a forward can settle either through physical delivery of the actual asset or through a cash payment of the difference between the forward price and the market price at maturity. Because a forward has no exchange dictating a default, this choice, too, has to be explicitly written into the contract's terms rather than assumed.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A U.S. refiner and an overseas crude oil producer agree to a forward on 50,000 barrels of a specific crude grade, delivered to a named port terminal in four months, priced in U.S. dollars, physically settled. Every one of those details — the exact grade, the 50,000-barrel quantity, the four-month date, the dollar-denominated price, the named terminal, and the choice of physical settlement — had to be negotiated and written into the agreement, since no exchange specification existed to supply any of it by default.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A company's legal and operations teams review every one of these terms line by line before signing a forward, precisely because there's no exchange rulebook to fall back on if a term is ambiguous — a mismatched delivery location or an unclear settlement currency in a bespoke contract can turn into an expensive dispute that a standardized futures contract would never have allowed to happen in the first place.",
+        text: "A company's legal and operations teams review every term of a forward line by line before signing, precisely because there's no exchange rulebook to fall back on if something's ambiguous — a mismatched delivery location or an unclear settlement currency can turn into an expensive dispute that a standardized futures contract would never have allowed to happen. A U.S. refiner and an overseas crude oil producer go through exactly that review before agreeing to a forward on 50,000 barrels of a specific crude grade, delivered to a named port terminal in four months, priced in U.S. dollars, physically settled. Every one of those details — grade, quantity, date, currency, location, settlement method — had to be spelled out and agreed by hand, since no exchange specification existed to supply any of it automatically.",
       },
     ],
     quiz: [
@@ -3200,19 +3129,14 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Unlike an option, whose buyer's loss is capped at the premium paid no matter how badly the position moves, a forward's long and short both carry unlimited, uncapped exposure in either direction — there's no premium paid upfront that limits the downside, which is exactly the \"obligation, not a choice\" idea covered in the previous lesson showing up numerically in the payoff formula itself.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A mill is long a forward on 10,000 bushels of wheat at a $6.50 delivery price. If wheat's spot price at maturity is $7.20, the mill's payoff is ($7.20 − $6.50) × 10,000 = $7,000 — a gain, since the mill locked in a price below where wheat ended up. The merchant on the short side of that same contract has the mirror-image payoff: ($6.50 − $7.20) × 10,000 = −$7,000, an equal and opposite loss.",
+        text: "A treasury desk marking its forward book to market every day isn't guessing at gains and losses — it's applying exactly this formula, spot minus delivery price for every long position and delivery price minus spot for every short, across every open contract. Take a mill that's long a forward on 10,000 bushels of wheat at a $6.50 delivery price. If wheat's spot price at maturity is $7.20, the mill's payoff is ($7.20 − $6.50) × 10,000 = $7,000 — a gain, since it locked in a price below where wheat ended up. The merchant on the short side of that same contract has the mirror-image payoff: ($6.50 − $7.20) × 10,000 = −$7,000, an equal and opposite loss.",
       },
       {
         type: "paragraph",
-        text: "Now suppose wheat instead falls to $5.80 by maturity. The mill's payoff flips sign: ($5.80 − $6.50) × 10,000 = −$7,000, a loss, since it's now obligated to pay $6.50 for wheat worth only $5.80 on the open market. The merchant's short position gains the mirror-image $7,000 — the same formula, the same zero-sum relationship, just with the price move running in the opposite direction.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A treasury desk marking its forward book to market every day isn't guessing at gains and losses — it's applying exactly this formula, spot minus delivery price for every long position and delivery price minus spot for every short, across each open contract, which is also the same building block used in the next lesson to value an existing forward before it even reaches maturity.",
+        text: "Now suppose wheat instead falls to $5.80 by maturity. The mill's payoff flips sign: ($5.80 − $6.50) × 10,000 = −$7,000, a loss, since it's now obligated to pay $6.50 for wheat worth only $5.80 on the open market. The merchant's short position gains the mirror-image $7,000 — the same formula, the same zero-sum relationship, just with the price move running in the opposite direction, which is also the same building block used in the next lesson to value an existing forward before it even reaches maturity.",
       },
     ],
     quiz: [
@@ -3323,15 +3247,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Beyond pure price-risk hedging, forwards let two commercial counterparties build exactly the deal their relationship needs — a specific quantity, delivery date, and location that wouldn't line up with any standardized exchange-traded contract. This flexibility is exactly why forwards remain common in commercial supply agreements even in commodities, like crude oil or wheat, where a deep, liquid futures market also exists.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "An airline expecting to pay a foreign aircraft-leasing company 5 million euros in six months buys euros forward today at $1.08 per euro, locking in a $5.4 million dollar cost regardless of where the spot rate actually lands in six months — the same importer logic above, just embedded in a specific commercial contract (an aircraft lease) rather than a generic import payment.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A multinational manufacturer's treasury department might run all four of these applications simultaneously in different corners of the business — FX forwards hedging foreign supplier payments and customer receivables, a commodity forward locking in a key input's price, and an FRA locking in the rate on planned future borrowing — all four using the exact same underlying tool, just applied to a different source of price uncertainty.",
+        text: "A multinational manufacturer's treasury department might run several of these applications at once in different corners of the business — FX forwards hedging supplier payments and customer receivables, a commodity forward locking in a key input's price, an FRA locking in the rate on planned borrowing — all four using the exact same underlying tool, just pointed at a different source of price uncertainty. An airline expecting to pay a foreign aircraft-leasing company 5 million euros in six months is running one specific version of that playbook: it buys euros forward today at $1.08 per euro, locking in a $5.4 million dollar cost no matter where the spot rate actually lands in six months — the same importer logic covered earlier in this lesson, just embedded in a real aircraft-lease contract instead of a generic invoice.",
       },
     ],
     quiz: [
@@ -3442,15 +3361,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: 'FX forward rates are often quoted not as an outright rate but as "forward points" — the difference to add to or subtract from the spot rate to get the forward rate. Positive forward points mean the currency is at a forward premium (its forward rate is above spot); negative points mean a forward discount (below spot) — directly reflecting which side of the interest-rate differential that currency sits on.',
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "If U.S. dollar interest rates are higher than euro interest rates, covered interest rate parity says the euro should trade at a forward premium to the dollar — say, a spot rate of $1.08 per euro and a six-month forward rate of $1.10 per euro, with the $0.02 gap (the forward points) reflecting that interest-rate differential, not a market forecast that the euro will actually be worth $1.10 in six months.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A corporate treasurer comparing forward quotes from two different banks for the exact same currency pair and maturity date should expect them to be very close to each other, since both banks are pricing off the same observable interest-rate differential — a forward rate wildly out of line with that relationship would represent exactly the kind of arbitrage opportunity the cost-of-carry framework says shouldn't persist.",
+        text: "A corporate treasurer comparing forward quotes from two different banks for the same currency pair and maturity date should expect them to land very close to each other, since both banks are pricing off the same observable interest-rate gap — a forward rate wildly out of line with that relationship would be exactly the kind of arbitrage opportunity the cost-of-carry framework says shouldn't persist. That interest-rate gap is what actually produces the quote the treasurer sees: with U.S. rates above euro rates, covered interest rate parity says the euro should trade at a forward premium — a spot rate of $1.08 per euro alongside a six-month forward of $1.10, say, with the $0.02 gap reflecting the rate differential itself, not a bank's forecast that the euro will actually be worth $1.10 in six months.",
       },
     ],
     quiz: [
@@ -3554,15 +3468,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Even a carefully built commodity forward hedge can leave real exposure behind if the hedge's terms don't exactly match the underlying exposure being hedged — a different grade, a different delivery location, or a delivery date that doesn't line up precisely with when the commodity is actually bought or sold. That mismatch is basis risk, covered in more depth in the Cross-Hedging lesson later in this course, and it's exactly why even a forward hedge, custom-built as it is, isn't automatically a perfect one.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A regional bakery chain buys wheat forward from a local grain merchant to hedge its flour costs, specifying a particular protein-content grade and delivery to its own mill rather than a distant terminal. If the bakery's actual wheat purchases end up needing a slightly different grade, or arriving at a different facility than the forward specifies, the hedge may not offset the bakery's real cost changes perfectly — a basis-risk gap between the forward's exact terms and the bakery's actual exposure.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "An airline hedging jet fuel costs often can't find a forward (or futures contract) written on jet fuel itself in the size or location it needs, and instead hedges with a closely related product like heating oil or crude oil — a deliberate cross-hedge that accepts some basis risk in exchange for being able to hedge at all, rather than leaving the exposure completely unhedged.",
+        text: "A regional bakery chain buys wheat forward from a local grain merchant to hedge its flour costs, specifying a particular protein-content grade and delivery straight to its own mill instead of a distant terminal. If the bakery's actual purchases ever need a slightly different grade, or arrive at a different facility than the forward specifies, the hedge won't offset its real costs quite perfectly — a basis-risk gap between the contract's exact terms and the bakery's actual exposure. An airline hedging jet fuel costs runs into an even sharper version of that same problem: it often can't find a forward written on jet fuel itself in the size or location it needs, so it hedges with a closely related product like heating oil or crude oil instead — a deliberate cross-hedge that accepts real basis risk in exchange for being able to hedge at all, rather than leaving the exposure completely open.",
       },
     ],
     quiz: [
@@ -3678,15 +3587,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "A bond forward's fair price nets out the bond's coupon income the same way an equity forward nets out dividends, and additionally has to account for the bond's price naturally converging toward face value as it moves closer to maturity — both effects covered in more detail in the Forward Pricing lesson's treatment of bonds and notes.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "An investor enters a six-month forward to buy 10,000 shares of a stock expected to pay $0.50 per share in dividends before delivery. The forward price sits below what pure financing cost alone would suggest by roughly that $0.50-per-share dividend, reflecting the fact that whoever holds the forward, rather than the stock itself, doesn't collect those dividend payments along the way.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A pension fund wanting exposure to a stock index over the next quarter, without actually buying and later selling the underlying shares, can enter an equity forward instead — locking in a price today and settling in cash based on the index's level at maturity, sidestepping the operational cost of trading the individual underlying stocks directly.",
+        text: "A pension fund wanting exposure to a stock index for the next quarter, without actually buying and later selling every underlying stock, can simply enter an equity forward instead — locking in a price today and settling in cash off the index's level at maturity, sidestepping the operational cost of trading dozens of individual shares directly. The same dividend adjustment applies whether the forward is on a broad index or a single stock: an investor entering a six-month forward to buy 10,000 shares of a company expected to pay $0.50 per share in dividends before delivery sees a forward price sitting below pure financing cost by roughly that $0.50-per-share amount, since whoever holds the forward, not the actual stock, misses out on those dividend payments along the way.",
       },
     ],
     quiz: [
@@ -3785,15 +3689,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "The cleanest option, when available, is simply agreeing directly with the original counterparty to cancel the contract early, settling it at its current mark-to-market value — the same valuation covered in the Valuing an Existing Forward Contract lesson. This avoids leaving any contracts outstanding at all, but only works if the original counterparty is willing to agree to it.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A company holding a long forward that's now worth $50,000 (per the mid-life valuation approach from the previous lesson) approaches its original counterparty bank about closing out early. If the bank agrees to mutual termination, it simply pays the company that $50,000 today, and both sides walk away with no further obligation — versus the company instead entering a new, opposite forward with a different bank, which would leave both the original and new contracts open until each separately matures.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A hedge fund that wants to unwind an FX forward position well before maturity typically approaches its original bank counterparty first, since a mutual termination at fair value is usually cleaner and cheaper than either leaving two offsetting contracts outstanding or trying to find a new counterparty willing to accept a novated position — exactly the kind of practical constraint that doesn't exist for an exchange-traded futures position.",
+        text: "A hedge fund that wants to unwind an FX forward well before maturity typically approaches its original bank counterparty first, since a mutual termination at fair value is usually cleaner and cheaper than leaving two offsetting contracts outstanding or hunting for a new counterparty willing to accept a novated position — a practical constraint that simply doesn't exist for an exchange-traded futures position. A company holding a long forward now worth $50,000, using the mid-life valuation approach from the previous lesson, runs into exactly that choice: if its original bank agrees to a mutual termination, it just pays the company the $50,000 today and both sides walk away clean, versus entering a new, opposite forward with a different bank, which would leave both contracts open until each separately runs its course.",
       },
     ],
     quiz: [
@@ -3896,15 +3795,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "When two counterparties have many forward contracts outstanding with each other, some in-the-money and some out-of-the-money, a netting agreement lets them combine all of it into a single net amount owed in the event of a default, rather than each contract being settled (or defaulted on) individually. This dramatically reduces the credit exposure between two active counterparties down to just the net figure, rather than the full sum of every individual contract's gross exposure.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "Two banks have five separate forward contracts outstanding with each other — three currently worth a combined $8 million in one bank's favor, two worth $3 million in the other's favor. Without netting, a default would expose the in-the-money bank to the full $8 million (minus whatever it separately owes on the other two). With a netting agreement in place, the exposure collapses to a single net $5 million figure ($8 million − $3 million), the actual amount that would change hands if every contract were settled simultaneously.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A bank's credit risk desk continuously monitors its net exposure to every OTC counterparty it trades forwards with, calling for additional collateral under the CSA as positions move in its favor, precisely because that daily (or even more frequent) collateral exchange is what keeps a forward book's counterparty risk from silently building up to a level the bank never intended to carry.",
+        text: "A bank's credit risk desk continuously monitors its net exposure to every OTC counterparty it trades forwards with, calling for additional collateral under the CSA as positions move in its favor — that ongoing collateral exchange is what keeps a forward book's counterparty risk from silently building up past what the bank ever intended to carry. Netting agreements do the same job for the underlying exposure itself: if two banks have five forward contracts outstanding, three worth a combined $8 million in one bank's favor and two worth $3 million in the other's, an uncollateralized, unnetted default would expose the in-the-money bank to the full $8 million. With netting in place, that collapses to a single $5 million figure ($8 million − $3 million) — the actual amount that would change hands if every contract settled at once.",
       },
     ],
     quiz: [
@@ -4011,15 +3905,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "Following reforms introduced after the 2008 financial crisis, many jurisdictions now require OTC derivatives, including forwards, to be reported to regulated trade repositories, and require certain counterparties to post regulatory-mandated collateral on their OTC positions — extending some of the transparency and collateral discipline of the exchange-cleared world into the bilateral OTC market, without making forwards centrally cleared the way futures are.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "Two banks that trade FX forwards with each other regularly sign a single ISDA Master Agreement once, along with a CSA covering collateral terms. Every subsequent forward trade between them, potentially hundreds over the following years, is then documented with just a short trade confirmation citing the master agreement, rather than each trade requiring its own full legal negotiation.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A corporate treasury entering its first-ever forward with a new bank counterparty typically has to negotiate an ISDA master agreement before any trading can begin at all — a process that can take weeks — which is exactly why companies tend to concentrate their forward trading with a small number of banks they've already gone through that documentation process with, rather than shopping every single trade to a new counterparty.",
+        text: "A corporate treasury entering its first-ever forward with a new bank counterparty typically has to negotiate an ISDA master agreement before any trading can begin at all — a process that can take weeks — which is exactly why companies tend to concentrate their forward trading with a handful of banks they've already been through that process with, rather than shopping every trade to a new counterparty. Two banks that trade FX forwards with each other regularly show what that investment buys: after signing a single ISDA Master Agreement once, along with a CSA covering collateral terms, every subsequent trade between them, potentially hundreds over the following years, needs only a short trade confirmation citing that master agreement, not a fresh legal negotiation each time.",
       },
     ],
     quiz: [
@@ -4122,15 +4011,10 @@ export const futuresConceptLessons: ConceptLesson[] = [
         type: "paragraph",
         text: "As covered in the closing-out lesson, exiting a forward before maturity generally requires either the original counterparty's cooperation or finding a new one willing to accept a novated position — nothing like a futures position's instant offsetting exchange trade. A beginner who assumes they can simply exit an unfavorable forward whenever they want may find that no willing counterparty, or no willing original bank, actually exists at that moment.",
       },
-      { type: "heading", text: "A Worked Example" },
+      { type: "heading", text: "Real World Example" },
       {
         type: "paragraph",
-        text: "A small importer signs a forward to buy euros in six months, but enters the notional amount for the wrong invoice, overshooting the actual payment due by €500,000. Even though every other term of the forward is fine, this single sizing mistake means the company is now over-hedged, obligated to buy €500,000 more than it actually needs, exposing it to exactly the currency risk it was trying to eliminate, just on the excess amount instead of the shortfall.",
-      },
-      { type: "heading", text: "In Practice" },
-      {
-        type: "paragraph",
-        text: "A corporate treasury's internal controls typically require a second person to independently verify a forward's notional amount, settlement date, and counterparty before it's executed, precisely because these are exactly the kind of beginner mistakes — an amount, a date, an unchecked counterparty — that are cheap to catch beforehand and expensive to discover only after the contract is already signed.",
+        text: "A corporate treasury's internal controls typically require a second person to independently verify a forward's notional amount, settlement date, and counterparty before it's executed, precisely because these are cheap mistakes to catch beforehand and expensive ones to discover only after the contract is signed. A small importer that skipped that check found out why: it signed a forward to buy euros in six months but entered the notional for the wrong invoice, overshooting its actual payment by €500,000. Every other term of the contract was fine, but that single sizing slip left the company over-hedged, obligated to buy €500,000 more than it needed — exposed to exactly the currency risk it was trying to eliminate, just on the excess amount instead of the shortfall.",
       },
     ],
     quiz: [
