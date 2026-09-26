@@ -134,6 +134,13 @@ function groupBodySegments(body: LessonBlock[]): BodySegment[] {
 
 function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "concept" }> }) {
   const segments = useMemo(() => groupBodySegments(lesson.body), [lesson.body]);
+  const outlineItems = useMemo(
+    () =>
+      segments
+        .map((seg, i) => (seg.kind === "paragraphs" && seg.heading ? { id: `section-${i}`, text: seg.heading } : null))
+        .filter((item): item is { id: string; text: string } => item !== null),
+    [segments],
+  );
 
   return (
     <div>
@@ -143,30 +150,104 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
         <p className="mt-2 text-lg text-[#9aa3b2]">{lesson.summary}</p>
       </header>
 
-      <div className="mb-8 flex flex-col gap-6">
-        {segments.map((seg, i) => {
-          if (seg.kind === "paragraphs") {
-            return (
-              <div
-                key={i}
-                className="flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6"
-              >
-                {seg.heading && <h3 className="text-lg font-semibold text-[#e6e8ec]">{seg.heading}</h3>}
-                {seg.items.map((text, j) => (
-                  <p key={j} className="leading-relaxed text-[#e6e8ec]">
-                    {text}
-                  </p>
-                ))}
-              </div>
-            );
-          }
-          if (seg.kind === "image") return <LessonDiagram key={i} diagramId={seg.diagramId} caption={seg.caption} />;
-          return <LessonVideo key={i} url={seg.url} caption={seg.caption} />;
-        })}
+      <div className="lg:grid lg:grid-cols-[1fr_200px] lg:items-start lg:gap-10">
+        <div className="mb-8 flex flex-col gap-6">
+          {segments.map((seg, i) => {
+            if (seg.kind === "paragraphs") {
+              return (
+                <div
+                  key={i}
+                  id={seg.heading ? `section-${i}` : undefined}
+                  className="scroll-mt-6 flex flex-col gap-4 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6"
+                >
+                  {seg.heading && <h3 className="text-lg font-semibold text-[#e6e8ec]">{seg.heading}</h3>}
+                  {seg.items.map((text, j) => (
+                    <p key={j} className="leading-relaxed text-[#e6e8ec]">
+                      {text}
+                    </p>
+                  ))}
+                </div>
+              );
+            }
+            if (seg.kind === "image") return <LessonDiagram key={i} diagramId={seg.diagramId} caption={seg.caption} />;
+            return <LessonVideo key={i} url={seg.url} caption={seg.caption} />;
+          })}
+        </div>
+
+        <LessonOutline items={outlineItems} />
       </div>
 
       <ConceptQuiz lessonSlug={lesson.slug} questions={lesson.quiz} />
     </div>
+  );
+}
+
+// Sticky "on this page" jump-nav, scoped to concept lessons (the "block
+// format" heading+paragraph lessons) rather than strategy lessons, which
+// already have fixed, named sections (When to use it, Scenario, Try it
+// yourself, ...) instead of a variable-length run of prose. Hidden below the
+// lg breakpoint — on a narrow screen it would just add scroll noise above
+// the content it's meant to help navigate.
+function LessonOutline({ items }: { items: { id: string; text: string }[] }) {
+  const [activeId, setActiveId] = useState<string | null>(items[0]?.id ?? null);
+
+  useEffect(() => {
+    if (items.length === 0) return;
+    const elements = items
+      .map((item) => ({ id: item.id, el: document.getElementById(item.id) }))
+      .filter((e): e is { id: string; el: HTMLElement } => e.el !== null);
+
+    // "Active" is whichever heading's top has most recently crossed the
+    // reading line (READING_LINE px from the top) — the standard scrollspy
+    // approach, and one that (unlike diffing IntersectionObserver entries)
+    // gives a correct answer immediately after a direct anchor jump, not
+    // just while scrolling continuously past each section in order.
+    const READING_LINE = 120;
+    function updateActive() {
+      let current = elements[0]?.id ?? null;
+      for (const { id, el } of elements) {
+        if (el.getBoundingClientRect().top <= READING_LINE) current = id;
+        else break;
+      }
+      setActiveId(current);
+    }
+
+    updateActive();
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateActive();
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [items]);
+
+  if (items.length === 0) return null;
+
+  return (
+    <nav className="sticky top-6 mb-8 hidden lg:block" aria-label="On this page">
+      <div className="text-xs font-semibold uppercase tracking-wide text-[#898781]">On this page</div>
+      <ul className="mt-3 flex flex-col gap-1">
+        {items.map((item) => (
+          <li key={item.id}>
+            <a
+              href={`#${item.id}`}
+              className={`block border-l-2 py-1 pl-3 text-sm transition ${
+                activeId === item.id
+                  ? "border-[#4f8cff] font-medium text-[#4f8cff]"
+                  : "border-[#2a3040] text-[#898781] hover:border-[#3a4150] hover:text-[#e6e8ec]"
+              }`}
+            >
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
 
