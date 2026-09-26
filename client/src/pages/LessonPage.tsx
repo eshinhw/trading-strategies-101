@@ -140,7 +140,7 @@ function groupBodySegments(body: LessonBlock[]): BodySegment[] {
 const HEADING_EMOJI: Record<string, string> = {
   "In Practice": "💡",
   "A Worked Example": "📐",
-  "Real World Example": "🌍",
+  "Real World Example": "💡",
 };
 
 function headingWithEmoji(heading: string): string {
