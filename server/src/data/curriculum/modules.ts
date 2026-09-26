@@ -189,12 +189,33 @@ export const modules: Module[] = [
     ],
   },
   {
+    slug: "futures-forward-applications-and-risk",
+    courseSlug: "futures",
+    title: "Forward Applications & Risk",
+    description:
+      "The parts of a forward contract that show up most in practice — its exact terms and payoff mechanics, currency/commodity/equity/bond applications, how (and how hard it is) to exit one early, the counterparty credit risk it carries, the documentation and regulation behind it, and the mistakes beginners tend to make.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "futures-forward-contract-terms",
+      "futures-forward-payoff-mechanics",
+      "futures-forward-practical-applications",
+      "futures-currency-forwards",
+      "futures-commodity-forwards",
+      "futures-equity-and-bond-forwards",
+      "futures-closing-out-a-forward",
+      "futures-counterparty-credit-risk",
+      "futures-forward-documentation-and-regulation",
+      "futures-forward-beginner-mistakes",
+    ],
+  },
+  {
     slug: "futures-mechanics",
     courseSlug: "futures",
     title: "Futures Basics",
     description:
       "What actually makes a futures contract a futures contract, mechanically — margin and daily mark-to-market, standardized contract specs, how (and whether) a contract ever reaches physical delivery, the clearinghouse that guarantees every trade, and the price limits that can pause trading.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-what-is-futures",
@@ -211,7 +232,7 @@ export const modules: Module[] = [
     title: "Futures Markets & Trading",
     description:
       "Why futures markets exist and who trades in them, a tour of the major markets, how the futures price relates to spot, how orders actually get filled, how to read a quote or a chart, and the risk-management, regulatory, and beginner-mistake ground every trader should cover before risking real money.",
-    order: 3,
+    order: 4,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-why-futures-markets-exist",
@@ -231,7 +252,7 @@ export const modules: Module[] = [
     title: "Futures Strategies",
     description:
       "How futures contracts are used in practice — hedging price risk, systematic trend following, and trading the shape of the futures curve with calendar spreads.",
-    order: 4,
+    order: 5,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-hedging-with-futures",
