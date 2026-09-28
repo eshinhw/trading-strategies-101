@@ -7,7 +7,7 @@
   --color-border: #2a3040;
   --color-text: #e6e8ec;
   --color-text-muted: #9aa3b2;
-  --color-accent: #f5a623;
+  --color-accent: #7c6cff;
   --color-bullish: #34d399;
   --color-bearish: #f87171;
   --color-neutral: #a78bfa;
@@ -22,7 +22,7 @@ body,
 body {
   margin: 0;
   background-color: var(--color-bg);
-  background-image: radial-gradient(900px 520px at 50% -80px, rgba(245, 166, 35, 0.12), transparent 70%);
+  background-image: radial-gradient(900px 520px at 50% -80px, rgba(124, 108, 255, 0.12), transparent 70%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: var(--color-text);
@@ -53,6 +53,6 @@ button:not(:disabled) {
 
 .card-glow {
   box-shadow:
-    0 0 0 1px rgba(245, 166, 35, 0.1),
-    0 0 20px rgba(245, 166, 35, 0.08);
+    0 0 0 1px rgba(124, 108, 255, 0.1),
+    0 0 20px rgba(124, 108, 255, 0.08);
 }

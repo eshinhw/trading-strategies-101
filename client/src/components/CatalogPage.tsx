@@ -12,7 +12,7 @@ export function LevelChip({ label, active, onClick }: { label: string; active: b
       onClick={onClick}
       className={`shrink-0 rounded-full border px-3 py-1 text-xs font-medium transition ${
         active
-          ? "border-[#f5a623]/30 bg-[#f5a623]/10 text-[#f5a623]"
+          ? "border-[#7c6cff]/30 bg-[#7c6cff]/10 text-[#7c6cff]"
           : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150] hover:text-[#e6e8ec]"
       }`}
     >

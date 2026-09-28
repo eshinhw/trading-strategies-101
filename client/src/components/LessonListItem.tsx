@@ -6,7 +6,7 @@ export function LessonListItem({ lesson }: { lesson: ModuleLessonSummary }) {
   return (
     <Link
       to={`/lesson/${lesson.slug}`}
-      className="flex items-center gap-3 rounded-lg border border-[#2a3040] bg-[#141821] card-glow p-3 transition hover:border-[#f5a623]/50 hover:bg-[#171c26]"
+      className="flex items-center gap-3 rounded-lg border border-[#2a3040] bg-[#141821] card-glow p-3 transition hover:border-[#7c6cff]/50 hover:bg-[#171c26]"
     >
       <div
         className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${

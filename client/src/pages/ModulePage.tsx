@@ -28,7 +28,7 @@ export function ModulePage() {
     return (
       <div className="mx-auto max-w-7xl px-6 py-16 text-center">
         <p className="text-red-400">{error}</p>
-        <Link to="/courses" className="mt-4 inline-block text-[#f5a623] hover:underline">
+        <Link to="/courses" className="mt-4 inline-block text-[#7c6cff] hover:underline">
           ← All Courses
         </Link>
       </div>
@@ -41,7 +41,7 @@ export function ModulePage() {
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
-      <Link to={`/courses/${module.courseSlug}`} className="text-sm text-[#f5a623] hover:underline">
+      <Link to={`/courses/${module.courseSlug}`} className="text-sm text-[#7c6cff] hover:underline">
         ← All modules
       </Link>
 
@@ -73,10 +73,10 @@ export function ModulePage() {
               <li key={ex.slug}>
                 <Link
                   to={`/construction/${ex.slug}`}
-                  className="flex items-center gap-4 rounded-lg border border-[#2a3040] bg-[#141821] card-glow p-4 transition hover:border-[#f5a623]/50 hover:bg-[#171c26]"
+                  className="flex items-center gap-4 rounded-lg border border-[#2a3040] bg-[#141821] card-glow p-4 transition hover:border-[#7c6cff]/50 hover:bg-[#171c26]"
                 >
                   <div className="min-w-0 flex-1 font-medium text-[#e6e8ec]">{ex.title}</div>
-                  <span className="shrink-0 rounded-full border border-[#f5a623]/30 bg-[#f5a623]/10 px-2 py-0.5 text-xs font-medium text-[#f5a623]">
+                  <span className="shrink-0 rounded-full border border-[#7c6cff]/30 bg-[#7c6cff]/10 px-2 py-0.5 text-xs font-medium text-[#7c6cff]">
                     Build it
                   </span>
                 </Link>
