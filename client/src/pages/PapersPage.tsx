@@ -36,9 +36,7 @@ export function PapersPage() {
 
 const LINK_LABEL: Record<Paper["link"]["kind"], string> = {
   ssrn: "Download on SSRN",
-  "ssrn-excerpt": "Book — free Chapter 1 on SSRN",
   publisher: "View at publisher (DOI)",
-  book: "This is a book — find it on Amazon",
 };
 
 function PaperCard({ paper }: { paper: Paper }) {

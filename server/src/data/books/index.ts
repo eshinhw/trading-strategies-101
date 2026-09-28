@@ -278,6 +278,17 @@ export const books: Book[] = [
     whyItsHere: "Standard reading for anyone building execution logic or studying market microstructure.",
   },
   {
+    slug: "market-microstructure-theory",
+    title: "Market Microstructure Theory",
+    author: "Maureen O'Hara",
+    year: 1995,
+    category: "market-structure",
+    level: "advanced",
+    summary:
+      "A graduate-level text formalizing how information asymmetry, order flow, and dealer behavior determine bid-ask spreads and price discovery in financial markets.",
+    whyItsHere: "The standard theoretical reference for market microstructure — the rigorous counterpart to Harris's practitioner-oriented book.",
+  },
+  {
     slug: "flash-boys",
     title: "Flash Boys",
     author: "Michael Lewis",

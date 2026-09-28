@@ -3,8 +3,7 @@ export type PaperCategory =
   | "derivatives-pricing"
   | "factor-investing"
   | "risk-management"
-  | "market-microstructure-execution"
-  | "machine-learning";
+  | "market-microstructure-execution";
 
 export type PaperLevel = "intermediate" | "advanced";
 
@@ -23,9 +22,7 @@ export interface Paper {
   whyItsHere: string;
   /**
    * Where to get the paper. "ssrn" = a free SSRN page (verified to host this work);
-   * "publisher" = its DOI, which resolves to the journal page (PDF may need a subscription);
-   * "ssrn-excerpt" = SSRN hosts only an excerpt (e.g. chapter 1) of a book;
-   * "book" = the work is a book, not a paper, so it links to a book search instead.
+   * "publisher" = its DOI, which resolves to the journal page (PDF may need a subscription).
    */
-  link: { kind: "ssrn" | "ssrn-excerpt" | "publisher" | "book"; url: string };
+  link: { kind: "ssrn" | "publisher"; url: string };
 }

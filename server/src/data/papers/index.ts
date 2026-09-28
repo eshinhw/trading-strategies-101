@@ -30,11 +30,6 @@ export const paperCategories: { slug: PaperCategory; title: string; description:
     title: "Market Microstructure & Execution",
     description: "How trading itself — order flow, price impact, dealer behavior — actually works.",
   },
-  {
-    slug: "machine-learning",
-    title: "Machine Learning in Finance",
-    description: "Applying modern ML to financial data without falling into its most common traps.",
-  },
 ];
 
 export const papers: Paper[] = [
@@ -186,35 +181,5 @@ export const papers: Paper[] = [
     whyItsHere:
       "The foundational model behind modern execution algorithms — the cost/risk tradeoff it formalizes is still the core logic inside most institutional trading systems.",
     link: { kind: "publisher", url: "https://doi.org/10.21314/JOR.2001.041" },
-  },
-  {
-    slug: "market-microstructure-theory",
-    title: "Market Microstructure Theory",
-    authors: "Maureen O'Hara",
-    year: 1995,
-    venue: "Blackwell Publishers",
-    category: "market-microstructure-execution",
-    level: "advanced",
-    summary:
-      "A graduate-level text formalizing how information asymmetry, order flow, and dealer behavior determine bid-ask spreads and price discovery in financial markets.",
-    whyItsHere:
-      "The standard theoretical reference for market microstructure — worth noting this is a full academic monograph rather than a single journal paper, unlike the rest of this list.",
-    link: { kind: "book", url: "https://www.amazon.com/s?k=Market%20Microstructure%20Theory%20Maureen%20O%27Hara&i=stripbooks" },
-  },
-
-  // --- Machine Learning in Finance ---
-  {
-    slug: "advances-in-financial-machine-learning-paper",
-    title: "Advances in Financial Machine Learning",
-    authors: "Marcos López de Prado",
-    year: 2018,
-    venue: "Wiley",
-    category: "machine-learning",
-    level: "advanced",
-    summary:
-      "Presents machine learning techniques adapted specifically to the pitfalls of financial data — data leakage, non-stationarity, and backtest overfitting — rather than applying off-the-shelf ML methods unchanged.",
-    whyItsHere:
-      "One of the most-cited modern references for quant researchers building systematic strategies with machine learning — also on this site's Books list, since it's a full monograph rather than a single paper.",
-    link: { kind: "ssrn-excerpt", url: "https://ssrn.com/abstract=3104847" },
   },
 ];

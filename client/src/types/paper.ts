@@ -3,8 +3,7 @@ export type PaperCategory =
   | "derivatives-pricing"
   | "factor-investing"
   | "risk-management"
-  | "market-microstructure-execution"
-  | "machine-learning";
+  | "market-microstructure-execution";
 
 export type PaperLevel = "intermediate" | "advanced";
 
@@ -18,7 +17,7 @@ export interface Paper {
   level: PaperLevel;
   summary: string;
   whyItsHere: string;
-  link: { kind: "ssrn" | "ssrn-excerpt" | "publisher" | "book"; url: string };
+  link: { kind: "ssrn" | "publisher"; url: string };
 }
 
 export interface PaperCategoryInfo {
