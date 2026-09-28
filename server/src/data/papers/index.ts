@@ -51,6 +51,7 @@ export const papers: Paper[] = [
       "Introduced mean-variance optimization: the idea that a rational investor should choose a portfolio based on its expected return and variance, and that combining imperfectly correlated assets can reduce a portfolio's risk without necessarily sacrificing return.",
     whyItsHere:
       "The founding paper of modern portfolio theory — nearly every portfolio construction framework taught or used today traces back to this mean-variance framework.",
+    link: { kind: "publisher", url: "https://doi.org/10.1111/j.1540-6261.1952.tb01525.x" },
   },
   {
     slug: "capital-asset-prices",
@@ -64,6 +65,7 @@ export const papers: Paper[] = [
       "Built on Markowitz's framework to derive the Capital Asset Pricing Model (CAPM), showing that in equilibrium, an asset's expected return should depend on its beta — its sensitivity to the overall market — rather than its total risk.",
     whyItsHere:
       "CAPM remains the baseline risk-return framework taught in every finance program, and the starting point that most later factor models are built to extend or challenge.",
+    link: { kind: "publisher", url: "https://doi.org/10.1111/j.1540-6261.1964.tb02865.x" },
   },
 
   // --- Derivatives Pricing ---
@@ -79,6 +81,7 @@ export const papers: Paper[] = [
       "Derived a closed-form formula for pricing European options by constructing a continuously-rebalanced hedge that eliminates risk, under assumptions of constant volatility and no arbitrage.",
     whyItsHere:
       "The single most influential paper in derivatives pricing — the Black-Scholes formula and its assumptions are the reference point every later option pricing model is measured against.",
+    link: { kind: "publisher", url: "https://doi.org/10.1086/260062" },
   },
   {
     slug: "theory-of-rational-option-pricing",
@@ -92,6 +95,7 @@ export const papers: Paper[] = [
       "Extended and generalized the Black-Scholes framework using continuous-time stochastic calculus, relaxing several of its original assumptions and formalizing the no-arbitrage argument underlying option pricing.",
     whyItsHere:
       "Established the rigorous stochastic-calculus machinery that the rest of quantitative derivatives theory — including this course's own options pricing content — is built on.",
+    link: { kind: "publisher", url: "https://doi.org/10.2307/3003143" },
   },
   {
     slug: "closed-form-solution-stochastic-volatility",
@@ -105,6 +109,7 @@ export const papers: Paper[] = [
       "Introduced a tractable model where volatility itself follows a random process rather than staying constant, producing a closed-form option pricing formula that captures the volatility smile observed in real markets.",
     whyItsHere:
       "The standard reference stochastic volatility model, still widely used to price and hedge options where Black-Scholes' constant-volatility assumption breaks down.",
+    link: { kind: "publisher", url: "https://doi.org/10.1093/rfs/6.2.327" },
   },
 
   // --- Factor Investing & Anomalies ---
@@ -120,6 +125,7 @@ export const papers: Paper[] = [
       "Introduced the three-factor model, showing that a company's size and its book-to-market ratio, alongside market beta, help explain the cross-section of stock returns.",
     whyItsHere:
       "The foundational empirical asset pricing paper behind factor investing — nearly every smart-beta or factor strategy traces its lineage back to this model.",
+    link: { kind: "publisher", url: "https://doi.org/10.1016/0304-405X(93)90023-5" },
   },
   {
     slug: "five-factor-asset-pricing-model",
@@ -133,6 +139,7 @@ export const papers: Paper[] = [
       "Extended the three-factor model by adding profitability and investment factors, improving its ability to explain patterns in average stock returns beyond size and value alone.",
     whyItsHere:
       "The current standard version of the Fama-French framework, widely used as a benchmark for judging whether a strategy's returns reflect genuine skill or already-known risk factors.",
+    link: { kind: "ssrn", url: "https://ssrn.com/abstract=2287202" },
   },
   {
     slug: "returns-to-buying-winners-and-selling-losers",
@@ -146,6 +153,7 @@ export const papers: Paper[] = [
       "Documented that stocks which performed well over the trailing 3-12 months tend to keep outperforming over the following few months, and recent losers tend to keep underperforming.",
     whyItsHere:
       "The original empirical paper establishing price momentum as a persistent, tradable anomaly — directly underlying the momentum strategies covered in this course's Stocks track.",
+    link: { kind: "publisher", url: "https://doi.org/10.1111/j.1540-6261.1993.tb04702.x" },
   },
 
   // --- Risk Management ---
@@ -161,6 +169,7 @@ export const papers: Paper[] = [
       "Defined a set of mathematical properties, including subadditivity, that a well-behaved risk measure should satisfy, and showed that the widely-used Value-at-Risk (VaR) fails to meet them while Conditional VaR does.",
     whyItsHere:
       "The theoretical basis for why many risk managers prefer CVaR/Expected Shortfall over plain VaR, and a standard reference whenever risk measurement itself is under discussion.",
+    link: { kind: "publisher", url: "https://doi.org/10.1111/1467-9965.00068" },
   },
 
   // --- Market Microstructure & Execution ---
@@ -176,6 +185,7 @@ export const papers: Paper[] = [
       "Developed a framework for splitting a large trade into smaller pieces over time, balancing the market-impact cost of trading quickly against the price-risk cost of trading slowly.",
     whyItsHere:
       "The foundational model behind modern execution algorithms — the cost/risk tradeoff it formalizes is still the core logic inside most institutional trading systems.",
+    link: { kind: "publisher", url: "https://doi.org/10.21314/JOR.2001.041" },
   },
   {
     slug: "market-microstructure-theory",
@@ -189,6 +199,7 @@ export const papers: Paper[] = [
       "A graduate-level text formalizing how information asymmetry, order flow, and dealer behavior determine bid-ask spreads and price discovery in financial markets.",
     whyItsHere:
       "The standard theoretical reference for market microstructure — worth noting this is a full academic monograph rather than a single journal paper, unlike the rest of this list.",
+    link: { kind: "book", url: "https://www.amazon.com/s?k=Market%20Microstructure%20Theory%20Maureen%20O%27Hara&i=stripbooks" },
   },
 
   // --- Machine Learning in Finance ---
@@ -204,5 +215,6 @@ export const papers: Paper[] = [
       "Presents machine learning techniques adapted specifically to the pitfalls of financial data — data leakage, non-stationarity, and backtest overfitting — rather than applying off-the-shelf ML methods unchanged.",
     whyItsHere:
       "One of the most-cited modern references for quant researchers building systematic strategies with machine learning — also on this site's Books list, since it's a full monograph rather than a single paper.",
+    link: { kind: "ssrn-excerpt", url: "https://ssrn.com/abstract=3104847" },
   },
 ];

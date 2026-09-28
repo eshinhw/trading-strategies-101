@@ -34,6 +34,13 @@ export function PapersPage() {
   );
 }
 
+const LINK_LABEL: Record<Paper["link"]["kind"], string> = {
+  ssrn: "Download on SSRN",
+  "ssrn-excerpt": "Book — free Chapter 1 on SSRN",
+  publisher: "View at publisher (DOI)",
+  book: "This is a book — find it on Amazon",
+};
+
 function PaperCard({ paper }: { paper: Paper }) {
   return (
     <div className="flex flex-col rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
@@ -49,6 +56,14 @@ function PaperCard({ paper }: { paper: Paper }) {
       </div>
       <p className="mt-3 text-sm leading-relaxed text-[#9aa3b2]">{paper.summary}</p>
       <p className="mt-auto pt-3 text-xs text-[#898781]">{paper.whyItsHere}</p>
+      <a
+        href={paper.link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-3 inline-flex w-fit items-center gap-1 text-sm text-[#7c6cff] hover:underline"
+      >
+        {LINK_LABEL[paper.link.kind]} <span aria-hidden="true">↗</span>
+      </a>
     </div>
   );
 }

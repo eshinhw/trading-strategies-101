@@ -18,6 +18,7 @@ export interface Paper {
   level: PaperLevel;
   summary: string;
   whyItsHere: string;
+  link: { kind: "ssrn" | "ssrn-excerpt" | "publisher" | "book"; url: string };
 }
 
 export interface PaperCategoryInfo {

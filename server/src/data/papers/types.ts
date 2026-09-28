@@ -21,4 +21,11 @@ export interface Paper {
   summary: string;
   /** why it's still cited/foundational — a field/discipline framing, not a fabricated named quote */
   whyItsHere: string;
+  /**
+   * Where to get the paper. "ssrn" = a free SSRN page (verified to host this work);
+   * "publisher" = its DOI, which resolves to the journal page (PDF may need a subscription);
+   * "ssrn-excerpt" = SSRN hosts only an excerpt (e.g. chapter 1) of a book;
+   * "book" = the work is a book, not a paper, so it links to a book search instead.
+   */
+  link: { kind: "ssrn" | "ssrn-excerpt" | "publisher" | "book"; url: string };
 }
