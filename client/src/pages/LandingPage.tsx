@@ -111,8 +111,6 @@ function CoursesPreview() {
       .catch(() => setCourses(null));
   }, []);
 
-  const availableCount = courses?.filter((c) => c.status === "available").length;
-
   return (
     <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
       <div className="mx-auto max-w-7xl px-6">
