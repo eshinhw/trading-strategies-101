@@ -49,6 +49,14 @@ function BookCard({ book }: { book: Book }) {
       </div>
       <p className="mt-3 text-sm leading-relaxed text-[#9aa3b2]">{book.summary}</p>
       <p className="mt-auto pt-3 text-xs text-[#898781]">{book.whyItsHere}</p>
+      <a
+        href={book.amazonUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-3 inline-flex w-fit items-center gap-1 text-sm text-[#7c6cff] hover:underline"
+      >
+        View on Amazon <span aria-hidden="true">↗</span>
+      </a>
     </div>
   );
 }

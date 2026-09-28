@@ -16,6 +16,7 @@ export interface Book {
   level: BookLevel;
   summary: string;
   whyItsHere: string;
+  amazonUrl: string;
 }
 
 export interface BookCategoryInfo {
