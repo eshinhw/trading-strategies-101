@@ -48,7 +48,7 @@ function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               to="/signup"
-              className="rounded-lg bg-[#7c6cff] px-5 py-2.5 font-medium text-[#0b0d12] hover:bg-[#6552f0]"
+              className="rounded-lg bg-[#7c6cff] px-5 py-2.5 font-medium text-white hover:bg-[#6552f0]"
             >
               Start learning — it's free
             </Link>
@@ -138,7 +138,7 @@ function FinalCta() {
         Create a free account to save your progress and unlock modules as you complete them.
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-        <Link to="/signup" className="rounded-lg bg-[#7c6cff] px-5 py-2.5 font-medium text-[#0b0d12] hover:bg-[#6552f0]">
+        <Link to="/signup" className="rounded-lg bg-[#7c6cff] px-5 py-2.5 font-medium text-white hover:bg-[#6552f0]">
           Sign up free
         </Link>
         <Link to="/login" className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">

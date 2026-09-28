@@ -156,7 +156,7 @@ function ExamSection({ slug }: { slug: string }) {
         {status.unlocked && (
           <Link
             to={`/courses/${slug}/exam`}
-            className="shrink-0 rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#6552f0]"
+            className="shrink-0 rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#6552f0]"
           >
             {passed ? "Retake quiz" : "Take the quiz"}
           </Link>

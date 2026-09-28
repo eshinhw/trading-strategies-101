@@ -215,14 +215,14 @@ export function ExamPage() {
             <button
               onClick={handleSubmit}
               disabled={!allAnswered || submitting}
-              className="rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-40"
             >
               {submitting ? "Grading…" : "Submit quiz"}
             </button>
           ) : (
             <button
               onClick={() => setCurrentIndex((i) => i + 1)}
-              className="rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#6552f0]"
+              className="rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#6552f0]"
             >
               Next question →
             </button>
@@ -302,7 +302,7 @@ function ExamReport({
       <div className="mt-8 flex justify-center gap-4">
         <button
           onClick={onRetake}
-          className="rounded-lg bg-[#7c6cff] px-5 py-2.5 text-sm font-medium text-[#0b0d12] hover:bg-[#6552f0]"
+          className="rounded-lg bg-[#7c6cff] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#6552f0]"
         >
           Retake quiz
         </button>

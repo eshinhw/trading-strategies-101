@@ -215,7 +215,7 @@ export function StrategyKnowledgeCheck({
             <button
               onClick={checkNumeric}
               disabled={!isNumericAnswered(numericAnswers[q.id])}
-              className="rounded-lg bg-[#7c6cff] px-3 py-1.5 text-sm font-medium text-[#0b0d12] hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-[#7c6cff] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-40"
             >
               Check answer
             </button>

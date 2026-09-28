@@ -67,7 +67,7 @@ export function Nav() {
                 </Link>
                 <Link
                   to="/signup"
-                  className="rounded-full bg-[#7c6cff] px-4 py-2 font-medium text-[#0b0d12] hover:bg-[#6552f0]"
+                  className="rounded-full bg-[#7c6cff] px-4 py-2 font-medium text-white hover:bg-[#6552f0]"
                 >
                   Sign up
                 </Link>

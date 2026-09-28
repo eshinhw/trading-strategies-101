@@ -97,7 +97,7 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
         <button
           type="submit"
           disabled={submitting}
-          className="mt-2 rounded-lg bg-[#7c6cff] px-4 py-2 font-medium text-[#0b0d12] hover:bg-[#6552f0] disabled:opacity-50"
+          className="mt-2 rounded-lg bg-[#7c6cff] px-4 py-2 font-medium text-white hover:bg-[#6552f0] disabled:opacity-50"
         >
           {submitting ? "Please wait…" : mode === "signup" ? "Create account" : "Sign in"}
         </button>

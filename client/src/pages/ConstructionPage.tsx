@@ -183,7 +183,7 @@ export function ConstructionPage() {
           <button
             onClick={handleSubmit}
             disabled={submitting}
-            className="self-start rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-50"
+            className="self-start rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? "Checking…" : "Check my build"}
           </button>
@@ -223,7 +223,7 @@ function ConstructionResult({
       <div className="mt-6 flex justify-center gap-4">
         <button
           onClick={onTryAgain}
-          className="rounded-lg bg-[#7c6cff] px-5 py-2.5 text-sm font-medium text-[#0b0d12] hover:bg-[#6552f0]"
+          className="rounded-lg bg-[#7c6cff] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#6552f0]"
         >
           Adjust and retry
         </button>

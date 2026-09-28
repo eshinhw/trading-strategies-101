@@ -28,7 +28,7 @@ export function QuizNavButtons({
         <button
           onClick={onNext}
           disabled={submitting}
-          className="rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-[#0b0d12] hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-40"
         >
           {submitting ? "Grading…" : isLast ? "Finish" : "Next question →"}
         </button>
