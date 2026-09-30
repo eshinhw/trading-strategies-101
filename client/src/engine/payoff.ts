@@ -126,27 +126,43 @@ export function computePayoffStats(
   const analysisMax = highest * 4 + 200;
   const analysisCurve = buildCurve(strategy, params, 0, analysisMax, 800);
 
+  // For intrinsic-value strategies, payoff is piecewise LINEAR with kinks only at strikes,
+  // so the true (bounded-side) extrema — and every breakeven — sit exactly at a strike, at
+  // S_T=0, or on the straight line between two consecutive strikes. Evaluate those candidate
+  // "kink" points exactly (rather than scanning hundreds of grid samples) so max profit / max
+  // loss read as clean, exact numbers, and so breakevens are found from real sign changes
+  // between exact values instead of from floating-point noise on a sampled curve. That last
+  // part matters more than it sounds: if a strategy's capped profit or loss happens to equal
+  // exactly $0 (e.g. a covered call where strike − stock price + premium == 0), the payoff is
+  // flat at exactly 0 across that whole capped region, and a grid-sampling approach reports a
+  // "breakeven" at every sample point in that flat stretch instead of the single true one.
+  const candidateSpots = new Set<number>([0]);
+  for (const p of prices) candidateSpots.add(Math.max(p, 0));
+  const kinks = [...candidateSpots].sort((a, b) => a - b);
+  kinks.push(analysisMax); // far-right sentinel, to also cover the unbounded rightmost segment
+  const kinkPnls = kinks.map((s) => payoffAt(strategy, params, s));
+
   const breakevens: number[] = [];
-  for (let i = 1; i < analysisCurve.length; i++) {
-    const a = analysisCurve[i - 1];
-    const b = analysisCurve[i];
-    if (a.pnl === 0) {
-      breakevens.push(a.spot);
-    } else if ((a.pnl < 0 && b.pnl > 0) || (a.pnl > 0 && b.pnl < 0)) {
-      const t = -a.pnl / (b.pnl - a.pnl);
-      breakevens.push(a.spot + t * (b.spot - a.spot));
+  const zeroEps = 1e-6;
+  let inZeroRun = false;
+  for (let i = 0; i < kinks.length; i++) {
+    const pnl = kinkPnls[i];
+    const isZero = Math.abs(pnl) < zeroEps;
+    if (isZero) {
+      if (!inZeroRun) breakevens.push(kinks[i]);
+      inZeroRun = true;
+      continue;
+    }
+    inZeroRun = false;
+    if (i === 0) continue;
+    const prevPnl = kinkPnls[i - 1];
+    if ((prevPnl < 0 && pnl > 0) || (prevPnl > 0 && pnl < 0)) {
+      const t = -prevPnl / (pnl - prevPnl);
+      breakevens.push(kinks[i - 1] + t * (kinks[i] - kinks[i - 1]));
     }
   }
 
-  // For intrinsic-value strategies, payoff is piecewise LINEAR with kinks only at strikes,
-  // so the true (bounded-side) extrema sit exactly at a strike or at S_T=0 — grid sampling
-  // alone can miss a peak by up to one step. Evaluate those candidate points exactly and fold
-  // them into the extrema so max profit / max loss read as clean, exact numbers.
-  const candidateSpots = new Set<number>([0]);
-  for (const p of prices) candidateSpots.add(Math.max(p, 0));
-  const exactPnls = [...candidateSpots].map((s) => payoffAt(strategy, params, s));
-
-  const pnls = [...analysisCurve.map((p) => p.pnl), ...exactPnls];
+  const pnls = [...analysisCurve.map((p) => p.pnl), ...kinkPnls];
   const boundedMaxPnl = Math.max(...pnls);
   const boundedMinPnl = Math.min(...pnls);
 
