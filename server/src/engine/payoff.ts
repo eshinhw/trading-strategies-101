@@ -107,6 +107,20 @@ export function computePayoffStats(strategy: Strategy, params: ParamValues): Pay
   // "breakeven" at every sample point in that flat stretch instead of the single true one.
   const candidateSpots = new Set<number>([0]);
   for (const p of prices) candidateSpots.add(Math.max(p, 0));
+  if (strategy.engine === "calendar") {
+    // The still-alive leg here is valued by Black-Scholes, not a straight line, so the payoff
+    // can curve enough near a strike to cross zero twice within a fraction of a dollar — the
+    // ordinary "evaluate exactly at each strike" set is too coarse to resolve that. Densely
+    // sampling right around each strike (where that curvature concentrates) is cheap and is
+    // what actually finds both crossings at close to their true location.
+    const offsets = [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5];
+    for (const p of prices) {
+      for (const d of offsets) {
+        candidateSpots.add(Math.max(p - d, 0));
+        candidateSpots.add(p + d);
+      }
+    }
+  }
   const kinks = [...candidateSpots].sort((a, b) => a - b);
   kinks.push(analysisMax); // far-right sentinel, to also cover the unbounded rightmost segment
   const kinkPnls = kinks.map((s) => payoffAt(strategy, params, s));
@@ -122,8 +136,13 @@ export function computePayoffStats(strategy: Strategy, params: ParamValues): Pay
       inZeroRun = true;
       continue;
     }
+    // If the previous kink was itself (numerically) zero, it was already recorded above as
+    // the breakeven — checking for a sign change against that same near-zero point here would
+    // just re-report essentially the same location a second time, since the interpolated t is
+    // then tiny by construction.
+    const justExitedZeroRun = inZeroRun;
     inZeroRun = false;
-    if (i === 0) continue;
+    if (i === 0 || justExitedZeroRun) continue;
     const prevPnl = kinkPnls[i - 1];
     if ((prevPnl < 0 && pnl > 0) || (prevPnl > 0 && pnl < 0)) {
       const t = -prevPnl / (pnl - prevPnl);
