@@ -17,12 +17,9 @@ Each course is split into a **Basics** module (core concepts for that asset
 class) and a **Strategies** module (the book's own numbered strategies for
 that chapter). Every lesson pairs a plain-English explanation with a short,
 server-graded knowledge check; Options additionally gets a live, interactive
-payoff sandbox per lesson, and its 11 strategy modules (beyond Basics) unlock
-through their own internal prerequisite sequence (e.g. Condors requires
-Butterflies, since a condor is a butterfly with its middle strike split in
-two) — every other course's Basics and Strategies are both open from the
-start, with only each course's final exam gated behind actually completing
-every lesson.
+payoff sandbox per lesson. Every course's modules, Options included, are open
+from the start — nothing gates one module behind another — with only each
+course's final exam gated behind actually completing every lesson.
 
 Beyond the courses: a **Books** and a **Papers** page (citations plus original
 summaries, not reproduced text) for further reading, and a handful of
@@ -72,18 +69,16 @@ sandbox) and server (as the source of truth for grading).
 
 ### Curriculum structure
 
-`server/src/data/curriculum/modules.ts` defines a DAG, not a linear list: each
-module declares `prerequisiteModuleSlugs`, and a module unlocks only once all
-of its prerequisites are fully completed. In practice, only Options uses this
-for anything beyond an empty array — its 11 strategy modules (beyond Basics)
-build on each other in a deliberate sequence. Every other course's Basics and
-Strategies modules both have no prerequisites, so they're browsable immediately; a
-course's final exam is the only thing still gated, via a separate check
-(`isCourseFullyComplete` in `src/lib/exam.ts`) that requires every lesson in
-every module to be completed, independent of the module DAG. Module/lesson
-completion status is never stored directly — it's always derived on the fly
-from the learner's `LessonProgress` rows plus the curriculum structure, so the
-two can't drift out of sync.
+`server/src/data/curriculum/modules.ts` supports gating a module behind others
+via `prerequisiteModuleSlugs` (a DAG, not just a linear list), but every
+module across every course currently declares an empty array, so every
+module is browsable immediately. A course's final exam is the only thing
+gated, via a separate check (`isCourseFullyComplete` in `src/lib/exam.ts`)
+that requires every lesson in every module to be completed, independent of
+the (currently unused) module DAG. Module/lesson completion status is never
+stored directly — it's always derived on the fly from the learner's
+`LessonProgress` rows plus the curriculum structure, so the two can't drift
+out of sync.
 
 ## Development
 

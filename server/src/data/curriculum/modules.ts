@@ -1,8 +1,8 @@
 import type { Module } from "./types.js";
 
-// Ordered for display, but unlocking is driven by prerequisiteModuleSlugs (a DAG,
-// not strictly linear) — e.g. Condors requires Butterflies because a condor is
-// best understood as a butterfly with its middle strike split in two.
+// Ordered for display. Every module's prerequisiteModuleSlugs is empty — no
+// course gates its modules on one another; only a course's final exam is
+// gated, via isCourseFullyComplete in lib/exam.ts, independent of this file.
 export const modules: Module[] = [
   {
     slug: "foundations",
@@ -65,7 +65,7 @@ export const modules: Module[] = [
     description:
       "Using options to replicate a stock position (synthetic forwards), cheaper variations of that idea (combos), and a strategy that isolates a pure, near risk-free payoff (the box).",
     order: 4,
-    prerequisiteModuleSlugs: ["vertical-spreads"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: ["long-synthetic-forward", "short-synthetic-forward", "long-combo", "short-combo", "long-box"],
   },
   {
@@ -75,7 +75,7 @@ export const modules: Module[] = [
     description:
       "What happens when you finance a vertical spread with an extra short option — cheaper entry, but a new risk that shows up if the stock moves too far. Also covers adjusting a losing spread into a ladder.",
     order: 5,
-    prerequisiteModuleSlugs: ["vertical-spreads"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: ["bull-call-ladder", "bull-put-ladder", "bear-call-ladder", "bear-put-ladder"],
   },
   {
@@ -85,7 +85,7 @@ export const modules: Module[] = [
     description:
       "Three-strike, low-cost bets on the stock pinning near a specific price (or, in the short versions, on it moving away from one) — built from two vertical spreads stacked against each other.",
     order: 9,
-    prerequisiteModuleSlugs: ["vertical-spreads"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "long-call-butterfly",
       "modified-call-butterfly",
@@ -104,7 +104,7 @@ export const modules: Module[] = [
     description:
       "Strategies that span two different expirations, profiting from the near-term option losing time value faster than the longer-dated one. Introduces Black-Scholes valuation for the still-alive leg.",
     order: 11,
-    prerequisiteModuleSlugs: ["vertical-spreads"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: ["calendar-call-spread", "calendar-put-spread", "diagonal-call-spread", "diagonal-put-spread"],
   },
   {
@@ -114,7 +114,7 @@ export const modules: Module[] = [
     description:
       "The same straddle payoff shapes, rebuilt from a stock position plus two same-type options instead of a call and a put — useful when you already hold the stock position.",
     order: 7,
-    prerequisiteModuleSlugs: ["straddles-and-strangles", "synthetics-and-combos"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "long-call-synthetic-straddle",
       "long-put-synthetic-straddle",
@@ -129,7 +129,7 @@ export const modules: Module[] = [
     description:
       "Directionally-biased straddles (strap/strip), and spreads built with unequal numbers of contracts on each leg (ratio backspreads and ratio spreads) — where the leg count itself becomes a lever.",
     order: 8,
-    prerequisiteModuleSlugs: ["straddles-and-strangles", "vertical-spreads"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "strap",
       "strip",
@@ -147,7 +147,7 @@ export const modules: Module[] = [
     description:
       "A butterfly with its middle strike split into two — wider, more forgiving range-bound (or breakout) bets, at the cost of a smaller maximum payoff.",
     order: 10,
-    prerequisiteModuleSlugs: ["butterflies"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "long-call-condor",
       "long-put-condor",
@@ -165,7 +165,7 @@ export const modules: Module[] = [
     description:
       "Three-leg, near-zero-cost strategies that add a protective wing to a combo — the course's capstone module, combining ideas from combos and vertical spreads.",
     order: 12,
-    prerequisiteModuleSlugs: ["synthetics-and-combos", "vertical-spreads"],
+    prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "bullish-short-seagull-spread",
       "bearish-long-seagull-spread",
