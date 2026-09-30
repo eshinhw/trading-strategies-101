@@ -25,6 +25,19 @@ function fmtMoney(n: number): string {
   return `${sign}$${Math.abs(n).toFixed(2)}`;
 }
 
+// Whole-dollar labels read cleaner, but two distinct breakevens can be closer together than
+// $1 apart (e.g. a calendar spread's payoff can cross zero twice within a fraction of a
+// dollar near its strike) — rounding both to the same whole dollar would stack two identical-
+// looking "B/E $X" labels right on top of each other. Use just enough decimal places, shared
+// across every breakeven on this chart, so they stay visually distinct from one another.
+function breakevenPrecision(breakevens: number[]): number {
+  for (let decimals = 0; decimals <= 2; decimals++) {
+    const formatted = breakevens.map((b) => b.toFixed(decimals));
+    if (new Set(formatted).size === formatted.length) return decimals;
+  }
+  return 2;
+}
+
 // Renders a reference line's label at a fixed vertical slot (by `row`) rather
 // than relative to the line itself, so labels never collide even when two
 // lines sit close together on a narrow chart — a fixed x/y position keyword
@@ -76,6 +89,7 @@ export function PayoffChart({
   // fraction of the y-domain, from the top, where pnl = 0 sits — used to split
   // the area fill into a profit-green top and loss-red bottom at the right point.
   const gradientOffset = dataMax === dataMin ? 0 : dataMax / (dataMax - dataMin);
+  const bePrecision = breakevenPrecision(breakevens);
 
   return (
     <ResponsiveContainer width="100%" height={360}>
@@ -136,7 +150,7 @@ export function PayoffChart({
             strokeDasharray="2 4"
             label={
               <StackedLabel
-                text={`B/E $${be.toFixed(0)}`}
+                text={`B/E $${be.toFixed(bePrecision)}`}
                 color={COLOR.mutedText}
                 row={(currentPrice !== undefined ? 1 : 0) + i}
               />
