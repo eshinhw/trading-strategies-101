@@ -28,13 +28,50 @@ export function LandingPage() {
   );
 }
 
+// Greek letters used for option Greeks (Delta, Theta, Gamma, Vega, Sigma, Rho) — a quiet nod to
+// the quantitative side of options, drifting slowly behind the hero text. Purely decorative, so
+// it's aria-hidden and never intercepts clicks.
+const HERO_SYMBOLS = [
+  { char: "Δ", left: "6%", top: "12%", delay: "0s" },
+  { char: "Θ", left: "92%", top: "10%", delay: "1.2s" },
+  { char: "Γ", left: "16%", top: "72%", delay: "2.1s" },
+  { char: "ν", left: "80%", top: "68%", delay: "0.6s" },
+  { char: "σ", left: "50%", top: "6%", delay: "3s" },
+  { char: "ρ", left: "38%", top: "82%", delay: "1.8s" },
+];
+
+function HeroBackground() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div
+        className="absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
+        style={{ background: "radial-gradient(closest-side, #7c6cff, transparent)" }}
+      />
+      <svg className="absolute inset-x-0 top-6 h-14 w-full opacity-40" viewBox="0 0 1100 60" preserveAspectRatio="none">
+        <polyline
+          points="0,40 60,35 120,42 180,28 240,33 300,20 360,26 420,15 480,22 540,12 600,18 660,8 720,14 780,6 840,12 900,4 960,10 1020,2 1080,8"
+          fill="none"
+          stroke="#7c6cff"
+          strokeWidth="2"
+        />
+      </svg>
+      {HERO_SYMBOLS.map(({ char, left, top, delay }) => (
+        <span
+          key={char}
+          className="absolute font-serif text-4xl text-[#7c6cff] opacity-[0.09]"
+          style={{ left, top, animation: "hero-symbol-drift 9s ease-in-out infinite", animationDelay: delay }}
+        >
+          {char}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-[#2a3040]">
-      <div
-        className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-20 blur-3xl"
-        style={{ background: "radial-gradient(closest-side, #7c6cff, transparent)" }}
-      />
+      <HeroBackground />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
           <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6e8ec] sm:text-5xl">
