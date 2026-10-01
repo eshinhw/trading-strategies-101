@@ -40,7 +40,7 @@ function App() {
                 <Route path="/courses/:slug" element={<CoursePage />} />
                 <Route path="/courses/:slug/exam" element={<ExamPage />} />
                 <Route path="/practice" element={<PracticePage />} />
-                <Route path="/practice/option-payout-simulator" element={<OptionPayoutSimulatorPage />} />
+                <Route path="/practice/options-payoff-simulator" element={<OptionPayoutSimulatorPage />} />
                 <Route path="/books" element={<BooksPage />} />
                 <Route path="/papers" element={<PapersPage />} />
                 <Route path="/module/:slug" element={<ModulePage />} />

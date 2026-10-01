@@ -25,8 +25,8 @@ function PayoffSimulatorPreview() {
 // just standalone routes. Add an entry here for each new tool.
 const PRACTICE_TOOLS = [
   {
-    slug: "option-payout-simulator",
-    title: "Option Payout Simulator",
+    slug: "options-payoff-simulator",
+    title: "Options Payoff Simulator",
     description:
       "Build a position leg by leg — stock, calls, puts, long or short — and watch the payoff update live. If what you build matches a strategy from the course, its explanation shows up automatically.",
     tag: "Options",
@@ -40,8 +40,8 @@ export function PracticePage() {
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-[#e6e8ec]">Practice</h1>
         <p className="mt-2 max-w-2xl text-[#9aa3b2]">
-          Interactive tools for drilling the concepts and strategies covered throughout the courses — no lesson or
-          quiz attached, just a sandbox to build intuition.
+          Interactive tools for drilling the concepts and strategies covered throughout the courses — no lesson or quiz
+          attached, just a sandbox to build intuition.
         </p>
       </header>
 
@@ -52,7 +52,7 @@ export function PracticePage() {
             to={`/practice/${tool.slug}`}
             className="flex flex-col overflow-hidden rounded-xl border border-[#2a3040] bg-[#141821] card-glow transition hover:border-[#7c6cff]/50 hover:bg-[#171c26]"
           >
-            {tool.preview && <div className="h-24 border-b border-[#2a3040] bg-[#0e1117] p-3">{tool.preview}</div>}
+            {tool.preview && <div className="h-40 border-b border-[#2a3040] bg-[#0e1117] p-3">{tool.preview}</div>}
             <div className="flex flex-col p-5">
               <div className="mb-1 flex items-center justify-between gap-2">
                 <h3 className="font-semibold text-[#e6e8ec]">{tool.title}</h3>
