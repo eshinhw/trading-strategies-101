@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const EXPLORE_LINKS = [
-  { to: "/courses", label: "All courses" },
+  { to: "/courses", label: "Courses" },
   { to: "/books", label: "Books" },
   { to: "/papers", label: "Papers" },
 ];
@@ -68,8 +68,8 @@ export function Footer() {
               Trading Strategies 101
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#9aa3b2]">
-              Hands-on lessons for 18 asset classes, from options to distressed debt — 173 strategies, learned by
-              doing, not memorizing.
+              Hands-on lessons for 18 asset classes, from options to distressed debt — 173 strategies, learned by doing,
+              not memorizing.
             </p>
             <a
               href={GITHUB_URL}
