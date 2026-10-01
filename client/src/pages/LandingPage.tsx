@@ -75,7 +75,7 @@ function Hero() {
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:py-24">
         <div>
           <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6e8ec] sm:text-5xl">
-            Master trading strategies by understanding them, not memorizing.
+            Master trading strategies by understanding, not memorizing.
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
             Learn trading strategies by doing—not just reading. Explore real-world lessons across options, commodities,
