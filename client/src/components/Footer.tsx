@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 
 const EXPLORE_LINKS = [
   { to: "/courses", label: "All courses" },
-  { to: "/courses/options", label: "Options" },
-  { to: "/courses/futures", label: "Forward & Futures" },
   { to: "/books", label: "Books" },
   { to: "/papers", label: "Papers" },
 ];
