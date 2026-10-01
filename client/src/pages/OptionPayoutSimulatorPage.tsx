@@ -143,7 +143,7 @@ export function OptionPayoutSimulatorPage() {
   }, [legs, signatureIndex]);
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-10">
+    <div className="mx-auto max-w-7xl px-6 py-10">
       <Link to="/practice" className="text-sm text-[#7c6cff] hover:underline">
         ← Practice
       </Link>
@@ -158,108 +158,110 @@ export function OptionPayoutSimulatorPage() {
 
       {error && <p className="mb-4 text-red-400">{error}</p>}
 
-      <div className="flex flex-col gap-6">
-        <section className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Build your position</h3>
-            <button onClick={resetAll} className="text-xs text-[#7c6cff] hover:underline">
-              Reset
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[380px_1fr] lg:items-start">
+        <div className="flex flex-col gap-6">
+          <section className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Build your position</h3>
+              <button onClick={resetAll} className="text-xs text-[#7c6cff] hover:underline">
+                Reset
+              </button>
+            </div>
+            <div className="flex flex-col gap-3">
+              {legs.map((leg, i) => (
+                <LegRow
+                  key={leg.id}
+                  leg={leg}
+                  premium={premiums[i]}
+                  canRemove={legs.length > 1}
+                  onChange={(patch) => updateLeg(leg.id, patch)}
+                  onRemove={() => removeLeg(leg.id)}
+                />
+              ))}
+            </div>
+            <button
+              onClick={addLeg}
+              disabled={legs.length >= MAX_LEGS}
+              className="mt-4 rounded-lg border border-dashed border-[#2a3040] px-4 py-2 text-sm text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:text-[#e6e8ec] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              + Add leg {legs.length >= MAX_LEGS ? `(max ${MAX_LEGS})` : ""}
             </button>
-          </div>
-          <div className="flex flex-col gap-3">
-            {legs.map((leg, i) => (
-              <LegRow
-                key={leg.id}
-                leg={leg}
-                premium={premiums[i]}
-                canRemove={legs.length > 1}
-                onChange={(patch) => updateLeg(leg.id, patch)}
-                onRemove={() => removeLeg(leg.id)}
-              />
-            ))}
-          </div>
-          <button
-            onClick={addLeg}
-            disabled={legs.length >= MAX_LEGS}
-            className="mt-4 rounded-lg border border-dashed border-[#2a3040] px-4 py-2 text-sm text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:text-[#e6e8ec] disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            + Add leg {legs.length >= MAX_LEGS ? `(max ${MAX_LEGS})` : ""}
-          </button>
-        </section>
+          </section>
 
-        <section>
-          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-            Entry pricing
-            <span className="ml-2 text-xs font-normal normal-case text-[#898781]">
-              — used only to estimate each leg's premium today; the chart below shows value at expiration
-            </span>
-          </h3>
-          <ParamControls
-            params={ENTRY_PARAMS}
-            values={entry}
-            onChange={(key, value) => setEntry((prev) => ({ ...prev, [key]: value }))}
-            onReset={() => setEntry(defaultEntryValues())}
-          />
-        </section>
-
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <StatTile label="Max profit" value={stats.maxProfit} tone="good" />
-          <StatTile label="Max loss" value={stats.maxLoss} tone="critical" />
-          <StatTile
-            label="Breakeven"
-            value={stats.breakevens.length === 0 ? "—" : stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")}
-            tone="neutral"
-          />
-          <StatTile label="Net premium" value={netCF >= 0 ? `${fmtMoney(netCF)} credit` : `${fmtMoney(-netCF)} debit`} tone="neutral" />
+          <section>
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Entry pricing</h3>
+            <p className="mb-3 text-xs text-[#898781]">
+              Used only to estimate each leg's premium today — the chart shows value at expiration.
+            </p>
+            <ParamControls
+              params={ENTRY_PARAMS}
+              values={entry}
+              onChange={(key, value) => setEntry((prev) => ({ ...prev, [key]: value }))}
+              onReset={() => setEntry(defaultEntryValues())}
+            />
+          </section>
         </div>
 
-        <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
-          <PayoffChart
-            curve={stats.curve}
-            breakevens={stats.breakevens.filter((b) => b >= stats.displayRange[0] && b <= stats.displayRange[1])}
-            currentPrice={entry.S0}
-          />
-        </div>
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <StatTile label="Max profit" value={stats.maxProfit} tone="good" />
+            <StatTile label="Max loss" value={stats.maxLoss} tone="critical" />
+            <StatTile
+              label="Breakeven"
+              value={stats.breakevens.length === 0 ? "—" : stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")}
+              tone="neutral"
+            />
+            <StatTile label="Net premium" value={netCF >= 0 ? `${fmtMoney(netCF)} credit` : `${fmtMoney(-netCF)} debit`} tone="neutral" />
+          </div>
 
-        {matched ? (
-          <section className="rounded-xl border border-[#7c6cff]/30 bg-[#7c6cff]/10 card-glow p-5">
-            <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#7c6cff]">
-              This matches a strategy from the course
-            </div>
-            <h3 className="text-xl font-bold text-[#e6e8ec]">{matched.name}</h3>
-            {matched.aka && <div className="mt-0.5 text-sm text-[#898781]">a.k.a. {matched.aka}</div>}
-            <p className="mt-3 text-sm leading-relaxed text-[#e6e8ec]">{matched.content.summary}</p>
-            <div className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
-              <div>
-                <div className="text-xs uppercase tracking-wide text-[#898781]">When to use it</div>
-                <p className="mt-1 text-[#9aa3b2]">{matched.content.whenToUse}</p>
+          <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
+            <PayoffChart
+              curve={stats.curve}
+              breakevens={stats.breakevens.filter((b) => b >= stats.displayRange[0] && b <= stats.displayRange[1])}
+              currentPrice={entry.S0}
+            />
+          </div>
+
+          {matched ? (
+            <section className="rounded-xl border border-[#7c6cff]/30 bg-[#7c6cff]/10 card-glow p-5">
+              <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#7c6cff]">
+                This matches a strategy from the course
               </div>
-              <div>
-                <div className="text-xs uppercase tracking-wide text-[#898781]">Why use it</div>
-                <p className="mt-1 text-[#9aa3b2]">{matched.content.whyUse}</p>
+              <h3 className="text-xl font-bold text-[#e6e8ec]">{matched.name}</h3>
+              {matched.aka && <div className="mt-0.5 text-sm text-[#898781]">a.k.a. {matched.aka}</div>}
+              <p className="mt-3 text-sm leading-relaxed text-[#e6e8ec]">{matched.content.summary}</p>
+              <div className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
+                <div>
+                  <div className="text-xs uppercase tracking-wide text-[#898781]">When to use it</div>
+                  <p className="mt-1 text-[#9aa3b2]">{matched.content.whenToUse}</p>
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wide text-[#898781]">Why use it</div>
+                  <p className="mt-1 text-[#9aa3b2]">{matched.content.whyUse}</p>
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wide text-[#898781]">How to use it</div>
+                  <p className="mt-1 text-[#9aa3b2]">{matched.content.howToUse}</p>
+                </div>
               </div>
-              <div>
-                <div className="text-xs uppercase tracking-wide text-[#898781]">How to use it</div>
-                <p className="mt-1 text-[#9aa3b2]">{matched.content.howToUse}</p>
+              <div className="mt-4 flex items-center gap-4">
+                <Link to={`/lesson/${matched.slug}`} className="text-sm text-[#7c6cff] hover:underline">
+                  Open the full lesson →
+                </Link>
+                <FormulaReference strategy={matched} />
               </div>
-            </div>
-            <div className="mt-4 flex items-center gap-4">
-              <Link to={`/lesson/${matched.slug}`} className="text-sm text-[#7c6cff] hover:underline">
-                Open the full lesson →
-              </Link>
-              <FormulaReference strategy={matched} />
-            </div>
-          </section>
-        ) : (
-          <section className="rounded-xl border border-[#2a3040] bg-[#101319] p-5 text-center text-sm text-[#898781]">
-            This combination doesn't match a strategy from the course yet — keep adjusting, or{" "}
-            <Link to="/courses/options" className="text-[#7c6cff] hover:underline">
-              browse the Options course
-            </Link>{" "}
-            for ideas.
-          </section>
-        )}
+            </section>
+          ) : (
+            <section className="rounded-xl border border-[#2a3040] bg-[#101319] p-5 text-center text-sm text-[#898781]">
+              This combination doesn't match a strategy from the course yet — keep adjusting, or{" "}
+              <Link to="/courses/options" className="text-[#7c6cff] hover:underline">
+                browse the Options course
+              </Link>{" "}
+              for ideas.
+            </section>
+          )}
+        </div>
       </div>
     </div>
   );
