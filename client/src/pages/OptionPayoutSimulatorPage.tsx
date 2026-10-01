@@ -344,17 +344,19 @@ function LegRow({
           />
         </div>
 
-        <div className="ml-auto text-right">
-          <div className="mb-1 text-xs text-[#898781]">{leg.instrument === "stock" ? "" : "Premium"}</div>
-          <div className="whitespace-nowrap text-sm">
-            {leg.instrument !== "stock" && (
-              <span className={leg.side === "short" ? "text-emerald-400" : "text-red-400"}>
-                {leg.side === "short" ? "+" : "-"}
-                {fmtMoney(premium)}
-              </span>
-            )}
+        {leg.instrument !== "stock" && (
+          <div className="ml-auto w-24">
+            <label className="mb-1 block text-right text-xs text-[#898781]">Premium</label>
+            <div
+              className={`flex h-9 items-center justify-end whitespace-nowrap rounded-md border border-[#2a3040] bg-[#141821] px-2 font-mono text-sm ${
+                leg.side === "short" ? "text-emerald-400" : "text-red-400"
+              }`}
+            >
+              {leg.side === "short" ? "+" : "-"}
+              {fmtMoney(premium)}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
