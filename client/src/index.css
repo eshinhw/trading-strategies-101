@@ -57,7 +57,7 @@ button:not(:disabled) {
     0 0 20px rgba(124, 108, 255, 0.08);
 }
 
-/* Slow vertical drift for the hero's floating Greek-letter background symbols. */
+/* Slow vertical drift for the hero's floating asset-ticker background symbols. */
 @keyframes hero-symbol-drift {
   0%,
   100% {

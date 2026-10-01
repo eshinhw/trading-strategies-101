@@ -1,14 +1,19 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchCourses } from "../api";
 import type { Course } from "../types/course";
 import { CourseCard } from "../components/CourseCard";
-
-// Lazy-loaded because it's the only landing-page component that pulls in
-// recharts (via PayoffChart) — see HeroDemo.tsx for why this split exists.
-const HeroDemo = lazy(() => import("../components/HeroDemo").then((m) => ({ default: m.HeroDemo })));
+import { RiskRewardHero } from "../components/RiskRewardHero";
 
 export function LandingPage() {
+  const [courses, setCourses] = useState<Course[] | null>(null);
+
+  useEffect(() => {
+    fetchCourses()
+      .then(setCourses)
+      .catch(() => setCourses(null));
+  }, []);
+
   // Support deep-linking to the courses section (e.g. "back to all modules"
   // links from a module/lesson page) even when this is a fresh route mount,
   // which the browser's native hash-scroll doesn't handle in an SPA.
@@ -22,22 +27,22 @@ export function LandingPage() {
     <div>
       <Hero />
       <Features />
-      <CoursesPreview />
+      <CoursesPreview courses={courses} />
       <FinalCta />
     </div>
   );
 }
 
-// Greek letters used for option Greeks (Delta, Theta, Gamma, Vega, Sigma, Rho) — a quiet nod to
-// the quantitative side of options, drifting slowly behind the hero text. Purely decorative, so
-// it's aria-hidden and never intercepts clicks.
+// Asset-class tickers spanning the curriculum (equities/index options, commodities, crypto, rates,
+// metals, credit) — a quiet nod to the breadth of the platform, drifting slowly behind the hero
+// text. Purely decorative, so it's aria-hidden and never intercepts clicks.
 const HERO_SYMBOLS = [
-  { char: "Δ", left: "6%", top: "12%", delay: "0s" },
-  { char: "Θ", left: "92%", top: "10%", delay: "1.2s" },
-  { char: "Γ", left: "16%", top: "72%", delay: "2.1s" },
-  { char: "ν", left: "80%", top: "68%", delay: "0.6s" },
-  { char: "σ", left: "50%", top: "6%", delay: "3s" },
-  { char: "ρ", left: "38%", top: "82%", delay: "1.8s" },
+  { char: "SPX", left: "6%", top: "12%", delay: "0s" },
+  { char: "WTI", left: "92%", top: "10%", delay: "1.2s" },
+  { char: "BTC", left: "16%", top: "72%", delay: "2.1s" },
+  { char: "10Y", left: "80%", top: "68%", delay: "0.6s" },
+  { char: "XAU", left: "50%", top: "6%", delay: "3s" },
+  { char: "CDS", left: "38%", top: "82%", delay: "1.8s" },
 ];
 
 function HeroBackground() {
@@ -58,7 +63,7 @@ function HeroBackground() {
       {HERO_SYMBOLS.map(({ char, left, top, delay }) => (
         <span
           key={char}
-          className="absolute font-serif text-4xl text-[#7c6cff] opacity-[0.09]"
+          className="absolute font-mono text-2xl tracking-wider text-[#7c6cff] opacity-[0.09]"
           style={{ left, top, animation: "hero-symbol-drift 9s ease-in-out infinite", animationDelay: delay }}
         >
           {char}
@@ -78,9 +83,8 @@ function Hero() {
             Master trading strategies by understanding, not memorizing.
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
-            Learn trading strategies by doing—not just reading. Explore real-world lessons across options, commodities,
-            and more, test your knowledge as you go, and use interactive payoff tools to see how strategies perform in
-            real time for options.
+            Learn trading strategies by doing—not just reading. Explore real-world lessons across 18 asset classes,
+            from options and equities to commodities and credit, and test your knowledge as you go.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
@@ -95,15 +99,7 @@ function Hero() {
           </div>
           <p className="mt-4 text-sm text-[#898781]">Browse and try any lesson before you sign up.</p>
         </div>
-        <Suspense
-          fallback={
-            <div className="flex h-[458px] items-center justify-center rounded-2xl border border-[#2a3040] bg-[#141821] card-glow text-sm text-[#898781]">
-              Loading demo…
-            </div>
-          }
-        >
-          <HeroDemo />
-        </Suspense>
+        <RiskRewardHero />
       </div>
     </section>
   );
@@ -113,7 +109,7 @@ function Features() {
   const items = [
     {
       title: "Learn by doing",
-      body: "Options lessons come with a real interactive payoff tool — change strikes, premiums, even volatility, and watch max profit, max loss, and breakeven recalculate live. Every other course pairs a focused explainer with a knowledge-check quiz after each lesson.",
+      body: "Every lesson pairs a focused explainer with a knowledge-check quiz, so you're applying ideas right away instead of just reading. Options lessons go further with a live interactive payoff tool — change strikes, premiums, even volatility, and watch max profit, max loss, and breakeven recalculate in real time.",
     },
     {
       title: "Prove it, don't just read it",
@@ -139,15 +135,7 @@ function Features() {
   );
 }
 
-function CoursesPreview() {
-  const [courses, setCourses] = useState<Course[] | null>(null);
-
-  useEffect(() => {
-    fetchCourses()
-      .then(setCourses)
-      .catch(() => setCourses(null));
-  }, []);
-
+function CoursesPreview({ courses }: { courses: Course[] | null }) {
   return (
     <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
       <div className="mx-auto max-w-7xl px-6">
