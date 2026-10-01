@@ -68,7 +68,9 @@ export function OptionPayoutSimulatorPage() {
 
   function addLeg() {
     setLegs((prev) =>
-      prev.length >= MAX_LEGS ? prev : [...prev, { id: nextLegId++, instrument: "call", side: "long", strike: entry.S0, qty: 1 }],
+      prev.length >= MAX_LEGS
+        ? prev
+        : [...prev, { id: nextLegId++, instrument: "call", side: "long", strike: entry.S0, qty: 1 }],
     );
   }
 
@@ -89,17 +91,24 @@ export function OptionPayoutSimulatorPage() {
     const years = (entry.days ?? 30) / 365;
     const vol = (entry.iv ?? 30) / 100;
     const rate = (entry.rate ?? 2) / 100;
-    return legs.map((l) => (l.instrument === "stock" ? 0 : blackScholes(entry.S0 ?? 100, l.strike, years, rate, vol, l.instrument)));
+    return legs.map((l) =>
+      l.instrument === "stock" ? 0 : blackScholes(entry.S0 ?? 100, l.strike, years, rate, vol, l.instrument),
+    );
   }, [legs, entry]);
 
   const netCF = useMemo(
     () =>
-      legs.reduce((sum, l, i) => (l.instrument === "stock" ? sum : sum + (l.side === "short" ? 1 : -1) * l.qty * premiums[i]), 0),
+      legs.reduce(
+        (sum, l, i) => (l.instrument === "stock" ? sum : sum + (l.side === "short" ? 1 : -1) * l.qty * premiums[i]),
+        0,
+      ),
     [legs, premiums],
   );
 
   const { virtualStrategy, virtualParams } = useMemo(() => {
-    const params: Strategy["params"] = [{ key: "S0", label: "Spot", default: entry.S0 ?? 100, min: 0, max: 0, step: 1 }];
+    const params: Strategy["params"] = [
+      { key: "S0", label: "Spot", default: entry.S0 ?? 100, min: 0, max: 0, step: 1 },
+    ];
     const values: ParamValues = { S0: entry.S0 ?? 100, netCF };
 
     const vLegs = legs.map((l, i) => {
@@ -129,7 +138,10 @@ export function OptionPayoutSimulatorPage() {
 
   const stats = useMemo(() => {
     const [lo, hi] = defaultRange(virtualStrategy, virtualParams);
-    return { ...computePayoffStats(virtualStrategy, virtualParams, lo, hi), displayRange: [lo, hi] as [number, number] };
+    return {
+      ...computePayoffStats(virtualStrategy, virtualParams, lo, hi),
+      displayRange: [lo, hi] as [number, number],
+    };
   }, [virtualStrategy, virtualParams]);
 
   const matched = useMemo(() => {
@@ -150,10 +162,10 @@ export function OptionPayoutSimulatorPage() {
       </Link>
 
       <header className="mt-4 mb-8">
-        <h1 className="text-3xl font-bold text-[#e6e8ec]">Option Payout Simulator</h1>
+        <h1 className="text-3xl font-bold text-[#e6e8ec]">Options Payoff Simulator</h1>
         <p className="mt-2 max-w-2xl text-[#9aa3b2]">
-          Build a position leg by leg — stock, calls, puts, long or short — and watch the payoff update live. If
-          what you've built matches a strategy from the course, its explanation shows up below automatically.
+          Build a position leg by leg — stock, calls, puts, long or short — and watch the payoff update live. If what
+          you've built matches a strategy from the course, its explanation shows up below automatically.
         </p>
       </header>
 
@@ -163,7 +175,7 @@ export function OptionPayoutSimulatorPage() {
         <div className="flex flex-col gap-6">
           <section className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Build your position</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Build legs</h3>
               <button onClick={resetAll} className="text-xs text-[#7c6cff] hover:underline">
                 Reset
               </button>
@@ -212,7 +224,11 @@ export function OptionPayoutSimulatorPage() {
               value={stats.breakevens.length === 0 ? "—" : stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")}
               tone="neutral"
             />
-            <StatTile label="Net premium" value={netCF >= 0 ? `${fmtMoney(netCF)} credit` : `${fmtMoney(-netCF)} debit`} tone="neutral" />
+            <StatTile
+              label="Net premium"
+              value={netCF >= 0 ? `${fmtMoney(netCF)} credit` : `${fmtMoney(-netCF)} debit`}
+              tone="neutral"
+            />
           </div>
 
           <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
@@ -224,44 +240,48 @@ export function OptionPayoutSimulatorPage() {
             />
           </div>
 
-          {matched ? (
-            <section className="rounded-xl border border-[#7c6cff]/30 bg-[#7c6cff]/10 card-glow p-5">
-              <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#7c6cff]">
-                This matches a strategy from the course
-              </div>
-              <h3 className="text-xl font-bold text-[#e6e8ec]">{matched.name}</h3>
-              {matched.aka && <div className="mt-0.5 text-sm text-[#898781]">a.k.a. {matched.aka}</div>}
-              <p className="mt-3 text-sm leading-relaxed text-[#e6e8ec]">{matched.content.summary}</p>
-              <div className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
-                <div>
-                  <div className="text-xs uppercase tracking-wide text-[#898781]">When to use it</div>
-                  <p className="mt-1 text-[#9aa3b2]">{matched.content.whenToUse}</p>
+          <div className="flex flex-col gap-3">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Strategy Match</h3>
+
+            {matched ? (
+              <section className="rounded-xl border border-[#7c6cff]/30 bg-[#7c6cff]/10 card-glow p-5">
+                <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-[#7c6cff]">
+                  This matches a strategy from the course
                 </div>
-                <div>
-                  <div className="text-xs uppercase tracking-wide text-[#898781]">Why use it</div>
-                  <p className="mt-1 text-[#9aa3b2]">{matched.content.whyUse}</p>
+                <h3 className="text-xl font-bold text-[#e6e8ec]">{matched.name}</h3>
+                {matched.aka && <div className="mt-0.5 text-sm text-[#898781]">a.k.a. {matched.aka}</div>}
+                <p className="mt-3 text-sm leading-relaxed text-[#e6e8ec]">{matched.content.summary}</p>
+                <div className="mt-4 grid grid-cols-1 gap-3 text-sm sm:grid-cols-3">
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#898781]">When to use it</div>
+                    <p className="mt-1 text-[#9aa3b2]">{matched.content.whenToUse}</p>
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#898781]">Why use it</div>
+                    <p className="mt-1 text-[#9aa3b2]">{matched.content.whyUse}</p>
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-wide text-[#898781]">How to use it</div>
+                    <p className="mt-1 text-[#9aa3b2]">{matched.content.howToUse}</p>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs uppercase tracking-wide text-[#898781]">How to use it</div>
-                  <p className="mt-1 text-[#9aa3b2]">{matched.content.howToUse}</p>
+                <div className="mt-4 flex items-center gap-4">
+                  <Link to={`/lesson/${matched.slug}`} className="text-sm text-[#7c6cff] hover:underline">
+                    Open the full lesson →
+                  </Link>
+                  <FormulaReference strategy={matched} />
                 </div>
-              </div>
-              <div className="mt-4 flex items-center gap-4">
-                <Link to={`/lesson/${matched.slug}`} className="text-sm text-[#7c6cff] hover:underline">
-                  Open the full lesson →
-                </Link>
-                <FormulaReference strategy={matched} />
-              </div>
-            </section>
-          ) : (
-            <section className="rounded-xl border border-[#2a3040] bg-[#101319] p-5 text-center text-sm text-[#898781]">
-              This combination doesn't match a strategy from the course yet — keep adjusting, or{" "}
-              <Link to="/courses/options" className="text-[#7c6cff] hover:underline">
-                browse the Options course
-              </Link>{" "}
-              for ideas.
-            </section>
-          )}
+              </section>
+            ) : (
+              <section className="rounded-xl border border-[#2a3040] bg-[#101319] p-5 text-center text-sm text-[#898781]">
+                This combination doesn't match a strategy from the course yet — keep adjusting, or{" "}
+                <Link to="/courses/options" className="text-[#7c6cff] hover:underline">
+                  browse the Options course
+                </Link>{" "}
+                for ideas.
+              </section>
+            )}
+          </div>
         </div>
       </div>
     </div>
