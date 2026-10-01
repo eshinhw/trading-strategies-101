@@ -33,6 +33,9 @@ export function Nav() {
             <Link to="/courses" className="text-slate-300 hover:text-white">
               Courses
             </Link>
+            <Link to="/practice" className="text-slate-300 hover:text-white">
+              Practice
+            </Link>
             <Link to="/books" className="text-slate-300 hover:text-white">
               Books
             </Link>

@@ -12,6 +12,10 @@ import { Footer } from "./components/Footer";
 const LandingPage = lazy(() => import("./pages/LandingPage").then((m) => ({ default: m.LandingPage })));
 const CoursesPage = lazy(() => import("./pages/CoursesPage").then((m) => ({ default: m.CoursesPage })));
 const CoursePage = lazy(() => import("./pages/CoursePage").then((m) => ({ default: m.CoursePage })));
+const PracticePage = lazy(() => import("./pages/PracticePage").then((m) => ({ default: m.PracticePage })));
+const OptionPayoutSimulatorPage = lazy(() =>
+  import("./pages/OptionPayoutSimulatorPage").then((m) => ({ default: m.OptionPayoutSimulatorPage })),
+);
 const BooksPage = lazy(() => import("./pages/BooksPage").then((m) => ({ default: m.BooksPage })));
 const PapersPage = lazy(() => import("./pages/PapersPage").then((m) => ({ default: m.PapersPage })));
 const ExamPage = lazy(() => import("./pages/ExamPage").then((m) => ({ default: m.ExamPage })));
@@ -35,6 +39,8 @@ function App() {
                 <Route path="/courses" element={<CoursesPage />} />
                 <Route path="/courses/:slug" element={<CoursePage />} />
                 <Route path="/courses/:slug/exam" element={<ExamPage />} />
+                <Route path="/practice" element={<PracticePage />} />
+                <Route path="/practice/option-payout-simulator" element={<OptionPayoutSimulatorPage />} />
                 <Route path="/books" element={<BooksPage />} />
                 <Route path="/papers" element={<PapersPage />} />
                 <Route path="/module/:slug" element={<ModulePage />} />
