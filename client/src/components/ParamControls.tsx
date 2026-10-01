@@ -1,6 +1,6 @@
 import type { ParamDef } from "../types/strategy";
 import type { ParamValues } from "../engine/payoff";
-import { NumberField } from "./NumberField";
+import { ParamNumberCard } from "./ParamNumberCard";
 
 export function ParamControls({
   params,
@@ -29,28 +29,24 @@ export function ParamControls({
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         {params.map((p) => (
           <div key={p.key}>
-            <div className="mb-1 flex items-center justify-between gap-3">
-              <label htmlFor={p.key} className="text-sm text-[#e6e8ec]">
-                {p.label}
-              </label>
-              <NumberField
-                id={`${p.key}-number`}
-                value={values[p.key] ?? p.default}
-                min={p.min}
-                max={p.max}
-                step={p.step}
-                onCommit={(n) => onChange(p.key, n)}
-              />
-            </div>
+            <ParamNumberCard
+              id={`${p.key}-number`}
+              label={p.label}
+              value={values[p.key] ?? p.default}
+              min={p.min}
+              max={p.max}
+              step={p.step}
+              onCommit={(n) => onChange(p.key, n)}
+            />
             <input
-              id={p.key}
+              id={`${p.key}-range`}
               type="range"
               min={p.min}
               max={p.max}
               step={p.step}
               value={values[p.key] ?? p.default}
               onChange={(e) => onChange(p.key, Number(e.target.value))}
-              className="w-full accent-[#7c6cff]"
+              className="mt-2 w-full accent-[#7c6cff]"
             />
             {p.hint && <div className="mt-1 text-xs text-[#898781]">{p.hint}</div>}
           </div>

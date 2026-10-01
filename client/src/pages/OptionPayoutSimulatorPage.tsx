@@ -11,7 +11,7 @@ import { ParamControls } from "../components/ParamControls";
 import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
 import { FormulaReference } from "../components/FormulaReference";
-import { NumberField } from "../components/NumberField";
+import { ParamNumberCard } from "../components/ParamNumberCard";
 
 interface BuilderLeg {
   id: number;
@@ -289,8 +289,6 @@ export function OptionPayoutSimulatorPage() {
 }
 
 const selectClass = "h-9 rounded-md border border-[#2a3040] bg-[#141821] px-2 text-sm text-[#e6e8ec]";
-const numberFieldClass =
-  "h-9 w-full rounded-md border border-[#2a3040] bg-[#141821] px-2 text-right font-mono text-sm text-[#e6e8ec] focus:border-[#7c6cff]/60 focus:outline-none";
 
 function LegRow({
   leg,
@@ -337,38 +335,34 @@ function LegRow({
         </button>
       </div>
 
-      <div className="mt-3 flex items-end gap-2">
+      <div className={`mt-3 grid gap-2 ${leg.instrument === "stock" ? "grid-cols-1" : "grid-cols-3"}`}>
         {leg.instrument !== "stock" && (
-          <div className="w-20">
-            <label className="mb-1 block text-xs text-[#898781]">Strike</label>
-            <NumberField
-              value={leg.strike}
-              min={1}
-              max={100000}
-              step={1}
-              onCommit={(n) => onChange({ strike: n })}
-              className={numberFieldClass}
-            />
-          </div>
+          <ParamNumberCard
+            label="Strike"
+            value={leg.strike}
+            min={1}
+            max={100000}
+            step={1}
+            onCommit={(n) => onChange({ strike: n })}
+            compact
+          />
         )}
 
-        <div className="w-16">
-          <label className="mb-1 block text-xs text-[#898781]">Qty</label>
-          <NumberField
-            value={leg.qty}
-            min={1}
-            max={20}
-            step={1}
-            onCommit={(n) => onChange({ qty: n })}
-            className={numberFieldClass}
-          />
-        </div>
+        <ParamNumberCard
+          label="Qty"
+          value={leg.qty}
+          min={1}
+          max={20}
+          step={1}
+          onCommit={(n) => onChange({ qty: n })}
+          compact
+        />
 
         {leg.instrument !== "stock" && (
-          <div className="ml-auto w-24">
-            <label className="mb-1 block text-right text-xs text-[#898781]">Premium</label>
+          <div className="rounded-lg border border-[#2a3040] bg-[#0e1117] px-2 py-1.5">
+            <div className="text-[10px] text-[#9aa3b2]">Premium</div>
             <div
-              className={`flex h-9 items-center justify-end whitespace-nowrap rounded-md border border-[#2a3040] bg-[#141821] px-2 font-mono text-sm ${
+              className={`mt-1 whitespace-nowrap text-sm font-semibold ${
                 leg.side === "short" ? "text-emerald-400" : "text-red-400"
               }`}
             >
