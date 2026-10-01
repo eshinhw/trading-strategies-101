@@ -135,12 +135,12 @@ function groupBodySegments(body: LessonBlock[]): BodySegment[] {
 // Distinguishes these recurring section types at a glance in both the
 // section heading itself and the "on this page" outline — every lesson uses
 // this exact heading text (see conceptLessons/*.ts), so a lookup here covers
-// all of them without touching 100+ content files. "Real World Example" is
+// all of them without touching 100+ content files. "Example in Practice" is
 // the Futures/Forward courses' merged replacement for the other two.
 const HEADING_EMOJI: Record<string, string> = {
   "In Practice": "💡",
   "A Worked Example": "📐",
-  "Real World Example": "💡",
+  "Example in Practice": "💡",
 };
 
 function headingWithEmoji(heading: string): string {
