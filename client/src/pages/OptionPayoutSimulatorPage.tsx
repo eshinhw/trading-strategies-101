@@ -11,6 +11,7 @@ import { ParamControls } from "../components/ParamControls";
 import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
 import { FormulaReference } from "../components/FormulaReference";
+import { NumberField } from "../components/NumberField";
 
 interface BuilderLeg {
   id: number;
@@ -267,6 +268,10 @@ export function OptionPayoutSimulatorPage() {
   );
 }
 
+const selectClass = "h-9 rounded-md border border-[#2a3040] bg-[#141821] px-2 text-sm text-[#e6e8ec]";
+const numberFieldClass =
+  "h-9 w-full rounded-md border border-[#2a3040] bg-[#141821] px-2 text-right font-mono text-sm text-[#e6e8ec] focus:border-[#7c6cff]/60 focus:outline-none";
+
 function LegRow({
   leg,
   premium,
@@ -281,70 +286,76 @@ function LegRow({
   onRemove: () => void;
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-3 rounded-lg border border-[#2a3040] bg-[#0e1117] p-3">
-      <select
-        value={leg.instrument}
-        onChange={(e) => onChange({ instrument: e.target.value as BuilderLeg["instrument"] })}
-        className="rounded-md border border-[#2a3040] bg-[#141821] px-2 py-1.5 text-sm text-[#e6e8ec]"
-      >
-        <option value="stock">Stock</option>
-        <option value="call">Call</option>
-        <option value="put">Put</option>
-      </select>
+    <div className="rounded-lg border border-[#2a3040] bg-[#0e1117] p-3">
+      <div className="flex items-center gap-2">
+        <select
+          value={leg.instrument}
+          onChange={(e) => onChange({ instrument: e.target.value as BuilderLeg["instrument"] })}
+          className={`${selectClass} flex-1`}
+        >
+          <option value="stock">Stock</option>
+          <option value="call">Call</option>
+          <option value="put">Put</option>
+        </select>
 
-      <select
-        value={leg.side}
-        onChange={(e) => onChange({ side: e.target.value as Side })}
-        className="rounded-md border border-[#2a3040] bg-[#141821] px-2 py-1.5 text-sm text-[#e6e8ec]"
-      >
-        <option value="long">Long</option>
-        <option value="short">Short</option>
-      </select>
+        <select
+          value={leg.side}
+          onChange={(e) => onChange({ side: e.target.value as Side })}
+          className={`${selectClass} flex-1`}
+        >
+          <option value="long">Long</option>
+          <option value="short">Short</option>
+        </select>
 
-      {leg.instrument !== "stock" && (
-        <label className="flex items-center gap-2 text-sm text-[#9aa3b2]">
-          Strike
-          <input
-            type="number"
-            min={1}
-            step={1}
-            value={leg.strike}
-            onChange={(e) => onChange({ strike: Number(e.target.value) || 0 })}
-            className="input w-20"
-          />
-        </label>
-      )}
-
-      <label className="flex items-center gap-2 text-sm text-[#9aa3b2]">
-        Qty
-        <input
-          type="number"
-          min={1}
-          max={20}
-          step={1}
-          value={leg.qty}
-          onChange={(e) => onChange({ qty: Math.max(1, Number(e.target.value) || 1) })}
-          className="input w-16"
-        />
-      </label>
-
-      <div className="ml-auto whitespace-nowrap text-sm text-[#898781]">
-        {leg.instrument === "stock" ? null : (
-          <span className={leg.side === "short" ? "text-emerald-400" : "text-red-400"}>
-            {leg.side === "short" ? "+" : "-"}
-            {fmtMoney(premium)}
-          </span>
-        )}
+        <button
+          onClick={onRemove}
+          disabled={!canRemove}
+          aria-label="Remove leg"
+          className="ml-1 shrink-0 text-[#898781] transition hover:text-red-400 disabled:cursor-not-allowed disabled:opacity-30"
+        >
+          ✕
+        </button>
       </div>
 
-      <button
-        onClick={onRemove}
-        disabled={!canRemove}
-        aria-label="Remove leg"
-        className="text-[#898781] transition hover:text-red-400 disabled:cursor-not-allowed disabled:opacity-30"
-      >
-        ✕
-      </button>
+      <div className="mt-3 flex items-end gap-2">
+        {leg.instrument !== "stock" && (
+          <div className="w-20">
+            <label className="mb-1 block text-xs text-[#898781]">Strike</label>
+            <NumberField
+              value={leg.strike}
+              min={1}
+              max={100000}
+              step={1}
+              onCommit={(n) => onChange({ strike: n })}
+              className={numberFieldClass}
+            />
+          </div>
+        )}
+
+        <div className="w-16">
+          <label className="mb-1 block text-xs text-[#898781]">Qty</label>
+          <NumberField
+            value={leg.qty}
+            min={1}
+            max={20}
+            step={1}
+            onCommit={(n) => onChange({ qty: n })}
+            className={numberFieldClass}
+          />
+        </div>
+
+        <div className="ml-auto text-right">
+          <div className="mb-1 text-xs text-[#898781]">{leg.instrument === "stock" ? "" : "Premium"}</div>
+          <div className="whitespace-nowrap text-sm">
+            {leg.instrument !== "stock" && (
+              <span className={leg.side === "short" ? "text-emerald-400" : "text-red-400"}>
+                {leg.side === "short" ? "+" : "-"}
+                {fmtMoney(premium)}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
