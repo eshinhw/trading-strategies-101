@@ -7,7 +7,7 @@ const PRACTICE_TOOLS = [
     slug: "option-payout-simulator",
     title: "Option Payout Simulator",
     description:
-      "Pick any strategy from the Options course — covered calls, straddles, condors, and everything else — and freely tweak strikes, premiums, and volatility to see max profit, max loss, and breakeven recalculate live.",
+      "Build a position leg by leg — stock, calls, puts, long or short — and watch the payoff update live. If what you build matches a strategy from the course, its explanation shows up automatically.",
     tag: "Options",
   },
 ];

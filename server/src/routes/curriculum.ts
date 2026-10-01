@@ -13,6 +13,7 @@ import { generatePracticeParams } from "../data/curriculum/practiceParams.js";
 import { buildStrategyQuestions, gradeStrategySubmission, gradeConceptSubmission } from "../lib/grading.js";
 import type { StrategySubmission } from "../lib/grading.js";
 import { completedLessonSlugs } from "../lib/progress.js";
+import { optionsStrategies } from "../data/options/index.js";
 
 const router = Router();
 router.use(attachUser);
@@ -87,6 +88,14 @@ router.get("/modules", async (req, res) => {
       lessons: s.unlocked ? mapLessons(s.module.lessonSlugs, courseSlug, progressBySlug) : [],
     })),
   });
+});
+
+// Full strategy catalog for the free-form Option Payout Simulator (Practice page) — it builds
+// a position leg by leg rather than picking a predefined strategy, then matches whatever the
+// learner builds against this list client-side. Excludes calendar/diagonal strategies, which
+// span two expirations and don't fit a single-expiration leg builder.
+router.get("/options-strategies", (_req, res) => {
+  res.json({ strategies: optionsStrategies.filter((s) => s.engine === "intrinsic") });
 });
 
 router.get("/modules/:slug", async (req, res) => {

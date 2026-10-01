@@ -10,6 +10,7 @@ import type { ExamStatus, ExamQuestion, ExamAnswerSubmission, ExamGradeResponse 
 import type { BooksResponse } from "./types/book";
 import type { PapersResponse } from "./types/paper";
 import type { ConstructionExerciseSummary, ConstructionExerciseDetail, ConstructionGradeResult } from "./types/construction";
+import type { Strategy } from "./types/strategy";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(path, {
@@ -115,6 +116,10 @@ export function fetchModule(slug: string): Promise<ModuleDetail> {
 
 export function fetchLesson(slug: string): Promise<LessonDetail> {
   return request(`/api/curriculum/lessons/${slug}`);
+}
+
+export function fetchOptionsStrategies(): Promise<{ strategies: Strategy[] }> {
+  return request(`/api/curriculum/options-strategies`);
 }
 
 export function submitLesson(slug: string, body: unknown): Promise<GradeResponse> {
