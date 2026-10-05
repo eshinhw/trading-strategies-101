@@ -163,57 +163,49 @@ export function OptionPayoutSimulatorPage() {
 
       <header className="mt-4 mb-8">
         <h1 className="text-3xl font-bold text-[#e6e8ec]">Options Payoff Simulator</h1>
-        <p className="mt-2 max-w-2xl text-[#9aa3b2]">
-          Build a position leg by leg — stock, calls, puts, long or short — and watch the payoff update live. If what
-          you've built matches a strategy from the course, its explanation shows up below automatically.
-        </p>
       </header>
 
       {error && <p className="mb-4 text-red-400">{error}</p>}
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[380px_1fr] lg:items-start">
-        <div className="flex flex-col gap-6">
-          <section className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Build legs</h3>
-              <button onClick={resetAll} className="text-xs text-[#7c6cff] hover:underline">
-                Reset
-              </button>
-            </div>
-            <div className="flex flex-col gap-3">
-              {legs.map((leg, i) => (
-                <LegRow
-                  key={leg.id}
-                  leg={leg}
-                  premium={premiums[i]}
-                  canRemove={legs.length > 1}
-                  onChange={(patch) => updateLeg(leg.id, patch)}
-                  onRemove={() => removeLeg(leg.id)}
-                />
-              ))}
-            </div>
-            <button
-              onClick={addLeg}
-              disabled={legs.length >= MAX_LEGS}
-              className="mt-4 rounded-lg border border-dashed border-[#2a3040] px-4 py-2 text-sm text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:text-[#e6e8ec] disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              + Add leg {legs.length >= MAX_LEGS ? `(max ${MAX_LEGS})` : ""}
-            </button>
-          </section>
+      <div className="flex flex-col gap-6">
+        <section>
+          <ParamControls
+            params={ENTRY_PARAMS}
+            values={entry}
+            onChange={(key, value) => setEntry((prev) => ({ ...prev, [key]: value }))}
+            onReset={() => setEntry(defaultEntryValues())}
+            gridClassName="grid grid-cols-2 gap-4 lg:grid-cols-4"
+            compact
+          />
+        </section>
 
-          <section>
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Entry pricing</h3>
-            <p className="mb-3 text-xs text-[#898781]">
-              Used only to estimate each leg's premium today — the chart shows value at expiration.
-            </p>
-            <ParamControls
-              params={ENTRY_PARAMS}
-              values={entry}
-              onChange={(key, value) => setEntry((prev) => ({ ...prev, [key]: value }))}
-              onReset={() => setEntry(defaultEntryValues())}
-            />
-          </section>
-        </div>
+        <section className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Option Legs</h3>
+            <button onClick={resetAll} className="text-xs text-[#7c6cff] hover:underline">
+              Reset
+            </button>
+          </div>
+          <div className="flex flex-col gap-3">
+            {legs.map((leg, i) => (
+              <LegRow
+                key={leg.id}
+                leg={leg}
+                premium={premiums[i]}
+                canRemove={legs.length > 1}
+                onChange={(patch) => updateLeg(leg.id, patch)}
+                onRemove={() => removeLeg(leg.id)}
+              />
+            ))}
+          </div>
+          <button
+            onClick={addLeg}
+            disabled={legs.length >= MAX_LEGS}
+            className="ml-auto mt-4 block rounded-lg border border-dashed border-[#2a3040] px-4 py-2 text-sm text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:text-[#e6e8ec] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            + Add leg {legs.length >= MAX_LEGS ? `(max ${MAX_LEGS})` : ""}
+          </button>
+        </section>
 
         <div className="flex flex-col gap-6">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -288,7 +280,10 @@ export function OptionPayoutSimulatorPage() {
   );
 }
 
-const selectClass = "h-9 rounded-md border border-[#2a3040] bg-[#141821] px-2 text-sm text-[#e6e8ec]";
+const cardClass = "rounded-lg border border-[#2a3040] bg-[#0e1117] px-2 py-1.5";
+const cardLabelClass = "block text-[10px] text-[#9aa3b2]";
+const cardSelectClass =
+  "mt-1 w-full bg-transparent text-sm font-semibold text-[#e6e8ec] focus:outline-none [&>option]:bg-[#141821]";
 
 function LegRow({
   leg,
@@ -304,39 +299,34 @@ function LegRow({
   onRemove: () => void;
 }) {
   return (
-    <div className="rounded-lg border border-[#2a3040] bg-[#0e1117] p-3">
-      <div className="flex items-center gap-2">
+    <div className="flex flex-wrap items-stretch gap-3 rounded-lg border border-[#2a3040] bg-[#101319] p-3">
+      <div className={`${cardClass} min-w-[130px] flex-1`}>
+        <label className={cardLabelClass}>Type</label>
         <select
           value={leg.instrument}
           onChange={(e) => onChange({ instrument: e.target.value as BuilderLeg["instrument"] })}
-          className={`${selectClass} flex-1`}
+          className={cardSelectClass}
         >
           <option value="stock">Stock</option>
           <option value="call">Call</option>
           <option value="put">Put</option>
         </select>
+      </div>
 
+      <div className={`${cardClass} min-w-[130px] flex-1`}>
+        <label className={cardLabelClass}>Side</label>
         <select
           value={leg.side}
           onChange={(e) => onChange({ side: e.target.value as Side })}
-          className={`${selectClass} flex-1`}
+          className={cardSelectClass}
         >
           <option value="long">Long</option>
           <option value="short">Short</option>
         </select>
-
-        <button
-          onClick={onRemove}
-          disabled={!canRemove}
-          aria-label="Remove leg"
-          className="ml-1 shrink-0 text-[#898781] transition hover:text-red-400 disabled:cursor-not-allowed disabled:opacity-30"
-        >
-          ✕
-        </button>
       </div>
 
-      <div className={`mt-3 grid gap-2 ${leg.instrument === "stock" ? "grid-cols-1" : "grid-cols-3"}`}>
-        {leg.instrument !== "stock" && (
+      {leg.instrument !== "stock" && (
+        <div className="min-w-[130px] flex-1">
           <ParamNumberCard
             label="Strike"
             value={leg.strike}
@@ -346,8 +336,10 @@ function LegRow({
             onCommit={(n) => onChange({ strike: n })}
             compact
           />
-        )}
+        </div>
+      )}
 
+      <div className="min-w-[130px] flex-1">
         <ParamNumberCard
           label="Qty"
           value={leg.qty}
@@ -357,21 +349,30 @@ function LegRow({
           onCommit={(n) => onChange({ qty: n })}
           compact
         />
-
-        {leg.instrument !== "stock" && (
-          <div className="rounded-lg border border-[#2a3040] bg-[#0e1117] px-2 py-1.5">
-            <div className="text-[10px] text-[#9aa3b2]">Premium</div>
-            <div
-              className={`mt-1 whitespace-nowrap text-sm font-semibold ${
-                leg.side === "short" ? "text-emerald-400" : "text-red-400"
-              }`}
-            >
-              {leg.side === "short" ? "+" : "-"}
-              {fmtMoney(premium)}
-            </div>
-          </div>
-        )}
       </div>
+
+      {leg.instrument !== "stock" && (
+        <div className={`${cardClass} min-w-[130px] flex-1`}>
+          <div className={cardLabelClass}>Premium</div>
+          <div
+            className={`mt-1 whitespace-nowrap text-sm font-semibold ${
+              leg.side === "short" ? "text-emerald-400" : "text-red-400"
+            }`}
+          >
+            {leg.side === "short" ? "+" : "-"}
+            {fmtMoney(premium)}
+          </div>
+        </div>
+      )}
+
+      <button
+        onClick={onRemove}
+        disabled={!canRemove}
+        aria-label="Remove leg"
+        className="shrink-0 self-center px-1 text-[#898781] transition hover:text-red-400 disabled:cursor-not-allowed disabled:opacity-30"
+      >
+        ✕
+      </button>
     </div>
   );
 }

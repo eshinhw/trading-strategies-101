@@ -7,26 +7,25 @@ export function ParamControls({
   values,
   onChange,
   onReset,
+  gridClassName = "grid grid-cols-1 gap-5 sm:grid-cols-2",
+  compact = false,
 }: {
   params: ParamDef[];
   values: ParamValues;
   onChange: (key: string, value: number) => void;
   onReset: () => void;
+  gridClassName?: string;
+  compact?: boolean;
 }) {
   return (
     <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-          Adjust parameters
-        </h3>
-        <button
-          onClick={onReset}
-          className="text-xs text-[#7c6cff] hover:underline"
-        >
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Pricing Parameters</h3>
+        <button onClick={onReset} className="text-xs text-[#7c6cff] hover:underline">
           Reset to defaults
         </button>
       </div>
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+      <div className={gridClassName}>
         {params.map((p) => (
           <div key={p.key}>
             <ParamNumberCard
@@ -37,6 +36,7 @@ export function ParamControls({
               max={p.max}
               step={p.step}
               onCommit={(n) => onChange(p.key, n)}
+              compact={compact}
             />
             <input
               id={`${p.key}-range`}
