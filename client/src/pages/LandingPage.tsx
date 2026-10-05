@@ -83,8 +83,8 @@ function Hero() {
             Master trading strategies by understanding, not memorizing.
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
-            Learn trading strategies by doing—not just reading. Explore real-world lessons across 18 asset classes,
-            from options and equities to commodities and credit, and test your knowledge as you go.
+            Learn trading strategies by applying - not just reading. Explore real-world lessons across 18 asset classes,
+            from futures & options and equities to commodities and credit, and test your knowledge as you go.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link

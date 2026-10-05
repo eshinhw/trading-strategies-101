@@ -77,6 +77,7 @@ export interface ConceptQuizPrompt {
 
 export type LessonBlock =
   | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[]; ordered?: boolean }
   | { type: "heading"; text: string }
   | { type: "image"; diagramId: string; caption?: string }
   | { type: "video"; url: string; caption?: string };

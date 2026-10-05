@@ -1,46 +1,10 @@
 import { optionsStrategies } from "../options/index.js";
 import { courses } from "../courses/index.js";
-import { conceptLessons as foundationsConceptLessons } from "./conceptLessons.js";
-import { futuresConceptLessons } from "./futuresConceptLessons.js";
-import { stocksConceptLessons } from "./stocksConceptLessons.js";
-import { etfConceptLessons } from "./etfConceptLessons.js";
-import { fixedIncomeConceptLessons } from "./fixedIncomeConceptLessons.js";
-import { indexesConceptLessons } from "./indexesConceptLessons.js";
-import { volatilityConceptLessons } from "./volatilityConceptLessons.js";
-import { fxConceptLessons } from "./fxConceptLessons.js";
-import { commoditiesConceptLessons } from "./commoditiesConceptLessons.js";
-import { realEstateConceptLessons } from "./realEstateConceptLessons.js";
-import { structuredAssetsConceptLessons } from "./structuredAssetsConceptLessons.js";
-import { convertiblesConceptLessons } from "./convertiblesConceptLessons.js";
-import { cashConceptLessons } from "./cashConceptLessons.js";
-import { cryptocurrenciesConceptLessons } from "./cryptocurrenciesConceptLessons.js";
-import { globalMacroConceptLessons } from "./globalMacroConceptLessons.js";
-import { distressedAssetsConceptLessons } from "./distressedAssetsConceptLessons.js";
-import { taxArbitrageConceptLessons } from "./taxArbitrageConceptLessons.js";
-import { miscAssetsConceptLessons } from "./miscAssetsConceptLessons.js";
+import { loadConceptLessonsFromMarkdown } from "./markdownLessons.js";
 import { modules } from "./modules.js";
-import type { Module } from "./types.js";
+import type { ConceptLesson, Module } from "./types.js";
 
-export const conceptLessons = [
-  ...foundationsConceptLessons,
-  ...futuresConceptLessons,
-  ...stocksConceptLessons,
-  ...etfConceptLessons,
-  ...fixedIncomeConceptLessons,
-  ...indexesConceptLessons,
-  ...volatilityConceptLessons,
-  ...fxConceptLessons,
-  ...commoditiesConceptLessons,
-  ...realEstateConceptLessons,
-  ...structuredAssetsConceptLessons,
-  ...convertiblesConceptLessons,
-  ...cashConceptLessons,
-  ...cryptocurrenciesConceptLessons,
-  ...globalMacroConceptLessons,
-  ...distressedAssetsConceptLessons,
-  ...taxArbitrageConceptLessons,
-  ...miscAssetsConceptLessons,
-];
+export const conceptLessons: ConceptLesson[] = loadConceptLessonsFromMarkdown();
 export { modules };
 
 const strategyBySlug = new Map(optionsStrategies.map((s) => [s.slug, s]));

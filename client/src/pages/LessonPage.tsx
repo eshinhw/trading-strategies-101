@@ -13,6 +13,7 @@ import { StrategyKnowledgeCheck } from "../components/StrategyKnowledgeCheck";
 import { FormulaReference } from "../components/FormulaReference";
 import { LessonDiagram } from "../components/LessonDiagram";
 import { LessonVideo } from "../components/LessonVideo";
+import { InlineText } from "../components/InlineText";
 import type { LessonBlock } from "../types/curriculum";
 import { useAuth } from "../auth/AuthContext";
 
@@ -109,8 +110,10 @@ function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (
 // rather than just being one more line inside the running card, so a lesson
 // with genuinely distinct sub-topics reads as separated sections instead of
 // one undifferentiated block of prose.
+type BodyItem = { kind: "p"; text: string } | { kind: "list"; items: string[]; ordered: boolean };
+
 type BodySegment =
-  | { kind: "paragraphs"; heading?: string; items: string[] }
+  | { kind: "paragraphs"; heading?: string; items: BodyItem[] }
   | { kind: "image"; diagramId: string; caption?: string }
   | { kind: "video"; url: string; caption?: string };
 
@@ -119,10 +122,14 @@ function groupBodySegments(body: LessonBlock[]): BodySegment[] {
   for (const block of body) {
     if (block.type === "heading") {
       segments.push({ kind: "paragraphs", heading: block.text, items: [] });
-    } else if (block.type === "paragraph") {
+    } else if (block.type === "paragraph" || block.type === "list") {
+      const item: BodyItem =
+        block.type === "paragraph"
+          ? { kind: "p", text: block.text }
+          : { kind: "list", items: block.items, ordered: block.ordered ?? false };
       const last = segments[segments.length - 1];
-      if (last?.kind === "paragraphs") last.items.push(block.text);
-      else segments.push({ kind: "paragraphs", items: [block.text] });
+      if (last?.kind === "paragraphs") last.items.push(item);
+      else segments.push({ kind: "paragraphs", items: [item] });
     } else if (block.type === "image") {
       segments.push({ kind: "image", diagramId: block.diagramId, caption: block.caption });
     } else {
@@ -179,11 +186,30 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
                       {headingWithEmoji(seg.heading)}
                     </h3>
                   )}
-                  {seg.items.map((text, j) => (
-                    <p key={j} className="leading-relaxed text-[#e6e8ec]">
-                      {text}
-                    </p>
-                  ))}
+                  {seg.items.map((item, j) => {
+                    if (item.kind === "p") {
+                      return (
+                        <p key={j} className="leading-relaxed text-[#e6e8ec]">
+                          <InlineText text={item.text} />
+                        </p>
+                      );
+                    }
+                    const ListTag = item.ordered ? "ol" : "ul";
+                    return (
+                      <ListTag
+                        key={j}
+                        className={`flex flex-col gap-2 pl-6 leading-relaxed text-[#e6e8ec] marker:text-[#7c6cff] ${
+                          item.ordered ? "list-decimal" : "list-disc"
+                        }`}
+                      >
+                        {item.items.map((li, k) => (
+                          <li key={k}>
+                            <InlineText text={li} />
+                          </li>
+                        ))}
+                      </ListTag>
+                    );
+                  })}
                 </div>
               );
             }
