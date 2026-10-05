@@ -6,7 +6,7 @@ summary: Five recurring mistakes that trip up new users of forward contracts —
 
 ## Treating a Forward as a Right, Not an Obligation
 
-As covered earlier in this module, both sides of a forward are obligated to perform at maturity — there's no premium paid for the right to walk away the way there is with an option. A beginner who treats an unfavorable forward as something they can simply decline to honor, the way an option buyer lets a bad option expire, is making a mistake that can mean a genuine breach of contract, not just a forgone opportunity.
+As covered earlier in this course, both sides of a forward are obligated to perform at maturity — there's no premium paid for the right to walk away the way there is with an option. A beginner who treats an unfavorable forward as something they can simply decline to honor, the way an option buyer lets a bad option expire, is making a mistake that can mean a genuine breach of contract, not just a forgone opportunity.
 
 ## Ignoring Counterparty and Settlement Risk
 

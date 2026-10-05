@@ -1,7 +1,7 @@
 ---
 slug: what-is-a-forward-contract
 title: The Forward Contract
-summary: The simplest building block of the derivatives market: an agreement to buy or sell an asset at a predetermined price on a future date. In this module, we'll build the concept from the ground up — what a forward contract is, why participants use it, what it means to be long or short, how settlement works, and why counterparty risk matters.
+summary: The simplest building block of the derivatives market: an agreement to buy or sell an asset at a predetermined price on a future date. In this module, we'll build the concept from the ground up — what a forward contract is, why participants use it, what it means to be long or short, the terms every forward must specify, how settlement works, and why counterparty risk matters.
 ---
 
 ## A Simple Definition
@@ -32,11 +32,11 @@ Being long a forward creates positive exposure to the future price of the underl
 
 ## An Obligation, Not a Choice
 
-A forward is a binding obligation for both parties, which means the long must buy and the short must sell. Neither party can simply walk away because the market subsequently moves against them. This symmetric obligation is what makes a forward's payoff, covered later in this module, a mirror image for the two sides rather than the lopsided, capped-risk shape an option produces for its buyer.
+A forward is a binding obligation for both parties, which means the long must buy and the short must sell. Neither party can simply walk away because the market subsequently moves against them. This symmetric obligation is what makes a forward's payoff, covered in the next module, a mirror image for the two sides rather than the lopsided, capped-risk shape an option produces for its buyer.
 
 ## How Forwards Differ from Futures
 
-A futures contract, covered in the next module, promises the exact same basic thing a forward does, but **a forward is customized and traded over the counter (OTC) — negotiated privately between two specific parties on whatever terms they agree to — while a futures contract is standardized and exchange-traded, centrally cleared through a clearinghouse.**
+A futures contract, covered in the Futures course, promises the exact same basic thing a forward does, but **a forward is customized and traded over the counter (OTC) — negotiated privately between two specific parties on whatever terms they agree to — while a futures contract is standardized and exchange-traded, centrally cleared through a clearinghouse.**
 
 Both differences trace back to the same root cause: a forward is a private bilateral deal, and a future is a public, exchange-cleared one.
 
@@ -45,6 +45,28 @@ Both differences trace back to the same root cause: a forward is a private bilat
 The whole point of a forward is trading away uncertainty for certainty. Neither side knows for sure whether they'll end up ahead compared to simply waiting and transacting at whatever the market price happens to be later — but both sides get something they value more than that uncertainty: a known, fixed number to plan around.
 
 Imagine a coffee roaster who knows they'll need a large shipment of coffee beans in three months, and worries the price might rise before then. By agreeing today with a coffee grower on a fixed price for that future delivery, the roaster removes the uncertainty entirely — whatever the market price does between now and then, their cost is already locked in.
+
+## The Terms of a Forward
+
+Because a forward is negotiated privately and no exchange standardizes it, the two parties have to spell out every term themselves, with no rulebook to fall back on if something is left ambiguous.
+
+### Underlying Asset and Quantity
+
+Exactly what is being bought and sold, and how much of it. A futures contract's size is fixed by the exchange for every trader, while a forward's quantity is whatever the two parties actually need, from a single custom-sized shipment to a notional amount with no physical quantity at all, like an FRA's reference principal.
+
+### Delivery Date
+
+The single future date the contract settles on. It is fully negotiable rather than chosen from an exchange's calendar of expiration months, so it can match a real need such as a shipment's expected arrival date.
+
+### Forward Price
+
+The fixed price both sides agree the transaction will happen at, regardless of where the market trades on the delivery date. The Forward Pricing lesson later in this course covers how a theoretical fair forward price is derived, but the price two parties actually agree to can differ from that benchmark depending on each side's bargaining position.
+
+### Currency and Location
+
+For a cross-border deal or a physical commodity, the contract also has to state the currency the price is quoted and paid in and, for anything physically delivered, the delivery location. A futures contract has a short list of approved locations built into its specification, but a forward has none, so the parties write down whatever works for them.
+
+The settlement method, physical delivery or cash, is also a term that must be written in, and it is covered below. A U.S. refiner and an overseas crude oil producer, for example, would agree the grade, 50,000 barrels, a date four months out, a price in U.S. dollars, a named port terminal, and physical settlement, with every detail agreed by hand because no exchange specification exists to supply it.
 
 ## Notional Value
 
@@ -205,3 +227,17 @@ This is an important structural difference between forward and futures. An excha
 - A forward is exchange-traded while a future is private and customized
 - Futures always require physical delivery, while forwards never do
   > Customization/OTC-vs-standardized/exchange-traded, and lump-sum-at-maturity-vs-daily-mark-to-market, are the two defining structural differences, both rooted in a forward being a private bilateral deal versus a future being a public, cleared one.
+
+11. Why must a forward contract spell out its currency and delivery location?
+   - [x] There's no exchange-approved standard list to fall back on, unlike a futures contract's built-in specification
+   - Currency and location are irrelevant to a forward contract
+   - All forwards are automatically settled in U.S. dollars
+   - Only commodity forwards ever have a delivery location
+   > A futures contract's specification includes approved delivery locations by default; a forward has none of that built in, so the two parties have to write it in themselves.
+
+12. Why can the negotiated forward price differ from the theoretical fair forward price?
+   - The negotiated price and the fair price are always identical
+   - Forward prices are set by an exchange, not negotiated
+   - [x] A specific deal's price still depends on each side's relative bargaining position, not purely on the fair-value formula
+   - Fair value only applies to futures
+   > The cost-of-carry formula gives a theoretical benchmark, but a negotiated deal between two parties can land somewhat away from it depending on their relative leverage.

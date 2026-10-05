@@ -6,7 +6,7 @@ summary: Why forward contracts get used in practice — locking in a future pric
 
 ## Locking In a Future Price
 
-Every use of a forward contract traces back to the same underlying motivation covered in the first lesson of this module: removing the uncertainty of not knowing what a future transaction will cost or pay, by agreeing on a fixed price today. What varies across the scenarios below is which kind of price risk — currency, commodity, or interest rate — is actually being locked in.
+Every use of a forward contract traces back to the same underlying motivation covered in The Forward Contract lesson: removing the uncertainty of not knowing what a future transaction will cost or pay, by agreeing on a fixed price today. What varies across the scenarios below is which kind of price risk — currency, commodity, or interest rate — is actually being locked in.
 
 ## An Importer Hedging a Foreign-Currency Payment
 

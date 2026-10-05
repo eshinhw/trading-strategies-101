@@ -6,7 +6,7 @@ summary: Forward contracts on a stock (or index) and on a bond — how each acco
 
 ## Equity Forwards
 
-An equity forward is an agreement to buy or sell a specific stock, or a basket or index of stocks, at a fixed price on a future date — the same basic structure as every other forward in this module, just with a share (or share-equivalent) as the underlying asset instead of a commodity or currency.
+An equity forward is an agreement to buy or sell a specific stock, or a basket or index of stocks, at a fixed price on a future date — the same basic structure as every other forward in this course, just with a share (or share-equivalent) as the underlying asset instead of a commodity or currency.
 
 ## The Effect of Dividends
 
@@ -18,7 +18,7 @@ A bond forward is an agreement to buy or sell a specific bond at a fixed price o
 
 ## How a Bond Forward Differs from an FRA
 
-An FRA, covered in the next lesson, settles a notional interest-rate difference in cash, with no bond ever changing hands and no bond price ever directly quoted. A bond forward, by contrast, is priced and settled off an actual bond's price — closer in spirit to an equity forward's structure than to an FRA's purely notional interest-rate settlement, even though both instruments ultimately reflect a view on future interest rates.
+An FRA, covered earlier in this module, settles a notional interest-rate difference in cash, with no bond ever changing hands and no bond price ever directly quoted. A bond forward, by contrast, is priced and settled off an actual bond's price — closer in spirit to an equity forward's structure than to an FRA's purely notional interest-rate settlement, even though both instruments ultimately reflect a view on future interest rates.
 
 ## Coupon Income and Price Convergence
 
@@ -35,7 +35,7 @@ A pension fund wanting exposure to a stock index for the next quarter, without a
    - A type of dividend payment
    - An agreement that can only be used on bonds, never stocks
    - A contract that guarantees a stock's price will never fall
-   > An equity forward applies the same basic forward structure covered throughout this module, using a stock or index as the underlying asset.
+   > An equity forward applies the same basic forward structure covered throughout this course, using a stock or index as the underlying asset.
 
 2. Why does an equity forward's price sit below what pure financing cost alone would suggest?
    - [x] Because expected dividends the forward buyer won't collect before delivery are netted out of the forward price

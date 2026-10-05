@@ -6,7 +6,7 @@ summary: How an FX forward locks in an exchange rate for a future date, the rela
 
 ## Locking In an Exchange Rate
 
-An FX forward is an agreement between two parties to exchange one currency for another at a fixed rate on a future date — the currency-market version of the same basic forward contract covered throughout this module, just with an exchange rate standing in for a delivery price. Anyone with a known future foreign-currency cash flow, an importer's payment or an exporter's receivable, can use one to remove exchange-rate uncertainty from that specific cash flow.
+An FX forward is an agreement between two parties to exchange one currency for another at a fixed rate on a future date — the currency-market version of the same basic forward contract covered throughout this course, just with an exchange rate standing in for a delivery price. Anyone with a known future foreign-currency cash flow, an importer's payment or an exporter's receivable, can use one to remove exchange-rate uncertainty from that specific cash flow.
 
 ## Spot Rate vs. Forward Rate
 
