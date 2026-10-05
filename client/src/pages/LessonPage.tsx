@@ -13,7 +13,7 @@ import { StrategyKnowledgeCheck } from "../components/StrategyKnowledgeCheck";
 import { FormulaReference } from "../components/FormulaReference";
 import { LessonDiagram } from "../components/LessonDiagram";
 import { LessonVideo } from "../components/LessonVideo";
-import { InlineText } from "../components/InlineText";
+import { DisplayMath, InlineText, displayMathOf } from "../components/InlineText";
 import type { LessonBlock } from "../types/curriculum";
 import { useAuth } from "../auth/AuthContext";
 
@@ -110,7 +110,7 @@ function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (
 // rather than just being one more line inside the running card, so a lesson
 // with genuinely distinct sub-topics reads as separated sections instead of
 // one undifferentiated block of prose.
-type BodyItem = { kind: "p"; text: string } | { kind: "list"; items: string[]; ordered: boolean };
+type BodyItem = { kind: "p"; text: string } | { kind: "sub"; level: 3 | 4 | 5; text: string } | { kind: "list"; items: string[]; ordered: boolean };
 
 type BodySegment =
   | { kind: "paragraphs"; heading?: string; items: BodyItem[] }
@@ -122,11 +122,13 @@ function groupBodySegments(body: LessonBlock[]): BodySegment[] {
   for (const block of body) {
     if (block.type === "heading") {
       segments.push({ kind: "paragraphs", heading: block.text, items: [] });
-    } else if (block.type === "paragraph" || block.type === "list") {
+    } else if (block.type === "paragraph" || block.type === "subheading" || block.type === "list") {
       const item: BodyItem =
         block.type === "paragraph"
           ? { kind: "p", text: block.text }
-          : { kind: "list", items: block.items, ordered: block.ordered ?? false };
+          : block.type === "subheading"
+            ? { kind: "sub", level: block.level, text: block.text }
+            : { kind: "list", items: block.items, ordered: block.ordered ?? false };
       const last = segments[segments.length - 1];
       if (last?.kind === "paragraphs") last.items.push(item);
       else segments.push({ kind: "paragraphs", items: [item] });
@@ -187,7 +189,23 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
                     </h3>
                   )}
                   {seg.items.map((item, j) => {
+                    if (item.kind === "sub") {
+                      const Tag = item.level === 3 ? "h4" : item.level === 4 ? "h5" : "h6";
+                      const style =
+                        item.level === 3
+                          ? "text-base font-semibold text-[#e6e8ec]"
+                          : item.level === 4
+                            ? "text-sm font-semibold text-[#e6e8ec]"
+                            : "text-sm font-medium text-[#9aa3b2]";
+                      return (
+                        <Tag key={j} className={`mt-2 ${style}`}>
+                          {item.text}
+                        </Tag>
+                      );
+                    }
                     if (item.kind === "p") {
+                      const display = displayMathOf(item.text);
+                      if (display !== null) return <DisplayMath key={j} latex={display} />;
                       return (
                         <p key={j} className="leading-relaxed text-[#e6e8ec]">
                           <InlineText text={item.text} />

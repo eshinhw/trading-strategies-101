@@ -1,5 +1,5 @@
 ---
-slug: futures-what-is-a-forward-contract
+slug: what-is-a-forward-contract
 title: The Forward Contract
 summary: The simplest building block of the derivatives market: an agreement to buy or sell an asset at a predetermined price on a future date. In this module, we'll build the concept from the ground up — what a forward contract is, why participants use it, what it means to be long or short, how settlement works, and why counterparty risk matters.
 ---
@@ -26,42 +26,25 @@ At maturity:
 
 ## Long and Short
 
-Every forward has two sides.
+Every forward has two sides. The long side of a forward contract is the party agreeing to buy the underlying asset in the future. The short side of a forward contract is the party agreeing to sell the underlying asset in the future. This terminology is the same used throughout derivatives and trading.
 
-The Long
-
-The party agreeing to buy the underlying asset in the future is long the forward.
-
-The Short
-
-The party agreeing to sell the underlying asset in the future is short the forward.
-
-This terminology is the same used throughout derivatives and trading.
-
-A useful way to remember it:
-
-Long = future buyer
-Short = future seller
-
-Being long a forward creates positive exposure to the future price of the underlying: if the market price rises above the agreed forward price, the long position benefits.
-
-Being short creates the opposite exposure.
+Being long a forward creates positive exposure to the future price of the underlying. If the market price rises above the agreed forward price, the long position benefits. Being short creates the opposite exposure.
 
 ## An Obligation, Not a Choice
 
-Both the long and the short side of a forward are obligated to go through with the deal at maturity — neither side can simply walk away if the market moves against them, the way an option buyer can let an unfavorable option expire worthless. That symmetric obligation is what makes a forward's payoff, covered later in this module, a mirror image for the two sides rather than the lopsided, capped-risk shape an option produces for its buyer.
+A forward is a binding obligation for both parties, which means the long must buy and the short must sell. Neither party can simply walk away because the market subsequently moves against them. This symmetric obligation is what makes a forward's payoff, covered later in this module, a mirror image for the two sides rather than the lopsided, capped-risk shape an option produces for its buyer.
 
 ## How Forwards Differ from Futures
 
-A futures contract, covered in the next module, promises the exact same basic thing a forward does, but a forward is customized and traded over the counter (OTC) — negotiated privately between two specific parties on whatever terms they agree to — while a futures contract is standardized and exchange-traded, centrally cleared through a clearinghouse.
+A futures contract, covered in the next module, promises the exact same basic thing a forward does, but **a forward is customized and traded over the counter (OTC) — negotiated privately between two specific parties on whatever terms they agree to — while a futures contract is standardized and exchange-traded, centrally cleared through a clearinghouse.**
 
-## A Real-World Motivation
+Both differences trace back to the same root cause: a forward is a private bilateral deal, and a future is a public, exchange-cleared one.
 
-Picture a coffee roaster who knows they'll need a large shipment of coffee beans in three months, and worries the price might rise before then. By agreeing today with a coffee grower on a fixed price for that future delivery, the roaster removes the uncertainty entirely — whatever the market price does between now and then, their cost is already locked in.
-
-## Why Go to the Trouble
+## A Real World Motivation
 
 The whole point of a forward is trading away uncertainty for certainty. Neither side knows for sure whether they'll end up ahead compared to simply waiting and transacting at whatever the market price happens to be later — but both sides get something they value more than that uncertainty: a known, fixed number to plan around.
+
+Imagine a coffee roaster who knows they'll need a large shipment of coffee beans in three months, and worries the price might rise before then. By agreeing today with a coffee grower on a fixed price for that future delivery, the roaster removes the uncertainty entirely — whatever the market price does between now and then, their cost is already locked in.
 
 ## Notional Value
 
@@ -69,19 +52,86 @@ The notional value of a forward contract is the total value of the underlying as
 
 ## Settlement: Physical or Cash
 
-At the contract's maturity date, a forward is settled in one of two ways: physical settlement, where the seller actually delivers the underlying asset and the buyer pays the agreed forward price, or cash settlement, where instead of exchanging the physical asset, the two parties simply exchange the difference between the agreed forward price and the asset's actual market price at maturity. Which settlement method applies is specified in the contract terms at the outset — physical settlement is more common for commodities where the underlying asset genuinely changes hands, while cash settlement is common when physical delivery is impractical, for a financial index, for example, where there's no single physical asset to deliver.
+At the contract's maturity date, a forward is settled in one of two ways: **physical settlement**, where the seller actually delivers the underlying asset and the buyer pays the agreed forward price, or **cash settlement**, where instead of exchanging the physical asset, the two parties simply exchange the difference between the agreed forward price and the asset's actual market price at maturity.
 
-## Counterparty Risk (Forward vs Futures)
+Which settlement method applies is specified in the contract terms at the outset. Physical settlement is more common for commodities where the underlying asset genuinely changes hands, while cash settlement is common when physical delivery is impractical, for a financial index, for example, where there's no single physical asset to deliver.
 
-Because a forward contract is a private, over-the-counter agreement between two specific parties rather than a contract cleared through an exchange, it carries counterparty risk — the risk that the other side simply fails to honor the agreement at maturity, whether from an inability or unwillingness to pay.
+## 💡 Example
 
-This is the central structural weakness forwards have relative to futures. an exchange-traded futures contract is guaranteed by a clearinghouse and backed by daily margin requirements that limit how much loss can accumulate before it's collected, while a forward's integrity depends entirely on the creditworthiness and good faith of the specific counterparty on the other side of the deal.
+A flour mill expects to need 10,000 bushels of wheat in six months.
 
-## Example in Practice
+The mill is concerned that wheat prices may rise, so it enters into a forward contract with a grain merchant:
 
-A flour mill and a U.S. exporter never need to have heard of each other to use the exact same tool for two completely different problems. The mill agrees today to buy 10,000 bushels of wheat in six months from a grain merchant at a forward price of $6.50 per bushel — a $65,000 notional contract (10,000 × $6.50). Six months later, wheat is actually trading at $7.00 a bushel. If the contract is cash-settled, the merchant simply pays the mill the $5,000 difference (($7.00 − $6.50) × 10,000); if it's physically settled, the merchant delivers the wheat and the mill pays the full $65,000. Either way, the mill ends up paying an effective $6.50 a bushel, exactly what it locked in six months earlier, regardless of where the market actually landed.
+- Quantity: 10,000 bushels
+- Forward price: $6.50/bushel
+- Maturity: six months
+- Notional value: $65,000
 
-The exporter's forward looks nothing like a wheat contract on the surface, but it solves the identical problem. Expecting to receive 10 million euros from a European customer in three months, the exporter signs a forward with its bank to sell those euros at a fixed rate on the payment date — no cash changes hands today, but the dollar value of that future payment is locked in just as firmly as the mill's wheat cost was. The one real difference: if the bank were to fail before the contract settles, the exporter would be exposed to exactly the counterparty risk described above, a risk the mill's forward carries too, just with a grain merchant standing in for a bank.
+The mill is long the forward. The grain merchant is short.
+
+Six months later, the actual wheat price rose to $7.
+
+$$
+S_T = \$7.00
+$$
+
+The forward price remains:
+
+$$
+K = \$6.50
+$$
+
+The long's payoff is:
+
+$$
+(\$7.00 - \$6.50) \times 10{,}000 = \$5{,}000
+$$
+
+### Cash Settlement
+
+The merchant pays the mill $5,000. The mill can then buy wheat in the market:
+
+$$
+10{,}000 \times \$7.00 = \$70{,}000
+$$
+
+After receiving the $5,000 forward settlement:
+
+$$
+\$70{,}000 - \$5{,}000 = \$65{,}000
+$$
+
+Therefore:
+
+$$
+\frac{\$65{,}000}{10{,}000} = \boxed{\$6.50 / \text{bushel}}
+$$
+
+The mill has effectively locked in $6.50.
+
+### Physical Settlement
+
+The merchant delivers the 10,000 bushels. The mill pays:
+
+$$
+10{,}000 \times \$6.50 = \$65{,}000
+$$
+
+Again, the effective purchase price is:
+
+$$
+\boxed{\$6.50 / \text{bushel}}
+$$
+
+The settlement mechanism is different, but the economic outcome is the same.
+
+## Counterparty Risk
+
+A forward is a bilateral OTC contract, which means the contract is negotiated directly between two parties rather than being centrally cleared through an exchange. This nature creates counterparty risk that is the possibility that the other party fails to fulfill its contractual obligation.
+
+Imagine the wheat forward has become valuable to the mill because wheat prices have risen sharply. If the grain merchant becomes unable or unwilling to honor the contract, the mill may have to replace the hedge in the market at a much less favorable price.
+
+This is an important structural difference between forward and futures. An exchange-traded futures contract is guaranteed by a clearinghouse and backed by daily margin requirements that limit how much loss can accumulate before it's collected, while a forward's integrity depends entirely on the creditworthiness and good faith of the specific counterparty on the other side of the deal.
 
 # Quiz
 

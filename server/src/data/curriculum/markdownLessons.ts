@@ -51,15 +51,41 @@ function parseBody(lines: string[], startLine: number, file: string): LessonBloc
     flushList();
   };
 
+  // A "$$ ... $$" display-math block may span several lines (even with blank lines inside), so it
+  // is collected whole and emitted as one paragraph whose text keeps its line breaks.
+  let math = null as { lines: string[]; startLine: number } | null;
+
   lines.forEach((raw, idx) => {
     const lineNo = startLine + idx;
     const trimmed = raw.trim();
 
+    if (math) {
+      math.lines.push(trimmed);
+      if (trimmed.endsWith("$$")) {
+        blocks.push({ type: "paragraph", text: math.lines.join("\n") });
+        math = null;
+      }
+      return;
+    }
+
+    if (trimmed.startsWith("$$")) {
+      flushAll();
+      if (trimmed.length >= 4 && trimmed.endsWith("$$")) blocks.push({ type: "paragraph", text: trimmed });
+      else math = { lines: [trimmed], startLine: lineNo };
+      return;
+    }
+
     if (trimmed === "") return flushAll();
 
     if (/^#{1,6}\s/.test(trimmed)) {
-      if (!trimmed.startsWith("## ")) {
-        throw new LessonParseError(file, lineNo, 'only "## Heading" is supported inside a lesson body');
+      const hashes = /^(#+)/.exec(trimmed)![1].length;
+      if (hashes >= 3 && hashes <= 5) {
+        flushAll();
+        blocks.push({ type: "subheading", level: hashes as 3 | 4 | 5, text: trimmed.slice(hashes).trim() });
+        return;
+      }
+      if (hashes !== 2) {
+        throw new LessonParseError(file, lineNo, 'only "##" (section) and "###" to "#####" (sub headings) are supported inside a lesson body');
       }
       flushAll();
       blocks.push({ type: "heading", text: trimmed.slice(3).trim() });
@@ -104,6 +130,7 @@ function parseBody(lines: string[], startLine: number, file: string): LessonBloc
     paragraph.push(trimmed);
   });
 
+  if (math) throw new LessonParseError(file, math.startLine, 'this "$$" math block is never closed with "$$"');
   flushAll();
   return blocks;
 }
@@ -147,14 +174,14 @@ function parseQuiz(lines: string[], startLine: number, file: string): ConceptQui
     }
     if (!current) throw new LessonParseError(file, lineNo, "expected a numbered question like \"1. Question text\"");
 
-    const choice = /^\s+-\s+(\[x\]\s+)?(.*)$/i.exec(raw);
+    const choice = /^\s*-\s+(\[x\]\s+)?(.*)$/i.exec(raw);
     if (choice) {
       if (choice[1]) current._correct.push(current.choices.length);
       current.choices.push(choice[2].trim());
       last = "choice";
       return;
     }
-    const explanation = /^\s+>\s?(.*)$/.exec(raw);
+    const explanation = /^\s*>\s?(.*)$/.exec(raw);
     if (explanation) {
       current.explanation = current.explanation ? `${current.explanation} ${explanation[1].trim()}` : explanation[1].trim();
       last = "explanation";

@@ -29,7 +29,7 @@ export function CourseCard({ course, progress }: { course: Course; progress?: Mo
       </div>
       <p className="mt-1 text-sm leading-relaxed text-[#9aa3b2]">{course.description}</p>
       <div className="mt-auto pt-3">
-        <div className="text-xs text-[#898781]">{course.strategyCount} strategies</div>
+        {course.strategyCount > 0 && <div className="text-xs text-[#898781]">{course.strategyCount} strategies</div>}
         {progress && (
           <div className="mt-3 flex items-center gap-2">
             <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#1b2029]">

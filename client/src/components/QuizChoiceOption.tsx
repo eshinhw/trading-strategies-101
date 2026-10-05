@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { KeyboardEvent } from "react";
 
 // Shared radio-choice row for ConceptQuiz and StrategyKnowledgeCheck's MCQ
@@ -18,7 +19,7 @@ export function QuizChoiceOption({
   onKeyDown,
 }: {
   name: string;
-  label: string;
+  label: ReactNode;
   isSelected: boolean;
   isCorrectChoice: boolean;
   isChecked: boolean;

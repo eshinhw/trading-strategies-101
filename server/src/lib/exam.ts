@@ -14,6 +14,7 @@ import type { NumericAnswer } from "./grading.js";
 
 const EXAMINABLE_COURSES = new Set([
   "options",
+  "forwards",
   "futures",
   "stocks",
   "etfs",

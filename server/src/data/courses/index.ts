@@ -8,11 +8,20 @@ import type { Course } from "./types.js";
 
 export const courses: Course[] = [
   {
-    slug: "futures",
-    title: "Forward & Futures",
+    slug: "forwards",
+    title: "Forwards",
     section: "10",
     description:
-      "Hedging and speculative strategies built directly on futures contracts — cross-hedging, calendar spreads, and trend following.",
+      "The simplest derivative: how a forward contract works, how it's priced and settled, how it's used to hedge currency, commodity, equity and bond exposure, and the counterparty risk that comes with it.",
+    status: "available",
+    strategyCount: 0,
+  },
+  {
+    slug: "futures",
+    title: "Futures",
+    section: "10",
+    description:
+      "Standardized, exchange-traded contracts — margin and daily settlement, clearinghouses, how the markets work — and strategies built on them: hedging, cross-hedging, calendar spreads, and trend following.",
     status: "available",
     strategyCount: 7,
     strategyTitles: [

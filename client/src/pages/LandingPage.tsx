@@ -139,7 +139,7 @@ function CoursesPreview({ courses }: { courses: Course[] | null }) {
   return (
     <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-2xl font-bold text-[#e6e8ec]">18 courses, one per asset class</h2>
+        <h2 className="text-2xl font-bold text-[#e6e8ec]">Courses across 18 asset classes</h2>
 
         {courses && (
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">

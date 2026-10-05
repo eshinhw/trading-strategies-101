@@ -175,14 +175,14 @@ export const modules: Module[] = [
   },
   {
     slug: "futures-forwards",
-    courseSlug: "futures",
+    courseSlug: "forwards",
     title: "Forward Basics",
     description:
       "Before trading futures, meet their close relative — the forward contract: what it promises, how it's settled, how its theoretical fair price is derived, how an interest-rate version (the FRA) works, and how to value one after it's already been signed.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
-      "futures-what-is-a-forward-contract",
+      "what-is-a-forward-contract",
       "futures-forward-pricing",
       "futures-forward-rate-agreements",
       "futures-valuing-an-existing-forward",
@@ -190,7 +190,7 @@ export const modules: Module[] = [
   },
   {
     slug: "futures-forward-applications-and-risk",
-    courseSlug: "futures",
+    courseSlug: "forwards",
     title: "Forward Applications & Risk",
     description:
       "The parts of a forward contract that show up most in practice — its exact terms and payoff mechanics, currency/commodity/equity/bond applications, how (and how hard it is) to exit one early, the counterparty credit risk it carries, the documentation and regulation behind it, and the mistakes beginners tend to make.",
@@ -215,7 +215,7 @@ export const modules: Module[] = [
     title: "Futures Basics",
     description:
       "What actually makes a futures contract a futures contract, mechanically — margin and daily mark-to-market, standardized contract specs, how (and whether) a contract ever reaches physical delivery, the clearinghouse that guarantees every trade, and the price limits that can pause trading.",
-    order: 3,
+    order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-what-is-futures",
@@ -232,7 +232,7 @@ export const modules: Module[] = [
     title: "Futures Markets & Trading",
     description:
       "Why futures markets exist and who trades in them, a tour of the major markets, how the futures price relates to spot, how orders actually get filled, how to read a quote or a chart, and the risk-management, regulatory, and beginner-mistake ground every trader should cover before risking real money.",
-    order: 4,
+    order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-why-futures-markets-exist",
@@ -252,7 +252,7 @@ export const modules: Module[] = [
     title: "Futures Strategies",
     description:
       "How futures contracts are used in practice — hedging price risk, systematic trend following, and trading the shape of the futures curve with calendar spreads.",
-    order: 5,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-hedging-with-futures",
@@ -493,14 +493,29 @@ export const modules: Module[] = [
     courseSlug: "fx",
     title: "FX Basics",
     description:
-      "What a currency pair actually is, how FX trading works (the decentralized market, pips, and lots), what fundamentally moves exchange rates, and interest rate parity — the relationship behind the carry trade.",
+      "What a currency pair is, why currency markets exist in the first place, how currencies are traded (the decentralized market, pips, and lots), and the three basic ways people use them — transacting, hedging, and speculating.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fx-what-is-a-currency-pair",
+      "fx-why-currency-markets-exist",
       "fx-how-currencies-are-traded",
+      "fx-how-currencies-are-used",
+    ],
+  },
+  {
+    slug: "fx-applications-and-pricing",
+    courseSlug: "fx",
+    title: "FX Applications & Pricing",
+    description:
+      "What fundamentally moves exchange rates, how interest rate parity links currencies — the relationship behind the carry trade — how spot, cross, and forward rates are priced, and how companies and investors use forwards to hedge currency risk.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
       "fx-what-moves-exchange-rates",
       "fx-interest-rate-parity",
+      "fx-pricing-spot-cross-and-forwards",
+      "fx-hedging-currency-risk",
     ],
   },
   {
@@ -509,7 +524,7 @@ export const modules: Module[] = [
     title: "FX Strategies",
     description:
       "Trend-following on a filtered signal, the carry trade in three forms (single-pair, cross-sectional, and dollar-centric), combining carry with momentum, and triangular arbitrage.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fx-moving-averages-with-hp-filter",

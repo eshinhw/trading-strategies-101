@@ -6,6 +6,7 @@ import { QuizProgress } from "./QuizProgress";
 import { QuizChoiceOption } from "./QuizChoiceOption";
 import { QuizFeedback } from "./QuizFeedback";
 import { QuizNavButtons } from "./QuizNavButtons";
+import { InlineText } from "./InlineText";
 import type { GradeResponse } from "../types/curriculum";
 
 export function ConceptQuiz({
@@ -81,13 +82,13 @@ export function ConceptQuiz({
     <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
       <QuizProgress current={currentIndex} total={questions.length} />
 
-      <p className="mb-3 text-sm text-[#e6e8ec]">{q.prompt}</p>
+      <p className="mb-3 text-sm text-[#e6e8ec]"><InlineText text={q.prompt} /></p>
       <div className="flex flex-col gap-1.5">
         {q.choices.map((choice, ci) => (
           <QuizChoiceOption
             key={ci}
             name={q.id}
-            label={choice}
+            label={<InlineText text={choice} />}
             isSelected={answers[q.id] === ci}
             isCorrectChoice={ci === q.correctIndex}
             isChecked={isChecked}
@@ -109,7 +110,7 @@ export function ConceptQuiz({
       {isChecked && (
         <QuizFeedback correct={isCorrect}>
           <span className="font-medium">{isCorrect ? "Correct." : "Not quite."}</span>{" "}
-          <span className="text-[#9aa3b2]">{q.explanation}</span>
+          <span className="text-[#9aa3b2]"><InlineText text={q.explanation} /></span>
         </QuizFeedback>
       )}
 

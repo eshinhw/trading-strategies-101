@@ -1,15 +1,17 @@
 # Lesson content
 
-Concept lessons are plain Markdown files: `content/lessons/<course>/<lesson-slug>.md`.
+Concept lessons are plain Markdown files: `content/lessons/<folder>/<lesson-slug>.md`. Folders are just
+for organizing (e.g. `forwards/` and `futures/` match the Forwards and Futures courses) — any
+folder name works, and the lesson's `slug` is what the app uses.
 Edit a file, save, and the dev server reloads it. (A mistake in a file stops the server with a
 `file:line` message saying what to fix.) To add a lesson, create a new `.md` file in the right
-course folder and list its `slug` in the module's `lessonSlugs` in `src/data/curriculum/modules.ts`.
+folder and list its `slug` in the module's `lessonSlugs` in `src/data/curriculum/modules.ts`.
 
 ## Format
 
 ```markdown
 ---
-slug: futures-what-is-a-forward-contract
+slug: what-is-a-forward-contract
 title: The Forward Contract
 summary: One-line description shown under the lesson title.
 ---
@@ -22,6 +24,12 @@ A paragraph. Separate paragraphs with a blank line. Wrapped lines inside a parag
 so you can hard-wrap long text however you like.
 
 Inline formatting: **bold**, *italic*, __underline__.
+
+Math (LaTeX): inline like $F = S_0 e^{rT}$, or a centered equation on its own lines:
+
+$$
+F_0 = S_0\,e^{rT}
+$$
 
 - Bulleted item
 - Another item that can
@@ -50,8 +58,14 @@ Inline formatting: **bold**, *italic*, __underline__.
 
 ## Rules
 
+- Math: inline `$...$` needs no space just inside the dollar signs and the closing `$` can't be followed
+  by a digit, so prices like "$5 and $6" stay plain text. Write `\$` for a literal dollar sign (inside
+  an equation too, e.g. `\$65{,}000`). A `$$` block runs from a line starting `$$` to the next line
+  ending `$$` (blank lines allowed inside) and uses plain LaTeX with no `[ ]` or `\( \)` wrappers.
+  Math also works in list items and quiz text.
 - Front matter needs `slug`, `title` and `summary`, each on a single line.
-- `## ` is the only heading level. Each one becomes a section, and appears in the "on this page" outline.
+- `## Heading` starts a section and appears in the "on this page" outline. `### `, `#### ` and `##### ` add
+  progressively smaller sub headings inside the current section (not in the outline). No other levels.
 - `![diagram-id]` must match a diagram component on the client (`client/src/components/lessonDiagrams`).
 - `# Quiz` must be the last section. Every question needs 2+ choices, exactly one `[x]`, and a `>` explanation.
 - Don't rename a question's id (or reorder quiz questions that use default ids) once learners have
