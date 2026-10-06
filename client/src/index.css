@@ -67,3 +67,50 @@ button:not(:disabled) {
     transform: translateY(-14px);
   }
 }
+
+/* Risk/reward hero chart: the frontier draws itself in, points pop in, the active point pulses. */
+@keyframes rr-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes rr-pop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes rr-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+.rr-frontier {
+  stroke-dasharray: 1;
+  animation: rr-draw 1.4s ease-out both;
+}
+.rr-point {
+  animation: rr-pop 0.5s ease-out both;
+}
+.rr-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: rr-pulse 1.8s ease-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rr-frontier,
+  .rr-point,
+  .rr-pulse {
+    animation: none;
+  }
+}
