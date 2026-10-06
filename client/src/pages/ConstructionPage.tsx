@@ -1,7 +1,11 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchConstructionExercise, fetchLesson, submitConstruction } from "../api";
-import type { ConstructionExerciseDetail, ConstructionGradeResult } from "../types/construction";
+import { fetchConstructionExercise, fetchConstructionExercises, fetchLesson, submitConstruction } from "../api";
+import type {
+  ConstructionExerciseDetail,
+  ConstructionExerciseSummary,
+  ConstructionGradeResult,
+} from "../types/construction";
 import type { Strategy } from "../types/strategy";
 import type { ParamValues } from "../engine/payoff";
 import { computePayoffStats, defaultRange } from "../engine/payoff";
@@ -26,6 +30,9 @@ export function ConstructionPage() {
   const [params, setParams] = useState<ParamValues>({});
   const [result, setResult] = useState<ConstructionGradeResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  // Which candidates have been checked so far in this exercise, and whether each one passed.
+  const [tried, setTried] = useState<Record<string, boolean>>({});
+  const [siblings, setSiblings] = useState<ConstructionExerciseSummary[]>([]);
 
   useEffect(() => {
     if (!slug) return;
@@ -34,10 +41,19 @@ export function ConstructionPage() {
     setPickedSlug(null);
     setStrategy(null);
     setResult(null);
+    setTried({});
     fetchConstructionExercise(slug)
       .then(setExercise)
       .catch((e) => setError(e.message));
   }, [slug]);
+
+  const moduleSlug = exercise?.moduleSlug;
+  useEffect(() => {
+    if (!moduleSlug) return;
+    fetchConstructionExercises()
+      .then((all) => setSiblings(all.filter((ex) => ex.moduleSlug === moduleSlug)))
+      .catch(() => setSiblings([]));
+  }, [moduleSlug]);
 
   function pickCandidate(candidateSlug: string) {
     setPickedSlug(candidateSlug);
@@ -64,6 +80,7 @@ export function ConstructionPage() {
     try {
       const grade = await submitConstruction(exercise.slug, pickedSlug, params);
       setResult(grade);
+      setTried((prev) => ({ ...prev, [pickedSlug]: grade.passed }));
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong.");
     } finally {
@@ -103,6 +120,8 @@ export function ConstructionPage() {
   const step = !pickedSlug ? 1 : result ? 3 : 2;
   const accent = courseAccent("options");
   const pickedName = exercise.candidates.find((c) => c.slug === pickedSlug)?.name;
+  const position = siblings.findIndex((ex) => ex.slug === exercise.slug);
+  const nextExercise = position >= 0 && position < siblings.length - 1 ? siblings[position + 1] : null;
 
   return (
     <div style={{ "--accent": accent } as CSSProperties}>
@@ -130,8 +149,15 @@ export function ConstructionPage() {
               {exercise.moduleTitle ?? "Module"}
             </Link>
           </nav>
-          <div className="mt-5 text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: accent }}>
-            Construction exercise
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <span className="text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: accent }}>
+              Construction exercise
+            </span>
+            {position >= 0 && siblings.length > 1 && (
+              <span className="rounded-full border border-[#2a3040] bg-[#0e1117]/70 px-2.5 py-0.5 text-xs text-[#9aa3b2]">
+                Exercise {position + 1} of {siblings.length}
+              </span>
+            )}
           </div>
           <h1 className="mt-1 text-4xl font-bold text-[#e6e8ec]">{exercise.title}</h1>
           <blockquote
@@ -167,6 +193,17 @@ export function ConstructionPage() {
                       {String.fromCharCode(65 + i)}
                     </span>
                     <span className="flex-1 font-semibold text-[#e6e8ec]">{c.name}</span>
+                    {tried[c.slug] !== undefined && (
+                      <span
+                        className={`shrink-0 rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                          tried[c.slug]
+                            ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+                            : "border-amber-500/30 bg-amber-500/10 text-amber-400"
+                        }`}
+                      >
+                        {tried[c.slug] ? "✓ Solved" : "Tried, not quite"}
+                      </span>
+                    )}
                     <span
                       className="opacity-0 transition duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
                       style={{ color: accent }}
@@ -185,6 +222,7 @@ export function ConstructionPage() {
               strategyName={strategy.name}
               result={result}
               moduleSlug={exercise.moduleSlug}
+              nextExercise={nextExercise}
               onTryAgain={tryAgain}
               onChangeStrategy={changeStrategy}
             />
@@ -226,7 +264,7 @@ export function ConstructionPage() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="sticky bottom-0 z-20 -mx-6 flex flex-wrap items-center gap-4 border-t border-[#2a3040] bg-[#0b0d12]/90 px-6 py-3 backdrop-blur lg:static lg:mx-0 lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none">
                 <button
                   onClick={handleSubmit}
                   disabled={submitting}
@@ -351,18 +389,20 @@ function ConstructionResult({
   strategyName,
   result,
   moduleSlug,
+  nextExercise,
   onTryAgain,
   onChangeStrategy,
 }: {
   strategyName: string;
   result: ConstructionGradeResult;
   moduleSlug: string;
+  nextExercise: ConstructionExerciseSummary | null;
   onTryAgain: () => void;
   onChangeStrategy: () => void;
 }) {
   return (
     <section
-      className={`mt-6 rounded-2xl border p-6 sm:p-8 ${
+      className={`rr-point mt-6 rounded-2xl border p-6 sm:p-8 ${
         result.passed ? "border-emerald-500/30 bg-emerald-500/10" : "border-amber-500/30 bg-amber-500/10"
       }`}
     >
@@ -405,6 +445,14 @@ function ConstructionResult({
         <button onClick={onChangeStrategy} className="text-sm text-[#a99dff] hover:underline">
           Try a different strategy
         </button>
+        {result.passed && nextExercise && (
+          <Link
+            to={`/construction/${nextExercise.slug}`}
+            className="rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-500/20"
+          >
+            Next exercise: {nextExercise.title} →
+          </Link>
+        )}
         {result.passed && (
           <Link to={`/module/${moduleSlug}`} className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
             Back to the module →
