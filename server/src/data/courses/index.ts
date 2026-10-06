@@ -12,7 +12,7 @@ export const courses: Course[] = [
     title: "Forwards",
     section: "10",
     description:
-      "The simplest derivative: how a forward contract works, how it's priced and settled, how it's used to hedge currency, commodity, equity and bond exposure, and the counterparty risk that comes with it.",
+      "What a forward contract is and why it exists, then how it's priced, valued and used to hedge currency, commodity, equity and bond exposure, and the credit risk that comes with it.",
     status: "available",
     strategyCount: 0,
   },
@@ -21,7 +21,7 @@ export const courses: Course[] = [
     title: "Futures",
     section: "10",
     description:
-      "Standardized, exchange-traded contracts — margin and daily settlement, clearinghouses, how the markets work — and strategies built on them: hedging, cross-hedging, calendar spreads, and trend following.",
+      "What futures contracts are and why futures markets exist, how margin, clearing and pricing work, then strategies built on them: hedging, cross-hedging, calendar spreads and trend following.",
     status: "available",
     strategyCount: 7,
     strategyTitles: [
@@ -39,7 +39,7 @@ export const courses: Course[] = [
     title: "Options",
     section: "2",
     description:
-      "Calls, puts, and every combination the curriculum covers — from a single long call to covered strategies, spreads, straddles, butterflies, condors, and calendar spreads.",
+      "What options are and why they exist, how they're traded, priced and measured with the Greeks, then every strategy from a single leg to covered positions, spreads, butterflies and condors.",
     status: "available",
     strategyCount: 62,
   },
@@ -48,7 +48,7 @@ export const courses: Course[] = [
     title: "Stocks",
     section: "3",
     description:
-      "Momentum, mean-reversion, value, and statistical-arbitrage strategies traded in the underlying stock itself, plus a few quant and machine-learning approaches.",
+      "What a stock is and why companies issue shares, how stocks trade and are valued, then momentum, value, pairs, statistical-arbitrage and technical strategies.",
     status: "available",
     strategyCount: 20,
     strategyTitles: [
@@ -79,7 +79,7 @@ export const courses: Course[] = [
     title: "Exchange-Traded Funds (ETF)",
     section: "4",
     description:
-      "Sector and alpha rotation, plus strategies specific to how ETFs trade relative to their underlying holdings.",
+      "What an ETF is and why investors use one, how ETFs are created, traded and what they cost, then sector and alpha rotation, mean-reversion and leveraged-ETF strategies.",
     status: "available",
     strategyCount: 8,
     strategyTitles: [
@@ -98,7 +98,7 @@ export const courses: Course[] = [
     title: "Fixed Income",
     section: "5",
     description:
-      "Duration and yield-curve strategies for bond portfolios — bullets, barbells, ladders, butterflies, and credit-spread arbitrage.",
+      "What a bond is and why bonds exist, how they're traded and priced through yield, duration, the yield curve and credit spreads, then bullet, barbell, ladder, butterfly and credit-arbitrage strategies.",
     status: "available",
     strategyCount: 15,
     strategyTitles: [
@@ -124,7 +124,7 @@ export const courses: Course[] = [
     title: "Indexes",
     section: "6",
     description:
-      "Arbitrage and dispersion strategies that trade an index against its components or related index products.",
+      "What a stock index is and why indexes exist, how their values are calculated, tracked and traded through futures and options, then arbitrage and dispersion strategies.",
     status: "available",
     strategyCount: 5,
     strategyTitles: [
@@ -140,7 +140,7 @@ export const courses: Course[] = [
     title: "Volatility",
     section: "7",
     description:
-      "Trading volatility itself as an asset class — VIX futures, variance swaps, and volatility risk premium strategies.",
+      "What volatility is and why it matters, how implied volatility, the VIX and VIX products work, then strategies such as VIX basis trading, variance swaps and the volatility risk premium.",
     status: "available",
     strategyCount: 7,
     strategyTitles: [
@@ -157,7 +157,7 @@ export const courses: Course[] = [
     slug: "fx",
     title: "Foreign Exchange",
     section: "8",
-    description: "Carry trades, trend-following, and triangular arbitrage in currency markets.",
+    description: "What a currency pair is and why currency markets exist, how currencies are traded, priced and hedged, then carry, trend-following and triangular-arbitrage strategies.",
     status: "available",
     strategyCount: 6,
     strategyTitles: [
@@ -173,7 +173,7 @@ export const courses: Course[] = [
     slug: "commodities",
     title: "Commodities",
     section: "9",
-    description: "Roll yield, hedging pressure, and value and skewness-premium strategies across commodity futures.",
+    description: "What a commodity is and why commodity markets exist, how they trade, what moves prices and shapes the futures curve, then roll-yield, hedging-pressure, value and skewness strategies.",
     status: "available",
     strategyCount: 6,
     strategyTitles: [
@@ -190,7 +190,7 @@ export const courses: Course[] = [
     slug: "structured-assets",
     title: "Structured Assets",
     section: "11",
-    description: "Carry and curve-trade strategies for CDOs and other structured credit products.",
+    description: "What securitization is and why it exists, how tranches, the waterfall, credit default swaps and mortgage-backed securities work, then carry and curve-trade strategies on CDOs.",
     status: "available",
     strategyCount: 6,
     strategyTitles: [
@@ -206,7 +206,7 @@ export const courses: Course[] = [
     slug: "convertibles",
     title: "Convertibles",
     section: "12",
-    description: "Arbitrage strategies that trade a convertible bond against the issuer's stock and credit.",
+    description: "What a convertible bond is and why issuers sell it and investors buy it, how conversion terms and price behavior work, then convertible arbitrage strategies.",
     status: "available",
     strategyCount: 2,
     strategyTitles: ["Convertible Arbitrage", "Convertible Option-Adjusted Spread"],
@@ -215,7 +215,7 @@ export const courses: Course[] = [
     slug: "real-estate",
     title: "Real Estate",
     section: "16",
-    description: "Diversification, momentum, and inflation-hedging strategies for real estate portfolios.",
+    description: "What real estate investing is and why investors choose it, how property is valued and financed, then diversification, momentum, inflation-hedging and fix-and-flip strategies.",
     status: "available",
     strategyCount: 8,
     strategyTitles: [
@@ -234,7 +234,7 @@ export const courses: Course[] = [
     title: "Cash",
     section: "17",
     description:
-      "Strategies built on cash and short-term liquidity, from repo to — for historical and educational completeness — pawnbroking and loan sharking.",
+      "Why cash markets exist and how money market instruments and secured lending work, then liquidity management, repo and, for historical completeness, pawnbroking and loan sharking.",
     status: "available",
     strategyCount: 5,
     strategyTitles: [
@@ -249,7 +249,7 @@ export const courses: Course[] = [
     slug: "cryptocurrencies",
     title: "Cryptocurrencies",
     section: "18",
-    description: "Machine-learning and sentiment-based approaches to trading cryptocurrencies.",
+    description: "What cryptocurrencies and blockchains are and why they were created, how crypto markets trade and the risks involved, then machine-learning and sentiment-based trading approaches.",
     status: "available",
     strategyCount: 2,
     strategyTitles: ["Artificial Neural Network (ANN)", "Sentiment Analysis – Naive Bayes Bernoulli"],
@@ -259,7 +259,7 @@ export const courses: Course[] = [
     title: "Global Macro",
     section: "19",
     description:
-      "Top-down strategies that trade macroeconomic views — inflation, fixed income, and economic announcements.",
+      "What global macro investing is and why it matters, the indicators and central-bank policy behind it, then momentum, inflation-hedge and announcement strategies.",
     status: "available",
     strategyCount: 4,
     strategyTitles: [
@@ -274,7 +274,7 @@ export const courses: Course[] = [
     title: "Distressed Assets",
     section: "15",
     description:
-      "Investing in distressed and defaulted debt — from passive buy-and-hold to active reorganization and loan-to-own strategies.",
+      "What distressed debt is and why distress creates opportunity, how bankruptcy and claim priority work, then strategies from passive buy-and-hold to active reorganization and loan-to-own.",
     status: "available",
     strategyCount: 7,
     strategyTitles: [
@@ -292,7 +292,7 @@ export const courses: Course[] = [
     title: "Tax Arbitrage",
     section: "13",
     description:
-      "Strategies that exploit differences in how jurisdictions tax income, including cross-border and municipal bond arbitrage.",
+      "What tax arbitrage is and how investment income is taxed, how municipal bonds and cross-border withholding show up in prices, then municipal and cross-border strategies.",
     status: "available",
     strategyCount: 3,
     strategyTitles: [
@@ -306,7 +306,7 @@ export const courses: Course[] = [
     title: "Miscellaneous Assets",
     section: "14",
     description:
-      "Inflation hedging, weather risk, and energy spread strategies that don't fit neatly into a single asset class.",
+      "Why niche risks get their own instruments, how inflation-linked, weather and spread instruments work, then inflation hedging, weather and energy spark-spread strategies.",
     status: "available",
     strategyCount: 4,
     strategyTitles: [

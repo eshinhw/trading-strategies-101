@@ -49,7 +49,7 @@ export function CourseCard({ course, progress }: { course: Course; progress?: Mo
       </div>
 
       <h3 className="relative mt-4 text-lg font-semibold text-[#e6e8ec]">{course.title}</h3>
-      <p className="relative mt-1.5 line-clamp-3 text-sm leading-relaxed text-[#9aa3b2]">{course.description}</p>
+      <p className="relative mt-1.5 line-clamp-5 text-sm leading-relaxed text-[#9aa3b2]">{course.description}</p>
 
       {progress && (
         <div className="relative mt-4 flex items-center gap-2">

@@ -151,7 +151,7 @@ export function AssetMap({ courses }: { courses: Course[] | null }) {
                   <div className="text-2xl font-bold text-[#e6e8ec]">{selected.title}</div>
                 </div>
               </div>
-              <p className="relative mt-4 line-clamp-4 text-sm leading-relaxed text-[#9aa3b2]">{selected.description}</p>
+              <p className="relative mt-4 line-clamp-6 text-sm leading-relaxed text-[#9aa3b2]">{selected.description}</p>
               <div className="relative mt-4 flex flex-wrap gap-1.5">
                 {selected.lessonCount ? <Chip>{selected.lessonCount} lessons</Chip> : null}
                 {selected.moduleCount ? <Chip>{selected.moduleCount} modules</Chip> : null}
