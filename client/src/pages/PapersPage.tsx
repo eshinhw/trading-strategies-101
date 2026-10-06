@@ -52,9 +52,15 @@ export function PapersPage() {
       gridColsClassName="sm:grid-cols-2 lg:grid-cols-3"
       renderCard={(paper, accent, bookmark) => <PaperCard key={paper.slug} paper={paper} accent={accent} bookmark={bookmark} />}
       renderRow={(paper, accent, bookmark) => <PaperRow key={paper.slug} paper={paper} accent={accent} bookmark={bookmark} />}
-      renderTimeline={(papers, { accentOf, categoryOf }) => (
-        <PaperTimeline papers={papers} accentOf={accentOf} categoryTitleOf={(p) => categoryOf(p)?.title} />
+      renderTimeline={(papers, { accentOf, categoryOf, bookmarkOf }) => (
+        <PaperTimeline
+          papers={papers}
+          accentOf={accentOf}
+          categoryTitleOf={(p) => categoryOf(p)?.title}
+          bookmarkOf={bookmarkOf}
+        />
       )}
+      renderOverview={(ctx) => <ResearchMap {...ctx} />}
       sorters={SORTERS}
     />
   );
@@ -133,10 +139,12 @@ function PaperTimeline({
   papers,
   accentOf,
   categoryTitleOf,
+  bookmarkOf,
 }: {
   papers: Paper[];
   accentOf: (p: Paper) => string;
   categoryTitleOf: (p: Paper) => string | undefined;
+  bookmarkOf: (p: Paper) => BookmarkControls | undefined;
 }) {
   const sorted = papers.slice().sort((a, b) => a.year - b.year || a.title.localeCompare(b.title));
   const byDecade = new Map<number, Paper[]>();
@@ -202,7 +210,16 @@ function PaperTimeline({
                       >
                         {LINK_LABEL[paper.link.kind]} <span aria-hidden="true">↗</span>
                       </a>
-                      <CopyCitation paper={paper} />
+                      <span className="flex items-center gap-3">
+                        <CopyCitation paper={paper} />
+                        {bookmarkOf(paper) && (
+                          <BookmarkButton
+                            saved={bookmarkOf(paper)!.saved}
+                            onToggle={bookmarkOf(paper)!.toggle}
+                            label={paper.title}
+                          />
+                        )}
+                      </span>
                     </div>
                   </article>
                 );
@@ -212,6 +229,139 @@ function PaperTimeline({
         ))}
       </div>
     </div>
+  );
+}
+
+interface ResearchMapProps {
+  items: Paper[];
+  matching: Paper[];
+  categories: { slug: string; title: string }[];
+  accentOf: (p: Paper) => string;
+  activeTopic: string;
+  onSelectTopic: (slug: string) => void;
+}
+
+// The whole library on one picture: a lane per research area, a dot per paper placed by year. Dots that don't
+// match the current filters dim out, and clicking a lane label filters to that area.
+function ResearchMap({ items, matching, categories, accentOf, activeTopic, onSelectTopic }: ResearchMapProps) {
+  const [hovered, setHovered] = useState<Paper | null>(null);
+  if (items.length === 0) return null;
+
+  const years = items.map((p) => p.year);
+  const start = Math.floor(Math.min(...years) / 10) * 10;
+  const end = Math.ceil((Math.max(...years) + 1) / 10) * 10;
+  const pct = (year: number) => ((year - start) / (end - start)) * 100;
+  const ticks: number[] = [];
+  for (let y = start; y <= end; y += 10) ticks.push(y);
+  const matchingSlugs = new Set(matching.map((p) => p.slug));
+
+  return (
+    <section className="mb-8 rounded-2xl border border-[#2a3040] bg-[#141821]/80 p-4 sm:p-5" aria-label="Research map">
+      <div className="mb-3 flex items-baseline justify-between gap-3">
+        <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">The research at a glance</h2>
+        <span className="text-xs text-[#898781]">
+          {start}–{end - 1}
+        </span>
+      </div>
+
+      <div className="flex flex-col">
+        {categories.map((c) => {
+          const lane = items.filter((p) => p.category === c.slug);
+          if (lane.length === 0) return null;
+          const accent = accentOf(lane[0]);
+          const active = activeTopic === c.slug;
+          return (
+            <div key={c.slug} className="flex items-center gap-3 border-t border-[#2a3040]/60 first:border-t-0">
+              <button
+                onClick={() => onSelectTopic(c.slug)}
+                aria-pressed={active}
+                className={`hidden w-44 shrink-0 truncate py-2.5 text-left text-xs transition sm:block ${
+                  active ? "font-semibold text-[#e6e8ec]" : "text-[#9aa3b2] hover:text-[#e6e8ec]"
+                }`}
+                title={`Filter to ${c.title}`}
+              >
+                <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full align-middle" style={{ background: accent }} />
+                {c.title}
+              </button>
+              <div className="relative h-9 flex-1">
+                <div className="absolute inset-x-0 top-1/2 h-px bg-[#2a3040]/70" aria-hidden="true" />
+                {lane.map((paper) => {
+                  // Papers from the same year in the same lane would sit on top of each other, so fan them out.
+                  const sameYear = lane.filter((p) => p.year === paper.year);
+                  const offset = (sameYear.indexOf(paper) - (sameYear.length - 1) / 2) * 13;
+                  const on = matchingSlugs.has(paper.slug);
+                  return (
+                    <button
+                      key={paper.slug}
+                      type="button"
+                      onMouseEnter={() => setHovered(paper)}
+                      onMouseLeave={() => setHovered(null)}
+                      onFocus={() => setHovered(paper)}
+                      onBlur={() => setHovered(null)}
+                      aria-label={`${paper.title}, ${paper.authors}, ${paper.year}`}
+                      className="absolute top-1/2 h-3 w-3 -translate-x-1/2 rounded-full ring-2 ring-[#141821] transition hover:scale-150 focus-visible:scale-150 focus-visible:outline-none"
+                      style={{
+                        left: `${pct(paper.year)}%`,
+                        marginTop: `${offset - 6}px`,
+                        background: accent,
+                        opacity: on ? 1 : 0.2,
+                        boxShadow: hovered?.slug === paper.slug ? `0 0 0 4px ${accent}40` : undefined,
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+        <div className="flex items-center gap-3">
+          <span className="hidden w-44 shrink-0 sm:block" />
+          <div className="relative h-5 flex-1 border-t border-[#2a3040]">
+            {ticks.map((y) => (
+              <span
+                key={y}
+                className="absolute top-1 -translate-x-1/2 text-[10px] tabular-nums text-[#898781]"
+                style={{ left: `${pct(y)}%` }}
+              >
+                {y}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-3 flex flex-wrap gap-1.5 sm:hidden">
+        {categories.map((c) => {
+          const lane = items.find((p) => p.category === c.slug);
+          if (!lane) return null;
+          const active = activeTopic === c.slug;
+          return (
+            <button
+              key={c.slug}
+              onClick={() => onSelectTopic(c.slug)}
+              aria-pressed={active}
+              className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] transition ${
+                active ? "border-[#7c6cff]/60 bg-[#7c6cff]/15 text-[#e6e8ec]" : "border-[#2a3040] text-[#9aa3b2]"
+              }`}
+            >
+              <span className="h-1.5 w-1.5 rounded-full" style={{ background: accentOf(lane) }} />
+              {c.title}
+            </button>
+          );
+        })}
+      </div>
+
+      <p className="mt-3 min-h-[20px] text-xs text-[#898781]" aria-live="polite">
+        {hovered ? (
+          <>
+            <span className="font-medium text-[#e6e8ec]">{hovered.year}</span> · {hovered.title}{" "}
+            <span className="text-[#898781]">· {hovered.authors}</span>
+          </>
+        ) : (
+          "Each dot is a paper, placed by year. Hover or focus one to read it. Click a research area to filter."
+        )}
+      </p>
+    </section>
   );
 }
 

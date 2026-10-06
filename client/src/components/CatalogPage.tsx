@@ -94,6 +94,7 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   sorters,
   getId,
   bookmarkKey,
+  renderOverview,
 }: {
   eyebrow: string;
   title: string;
@@ -116,8 +117,21 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   /** a chronological layout over the filtered items; when given, a Timeline option joins the layout toggle */
   renderTimeline?: (
     items: TItem[],
-    helpers: { accentOf: (item: TItem) => string; categoryOf: (item: TItem) => TCategory | undefined },
+    helpers: {
+      accentOf: (item: TItem) => string;
+      categoryOf: (item: TItem) => TCategory | undefined;
+      bookmarkOf: (item: TItem) => BookmarkControls | undefined;
+    },
   ) => ReactNode;
+  /** a visual summary shown above the filters; sees every item, which of them match the filters, and the topic filter */
+  renderOverview?: (ctx: {
+    items: TItem[];
+    matching: TItem[];
+    categories: TCategory[];
+    accentOf: (item: TItem) => string;
+    activeTopic: string;
+    onSelectTopic: (slug: string) => void;
+  }) => ReactNode;
   /** extra sort orders; the catalog's own order ("Recommended") is always the default */
   sorters?: { id: string; label: string; compare: (a: TItem, b: TItem) => number }[];
   /** with bookmarkKey, learners can save items for later (kept in this browser) and filter to just those */
@@ -264,6 +278,15 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
 
         {data && (
           <>
+            {renderOverview &&
+              renderOverview({
+                items: data.items,
+                matching: filteredItems,
+                categories: data.categories,
+                accentOf: (item) => getCategoryAccent(getCategorySlug(item)),
+                activeTopic: topic,
+                onSelectTopic: (slug) => setTopic(topic === slug ? "all" : slug),
+              })}
             <div className="mb-8 rounded-2xl border border-[#2a3040] bg-[#141821]/80 p-4">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                 <div className="relative w-full lg:max-w-sm">
@@ -401,6 +424,7 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
               renderTimeline(filteredItems, {
                 accentOf: (item) => getCategoryAccent(getCategorySlug(item)),
                 categoryOf: (item) => data.categories.find((c) => c.slug === getCategorySlug(item)),
+                bookmarkOf: bookmarkFor,
               })
             ) : (
               <div className="flex flex-col gap-12">
