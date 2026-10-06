@@ -44,9 +44,17 @@ export function PapersPage() {
       matchesQuery={(paper, q) => paper.title.toLowerCase().includes(q) || paper.authors.toLowerCase().includes(q)}
       gridColsClassName="sm:grid-cols-2 lg:grid-cols-3"
       renderCard={(paper, accent) => <PaperCard key={paper.slug} paper={paper} accent={accent} />}
+      renderRow={(paper, accent) => <PaperRow key={paper.slug} paper={paper} accent={accent} />}
+      sorters={SORTERS}
     />
   );
 }
+
+const SORTERS = [
+  { id: "newest", label: "Newest first", compare: (a: Paper, b: Paper) => b.year - a.year },
+  { id: "oldest", label: "Oldest first", compare: (a: Paper, b: Paper) => a.year - b.year },
+  { id: "title", label: "Title A–Z", compare: (a: Paper, b: Paper) => a.title.localeCompare(b.title) },
+];
 
 const LINK_LABEL: Record<Paper["link"]["kind"], string> = {
   ssrn: "Download on SSRN",
@@ -85,6 +93,37 @@ function PaperCard({ paper, accent }: { paper: Paper; accent: string }) {
         className="mt-auto inline-flex w-fit items-center gap-1 pt-4 text-sm font-medium text-[#a99dff] hover:text-[#c4bbff]"
       >
         {LINK_LABEL[paper.link.kind]} <span aria-hidden="true" className="transition group-hover:translate-x-0.5">↗</span>
+      </a>
+    </article>
+  );
+}
+
+// Compact one-line layout for the List view.
+function PaperRow({ paper, accent }: { paper: Paper; accent: string }) {
+  return (
+    <article
+      className="group flex items-center gap-4 rounded-xl border border-[#2a3040] bg-[#141821] px-4 py-3 transition duration-200 hover:border-[var(--accent)]"
+      style={{ "--accent": `${accent}99` } as CSSProperties}
+    >
+      <span className="w-12 shrink-0 text-lg font-bold tabular-nums" style={{ color: accent }}>
+        {paper.year}
+      </span>
+      <div className="min-w-0 flex-1">
+        <h3 className="font-semibold text-[#e6e8ec]">{paper.title}</h3>
+        <p className="truncate text-sm text-[#898781]">
+          {paper.authors} · <span className="italic">{paper.venue}</span>
+        </p>
+      </div>
+      <span className={`hidden shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium sm:inline ${LEVEL_CLASSES[paper.level]}`}>
+        {LEVEL_LABEL[paper.level]}
+      </span>
+      <a
+        href={paper.link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="shrink-0 text-sm font-medium text-[#a99dff] hover:text-[#c4bbff]"
+      >
+        {paper.link.kind === "ssrn" ? "SSRN" : "DOI"} <span aria-hidden="true">↗</span>
       </a>
     </article>
   );

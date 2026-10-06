@@ -73,6 +73,8 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   matchesQuery,
   gridColsClassName = "sm:grid-cols-2",
   renderCard,
+  renderRow,
+  sorters,
 }: {
   eyebrow: string;
   title: string;
@@ -90,12 +92,19 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   matchesQuery: (item: TItem, q: string) => boolean;
   gridColsClassName?: string;
   renderCard: (item: TItem, accent: string) => ReactNode;
+  /** a compact one-line layout; when given, a Cards / List toggle appears */
+  renderRow?: (item: TItem, accent: string) => ReactNode;
+  /** extra sort orders; the catalog's own order ("Recommended") is always the default */
+  sorters?: { id: string; label: string; compare: (a: TItem, b: TItem) => number }[];
 }) {
   const [data, setData] = useState<{ categories: TCategory[]; items: TItem[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [level, setLevel] = useState<TLevel | "all">("all");
   const [topic, setTopic] = useState<string>("all");
+  const [sortId, setSortId] = useState("recommended");
+  const [view, setView] = useState<"cards" | "list">("cards");
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     fetchData()
@@ -110,16 +119,27 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   const filteredItems = useMemo(() => {
     if (!data) return [];
     const q = query.trim().toLowerCase();
-    return data.items.filter((item) => {
+    const matching = data.items.filter((item) => {
       const matchesLevel = level === "all" || getLevel(item) === level;
       const matchesTopic = topic === "all" || getCategorySlug(item) === topic;
       const matchesSearch = q === "" || matchesQuery(item, q);
       return matchesLevel && matchesTopic && matchesSearch;
     });
+    const sorter = sorters?.find((x) => x.id === sortId);
+    return sorter ? matching.slice().sort(sorter.compare) : matching;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, query, level, topic]);
+  }, [data, query, level, topic, sortId]);
 
   const filtersActive = query.trim() !== "" || level !== "all" || topic !== "all";
+  // A long category shows only its first few entries until expanded, unless the learner is filtering.
+  const collapseAfter = view === "list" ? 10 : 6;
+  const toggleExpanded = (slug: string) =>
+    setExpanded((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
+    });
   const clearFilters = () => {
     setQuery("");
     setLevel("all");
@@ -221,6 +241,59 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
               </div>
             </div>
 
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-sm text-[#898781]">
+                Showing <span className="font-medium text-[#e6e8ec]">{filteredItems.length}</span> of {data.items.length}{" "}
+                {itemNoun}
+                {filtersActive && (
+                  <button onClick={clearFilters} className="ml-3 text-[#a99dff] hover:underline">
+                    Clear filters
+                  </button>
+                )}
+              </p>
+              <div className="flex items-center gap-3">
+                {sorters && sorters.length > 0 && (
+                  <label className="flex items-center gap-2 text-xs text-[#898781]">
+                    Sort
+                    <select
+                      value={sortId}
+                      onChange={(e) => setSortId(e.target.value)}
+                      className="rounded-lg border border-[#2a3040] bg-[#141821] px-2.5 py-1.5 text-xs text-[#e6e8ec] focus:border-[#7c6cff] focus:outline-none [&>option]:bg-[#141821]"
+                    >
+                      <option value="recommended">Recommended</option>
+                      {sorters.map((x) => (
+                        <option key={x.id} value={x.id}>
+                          {x.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                )}
+                {renderRow && (
+                  <div role="radiogroup" aria-label="Layout" className="flex rounded-lg border border-[#2a3040] bg-[#141821] p-0.5">
+                    {(
+                      [
+                        ["cards", "Cards"],
+                        ["list", "List"],
+                      ] as const
+                    ).map(([key, label]) => (
+                      <button
+                        key={key}
+                        role="radio"
+                        aria-checked={view === key}
+                        onClick={() => setView(key)}
+                        className={`rounded-md px-3 py-1 text-xs font-medium transition ${
+                          view === key ? "bg-[#7c6cff]/20 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
             {filteredItems.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-[#2a3040] p-10 text-center">
                 <p className="text-[#9aa3b2]">{emptyLabel}</p>
@@ -256,9 +329,33 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                           <p className="mt-0.5 text-sm text-[#9aa3b2]">{category.description}</p>
                         </div>
                       </div>
-                      <div className={`mt-5 grid grid-cols-1 gap-4 ${gridColsClassName}`}>
-                        {items.map((item) => renderCard(item, accent))}
-                      </div>
+                      {(() => {
+                        const collapsible = !filtersActive && items.length > collapseAfter;
+                        const isOpen = expanded.has(category.slug);
+                        const visible = collapsible && !isOpen ? items.slice(0, collapseAfter) : items;
+                        return (
+                          <>
+                            {view === "list" && renderRow ? (
+                              <div className="mt-5 flex flex-col gap-2">{visible.map((item) => renderRow(item, accent))}</div>
+                            ) : (
+                              <div className={`mt-5 grid grid-cols-1 gap-4 ${gridColsClassName}`}>
+                                {visible.map((item) => renderCard(item, accent))}
+                              </div>
+                            )}
+                            {collapsible && (
+                              <div className="mt-4 flex justify-center">
+                                <button
+                                  onClick={() => toggleExpanded(category.slug)}
+                                  aria-expanded={isOpen}
+                                  className="rounded-full border border-[#2a3040] px-4 py-1.5 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:text-[#e6e8ec]"
+                                >
+                                  {isOpen ? "Show fewer" : `Show all ${items.length} in ${category.title}`}
+                                </button>
+                              </div>
+                            )}
+                          </>
+                        );
+                      })()}
                     </section>
                   );
                 })}
