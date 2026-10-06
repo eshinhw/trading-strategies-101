@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchConstructionExercises, fetchCourse, fetchModule, fetchModules } from "../api";
+import { fetchConstructionExercises, fetchCourse, fetchModule, fetchModules, fetchOptionsStrategies } from "../api";
 import type { Course } from "../types/course";
 import type { ModuleDetail, ModulesResponse } from "../types/curriculum";
+import type { Strategy } from "../types/strategy";
 import type { ConstructionExerciseSummary } from "../types/construction";
 import { useAuth } from "../auth/AuthContext";
 import { LessonListItem } from "../components/LessonListItem";
+import { PayoffSparkline } from "../components/PayoffSparkline";
 import { courseAccent } from "../lib/courseVisuals";
 
 function Chip({ children }: { children: ReactNode }) {
@@ -62,6 +64,8 @@ export function ModulePage() {
   const [outline, setOutline] = useState<ModulesResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [exercises, setExercises] = useState<ConstructionExerciseSummary[]>([]);
+  // Options strategies by slug, so each strategy lesson in an Options module can show its payoff shape.
+  const [strategyBySlug, setStrategyBySlug] = useState<Map<string, Strategy>>(new Map());
 
   useEffect(() => {
     if (!slug) return;
@@ -87,6 +91,13 @@ export function ModulePage() {
       .then(setOutline)
       .catch(() => {});
   }, [courseSlug, user]);
+
+  useEffect(() => {
+    if (courseSlug !== "options") return;
+    fetchOptionsStrategies()
+      .then((d) => setStrategyBySlug(new Map(d.strategies.map((st) => [st.slug, st]))))
+      .catch(() => {});
+  }, [courseSlug]);
 
   const siblings = useMemo(() => (outline?.modules ?? []).slice().sort((a, b) => a.order - b.order), [outline]);
   const position = siblings.findIndex((m) => m.slug === slug);
@@ -218,9 +229,19 @@ export function ModulePage() {
           <section>
             <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Lessons</h2>
             <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-              {module.lessons.map((lesson, i) => (
-                <LessonListItem key={lesson.slug} lesson={lesson} number={i + 1} accent={accent} />
-              ))}
+              {module.lessons.map((lesson, i) => {
+                const strategy = strategyBySlug.get(lesson.slug);
+                return (
+                  <LessonListItem
+                    key={lesson.slug}
+                    lesson={lesson}
+                    number={i + 1}
+                    accent={accent}
+                    marker={nextLesson?.slug === lesson.slug && !module.completed ? (started ? "Up next" : "Start here") : undefined}
+                    thumbnail={strategy ? <PayoffSparkline strategy={strategy} /> : undefined}
+                  />
+                );
+              })}
             </div>
           </section>
         )}
