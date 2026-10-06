@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { fetchOptionsStrategies } from "../api";
 import type { Strategy, OptionType, Side } from "../types/strategy";
 import type { ParamValues } from "../engine/payoff";
@@ -12,6 +12,7 @@ import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
 import { ParamNumberCard } from "../components/ParamNumberCard";
 import { ACCENT } from "../lib/courseVisuals";
+import { SIMULATOR_PRESETS, type SimulatorPreset } from "../lib/simulatorPresets";
 
 interface BuilderLeg {
   id: number;
@@ -38,6 +39,16 @@ function defaultEntryValues(): ParamValues {
 
 let nextLegId = 1;
 
+function legsFromPreset(preset: SimulatorPreset, spot: number): BuilderLeg[] {
+  return preset.legs.map((l) => ({
+    id: nextLegId++,
+    instrument: l.instrument,
+    side: l.side,
+    strike: Math.max(1, Math.round(spot + l.offset)),
+    qty: l.qty ?? 1,
+  }));
+}
+
 function defaultLegs(spot: number): BuilderLeg[] {
   return [{ id: nextLegId++, instrument: "call", side: "long", strike: spot, qty: 1 }];
 }
@@ -47,70 +58,18 @@ function fmtMoney(n: number): string {
   return `${sign}$${Math.abs(n).toFixed(2)}`;
 }
 
-// One-click starting points. Strikes are offsets from the current spot price, so a preset always
-// lands around the money wherever the learner has set the spot.
-interface PresetLeg {
-  instrument: BuilderLeg["instrument"];
-  side: Side;
-  offset: number;
-  qty?: number;
-}
-const PRESETS: { name: string; legs: PresetLeg[] }[] = [
-  { name: "Long call", legs: [{ instrument: "call", side: "long", offset: 0 }] },
-  { name: "Long put", legs: [{ instrument: "put", side: "long", offset: 0 }] },
-  {
-    name: "Covered call",
-    legs: [
-      { instrument: "stock", side: "long", offset: 0 },
-      { instrument: "call", side: "short", offset: 5 },
-    ],
-  },
-  {
-    name: "Bull call spread",
-    legs: [
-      { instrument: "call", side: "long", offset: 0 },
-      { instrument: "call", side: "short", offset: 10 },
-    ],
-  },
-  {
-    name: "Long straddle",
-    legs: [
-      { instrument: "call", side: "long", offset: 0 },
-      { instrument: "put", side: "long", offset: 0 },
-    ],
-  },
-  {
-    name: "Long strangle",
-    legs: [
-      { instrument: "call", side: "long", offset: 5 },
-      { instrument: "put", side: "long", offset: -5 },
-    ],
-  },
-  {
-    name: "Long call butterfly",
-    legs: [
-      { instrument: "call", side: "long", offset: -10 },
-      { instrument: "call", side: "short", offset: 0, qty: 2 },
-      { instrument: "call", side: "long", offset: 10 },
-    ],
-  },
-  {
-    name: "Long iron condor",
-    legs: [
-      { instrument: "put", side: "long", offset: -15 },
-      { instrument: "put", side: "short", offset: -5 },
-      { instrument: "call", side: "short", offset: 5 },
-      { instrument: "call", side: "long", offset: 15 },
-    ],
-  },
-];
-
 export function OptionPayoutSimulatorPage() {
   const [strategies, setStrategies] = useState<Strategy[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const [entry, setEntry] = useState<ParamValues>(defaultEntryValues());
-  const [legs, setLegs] = useState<BuilderLeg[]>(() => defaultLegs(defaultEntryValues().S0));
+  // A Practice-page quick link can open the simulator with a strategy already built (?preset=long-straddle).
+  const [searchParams] = useSearchParams();
+  const [legs, setLegs] = useState<BuilderLeg[]>(() => {
+    const spot = defaultEntryValues().S0;
+    const preset = SIMULATOR_PRESETS.find((p) => p.id === searchParams.get("preset"));
+    return preset ? legsFromPreset(preset, spot) : defaultLegs(spot);
+  });
 
   useEffect(() => {
     fetchOptionsStrategies()
@@ -136,17 +95,8 @@ export function OptionPayoutSimulatorPage() {
     setLegs((prev) => (prev.length <= 1 ? prev : prev.filter((l) => l.id !== id)));
   }
 
-  function applyPreset(preset: (typeof PRESETS)[number]) {
-    const spot = entry.S0 ?? 100;
-    setLegs(
-      preset.legs.map((l) => ({
-        id: nextLegId++,
-        instrument: l.instrument,
-        side: l.side,
-        strike: Math.max(1, Math.round(spot + l.offset)),
-        qty: l.qty ?? 1,
-      })),
-    );
+  function applyPreset(preset: SimulatorPreset) {
+    setLegs(legsFromPreset(preset, entry.S0 ?? 100));
   }
 
   function resetAll() {
@@ -295,7 +245,7 @@ export function OptionPayoutSimulatorPage() {
             <div className="mb-4">
               <div className="mb-2 text-xs text-[#898781]">Start from a common strategy</div>
               <div className="flex flex-wrap gap-1.5">
-                {PRESETS.map((preset) => (
+                {SIMULATOR_PRESETS.map((preset) => (
                   <button
                     key={preset.name}
                     onClick={() => applyPreset(preset)}
