@@ -143,7 +143,7 @@ export function ModulePage() {
             WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
           }}
         />
-        <div className="relative mx-auto max-w-5xl px-6 pb-9 pt-6">
+        <div className="relative mx-auto max-w-7xl px-6 pb-9 pt-6">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[#898781]">
             <Link to="/courses" className="hover:text-[#e6e8ec]">
               Courses
@@ -206,7 +206,7 @@ export function ModulePage() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl px-6 py-8">
+      <div className="mx-auto max-w-7xl px-6 py-8">
         {!module.unlocked ? (
           <div className="flex items-start gap-4 rounded-2xl border border-dashed border-[#2a3040] bg-[#141821]/60 p-6">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#2a3040] bg-[#141821] text-[#898781]">

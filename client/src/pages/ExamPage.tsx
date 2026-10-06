@@ -44,7 +44,7 @@ function ExamHeader({
           WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
         }}
       />
-      <div className="relative mx-auto max-w-5xl px-6 pb-8 pt-6">
+      <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-6">
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[#898781]">
           <Link to="/courses" className="hover:text-[#e6e8ec]">
             Courses
@@ -310,7 +310,7 @@ export function ExamPage() {
           </p>
         </ExamHeader>
 
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-6 py-8 md:grid-cols-[1fr_1fr]">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-8 md:grid-cols-[1fr_1fr]">
           <section className="rounded-2xl border border-[#2a3040] bg-[#141821] p-6">
             <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">What to expect</h2>
             <ul className="mt-4 flex flex-col gap-3 text-sm text-[#c3c9d4]">
@@ -391,7 +391,7 @@ export function ExamPage() {
         </div>
       </ExamHeader>
 
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[1fr_220px]">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[1fr_220px]">
         {stage === "review" ? (
           <section className="relative overflow-hidden rounded-2xl border border-[#2a3040] bg-gradient-to-b from-[#181c28] to-[#12151d] p-5 sm:p-6">
             <h2 className="text-xl font-bold text-[#e6e8ec]">Review and submit</h2>
@@ -726,7 +726,7 @@ function ExamReport({
         title={course ? `${course.title} final quiz` : "Final quiz"}
       />
 
-      <div className="mx-auto max-w-5xl px-6 py-8">
+      <div className="mx-auto max-w-7xl px-6 py-8">
         <div
           className={`flex flex-col items-center gap-6 rounded-2xl border p-6 sm:flex-row sm:p-8 ${
             result.passed ? "border-emerald-500/30 bg-emerald-500/10" : "border-amber-500/30 bg-amber-500/10"

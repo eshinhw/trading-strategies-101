@@ -124,7 +124,7 @@ export function LessonPage() {
         hasQuiz={lesson.quiz.length > 0}
       />
       <LessonHeader lesson={lesson} ctx={ctx} textSize={textSize} onTextSize={setTextSize} />
-      <div className="mx-auto max-w-6xl px-6 py-10">
+      <div className="mx-auto max-w-7xl px-6 py-10">
         {lesson.kind === "concept" && <GreeksExplorerCallout slug={lesson.slug} accent={ctx.accent} />}
         {lesson.kind === "concept" ? (
           <ConceptLessonBody lesson={lesson} ctx={ctx} />
@@ -210,7 +210,7 @@ function StickyLessonBar({ title, position, hasQuiz }: { title: string; position
         show ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2">
         <div className="min-w-0 text-sm">
           <span className="truncate font-medium text-[#e6e8ec]">{title}</span>
           {position && <span className="ml-2 hidden text-xs text-[#898781] sm:inline">{position}</span>}
@@ -358,7 +358,7 @@ function LessonHeader({
           WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
         }}
       />
-      <div className="relative mx-auto max-w-6xl px-6 pb-9 pt-6">
+      <div className="relative mx-auto max-w-7xl px-6 pb-9 pt-6">
         <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[#898781]">
           <Link to="/courses" className="hover:text-[#e6e8ec]">
             Courses

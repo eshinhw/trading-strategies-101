@@ -139,7 +139,7 @@ export function ConstructionPage() {
             WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
           }}
         />
-        <div className="relative mx-auto max-w-5xl px-6 pb-8 pt-6">
+        <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-6">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[#898781]">
             <Link to="/courses/options" className="hover:text-[#e6e8ec]">
               Options
@@ -169,7 +169,7 @@ export function ConstructionPage() {
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-6 py-8 lg:grid-cols-[1fr_280px]">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-8 lg:grid-cols-[1fr_280px]">
         <main className="min-w-0">
           <Stepper step={step} accent={accent} pickedName={pickedName} />
 

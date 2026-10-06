@@ -104,7 +104,7 @@ function BankHeader({ eyebrow, title, children }: { eyebrow: string; title: stri
           WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
         }}
       />
-      <div className="relative mx-auto max-w-5xl px-6 pb-8 pt-6">
+      <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-6">
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[#898781]">
           <Link to="/practice" className="hover:text-[#e6e8ec]">
             Practice
@@ -377,7 +377,7 @@ export function QuizBankPage() {
           )}
         </BankHeader>
 
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[1fr_300px]">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[1fr_300px]">
           <section>
             {missedIds.length > 0 && (
               <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4">
@@ -575,7 +575,7 @@ export function QuizBankPage() {
         {/* On a phone the Start button would sit below every course chip, so keep it in reach. */}
         <div className="h-20 lg:hidden" aria-hidden="true" />
         <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[#2a3040] bg-[#0b0d12]/95 px-4 py-3 backdrop-blur lg:hidden">
-          <div className="mx-auto flex max-w-5xl items-center gap-3">
+          <div className="mx-auto flex max-w-7xl items-center gap-3">
             <div className="min-w-0 flex-1 text-xs text-[#9aa3b2]">
               <span className="font-semibold text-[#e6e8ec]">{count}</span> questions ·{" "}
               {selected.size === 0 ? "every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`}
@@ -738,7 +738,7 @@ export function QuizBankPage() {
   return (
     <div style={{ "--accent": accent } as CSSProperties}>
       <BankHeader eyebrow="Session complete" title="Quiz Bank" />
-      <div className="mx-auto max-w-5xl px-6 py-8">
+      <div className="mx-auto max-w-7xl px-6 py-8">
         <div className="flex flex-col items-center gap-6 rounded-2xl border border-[#2a3040] bg-[#141821] p-6 sm:flex-row sm:p-8">
           <div className="relative h-[100px] w-[100px] shrink-0">
             <svg viewBox="0 0 100 100" className="-rotate-90" aria-hidden="true">
