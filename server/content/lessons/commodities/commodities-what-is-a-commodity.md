@@ -18,7 +18,7 @@ Commodities are typically grouped into a few broad categories: energy (crude oil
 
 ## Why Standardization Matters
 
-Because commodities are fungible, an exchange can define one standardized contract, specifying exact grade, quantity, and delivery terms, as already covered in this course's Futures Basics module, and have that single contract represent countless individual producers' output. That standardization is precisely what allows deep, liquid commodity futures markets to exist in the first place.
+Because commodities are fungible, an exchange can define one standardized contract, specifying exact grade, quantity, and delivery terms, as already covered in the Futures course, and have that single contract represent countless individual producers' output. That standardization is precisely what allows deep, liquid commodity futures markets to exist in the first place.
 
 ## In Practice
 

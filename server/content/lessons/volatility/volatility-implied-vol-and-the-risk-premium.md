@@ -6,7 +6,7 @@ summary: The well-documented tendency for implied volatility to run higher than 
 
 ## Revisiting Implied Volatility
 
-As covered earlier in this module, implied volatility is the market's forward-looking estimate of future volatility, backed out of current option prices, in contrast to realized volatility, which is only known after the fact, once the period has actually played out.
+As covered earlier in this course, implied volatility is the market's forward-looking estimate of future volatility, backed out of current option prices, in contrast to realized volatility, which is only known after the fact, once the period has actually played out.
 
 ## A Persistent Gap
 

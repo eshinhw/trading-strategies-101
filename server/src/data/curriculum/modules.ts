@@ -463,15 +463,23 @@ export const modules: Module[] = [
     courseSlug: "indexes",
     title: "Index Basics",
     description:
-      "What a stock index actually is, how its level is calculated (and kept consistent through splits and reconstitution), index futures and options, and how funds track an index in practice.",
+      "What a stock index is — a single number built from a defined basket of stocks, weighted by price, market cap, or equally — and why indexes exist: to measure markets, benchmark investors, and underpin index funds and derivatives.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "indexes-what-is-a-stock-index",
-      "indexes-how-index-values-are-calculated",
-      "indexes-index-futures-and-options",
-      "indexes-tracking-an-index",
+      "indexes-why-indexes-exist",
     ],
+  },
+  {
+    slug: "indexes-applications-and-pricing",
+    courseSlug: "indexes",
+    title: "Index Applications & Pricing",
+    description:
+      "How an index's value is calculated and kept consistent through splits and changes, how funds replicate an index and how closely they track it, and how index futures and options are used to hedge or speculate on the whole market.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["indexes-how-index-values-are-calculated", "indexes-tracking-an-index", "indexes-index-futures-and-options"],
   },
   {
     slug: "indexes-strategies",
@@ -479,7 +487,7 @@ export const modules: Module[] = [
     title: "Index Strategies",
     description:
       "Arbitrage between an index and its futures or ETF twins, betting on component correlation with dispersion trades, and dynamically sizing index exposure to hold volatility near a target.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "indexes-cash-and-carry-arbitrage",
@@ -494,15 +502,24 @@ export const modules: Module[] = [
     courseSlug: "volatility",
     title: "Volatility Basics",
     description:
-      "What volatility actually is (and the historical-vs-implied distinction), the VIX and why it's called the fear gauge, how to actually trade volatility, and the volatility risk premium that many strategies in this course harvest.",
+      "What volatility is — realized versus implied — what the VIX measures and why it's called the fear gauge, and why volatility matters as a measure of risk and as something to hedge with and trade.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "volatility-what-is-volatility",
       "volatility-the-vix",
-      "volatility-trading-vix-futures-and-etns",
-      "volatility-implied-vol-and-the-risk-premium",
+      "volatility-why-volatility-matters",
     ],
+  },
+  {
+    slug: "volatility-applications-and-pricing",
+    courseSlug: "volatility",
+    title: "Volatility Applications & Pricing",
+    description:
+      "How implied volatility compares with realized volatility and the risk premium that gap creates, and how traders actually get exposure to volatility through VIX futures and ETNs.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["volatility-implied-vol-and-the-risk-premium", "volatility-trading-vix-futures-and-etns"],
   },
   {
     slug: "volatility-strategies",
@@ -510,7 +527,7 @@ export const modules: Module[] = [
     title: "Volatility Strategies",
     description:
       "Trading volatility itself as an asset class — VIX futures mechanics and carry, harvesting the volatility risk premium (plain and gamma-hedged), skew, and variance swaps.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "volatility-vix-futures-basis-trading",
@@ -571,15 +588,23 @@ export const modules: Module[] = [
     courseSlug: "commodities",
     title: "Commodities Basics",
     description:
-      "What a commodity actually is (and why fungibility matters), how commodities are traded via futures rather than physical ownership, why their curves sit in contango or backwardation, and the supply/demand forces behind their prices.",
+      "What a commodity is — a raw, standardized good that's interchangeable unit for unit — and why commodity markets exist: price discovery, hedging, and the speculators and investors who take the other side.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "commodities-what-is-a-commodity",
-      "commodities-how-commodities-are-traded",
-      "commodities-contango-and-backwardation",
-      "commodities-supply-demand-and-prices",
+      "commodities-why-commodity-markets-exist",
     ],
+  },
+  {
+    slug: "commodities-applications-and-pricing",
+    courseSlug: "commodities",
+    title: "Commodities Applications & Pricing",
+    description:
+      "How commodities are traded through futures rather than physical ownership, the supply and demand forces that drive prices, and why futures curves slope the way they do — contango and backwardation.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["commodities-how-commodities-are-traded", "commodities-supply-demand-and-prices", "commodities-contango-and-backwardation"],
   },
   {
     slug: "commodities-strategies",
@@ -587,7 +612,7 @@ export const modules: Module[] = [
     title: "Commodities Strategies",
     description:
       "The futures-curve mechanics behind commodity returns (roll yield and hedging pressure), portfolio diversification, and factor strategies (value, skewness premium) plus fundamentals-based pricing models.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "commodities-roll-yields",

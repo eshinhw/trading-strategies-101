@@ -18,7 +18,7 @@ Tracking error measures how closely a fund's actual return matches its target in
 
 ## This Connects Directly Back to ETFs
 
-This is exactly the mechanism behind most index-tracking ETFs, already covered in this curriculum's ETF Basics module: an ETF issuer chooses full replication or sampling to build the fund's underlying basket, and the same creation and redemption process that keeps an ETF's price near its net asset value is what lets the fund's holdings stay aligned with the index it's meant to track.
+This is exactly the mechanism behind most index-tracking ETFs, already covered in this curriculum's ETF course: an ETF issuer chooses full replication or sampling to build the fund's underlying basket, and the same creation and redemption process that keeps an ETF's price near its net asset value is what lets the fund's holdings stay aligned with the index it's meant to track.
 
 ## In Practice
 
@@ -54,9 +54,9 @@ An index-fund manager spends the days around each quarterly reconstitution buyin
    - Both approaches always produce identical tracking error
    > Full replication of a liquid index tends to match the index most precisely, producing lower tracking error than a sampling approach on a harder-to-replicate index.
 
-5. How does this connect to what's covered in the ETF Basics module?
+5. How does this connect to what's covered in the ETF course?
    - [x] The same creation/redemption mechanism that keeps an ETF's price near NAV is what lets its holdings stay aligned with the index it tracks
    - ETFs and index tracking are completely unrelated topics
    - ETFs never track an index — only mutual funds do
    - Index funds and ETFs use entirely different, unrelated mechanisms
-   > Index-tracking ETFs use exactly the replication/sampling choice described here, built and maintained through the creation/redemption process covered in ETF Basics.
+   > Index-tracking ETFs use exactly the replication/sampling choice described here, built and maintained through the creation/redemption process covered in the ETF course.

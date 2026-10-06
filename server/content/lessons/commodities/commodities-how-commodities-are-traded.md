@@ -10,11 +10,11 @@ The spot market is where a commodity is bought or sold for immediate (or near-im
 
 ## Why Futures, Not Physical Ownership
 
-For an investor or trader without any actual use for physical barrels of oil or bushels of wheat, taking on the storage, insurance, and transport that come with owning the physical commodity is entirely impractical. Futures contracts, covered in depth in this course's Futures Basics module, let a trader gain price exposure to a commodity without ever touching the physical good itself.
+For an investor or trader without any actual use for physical barrels of oil or bushels of wheat, taking on the storage, insurance, and transport that come with owning the physical commodity is entirely impractical. Futures contracts, covered in depth in the Futures course, let a trader gain price exposure to a commodity without ever touching the physical good itself.
 
 ## Closing Out Before Delivery
 
-As covered in Futures Basics, the overwhelming majority of commodity futures positions are closed out with an offsetting trade well before the contract's delivery window, specifically so a speculative trader never actually has to deal with taking or making physical delivery — only commercial participants who actually want the physical commodity typically carry a contract through to delivery.
+As covered in the Futures course, the overwhelming majority of commodity futures positions are closed out with an offsetting trade well before the contract's delivery window, specifically so a speculative trader never actually has to deal with taking or making physical delivery — only commercial participants who actually want the physical commodity typically carry a contract through to delivery.
 
 ## Other Ways to Get Commodity Exposure
 
@@ -45,7 +45,7 @@ A jewelry manufacturer that needs gold every month to keep production running do
    - Every position is automatically converted into a physical delivery
    - Positions are frozen and cannot be traded at all
    - All positions are cancelled by the exchange
-   > As covered in Futures Basics, speculative positions are overwhelmingly closed out before delivery, leaving physical delivery mainly to commercial participants who actually want the commodity.
+   > As covered in the Futures course, speculative positions are overwhelmingly closed out before delivery, leaving physical delivery mainly to commercial participants who actually want the commodity.
 
 4. How do most commodity-linked ETFs typically gain their exposure?
    - [x] By holding futures contracts, rather than the physical commodity itself, aside from a few exceptions
