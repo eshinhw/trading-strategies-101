@@ -67,6 +67,14 @@ export function bankCourses(): BankCourse[] {
     .filter((c) => c.questionCount > 0);
 }
 
+/** Specific questions by id (as saved from an earlier session), in random order. Unknown ids are ignored. */
+export function bankQuestionsByIds(ids: string[], count: number): BankQuestion[] {
+  const wanted = new Set(ids);
+  if (wanted.size === 0) return [];
+  const found = courses.flatMap((c) => poolForCourse(c.slug)).filter((q) => wanted.has(q.id));
+  return shuffle(found).slice(0, count);
+}
+
 /**
  * A random set of questions from the given courses (all courses if none are named). Courses are sampled evenly, so
  * a big course (Options) doesn't drown out a small one, and questions are spread across lessons: at most two per

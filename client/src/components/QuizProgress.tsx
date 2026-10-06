@@ -1,4 +1,8 @@
-export function QuizProgress({ current, total }: { current: number; total: number }) {
+import { AnswerProgressBar, type AnswerStatus } from "./AnswerProgressBar";
+
+export function QuizProgress({ current, total, statuses }: { current: number; total: number; statuses: AnswerStatus[] }) {
+  const correct = statuses.filter((s) => s === "correct").length;
+  const wrong = statuses.filter((s) => s === "wrong").length;
   return (
     <div className="mb-5">
       <div className="mb-2 flex items-center justify-between">
@@ -7,16 +11,10 @@ export function QuizProgress({ current, total }: { current: number; total: numbe
           Question {current + 1} of {total}
         </span>
       </div>
-      <div className="flex gap-1.5">
-        {Array.from({ length: total }).map((_, i) => (
-          <div
-            key={i}
-            className={`h-1.5 flex-1 rounded-full transition-colors ${
-              i < current ? "bg-[#7c6cff]" : i === current ? "bg-[#7c6cff]/50" : "bg-[#1b2029]"
-            }`}
-          />
-        ))}
-      </div>
+      <AnswerProgressBar
+        statuses={statuses}
+        label={`Question ${current + 1} of ${total}: ${correct} correct, ${wrong} wrong so far`}
+      />
     </div>
   );
 }

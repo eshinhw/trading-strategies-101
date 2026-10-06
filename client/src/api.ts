@@ -141,3 +141,8 @@ export function fetchBankQuestions(courses: string[], count: number): Promise<Ba
   if (courses.length > 0) params.set("courses", courses.join(","));
   return request<{ questions: BankQuestion[] }>(`/api/practice/quiz-bank/questions?${params}`).then((d) => d.questions);
 }
+
+export function fetchBankQuestionsByIds(ids: string[], count: number): Promise<BankQuestion[]> {
+  const params = new URLSearchParams({ ids: ids.join(","), count: String(count) });
+  return request<{ questions: BankQuestion[] }>(`/api/practice/quiz-bank/questions?${params}`).then((d) => d.questions);
+}

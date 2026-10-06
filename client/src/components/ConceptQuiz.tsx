@@ -83,7 +83,13 @@ export function ConceptQuiz({
 
   return (
     <QuizCard progress={progress}>
-      <QuizProgress current={currentIndex} total={questions.length} />
+      <QuizProgress
+        current={currentIndex}
+        total={questions.length}
+        statuses={questions.map((x, i) =>
+          checked[x.id] ? (answers[x.id] === x.correctIndex ? "correct" : "wrong") : i === currentIndex ? "current" : "pending",
+        )}
+      />
 
       <p className="mb-4 text-base font-medium leading-relaxed text-[#e6e8ec]">
         <InlineText text={q.prompt} />

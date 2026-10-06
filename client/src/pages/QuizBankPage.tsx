@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { fetchBankCourses, fetchBankQuestions } from "../api";
+import { fetchBankCourses, fetchBankQuestions, fetchBankQuestionsByIds } from "../api";
 import type { BankCourse, BankQuestion } from "../types/practice";
 import { QuizChoiceOption } from "../components/QuizChoiceOption";
 import { QuizFeedback } from "../components/QuizFeedback";
+import { AnswerProgressBar } from "../components/AnswerProgressBar";
 import { InlineText } from "../components/InlineText";
 import { ACCENT, COURSE_FAMILIES, courseAccent } from "../lib/courseVisuals";
 
@@ -16,24 +17,34 @@ type Phase = "setup" | "session" | "summary";
 const LENGTHS = [10, 20, 30] as const;
 const STATS_KEY = "quizbank:stats";
 
+interface CourseTally {
+  answered: number;
+  correct: number;
+}
 interface BankStats {
   answered: number;
   correct: number;
   bestStreak: number;
   sessions: number;
+  byCourse: Record<string, CourseTally>;
 }
-const EMPTY_STATS: BankStats = { answered: 0, correct: 0, bestStreak: 0, sessions: 0 };
+const EMPTY_STATS: BankStats = { answered: 0, correct: 0, bestStreak: 0, sessions: 0, byCourse: {} };
 
 function loadStats(): BankStats {
   try {
     const raw = localStorage.getItem(STATS_KEY);
     if (!raw) return EMPTY_STATS;
     const parsed = JSON.parse(raw) as Partial<BankStats>;
+    const byCourse: Record<string, CourseTally> = {};
+    for (const [slug, t] of Object.entries(parsed.byCourse ?? {})) {
+      byCourse[slug] = { answered: Number(t?.answered) || 0, correct: Number(t?.correct) || 0 };
+    }
     return {
       answered: Number(parsed.answered) || 0,
       correct: Number(parsed.correct) || 0,
       bestStreak: Number(parsed.bestStreak) || 0,
       sessions: Number(parsed.sessions) || 0,
+      byCourse,
     };
   } catch {
     return EMPTY_STATS;
@@ -44,6 +55,25 @@ function saveStats(stats: BankStats) {
     localStorage.setItem(STATS_KEY, JSON.stringify(stats));
   } catch {
     // storage unavailable — the tally just won't persist
+  }
+}
+
+// Questions answered wrongly and not yet answered correctly since, so they can be practised on their own.
+const MISSED_KEY = "quizbank:missed";
+const MISSED_CAP = 300;
+function loadMissed(): string[] {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(MISSED_KEY) ?? "[]") as unknown;
+    return Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
+function saveMissed(ids: string[]) {
+  try {
+    localStorage.setItem(MISSED_KEY, JSON.stringify(ids));
+  } catch {
+    // storage unavailable — the list just won't persist
   }
 }
 
@@ -111,6 +141,7 @@ export function QuizBankPage() {
   const [streak, setStreak] = useState(0);
   const [sessionBest, setSessionBest] = useState(0);
   const [stats, setStats] = useState<BankStats>(loadStats);
+  const [missedIds, setMissedIds] = useState<string[]>(loadMissed);
 
   useEffect(() => {
     fetchBankCourses()
@@ -169,6 +200,39 @@ export function QuizBankPage() {
     }
   }
 
+  async function startMissed() {
+    setStarting(true);
+    setStartError(null);
+    try {
+      const qs = await fetchBankQuestionsByIds(missedIds, count);
+      if (qs.length === 0) {
+        // none of them exist any more (the lesson was reworked), so there is nothing left to practise
+        setMissedIds([]);
+        saveMissed([]);
+        setStartError("Those questions are no longer available.");
+      } else {
+        // the list is the whole set, so there is no "asked for more than were available" to report
+        beginSession(qs, qs.length);
+      }
+    } catch (e) {
+      setStartError(e instanceof Error ? e.message : "Couldn't load questions.");
+    } finally {
+      setStarting(false);
+    }
+  }
+
+  function toggleFamily(slugs: string[]) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      const allOn = slugs.every((s) => next.has(s));
+      for (const s of slugs) {
+        if (allOn) next.delete(s);
+        else next.add(s);
+      }
+      return next;
+    });
+  }
+
   const q = questions[index];
   const answered = q ? answers[q.id] !== undefined : false;
 
@@ -180,13 +244,24 @@ export function QuizBankPage() {
     setStreak(nextStreak);
     setSessionBest((b) => Math.max(b, nextStreak));
     setStats((prev) => {
+      const tally = prev.byCourse[q.courseSlug] ?? { answered: 0, correct: 0 };
       const next = {
         ...prev,
         answered: prev.answered + 1,
         correct: prev.correct + (correct ? 1 : 0),
         bestStreak: Math.max(prev.bestStreak, nextStreak),
+        byCourse: {
+          ...prev.byCourse,
+          [q.courseSlug]: { answered: tally.answered + 1, correct: tally.correct + (correct ? 1 : 0) },
+        },
       };
       saveStats(next);
+      return next;
+    });
+    setMissedIds((prev) => {
+      const without = prev.filter((id) => id !== q.id);
+      const next = correct ? without : [q.id, ...without].slice(0, MISSED_CAP);
+      saveMissed(next);
       return next;
     });
   }
@@ -259,6 +334,25 @@ export function QuizBankPage() {
 
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[1fr_300px]">
           <section>
+            {missedIds.length > 0 && (
+              <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4">
+                <div>
+                  <div className="font-semibold text-amber-100">
+                    {missedIds.length} question{missedIds.length === 1 ? "" : "s"} to revisit
+                  </div>
+                  <p className="mt-0.5 text-sm text-[#9aa3b2]">
+                    Questions you got wrong and haven't answered correctly since. Get one right and it drops off the list.
+                  </p>
+                </div>
+                <button
+                  onClick={startMissed}
+                  disabled={starting}
+                  className="shrink-0 rounded-lg bg-amber-400 px-4 py-2 text-sm font-semibold text-[#2b1a02] transition hover:brightness-110 disabled:opacity-60"
+                >
+                  {starting ? "Loading…" : "Practice them"}
+                </button>
+              </div>
+            )}
             <div className="flex items-center justify-between gap-3">
               <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Pick your courses</h2>
               <button
@@ -286,9 +380,17 @@ export function QuizBankPage() {
                   if (members.length === 0) return null;
                   return (
                     <div key={family.name}>
-                      <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em]" style={{ color: family.accent }}>
-                        <span className="h-2 w-2 rounded-full" style={{ background: family.accent }} />
-                        {family.name}
+                      <div className="mb-2 flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em]" style={{ color: family.accent }}>
+                          <span className="h-2 w-2 rounded-full" style={{ background: family.accent }} />
+                          {family.name}
+                        </div>
+                        <button
+                          onClick={() => toggleFamily(members.map((m) => m.slug))}
+                          className="text-xs text-[#898781] transition hover:text-[#e6e8ec]"
+                        >
+                          {members.every((m) => selected.has(m.slug)) ? "Clear" : "Select all"}
+                        </button>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {members.map((c) => {
@@ -308,6 +410,21 @@ export function QuizBankPage() {
                             >
                               {c.title}
                               <span className="text-xs text-[#898781]">{c.questionCount}</span>
+                              {(() => {
+                                const t = stats.byCourse[c.slug];
+                                if (!t || t.answered < 3) return null;
+                                const pct = Math.round((t.correct / t.answered) * 100);
+                                return (
+                                  <span
+                                    className={`rounded-full px-1.5 py-px text-[10px] font-semibold ${
+                                      pct >= 70 ? "bg-emerald-500/15 text-emerald-400" : "bg-amber-500/15 text-amber-400"
+                                    }`}
+                                    title={`${t.correct} of ${t.answered} answered correctly`}
+                                  >
+                                    {pct}%
+                                  </span>
+                                );
+                              })()}
                             </button>
                           );
                         })}
@@ -405,27 +522,14 @@ export function QuizBankPage() {
               </span>
             </div>
           </div>
-          {/* One segment per question: green once answered correctly, red once answered wrongly, the current
-              question lit in the course colour, the rest dim. */}
-          <div
-            role="img"
-            aria-label={`Question ${index + 1} of ${questions.length}: ${correctCount} correct, ${answeredCount - correctCount} wrong so far`}
-            className="mt-2 flex gap-1"
-          >
-            {questions.map((x, i) => {
-              const result = answers[x.id];
-              const isCurrent = i === index && result === undefined;
-              const background =
-                result === undefined ? (isCurrent ? `${color}99` : "#1b2029") : result === x.correctIndex ? "#34d399" : "#f87171";
-              return (
-                <span
-                  key={x.id}
-                  aria-hidden="true"
-                  className="h-1.5 flex-1 rounded-full transition-colors duration-300"
-                  style={{ background, boxShadow: isCurrent ? `0 0 0 1px ${color}` : undefined }}
-                />
-              );
-            })}
+          <div className="mt-2">
+            <AnswerProgressBar
+              accent={color}
+              label={`Question ${index + 1} of ${questions.length}: ${correctCount} correct, ${answeredCount - correctCount} wrong so far`}
+              statuses={questions.map((x, i) =>
+                answers[x.id] === undefined ? (i === index ? "current" : "pending") : answers[x.id] === x.correctIndex ? "correct" : "wrong",
+              )}
+            />
           </div>
 
           <section className="relative mt-5 overflow-hidden rounded-2xl border border-[#2a3040] bg-gradient-to-b from-[#181c28] to-[#12151d] p-5 sm:p-6">
