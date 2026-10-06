@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { greeksOf, type GreekInputs, type GreekName, type OptionKind } from "../engine/greeks";
 import { ParamControls } from "../components/ParamControls";
@@ -102,11 +102,12 @@ const SCENARIOS: { label: string; apply: (v: Values) => Values }[] = [
   { label: "High volatility", apply: (v) => ({ ...v, vol: 70 }) },
 ];
 
-type Compare = "none" | "half-time" | "vol-up";
+type Compare = "none" | "half-time" | "vol-up" | "opposite";
 const COMPARES: { id: Compare; label: string }[] = [
   { id: "none", label: "Nothing" },
   { id: "half-time", label: "Half the time left" },
   { id: "vol-up", label: "Volatility +15 points" },
+  { id: "opposite", label: "The other option type" },
 ];
 
 function formatValue(info: GreekInfo, v: number): string {
@@ -160,6 +161,7 @@ export function GreeksExplorerPage() {
   const [selected, setSelected] = useState<GreekName>(initialGreek);
   const [compare, setCompare] = useState<Compare>("none");
   const [hoverSpot, setHoverSpot] = useState<number | null>(null);
+  const [playing, setPlaying] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
 
   const info = GREEKS.find((g) => g.id === selected) ?? GREEKS[1];
@@ -188,6 +190,7 @@ export function GreeksExplorerPage() {
     let second: number[] | null = null;
     if (compare === "half-time") second = curveFor({ days: Math.max(1, values.days / 2) });
     if (compare === "vol-up") second = curveFor({ vol: (values.vol + 15) / 100 });
+    if (compare === "opposite") second = curveFor({ type: type === "call" ? "put" : "call" });
     // the price chart also shows the payoff if the option were held to expiration
     const payoff =
       selected === "price"
@@ -226,8 +229,47 @@ export function GreeksExplorerPage() {
   const hoverValue = hoverIndex === null ? null : chart.main[hoverIndex];
   const spotInRange = values.spot >= chart.lo && values.spot <= chart.hi;
   const currentValue = now[selected];
+  const daysShown = Math.round(values.days * 10) / 10;
 
-  const setParam = (key: string, value: number) => setValues((v) => ({ ...v, [key]: value }));
+  // Time-decay replay: days to expiration count down from 90 to 1, so you can watch theta and gamma take over.
+  useEffect(() => {
+    if (!playing) return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const id = window.setInterval(() => {
+      setValues((v) => {
+        const nextDays = v.days - (reduce ? 12 : 1.1);
+        if (nextDays <= 1) {
+          setPlaying(false);
+          return { ...v, days: 1 };
+        }
+        return { ...v, days: nextDays };
+      });
+    }, 60);
+    return () => window.clearInterval(id);
+  }, [playing]);
+
+  function playDecay() {
+    if (playing) {
+      setPlaying(false);
+      return;
+    }
+    setValues((v) => ({ ...v, days: 90 }));
+    setPlaying(true);
+  }
+
+  // The tiles and the plain-language reading follow the pointer while it is over the chart, so you can read every
+  // Greek at any stock price; otherwise they show the stock price set on the left.
+  const shown = useMemo(
+    () => (hoverSpot === null ? now : greeksOf(inputs(values, { spot: hoverSpot }))),
+    [hoverSpot, now, values, type], // eslint-disable-line react-hooks/exhaustive-deps
+  );
+  const compareLabel = (id: Compare) =>
+    id === "opposite" ? `As a ${type === "call" ? "put" : "call"}` : (COMPARES.find((c) => c.id === id)?.label ?? "");
+
+  const setParam = (key: string, value: number) => {
+    if (key === "days") setPlaying(false);
+    setValues((v) => ({ ...v, [key]: value }));
+  };
 
   return (
     <div style={{ "--accent": accent } as CSSProperties}>
@@ -245,7 +287,7 @@ export function GreeksExplorerPage() {
             WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-6">
+        <div className="relative mx-auto max-w-7xl px-6 pb-7 pt-6">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[#898781]">
             <Link to="/practice" className="hover:text-[#e6e8ec]">
               Practice
@@ -253,59 +295,88 @@ export function GreeksExplorerPage() {
             <span aria-hidden="true">/</span>
             <span className="text-[#9aa3b2]">Greeks Explorer</span>
           </nav>
-          <div className="mt-5 text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: accent }}>
+          <div className="mt-4 text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: accent }}>
             Options
           </div>
           <h1 className="mt-1 text-4xl font-bold text-[#e6e8ec]">Greeks Explorer</h1>
-          <p className="mt-3 max-w-2xl leading-relaxed text-[#9aa3b2]">
+          <p className="mt-2 max-w-2xl leading-relaxed text-[#9aa3b2]">
             See how an option's price and each Greek react to the stock price, volatility, time and interest rates.
-            Change a number and watch every curve move.
+            Change a number on the left, or hover the chart, and watch everything move.
           </p>
         </div>
       </header>
 
-      <div className="mx-auto max-w-7xl px-6 py-8">
-        <div className="flex flex-col gap-6">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[320px_minmax(0,1fr)]">
+        {/* Inputs stay in view beside the chart, so changing a number never scrolls the result away. */}
+        <aside className="flex flex-col gap-4 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:self-start lg:overflow-y-auto [scrollbar-color:#2a3040_transparent] [scrollbar-width:thin]">
           <ParamControls
             params={PARAMS}
             values={values}
             onChange={setParam}
-            onReset={() => setValues(defaults())}
-            gridClassName="grid grid-cols-2 gap-4 lg:grid-cols-5"
+            onReset={() => {
+              setPlaying(false);
+              setValues(defaults());
+            }}
+            gridClassName="grid grid-cols-2 gap-x-3 gap-y-4"
             compact
           />
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <div role="radiogroup" aria-label="Option type" className="flex rounded-lg border border-[#2a3040] bg-[#141821] p-0.5">
-              {(["call", "put"] as const).map((t) => (
-                <button
-                  key={t}
-                  role="radio"
-                  aria-checked={type === t}
-                  onClick={() => setType(t)}
-                  className={`rounded-md px-4 py-1.5 text-sm font-semibold capitalize transition ${
-                    type === t ? "bg-[#7c6cff]/25 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
-                  }`}
-                >
-                  {t}
-                </button>
-              ))}
+          <div className="rounded-xl border border-[#2a3040] bg-[#141821] p-4">
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs text-[#898781]">Option</span>
+              <div role="radiogroup" aria-label="Option type" className="flex rounded-lg border border-[#2a3040] bg-[#0e1117] p-0.5">
+                {(["call", "put"] as const).map((t) => (
+                  <button
+                    key={t}
+                    role="radio"
+                    aria-checked={type === t}
+                    onClick={() => setType(t)}
+                    className={`rounded-md px-4 py-1.5 text-sm font-semibold capitalize transition ${
+                      type === t ? "bg-[#7c6cff]/25 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
+                    }`}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="mr-1 text-xs text-[#898781]">Try a scenario</span>
-              {SCENARIOS.map((s) => (
+
+            <div className="mt-4 text-xs text-[#898781]">Try a scenario</div>
+            <div className="mt-2 flex flex-wrap gap-1.5">
+              {SCENARIOS.map((sc) => (
                 <button
-                  key={s.label}
-                  onClick={() => setValues(s.apply)}
+                  key={sc.label}
+                  onClick={() => {
+                    setPlaying(false);
+                    setValues(sc.apply);
+                  }}
                   className="rounded-full border border-[#2a3040] px-3 py-1 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/10 hover:text-[#e6e8ec]"
                 >
-                  {s.label}
+                  {sc.label}
                 </button>
               ))}
             </div>
-          </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            <button
+              onClick={playDecay}
+              aria-pressed={playing}
+              className={`mt-4 flex w-full items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold transition ${
+                playing
+                  ? "border-amber-400/50 bg-amber-400/15 text-amber-200"
+                  : "border-[#7c6cff]/40 bg-[#7c6cff]/15 text-[#c4bbff] hover:bg-[#7c6cff]/25"
+              }`}
+            >
+              <span aria-hidden="true">{playing ? "■" : "▶"}</span>
+              {playing ? `Stop (${daysShown.toFixed(0)} days left)` : "Watch time decay"}
+            </button>
+            <p className="mt-2 text-xs leading-relaxed text-[#898781]">
+              Counts the days down from 90 to 1 so you can see time value drain away and gamma build.
+            </p>
+          </div>
+        </aside>
+
+        <main className="flex min-w-0 flex-col gap-6">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-6">
             {GREEKS.map((g) => {
               const active = g.id === selected;
               return (
@@ -318,12 +389,25 @@ export function GreeksExplorerPage() {
                   }`}
                 >
                   <div className="text-xs uppercase tracking-wide text-[#898781]">{g.label}</div>
-                  <div className="mt-1 text-xl font-bold text-[#e6e8ec]">{formatValue(g, now[g.id])}</div>
+                  <div className="mt-1 text-xl font-bold text-[#e6e8ec]">{formatValue(g, shown[g.id])}</div>
                   <div className="mt-0.5 text-[11px] text-[#898781]">{g.unit}</div>
                 </button>
               );
             })}
           </div>
+          <p className="-mt-3 text-xs text-[#898781]" aria-live="polite">
+            {hoverSpot !== null ? (
+              <>
+                Showing every value at a stock price of{" "}
+                <span className="font-semibold text-[#e6e8ec]">${hoverSpot.toFixed(2)}</span> (from the chart).
+              </>
+            ) : (
+              <>
+                Showing every value at the stock price you set (${values.spot}). Hover the chart to read them at any
+                other price.
+              </>
+            )}
+          </p>
 
           <section className="rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
@@ -339,7 +423,7 @@ export function GreeksExplorerPage() {
                 >
                   {COMPARES.map((c) => (
                     <option key={c.id} value={c.id}>
-                      {c.label}
+                      {compareLabel(c.id)}
                     </option>
                   ))}
                 </select>
@@ -349,12 +433,38 @@ export function GreeksExplorerPage() {
             <svg
               ref={svgRef}
               viewBox={`0 0 ${W} ${H}`}
-              className="w-full touch-none select-none"
+              className="w-full touch-pan-y select-none"
               role="img"
               aria-label={`${info.label} of a ${type} against the stock price`}
               onPointerMove={onMove}
               onPointerLeave={() => setHoverSpot(null)}
             >
+              {/* in the money / out of the money */}
+              {(() => {
+                const strikeX = chart.x(values.strike);
+                const itmRight = type === "call";
+                const left = M.left;
+                const right = W - M.right;
+                return (
+                  <>
+                    <rect
+                      x={itmRight ? strikeX : left}
+                      y={M.top}
+                      width={itmRight ? right - strikeX : strikeX - left}
+                      height={H - M.top - M.bottom}
+                      fill="#34d399"
+                      fillOpacity="0.05"
+                    />
+                    <text x={itmRight ? right - 6 : left + 6} y={H - M.bottom - 8} textAnchor={itmRight ? "end" : "start"} fontSize="10" fill="#34d399" fillOpacity="0.8">
+                      in the money
+                    </text>
+                    <text x={itmRight ? left + 6 : right - 6} y={H - M.bottom - 8} textAnchor={itmRight ? "start" : "end"} fontSize="10" fill="#898781">
+                      out of the money
+                    </text>
+                  </>
+                );
+              })()}
+
               {/* grid + y axis */}
               {chart.ticks.map((t) => (
                 <g key={t}>
@@ -366,10 +476,10 @@ export function GreeksExplorerPage() {
               ))}
               {/* x axis */}
               {[0, 0.25, 0.5, 0.75, 1].map((f) => {
-                const s = chart.lo + f * (chart.hi - chart.lo);
+                const sp = chart.lo + f * (chart.hi - chart.lo);
                 return (
-                  <text key={f} x={chart.x(s)} y={H - 22} textAnchor="middle" fontSize="10.5" fill="#898781">
-                    ${s.toFixed(0)}
+                  <text key={f} x={chart.x(sp)} y={H - 22} textAnchor="middle" fontSize="10.5" fill="#898781">
+                    ${sp.toFixed(0)}
                   </text>
                 );
               })}
@@ -419,11 +529,11 @@ export function GreeksExplorerPage() {
 
             <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-[#898781]">
               <span className="flex items-center gap-1.5">
-                <span className="h-0.5 w-5 rounded bg-[#7c6cff]" /> {info.label}, as set above
+                <span className="h-0.5 w-5 rounded bg-[#7c6cff]" /> {info.label}, as set on the left
               </span>
               {chart.second && (
                 <span className="flex items-center gap-1.5">
-                  <span className="h-0.5 w-5 rounded bg-[#fbbf24]" /> {COMPARES.find((c) => c.id === compare)?.label}
+                  <span className="h-0.5 w-5 rounded bg-[#fbbf24]" /> {compareLabel(compare)}
                 </span>
               )}
               {chart.payoff && (
@@ -437,12 +547,12 @@ export function GreeksExplorerPage() {
             </div>
           </section>
 
-          <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <section className="grid grid-cols-1 gap-4 xl:grid-cols-2">
             <div className="rounded-2xl border p-5" style={{ borderColor: `${accent}55`, background: `${accent}12` }}>
               <div className="text-xs font-semibold uppercase tracking-[0.1em]" style={{ color: "#a99dff" }}>
-                Right now
+                {hoverSpot !== null ? `At $${hoverSpot.toFixed(0)}` : "Right now"}
               </div>
-              <p className="mt-2 leading-relaxed text-[#e6e8ec]">{sentenceFor(selected, now, type)}</p>
+              <p className="mt-2 leading-relaxed text-[#e6e8ec]">{sentenceFor(selected, shown, type)}</p>
               <p className="mt-2 text-xs text-[#898781]">Figures are per share. One option contract covers 100 shares.</p>
             </div>
             <div className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5">
@@ -455,7 +565,7 @@ export function GreeksExplorerPage() {
               )}
             </div>
           </section>
-        </div>
+        </main>
       </div>
     </div>
   );
