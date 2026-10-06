@@ -7,5 +7,6 @@ export interface Course {
   strategyCount: number;
   lessonCount?: number;
   moduleCount?: number;
+  moduleTitles?: string[];
   strategyTitles?: string[];
 }

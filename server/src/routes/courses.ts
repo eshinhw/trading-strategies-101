@@ -20,6 +20,10 @@ router.get("/", (_req, res) => {
       ...c,
       lessonCount: allLessonSlugs(c.slug).length,
       moduleCount: modulesForCourse(c.slug).length,
+      moduleTitles: modulesForCourse(c.slug)
+        .slice()
+        .sort((a, b) => a.order - b.order)
+        .map((m) => m.title),
     })),
   });
 });

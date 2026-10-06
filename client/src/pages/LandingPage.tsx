@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchCourses } from "../api";
 import type { Course } from "../types/course";
-import { CourseShowcaseCard } from "../components/CourseShowcaseCard";
+import { RolePicker } from "../components/RolePicker";
+import { AssetMap } from "../components/AssetMap";
 import { RiskRewardHero } from "../components/RiskRewardHero";
 
 export function LandingPage() {
@@ -27,7 +28,8 @@ export function LandingPage() {
     <div>
       <Hero />
       <Features />
-      <CoursesPreview courses={courses} />
+      <AssetMap courses={courses} />
+      <RolePicker courses={courses} />
       <FinalCta />
     </div>
   );
@@ -242,24 +244,6 @@ function Features() {
             <div className="mt-auto border-t border-[#2a3040] pt-5">{it.visual}</div>
           </div>
         ))}
-      </div>
-    </section>
-  );
-}
-
-function CoursesPreview({ courses }: { courses: Course[] | null }) {
-  return (
-    <section id="courses" className="border-t border-[#2a3040] bg-[#0e1117] py-16">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="text-2xl font-bold text-[#e6e8ec]">Courses across 18 asset classes</h2>
-
-        {courses && (
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {courses.map((c) => (
-              <CourseShowcaseCard key={c.slug} course={c} />
-            ))}
-          </div>
-        )}
       </div>
     </section>
   );
