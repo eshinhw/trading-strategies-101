@@ -1,7 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
-import { LogoMark } from "../components/Nav";
 
 // Strength is only a hint (the server's rule is just 8+ characters): length plus character variety.
 function passwordStrength(pw: string): { score: number; label: string; color: string } {
@@ -23,7 +22,7 @@ const BENEFITS = [
 
 function BrandPanel({ mode }: { mode: "login" | "signup" }) {
   return (
-    <aside className="relative hidden overflow-hidden border-r border-[#2a3040] bg-gradient-to-br from-[#1c1949] via-[#16183a] to-[#0e1117] lg:flex lg:flex-col lg:justify-between lg:p-12">
+    <aside className="relative hidden overflow-hidden border-r border-[#2a3040] bg-gradient-to-br from-[#1c1949] via-[#16183a] to-[#0e1117] lg:flex lg:flex-col lg:p-12">
       <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#7c6cff] opacity-25 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 right-[-60px] h-80 w-80 rounded-full bg-[#4338ca] opacity-25 blur-3xl" />
       <svg
@@ -46,14 +45,7 @@ function BrandPanel({ mode }: { mode: "login" | "signup" }) {
         />
       </svg>
 
-      <Link to="/" className="relative inline-flex items-center gap-2.5 font-semibold text-white">
-        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#8f82ff] to-[#5a46e8] shadow-md shadow-[#7c6cff]/40">
-          <LogoMark size={20} />
-        </span>
-        Trading Strategies 101
-      </Link>
-
-      <div className="relative">
+      <div className="relative my-auto">
         <h2 className="max-w-md text-4xl font-bold leading-tight text-white">
           {mode === "signup" ? "Learn markets by doing, not memorizing." : "Good to see you again."}
         </h2>
@@ -151,12 +143,6 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
       <main className="relative flex items-center justify-center px-6 py-12">
         <div className="pointer-events-none absolute left-1/2 top-[-120px] h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-[#7c6cff] opacity-10 blur-3xl lg:hidden" />
         <div className="relative w-full max-w-sm">
-          <Link to="/" aria-label="Trading Strategies 101 home" className="mb-6 flex justify-center text-[#a99dff] lg:hidden">
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#8f82ff] to-[#5a46e8] text-white shadow-md shadow-[#7c6cff]/40">
-              <LogoMark size={24} />
-            </span>
-          </Link>
-
           <h1 className="text-3xl font-bold text-[#e6e8ec]">{isSignup ? "Create your account" : "Welcome back"}</h1>
           <p className="mt-2 text-sm text-[#9aa3b2]">
             {isSignup ? "Free, and it takes less than a minute." : "Sign in to pick up where you left off."}
