@@ -7,18 +7,21 @@ import { QuizChoiceOption } from "./QuizChoiceOption";
 import { QuizFeedback } from "./QuizFeedback";
 import { QuizNavButtons } from "./QuizNavButtons";
 import { InlineText } from "./InlineText";
-import type { GradeResponse } from "../types/curriculum";
+import type { GradeResponse, LessonProgress } from "../types/curriculum";
 
 export function ConceptQuiz({
   lessonSlug,
   questions,
   onGraded,
   nextLesson,
+  progress,
 }: {
   lessonSlug: string;
   questions: ConceptQuizPrompt[];
   onGraded?: (result: GradeResponse) => void;
   nextLesson?: QuizNext;
+  /** the learner's history on this lesson, if signed in */
+  progress?: LessonProgress | null;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -71,7 +74,7 @@ export function ConceptQuiz({
 
   if (result) {
     return (
-      <QuizCard>
+      <QuizCard progress={progress}>
         <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Knowledge check</h3>
         <QuizResultPanel result={result} onRetry={retry} next={nextLesson} />
       </QuizCard>
@@ -79,7 +82,7 @@ export function ConceptQuiz({
   }
 
   return (
-    <QuizCard>
+    <QuizCard progress={progress}>
       <QuizProgress current={currentIndex} total={questions.length} />
 
       <p className="mb-4 text-base font-medium leading-relaxed text-[#e6e8ec]">
@@ -135,14 +138,29 @@ export function ConceptQuiz({
   );
 }
 
-function QuizCard({ children }: { children: ReactNode }) {
+function QuizCard({ children, progress }: { children: ReactNode; progress?: LessonProgress | null }) {
   return (
     <section
       id="knowledge-check"
-      className="relative scroll-mt-24 overflow-hidden rounded-2xl border border-[#7c6cff]/25 bg-gradient-to-b from-[#181c28] to-[#12151d] p-5 sm:p-6"
+      className="relative scroll-mt-32 overflow-hidden rounded-2xl border border-[#7c6cff]/25 bg-gradient-to-b from-[#181c28] to-[#12151d] p-5 sm:p-6"
     >
       <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#7c6cff] opacity-15 blur-3xl" />
-      <div className="relative">{children}</div>
+      <div className="relative">
+        {progress && progress.attempts > 0 && (
+          <div className="mb-4 flex flex-wrap items-center gap-2 text-xs text-[#898781]">
+            {progress.completed && (
+              <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 font-medium text-emerald-400">
+                ✓ Passed
+              </span>
+            )}
+            {progress.bestScore !== null && <span>Best score {Math.round(progress.bestScore * 100)}%</span>}
+            <span>
+              · {progress.attempts} attempt{progress.attempts === 1 ? "" : "s"}
+            </span>
+          </div>
+        )}
+        {children}
+      </div>
     </section>
   );
 }

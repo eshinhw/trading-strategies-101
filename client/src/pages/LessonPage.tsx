@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { fetchCourse, fetchLesson, fetchModules } from "../api";
 import type { Course } from "../types/course";
 import type { LessonDetail, ModulesResponse } from "../types/curriculum";
@@ -35,6 +35,8 @@ export function LessonPage() {
   const [error, setError] = useState<string | null>(null);
   const [course, setCourse] = useState<Course | null>(null);
   const [modules, setModules] = useState<ModulesResponse | null>(null);
+  const [textSize, setTextSize] = useTextSize();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!slug) return;
@@ -82,6 +84,22 @@ export function LessonPage() {
     };
   }, [course, modules, slug, courseSlug, loadModules]);
 
+  // Left / right arrow keys move to the previous / next lesson, unless focus is in a form control (a quiz's
+  // radio group uses the arrows itself).
+  const prevSlug = lesson?.prevLessonSlug ?? null;
+  const nextSlug = lesson?.nextLessonSlug ?? null;
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+      const target = e.target as HTMLElement | null;
+      if (target && (["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) || target.isContentEditable)) return;
+      if (e.key === "ArrowLeft" && prevSlug) navigate(`/lesson/${prevSlug}`);
+      else if (e.key === "ArrowRight" && nextSlug) navigate(`/lesson/${nextSlug}`);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [prevSlug, nextSlug, navigate]);
+
   if (error) {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
@@ -98,9 +116,14 @@ export function LessonPage() {
   }
 
   return (
-    <div style={{ "--accent": ctx.accent } as CSSProperties}>
+    <div style={{ "--accent": ctx.accent, "--prose-size": `${TEXT_SIZES[textSize].px}px` } as CSSProperties}>
       <ReadingProgress accent={ctx.accent} />
-      <LessonHeader lesson={lesson} ctx={ctx} />
+      <StickyLessonBar
+        title={lesson.kind === "strategy" ? lesson.strategy.name : lesson.title}
+        position={ctx.position ? `Lesson ${ctx.position.index} of ${ctx.position.total}` : null}
+        hasQuiz={lesson.quiz.length > 0}
+      />
+      <LessonHeader lesson={lesson} ctx={ctx} textSize={textSize} onTextSize={setTextSize} />
       <div className="mx-auto max-w-6xl px-6 py-10">
         {lesson.kind === "concept" ? (
           <ConceptLessonBody lesson={lesson} ctx={ctx} />
@@ -109,6 +132,96 @@ export function LessonPage() {
         )}
         <ModuleStrip lesson={lesson} ctx={ctx} />
         <LessonNav lesson={lesson} ctx={ctx} />
+      </div>
+    </div>
+  );
+}
+
+// Reading text size, remembered on this device. Three steps are enough: the default is already comfortable.
+const TEXT_SIZES = [
+  { id: "small", label: "Small", px: 15 },
+  { id: "default", label: "Default", px: 17 },
+  { id: "large", label: "Large", px: 19 },
+] as const;
+const TEXT_SIZE_KEY = "lesson:textSize";
+
+function useTextSize() {
+  const [index, setIndex] = useState(() => {
+    try {
+      const raw = localStorage.getItem(TEXT_SIZE_KEY);
+      const saved = raw === null ? NaN : Number(raw);
+      return Number.isInteger(saved) && saved >= 0 && saved < TEXT_SIZES.length ? saved : 1;
+    } catch {
+      return 1;
+    }
+  });
+  const update = (i: number) => {
+    setIndex(i);
+    try {
+      localStorage.setItem(TEXT_SIZE_KEY, String(i));
+    } catch {
+      // storage unavailable — the choice just won't persist
+    }
+  };
+  return [index, update] as const;
+}
+
+function TextSizeControl({ index, onChange }: { index: number; onChange: (i: number) => void }) {
+  return (
+    <div role="radiogroup" aria-label="Text size" className="flex items-center rounded-lg border border-[#2a3040] bg-[#0e1117]/70 p-0.5">
+      {TEXT_SIZES.map((t, i) => (
+        <button
+          key={t.id}
+          role="radio"
+          aria-checked={index === i}
+          aria-label={`${t.label} text`}
+          title={`${t.label} text`}
+          onClick={() => onChange(i)}
+          className={`flex h-6 w-7 items-center justify-center rounded-md font-semibold transition ${
+            index === i ? "bg-[#7c6cff]/25 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
+          }`}
+          style={{ fontSize: 10 + i * 2.5 }}
+        >
+          A
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// A slim bar under the navbar that appears once the lesson header has scrolled away: it keeps the lesson's name in
+// view and offers a shortcut straight to the knowledge check.
+function StickyLessonBar({ title, position, hasQuiz }: { title: string; position: string | null; hasQuiz: boolean }) {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const header = document.getElementById("lesson-header");
+    if (!header || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => setShow(!entry.isIntersecting), { rootMargin: "-64px 0px 0px 0px" });
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      aria-hidden={!show}
+      className={`fixed inset-x-0 top-16 z-30 border-b border-[#2a3040] bg-[#0e1117]/90 backdrop-blur-md transition duration-200 ${
+        show ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-full opacity-0"
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2">
+        <div className="min-w-0 text-sm">
+          <span className="truncate font-medium text-[#e6e8ec]">{title}</span>
+          {position && <span className="ml-2 hidden text-xs text-[#898781] sm:inline">{position}</span>}
+        </div>
+        {hasQuiz && (
+          <button
+            tabIndex={show ? 0 : -1}
+            onClick={() => document.getElementById("knowledge-check")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            className="shrink-0 rounded-lg border border-[#7c6cff]/40 bg-[#7c6cff]/15 px-3 py-1 text-xs font-semibold text-[#c4bbff] transition hover:bg-[#7c6cff]/25"
+          >
+            Knowledge check ↓
+          </button>
+        )}
       </div>
     </div>
   );
@@ -154,7 +267,17 @@ function readingMinutes(body: LessonBlock[]): number {
   return Math.max(1, Math.round(words / 200));
 }
 
-function LessonHeader({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContext }) {
+function LessonHeader({
+  lesson,
+  ctx,
+  textSize,
+  onTextSize,
+}: {
+  lesson: LessonDetail;
+  ctx: LessonContext;
+  textSize: number;
+  onTextSize: (i: number) => void;
+}) {
   const { accent } = ctx;
   const strategy = lesson.kind === "strategy" ? lesson.strategy : null;
   const title = lesson.kind === "strategy" ? lesson.strategy.name : lesson.title;
@@ -163,7 +286,7 @@ function LessonHeader({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContex
   const minutes = lesson.kind === "concept" ? readingMinutes(lesson.body) : null;
 
   return (
-    <header className="relative overflow-hidden border-b border-[#2a3040]">
+    <header id="lesson-header" className="relative overflow-hidden border-b border-[#2a3040]">
       <div
         className="pointer-events-none absolute left-1/2 top-[-220px] h-[360px] w-[820px] -translate-x-1/2 rounded-full blur-3xl"
         style={{ background: accent, opacity: 0.13 }}
@@ -212,6 +335,9 @@ function LessonHeader({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContex
               ✓ Completed
             </span>
           )}
+          <span className="ml-auto">
+            <TextSizeControl index={textSize} onChange={onTextSize} />
+          </span>
         </div>
 
         <h1 className="mt-3 max-w-4xl text-4xl font-bold leading-tight text-[#e6e8ec]">{title}</h1>
@@ -301,7 +427,7 @@ function LessonNav({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContext }
   const prevTitle = ctx.titleOf(lesson.prevLessonSlug) ?? "Previous lesson";
   const nextTitle = ctx.titleOf(lesson.nextLessonSlug) ?? "Next lesson";
   return (
-    <div className="mt-12 flex flex-col gap-3 border-t border-[#2a3040] pt-8 sm:flex-row">
+    <div className="mt-12 flex flex-col gap-3 border-t border-[#2a3040] pt-8 sm:flex-row sm:flex-wrap">
       {lesson.prevLessonSlug ? (
         <NavCard to={`/lesson/${lesson.prevLessonSlug}`} direction="prev" title={prevTitle} accent={ctx.accent} />
       ) : (
@@ -313,6 +439,11 @@ function LessonNav({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContext }
         lesson.courseSlug && (
           <NavCard to={`/courses/${lesson.courseSlug}`} direction="back" title="Back to the course" accent={ctx.accent} />
         )
+      )}
+      {(lesson.prevLessonSlug || lesson.nextLessonSlug) && (
+        <p className="hidden w-full text-center text-xs text-[#898781] sm:block sm:basis-full">
+          Tip: press ← or → to move between lessons.
+        </p>
       )}
     </div>
   );
@@ -397,7 +528,7 @@ function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { ki
                 <div
                   key={i}
                   id={seg.heading ? `section-${i}` : undefined}
-                  className={`scroll-mt-28 flex flex-col gap-4 ${isExample ? "rounded-2xl border p-5 sm:p-6" : ""}`}
+                  className={`scroll-mt-32 flex flex-col gap-4 ${isExample ? "rounded-2xl border p-5 sm:p-6" : ""}`}
                   style={isExample ? { borderColor: `${accent}40`, background: `${accent}0d` } : undefined}
                 >
                   {seg.heading && (
@@ -425,7 +556,7 @@ function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { ki
                       const display = displayMathOf(item.text);
                       if (display !== null) return <DisplayMath key={j} latex={display} />;
                       return (
-                        <p key={j} className="text-base leading-7 sm:text-[17px] sm:leading-8 text-[#d5d9e0]">
+                        <p key={j} className="text-[length:var(--prose-size)] leading-[1.8] text-[#d5d9e0]">
                           <InlineText text={item.text} />
                         </p>
                       );
@@ -434,7 +565,7 @@ function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { ki
                     return (
                       <ListTag
                         key={j}
-                        className={`flex flex-col gap-2.5 pl-6 text-base leading-7 sm:text-[17px] sm:leading-8 text-[#d5d9e0] marker:font-semibold marker:text-[var(--accent)] ${
+                        className={`flex flex-col gap-2.5 pl-6 text-[length:var(--prose-size)] leading-[1.8] text-[#d5d9e0] marker:font-semibold marker:text-[var(--accent)] ${
                           item.ordered ? "list-decimal" : "list-disc"
                         }`}
                       >
@@ -461,6 +592,7 @@ function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { ki
         <ConceptQuiz
           lessonSlug={lesson.slug}
           questions={lesson.quiz}
+          progress={lesson.progress}
           onGraded={ctx.refresh}
           nextLesson={
             lesson.nextLessonSlug
@@ -522,7 +654,7 @@ function LessonOutline({ items }: { items: { id: string; text: string }[] }) {
   if (items.length === 0) return null;
 
   return (
-    <nav className="sticky top-24 mb-8 hidden lg:block" aria-label="On this page">
+    <nav className="sticky top-32 mb-8 hidden lg:block" aria-label="On this page">
       <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">On this page</div>
       <ul className="mt-3 flex flex-col gap-1">
         {items.map((item) => (
@@ -639,12 +771,13 @@ function StrategyLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { k
         <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-[#e6e8ec]">
           <span aria-hidden="true">💡</span> Scenario
         </h3>
-        <p className="text-base leading-7 sm:text-[17px] sm:leading-8 text-[#d5d9e0]">{strategy.content.scenario}</p>
+        <p className="text-[length:var(--prose-size)] leading-[1.8] text-[#d5d9e0]">{strategy.content.scenario}</p>
       </section>
 
       <ConceptQuiz
         lessonSlug={strategy.slug}
         questions={lesson.quiz}
+        progress={lesson.progress}
         onGraded={ctx.refresh}
         nextLesson={
           lesson.nextLessonSlug
