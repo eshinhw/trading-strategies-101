@@ -3,6 +3,7 @@ import { courses } from "../data/courses/index.js";
 import { prisma } from "../lib/prisma.js";
 import { attachUser, requireAuth } from "../lib/auth.js";
 import { completedLessonSlugs } from "../lib/progress.js";
+import { allLessonSlugs, modulesForCourse } from "../data/curriculum/index.js";
 import { isExaminableCourse, isCourseFullyComplete, generateExamQuestions, gradeExamSubmission } from "../lib/exam.js";
 import type { ExamAnswerSubmission } from "../lib/exam.js";
 
@@ -14,7 +15,13 @@ function slugParam(v: string | string[]): string {
 }
 
 router.get("/", (_req, res) => {
-  res.json({ courses });
+  res.json({
+    courses: courses.map((c) => ({
+      ...c,
+      lessonCount: allLessonSlugs(c.slug).length,
+      moduleCount: modulesForCourse(c.slug).length,
+    })),
+  });
 });
 
 router.get("/:slug", (req, res) => {

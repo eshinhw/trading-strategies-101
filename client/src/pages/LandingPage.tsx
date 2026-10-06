@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchCourses } from "../api";
 import type { Course } from "../types/course";
-import { CourseCard } from "../components/CourseCard";
+import { CourseShowcaseCard } from "../components/CourseShowcaseCard";
 import { RiskRewardHero } from "../components/RiskRewardHero";
 
 export function LandingPage() {
@@ -105,29 +105,141 @@ function Hero() {
   );
 }
 
+// One small illustration per core value. Purely decorative, so each is aria-hidden.
+function AssetGridVisual() {
+  const opacities = [1, 0.55, 0.8, 0.4, 0.9, 0.6, 0.5, 1, 0.7, 0.45, 0.85, 0.6, 0.75, 0.5, 1, 0.65, 0.4, 0.9];
+  return (
+    <div aria-hidden="true">
+      <div className="grid grid-cols-9 gap-1.5">
+        {opacities.map((o, i) => (
+          <div
+            key={i}
+            className="aspect-square rounded-md bg-[#7c6cff] transition-transform duration-300 group-hover:scale-110"
+            style={{ opacity: o, transitionDelay: `${i * 12}ms` }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 text-xs text-[#898781]">18 asset classes, one shared foundation</div>
+    </div>
+  );
+}
+
+function TheoryVsPracticeVisual() {
+  return (
+    <div aria-hidden="true" className="flex flex-col gap-3">
+      <div>
+        <div className="mb-1 flex justify-between text-xs text-[#898781]">
+          <span>Theory</span>
+        </div>
+        <div className="h-2.5 overflow-hidden rounded-full bg-[#1b2029]">
+          <div className="h-full w-1/5 rounded-full bg-[#4a5263]" />
+        </div>
+      </div>
+      <div>
+        <div className="mb-1 flex justify-between text-xs text-[#e6e8ec]">
+          <span>What you'll actually use</span>
+        </div>
+        <div className="h-2.5 overflow-hidden rounded-full bg-[#1b2029]">
+          <div className="h-full w-[78%] rounded-full bg-gradient-to-r from-[#7c6cff] to-[#a99dff] transition-all duration-500 group-hover:w-[92%]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RepetitionVisual() {
+  const heights = [28, 42, 55, 70, 88];
+  return (
+    <div aria-hidden="true">
+      <div className="flex h-16 items-end gap-2">
+        {heights.map((h, i) => (
+          <div
+            key={i}
+            className="flex-1 rounded-t-md bg-gradient-to-t from-[#7c6cff]/40 to-[#7c6cff] transition-all duration-500"
+            style={{ height: `${h}%`, opacity: 0.45 + i * 0.14 }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 flex justify-between text-xs text-[#898781]">
+        <span>Attempt 1</span>
+        <span>Fresh questions every time</span>
+      </div>
+    </div>
+  );
+}
+
+function ValueIcon({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#7c6cff]/30 bg-[#7c6cff]/15 text-[#a99dff]">
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        {children}
+      </svg>
+    </div>
+  );
+}
+
 function Features() {
   const items = [
     {
-      title: "Learn by doing",
-      body: "Every lesson pairs a focused explainer with a knowledge-check quiz, so you're applying ideas right away instead of just reading. Options lessons go further with a live interactive payoff tool — change strikes, premiums, even volatility, and watch max profit, max loss, and breakeven recalculate in real time.",
+      number: "01",
+      title: "Core knowledge for every professional",
+      body: "Whether you work in trading, research, risk, operations, or sales, you need to speak the same market language. Each course covers what an asset is, why it exists, and how it's priced and used, across 18 asset classes — the fundamentals everyone in the industry is expected to know.",
+      icon: (
+        <>
+          <path d="M12 3 3 8l9 5 9-5-9-5Z" />
+          <path d="m3 13 9 5 9-5" />
+          <path d="m3 17.5 9 5 9-5" opacity="0.5" />
+        </>
+      ),
+      visual: <AssetGridVisual />,
     },
     {
-      title: "Prove it, don't just read it",
-      body: "Every lesson ends with a knowledge check, and every course wraps up with a final quiz pulling questions from across the whole curriculum. In Options, that means working out max profit or loss from a fresh set of numbers each attempt — nothing to memorize.",
+      number: "02",
+      title: "Practical, with minimum theory",
+      body: "Lessons stay focused on what you'll actually use: short explainers, a worked example in every lesson, and only the formulas that matter. You come away able to reason about a position or a market, without wading through academic detail.",
+      icon: (
+        <>
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="12" cy="12" r="1.2" fill="currentColor" />
+        </>
+      ),
+      visual: <TheoryVsPracticeVisual />,
     },
     {
-      title: "One course per asset class",
-      body: "The curriculum spans 18 asset classes, from options to distressed debt to cryptocurrencies. A growing set of courses is live already, with the rest ordered so complex strategies build on simpler ones instead of feeling like a new vocabulary.",
+      number: "03",
+      title: "Hands-on practice, maximum repetition",
+      body: "Every lesson ends with a knowledge check, every course finishes with a final quiz that draws a fresh set of questions each attempt, and the Options Payoff Simulator lets you build and rebuild positions as often as you like. Repetition is how it sticks.",
+      icon: (
+        <>
+          <path d="M17 2 21 6l-4 4" />
+          <path d="M3 11V9a3 3 0 0 1 3-3h15" />
+          <path d="m7 22-4-4 4-4" />
+          <path d="M21 13v2a3 3 0 0 1-3 3H3" />
+        </>
+      ),
+      visual: <RepetitionVisual />,
     },
   ];
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         {items.map((it) => (
-          <div key={it.title} className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-6">
-            <h3 className="mb-2 font-semibold text-[#e6e8ec]">{it.title}</h3>
-            <p className="text-sm leading-relaxed text-[#9aa3b2]">{it.body}</p>
+          <div
+            key={it.title}
+            className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#2a3040] bg-gradient-to-b from-[#1b2030] to-[#12151d] p-7 shadow-xl shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-[#7c6cff]/50"
+          >
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#7c6cff] to-transparent" />
+            <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[#7c6cff]/10 blur-3xl transition group-hover:bg-[#7c6cff]/20" />
+            <div className="pointer-events-none absolute right-5 top-4 select-none text-5xl font-bold text-[#7c6cff]/10">
+              {it.number}
+            </div>
+
+            <ValueIcon>{it.icon}</ValueIcon>
+            <h3 className="mt-5 text-lg font-semibold leading-snug text-[#e6e8ec]">{it.title}</h3>
+            <p className="mb-6 mt-2 text-sm leading-relaxed text-[#9aa3b2]">{it.body}</p>
+            <div className="mt-auto border-t border-[#2a3040] pt-5">{it.visual}</div>
           </div>
         ))}
       </div>
@@ -142,9 +254,9 @@ function CoursesPreview({ courses }: { courses: Course[] | null }) {
         <h2 className="text-2xl font-bold text-[#e6e8ec]">Courses across 18 asset classes</h2>
 
         {courses && (
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {courses.map((c) => (
-              <CourseCard key={c.slug} course={c} />
+              <CourseShowcaseCard key={c.slug} course={c} />
             ))}
           </div>
         )}

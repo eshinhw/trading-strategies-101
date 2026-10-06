@@ -5,5 +5,7 @@ export interface Course {
   description: string;
   status: "available" | "coming-soon";
   strategyCount: number;
+  lessonCount?: number;
+  moduleCount?: number;
   strategyTitles?: string[];
 }
