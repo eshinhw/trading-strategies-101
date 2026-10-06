@@ -80,30 +80,97 @@ function monogram(title: string) {
     .join("");
 }
 
-// A stylised book cover in the category's colour — decorative, we don't ship real cover art.
+// The cover is drawn on a 150 x 212 canvas with a 110-wide text column. Georgia bold averages about 0.6em per
+// character, so each size below fits `COLUMN / (size * 0.6)` characters on a line.
+const COVER_W = 150;
+const COVER_H = 212;
+const COLUMN = 110;
+const TITLE_SIZES = [26, 22, 19, 17, 15, 13];
+
+function wrapTitle(text: string, maxChars: number): string[] {
+  const lines: string[] = [];
+  let line = "";
+  for (const word of text.split(" ")) {
+    const next = line ? `${line} ${word}` : word;
+    if (next.length > maxChars && line) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = next;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+// Largest type size at which the whole title fits the column and the space above the author line.
+function fitTitle(text: string): { size: number; lines: string[] } {
+  for (const size of TITLE_SIZES) {
+    const lines = wrapTitle(text, Math.floor(COLUMN / (size * 0.6)));
+    const fits = lines.every((l) => l.length * size * 0.6 <= COLUMN + 1) && lines.length * size * 1.1 <= 112;
+    if (fits) return { size, lines };
+  }
+  const size = TITLE_SIZES[TITLE_SIZES.length - 1];
+  return { size, lines: wrapTitle(text, Math.floor(COLUMN / (size * 0.6))) };
+}
+
+const COVER_INK = "#0b0d12";
+const COVER_FONT = 'Georgia, "Times New Roman", serif';
+
+// A typographic paperback-style cover in the category's colour: the title in large serif type, the author below.
+// Decorative — we don't ship real cover art. The card-size cover has room to read the title; the list-row
+// thumbnail is too small for that, so it shows the monogram instead.
 function BookCover({ book, accent, small = false }: { book: Book; accent: string; small?: boolean }) {
+  const surname = book.author.split(",")[0].split(" and ")[0].split(" ").slice(-1)[0];
+  const { size, lines } = fitTitle(book.title.split(":")[0]);
+  const frame = (
+    <rect x="10" y="10" width={COVER_W - 20} height={COVER_H - 20} rx="2" fill="none" stroke={COVER_INK} strokeOpacity="0.5" />
+  );
   return (
-    <div
+    <svg
       aria-hidden="true"
-      className={`relative flex shrink-0 flex-col justify-between overflow-hidden rounded-r-md rounded-l-sm shadow-lg shadow-black/50 ${
-        small ? "h-[56px] w-[40px] p-1" : "h-[116px] w-[82px] p-2.5 max-sm:h-[92px] max-sm:w-[64px]"
+      viewBox={`0 0 ${COVER_W} ${COVER_H}`}
+      className={`shrink-0 rounded-[5px] shadow-lg shadow-black/50 ${
+        small ? "h-[56px] w-[40px]" : "h-[141px] w-[100px] max-sm:h-[113px] max-sm:w-[80px]"
       }`}
-      style={{ background: `linear-gradient(150deg, ${accent} 0%, ${accent}99 55%, #0e1117 130%)` }}
     >
-      <span className="absolute inset-y-0 left-0 w-2 bg-black/25" />
-      <span className="absolute inset-y-0 left-2 w-px bg-white/25" />
-      <span
-        className={`pl-2 font-extrabold leading-none tracking-tight text-[#0b0d12]/85 ${small ? "text-[11px]" : "text-[22px]"}`}
-      >
-        {monogram(book.title)}
-      </span>
-      {!small && (
-        <span className="pl-2 text-[9px] font-semibold uppercase leading-tight tracking-wide text-[#0b0d12]/70">
-          {book.author.split(",")[0].split(" ").slice(-1)[0]}
-          <span className="block font-normal">{book.year}</span>
-        </span>
+      <rect width={COVER_W} height={COVER_H} fill={accent} />
+      {frame}
+      {small ? (
+        <text
+          x={COVER_W / 2}
+          y={COVER_H / 2 + 22}
+          textAnchor="middle"
+          fontSize="62"
+          fontWeight="700"
+          fill={COVER_INK}
+          fillOpacity="0.85"
+          fontFamily={COVER_FONT}
+        >
+          {monogram(book.title)[0]}
+        </text>
+      ) : (
+        <>
+          {lines.map((line, i) => (
+            <text
+              key={i}
+              x="20"
+              y={44 + i * size * 1.1}
+              fontSize={size}
+              fontWeight="700"
+              fill={COVER_INK}
+              fontFamily={COVER_FONT}
+            >
+              {line}
+            </text>
+          ))}
+          <line x1="20" y1="170" x2="52" y2="170" stroke={COVER_INK} strokeWidth="2" />
+          <text x="20" y="190" fontSize="12" fontWeight="700" letterSpacing="0.7" fill={COVER_INK} fontFamily="inherit">
+            {surname.toUpperCase()}
+          </text>
+        </>
       )}
-    </div>
+    </svg>
   );
 }
 
