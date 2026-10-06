@@ -82,6 +82,8 @@ interface SavedExam {
   flags: string[];
   index: number;
   stage: Stage;
+  /** when the attempt began, so the report can say how long it took */
+  startedAt?: number;
 }
 const storageKey = (slug: string) => `exam:${slug}`;
 
@@ -124,6 +126,14 @@ export function ExamPage() {
   const [flags, setFlags] = useState<Set<string>>(new Set());
   const [result, setResult] = useState<ExamGradeResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [startedAt, setStartedAt] = useState<number | null>(null);
+  // What the attempt looked like when it was submitted, for the report: the choice made on each question, how
+  // long it took, and the learner's best score from before this attempt.
+  const [summary, setSummary] = useState<{
+    yourAnswers: Record<string, string>;
+    elapsedMs: number | null;
+    previousBest: number | null;
+  } | null>(null);
 
   const accent = slug ? courseAccent(slug) : "#7c6cff";
 
@@ -136,6 +146,8 @@ export function ExamPage() {
     setAnswers({});
     setFlags(new Set());
     setResult(null);
+    setSummary(null);
+    setStartedAt(skipIntro ? Date.now() : null);
     setStage(skipIntro ? "taking" : "intro");
     fetchExam(slug)
       .then(setQuestions)
@@ -151,6 +163,7 @@ export function ExamPage() {
       setFlags(new Set(saved.flags));
       setCurrentIndex(Math.min(saved.index, saved.questions.length - 1));
       setStage(saved.stage === "intro" ? "taking" : saved.stage);
+      setStartedAt(saved.startedAt ?? null);
       setResult(null);
       setError(null);
     } else {
@@ -172,8 +185,8 @@ export function ExamPage() {
   // Keep the attempt saved while it's in progress.
   useEffect(() => {
     if (!slug || !questions || result || stage === "intro") return;
-    persist(slug, { questions, answers, flags: [...flags], index: currentIndex, stage });
-  }, [slug, questions, answers, flags, currentIndex, stage, result]);
+    persist(slug, { questions, answers, flags: [...flags], index: currentIndex, stage, startedAt: startedAt ?? undefined });
+  }, [slug, questions, answers, flags, currentIndex, stage, result, startedAt]);
 
   const allAnswered = useMemo(() => (questions ?? []).every((q) => isAnswered(answers[q.id])), [questions, answers]);
   const answeredCount = useMemo(
@@ -181,13 +194,21 @@ export function ExamPage() {
     [questions, answers],
   );
 
-  // Keyboard: A–D picks a choice while answering.
+  // Keyboard while answering: A–D picks a choice, Enter goes to the next question.
   useEffect(() => {
     if (!questions || result || stage !== "taking") return;
     const onKey = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       const target = e.target as HTMLElement | null;
       if (target && (target.tagName === "TEXTAREA" || target.tagName === "SELECT")) return;
+      // Enter moves on (to the review step after the last question), unless it's activating a button or link.
+      if (e.key === "Enter") {
+        if (target && (target.tagName === "BUTTON" || target.tagName === "A")) return;
+        e.preventDefault();
+        if (currentIndex < questions.length - 1) setCurrentIndex(currentIndex + 1);
+        else setStage("review");
+        return;
+      }
       const q = questions[currentIndex];
       const letter = e.key.length === 1 ? e.key.toLowerCase().charCodeAt(0) - 97 : -1;
       if (letter >= 0 && letter < q.choices.length) {
@@ -215,6 +236,11 @@ export function ExamPage() {
     try {
       const res = await submitExam(slug, submission);
       persist(slug, null);
+      setSummary({
+        yourAnswers: Object.fromEntries(questions.map((q) => [q.id, q.choices[answers[q.id]] ?? ""])),
+        elapsedMs: startedAt ? Date.now() - startedAt : null,
+        previousBest: status?.progress?.bestScore ?? null,
+      });
       setResult(res);
       window.scrollTo({ top: 0 });
     } catch (e) {
@@ -256,7 +282,14 @@ export function ExamPage() {
   if (result) {
     return (
       <div style={{ "--accent": accent } as CSSProperties}>
-        <ExamReport result={result} slug={slug!} course={course} accent={accent} onRetake={() => loadFreshExam(true)} />
+        <ExamReport
+          result={result}
+          slug={slug!}
+          course={course}
+          accent={accent}
+          summary={summary}
+          onRetake={() => loadFreshExam(true)}
+        />
       </div>
     );
   }
@@ -320,7 +353,10 @@ export function ExamPage() {
               ))}
             </ul>
             <button
-              onClick={() => setStage("taking")}
+              onClick={() => {
+                setStartedAt(Date.now());
+                setStage("taking");
+              }}
               className="mt-6 w-full rounded-lg px-5 py-3 text-sm font-semibold text-[#0b0d12] transition hover:brightness-110"
               style={{ background: accent }}
             >
@@ -528,7 +564,7 @@ export function ExamPage() {
               )}
               {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
               <p className="mt-5 hidden text-xs text-[#898781] sm:block">
-                Tip: press A–D on your keyboard to pick an answer.
+                Tip: press A–D to pick an answer and Enter for the next question.
               </p>
             </div>
           </section>
@@ -597,6 +633,13 @@ export function ExamPage() {
   );
 }
 
+function formatDuration(ms: number): string {
+  const total = Math.max(1, Math.round(ms / 1000));
+  const minutes = Math.floor(total / 60);
+  const seconds = total % 60;
+  return minutes === 0 ? `${seconds}s` : `${minutes}m ${String(seconds).padStart(2, "0")}s`;
+}
+
 function ScoreRing({ score, passed }: { score: number; passed: boolean }) {
   const size = 132;
   const r = (size - 14) / 2;
@@ -631,12 +674,14 @@ function ExamReport({
   slug,
   course,
   accent,
+  summary,
   onRetake,
 }: {
   result: ExamGradeResponse;
   slug: string;
   course: Course | null;
   accent: string;
+  summary: { yourAnswers: Record<string, string>; elapsedMs: number | null; previousBest: number | null } | null;
   onRetake: () => void;
 }) {
   const correctCount = result.results.filter((r) => r.correct).length;
@@ -701,7 +746,18 @@ function ExamReport({
             </p>
             <p className="mt-1 text-sm text-[#898781]">
               {correctCount} of {result.results.length} correct
+              {summary?.elapsedMs ? ` · finished in ${formatDuration(summary.elapsedMs)}` : ""}
             </p>
+            {summary?.previousBest !== null && summary?.previousBest !== undefined && (
+              <p className="mt-1 text-sm text-[#898781]">
+                Previous best {Math.round(summary.previousBest * 100)}%
+                {result.score > summary.previousBest && (
+                  <span className="ml-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-400">
+                    New best
+                  </span>
+                )}
+              </p>
+            )}
             <div className="mt-4 flex flex-wrap items-center justify-center gap-4 sm:justify-start">
               <button
                 onClick={onRetake}
@@ -823,6 +879,11 @@ function ExamReport({
                     <p className="mt-1.5 font-medium leading-relaxed text-[#e6e8ec]">
                       <InlineText text={r.prompt} />
                     </p>
+                    {!r.correct && summary?.yourAnswers[r.id] && (
+                      <p className="mt-2 text-sm text-[#9aa3b2]">
+                        Your answer: <InlineText text={summary.yourAnswers[r.id]} />
+                      </p>
+                    )}
                     <p className={`mt-2 text-sm ${r.correct ? "text-emerald-300" : "text-red-300"}`}>
                       {r.correct ? (
                         "Correct"
