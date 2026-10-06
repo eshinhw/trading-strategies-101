@@ -1,7 +1,8 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { fetchConstructionExercises } from "../api";
+import { fetchBankCourses, fetchConstructionExercises } from "../api";
 import type { ConstructionExerciseSummary } from "../types/construction";
+import type { BankCourse } from "../types/practice";
 import { ACCENT } from "../lib/courseVisuals";
 import { SIMULATOR_PRESETS } from "../lib/simulatorPresets";
 import { AnswerProgressBar } from "../components/AnswerProgressBar";
@@ -178,6 +179,35 @@ function AnimatedPreview({ compact = false }: { compact?: boolean }) {
   );
 }
 
+// Counts up to `target` once it is known (instantly for reduced motion), so the headline number lands with a little life.
+function useCountUp(target: number | null, ms = 900): number {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    if (target === null) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+      setValue(target);
+      return;
+    }
+    const start = performance.now();
+    let raf = requestAnimationFrame(function tick(now) {
+      const t = Math.min(1, (now - start) / ms);
+      setValue(Math.round(target * (1 - Math.pow(1 - t, 3))));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [target, ms]);
+  return value;
+}
+
+function QuizBankStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-xl border border-[#2a3040] bg-[#0e1117]/70 px-3.5 py-2.5">
+      <div className="text-xl font-bold tabular-nums text-[#e6e8ec]">{value}</div>
+      <div className="text-[11px] text-[#898781]">{label}</div>
+    </div>
+  );
+}
+
 const QUIZ_BANK_POINTS = [
   "Pick any mix of courses, or narrow to a single module",
   "Answer with an instant explanation and a streak counter",
@@ -312,12 +342,20 @@ const QUIZ_BANK_COURSES = [
 
 export function PracticePage() {
   const [exercises, setExercises] = useState<ConstructionExerciseSummary[]>([]);
+  const [bank, setBank] = useState<BankCourse[] | null>(null);
   const accent = ACCENT.derivatives;
+  const totalQuestions = bank ? bank.reduce((n, c) => n + c.questionCount, 0) : null;
+  const totalModules = bank ? bank.reduce((n, c) => n + c.modules.length, 0) : null;
+  const animatedTotal = useCountUp(totalQuestions);
+  const countBySlug = new Map((bank ?? []).map((c) => [c.slug, c.questionCount]));
 
   useEffect(() => {
     fetchConstructionExercises()
       .then(setExercises)
       .catch(() => setExercises([]));
+    fetchBankCourses()
+      .then(setBank)
+      .catch(() => setBank([]));
   }, []);
 
   return (
@@ -358,6 +396,17 @@ export function PracticePage() {
                 Mixed questions from every lesson's knowledge check, drawn evenly across the courses you pick. Instant
                 explanations, a streak counter, and a retry pass on what you missed.
               </p>
+              <div className="mt-5 grid grid-cols-3 gap-2.5" aria-label="Quiz Bank size">
+                {bank === null ? (
+                  [0, 1, 2].map((i) => <div key={i} className="h-[58px] animate-pulse rounded-xl border border-[#2a3040] bg-[#0e1117]/70" />)
+                ) : totalQuestions ? (
+                  <>
+                    <QuizBankStat value={animatedTotal.toLocaleString()} label="practice questions" />
+                    <QuizBankStat value={String(bank.length)} label="courses" />
+                    <QuizBankStat value={String(totalModules)} label="modules to target" />
+                  </>
+                ) : null}
+              </div>
               <ol className="mt-5 flex flex-col gap-2.5">
                 {QUIZ_BANK_POINTS.map((point, i) => (
                   <li key={point} className="flex items-start gap-3 text-sm text-[#e6e8ec]">
@@ -380,7 +429,9 @@ export function PracticePage() {
               </Link>
 
               <div className="mt-6 border-t border-[#2a3040] pt-4">
-                <div className="mb-2 text-xs text-[#898781]">Or jump straight into a course</div>
+                <div className="mb-2 text-xs text-[#898781]">
+                  Or jump straight into a course{bank?.length ? " (questions available)" : ""}
+                </div>
                 <div className="flex flex-wrap gap-1.5">
                   {QUIZ_BANK_COURSES.map((c) => (
                     <Link
@@ -389,6 +440,9 @@ export function PracticePage() {
                       className="rounded-full border border-[#2a3040] px-3 py-1 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/10 hover:text-[#e6e8ec]"
                     >
                       {c.title}
+                      {countBySlug.has(c.slug) && (
+                        <span className="ml-1.5 tabular-nums text-[#6b7280]">{countBySlug.get(c.slug)}</span>
+                      )}
                     </Link>
                   ))}
                 </div>
