@@ -22,7 +22,25 @@ Duration is the tool that lets a bond portfolio manager size a position, compare
 
 ## Example
 
-A pension fund has to pay out a known stream of benefits stretching decades into the future, so its manager builds a bond portfolio whose duration is deliberately matched to the duration of those future payments. If rates move, the value of the bonds held and the present value of the benefits owed shift by roughly the same amount, keeping the fund's ability to meet its obligations largely insulated from swings in interest rates.
+A pension fund buys $20 million face value of the packaging manufacturer's new bonds at par. The 10-year, 5% bond has a duration of about 7.8 (the modified duration, which is the figure used to estimate price changes).
+
+If rates rise by 1 percentage point, the duration estimate says:
+
+$$
+-7.8\% \times \$20{,}000{,}000 \approx \boxed{-\$1{,}560{,}000}
+$$
+
+Repricing the bond at a 6% yield, as in the previous lesson, gives $925.61 per $1,000 of face value, so the exact change is:
+
+$$
+\left(\frac{\$925.61}{\$1{,}000} - 1\right) \times \$20{,}000{,}000 = -\$1{,}487{,}747
+$$
+
+If rates fall by 1 point instead, the estimate is a $1.56 million gain, and the exact figure is $1.64 million, since the price at a 4% yield is $1,081.76.
+
+Duration is a straight-line estimate of a curved relationship, so it slightly overstates the loss when rates rise and understates the gain when they fall. For a 1-point move the gap is small, which is why duration works as a quick rule of thumb.
+
+The fund's benefit payments also have a duration of about 8, so when rates move, the value of the bonds and the present value of what the fund owes move by roughly the same amount.
 
 # Quiz
 
@@ -60,3 +78,17 @@ A pension fund has to pay out a known stream of benefits stretching decades into
    - Duration has no practical use in hedging
    - By matching the coupon rates of the two instruments exactly
    > Sizing a hedge by dollar duration, not just maturity, is what actually matches the rate sensitivity of the hedge to the position being protected.
+
+6. A pension fund holds $20 million of the manufacturer's bonds, which have a modified duration of about 7.8. By roughly how much does the position change if rates rise 1 percentage point?
+   - Gains about $1.56 million
+   - [x] Loses about $1.56 million
+   - Loses about $156,000
+   - Loses about $7.8 million
+   > A duration of 7.8 means about a 7.8% price drop for a 1-point rise in rates, and 7.8% of $20 million is about $1.56 million.
+
+7. Repricing the bond at a 6% yield shows a loss of about $1.49 million, a little less than the duration estimate. Why?
+   - Duration ignores the coupon
+   - [x] Duration is a straight-line estimate of a price-yield relationship that is slightly curved
+   - The company made an extra coupon payment
+   - Bond prices don't respond to rates over 1 point
+   > The real price-yield curve bends, so the straight-line estimate overstates the loss when rates rise and understates the gain when they fall.

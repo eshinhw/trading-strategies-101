@@ -28,7 +28,27 @@ Spreads change with the issuer's finances, the outlook for the economy, and how 
 
 ## Example
 
-A company's bond is trading with a 150 basis point spread over Treasuries. The company is then downgraded and the spread widens to 250 basis points, so the bond's yield rises by 1.00%, assuming Treasury yields are unchanged. The bond has a duration of about 5, so its price falls by roughly 5 × 1.00% = 5%. Nothing has defaulted, but the market has repriced the risk, and the bondholder has lost value.
+The packaging manufacturer's bonds were issued when the 10-year Treasury yielded 3.5%, and the market priced the company at a 150 basis point spread:
+
+$$
+3.5\% + 1.50\% = 5.0\% \text{ (the bond's coupon and yield)}
+$$
+
+Five years later, the company is downgraded and its spread widens to 250 basis points. Treasury yields haven't changed, so the bond's yield rises by 1.00 percentage point:
+
+$$
+3.5\% + 2.50\% = 6.0\%
+$$
+
+The bond now has 5 years left and a duration of about 4.4, so the duration estimate of the price drop is 4.4 × 1.00% ≈ 4.4%. Repricing the remaining 10 coupons at a 6% yield gives an exact price of $957.35, a fall of 4.27%.
+
+A pension fund holding $20 million face value of these bonds loses about:
+
+$$
+\$20{,}000{,}000 \times 4.27\% \approx \boxed{\$853{,}000}
+$$
+
+Nothing has defaulted and every coupon is still paid, but the market has repriced the risk. The downgrade also raises the company's costs the next time it borrows, since a 1.00 percentage point higher spread on $50 million is $500,000 more interest each year.
 
 # Quiz
 
@@ -66,3 +86,17 @@ A company's bond is trading with a 150 basis point spread over Treasuries. The c
    - 50%
    - [x] 5%
    > A bond's price change is roughly its duration times the change in yield, so 5 × 1.00% = 5%.
+
+6. The manufacturer's bond yields 5.0% when the 10-year Treasury yields 3.5%. What is its credit spread?
+   - 1.5 basis points
+   - 15 basis points
+   - [x] 150 basis points
+   - 350 basis points
+   > The spread is 5.0% - 3.5% = 1.5%, which is 150 basis points.
+
+7. After a downgrade the spread widens to 250 basis points and Treasury yields are unchanged. What is the bond's new yield?
+   - 5.0%
+   - 5.5%
+   - [x] 6.0%
+   - 6.5%
+   > The Treasury yield of 3.5% plus a 2.50% spread gives 6.0%, which is 1.00 percentage point higher than before, so the bond's price falls.

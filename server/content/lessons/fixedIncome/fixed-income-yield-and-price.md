@@ -22,7 +22,26 @@ Current yield is a simpler, cruder measure: just the annual coupon divided by th
 
 ## Example
 
-A bond fund manager holding a portfolio of 10-year government bonds watches its value drop the moment a central bank signals it will raise rates, even though not a single bond in the portfolio has changed hands. The market simply re-prices every existing bond downward so that its fixed coupon, relative to its now-lower price, offers a yield competitive with the higher-coupon bonds being issued at the new, higher rate.
+A year after the packaging manufacturer issues its bonds, market rates for similar companies have risen from 5% to 6%. Each bond has 9 years left, and still pays $25 every six months and $1,000 at maturity.
+
+A buyer now wants a 6% yield, which is 3% every six months, over 18 periods:
+
+$$
+P = \sum_{t=1}^{18} \frac{\$25}{1.03^t} + \frac{\$1{,}000}{1.03^{18}}
+= \$343.84 + \$587.39 = \boxed{\$931.23}
+$$
+
+The bond's price has fallen $68.77 below its $1,000 face value, even though the company has missed no payments and its coupon hasn't changed.
+
+The two yield measures now differ:
+
+$$
+\text{current yield} = \frac{\$50}{\$931.23} = 5.37\%
+$$
+
+The yield to maturity is the full 6.00%, since a buyer who holds to maturity also collects the $68.77 as the price climbs back to $1,000.
+
+An investor holding 100 bonds, with a face value of $100,000, now holds bonds worth $93,123, a $6,877 drop in market value caused entirely by the change in rates.
 
 # Quiz
 
@@ -60,3 +79,17 @@ A bond fund manager holding a portfolio of 10-year government bonds watches its 
    - Bond prices are unaffected by falling rates
    - All existing bonds are recalled by their issuers
    > When new bonds offer lower coupons, existing bonds with higher, fixed coupons become relatively more attractive, pushing their prices up — the mirror image of the rate-rise case.
+
+6. The manufacturer's 5% bond has 9 years left, and market yields rise to 6%. Which price is closest to what the bond is worth?
+   - $1,068.77
+   - $1,000.00
+   - [x] $931.23
+   - $850.00
+   > A buyer wants a 6% yield, so the price must fall below face value until the fixed $25 coupons plus the pull back to $1,000 give 6%. $931.23 is the discounted value of those payments.
+
+7. At that $931.23 price, what is the bond's current yield (annual coupon divided by price)?
+   - 5.00%
+   - [x] 5.37%
+   - 6.00%
+   - 6.37%
+   > The annual coupon is $50, and $50 / $931.23 is 5.37%. It is lower than the 6.00% yield to maturity because current yield ignores the gain as the price converges to $1,000.

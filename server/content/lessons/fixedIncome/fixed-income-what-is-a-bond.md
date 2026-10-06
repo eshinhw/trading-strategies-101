@@ -22,7 +22,29 @@ Bonds are held for the combination of predictable income and, relative to stocks
 
 ## Example
 
-When a corporate treasurer needs to fund a new factory, they weigh two paths: sell shares in the company, diluting existing owners and giving up a claim on future profits forever, or issue bonds, borrowing a fixed sum from investors under a known schedule of interest and principal payments. Most established companies lean on bonds for routine financing needs precisely because that fixed, contractual obligation is typically cheaper than what equity investors would demand in return for taking on open-ended risk.
+The packaging manufacturer from the previous lesson issues its 50,000 bonds. Each one is a promise with these terms:
+
+- Face value: $1,000
+- Coupon rate: 5% a year, paid in two equal payments
+- Maturity: 10 years
+
+Each bondholder receives the coupon every six months:
+
+$$
+\$1{,}000 \times \frac{5\%}{2} = \$25 \text{ per bond}
+$$
+
+Across all 50,000 bonds, the company pays $1.25 million every six months:
+
+$$
+50{,}000 \times \$25 = \$1{,}250{,}000
+$$
+
+There are 20 payments over 10 years, so the total interest is $25 million. At maturity the company also repays the $50 million face value, so it pays back $75 million in all for the $50 million it borrowed.
+
+Those payments are fixed. If the company has a poor year and profits halve, it still owes $2.5 million in interest. If it has a great year, bondholders still receive only $2.5 million.
+
+Compare that with raising the $50 million by selling shares. If shareholders expect a 9% return, that is $4.5 million a year in expected return, with no maturity date and a permanent claim on the company's profits. The bond's fixed 5% is cheaper because the bondholders take less risk and rank ahead of shareholders if the company fails.
 
 # Quiz
 
@@ -60,3 +82,17 @@ When a corporate treasurer needs to fund a new factory, they weigh two paths: se
    - Because bonds carry no risk whatsoever
    - Because bonds are legally required to be held by all investors
    > Bonds trade unlimited upside for a steadier, more predictable payment stream — a useful complement to the more volatile, open-ended payoff of stocks.
+
+6. Each bond has a $1,000 face value and a 5% coupon paid twice a year. How much does one bondholder receive at each coupon date?
+   - $5
+   - [x] $25
+   - $50
+   - $1,000
+   > 5% of $1,000 is $50 a year, paid in two equal parts, so each payment is $25.
+
+7. Over the full 10 years, how much interest does the company pay in total on its $50 million of bonds?
+   - $2.5 million
+   - $12.5 million
+   - [x] $25 million
+   - $75 million
+   > It pays $2.5 million a year for 10 years, which is $25 million. The $75 million figure adds the $50 million of face value repaid at maturity.

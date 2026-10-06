@@ -32,7 +32,33 @@ A dealer earns the difference between the price it pays and the price it sells a
 
 ## Example
 
-An investor buys a bond with a face value of 1,000 dollars, paying a 6% annual coupon in two equal payments, which is 30 dollars per period. The quoted price is 98.50, so the clean price is 985 dollars. It's 60 days into a 180-day coupon period, so the accrued interest is 30 × 60 / 180 = 10 dollars. The investor pays the seller 985 + 10 = 995 dollars, and at the next coupon date receives the full 30 dollars, which includes the 10 dollars paid to the previous owner.
+An investor buys 100 of the packaging manufacturer's bonds, which is $100,000 of face value, from a dealer. The bonds pay a 5% coupon, which is $25 per bond every six months. The dealer's quote is 98.50, so the clean price is $985 per bond.
+
+It's 60 days into a 180-day coupon period, so the accrued interest is:
+
+$$
+\$25 \times \frac{60}{180} = \$8.33 \text{ per bond}
+$$
+
+The investor pays the dirty price:
+
+$$
+\$985.00 + \$8.33 = \$993.33 \text{ per bond}
+$$
+
+For 100 bonds that is $98,500 of clean price plus $833.33 of accrued interest:
+
+$$
+100 \times \$993.33 = \boxed{\$99{,}333}
+$$
+
+At the next coupon date the investor receives the full $2,500 for 100 bonds. Of that, $833.33 repays the interest paid to the previous owner, so the investor keeps $1,666.67 for the 120 days they held the bonds.
+
+The dealer's quote also has a cost built in. If the bid is 98.30 and the ask is 98.50, an investor who buys at the ask and sells straight back at the bid loses 0.20 points:
+
+$$
+0.20\% \times \$100{,}000 = \$200
+$$
 
 # Quiz
 
@@ -70,3 +96,17 @@ An investor buys a bond with a face value of 1,000 dollars, paying a 6% annual c
    - [x] 10 dollars
    - 5 dollars
    > Accrued interest = 30 × 60 / 180 = 10 dollars.
+
+6. A bond with a $1,000 face value and a 5% coupon (paid twice a year) is quoted at 98.50, and it is 60 days into a 180-day coupon period. What is the dirty price per bond?
+   - $985.00
+   - $991.67
+   - [x] $993.33
+   - $1,000.00
+   > The clean price is $985, and the accrued interest is $25 × 60 / 180 = $8.33, so the dirty price is $993.33.
+
+7. An investor buys 100 of those bonds at the dirty price. What do they pay in total?
+   - $98,500
+   - [x] $99,333
+   - $100,000
+   - $101,333
+   > 100 bonds at $993.33 each is $99,333, which is the $98,500 clean price plus $833.33 of accrued interest owed to the seller.

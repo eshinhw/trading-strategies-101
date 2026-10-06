@@ -22,7 +22,28 @@ Compared with a bank loan, a bond can raise much larger amounts and lock in a ra
 
 ## Example
 
-A city needs 50 million dollars to build a water treatment plant. Instead of borrowing from a single bank, it issues 30-year municipal bonds in pieces of 5,000 dollars each. Thousands of investors across the country each lend a small part, the city pays interest every year and repays the face value at maturity, and the investors can sell their bonds to others if they need their money earlier. The bond market has allowed a small city to borrow from thousands of lenders at once.
+A packaging manufacturer wants to build a $50 million plant. Its bank will lend only $20 million, for five years, at a rate that resets every year, so the company issues bonds instead:
+
+- Amount raised: $50 million
+- Pieces: 50,000 bonds with a face value of $1,000 each
+- Coupon: 5% a year, fixed
+- Maturity: 10 years
+
+Thousands of investors each buy a few bonds, and any of them can sell to someone else later. The company has raised $30 million more than the bank would lend, for twice as long, at a rate that can't reset higher.
+
+The interest it pays each year is:
+
+$$
+50{,}000 \times \$1{,}000 \times 5\% = \$2{,}500{,}000
+$$
+
+If the company's tax rate is 25% and the interest is deductible, the cost after tax is:
+
+$$
+\$2{,}500{,}000 \times (1 - 0.25) = \boxed{\$1{,}875{,}000 \text{ a year}}
+$$
+
+The same company is used as the running example through the rest of the Fixed Income lessons.
 
 # Quiz
 
@@ -60,3 +81,17 @@ A city needs 50 million dollars to build a water treatment plant. Instead of bor
    - [x] Because the pieces are standardized and tradable, so another investor can buy them
    - Because the government requires it
    > Standardization lets bonds trade among investors, so a lender isn't locked in until the final repayment.
+
+6. The packaging manufacturer issues 50,000 bonds with a face value of $1,000 each. How much does it raise?
+   - $5 million
+   - $20 million
+   - [x] $50 million
+   - $500 million
+   > 50,000 bonds × $1,000 of face value each is $50 million, which is $30 million more than the bank was willing to lend.
+
+7. The bonds pay a 5% fixed coupon. How much interest does the manufacturer pay each year, before tax?
+   - $250,000
+   - [x] $2,500,000
+   - $5,000,000
+   - $1,875,000
+   > 5% of $50 million is $2.5 million a year. The $1,875,000 figure is the cost after a 25% tax deduction, not the amount paid.

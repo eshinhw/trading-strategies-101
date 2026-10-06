@@ -22,7 +22,20 @@ Even setting aside what it might predict about the economy, the yield curve's sh
 
 ## Example
 
-A corporate treasurer deciding whether to issue 2-year or 10-year debt checks the shape of the yield curve first: a steep curve means locking in the 10-year rate costs noticeably more than the shorter option, while a flat or inverted curve can make the longer-term borrowing look relatively cheap by comparison. Bond investors read the same curve from the other side, using its shape to judge whether the market is pricing in future rate cuts or a stronger economy ahead.
+The packaging manufacturer's treasurer is deciding how to fund the $50 million plant. The Treasury yield curve is upward-sloping, and the company's bonds trade at a 150 basis point (1.50%) spread over Treasuries at every maturity:
+
+- 2-year: Treasury 2.6%, company bond 4.1%
+- 10-year: Treasury 3.5%, company bond 5.0%
+
+Borrowing for 10 years costs 0.9 percentage points more than borrowing for 2:
+
+$$
+(5.0\% - 4.1\%) \times \$50{,}000{,}000 = \boxed{\$450{,}000 \text{ a year}}
+$$
+
+That is the price of certainty. The 2-year debt is cheaper now, but the company would need to refinance in two years at whatever rates are then, while the 10-year bond fixes its cost for the whole life of the plant.
+
+If the curve were inverted instead, with the 2-year Treasury at 4.4% and the 10-year at 3.5%, the company would pay 5.9% for 2 years and 5.0% for 10 years. The longer debt would be $450,000 a year cheaper and also give more certainty, so locking in the 10-year rate would look much more attractive.
 
 # Quiz
 
@@ -60,3 +73,17 @@ A corporate treasurer deciding whether to issue 2-year or 10-year debt checks th
    - Only the overall level of rates matters, never the curve's shape
    - The curve's shape only matters for corporate bonds, never government bonds
    > A steep curve favors different strategies (like rolling down the curve) than a flat or inverted one, making the curve's shape directly relevant to strategy selection, not just economic forecasting.
+
+6. The manufacturer can borrow $50 million for 2 years at 4.1% or for 10 years at 5.0%. How much more does the 10-year option cost each year?
+   - $45,000
+   - [x] $450,000
+   - $900,000
+   - $2,500,000
+   > The yield gap is 0.9 percentage points, and 0.9% of $50 million is $450,000 a year.
+
+7. If the curve inverted so that 2-year borrowing cost 5.9% and 10-year borrowing cost 5.0%, what would that mean for the treasurer?
+   - The 2-year debt would be cheaper
+   - [x] The 10-year debt would be cheaper and would also fix the cost for longer
+   - Neither option could be issued
+   - The two options would cost the same
+   > When short-term yields are above long-term yields, the longer maturity costs less per year and also locks in the rate for longer.
