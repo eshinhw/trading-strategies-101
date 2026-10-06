@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchConstructionExercise, fetchLesson, submitConstruction } from "../api";
 import type { ConstructionExerciseDetail, ConstructionGradeResult } from "../types/construction";
@@ -8,6 +8,7 @@ import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { ParamControls } from "../components/ParamControls";
 import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
+import { courseAccent } from "../lib/courseVisuals";
 
 function defaultsFor(params: { key: string; default: number }[]): ParamValues {
   const values: ParamValues = {};
@@ -83,8 +84,11 @@ export function ConstructionPage() {
   if (error && !exercise) {
     return (
       <div className="mx-auto max-w-3xl px-6 py-16 text-center">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400">
+          !
+        </div>
         <p className="text-amber-400">{error}</p>
-        <Link to="/courses" className="mt-4 inline-block text-[#7c6cff] hover:underline">
+        <Link to="/courses" className="mt-4 inline-block text-[#a99dff] hover:underline">
           ← All Courses
         </Link>
       </div>
@@ -95,102 +99,250 @@ export function ConstructionPage() {
     return <div className="mx-auto max-w-3xl px-6 py-16 text-center text-[#898781]">Loading…</div>;
   }
 
-  return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
-      <Link to={`/module/${exercise.moduleSlug}`} className="text-sm text-[#7c6cff] hover:underline">
-        ← {exercise.moduleTitle ?? "Back to module"}
-      </Link>
+  // Which step the learner is on: 1 pick a strategy, 2 tune it, 3 see the verdict.
+  const step = !pickedSlug ? 1 : result ? 3 : 2;
+  const accent = courseAccent("options");
+  const pickedName = exercise.candidates.find((c) => c.slug === pickedSlug)?.name;
 
-      <header className="mt-4 mb-6">
-        <span className="rounded-full border border-[#2a3040] px-2.5 py-0.5 text-xs font-medium text-[#9aa3b2]">
-          Construction exercise
-        </span>
-        <h1 className="mt-3 text-2xl font-bold text-[#e6e8ec]">{exercise.title}</h1>
-        <p className="mt-2 text-[#9aa3b2]">{exercise.scenario}</p>
+  return (
+    <div style={{ "--accent": accent } as CSSProperties}>
+      <header className="relative overflow-hidden border-b border-[#2a3040]">
+        <div
+          className="pointer-events-none absolute left-1/2 top-[-220px] h-[360px] w-[820px] -translate-x-1/2 rounded-full blur-3xl"
+          style={{ background: accent, opacity: 0.13 }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-50"
+          style={{
+            backgroundImage: "radial-gradient(rgba(154,163,178,0.12) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+            maskImage: "linear-gradient(to bottom, black, transparent)",
+            WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+          }}
+        />
+        <div className="relative mx-auto max-w-5xl px-6 pb-8 pt-6">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[#898781]">
+            <Link to="/courses/options" className="hover:text-[#e6e8ec]">
+              Options
+            </Link>
+            <span aria-hidden="true">/</span>
+            <Link to={`/module/${exercise.moduleSlug}`} className="hover:text-[#e6e8ec]">
+              {exercise.moduleTitle ?? "Module"}
+            </Link>
+          </nav>
+          <div className="mt-5 text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: accent }}>
+            Construction exercise
+          </div>
+          <h1 className="mt-1 text-4xl font-bold text-[#e6e8ec]">{exercise.title}</h1>
+          <blockquote
+            className="mt-4 max-w-3xl border-l-2 pl-4 text-lg leading-relaxed text-[#9aa3b2]"
+            style={{ borderColor: `${accent}99` }}
+          >
+            {exercise.scenario}
+          </blockquote>
+        </div>
       </header>
 
-      <div className="mb-6 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Your build must hit</h3>
-        <ul className="flex flex-col gap-1.5">
-          {exercise.goalChecklist.map((label, i) => {
-            const check = result?.checklist[i];
-            return (
-              <li key={i} className="flex items-center gap-2 text-sm">
-                <span className={check ? (check.met ? "text-emerald-400" : "text-red-400") : "text-[#898781]"}>
-                  {check ? (check.met ? "✓" : "✗") : "–"}
-                </span>
-                <span className="text-[#e6e8ec]">{label}</span>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-6 py-8 lg:grid-cols-[1fr_280px]">
+        <main className="min-w-0">
+          <Stepper step={step} accent={accent} pickedName={pickedName} />
 
-      {!pickedSlug ? (
-        <div>
-          <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Pick a strategy</h3>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {exercise.candidates.map((c) => (
-              <button
-                key={c.slug}
-                onClick={() => pickCandidate(c.slug)}
-                className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-4 text-left transition hover:border-[#7c6cff]/50 hover:bg-[#171c26]"
-              >
-                <div className="font-medium text-[#e6e8ec]">{c.name}</div>
-              </button>
-            ))}
-          </div>
-        </div>
-      ) : !strategy || !stats ? (
-        <p className="text-[#898781]">Loading strategy…</p>
-      ) : result ? (
-        <ConstructionResult
-          strategyName={strategy.name}
-          result={result}
-          onTryAgain={tryAgain}
-          onChangeStrategy={changeStrategy}
-        />
-      ) : (
-        <div className="flex flex-col gap-6">
-          <div className="flex items-center justify-between">
-            <div className="font-medium text-[#e6e8ec]">Building: {strategy.name}</div>
-            <button onClick={changeStrategy} className="text-xs text-[#7c6cff] hover:underline">
-              Pick a different strategy
-            </button>
-          </div>
-
-          <ParamControls
-            params={strategy.params}
-            values={params}
-            onChange={(key, value) => setParams((prev) => ({ ...prev, [key]: value }))}
-            onReset={() => setParams(defaultsFor(strategy.params))}
-          />
-
-          <div className="grid grid-cols-2 gap-3">
-            <StatTile label="Max profit" value={stats.maxProfit} tone="good" />
-            <StatTile label="Max loss" value={stats.maxLoss} tone="critical" />
-          </div>
-
-          <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
-            <PayoffChart
-              curve={stats.curve}
-              breakevens={stats.breakevens.filter((b) => b >= stats.displayRange[0] && b <= stats.displayRange[1])}
-              currentPrice={params.S0}
+          {!pickedSlug ? (
+            <section className="mt-6">
+              <h2 className="text-xl font-bold text-[#e6e8ec]">Pick a strategy</h2>
+              <p className="mt-1 text-sm text-[#9aa3b2]">
+                Only one of these can meet every requirement. Choose the one you think fits, then tune it.
+              </p>
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {exercise.candidates.map((c, i) => (
+                  <button
+                    key={c.slug}
+                    onClick={() => pickCandidate(c.slug)}
+                    className="group flex items-center gap-3 rounded-2xl border border-[#2a3040] bg-[#141821] p-4 text-left transition duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] hover:bg-[#171c26]"
+                  >
+                    <span
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border text-sm font-bold"
+                      style={{ background: `${accent}22`, borderColor: `${accent}55`, color: accent }}
+                    >
+                      {String.fromCharCode(65 + i)}
+                    </span>
+                    <span className="flex-1 font-semibold text-[#e6e8ec]">{c.name}</span>
+                    <span
+                      className="opacity-0 transition duration-200 group-hover:translate-x-0.5 group-hover:opacity-100"
+                      style={{ color: accent }}
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </section>
+          ) : !strategy || !stats ? (
+            <p className="mt-6 text-[#898781]">Loading strategy…</p>
+          ) : result ? (
+            <ConstructionResult
+              strategyName={strategy.name}
+              result={result}
+              moduleSlug={exercise.moduleSlug}
+              onTryAgain={tryAgain}
+              onChangeStrategy={changeStrategy}
             />
-          </div>
+          ) : (
+            <section className="mt-6 flex flex-col gap-6">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h2 className="text-xl font-bold text-[#e6e8ec]">
+                  Building: <span style={{ color: accent }}>{strategy.name}</span>
+                </h2>
+                <button onClick={changeStrategy} className="text-sm text-[#a99dff] hover:underline">
+                  ← Pick a different strategy
+                </button>
+              </div>
 
-          <button
-            onClick={handleSubmit}
-            disabled={submitting}
-            className="self-start rounded-lg bg-[#7c6cff] px-4 py-2 text-sm font-medium text-white hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            {submitting ? "Checking…" : "Check my build"}
-          </button>
+              <ParamControls
+                params={strategy.params}
+                values={params}
+                onChange={(key, value) => setParams((prev) => ({ ...prev, [key]: value }))}
+                onReset={() => setParams(defaultsFor(strategy.params))}
+              />
 
-          {error && <p className="text-sm text-red-400">{error}</p>}
-        </div>
-      )}
+              <div className="rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5">
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">
+                  Payoff at expiration
+                </h3>
+                <PayoffChart
+                  curve={stats.curve}
+                  breakevens={stats.breakevens.filter((b) => b >= stats.displayRange[0] && b <= stats.displayRange[1])}
+                  currentPrice={params.S0}
+                />
+                <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                  <StatTile label="Max profit" value={stats.maxProfit} tone="good" />
+                  <StatTile label="Max loss" value={stats.maxLoss} tone="critical" />
+                  <StatTile
+                    label="Breakeven"
+                    value={stats.breakevens.length === 0 ? "—" : stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")}
+                    tone="neutral"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <button
+                  onClick={handleSubmit}
+                  disabled={submitting}
+                  className="rounded-lg bg-[#7c6cff] px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#7c6cff]/30 transition hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+                >
+                  {submitting ? "Checking…" : "Check my build"}
+                </button>
+                <span className="text-xs text-[#898781]">Your build is checked against every requirement on the right.</span>
+              </div>
+
+              {error && <p className="text-sm text-red-400">{error}</p>}
+            </section>
+          )}
+        </main>
+
+        <aside className="order-first lg:sticky lg:top-24 lg:order-none lg:self-start">
+          <Checklist items={exercise.goalChecklist} result={result} accent={accent} />
+        </aside>
+      </div>
+    </div>
+  );
+}
+
+function Stepper({ step, accent, pickedName }: { step: number; accent: string; pickedName?: string }) {
+  const steps = [
+    { n: 1, label: "Pick a strategy", detail: undefined },
+    { n: 2, label: "Tune the build", detail: pickedName },
+    { n: 3, label: "See the verdict", detail: undefined },
+  ];
+  return (
+    <ol className="flex items-center gap-2 sm:gap-3" aria-label="Progress">
+      {steps.map((st, i) => {
+        const done = step > st.n;
+        const current = step === st.n;
+        return (
+          <li key={st.n} className="flex flex-1 items-center gap-2 sm:gap-3" aria-current={current ? "step" : undefined}>
+            <span
+              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-bold transition"
+              style={
+                done
+                  ? { background: "#34d39922", borderColor: "#34d39966", color: "#34d399" }
+                  : current
+                    ? { background: accent, borderColor: accent, color: "#0b0d12", boxShadow: `0 0 14px ${accent}66` }
+                    : { background: "#141821", borderColor: "#2a3040", color: "#898781" }
+              }
+            >
+              {done ? "✓" : st.n}
+            </span>
+            <span className={`hidden text-sm sm:block ${current ? "font-semibold text-[#e6e8ec]" : "text-[#898781]"}`}>
+              {st.label}
+            </span>
+            {i < steps.length - 1 && <span className="h-px flex-1 bg-gradient-to-r from-[#2a3040] to-[#2a3040]/30" />}
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+function Checklist({
+  items,
+  result,
+  accent,
+}: {
+  items: string[];
+  result: ConstructionGradeResult | null;
+  accent: string;
+}) {
+  const metCount = result ? result.checklist.filter((c) => c.met).length : 0;
+  return (
+    <div className="rounded-2xl border border-[#2a3040] bg-gradient-to-b from-[#181c28] to-[#12151d] p-5">
+      <div className="flex items-center justify-between gap-2">
+        <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Your build must hit</h3>
+        {result && (
+          <span className={`text-xs font-medium ${result.passed ? "text-emerald-400" : "text-amber-400"}`}>
+            {metCount}/{items.length}
+          </span>
+        )}
+      </div>
+      <ul className="mt-4 flex flex-col gap-3">
+        {items.map((label, i) => {
+          const check = result?.checklist[i];
+          return (
+            <li key={i} className="flex items-start gap-3 text-sm">
+              <span
+                aria-hidden="true"
+                className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[11px] font-bold"
+                style={
+                  check
+                    ? check.met
+                      ? { background: "#34d399", borderColor: "#34d399", color: "#06281c" }
+                      : { background: "#f87171", borderColor: "#f87171", color: "#2b0a0a" }
+                    : { borderColor: `${accent}66`, color: accent }
+                }
+              >
+                {check ? (check.met ? "✓" : "✕") : i + 1}
+              </span>
+              <span className={check ? (check.met ? "text-emerald-100" : "text-red-200") : "text-[#e6e8ec]"}>{label}</span>
+              {check && <span className="sr-only">{check.met ? "met" : "not met"}</span>}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+function fmtMoney(v: number | "unlimited"): string {
+  return v === "unlimited" ? "Unlimited" : `${v < 0 ? "-" : ""}$${Math.abs(v).toFixed(2)}`;
+}
+
+function ResultStat({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-left">
+      <div className="text-[11px] uppercase tracking-wide text-[#898781]">{label}</div>
+      <div className="mt-0.5 font-semibold text-[#e6e8ec]">{children}</div>
     </div>
   );
 }
@@ -198,39 +350,67 @@ export function ConstructionPage() {
 function ConstructionResult({
   strategyName,
   result,
+  moduleSlug,
   onTryAgain,
   onChangeStrategy,
 }: {
   strategyName: string;
   result: ConstructionGradeResult;
+  moduleSlug: string;
   onTryAgain: () => void;
   onChangeStrategy: () => void;
 }) {
   return (
-    <div
-      className={`rounded-xl border p-6 text-center ${
+    <section
+      className={`mt-6 rounded-2xl border p-6 sm:p-8 ${
         result.passed ? "border-emerald-500/30 bg-emerald-500/10" : "border-amber-500/30 bg-amber-500/10"
       }`}
     >
-      <div className={`text-xl font-semibold ${result.passed ? "text-emerald-400" : "text-amber-400"}`}>
-        {result.passed ? `Your ${strategyName} works.` : "Not quite — check the list above."}
+      <div className="flex items-start gap-4">
+        <span
+          aria-hidden="true"
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xl font-bold ${
+            result.passed ? "bg-emerald-500 text-[#06281c]" : "bg-amber-400 text-[#2b1a02]"
+          }`}
+        >
+          {result.passed ? "✓" : "!"}
+        </span>
+        <div>
+          <div className={`text-2xl font-bold ${result.passed ? "text-emerald-300" : "text-amber-300"}`}>
+            {result.passed ? `Your ${strategyName} works.` : "Not quite — check the list."}
+          </div>
+          <p className="mt-1 text-[#9aa3b2]">
+            {result.passed
+              ? "This build satisfies every requirement in the goal."
+              : "Some requirements are still unmet. Adjust the parameters, or try a different strategy entirely."}
+          </p>
+        </div>
       </div>
-      <p className="mt-2 text-sm text-[#9aa3b2]">
-        {result.passed
-          ? "This build satisfies every requirement in the goal."
-          : "Adjust the parameters, or try a different strategy entirely."}
-      </p>
-      <div className="mt-6 flex justify-center gap-4">
+
+      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <ResultStat label="Max profit">{fmtMoney(result.stats.maxProfit)}</ResultStat>
+        <ResultStat label="Max loss">{fmtMoney(result.stats.maxLoss)}</ResultStat>
+        <ResultStat label="Breakeven">
+          {result.stats.breakevens.length === 0 ? "—" : result.stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")}
+        </ResultStat>
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-center gap-4">
         <button
           onClick={onTryAgain}
-          className="rounded-lg bg-[#7c6cff] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#6552f0]"
+          className="rounded-lg bg-[#7c6cff] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-[#7c6cff]/30 transition hover:bg-[#6552f0]"
         >
           Adjust and retry
         </button>
-        <button onClick={onChangeStrategy} className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+        <button onClick={onChangeStrategy} className="text-sm text-[#a99dff] hover:underline">
           Try a different strategy
         </button>
+        {result.passed && (
+          <Link to={`/module/${moduleSlug}`} className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+            Back to the module →
+          </Link>
+        )}
       </div>
-    </div>
+    </section>
   );
 }
