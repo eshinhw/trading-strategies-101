@@ -1,25 +1,31 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
+import { PRACTICE_TOOL_LINKS } from "../lib/practiceTools";
 import { LogoMark } from "./Nav";
 
-const EXPLORE_LINKS = [
+interface FooterLink {
+  to: string;
+  label: string;
+}
+
+const EXPLORE_LINKS: FooterLink[] = [
   { to: "/courses", label: "All courses" },
-  { to: "/practice", label: "Practice" },
   { to: "/books", label: "Books" },
   { to: "/papers", label: "Papers" },
 ];
 
-const POPULAR_LINKS = [
-  { to: "/courses/options", label: "Options" },
-  { to: "/courses/futures", label: "Futures" },
-  { to: "/courses/fixed-income", label: "Fixed Income" },
-  { to: "/courses/stocks", label: "Stocks" },
-  { to: "/courses/fx", label: "FX" },
+// One entry per practice tool, so a new tool shows up here as soon as it's added to the shared list.
+const PRACTICE_LINKS: FooterLink[] = [
+  { to: "/practice", label: "All practice tools" },
+  ...PRACTICE_TOOL_LINKS.map((t) => ({ to: `/practice/${t.slug}`, label: t.title })),
 ];
 
-const ACCOUNT_LINKS = [
+const SIGNED_OUT_LINKS: FooterLink[] = [
   { to: "/signup", label: "Sign up" },
   { to: "/login", label: "Sign in" },
 ];
+
+const SIGNED_IN_LINKS: FooterLink[] = [{ to: "/courses", label: "Your courses" }];
 
 const GITHUB_URL = "https://github.com/eshinhw/trading-strategies-101";
 
@@ -57,6 +63,7 @@ function FooterBackground() {
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { user } = useAuth();
 
   return (
     <footer className="relative overflow-hidden border-t border-[#2a3040] bg-[#0e1117]">
@@ -76,22 +83,32 @@ export function Footer() {
               Hands-on lessons for 18 asset classes, from options to distressed debt — 177 strategies, learned by doing,
               not memorizing.
             </p>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View source on GitHub"
-              className="mt-4 inline-flex items-center justify-center rounded-full border border-[#2a3040] p-2 text-[#9aa3b2] transition hover:border-[#3a4150] hover:text-[#e6e8ec]"
-            >
-              <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
-              </svg>
-            </a>
+            <div className="mt-4 flex items-center gap-3">
+              {!user && (
+                <Link
+                  to="/signup"
+                  className="rounded-full bg-[#7c6cff] px-4 py-1.5 text-sm font-medium text-white shadow-md shadow-[#7c6cff]/30 transition hover:bg-[#6552f0]"
+                >
+                  Start learning, it's free
+                </Link>
+              )}
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View source on GitHub"
+                className="inline-flex items-center justify-center rounded-full border border-[#2a3040] p-2 text-[#9aa3b2] transition hover:border-[#3a4150] hover:text-[#e6e8ec]"
+              >
+                <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                </svg>
+              </a>
+            </div>
           </div>
 
           <FooterColumn title="Explore" links={EXPLORE_LINKS} />
-          <FooterColumn title="Popular courses" links={POPULAR_LINKS} />
-          <FooterColumn title="Account" links={ACCOUNT_LINKS} />
+          <FooterColumn title="Practice" links={PRACTICE_LINKS} />
+          <FooterColumn title="Account" links={user ? SIGNED_IN_LINKS : SIGNED_OUT_LINKS} />
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-[#2a3040] pt-6 text-xs text-[#898781]">
@@ -101,9 +118,18 @@ export function Footer() {
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p>© {year} Trading Strategies 101. All rights reserved.</p>
-            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#e6e8ec]">
-              View source on GitHub
-            </a>
+            <div className="flex items-center gap-5">
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#e6e8ec]">
+                View source on GitHub
+              </a>
+              <button
+                type="button"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="flex items-center gap-1.5 hover:text-[#e6e8ec]"
+              >
+                Back to top <span aria-hidden="true">↑</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -111,14 +137,17 @@ export function Footer() {
   );
 }
 
-function FooterColumn({ title, links }: { title: string; links: { to: string; label: string }[] }) {
+function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
   return (
     <div>
       <h4 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#e6e8ec]">{title}</h4>
       <ul className="mt-3 flex flex-col gap-2">
         {links.map((l) => (
           <li key={l.label}>
-            <Link to={l.to} className="text-sm text-[#9aa3b2] transition hover:text-[#a99dff]">
+            <Link
+              to={l.to}
+              className="inline-flex items-center gap-2 text-sm text-[#9aa3b2] transition hover:text-[#a99dff]"
+            >
               {l.label}
             </Link>
           </li>

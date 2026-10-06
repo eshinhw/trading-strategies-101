@@ -238,13 +238,7 @@ export function PracticePage() {
               style={{ background: accent, opacity: 0.12 }}
             />
             <div className="relative flex flex-col p-6 sm:p-8">
-              <span
-                className="w-fit rounded-full border px-2.5 py-0.5 text-xs font-medium"
-                style={{ borderColor: `${accent}55`, background: `${accent}1a`, color: accent }}
-              >
-                Options
-              </span>
-              <h3 className="mt-3 text-2xl font-bold text-[#e6e8ec]">Options Payoff Simulator</h3>
+              <h3 className="text-2xl font-bold text-[#e6e8ec]">Options Payoff Simulator</h3>
               <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">
                 Build a position leg by leg, stock, calls, puts, long or short, and watch the payoff update live. If what
                 you build matches a strategy from the course, its explanation shows up automatically.
