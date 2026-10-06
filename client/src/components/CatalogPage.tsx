@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export interface CatalogCategory {
   slug: string;
@@ -53,6 +54,21 @@ function TopicChip({
   );
 }
 
+export interface BookmarkControls {
+  saved: boolean;
+  toggle: () => void;
+}
+
+function loadSaved(key: string): Set<string> {
+  try {
+    const raw = localStorage.getItem(key);
+    const parsed = raw ? (JSON.parse(raw) as unknown) : [];
+    return new Set(Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === "string") : []);
+  } catch {
+    return new Set();
+  }
+}
+
 // Shared shell for the Books and Papers pages — same header, search box, topic + level filters and
 // category-grouped card grid, differing only in field names (author vs authors) and the card
 // itself. See BooksPage.tsx / PapersPage.tsx for the domain-specific pieces each one plugs in.
@@ -76,6 +92,8 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   renderRow,
   renderTimeline,
   sorters,
+  getId,
+  bookmarkKey,
 }: {
   eyebrow: string;
   title: string;
@@ -92,9 +110,9 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   getCategoryAccent: (slug: string) => string;
   matchesQuery: (item: TItem, q: string) => boolean;
   gridColsClassName?: string;
-  renderCard: (item: TItem, accent: string) => ReactNode;
+  renderCard: (item: TItem, accent: string, bookmark?: BookmarkControls) => ReactNode;
   /** a compact one-line layout; when given, a Cards / List toggle appears */
-  renderRow?: (item: TItem, accent: string) => ReactNode;
+  renderRow?: (item: TItem, accent: string, bookmark?: BookmarkControls) => ReactNode;
   /** a chronological layout over the filtered items; when given, a Timeline option joins the layout toggle */
   renderTimeline?: (
     items: TItem[],
@@ -102,14 +120,64 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   ) => ReactNode;
   /** extra sort orders; the catalog's own order ("Recommended") is always the default */
   sorters?: { id: string; label: string; compare: (a: TItem, b: TItem) => number }[];
+  /** with bookmarkKey, learners can save items for later (kept in this browser) and filter to just those */
+  getId?: (item: TItem) => string;
+  bookmarkKey?: string;
 }) {
   const [data, setData] = useState<{ categories: TCategory[]; items: TItem[] } | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [query, setQuery] = useState("");
-  const [level, setLevel] = useState<TLevel | "all">("all");
-  const [topic, setTopic] = useState<string>("all");
-  const [sortId, setSortId] = useState("recommended");
-  const [view, setView] = useState<"cards" | "list" | "timeline">("cards");
+  // Filters, sort and layout live in the URL (?q=&level=&topic=&sort=&view=&saved=1), so a filtered view can be
+  // shared, survives a refresh, and is restored by the back button.
+  const [searchParams, setSearchParams] = useSearchParams();
+  const setParams = (updates: Record<string, string | null>) =>
+    setSearchParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        for (const [key, value] of Object.entries(updates)) {
+          if (value === null || value === "") next.delete(key);
+          else next.set(key, value);
+        }
+        return next;
+      },
+      { replace: true },
+    );
+
+  const query = searchParams.get("q") ?? "";
+  const levelParam = searchParams.get("level");
+  const level: TLevel | "all" = levels.includes(levelParam as TLevel) ? (levelParam as TLevel) : "all";
+  const topicParam = searchParams.get("topic");
+  const topic = topicParam && data?.categories.some((c) => c.slug === topicParam) ? topicParam : "all";
+  const sortParam = searchParams.get("sort");
+  const sortId = sorters?.some((x) => x.id === sortParam) ? (sortParam as string) : "recommended";
+  const viewParam = searchParams.get("view");
+  const view: "cards" | "list" | "timeline" =
+    viewParam === "list" && renderRow ? "list" : viewParam === "timeline" && renderTimeline ? "timeline" : "cards";
+  const onlySaved = Boolean(bookmarkKey) && searchParams.get("saved") === "1";
+
+  const setQuery = (v: string) => setParams({ q: v });
+  const setLevel = (v: TLevel | "all") => setParams({ level: v === "all" ? null : v });
+  const setTopic = (v: string) => setParams({ topic: v === "all" ? null : v });
+  const setSortId = (v: string) => setParams({ sort: v === "recommended" ? null : v });
+  const setView = (v: "cards" | "list" | "timeline") => setParams({ view: v === "cards" ? null : v });
+
+  const [saved, setSaved] = useState<Set<string>>(() => (bookmarkKey ? loadSaved(bookmarkKey) : new Set()));
+  const toggleSaved = (id: string) =>
+    setSaved((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      if (bookmarkKey) {
+        try {
+          localStorage.setItem(bookmarkKey, JSON.stringify([...next]));
+        } catch {
+          // storage unavailable — the list just won't persist
+        }
+      }
+      return next;
+    });
+  const bookmarkFor = (item: TItem): BookmarkControls | undefined =>
+    bookmarkKey && getId ? { saved: saved.has(getId(item)), toggle: () => toggleSaved(getId(item)) } : undefined;
+
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -129,14 +197,15 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
       const matchesLevel = level === "all" || getLevel(item) === level;
       const matchesTopic = topic === "all" || getCategorySlug(item) === topic;
       const matchesSearch = q === "" || matchesQuery(item, q);
-      return matchesLevel && matchesTopic && matchesSearch;
+      const matchesSaved = !onlySaved || (getId ? saved.has(getId(item)) : true);
+      return matchesLevel && matchesTopic && matchesSearch && matchesSaved;
     });
     const sorter = sorters?.find((x) => x.id === sortId);
     return sorter ? matching.slice().sort(sorter.compare) : matching;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, query, level, topic, sortId]);
+  }, [data, query, level, topic, sortId, onlySaved, saved]);
 
-  const filtersActive = query.trim() !== "" || level !== "all" || topic !== "all";
+  const filtersActive = query.trim() !== "" || level !== "all" || topic !== "all" || onlySaved;
   // A long category shows only its first few entries until expanded, unless the learner is filtering.
   const collapseAfter = view === "list" ? 10 : 6;
   const toggleExpanded = (slug: string) =>
@@ -146,11 +215,7 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
       else next.add(slug);
       return next;
     });
-  const clearFilters = () => {
-    setQuery("");
-    setLevel("all");
-    setTopic("all");
-  };
+  const clearFilters = () => setParams({ q: null, level: null, topic: null, saved: null });
 
   const topicCounts = useMemo(() => {
     const counts = new Map<string, number>();
@@ -257,7 +322,23 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                   </button>
                 )}
               </p>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
+                {bookmarkKey && (
+                  <button
+                    onClick={() => setParams({ saved: onlySaved ? null : "1" })}
+                    aria-pressed={onlySaved}
+                    className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
+                      onlySaved
+                        ? "border-[#7c6cff]/50 bg-[#7c6cff]/15 text-[#e6e8ec]"
+                        : "border-[#2a3040] text-[#9aa3b2] hover:text-[#e6e8ec]"
+                    }`}
+                  >
+                    <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill={onlySaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5.5 3.5h9a1 1 0 0 1 1 1V17l-5.5-3.5L4.5 17V4.5a1 1 0 0 1 1-1Z" />
+                    </svg>
+                    Saved <span className="text-[#898781]">{saved.size}</span>
+                  </button>
+                )}
                 {sorters && sorters.length > 0 && (
                   <label className="flex items-center gap-2 text-xs text-[#898781]">
                     Sort
@@ -305,7 +386,11 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
 
             {filteredItems.length === 0 ? (
               <div className="rounded-2xl border border-dashed border-[#2a3040] p-10 text-center">
-                <p className="text-[#9aa3b2]">{emptyLabel}</p>
+                <p className="text-[#9aa3b2]">
+                  {onlySaved && saved.size === 0
+                    ? `You haven't saved any ${itemNoun} yet. Use the bookmark on a card to build your reading list.`
+                    : emptyLabel}
+                </p>
                 {filtersActive && (
                   <button onClick={clearFilters} className="mt-3 text-sm text-[#a99dff] hover:underline">
                     Clear filters
@@ -350,10 +435,10 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                         return (
                           <>
                             {view === "list" && renderRow ? (
-                              <div className="mt-5 flex flex-col gap-2">{visible.map((item) => renderRow(item, accent))}</div>
+                              <div className="mt-5 flex flex-col gap-2">{visible.map((item) => renderRow(item, accent, bookmarkFor(item)))}</div>
                             ) : (
                               <div className={`mt-5 grid grid-cols-1 gap-4 ${gridColsClassName}`}>
-                                {visible.map((item) => renderCard(item, accent))}
+                                {visible.map((item) => renderCard(item, accent, bookmarkFor(item)))}
                               </div>
                             )}
                             {collapsible && (

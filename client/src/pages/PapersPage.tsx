@@ -1,7 +1,8 @@
 import { useState, type CSSProperties } from "react";
 import { fetchPapers } from "../api";
 import type { Paper } from "../types/paper";
-import { CatalogPage } from "../components/CatalogPage";
+import { CatalogPage, type BookmarkControls } from "../components/CatalogPage";
+import { BookmarkButton } from "../components/BookmarkButton";
 import { ACCENT } from "../lib/courseVisuals";
 
 const LEVEL_LABEL: Record<Paper["level"], string> = {
@@ -32,7 +33,7 @@ export function PapersPage() {
       title="Papers"
       itemNoun="papers"
       description="The foundational research behind the strategies in this curriculum — citations and our own summary of what each paper actually shows, not the papers themselves."
-      searchPlaceholder="Search by title or author…"
+      searchPlaceholder="Search by title, author or topic…"
       loadingLabel="Loading papers…"
       emptyLabel="No papers match your search."
       fetchData={() => fetchPapers().then((d) => ({ categories: d.categories, items: d.papers }))}
@@ -41,10 +42,16 @@ export function PapersPage() {
       getLevel={(paper) => paper.level}
       getCategorySlug={(paper) => paper.category}
       getCategoryAccent={accentFor}
-      matchesQuery={(paper, q) => paper.title.toLowerCase().includes(q) || paper.authors.toLowerCase().includes(q)}
+      matchesQuery={(paper, q) =>
+        [paper.title, paper.authors, paper.venue, paper.summary, paper.whyItsHere].some((field) =>
+          field.toLowerCase().includes(q),
+        )
+      }
+      getId={(paper) => paper.slug}
+      bookmarkKey="papers:saved"
       gridColsClassName="sm:grid-cols-2 lg:grid-cols-3"
-      renderCard={(paper, accent) => <PaperCard key={paper.slug} paper={paper} accent={accent} />}
-      renderRow={(paper, accent) => <PaperRow key={paper.slug} paper={paper} accent={accent} />}
+      renderCard={(paper, accent, bookmark) => <PaperCard key={paper.slug} paper={paper} accent={accent} bookmark={bookmark} />}
+      renderRow={(paper, accent, bookmark) => <PaperRow key={paper.slug} paper={paper} accent={accent} bookmark={bookmark} />}
       renderTimeline={(papers, { accentOf, categoryOf }) => (
         <PaperTimeline papers={papers} accentOf={accentOf} categoryTitleOf={(p) => categoryOf(p)?.title} />
       )}
@@ -208,7 +215,7 @@ function PaperTimeline({
   );
 }
 
-function PaperCard({ paper, accent }: { paper: Paper; accent: string }) {
+function PaperCard({ paper, accent, bookmark }: { paper: Paper; accent: string; bookmark?: BookmarkControls }) {
   return (
     <article
       className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5 transition duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)]"
@@ -227,6 +234,7 @@ function PaperCard({ paper, accent }: { paper: Paper; accent: string }) {
           <span className={`shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium ${LEVEL_CLASSES[paper.level]}`}>
             {LEVEL_LABEL[paper.level]}
           </span>
+          {bookmark && <BookmarkButton saved={bookmark.saved} onToggle={bookmark.toggle} label={paper.title} />}
         </span>
       </div>
       <h3 className="mt-3 font-semibold leading-snug text-[#e6e8ec]">{paper.title}</h3>
@@ -252,7 +260,7 @@ function PaperCard({ paper, accent }: { paper: Paper; accent: string }) {
 }
 
 // Compact one-line layout for the List view.
-function PaperRow({ paper, accent }: { paper: Paper; accent: string }) {
+function PaperRow({ paper, accent, bookmark }: { paper: Paper; accent: string; bookmark?: BookmarkControls }) {
   return (
     <article
       className="group flex items-center gap-4 rounded-xl border border-[#2a3040] bg-[#141821] px-4 py-3 transition duration-200 hover:border-[var(--accent)]"
@@ -270,6 +278,7 @@ function PaperRow({ paper, accent }: { paper: Paper; accent: string }) {
       <span className={`hidden shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium sm:inline ${LEVEL_CLASSES[paper.level]}`}>
         {LEVEL_LABEL[paper.level]}
       </span>
+      {bookmark && <BookmarkButton saved={bookmark.saved} onToggle={bookmark.toggle} label={paper.title} />}
       <a
         href={paper.link.url}
         target="_blank"
