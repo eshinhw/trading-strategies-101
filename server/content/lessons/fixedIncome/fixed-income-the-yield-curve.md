@@ -20,7 +20,7 @@ The curve can flatten, when the gap between short- and long-term yields narrows,
 
 Even setting aside what it might predict about the economy, the yield curve's shape directly drives which fixed income strategies make sense at a given moment — a steep curve favors strategies like rolling down the curve, discussed elsewhere in this course, while a flat or inverted curve changes the relative appeal of different maturities and the curve-trade strategies built around them.
 
-## In Practice
+## Example
 
 A corporate treasurer deciding whether to issue 2-year or 10-year debt checks the shape of the yield curve first: a steep curve means locking in the 10-year rate costs noticeably more than the shorter option, while a flat or inverted curve can make the longer-term borrowing look relatively cheap by comparison. Bond investors read the same curve from the other side, using its shape to judge whether the market is pricing in future rate cuts or a stronger economy ahead.
 

@@ -20,7 +20,7 @@ Novation is formally transferring one side of a forward to a new counterparty, r
 
 The cleanest option, when available, is simply agreeing directly with the original counterparty to cancel the contract early, settling it at its current mark-to-market value — the same valuation covered in the Valuing an Existing Forward Contract lesson. This avoids leaving any contracts outstanding at all, but only works if the original counterparty is willing to agree to it.
 
-## Example in Practice
+## Example
 
 A hedge fund that wants to unwind an FX forward well before maturity typically approaches its original bank counterparty first, since a mutual termination at fair value is usually cleaner and cheaper than leaving two offsetting contracts outstanding or hunting for a new counterparty willing to accept a novated position — a practical constraint that simply doesn't exist for an exchange-traded futures position. A company holding a long forward now worth $50,000, using the mid-life valuation approach from the Valuing an Existing Forward lesson, runs into exactly that choice: if its original bank agrees to a mutual termination, it just pays the company the $50,000 today and both sides walk away clean, versus entering a new, opposite forward with a different bank, which would leave both contracts open until each separately runs its course.
 

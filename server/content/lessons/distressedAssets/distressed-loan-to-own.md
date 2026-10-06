@@ -20,7 +20,7 @@ This strategy typically requires accumulating a large enough share of the target
 
 Because the endpoint is owning and controlling the actual operating company, loan-to-own investors need a genuine view on the business itself, not just the debt's recovery value — they're ultimately underwriting the company's future as its next owner, closer to a private-equity buyout thesis than a pure credit trade.
 
-## In Practice
+## Example
 
 A fund buys a controlling share of a struggling manufacturer's senior secured debt at a steep discount, specifically because it believes the underlying manufacturing business is fundamentally sound and only over-leveraged. As the company reorganizes, that debt converts into a majority equity stake, and the fund exits its debt position having effectively bought control of a viable business at a distressed-debt price rather than a full acquisition price.
 

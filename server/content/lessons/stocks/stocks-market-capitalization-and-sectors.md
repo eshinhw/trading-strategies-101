@@ -20,7 +20,7 @@ Companies are also classified by what they actually do — sectors like technolo
 
 A stock index, like the S&P 500, tracks a defined basket of stocks, often selected and weighted by market cap, to represent the performance of a market or a slice of it. Indices serve as benchmarks that individual stocks, sectors, and entire investment strategies are commonly measured against.
 
-## In Practice
+## Example
 
 A portfolio manager building a technology-focused fund doesn't just buy the single largest tech company by market cap and call it done — they weigh exposure across large-cap software firms, mid-cap semiconductor makers, and smaller, newer companies, because a portfolio concentrated only in the very largest names behaves differently than one spread across the full size spectrum. Comparing that fund's return against a broad benchmark like the S&P 500 is then how the manager judges whether their sector bets actually added value beyond just being invested in stocks generally.
 

@@ -24,7 +24,7 @@ Arbitrageurs look for price discrepancies between related markets or instruments
 
 Hedgers create the underlying demand to transfer risk; speculators supply the capital willing to absorb it; market makers supply the continuous liquidity that lets both trade instantly; and arbitrageurs enforce the pricing discipline that keeps the whole structure trustworthy. Remove any one role and the market becomes thinner, less efficient, or less reliable as a pricing benchmark.
 
-## Example in Practice
+## Example
 
 A retail trader placing a single crude oil futures order rarely thinks about who's actually on the other side of the trade — but every one of this lesson's four roles is usually there, working quietly in the background. A soybean processor (hedger) wanting to lock in a purchase price buys futures; a trend-following fund (speculator) happens to be selling that same contract on a bearish view, supplying the size the processor needs. A market maker keeps a tight bid-ask quote so both sides can transact instantly instead of waiting for a perfect match, while an arbitrage desk keeps that day's price from drifting too far from what soybean's spot price and cost of carry actually justify. Four different motives, one functioning, liquid market — whether or not any single trader in it ever stops to think about who's on the other side.
 

@@ -20,7 +20,7 @@ Common red flags include structuring — deliberately breaking a large sum into 
 
 Money laundering is a serious felony in most jurisdictions, carrying substantial fines and imprisonment for individuals. Financial institutions that fail to detect and report it face their own severe consequences — regulatory fines that have run into the billions of dollars for major banks found to have inadequate anti-money-laundering controls.
 
-## In Practice
+## Example
 
 A bank's anti-money-laundering compliance team uses automated monitoring software to flag accounts showing structuring-like patterns — say, repeated cash deposits just under the $10,000 reporting threshold — and then has an investigator review the account's overall activity before deciding whether it rises to the level of a Suspicious Activity Report. This detection process, not any operational description of laundering itself, is the actual focus of anti-money-laundering work.
 

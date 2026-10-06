@@ -20,7 +20,7 @@ Because muni interest is tax-advantaged, munis trade at a lower stated (nominal)
 
 To compare a muni fairly against a taxable bond, investors compute a taxable-equivalent yield: the muni's yield divided by one minus the investor's tax rate, which shows what a taxable bond would need to yield to match the muni's after-tax return for that specific investor. Because that calculation depends on the investor's own tax rate, the same muni can look attractive to a highly taxed investor and unattractive to a lightly taxed one.
 
-## In Practice
+## Example
 
 A municipal bond yielding 3% might look unremarkable next to a taxable corporate bond yielding 4.5% — until a high-tax-bracket investor computes the muni's taxable-equivalent yield and finds it's actually higher than 4.5% after accounting for the tax saved, making the lower-yielding muni the better after-tax choice for that specific investor, even though a lower-tax-bracket investor might reasonably prefer the corporate bond instead.
 

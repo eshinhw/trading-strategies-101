@@ -20,7 +20,7 @@ Publicly traded REITs list their shares on a stock exchange, offering the same i
 
 Before REITs existed, meaningful real estate exposure generally required enough capital to buy a property outright, or the connections to join a private real estate partnership. A publicly traded REIT reduces the minimum investment to the price of a single share, which is a large part of why REITs have become such a common way for ordinary investors to add real estate to a portfolio.
 
-## In Practice
+## Example
 
 An investor who wants exposure to a portfolio of shopping malls or warehouses, but has neither the millions of dollars nor the appetite to manage tenants directly, can simply buy shares of a publicly traded REIT that already owns and operates a large collection of those properties. Each quarter the REIT collects rent across its whole portfolio, and because it must pass along the large majority of that income to keep its tax status, the investor sees a steady dividend show up in their brokerage account, much like owning a diversified slice of commercial real estate without ever touching a lease.
 

@@ -38,7 +38,7 @@ $$
 
 For most pairs a pip is 0.0001, which is why points are the difference scaled by 10,000. Points are positive when the forward is above spot (a forward premium) and negative when it's below (a forward discount), and they grow with both the interest rate difference and the time to the forward date.
 
-## In Practice
+## Example
 
 Suppose EUR/USD spot is 1.1000, the three-month dollar interest rate is 5% a year, the three-month euro rate is 3% a year, and the period is 0.25 years. The forward rate is:
 

@@ -20,7 +20,7 @@ As covered in the Forward Pricing lesson, covered interest rate parity ties the 
 
 FX forward rates are often quoted not as an outright rate but as "forward points" — the difference to add to or subtract from the spot rate to get the forward rate. Positive forward points mean the currency is at a forward premium (its forward rate is above spot); negative points mean a forward discount (below spot) — directly reflecting which side of the interest-rate differential that currency sits on.
 
-## Example in Practice
+## Example
 
 A corporate treasurer comparing forward quotes from two different banks for the same currency pair and maturity date should expect them to land very close to each other, since both banks are pricing off the same observable interest-rate gap — a forward rate wildly out of line with that relationship would be exactly the kind of arbitrage opportunity the cost-of-carry framework says shouldn't persist. That interest-rate gap is what actually produces the quote the treasurer sees: with U.S. rates above euro rates, covered interest rate parity says the euro should trade at a forward premium — a spot rate of $1.08 per euro alongside a six-month forward of $1.10, say, with the $0.02 gap reflecting the rate differential itself, not a bank's forecast that the euro will actually be worth $1.10 in six months.
 

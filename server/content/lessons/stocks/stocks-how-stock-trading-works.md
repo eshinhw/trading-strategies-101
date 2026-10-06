@@ -20,7 +20,7 @@ Buying a stock outright, in the ordinary sense, is called going long: you profit
 
 Selling short flips that around: borrowing shares you don't own, selling them immediately, and aiming to buy them back later at a lower price to return to the lender, pocketing the difference. A short seller profits if the price falls, but faces theoretically unlimited losses if the price rises instead, since there's no cap on how high a stock can go.
 
-## In Practice
+## Example
 
 Picture a trader who believes a heavily hyped stock has run up further than its actual business justifies. Instead of buying, they borrow shares from their broker and sell them immediately at today's price, planning to buy them back later once the price comes back down and return the borrowed shares to close out the trade. If they're right, they pocket the difference; but if the stock keeps climbing instead, they have to buy back at a higher and higher price with no ceiling in sight, which is exactly why short selling carries a kind of risk that a simple long position never does.
 

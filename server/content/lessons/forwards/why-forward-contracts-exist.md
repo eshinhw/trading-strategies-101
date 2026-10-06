@@ -20,7 +20,7 @@ A forward is negotiated privately between two specific parties, so it can be bui
 
 Agreements to deliver something later at a price set today are among the oldest financial contracts, since merchants made them long before organized exchanges existed. A forward is the simplest derivative, and later instruments were built on it: futures standardized the contract and routed it through an exchange and clearinghouse to reduce counterparty risk and make exiting easy, and options added the choice of whether to go through with the deal. Understanding why a forward exists makes it easier to see what each of those later instruments was designed to fix.
 
-## Example in Practice
+## Example
 
 A wheat farmer expects 5,000 bushels at harvest in six months, and a bakery expects to need the same amount. They agree today on a forward price of $6.00 per bushel. If wheat is trading at $7.00 at harvest, the farmer gives up $5,000 of potential extra revenue and the bakery saves $5,000. If it has fallen to $5.00, the bakery overpays by $5,000 and the farmer is protected by the same amount. Neither can know which will happen, and both have removed the risk that a bad price would damage their business.
 

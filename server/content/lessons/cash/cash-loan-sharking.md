@@ -20,7 +20,7 @@ Because a usurious loan-shark debt isn't legally enforceable — courts won't up
 
 Usury caps exist specifically to prevent this kind of exploitative lending. Regulated alternatives — credit unions, community development financial institutions, and closely supervised small-dollar and payday-lending rules — exist to serve the same underserved borrowers through legal, enforceable, and comparatively far less predatory terms.
 
-## In Practice
+## Example
 
 Consider two borrowers who each need $500 quickly. One gets a small-dollar loan from a credit union, with a capped annual rate, clear disclosed terms, and legal recourse if either side breaches the agreement. The other borrows the same amount from an unlicensed lender at a rate that compounds far beyond any legal cap, with no written contract and no protection if the terms are changed unilaterally — the entire purpose of usury law and its regulated alternatives is making the first path available so the second is never the only option.
 

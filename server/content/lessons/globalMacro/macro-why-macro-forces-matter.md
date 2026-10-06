@@ -20,7 +20,7 @@ Governments and central banks make decisions that change the economic landscape,
 
 Macro views can be wrong, and even correct views can be early, since markets sometimes move against a position for a long time before the economy catches up. Data can also be revised after release, and positions are often leveraged, which magnifies losses. Because a single theme can drive many positions at once, a wrong call can hurt across a whole portfolio.
 
-## In Practice
+## Example
 
 An investor believes a central bank will raise interest rates faster than markets expect. That view could be expressed by selling government bonds, buying the country's currency, or buying bank stocks that tend to benefit from higher rates. Which one is best depends on how much of the view is already reflected in each price and how much risk the investor wants, a choice covered in a later lesson on turning a view into a trade.
 

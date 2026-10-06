@@ -20,7 +20,7 @@ A gas-fired generator's actual economic risk isn't the level of electricity pric
 
 A trader with no physical generation assets at all can take the same spread position purely financially, using electricity and gas futures or spark-spread-specific contracts to express a view on how that margin will move, effectively taking the same economic position a power generator's hedge would take, without any actual power plant behind it.
 
-## In Practice
+## Example
 
 A gas-fired power plant with a known heat rate locks in its spark spread by simultaneously selling electricity futures and buying natural gas futures in the ratio its own efficiency implies, fixing its generation margin regardless of which direction electricity and gas prices individually move afterward — protecting the plant's economics from the market's volatility in either underlying price.
 

@@ -20,7 +20,7 @@ A classic pattern: a strong price rally accompanied by declining volume and decl
 
 This approach requires more data than a pure price-based contrarian rule, since volume and open interest for futures are typically published daily by the exchange with a delay, and is usually combined with price-based signals rather than used entirely on its own. Activity data adds context about who is driving a move and how sustainable the current participation looks, rather than replacing a price signal outright.
 
-## Example in Practice
+## Example
 
 Natural gas rallies from $2.50 to $3.00 over two weeks. But during that same stretch, daily volume falls from 200,000 contracts to 90,000, and open interest falls from 850,000 contracts to 720,000 — a rally on thinning participation, consistent with short-covering rather than fresh buying. A contrarian trader shorts one contract (10,000 MMBtu) at $3.00. Gas subsequently falls back to $2.70 as the short-covering runs out, and the position gains $0.30 per MMBtu × 10,000 = $3,000.
 

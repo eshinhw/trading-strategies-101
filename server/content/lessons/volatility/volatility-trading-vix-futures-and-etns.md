@@ -20,7 +20,7 @@ Rather than trading VIX futures directly, many investors get volatility exposure
 
 Because the VIX futures curve typically sits in contango, a fund that continuously rolls its futures forward, always selling a cheaper near-term contract and buying a pricier longer-dated one, tends to erode in value over time even if the VIX itself doesn't trend in either direction — the same structural roll-cost drag covered for commodity futures, which is why these products are generally viewed as short-term trading tools rather than long-term holdings.
 
-## In Practice
+## Example
 
 A trader anticipating a rocky week around a major economic data release might buy a VIX-linked ETN as a short-term hedge, planning to sell it within days if the anticipated turbulence doesn't fully materialize — the kind of tactical, days-not-years holding period these products are actually built for, since the same contango-driven roll cost that could work in the trader's favor during a sudden spike quietly erodes the position's value the longer it's held afterward.
 

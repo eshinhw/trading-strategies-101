@@ -20,7 +20,7 @@ A typical quote line shows the last traded price, the day's change (in points an
 
 A futures price chart typically pairs candlesticks or a line showing price over time with a volume bar chart underneath, letting a trader see not just where price moved but how much conviction (trading activity) accompanied that move. A price move on unusually high volume is generally read as more significant than the same move on quiet, low volume.
 
-## Example in Practice
+## Example
 
 A new futures trader pulling up a 10-year Treasury note quote for the first time and seeing a price like 112'16 needs to recognize the tick mark before doing any math — reading it as a plain decimal, 112.16 instead of 112 and 16/32nds, would badly misstate what the contract is actually worth. A quote line for a completely different product reads just as precisely once you know the code: ESZ6 4,512.25, +8.50 (+0.19%), Vol 1,245,000, OI 2.1M decodes to the December 2026 E-mini S&P contract, last traded at 4,512.25, up 8.50 points on the day, with 1.245 million contracts traded so far and 2.1 million currently open across every expiration of the product — the same handful of columns, whether the underlying is an equity index or a government bond.
 

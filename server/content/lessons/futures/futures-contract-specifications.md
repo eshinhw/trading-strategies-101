@@ -20,7 +20,7 @@ For contracts on physical commodities, the specification also pins down an exact
 
 Each futures contract trades under a ticker combined with an expiration month code, and several expirations — say, March, June, September, and December — trade simultaneously at any given time. The nearest-to-expire contract with the highest trading volume is called the front month, and it's typically the most liquid one; as it approaches its own expiration, active traders roll their exposure forward into the next expiration rather than let the contract run into its delivery process.
 
-## Example in Practice
+## Example
 
 A grain elevator that hedges corn purchases every harvest season doesn't negotiate a private contract's size, grade, and delivery terms from scratch each time — it simply trades the exchange's standardized corn futures contract, getting a hedge on or off within seconds instead of spending days lining up a custom deal. That same standardization is what lets a trader in a completely different market, say the E-mini S&P 500, know exactly what a price move is worth without ever calling anyone to check: the contract's $50-per-point multiplier and 0.25-point minimum tick mean every tick is worth 0.25 × $50 = $12.50. If the index moves from 4,500.00 up to 4,502.50 — a 2.50-point, or 10-tick, move — the gain on one contract is 2.50 × $50 = $125, the same number every trader watching that contract would compute, because the specification behind it is identical for everyone.
 

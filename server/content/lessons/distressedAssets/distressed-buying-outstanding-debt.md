@@ -20,7 +20,7 @@ Rather than concentrating in one issuer, this strategy builds a broad book of po
 
 This differs from the loan-to-own approach covered next, which deliberately concentrates in a specific class of one company's debt with the explicit goal of ending up as the controlling equity owner. Buying outstanding debt broadly is closer to portfolio construction than to pursuing control of any single company.
 
-## In Practice
+## Example
 
 A fund maintains standing relationships with banks, mutual funds, and insurers that periodically need to offload distressed positions for reasons unrelated to the credit itself, buying small-to-moderate stakes across dozens of issuers whenever a motivated seller needs liquidity — building recovery-value exposure at scale rather than making any single concentrated bet.
 

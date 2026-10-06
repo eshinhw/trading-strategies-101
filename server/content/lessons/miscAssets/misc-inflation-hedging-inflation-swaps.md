@@ -20,7 +20,7 @@ An inflation swap isolates a pure inflation view without the bond-specific frict
 
 Because the swap market has its own set of natural users, corporations and pension funds hedging inflation-linked liabilities, for example, swap-implied inflation can trade at a persistent difference from bond-market breakeven inflation, creating a further relative-value opportunity between the two related but distinct markets.
 
-## In Practice
+## Example
 
 A pension fund with inflation-linked pension liabilities might prefer an inflation swap over buying inflation-linked bonds directly, since the swap lets it match the exact maturity profile of its liabilities without needing to find bonds of precisely the right maturities in the market — using the swap market's flexibility to solve a hedging need the bond market alone couldn't match as precisely.
 

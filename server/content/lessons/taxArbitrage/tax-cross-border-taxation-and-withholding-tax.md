@@ -20,7 +20,7 @@ Tax treaties exist largely to prevent the same income from being taxed twice, on
 
 Because treaty benefits depend on where an investor is resident, and not on any other characteristic of the investment itself, two investors holding an identical foreign security can face meaningfully different withholding tax on the exact same payment, purely because of where each one happens to be a tax resident.
 
-## In Practice
+## Example
 
 A dividend paid by a company in one country to an investor resident in a country with no tax treaty with it might be subject to a 30% default withholding rate, while an investor resident in a country that does have a treaty with a negotiated reduced rate might see only 15% withheld on that exact same dividend — a purely residency-driven difference in after-tax outcome.
 

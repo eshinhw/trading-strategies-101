@@ -20,7 +20,7 @@ Commodity markets let producers and consumers reduce their price risk. A produce
 
 Hedgers alone don't always match up, since a farmer who wants to sell wheat forward may not find an airline that wants to buy it. Speculators step in and take the other side of the trade in the hope of profit, and investors hold commodities for diversification or as protection against inflation. Their trading makes the market more liquid, which lowers the cost of hedging for everyone else.
 
-## In Practice
+## Example
 
 An airline whose largest cost is fuel buys oil-related futures to lock in much of its fuel cost for the next year. A wheat farmer sells wheat futures to lock in the price of the coming harvest. Neither is guessing at the price, they're removing it from the equation, and the speculators who take the other side of those trades are paid for bearing the risk the hedgers wanted to avoid.
 

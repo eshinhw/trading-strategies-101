@@ -20,7 +20,7 @@ Because withholding tax typically applies based on who holds a security as of a 
 
 Many countries have introduced substance requirements and general anti-abuse rules specifically to limit purely tax-motivated treaty shopping, meaning a structure needs genuine business substance, not just a favorable address, to reliably hold up — this and the previous lesson's point about periodic rule-tightening are directly connected.
 
-## In Practice
+## Example
 
 An investor based in a country with no treaty, facing a 30% default withholding rate on a foreign dividend, might instead hold that investment through an entity established in a jurisdiction with a genuine business presence and a treaty reducing the rate to 10%, legally capturing the 20-percentage-point difference — provided the holding structure has real substance and meets the treaty's actual eligibility requirements, not just a mailing address.
 

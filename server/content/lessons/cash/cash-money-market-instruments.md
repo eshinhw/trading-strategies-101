@@ -20,7 +20,7 @@ A certificate of deposit (CD) is a time deposit at a bank: the depositor agrees 
 
 A money market fund pools investor cash into a diversified basket of instruments like these, aiming to offer same-day liquidity and a stable share price (conventionally $1) while paying a modest yield. That stability isn't a guarantee, though — money market funds have occasionally "broken the buck," falling below their target price during periods of severe market stress, a real risk worth knowing even though it's rare.
 
-## In Practice
+## Example
 
 A corporate treasurer managing several months of operating cash rarely leaves it all in a checking account or puts it all in a single instrument. Instead, they typically ladder it across T-bills and CDs with staggered maturities, so something is always coming due to meet upcoming obligations, while the rest keeps earning a bit more yield than sitting idle.
 

@@ -20,7 +20,7 @@ The value of a long forward position, at any point before maturity, is approxima
 
 This mid-life valuation is what a company needs to mark a forward position on its own books, what a bank needs to calculate before agreeing to unwind or assign an existing forward early, and conceptually underlies the daily variation-margin logic used in a futures contract's mark-to-market process — even though a forward itself, unlike a future, doesn't settle any of that accumulated value until the very end.
 
-## Example in Practice
+## Example
 
 A company hedged a future jet-fuel purchase with a forward a year ago, locking in 100,000 barrels at $70 a barrel for delivery in three months, and its auditors now need to know what that unmatured contract is worth for the quarterly financial statements — not what it was worth at signing. Today's price for a brand-new, equivalent three-month forward on the same fuel has since risen to $76 a barrel, so the finance team marks the position at roughly ($76 − $70) × 100,000 = $600,000 in the company's favor. That same $600,000 figure is what a bank would use if the company wanted to unwind the position early instead of waiting three more months for it to mature.
 

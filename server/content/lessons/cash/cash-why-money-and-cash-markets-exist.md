@@ -20,7 +20,7 @@ Short-term cash markets connect the two groups. Those with surplus cash want som
 
 When an organization lends or invests spare cash, its first priorities are not losing the principal and being able to get the money back when needed, so yield comes third. This is why cash-like investments tend to be very short-term and issued by borrowers considered very safe. Giving up some return in exchange for safety and easy access is the trade-off that defines this part of the market.
 
-## In Practice
+## Example
 
 A manufacturer receives 10 million dollars from a large customer in March but doesn't need to pay its suppliers until June. Rather than leave the money idle, it buys short-term Treasury bills that mature just before the payments are due, earning a small return with almost no risk. At the same time, a bank that needs extra funds overnight borrows cash from lenders in the money market, and both sides get what they need.
 

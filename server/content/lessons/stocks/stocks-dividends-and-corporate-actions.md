@@ -20,7 +20,7 @@ A share buyback, or repurchase, is the mirror image of issuing new shares: the c
 
 Public companies report their financial results, typically every quarter, disclosing revenue, profit, and other key business metrics. These earnings reports are closely watched catalysts, since they're often the single biggest source of new information the market uses to reassess what a company, and therefore its stock, is actually worth.
 
-## In Practice
+## Example
 
 Consider a mature utility company that generates steady, predictable cash flow every quarter: rather than plowing all of it back into new growth projects, it distributes a portion directly to shareholders as a dividend, rewarding investors who bought the stock for steady income. Contrast that with a pharmaceutical company awaiting the results of a late-stage drug trial — its stock can swing sharply within minutes of the readout being announced, since that single piece of news instantly changes what the market thinks the company's future earnings, and therefore its stock, are worth.
 

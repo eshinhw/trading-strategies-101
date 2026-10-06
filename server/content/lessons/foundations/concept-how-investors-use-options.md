@@ -24,7 +24,7 @@ More advanced strategies don't depend on direction at all. A long straddle makes
 
 Choosing a strategy comes down to a few questions: what is the view on direction, how large and how fast is the expected move, and how much risk is acceptable. A mild bullish view may suit a bull call spread, while a strong one may suit a long call. The strategies later in this course are organized from the simplest forms to the most complex, so each one can be understood as a combination of simpler pieces.
 
-## In Practice
+## Example
 
 Three investors hold the same view of a stock trading at 100 but have different goals. One already owns it and buys a put to protect against a drop, one owns it and sells a call to earn income while expecting it to stay flat, and one doesn't own it but expects a rise and buys a call to profit with limited risk. They use the same type of instrument for three different purposes.
 

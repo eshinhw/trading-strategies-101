@@ -20,7 +20,7 @@ Governments issue bonds to cover budget deficits and fund public projects, and n
 
 Compared with a bank loan, a bond can raise much larger amounts and lock in a rate for many years. Compared with selling shares, a bond doesn't give up any ownership of the company or a share of its future profits: the lender is paid back what was promised and nothing more. In many tax systems, a company's interest payments are also a deductible expense, which makes borrowing cheaper than raising money by selling ownership.
 
-## In Practice
+## Example
 
 A city needs 50 million dollars to build a water treatment plant. Instead of borrowing from a single bank, it issues 30-year municipal bonds in pieces of 5,000 dollars each. Thousands of investors across the country each lend a small part, the city pays interest every year and repays the face value at maturity, and the investors can sell their bonds to others if they need their money earlier. The bond market has allowed a small city to borrow from thousands of lenders at once.
 

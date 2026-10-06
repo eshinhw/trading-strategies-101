@@ -20,7 +20,7 @@ For a put option, it's flipped: the put is ITM when the stock is below the strik
 
 As a rule of thumb, ITM options are more expensive (they have real, immediate value) and OTM options are cheaper (they're 'betting' on a move that hasn't happened yet). You'll see this pattern show up in almost every strategy: buying OTM options to keep cost down, selling OTM options to collect a safer premium.
 
-## In Practice
+## Example
 
 Traders shorthand this constantly on a trading desk: a market maker scanning an options chain on an earnings day will describe strikes as 'deep ITM,' 'ATM,' or 'way OTM' without doing any math — moneyness is the mental sorting tool that lets them instantly tell which of dozens of strikes are worth quoting tightly and which are near-worthless lottery tickets.
 

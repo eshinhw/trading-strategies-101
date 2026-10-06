@@ -20,7 +20,7 @@ A trader can position ahead of a release based on a view of which direction the 
 
 Liquidity in the affected markets often thins out in the seconds just before and during a major scheduled release, as participants pull orders rather than risk being caught on the wrong side of a sudden move — which means execution costs and slippage around these events can be considerably higher than under normal trading conditions.
 
-## In Practice
+## Example
 
 Ahead of a closely watched jobs report, a trader might reduce position size to limit event risk, then, once the number is released well outside the range economists had expected, quickly take a position in interest-rate futures and currency markets to capture the sharp repricing that follows — a trade built entirely around the surprise itself, closed out again within minutes to hours rather than held as a longer-term position.
 

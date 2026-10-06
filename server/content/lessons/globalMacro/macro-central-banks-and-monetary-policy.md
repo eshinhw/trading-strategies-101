@@ -20,7 +20,7 @@ A rate move doesn't just affect bonds directly: higher rates tend to pressure eq
 
 Central banks also move markets simply by signaling their likely future path through public statements, known as forward guidance, without changing any rate at all — markets reprice immediately on the signal itself, well ahead of any actual policy action.
 
-## In Practice
+## Example
 
 When a central bank signals it will likely cut rates sooner than markets had priced in, government bond yields typically fall immediately, the currency often weakens, and equities frequently rally — all three markets repricing off the same single piece of forward guidance, before a single rate has actually changed.
 

@@ -38,7 +38,7 @@ Forward pricing models a stock's dividends in one of two ways, depending on what
 
 Short selling means borrowing an asset from a current holder, through a broker, selling it in the market, and later buying it back to return to the lender — a trade used either as a standalone bet that the asset's price will fall, or, as seen above, as the tool that makes reverse cash-and-carry arbitrage possible when a forward is underpriced. Not every asset can be shorted easily: many physical commodities are difficult or impractical to borrow and short because of the logistics of storage and delivery, which weakens the arbitrage force that would normally correct an underpriced forward and is part of why convenience yield plays such an outsized role in commodity forward pricing specifically.
 
-## Example in Practice
+## Example
 
 A jewelry manufacturer wants to lock in the price of gold it will need in six months. With gold's spot price at $2,000 an ounce, and the cost of financing and securely storing that gold for six months working out to roughly $30 an ounce, the bank quotes a forward price of about $2,030. If the bank ever quoted something noticeably richer than that — say $2,080 — a trading desk could buy gold today at $2,000, pay the $30 to finance and store it, and sell it forward at $2,080, locking in a riskless $50-an-ounce cash-and-carry profit. That arbitrage pressure is exactly what keeps real-world forward quotes anchored close to the cost-of-carry formula instead of drifting away from it.
 

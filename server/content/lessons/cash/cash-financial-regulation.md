@@ -20,7 +20,7 @@ Usury laws cap the interest rate a lender may legally charge, meant to protect b
 
 The Strategies module ahead covers several real cash-based practices drawn directly from this course's source material — some entirely legitimate and heavily regulated (repo, liquidity management, pawnbroking) and some illegal precisely because they violate the rules covered here (money laundering, loan sharking). Understanding this regulatory backdrop first is what makes the difference between them clear.
 
-## In Practice
+## Example
 
 A small, legitimately cash-heavy business like a laundromat or car wash has to keep meticulous records and file currency transaction reports for large cash deposits, not because the owner is suspected of anything, but because that same cash-intensive profile is exactly what a money launderer would look for to blend illicit funds in with real revenue — the compliance burden exists to make that blending harder to pull off undetected.
 

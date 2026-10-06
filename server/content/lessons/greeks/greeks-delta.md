@@ -34,7 +34,7 @@ Owning one call with a delta of 0.60 behaves like owning 60 shares for small mov
 
 Position delta adds across legs. A covered call combines 100 shares, which have a delta of 100, with a short call at a delta of 0.40, which contributes −0.40 × 100 = −40, for a net delta of 60. That tells you the position behaves like 60 shares: it still gains if the stock rises, but less than owning the stock outright.
 
-## In Practice
+## Example
 
 A trader holds 5 call contracts, each with a delta of 0.50. The position delta is 0.50 × 100 × 5 = 250, so it behaves like 250 shares. If the stock rises by 1 dollar, the position should gain roughly 250 dollars, and if the stock falls by 1 dollar, it should lose about the same. To neutralize that exposure the trader could sell 250 shares of the stock.
 

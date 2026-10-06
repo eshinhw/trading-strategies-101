@@ -20,7 +20,7 @@ An index fund aims to match its index, but it never does so exactly. Tracking di
 
 The real cost of owning an ETF is the expense ratio paid each year plus the spread paid when buying and selling, plus any tracking difference beyond the fee. Over a short holding period, the spread can dominate, while over many years the expense ratio matters more. Comparing two ETFs on the same index therefore means looking at all of these together, not just the quoted fee.
 
-## In Practice
+## Example
 
 Two ETFs track the same index. Fund A charges 0.03% a year, and Fund B charges 0.20%. On a 10,000 dollar investment, Fund B costs about 17 dollars a year more in fees, or roughly 85 dollars more over five years, ignoring compounding. If Fund B is also much more thinly traded, with a wider spread, an investor who buys and sells it frequently pays even more, so Fund A is the cheaper choice on both counts unless Fund B offers something different, such as exposure to a different index.
 

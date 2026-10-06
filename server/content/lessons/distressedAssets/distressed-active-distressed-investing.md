@@ -20,7 +20,7 @@ Because a reorganization plan typically needs approval from a threshold share of
 
 Active involvement isn't free: it requires legal and advisory resources, time, and often restricts the investor's ability to trade the position freely while material non-public information from active involvement is held. The strategy is worth pursuing only when the expected improvement in outcome outweighs those real costs.
 
-## In Practice
+## Example
 
 An investor accumulates a large position in a distressed company's unsecured bonds, then joins the official creditors' committee. Through that seat, they push back on a proposed plan that would have paid unsecured creditors mostly in low-value warrants, negotiating instead for a larger equity stake — an outcome a purely passive bondholder in the same class would have simply had to accept.
 

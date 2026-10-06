@@ -20,7 +20,7 @@ Indirect ownership means holding real estate exposure through a fund or security
 
 Real estate is also commonly split by property use: residential (homes, apartments) versus commercial (office, retail, industrial, and more), each with distinct tenant relationships, lease structures, and demand drivers, as covered in more depth in this course's property type diversification lesson.
 
-## In Practice
+## Example
 
 Consider an investor who buys a small apartment building: each month the rent checks come in, cover the mortgage, taxes, and repairs, and whatever's left over is the income return, landing in the investor's pocket whether or not the building's market value has moved at all. Years later, when the investor sells the building for more than they paid, that gain is the appreciation return — a second, separate payoff that had nothing to do with the monthly rent checks along the way.
 

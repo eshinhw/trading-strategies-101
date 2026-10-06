@@ -20,7 +20,7 @@ Securitization moves credit risk from the lender to investors who are willing to
 
 By connecting lenders to a much larger pool of investors, securitization can make credit cheaper and more widely available. It also has a downside: if lenders sell almost every loan they make, they may care less about the quality of each one. That weakness in incentives was one of the lessons of the 2007 to 2009 financial crisis, when poor-quality mortgages were bundled into securities and investors lost heavily.
 
-## In Practice
+## Example
 
 A bank makes 1,000 mortgages worth 300 million dollars in total. It pools them and sells securities backed by the borrowers' monthly payments, raising roughly 300 million dollars from investors. The bank uses that cash to make new mortgages and earns fees for arranging the deal, while the investors now own claims on the mortgage payments, and the bank no longer has the loans, or most of the risk, on its books.
 

@@ -20,7 +20,7 @@ Active influence generally requires holding a meaningful share of a specific cla
 
 In practice, distressed investors sit along a spectrum between fully passive and fully active, and the same investor might take a passive approach in one situation and an active one in another, depending on position size, the specific opportunity, and how confident they are in shaping a better outcome than simply waiting it out.
 
-## In Practice
+## Example
 
 A fund that buys a small position in dozens of different distressed issuers is almost certainly taking a passive approach with each one — diversifying across many recovery bets rather than trying to influence any single company's outcome. A fund that instead concentrates a large position in one issuer's senior debt, then joins its creditors' committee, is taking a distinctly active approach to that specific situation.
 

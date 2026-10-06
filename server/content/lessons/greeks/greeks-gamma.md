@@ -34,7 +34,7 @@ Buying options gives a position positive gamma: as the stock moves in either dir
 
 Positive gamma isn't free. A position that benefits from big moves usually pays for it through time decay, and a position that collects time decay is exposed to big moves. This trade-off between gamma and theta is one of the central ideas in options trading.
 
-## In Practice
+## Example
 
 A trader is long an at-the-money call with a delta of 0.50 and a gamma of 0.05. The stock rises 2 dollars, so the delta increases by about 0.05 × 2 = 0.10, to 0.60, and the call now gains faster per dollar than it did at the start. If the stock had fallen 2 dollars instead, delta would have dropped to about 0.40, which limits the loss per dollar. The trader keeps benefiting from the curvature in both directions.
 

@@ -20,7 +20,7 @@ For most short-dated options, rho is tiny compared with delta, theta, or vega, b
 
 Rho becomes more important for long-dated options, such as those lasting a year or more, since interest accumulates over a longer period, and in times when interest rates are high or changing quickly. It is also larger for in-the-money options than for out-of-the-money ones. A trader holding long-dated options through a rate-hiking cycle will notice the effect.
 
-## In Practice
+## Example
 
 A trader holds a one-year call with a rho of 0.25. A central bank raises interest rates by 1 percentage point, and, all else equal, the call gains about 0.25 per share, or 25 dollars per contract. A one-week option at the same strike would barely change, which shows that rho depends mainly on how long the option has left.
 

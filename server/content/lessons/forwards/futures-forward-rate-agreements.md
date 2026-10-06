@@ -20,7 +20,7 @@ A company that knows it will need to borrow money in six months, for a three-mon
 
 FRAs serve a similar purpose to the exchange-traded interest rate futures covered elsewhere in this course, but FRAs are private, over-the-counter contracts, custom-tailored between two parties in size and dates, carrying the same counterparty-risk tradeoff as any other forward. An interest rate future is the standardized, exchange-cleared, daily-margined version of essentially the same underlying idea.
 
-## Example in Practice
+## Example
 
 A corporate treasurer knows the company will issue a $50 million bond in three months but is worried benchmark rates could climb before pricing, raising the company's borrowing cost. Rather than wait and hope, the treasurer locks in today's 5% rate for that period with an FRA. If rates do climb to 5.75% by the time the bond actually prices, the FRA pays the company roughly the 0.75-percentage-point gap applied to the $50 million notional for that period — offsetting the higher coupon the bond ends up carrying and leaving the company's effective borrowing cost close to the 5% it locked in three months earlier.
 

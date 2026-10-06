@@ -20,7 +20,7 @@ An ETF's market price can trade slightly above (a premium) or below (a discount)
 
 Every ETF charges an expense ratio, an annual fee expressed as a percentage of assets and deducted directly from the fund's returns rather than billed separately, which is why comparing expense ratios across similar ETFs tracking the same index is one of the simplest ways to compare their cost to an investor.
 
-## In Practice
+## Example
 
 An investor comparing two ETFs that both track the same broad stock index will often find their long-run performance nearly identical before costs — so the expense ratio becomes the real differentiator, since a fund charging even a few tenths of a percent more each year quietly compounds into a meaningfully larger gap in what the investor keeps after a decade or two of holding it. Checking the bid-ask spread before placing a large order matters too: an ETF built on thinly traded holdings can have a much wider spread than one built on heavily traded large-cap stocks, even when both ETFs see similar trading volume in their own shares.
 

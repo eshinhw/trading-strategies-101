@@ -20,7 +20,7 @@ Because any single distressed situation carries real uncertainty about how the r
 
 Bankruptcy and reorganization processes can take anywhere from months to several years to resolve, and the investor generally can't control that timeline. That illiquidity and uncertain holding period is a real cost of the strategy, distinct from the credit risk of the recovery estimate itself.
 
-## In Practice
+## Example
 
 A fund buys the bonds of a retailer that just filed for reorganization, at 35 cents on the dollar, based on an estimate that the eventual recovery — mostly in the form of equity in the reorganized company — will be worth closer to 55 cents. The fund takes no role in the case itself, simply holding the position for the roughly 18 months the process takes to conclude.
 

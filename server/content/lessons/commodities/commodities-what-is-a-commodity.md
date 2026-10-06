@@ -20,7 +20,7 @@ Commodities are typically grouped into a few broad categories: energy (crude oil
 
 Because commodities are fungible, an exchange can define one standardized contract, specifying exact grade, quantity, and delivery terms, as already covered in the Futures course, and have that single contract represent countless individual producers' output. That standardization is precisely what allows deep, liquid commodity futures markets to exist in the first place.
 
-## In Practice
+## Example
 
 A grain elevator buys wheat from hundreds of different farms across a growing region, and once it's dumped into the same storage bin, nobody tracks which bushel came from which farm — a buyer downstream just orders a given grade of wheat and gets whatever the elevator has on hand. That's fungibility doing real work: it's the reason a wheat futures contract can be written against "wheat of a certain grade" in general, rather than against one specific farmer's harvest.
 

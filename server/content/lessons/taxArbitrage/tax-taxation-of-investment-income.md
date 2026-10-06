@@ -20,7 +20,7 @@ The same income can also be taxed differently depending on where the investor is
 
 Whenever two parties face different tax treatment on the same or economically equivalent cash flow, there's room, within the law, to structure a transaction so the income lands with whichever party is taxed more favorably on it — the shared idea behind every strategy in this course.
 
-## In Practice
+## Example
 
 A pension fund and a highly taxed individual investor both want exposure to the same bond's interest payments. Because the pension fund owes little or no tax on that interest while the individual would owe a meaningful rate, there's a real, legal incentive to structure ownership so the pension fund, not the individual, ends up holding the interest-bearing position directly.
 

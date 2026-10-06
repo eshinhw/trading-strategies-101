@@ -20,7 +20,7 @@ The core opportunity in distressed debt investing is the gap between the price p
 
 Unlike an ordinary discount bond bought simply because it's cheap, distressed debt requires real analysis of what happens if the company doesn't simply recover on its own — understanding the bankruptcy and reorganization process covered in the Bankruptcy and Reorganization lesson is central to estimating what a distressed claim is actually likely to be worth.
 
-## In Practice
+## Example
 
 A company's bonds might trade at 90 cents on the dollar when investors see only modest risk, but fall to 30 cents once a poor earnings report and a looming debt maturity raise real doubt about repayment. A distressed-debt investor evaluating that bond isn't just asking "is 30 cents cheap?" — they're asking what the bond is actually likely to recover if the company defaults, which could be well above or well below that price.
 

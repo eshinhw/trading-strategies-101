@@ -24,7 +24,7 @@ Even a custom-built forward can leave basis risk behind if its exact terms — g
 
 As covered in the closing-out lesson, exiting a forward before maturity generally requires either the original counterparty's cooperation or finding a new one willing to accept a novated position — nothing like a futures position's instant offsetting exchange trade. A beginner who assumes they can simply exit an unfavorable forward whenever they want may find that no willing counterparty, or no willing original bank, actually exists at that moment.
 
-## Example in Practice
+## Example
 
 A corporate treasury's internal controls typically require a second person to independently verify a forward's notional amount, settlement date, and counterparty before it's executed, precisely because these are cheap mistakes to catch beforehand and expensive ones to discover only after the contract is signed. A small importer that skipped that check found out why: it signed a forward to buy euros in six months but entered the notional for the wrong invoice, overshooting its actual payment by €500,000. Every other term of the contract was fine, but that single sizing slip left the company over-hedged, obligated to buy €500,000 more than it needed — exposed to exactly the currency risk it was trying to eliminate, just on the excess amount instead of the shortfall.
 

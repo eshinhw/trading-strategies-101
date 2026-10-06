@@ -20,7 +20,7 @@ Macro trends tend to persist for reasons distinct from single-stock momentum: ec
 
 A systematic version of this strategy typically ranks countries or asset classes by the strength and consistency of their macro trend, then takes positions favoring the strongest, most fundamentally confirmed trends while avoiding or fading the weakest — a cross-country, cross-asset version of the momentum ranking used elsewhere in this curriculum.
 
-## In Practice
+## Example
 
 A fundamental macro momentum strategy might notice that a country's growth data has been beating expectations for several consecutive quarters while its central bank has been consistently signaling tighter policy — two independent, fundamentally grounded confirmations of the same strengthening trend — and take a position favoring that country's currency and equities over a peer economy showing the opposite pattern.
 

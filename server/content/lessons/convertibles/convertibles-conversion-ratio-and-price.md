@@ -20,7 +20,7 @@ At any point, the conversion value, also called parity, is what the bond would b
 
 Conversion ratio and conversion price are fixed at issuance, but the conversion value moves every day with the stock price, which is exactly what creates the tension between a convertible's bond-like and stock-like behavior covered in the next lesson — the higher the stock climbs above the conversion price, the more the bond starts trading like the stock underneath it.
 
-## In Practice
+## Example
 
 Suppose an investor buys a $1,000 convertible bond with a conversion ratio of 25, giving it a conversion price of $40 a share. If the company's stock is trading at $30, converting would only be worth $750, so the bond trades mainly on its bond-like merits; but if the stock later climbs to $55, those same 25 shares are worth $1,375, well above face value, and the investor now has a real reason to convert instead of just collecting coupons. That single ratio, fixed on day one, is what ties the bond's ultimate value to wherever the stock ends up.
 

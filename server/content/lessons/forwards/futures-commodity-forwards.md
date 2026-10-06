@@ -24,7 +24,7 @@ Just as a futures contract's specification pins down an exact grade and approved
 
 Even a carefully built commodity forward hedge can leave real exposure behind if the hedge's terms don't exactly match the underlying exposure being hedged — a different grade, a different delivery location, or a delivery date that doesn't line up precisely with when the commodity is actually bought or sold. That mismatch is basis risk, covered in more depth in the Cross-Hedging lesson later in this course, and it's exactly why even a forward hedge, custom-built as it is, isn't automatically a perfect one.
 
-## Example in Practice
+## Example
 
 A regional bakery chain buys wheat forward from a local grain merchant to hedge its flour costs, specifying a particular protein-content grade and delivery straight to its own mill instead of a distant terminal. If the bakery's actual purchases ever need a slightly different grade, or arrive at a different facility than the forward specifies, the hedge won't offset its real costs quite perfectly — a basis-risk gap between the contract's exact terms and the bakery's actual exposure. An airline hedging jet fuel costs runs into an even sharper version of that same problem: it often can't find a forward written on jet fuel itself in the size or location it needs, so it hedges with a closely related product like heating oil or crude oil instead — a deliberate cross-hedge that accepts real basis risk in exchange for being able to hedge at all, rather than leaving the exposure completely open.
 

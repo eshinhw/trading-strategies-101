@@ -28,7 +28,7 @@ A trading thesis is the reason to enter a position — a view that a price, spre
 
 Because margin is only a fraction of a contract's notional value, it's possible to control far more exposure than an account can actually absorb a loss on — over-leverage. Keeping total notional exposure across all open positions proportionate to account size, not just to what the margin requirement technically allows, is the core discipline that prevents a string of losses from escalating into a full account wipeout.
 
-## Example in Practice
+## Example
 
 A desk holding a large futures position ahead of a major central bank rate announcement — a known high-impact event — will typically trim the position or widen its stop beforehand, accepting a smaller expected payoff in exchange for less exposure to the sharp, gap-prone move such announcements often trigger, no matter how strongly the desk believes in its underlying rate thesis. A retail trader applies the same discipline at a smaller scale with a hard number instead of a headline: with a $50,000 account and a rule of risking no more than 1% ($500) on any single trade, a $0.50-per-barrel stop-loss on one crude oil contract (1,000 barrels) caps that trade's risk at exactly $500. The stop distance comes from the risk budget, not from how bullish or bearish the trader feels about oil that day — which is the whole point of having a risk plan separate from a trading thesis.
 

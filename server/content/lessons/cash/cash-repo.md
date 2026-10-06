@@ -20,7 +20,7 @@ The implicit interest rate on a repo, the repo rate, is generally very low, sinc
 
 Repo is one of the largest, most important short-term funding markets in the financial system: securities dealers routinely finance their inventory this way rather than tying up their own capital, and central banks, including the Federal Reserve, use repo and reverse repo operations as a direct tool to manage short-term interest rates and liquidity in the broader financial system.
 
-## In Practice
+## Example
 
 A bond dealer holding a large Treasury inventory overnight doesn't want that capital tied up, so it repos the securities out for cash to fund its position, agreeing to buy them back the next morning at a marginally higher price. On the other side, a money market fund with idle cash parks it in a reverse repo overnight, earning a safe, near-riskless return backed by the same Treasuries — each side getting exactly what it needed for one night.
 

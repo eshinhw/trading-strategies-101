@@ -24,7 +24,7 @@ Options on individual U.S. stocks are generally American style, meaning the hold
 
 Brokers approve accounts for different levels of options trading depending on experience and risk. Buying an option requires paying the full premium, while selling an option exposes the seller to larger losses, so the broker requires collateral called margin. Strategies with defined risk, like spreads, usually need less margin than selling options with no protection.
 
-## In Practice
+## Example
 
 An investor looks at the option chain for a stock trading at 100 and sees the 100-strike call quoted at a bid of 3.90 and an ask of 4.10. Buying one contract costs the ask, 4.10 × 100 = 410 dollars. If the investor wanted to sell it right away, only the bid of 3.90 would be received, which is 390 dollars, so crossing the spread costs about 20 dollars. That small gap is the price of trading immediately.
 

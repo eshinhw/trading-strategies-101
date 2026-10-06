@@ -20,7 +20,7 @@ Rather than issuing one type of security representing an equal slice of the pool
 
 Mortgage-backed securities, collateralized loan obligations, collateralized debt obligations, and other asset-backed securities all share this same basic pooling-and-repackaging idea. They mainly differ in what type of underlying debt gets pooled, and how elaborately the resulting cash flows are split among the securities issued against it.
 
-## In Practice
+## Example
 
 Consider an auto lender that has originated ten thousand car loans: each loan is too small and too specific to sell on its own, but the lender can pool all ten thousand into a trust and have that trust issue bonds backed by the pool's combined payments. Investors who buy those bonds never touch an individual auto loan; they're buying a claim on the cash flowing from the whole pool. The lender, meanwhile, gets cash back today instead of waiting years to collect each loan, freeing up capital to originate new loans.
 

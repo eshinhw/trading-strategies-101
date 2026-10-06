@@ -20,7 +20,7 @@ Labor-market data, like the unemployment rate and monthly job-creation figures, 
 
 A PMI survey asks purchasing managers at businesses whether conditions (new orders, output, employment) are expanding or contracting, producing a timely, forward-looking gauge of economic momentum well before slower official data like GDP is even published.
 
-## In Practice
+## Example
 
 A macro desk positioning ahead of a closely watched inflation report will often reduce position sizes beforehand, since a surprise reading, in either direction, can move rate, currency, and equity markets sharply within seconds of release — exactly the kind of event covered directly in this course's strategy on trading economic announcements.
 

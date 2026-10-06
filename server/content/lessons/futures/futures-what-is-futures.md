@@ -28,7 +28,7 @@ A share of stock is outright ownership of a piece of a company, held for as long
 
 A long futures position gains when the price rises and loses when it falls; a short position is the exact mirror image, gaining when the price falls and losing when it rises. In both cases, the dollar gain or loss is simply the price change multiplied by the contract's multiplier (or its size, for a physical commodity) — the same arithmetic whether you're long or short, just with the sign flipped.
 
-## Example in Practice
+## Example
 
 Two strangers on opposite sides of the country — a wheat farmer and a commodities trading desk — can go long or short a wheat futures contract on the same exchange without ever exchanging names or credit histories, something a private forward would never allow; the exchange does that matching instantly, for anyone. The same anonymous mechanics played out for two traders on opposite sides of an E-mini S&P 500 contract at 4,500.00 ($50 multiplier). Neither had to know the other existed, but when the index settled the next day at 4,510.00, a 10-point gain, the exchange credited the long trader 10 × $50 = $500 and debited the short trader that identical $500 — one side's gain is exactly the other's loss, the same mirror-image relationship whether the underlying is a stock index or a truckload of wheat.
 

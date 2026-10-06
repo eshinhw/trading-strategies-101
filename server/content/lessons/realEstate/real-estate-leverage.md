@@ -20,7 +20,7 @@ That same amplification works in reverse: a decline in property value is similar
 
 The loan-to-value (LTV) ratio, the loan amount divided by the property's value, is the standard measure of how leveraged a real estate position is: a higher LTV means less of the investor's own capital is at risk relative to the total position size, but also less equity cushion before a price decline wipes out the investor's stake entirely.
 
-## In Practice
+## Example
 
 A homebuyer who puts 10% down on a house is using far more leverage than one who puts 50% down on an identical house, so if local prices then fall 15%, the 10%-down buyer's entire stake is wiped out and then some, while the 50%-down buyer still has a comfortable equity cushion left over. The same math is exactly why highly leveraged property investors got hit so much harder than cash buyers whenever a housing market has turned down sharply — the leverage that juiced their gains on the way up amplified their losses just as directly on the way down.
 

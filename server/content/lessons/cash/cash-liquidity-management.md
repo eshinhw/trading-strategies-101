@@ -20,7 +20,7 @@ Two common techniques keep idle cash working without sacrificing access to it: l
 
 Too little liquidity risks a forced, poorly timed asset sale or an outright default on an obligation during a period of stress; too much liquidity is a steady drag on returns, since idle cash earns little relative to almost anything else. Effective liquidity management is about optimizing that tradeoff, not eliminating cash holdings altogether.
 
-## In Practice
+## Example
 
 A company's treasury team builds a rolling 13-week cash-flow forecast, updated weekly, to see exactly how much cash is truly needed to cover the next quarter's obligations. Whatever sits comfortably above that forecasted need gets swept into short-term instruments overnight or laddered into slightly longer maturities — cash that would otherwise have earned nothing sitting in an operating account.
 

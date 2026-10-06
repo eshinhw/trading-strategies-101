@@ -20,7 +20,7 @@ A well-constructed tax arbitrage trade is designed so the underlying market expo
 
 Every strategy in this course works entirely within published tax law and treaty terms — using an exemption, a treaty rate, or a legal instrument choice exactly as written, not misreporting income or claiming a benefit the transaction doesn't actually qualify for. Tax authorities do periodically tighten rules that they judge to be exploited too aggressively, which is itself a real, ongoing risk to account for.
 
-## In Practice
+## Example
 
 A trading desk noticing that two economically similar exposures, one direct and one structured through a derivative, face different tax treatment might build a position that captures the more favorable treatment while largely hedging away the underlying market risk — isolating the tax-treatment gap itself as the trade's actual driver of return.
 

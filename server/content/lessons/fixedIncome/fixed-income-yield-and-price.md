@@ -20,7 +20,7 @@ A bond issued at par with a 4% coupon pays $40 a year on a $1,000 face value, re
 
 Current yield is a simpler, cruder measure: just the annual coupon divided by the bond's current market price, ignoring any gain or loss from the price converging to face value at maturity. Yield to maturity is the more complete measure, since it accounts for that convergence too, which is why the two figures diverge whenever a bond trades away from par.
 
-## In Practice
+## Example
 
 A bond fund manager holding a portfolio of 10-year government bonds watches its value drop the moment a central bank signals it will raise rates, even though not a single bond in the portfolio has changed hands. The market simply re-prices every existing bond downward so that its fixed coupon, relative to its now-lower price, offers a yield competitive with the higher-coupon bonds being issued at the new, higher rate.
 

@@ -20,7 +20,7 @@ Beyond picking the instrument, a macro trader decides how to structure the posit
 
 A macro thesis can play out over very different time frames — some macro trends unfold over months or years as economic data confirms a slow-moving story, while others are meant to capture a single scheduled event. That time horizon is itself part of choosing the trade, and it's exactly the distinction between this course's momentum-style strategy and its event-driven one.
 
-## In Practice
+## Example
 
 An investor who believes persistent inflation will erode fixed-income returns could short government bonds outright, buy inflation-linked bonds instead of nominal ones, or buy commodities that historically track inflation — three different instruments, three different risk profiles, all expressing the same underlying view.
 

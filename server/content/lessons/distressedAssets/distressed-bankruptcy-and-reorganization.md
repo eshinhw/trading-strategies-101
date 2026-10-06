@@ -20,7 +20,7 @@ The company, often alongside its major creditors, develops a plan of reorganizat
 
 Once a plan is confirmed and implemented, the company emerges from bankruptcy, typically with a lighter debt load and a new or adjusted ownership structure. Former creditors frequently end up holding equity in the reorganized company, which is exactly the mechanism the strategies later in this course are built around.
 
-## In Practice
+## Example
 
 A company with a viable core business but too much debt might file for reorganization, use the automatic stay to pause creditor lawsuits while it negotiates, and ultimately emerge with half its previous debt load converted into equity now held by its former bondholders — the same company, operating the same business, but with a fundamentally different capital structure.
 

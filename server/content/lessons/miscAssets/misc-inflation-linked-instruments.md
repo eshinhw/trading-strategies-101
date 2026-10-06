@@ -20,7 +20,7 @@ Breakeven inflation shifts with genuine changes in inflation expectations, but a
 
 Because breakeven inflation is a yield gap between two related but separate markets, it can be traded directly, positioning for that gap to widen or narrow, independent of taking an outright directional view on interest rates themselves — a relative-value approach built entirely on this one concept.
 
-## In Practice
+## Example
 
 If a 10-year nominal government bond yields 4.5% and a comparable 10-year inflation-linked bond yields 2%, the 10-year breakeven inflation rate is roughly 2.5% — the market's rough, implied estimate of average annual inflation over the next decade, extracted directly from the pricing gap between the two instruments rather than from any survey or forecast.
 

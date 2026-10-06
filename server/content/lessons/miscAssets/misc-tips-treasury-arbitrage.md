@@ -20,7 +20,7 @@ Because this trade involves being long one government security and short another
 
 This strategy's central risk is straightforward: the spread can stay away from, or move further from, the trader's fair-value estimate for a long time, especially during periods of unusual stress when liquidity differences between TIPS and nominal Treasuries widen rather than narrow, which is exactly when this kind of relative-value trade tends to be tested hardest.
 
-## In Practice
+## Example
 
 A trader believes 10-year breakeven inflation, currently at 2.7%, is too high relative to their own inflation forecast and goes long the 10-year nominal Treasury and short the matched-maturity TIPS, financing both legs via repo, positioned to profit as the spread narrows toward their estimate of fair value — a trade on the relationship between the two securities, not on interest rates outright.
 

@@ -20,7 +20,7 @@ A model is trained on one portion of historical data and then evaluated on a sep
 
 Overfitting happens when a model learns noise specific to its training data rather than a genuine, repeatable pattern — it looks impressively accurate on the data it was trained on but fails on new data. This risk is especially pronounced in a noisy, fast-moving market like cryptocurrency, which is exactly why the next two lessons pair a specific model with real attention to how it's validated.
 
-## In Practice
+## Example
 
 A quant researcher testing a new crypto trading model will typically hold out the most recent chunk of data entirely, train and tune the model only on older data, and then check performance on that untouched recent period exactly once — treating it as a final exam rather than something to keep re-testing against, since repeatedly tuning against the same "held-out" data quietly turns it into training data in disguise.
 

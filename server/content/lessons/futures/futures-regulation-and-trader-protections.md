@@ -24,7 +24,7 @@ A regulated futures broker is typically required to disclose the risks of future
 
 None of this regulatory structure eliminates market risk itself — a well-regulated exchange, a fully-funded clearinghouse, and full broker disclosure all still leave a trader fully exposed to ordinary price movement and leverage. Regulation protects against fraud, counterparty default, and unsuitable product sales; it isn't, and doesn't claim to be, a guarantee against losing money on a losing trade.
 
-## Example in Practice
+## Example
 
 A new customer opening a futures account has to review and acknowledge a risk disclosure document describing leverage and loss potential in plain terms, and the broker records the customer's financial situation before approving the account at all — two protections working together before a single trade is ever placed. But once that account is open and trading, those protections cover a narrower slice of risk than a new trader might expect: a trader who loses money on a well-executed but ultimately wrong directional bet has no regulatory recourse, since that loss is exactly the ordinary market risk the disclosure document warned about. Regulatory protection becomes relevant in a different scenario instead — if a broker were found to have misused customer funds, or a clearinghouse's guarantee were ever actually tested by a member default, this is the structure built to respond.
 

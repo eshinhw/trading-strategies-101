@@ -20,7 +20,7 @@ Mean-reversion strategies tend to have a high win rate with small, frequent gain
 
 Because of that loss profile, disciplined risk controls — a hard stop-loss, or limiting how much a position is added to as price keeps moving against the entry — are essential to mean-reversion trading. Without them, the strategy is exposed to the specific risk of being run over by a real, sustained trend that never reverts.
 
-## Example in Practice
+## Example
 
 Gold's 20-day average price is $1,950 per ounce with a standard deviation of $15, putting the two-standard-deviation lower band at $1,950 − (2 × $15) = $1,920. Gold drops to $1,915, more than two standard deviations below average, triggering a buy signal. A trader buys 10 contracts (100 ounces each, so 1,000 ounces total). Over the following week, gold reverts to $1,945, and the position gains $30 per ounce × 1,000 ounces = $30,000 — the snapback the mean-reversion rule was betting on.
 

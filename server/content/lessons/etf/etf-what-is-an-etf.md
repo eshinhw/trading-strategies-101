@@ -20,7 +20,7 @@ Most ETFs are designed to track a specific index, like the S&P 500, or a defined
 
 ETFs combine three things investors want at once: the diversification of a fund, the intraday liquidity of a stock, and, for most index-tracking ETFs, a much lower cost than an actively managed mutual fund — a combination that's driven their explosive growth since the first ETFs launched in the early 1990s.
 
-## In Practice
+## Example
 
 A new investor who wants exposure to hundreds of large companies at once, but doesn't have the money or time to buy shares of each one individually, can instead buy a single share of a broad-market ETF and instantly own a proportional slice of every company inside it. Because that ETF share trades on an exchange all day long, the investor can buy it in the morning and sell it that same afternoon if they choose to, something a traditional mutual fund's once-a-day pricing would never allow.
 

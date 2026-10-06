@@ -20,7 +20,7 @@ Implied volatility looks forward instead: it's the volatility level that, when p
 
 Historical and implied volatility can, and often do, diverge — implied volatility can run higher or lower than what realized volatility ends up being once the period actually plays out. That gap is the foundation for an entire category of volatility trading strategies, covered later in this course, built around betting on the relationship between what the market expects and what actually happens.
 
-## In Practice
+## Example
 
 An options market maker quoting a stock ahead of a major public announcement doesn't know whether the stock will end up 2% higher or 15% lower — but by comparing the price the options market is currently charging (implied volatility) against how much the stock has actually swung around similar events in the past (historical volatility), the market maker can judge whether current option prices look rich, cheap, or roughly fair relative to the stock's own track record.
 

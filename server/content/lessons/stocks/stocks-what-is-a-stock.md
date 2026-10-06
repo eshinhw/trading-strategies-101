@@ -20,7 +20,7 @@ A private company's shares are held by a small number of founders, employees, an
 
 A stock's price is simply whatever the market is currently willing to pay for one share, constantly being reset by real buy and sell orders. That price reflects the market's collective, ever-changing view of the company's future profits, discounted back to what they're worth today — new information about the business updates that view, and the price along with it.
 
-## In Practice
+## Example
 
 When a fast-growing private company decides to go public, it's converting itself from a business owned by a handful of founders and early investors into one that anyone can own a piece of by buying shares on an exchange. A retail investor who buys shares right after that IPO isn't lending the company money that has to be paid back — they now own a small, permanent slice of the business itself, sharing in its future profits and its future losses alike, with no one obligated to ever hand that money back.
 

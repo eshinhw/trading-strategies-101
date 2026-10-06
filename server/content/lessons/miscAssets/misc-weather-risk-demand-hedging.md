@@ -20,7 +20,7 @@ Because weather derivatives are typically built around a specific measurement st
 
 Even a well-chosen weather hedge rarely offsets the underlying business risk perfectly — the relationship between weather and revenue can shift over time as the business itself changes, leaving some residual basis risk that a purely financial hedge, by its nature, can't fully eliminate.
 
-## In Practice
+## Example
 
 A regional heating-oil distributor analyzes several years of sales data and finds a reliable, quantified relationship between local heating degree days and its own revenue. It then buys a weather derivative referencing the nearest weather station with a strong historical correlation to its own sales territory, sized specifically to offset the revenue impact of a below-average heating season, rather than buying a generic, unsized weather hedge and hoping it roughly covers the exposure.
 

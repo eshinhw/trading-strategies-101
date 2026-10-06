@@ -28,7 +28,7 @@ Corn, wheat, soybeans, cattle, and coffee futures are among the oldest futures m
 
 Bitcoin and Ether futures, now listed on regulated exchanges alongside traditional contracts, let institutional and retail traders gain long or short exposure to cryptocurrency prices without directly holding and custodying the underlying coins.
 
-## Example in Practice
+## Example
 
 An asset manager running a diversified commodity strategy might hold long positions across crude oil, gold, corn, and copper futures all at once, each a small slice of a much larger portfolio — one reason futures, rather than the physical goods themselves, are the standard way to get broad commodity exposure. But those slices aren't sized the same way, because the markets aren't the same size: a single E-mini S&P 500 contract at 4,500 ($50 multiplier) controls $225,000 of notional equity exposure, while a single crude oil contract (1,000 barrels) at $80 controls only $80,000. A manager sizing a position in each market has to work out that real dollar exposure contract by contract, rather than assuming one contract means the same thing everywhere.
 

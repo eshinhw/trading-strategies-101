@@ -24,7 +24,7 @@ Many institutional OTC forward relationships are backed by a credit support anne
 
 When two counterparties have many forward contracts outstanding with each other, some in-the-money and some out-of-the-money, a netting agreement lets them combine all of it into a single net amount owed in the event of a default, rather than each contract being settled (or defaulted on) individually. This dramatically reduces the credit exposure between two active counterparties down to just the net figure, rather than the full sum of every individual contract's gross exposure.
 
-## Example in Practice
+## Example
 
 A bank's credit risk desk continuously monitors its net exposure to every OTC counterparty it trades forwards with, calling for additional collateral under the CSA as positions move in its favor — that ongoing collateral exchange is what keeps a forward book's counterparty risk from silently building up past what the bank ever intended to carry. Netting agreements do the same job for the underlying exposure itself: if two banks have five forward contracts outstanding, three worth a combined $8 million in one bank's favor and two worth $3 million in the other's, an uncollateralized, unnetted default would expose the in-the-money bank to the full $8 million. With netting in place, that collapses to a single $5 million figure ($8 million − $3 million) — the actual amount that would change hands if every contract settled at once.
 

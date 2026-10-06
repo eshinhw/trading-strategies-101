@@ -20,7 +20,7 @@ The clearinghouse funds this guarantee through the margin system already covered
 
 Beyond individual members' margin, clearinghouses maintain a mutualized guarantee, or default, fund, contributed to by all clearing members, that absorbs losses in the rare event a member defaults and its own posted margin isn't enough to cover the loss — a final layer of protection standing behind the daily margining process.
 
-## Example in Practice
+## Example
 
 Two traders who have never met — one buying, one selling a crude oil futures contract through an exchange — don't need to check each other's credit before trading, because the moment their trade is matched, the clearinghouse steps in as the legal counterparty to both. Say the seller had posted the standard $6,000 initial margin against the position and then defaulted after a sharp adverse move. The clearinghouse, not the buyer, absorbs that gap — drawing first on the defaulting member's own $6,000 of posted margin, and if the loss runs deeper than that, on the mutualized guarantee fund behind it — so the buyer's contract is honored in full regardless of what happened on the other side of the trade.
 

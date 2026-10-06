@@ -20,7 +20,7 @@ In exchange, an investor gives up some coupon income compared to a plain bond, b
 
 If the stock instead rises substantially, the investor isn't stuck earning only a fixed coupon — the conversion option lets them participate in that stock's gains. This combination of downside protection and upside participation is the fundamental reason convertibles appeal to a certain kind of investor, and is also exactly what convertible arbitrage strategies, covered later in this course, are built to exploit.
 
-## In Practice
+## Example
 
 A retirement-focused investor who wants some exposure to a fast-growing company's stock, but can't stomach the idea of a 50% drawdown, might choose that company's convertible bond over its common stock: if the stock craters, the bond floor cushions the loss and coupons keep arriving, and if the stock instead doubles, the investor still participates through conversion. The company on the other side of that trade likes the arrangement too — it raises capital more cheaply than a plain bond, and if the stock does well enough to trigger conversion, the debt disappears from its balance sheet at the same moment its equity story is working out.
 

@@ -24,7 +24,7 @@ Option buyers need the stock to move enough, and soon enough, to outrun time dec
 
 Sellers of options, such as covered call writers or iron condor sellers, collect the decay as income if the stock stays calm. The risk is on the other side: in exchange for positive theta they accept negative gamma, so a large move against the position can cost far more than the decay earned. Selling options is essentially being paid to take on that risk.
 
-## In Practice
+## Example
 
 A trader buys a call for 4.00 with a theta of −0.06. If the stock stays exactly where it is, the call loses about 0.06 a day, so after a week it is worth about 3.58, a loss of 42 dollars per contract with no change in the stock price. A seller of the same call would have gained that 42 dollars, which shows why timing matters as much as direction for an option buyer.
 

@@ -20,7 +20,7 @@ A market is in backwardation when futures prices are lower than the spot price �
 
 The cost-of-carry model covered in the Forward Pricing lesson explains a large part of typical basis behavior — storage and financing costs pushing many markets into contango — but real markets also reflect supply and demand imbalances the pure cost-of-carry formula doesn't capture, which is exactly what shows up as backwardation when it happens.
 
-## Example in Practice
+## Example
 
 Crude oil's spot price sits at $78 while the three-month futures price trades at $80 — a $2 negative basis, meaning the market is in contango, consistent with the ordinary cost of storing and financing oil for three months. A trader who holds a long futures position through a market like that, and keeps rolling it forward the way covered in an earlier lesson, ends up buying each new contract at a small premium to the one just closed — a real, recurring cost that has nothing to do with whether their view on crude's price direction was right. Flip the numbers — a $75 three-month future against the same $78 spot, a $3 positive basis — and the market is in backwardation instead, usually a sign that current supply is tight enough that buyers are willing to pay up for oil now rather than wait three months for it.
 

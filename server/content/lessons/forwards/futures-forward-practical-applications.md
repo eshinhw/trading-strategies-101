@@ -28,7 +28,7 @@ A company that knows it will need to borrow money in the future, but is worried 
 
 Beyond pure price-risk hedging, forwards let two commercial counterparties build exactly the deal their relationship needs — a specific quantity, delivery date, and location that wouldn't line up with any standardized exchange-traded contract. This flexibility is exactly why forwards remain common in commercial supply agreements even in commodities, like crude oil or wheat, where a deep, liquid futures market also exists.
 
-## Example in Practice
+## Example
 
 A multinational manufacturer's treasury department might run several of these applications at once in different corners of the business — FX forwards hedging supplier payments and customer receivables, a commodity forward locking in a key input's price, an FRA locking in the rate on planned borrowing — all four using the exact same underlying tool, just pointed at a different source of price uncertainty. An airline expecting to pay a foreign aircraft-leasing company 5 million euros in six months is running one specific version of that playbook: it buys euros forward today at $1.08 per euro, locking in a $5.4 million dollar cost no matter where the spot rate actually lands in six months — the same importer logic covered earlier in this lesson, just embedded in a real aircraft-lease contract instead of a generic invoice.
 

@@ -20,7 +20,7 @@ Every trading day, the exchange marks every open futures position to that day's 
 
 Because initial margin is only a small fraction of a contract's notional value, a modest move in the underlying's price translates into a much larger percentage gain or loss on the margin capital actually posted. That same leverage that makes futures capital-efficient for hedgers and speculators also means a string of adverse daily marks can trigger a margin call, or a full liquidation, far faster than an equivalent-sized position in the cash market ever would.
 
-## Example in Practice
+## Example
 
 A trader at a commodities desk buys one crude oil futures contract (1,000 barrels) at $80 per barrel — an $80,000 notional position — posting just $6,000 of initial margin (7.5% of notional) against a $5,000 maintenance threshold, exactly the kind of leveraged position a desk takes on every day. Overnight, crude unexpectedly falls to $78 a barrel. The next morning, before the trader has even had a chance to react, the exchange debits the account $2,000 (1,000 barrels × $2) for that loss — dropping the balance from $6,000 to $4,000, below the $5,000 maintenance threshold, and triggering a margin call for $2,000 to restore it. That's the daily mark-to-market machine in action: gains and losses hit the account in cash every single day, whether or not the trader is watching, which is exactly why an experienced desk sizes its futures positions around how much adverse overnight movement its margin capital can actually absorb — not just the position's total notional value.
 

@@ -20,7 +20,7 @@ The replacement cost approach values a property based on what it would cost to b
 
 In practice, a thorough valuation often blends more than one approach, since each has blind spots: income and comparable sales approaches can both be distorted by a temporarily overheated or depressed market, while replacement cost ignores whether there's actually demand for more space of that type in the first place.
 
-## In Practice
+## Example
 
 An appraiser valuing a small office building will typically start with the income approach, capitalizing its net rental income at a market cap rate, then sanity-check that number against what a few similar office buildings nearby have actually sold for recently. If the two approaches land far apart, that gap itself is a signal worth investigating — maybe the building's leases are priced well above or below what the current market would actually support.
 

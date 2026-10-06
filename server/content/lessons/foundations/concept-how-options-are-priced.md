@@ -32,7 +32,7 @@ Five main inputs set an option's price: the stock price, the strike price, the t
 
 A pricing model such as Black-Scholes turns those inputs into a theoretical option price. The stock price, strike, time, and rate are known, but future volatility is not, so traders usually run the model in reverse: they take the market price of the option and work out the volatility that would produce it, called implied volatility. Implied volatility is therefore the market's expectation of how much the stock will move, and it is the main way options are compared with one another.
 
-## In Practice
+## Example
 
 A stock trades at 105 and a call with a strike of 100 is priced at 7.50. The intrinsic value is 105 − 100 = 5, so the remaining 2.50 is time value. If the stock stays at 105 until expiration, the time value will fade to zero and the call will be worth only 5, so the buyer loses 2.50 even though the stock hasn't moved. This is why buying options means paying for time, and why the Greeks in the next module break down how each input affects the price.
 

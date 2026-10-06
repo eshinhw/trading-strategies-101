@@ -20,7 +20,7 @@ Because commodity production is often concentrated in a relatively small number 
 
 Reported inventory levels — how much of a commodity is currently sitting in storage — are closely watched as a real-time signal of the balance between supply and demand: unusually low inventories tend to signal tight supply and support higher prices (and often backwardation), while unusually high inventories tend to signal oversupply and pressure prices lower (and often contango).
 
-## In Practice
+## Example
 
 A run of dry weather across a major corn-growing region during the critical summer growing weeks can shrink the expected harvest before a single bushel is even cut, and traders often bid corn futures higher immediately on the forecast alone, well before any actual shortage shows up at a grain elevator. Weekly government inventory reports work the same way in energy markets — a surprisingly large build in crude oil stockpiles tends to push prices down the same day, as traders read it as a sign that supply is outrunning demand.
 

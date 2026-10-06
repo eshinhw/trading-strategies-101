@@ -20,7 +20,7 @@ The leading explanation is that option buyers are willing to pay a premium for t
 
 This persistent gap between implied and realized volatility is exactly what a family of strategies covered later in this course, from selling straddles and strangles to more sophisticated gamma-hedged and variance-swap approaches, is built to systematically harvest — collecting the premium embedded in option prices, while managing the real risk of a period where realized volatility spikes well above what was priced in.
 
-## In Practice
+## Example
 
 A trader who systematically sells index options, collecting premium month after month, is functioning much like an insurance company that sells policies against events that rarely happen: most months the options expire with little drama and the premium is pure profit, but the strategy's entire viability depends on setting aside enough of that collected premium to absorb the occasional month when realized volatility spikes far beyond what was priced in and a large payout comes due.
 

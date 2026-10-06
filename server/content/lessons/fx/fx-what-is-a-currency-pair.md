@@ -20,7 +20,7 @@ Going long a currency pair means buying the base currency and simultaneously sel
 
 Pairs are commonly grouped by how heavily they trade: major pairs involve the U.S. dollar and another large, freely-traded currency (like EUR/USD or USD/JPY) and are the most liquid; minor pairs pair two major currencies without the dollar (like EUR/GBP); and exotic pairs involve a major currency against a smaller or less liquid one (like USD/TRY), typically trading with wider spreads and less liquidity.
 
-## In Practice
+## Example
 
 A U.S. tourist arriving in Japan and exchanging dollars for yen at the airport is executing, in miniature, exactly what a currency pair describes: they're simultaneously selling their base currency (USD) and buying the quote currency (JPY) at whatever the USD/JPY rate happens to be that day, and the number of yen they walk away with depends entirely on where that pair is trading at the moment of the exchange.
 

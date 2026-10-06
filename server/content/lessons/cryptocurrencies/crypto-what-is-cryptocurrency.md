@@ -20,7 +20,7 @@ Unlike a currency issued and controlled by a central bank, most cryptocurrencies
 
 A base-layer coin like Bitcoin exists purely to be transferred, while a platform like Ethereum also supports smart contracts — self-executing code stored on the blockchain — enabling tokens and applications to be built on top of it. That distinction matters for this course, since different crypto assets trade on very different fundamental drivers.
 
-## In Practice
+## Example
 
 When someone sends cryptocurrency to another wallet, there's no bank in the middle approving the transfer. The transaction is broadcast to the network, validated by other participants following the protocol's consensus rules, and permanently recorded on the shared ledger — the same basic process whether the transfer is worth ten dollars or ten million.
 

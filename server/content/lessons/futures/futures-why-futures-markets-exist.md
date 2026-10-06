@@ -20,7 +20,7 @@ Because futures trade continuously and transparently on an exchange, the price o
 
 None of hedging, speculation, or price discovery works well in a thin market. Speculators supply the trading volume and depth that let hedgers get in and out of positions quickly and at a fair price, and that same depth is exactly what makes the resulting price trustworthy enough to serve as a public benchmark that others rely on.
 
-## Example in Practice
+## Example
 
 A wheat farmer wanting to lock in a sale price sells wheat futures short; a trading firm with no interest in ever owning wheat takes the other side, betting prices will fall. Their trade sets the day's futures price at $6.20 a bushel. A neighboring farmer, who has never placed a futures trade in their life, checks that same number that afternoon before deciding how much wheat to plant next season, and the local grain elevator prices what it pays walk-in farmers off that same $6.20, plus or minus a local adjustment — because it's the most current, most liquid public estimate of wheat's value anywhere. One trade between a farmer and a speculator, and three of the market's core jobs (hedging, speculation, and price discovery) are all doing real work behind a single number on the elevator's price board.
 

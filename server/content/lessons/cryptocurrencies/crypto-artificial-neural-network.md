@@ -20,7 +20,7 @@ A network's weights start essentially random and are adjusted through backpropag
 
 Because a large network has many adjustable weights, it can fit training data extremely closely — including its noise, not just its signal — which is a particular danger in a market as noisy and fast-changing as cryptocurrency. Techniques like regularization, dropout, and strict out-of-sample testing, covered generally in the previous lesson, are what keep an ANN's flexibility from turning into overfitting.
 
-## In Practice
+## Example
 
 A crypto trading desk might feed an ANN dozens of engineered features — recent returns across several timeframes, volume trends, order-book imbalance — and train it to output a short-term directional signal. The desk validates the model on data from a period the network never saw during training, and only scales up real capital behind the signal once that out-of-sample performance holds up, rather than trusting the impressive-looking training-period results alone.
 

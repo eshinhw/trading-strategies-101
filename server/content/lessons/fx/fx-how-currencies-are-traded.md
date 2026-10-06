@@ -20,7 +20,7 @@ A pip is the standard, smallest conventional unit of price movement for most cur
 
 A lot is the standard trade size in FX: a standard lot is typically 100,000 units of the base currency, with mini (10,000 units) and micro (1,000 units) lots available for smaller position sizes. Because a full lot represents a large notional amount, leverage is commonly used in FX trading to control a position of that size with a smaller amount of posted capital.
 
-## In Practice
+## Example
 
 A multinational corporate treasurer needing to convert a large batch of foreign sales revenue back into dollars doesn't place that order on a centralized exchange the way a stock trader would — instead, the company's bank quotes a price directly, over the counter, and because the FX market is open somewhere in the world nearly around the clock, that conversion can be timed to whichever trading session offers the tightest pricing, rather than waiting for a single exchange's opening bell.
 

@@ -20,7 +20,7 @@ Max profit and max loss are the best and worst outcomes the strategy can produce
 
 The shape itself tells a story: a flat line means 'this outcome doesn't depend on the stock price here.' A sloped line means 'I'm exposed dollar-for-dollar in this zone.' A kink is where a leg's strike price is — that's where its behavior changes. Learning to read the shape at a glance, before looking at the exact numbers, is the single most useful skill this course builds.
 
-## In Practice
+## Example
 
 Risk desks at banks and hedge funds build a payoff diagram like this for every position before it's approved, precisely so a risk manager who has never seen the trade can glance at the shape and immediately spot an uncapped loss or a lopsided bet — the diagram is a real underwriting tool, not just a teaching aid.
 

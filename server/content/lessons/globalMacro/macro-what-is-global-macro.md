@@ -20,7 +20,7 @@ A macro view is built from a mix of economic data, central bank policy signals, 
 
 Some macro investors form views through discretionary judgment, weighing data and events qualitatively; others build systematic, rules-based processes that translate observable data directly into positions, an approach explored further in this course's strategies. Both share the same top-down starting point, even though they arrive at a position differently.
 
-## In Practice
+## Example
 
 A macro investor who believes a country's central bank is about to raise interest rates faster than the market expects doesn't have just one way to express that view: they could short that country's government bonds, go long its currency, or short its rate-sensitive equity sectors — the view comes first, and the instrument is chosen afterward based on which offers the best risk/reward.
 

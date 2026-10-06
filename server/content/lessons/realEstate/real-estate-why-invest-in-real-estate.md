@@ -20,7 +20,7 @@ Real estate returns don't move in lockstep with stocks and bonds, because they d
 
 Property is expensive to buy and sell, with transaction costs, legal fees, and taxes, and it can take months to sell, so it is much less liquid than stocks. Direct owners also take on the work of managing tenants and maintenance, or pay someone to do it. Because properties are usually bought with borrowed money, as covered in a later lesson, both gains and losses are magnified.
 
-## In Practice
+## Example
 
 An investor holding only stocks and bonds is worried about rising prices and wants more stable income. The investor puts part of the portfolio into rental property through a real estate investment trust, which holds properties and pays out most of its rental income. The investor now receives regular payments that can grow as rents rise, in addition to the returns from stocks and bonds, and accepts that the holding can lose value and is less easy to sell quickly.
 

@@ -20,7 +20,7 @@ Unlike a corporate bond, a mortgage borrower can pay off their loan early at any
 
 The biggest driver of prepayment speed is the gap between a pool's existing mortgage rates and current market mortgage rates. When rates fall well below what homeowners in the pool are paying, refinancing accelerates and prepayments speed up; when rates rise, homeowners are less likely to move or refinance, and prepayments slow down.
 
-## In Practice
+## Example
 
 An investor buying into a pool of mortgages originated when rates were 6% is really betting on how long that 6% income stream will last. If market rates later drop to 4%, homeowners across the pool refinance in large numbers, the investor's principal comes back far earlier than planned, and that returned cash can only be reinvested at the new, lower 4% rate — the opposite of what the investor wanted. That's exactly why MBS pricing has to account for how prepayment speed itself reacts to rates, not just for the pool's stated coupon and maturity.
 

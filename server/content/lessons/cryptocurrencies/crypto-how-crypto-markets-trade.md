@@ -20,7 +20,7 @@ The same cryptocurrency can trade at slightly different prices on different exch
 
 Because ownership of a cryptocurrency is proven by a private key, whoever controls that key controls the asset. Holding assets on an exchange means trusting the exchange's own security and solvency, while self-custody in a personal wallet removes that counterparty risk but shifts full responsibility for safeguarding the key onto the holder.
 
-## In Practice
+## Example
 
 A trader who leaves funds on a centralized exchange for convenience is exposed to that exchange's own risk — if it's hacked or becomes insolvent, customer funds can be lost even though the underlying blockchain itself was never compromised. That's exactly the distinction the industry phrase "not your keys, not your coins" is pointing at.
 

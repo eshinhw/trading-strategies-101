@@ -20,7 +20,7 @@ Longer maturity generally means higher duration, since more of the bond's value 
 
 Duration is the tool that lets a bond portfolio manager size a position, compare bonds of different maturities and coupons on a common basis, or construct a hedge, by matching the dollar duration of a hedging instrument to the dollar duration of the exposure being hedged, rather than relying on maturity alone, which can be a misleading measure of actual rate sensitivity.
 
-## In Practice
+## Example
 
 A pension fund has to pay out a known stream of benefits stretching decades into the future, so its manager builds a bond portfolio whose duration is deliberately matched to the duration of those future payments. If rates move, the value of the bonds held and the present value of the benefits owed shift by roughly the same amount, keeping the fund's ability to meet its obligations largely insulated from swings in interest rates.
 

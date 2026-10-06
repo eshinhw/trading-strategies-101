@@ -20,7 +20,7 @@ The Bernoulli variant represents each word in the model's vocabulary as simply p
 
 Once the model classifies a stream of text as leaning bullish or bearish, that classification can be aggregated over time, such as a rolling net-sentiment score across recent posts, and used as an input to a trading signal — buying when sentiment turns decisively positive, reducing exposure when it turns negative.
 
-## In Practice
+## Example
 
 A sentiment model trained on a labeled dataset of past crypto-related social-media posts (each tagged in advance as bullish or bearish by a human reviewer) can then classify new, unlabeled posts as they arrive in real time. A trading system tracking the resulting rolling sentiment score might scale back exposure when sentiment deteriorates sharply, treating a wave of bearish chatter as an early signal worth reacting to, independent of what the price chart alone shows.
 

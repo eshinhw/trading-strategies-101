@@ -20,7 +20,7 @@ The same basic idea has been extended to other uses. Blockchains such as Ethereu
 
 People buy cryptocurrencies for several reasons: speculation on rising prices, a belief that a limited-supply coin like Bitcoin can work as a store of value, access to applications built on a blockchain, and a wish to hold something outside the traditional banking system. Critics point to extreme price swings, the lack of cash flows behind most coins, and their use in scams and illicit finance, so the case for them remains debated.
 
-## In Practice
+## Example
 
 A worker sends money to family abroad. The traditional route goes through banks, takes days, and charges fees at each step, while sending a cryptocurrency can take minutes and doesn't involve a bank. But the sender may have to convert in and out of local currency, and the coin's price could change sharply in between, which shows both what the technology was built to improve and the new risks it introduces.
 

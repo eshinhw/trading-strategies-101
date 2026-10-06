@@ -20,7 +20,7 @@ Trend following is defined by a low win rate paired with positive expectancy. Mo
 
 Trend-following programs typically trade across many uncorrelated futures markets at once — grains, energy, metals, currencies, interest rates, equity indexes — rather than concentrating on one. Since nobody knows in advance which market will trend next, spreading the strategy across many markets is what lets a handful of big winners offset the frequent small losses elsewhere.
 
-## Example in Practice
+## Example
 
 A trader with a $500,000 account risks 1% of capital, $5,000, on each new trend trade. Crude oil crosses above its 200-day moving average at $75 per barrel, triggering a long entry, with a stop-loss set at $73 — a $2-per-barrel risk. Since one contract covers 1,000 barrels, that's $2,000 of risk per contract, so the trader buys $5,000 ÷ $2,000 ≈ 2 contracts. The trend continues and crude eventually reaches $85: the position gains $10 per barrel × 1,000 barrels × 2 contracts = $20,000 — four times the $5,000 originally risked, from a single trade that worked.
 

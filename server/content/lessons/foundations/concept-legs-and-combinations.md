@@ -20,7 +20,7 @@ The strategies in this course are ordered from the simplest to the most advanced
 
 The Options Payoff Simulator in the Practice section lets you build a position one leg at a time and watch the combined payoff line, which is really just the sum of what each leg would do on its own.
 
-## In Practice
+## Example
 
 This is exactly how professional options traders read an unfamiliar position on a risk report: rather than memorizing the P&L shape of every possible combination, they mentally decompose it into legs they already know — the same way a musician recognizes a complicated chord as two simpler chords played together.
 

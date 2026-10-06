@@ -20,7 +20,7 @@ Beyond price risk, crypto carries risks that don't really have a stock-market eq
 
 How a given cryptocurrency or activity is classified and regulated varies by jurisdiction and continues to evolve, adding a layer of risk that isn't present in more mature, settled regulatory regimes like those covering listed equities or government bonds.
 
-## In Practice
+## Example
 
 A systematic trading strategy built purely on historical price patterns can perform very differently once regulatory news, an exchange outage, or a smart-contract exploit disrupts the market in a way a traditional equity strategy would rarely have to account for — which is exactly why risk controls built for crypto strategies typically need to be more conservative than the backtested price data alone would suggest.
 

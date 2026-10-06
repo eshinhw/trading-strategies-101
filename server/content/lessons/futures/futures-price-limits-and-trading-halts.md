@@ -20,7 +20,7 @@ Price limits are meant to give the market a pause during an unusually sharp, fas
 
 Related but distinct from a price limit, a circuit breaker triggers a temporary trading halt, rather than merely capping the price, once a market moves by some threshold percentage very quickly. Used especially in broad equity index futures, a circuit breaker gives markets a brief cooling-off period before trading resumes, rather than locking the price at a hard ceiling or floor for the rest of the session.
 
-## Example in Practice
+## Example
 
 When a surprise government crop report signals a much smaller soybean harvest than traders expected, a soybean futures contract trading at $14.00 a bushel with a $0.70 daily limit can rocket straight up to $14.70 — its limit-up price — within minutes of the report, leaving traders who want to buy more locked out until the next session. Equity index futures handle an extreme move differently: in a fast, broad selloff, a circuit breaker can kick in instead, pausing trading entirely for a few minutes rather than pinning the price at a hard ceiling, giving panicked markets a moment to reset before trading resumes.
 

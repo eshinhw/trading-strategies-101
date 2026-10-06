@@ -20,7 +20,7 @@ An index also gives investors a standard to judge performance against. A fund ma
 
 Because an index is a clearly defined, rule-based basket, products can be built on it. Index funds and ETFs hold the stocks in the index to deliver its return at low cost, and index futures and options let investors hedge or speculate on the whole market in a single trade. None of these would work without a transparent, widely accepted index to refer to, and they are covered later in this course.
 
-## In Practice
+## Example
 
 An actively managed fund returns 8% in a year when the S&P 500 returns 12%. Without the index, 8% might look like a good result, but the comparison shows the manager lagged the market by 4 percentage points. An investor who had put the same money into a low-cost index fund tracking the S&P 500 would have earned close to 12% before fees, which is why indexes are used both to measure performance and to build products that simply deliver it.
 

@@ -24,7 +24,7 @@ Others trade currencies because they hold a view and want exposure to it. A trad
 
 Nothing about a trade itself reveals its purpose: buying euros with dollars could be an importer paying a bill, a fund manager hedging, or a trader betting on the euro. What differs is the surrounding position. For a hedger the trade offsets an exposure they already have, while for a speculator it creates a new one, and that distinction shapes how much risk each participant is actually running.
 
-## In Practice
+## Example
 
 A U.S. company expects to be paid 2 million euros in three months. If it does nothing, it ends up with more or fewer dollars depending on where EUR/USD is when the payment arrives. If it instead agrees today to sell those euros at a fixed rate, it has hedged. A trader who sells euros forward with no euro receivable at all is taking the exact same trade but creating risk instead of removing it.
 

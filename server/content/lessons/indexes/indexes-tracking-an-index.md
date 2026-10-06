@@ -20,7 +20,7 @@ Tracking error measures how closely a fund's actual return matches its target in
 
 This is exactly the mechanism behind most index-tracking ETFs, already covered in this curriculum's ETF course: an ETF issuer chooses full replication or sampling to build the fund's underlying basket, and the same creation and redemption process that keeps an ETF's price near its net asset value is what lets the fund's holdings stay aligned with the index it's meant to track.
 
-## In Practice
+## Example
 
 An index-fund manager spends the days around each quarterly reconstitution buying the shares of newly added companies and selling the shares of names being dropped, timing the trades to land as close as possible to the moment the index itself officially changes. Getting that timing wrong, or settling for a sampled basket that only approximates the full index, is exactly what shows up later as tracking error between the fund's return and the index's.
 

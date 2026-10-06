@@ -20,7 +20,7 @@ Volatility tends to rise sharply when stocks fall and to ease when they rise, wh
 
 Because volatility matters so much and behaves in recognizable ways, markets developed instruments to trade it directly: options, VIX futures, exchange-traded notes, and variance swaps. Investors use them to protect against sell-offs or to bet on how large future price moves will be. Implied volatility has also tended to run higher than the volatility that is later realized, which makes selling volatility a source of return and also a source of risk, a theme covered later in this course.
 
-## In Practice
+## Example
 
 A portfolio manager with a large stock portfolio is worried about a sudden sell-off. Stocks and volatility usually move in opposite directions, so holding a small amount of exposure that gains when volatility spikes can cushion the portfolio when stocks fall sharply. The cost is that the position usually loses money in calm markets, so the manager treats it like insurance: a modest ongoing cost in return for protection when it is most needed.
 

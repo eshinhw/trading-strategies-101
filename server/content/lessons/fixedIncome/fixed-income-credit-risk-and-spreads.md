@@ -26,7 +26,7 @@ If a Treasury yields 4.0% and a corporate bond of the same maturity yields 5.5%,
 
 Spreads change with the issuer's finances, the outlook for the economy, and how willing investors are to take risk. In calm times spreads tend to narrow, and in a crisis they widen sharply as investors demand more compensation. Because a bond's price moves opposite to its yield, a widening spread lowers the price of the bond even if the government yield doesn't change.
 
-## In Practice
+## Example
 
 A company's bond is trading with a 150 basis point spread over Treasuries. The company is then downgraded and the spread widens to 250 basis points, so the bond's yield rises by 1.00%, assuming Treasury yields are unchanged. The bond has a duration of about 5, so its price falls by roughly 5 × 1.00% = 5%. Nothing has defaulted, but the market has repriced the risk, and the bondholder has lost value.
 

@@ -32,7 +32,7 @@ where $D_1$ is next year's dividend, and the formula only works when $r$ is grea
 
 Every input to these models is a forecast, and the result can be very sensitive to them. With a next-year dividend of 2 dollars, a required return of 8%, and growth of 4%, the value is 2 / 0.04 = 50 dollars. If growth is instead 5%, the value jumps to 2 / 0.03, about 66.67 dollars, even though the change in the assumption looks small. This is why analysts treat a valuation as a range of plausible values rather than a single exact number.
 
-## In Practice
+## Example
 
 An analyst finds that a company earned 2.50 dollars per share and trades at 50 dollars, a P/E of 20, while similar companies in its sector trade at a P/E of around 15. The analyst also estimates a dividend-discount value of 42 dollars. Both measures suggest the stock is expensive, but each depends on assumptions about growth and risk, so the analyst would want to understand why the market is willing to pay more before drawing a conclusion.
 

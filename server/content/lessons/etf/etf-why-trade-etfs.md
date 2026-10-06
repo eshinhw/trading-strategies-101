@@ -20,7 +20,7 @@ Most ETFs are passively managed, tracking an index rather than paying a team of 
 
 The in-kind creation and redemption mechanism, trading baskets of securities rather than cash, lets most ETFs avoid triggering the capital gains distributions that a traditional mutual fund often passes on to all its shareholders when it sells appreciated holdings — making ETFs, in many cases, a more tax-efficient way to hold a diversified position.
 
-## In Practice
+## Example
 
 A pension fund that wants to add exposure to emerging-market stocks doesn't need to open brokerage accounts in a dozen different countries and hand-pick individual companies — it can buy shares of a single emerging-markets ETF and get diversified, professionally selected exposure to that entire asset class in one trade. And because that ETF relies on in-kind creation and redemption rather than selling holdings for cash, the fund is less likely to receive a surprise year-end capital gains distribution the way it might from a similarly invested mutual fund, letting more of its return compound untaxed until it actually sells.
 

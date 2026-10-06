@@ -20,7 +20,7 @@ Working in the opposite direction is convenience yield: the real benefit of hold
 
 This tug-of-war between storage cost and convenience yield is specific to physical commodities — a financial futures contract, like one on a stock index, has no storage cost and no convenience yield, since there's nothing physical to store or find useful to have on hand, which is exactly why commodity curves behave so differently, and are so much more variable, than financial futures curves.
 
-## In Practice
+## Example
 
 An oil refiner that keeps a few weeks of crude sitting in tanks pays for that tank space and the insurance on it, and normally expects a later-dated contract to cost a bit more to compensate — a market in contango. But if a pipeline outage suddenly makes crude hard to get right now, that same refiner will pay up for oil in hand today rather than a promise of oil next month, since running dry shuts down the plant; that scramble for immediate supply is convenience yield showing up as backwardation.
 

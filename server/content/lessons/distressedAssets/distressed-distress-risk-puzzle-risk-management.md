@@ -20,7 +20,7 @@ Because individual distressed outcomes carry real dispersion, sizing positions s
 
 A manager evaluating their own performance needs to separate genuine skill in selecting or shaping distressed situations from simply having been exposed to a period when distress happened to do well — attributing an above-average return to skill, when it may partly reflect a factor that's historically been a headwind rather than a tailwind, risks overconfidence in situations without those same tailwinds.
 
-## In Practice
+## Example
 
 A distressed fund manager who knows the distress risk puzzle well won't simply buy every cheap distressed bond available; instead, they specifically look for situations with a catalyst — an identifiable path to a favorable reorganization, or a position large enough to actively shape one — treating generic, unselected distress exposure as something to avoid rather than something to harvest passively.
 

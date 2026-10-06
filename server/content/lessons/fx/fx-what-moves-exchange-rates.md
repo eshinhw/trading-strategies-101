@@ -20,7 +20,7 @@ A country running a large trade deficit, importing much more than it exports, te
 
 Beyond the interest rate level itself, central bank policy decisions and signals about future rate changes can move a currency sharply on the expectation of what's coming, not just what's already happened. Broader risk sentiment matters too: in periods of global uncertainty, capital often flows toward currencies seen as safe havens, regardless of what any single country's fundamentals are doing at that moment.
 
-## In Practice
+## Example
 
 An exporter watching their home country's central bank signal that interest rates are likely to rise sees two forces pulling in different directions: higher rates tend to attract foreign capital and strengthen the home currency, which is good news for the value of money already earned abroad, but a stronger currency also makes that exporter's goods more expensive for foreign buyers going forward — the same fundamental forces this lesson covers, working through to a real business's bottom line from both directions at once.
 

@@ -20,7 +20,7 @@ When a company first sells shares to the public, in an initial public offering (
 
 Shares let the ownership of a very large company be divided into millions of small, equal pieces, so no single investor has to fund the whole business. Shareholders also have limited liability, meaning the most they can lose is the amount they invested, even if the company fails. Spreading both the money and the risk across many people is what allows companies to grow far larger than any one investor could finance.
 
-## In Practice
+## Example
 
 A company needs 200 million dollars to build new plants. Rather than borrow the whole amount and commit to years of fixed payments, it sells 10 million new shares at 20 dollars each in an IPO. The buyers now own part of the company and share in whatever it earns, while the company has its money with no loan to repay. Later, those buyers can sell their shares to other investors at whatever price the market sets, without the company being involved.
 

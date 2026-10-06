@@ -20,7 +20,7 @@ Judging what distressed debt is worth requires reading legal documents, understa
 
 A low price isn't always a bargain, because the market may be right that the debt is worth little. Recoveries are uncertain, can take years, and depend on a court process and on the claims ahead of the one being bought. An investor can lose most or all of the investment, which is why distressed investing demands careful analysis of the company's assets and the priority of each claim.
 
-## In Practice
+## Example
 
 A bond with a face value of 1,000 dollars trades at 400 dollars after the issuer files for bankruptcy, mostly because funds that can't hold defaulted debt are selling. An investor studies the company's assets and the order of claims and estimates that the bond will eventually recover about 600 dollars. If that is right, buying at 400 and recovering 600 gives a gain of 50%, since 600 divided by 400 is 1.5. If the recovery is only 200 dollars, the investor loses 50%, which shows how much depends on the quality of the analysis.
 

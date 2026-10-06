@@ -20,7 +20,7 @@ Cross-hedging introduces an additional layer of basis risk beyond a normal direc
 
 To size a cross-hedge, traders often compute a hedge ratio, commonly estimated by regressing the exposed asset's price changes against the hedging instrument's price changes. That regression's slope — sometimes called the minimum-variance hedge ratio — tells them how many futures contracts to use per unit of exposure, rather than assuming a naive one-for-one match.
 
-## Example in Practice
+## Example
 
 A regional jet-fuel buyer needs to hedge 100,000 gallons of future purchases. Regressing historical jet-fuel price changes against heating oil futures price changes gives a hedge ratio of 0.85 — jet fuel has typically moved about 85 cents for every dollar move in heating oil. The buyer needs 0.85 × 100,000 = 85,000 gallon-equivalents of heating oil futures exposure. If one heating oil futures contract covers 42,000 gallons, that works out to 85,000 ÷ 42,000 ≈ 2 contracts, rather than a naive 100,000 ÷ 42,000 ≈ 2.4 contracts a one-to-one hedge would suggest.
 

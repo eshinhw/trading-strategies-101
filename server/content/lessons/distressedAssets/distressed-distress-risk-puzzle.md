@@ -20,7 +20,7 @@ Another explanation is structural: many large institutional investors are restri
 
 A third explanation is more technical: standard risk measures like beta or historical volatility may simply fail to capture the true risk profile of a distressed security well, meaning the "puzzle" partly reflects that distressed risk isn't being measured accurately in the first place, rather than a genuine violation of risk-return logic.
 
-## In Practice
+## Example
 
 A researcher studying decades of returns on portfolios sorted by a distress-risk score consistently finds that the most distressed group underperforms the least distressed group on average, even after adjusting for standard risk factors — a result robust enough across markets and time periods that it's treated as a genuine, well-established empirical puzzle rather than a fluke of one particular dataset.
 

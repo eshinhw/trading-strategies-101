@@ -20,7 +20,7 @@ Most major indices today, including the S&P 500, are market-cap-weighted instead
 
 A less common alternative is an equal-weighted index, which gives every constituent the same influence regardless of size, deliberately reducing the outsized impact the largest few companies otherwise have in a market-cap-weighted version — a choice that changes an index's behavior meaningfully, especially when a handful of giant companies dominate a market-cap-weighted benchmark.
 
-## In Practice
+## Example
 
 An investor who wants exposure to "the market" without picking individual winners buys a fund tracking a broad, market-cap-weighted index like the S&P 500, effectively betting on the combined fortunes of hundreds of large companies weighted by their actual economic size. If that same investor instead wanted a bet less dominated by a handful of giant companies, they might choose an equal-weighted version of the same universe, trading the concentration of the standard index for broader, more even exposure across every constituent.
 

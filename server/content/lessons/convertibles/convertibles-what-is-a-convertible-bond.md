@@ -20,7 +20,7 @@ Building on what a bond and a stock each are, covered in this curriculum's Fixed
 
 Convertible bonds are widely issued by companies, particularly growth companies that want to raise debt financing at a lower coupon than a plain bond would require, in exchange for offering investors the upside potential of eventual conversion into equity — a tradeoff explored in more depth later in this course.
 
-## In Practice
+## Example
 
 A young biotech or software company that isn't yet generating steady cash flow often struggles to issue a plain bond at an affordable rate, since lenders see real default risk and price it in, and issuing more stock outright dilutes existing shareholders immediately at what the company may see as a depressed price. Issuing a convertible bond splits the difference: the company locks in a lower coupon than a straight bond would cost, and investors accept that lower coupon because they're also buying the chance to convert into equity later if the stock takes off.
 

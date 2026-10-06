@@ -20,7 +20,7 @@ A net credit trade means you sold more option value than you bought. You keep th
 
 Neither is inherently 'better' — a debit trade risks a known, limited amount for a shot at a bigger (sometimes unlimited) gain; a credit trade collects a known, limited amount upfront in exchange for taking on the risk side of that same trade. Matching the type to your market view and risk tolerance is most of the job.
 
-## In Practice
+## Example
 
 This split matches how brokers actually size margin requirements: a net debit trade only ties up the cash you already paid, while a net credit trade requires posting margin against the risk you've taken on — which is why two trades that look similar on a payoff chart can tie up very different amounts of capital in a real account.
 

@@ -20,7 +20,7 @@ If a constituent does a 2-for-1 stock split, its share price is cut in half over
 
 Indices are also periodically rebalanced, adjusting each constituent's weight back toward its target methodology, and reconstituted, adding newly qualifying companies and removing ones that no longer fit the index's rules — both processes that, again, require divisor adjustments so the index's continuity isn't broken by changes to its own membership or weights.
 
-## In Practice
+## Example
 
 When a company in a widely followed index announces a multi-for-one stock split, the index provider recalculates the divisor that same day so the index's published level doesn't move at all because of the split itself — anyone watching the index sees only the moves caused by actual buying and selling, not by a change in how one constituent's shares happen to be counted. The same quiet divisor adjustment happens whenever the index provider swaps one company out for another during its periodic reconstitution.
 

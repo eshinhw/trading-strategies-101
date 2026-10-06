@@ -20,7 +20,7 @@ Pawn loan rates, typically regulated and expressed as a monthly rate under state
 
 Pawnbroking mainly serves borrowers without easy access to traditional credit — no bank account, thin or damaged credit history — who need a small amount of cash quickly. It's a legitimate, closely licensed lending channel that fills a real gap left by mainstream banking, distinct from the illegal lending covered next.
 
-## In Practice
+## Example
 
 A borrower brings in a watch appraised at $500 and receives a $150 loan, roughly a 30% loan-to-value ratio typical of pawn lending, with 90 days to repay plus interest and reclaim the watch. If they don't return within that window, the pawnbroker keeps the watch and resells it — the transaction is fully settled either way, with no further claim on the borrower.
 

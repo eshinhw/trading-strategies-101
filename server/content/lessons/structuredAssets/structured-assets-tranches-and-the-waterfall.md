@@ -20,7 +20,7 @@ That same waterfall runs in reverse when the pool suffers losses. The most junio
 
 Because the equity tranche is first in line to absorb losses, it demands, and receives, a much higher coupon than the senior tranche, which is designed to stay nearly untouched unless losses far exceed the cushion beneath it. Mezzanine tranches sit in between on both dimensions — more risk and more yield than senior, less than equity.
 
-## In Practice
+## Example
 
 Picture a CLO backed by a pool of leveraged corporate loans, split into a senior tranche, a mezzanine tranche, and a small equity tranche at the bottom. An insurance company buying the senior tranche cares mainly about the near-certainty of getting paid, and accepts a modest coupon for that safety; a hedge fund buying the equity tranche is underwriting the pool's first losses in exchange for a coupon several times larger. Both investors are exposed to the very same underlying loans — what differs is only where each one sits in the waterfall.
 

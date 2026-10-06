@@ -36,7 +36,7 @@ The Greeks of a position are simply the sum of the Greeks of each leg, adjusted 
 
 The Greeks describe how the price responds to small changes, based on today's conditions. For large moves, or as time passes, the Greeks themselves change, which is exactly what gamma measures for delta. Treat them as a snapshot that must be refreshed, not as fixed numbers.
 
-## In Practice
+## Example
 
 A trader looks at a risk report showing a position with a delta of 50, a theta of −30, and a vega of 120. Reading that fluently means the position behaves like 50 shares of the stock, loses about 30 dollars a day from time decay, and gains about 120 dollars if implied volatility rises one point. With just those numbers, the trader knows how the position will respond to a move up, a quiet week, or a jump in volatility.
 

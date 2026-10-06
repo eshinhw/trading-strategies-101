@@ -20,7 +20,7 @@ Commodities, particularly energy and industrial materials, have historically ten
 
 An inflation swap lets one party pay a fixed rate in exchange for receiving a floating payment tied to realized inflation, letting an investor hedge inflation exposure directly without needing to buy and hold an actual inflation-linked bond — useful for isolating the inflation view from other risks embedded in a bond, like interest-rate duration.
 
-## In Practice
+## Example
 
 A pension fund worried that persistent inflation will erode the real value of its future payout obligations might allocate part of its portfolio to TIPS for a direct hedge, add a smaller commodities position for additional inflation sensitivity, and use inflation swaps to fine-tune the overall inflation exposure without having to rebuild its entire bond portfolio from scratch.
 

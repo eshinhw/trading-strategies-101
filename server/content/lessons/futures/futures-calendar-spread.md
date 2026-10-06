@@ -22,7 +22,7 @@ Because both legs of the spread move together with the overall commodity price m
 
 A classic use case: heading into a season where a supply crunch is expected, such as a natural gas contract approaching a cold winter with low storage, a trader might buy the near-month contract and sell a further-out month, expecting the near-term squeeze to push the front contract's price up relative to the back one. That profits from the change in the spread, largely independent of whether natural gas prices broadly rise or fall.
 
-## Example in Practice
+## Example
 
 December crude oil trades at $78 and November crude trades at $76 — a $2 contango spread. A trader expecting the near-term squeeze to tighten buys November and sells December. Over the following weeks, November rises to $77.50 (a $1.50 gain on the long leg) while December stays flat at $78.00 (no gain or loss on the short leg), narrowing the spread from $2.00 down to $0.50. The trade nets $1.50 per barrel — $1,500 on a single 1,000-barrel contract — purely from the spread narrowing, regardless of what crude's outright price did in the meantime.
 

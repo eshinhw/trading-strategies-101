@@ -78,7 +78,7 @@ At the contract's maturity date, a forward is settled in one of two ways: **phys
 
 Which settlement method applies is specified in the contract terms at the outset. Physical settlement is more common for commodities where the underlying asset genuinely changes hands, while cash settlement is common when physical delivery is impractical, for a financial index, for example, where there's no single physical asset to deliver.
 
-## 💡 Example
+## Example
 
 A flour mill expects to need 10,000 bushels of wheat in six months.
 

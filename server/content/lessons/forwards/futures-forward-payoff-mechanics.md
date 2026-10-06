@@ -16,7 +16,7 @@ The short side's payoff is the exact mirror image: payoff(short) = delivery pric
 
 Unlike an option, whose buyer's loss is capped at the premium paid no matter how badly the position moves, a forward's long and short both carry unlimited, uncapped exposure in either direction — there's no premium paid upfront that limits the downside, which is exactly the "obligation, not a choice" idea covered in the previous lesson showing up numerically in the payoff formula itself.
 
-## Example in Practice
+## Example
 
 A treasury desk marking its forward book to market every day isn't guessing at gains and losses — it's applying exactly this formula, spot minus delivery price for every long position and delivery price minus spot for every short, across every open contract. Take a mill that's long a forward on 10,000 bushels of wheat at a $6.50 delivery price. If wheat's spot price at maturity is $7.20, the mill's payoff is ($7.20 − $6.50) × 10,000 = $7,000 — a gain, since it locked in a price below where wheat ended up. The merchant on the short side of that same contract has the mirror-image payoff: ($6.50 − $7.20) × 10,000 = −$7,000, an equal and opposite loss.
 

@@ -20,7 +20,7 @@ Because the derivative is chosen specifically to replicate market exposure while
 
 Because a derivative-based structure can look, from a market-exposure standpoint, almost identical to simply owning the underlying shares, tax authorities pay particularly close attention to whether such structures are being used for a genuine hedging or investment purpose or purely to sidestep a tax result that direct ownership would trigger — exactly the kind of aggressive use that has led to rule-tightening in several jurisdictions.
 
-## In Practice
+## Example
 
 An investor who wants exposure to a foreign stock's dividends, but would face a high direct withholding rate as a shareholder, instead enters into a total return swap that pays them an amount linked to the stock's price and dividend, structured so the payment isn't subject to the same withholding — capturing very similar market exposure to direct ownership while facing a different, more favorable tax result on the dividend-linked portion.
 

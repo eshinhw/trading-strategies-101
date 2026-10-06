@@ -20,7 +20,7 @@ The bid is the highest price a buyer is currently willing to pay; the ask is the
 
 Volume counts the number of contracts traded during a given period (a day, an hour), reset to zero each new period. Open interest counts the total number of contracts currently open — not yet closed out, expired, or delivered — and only changes when a new position is opened or an existing one is closed, not with every trade. Rising open interest alongside a rising price is often read as new money confirming an uptrend, while rising open interest alongside a falling price can suggest fresh short positions being built.
 
-## Example in Practice
+## Example
 
 A trader deciding whether to use a market or a limit order on a thinly-traded agricultural contract checks the bid-ask spread first, since a wide spread on a low-open-interest contract is a warning sign that a market order could fill at a materially worse price than expected — often reason enough to use a limit order instead, even at the cost of the order possibly not filling right away. Open interest is exactly the number that flags a thin market in the first place: a contract might show 50,000 contracts of volume today, but if open interest only rose from 200,000 to 202,000, that gap says most of the day's trading was existing positions being closed and reopened, with only a net 2,000 contracts of genuinely new exposure — a market that looks busy on volume alone but isn't necessarily deep.
 

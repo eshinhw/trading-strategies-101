@@ -20,7 +20,7 @@ This is the core contrast with a stock: a bondholder is owed a specific, contrac
 
 Bonds are held for the combination of predictable income and, relative to stocks, lower volatility — useful for an investor who needs cash flow on a known schedule, or who wants to offset the swings of a stock-heavy portfolio with a steadier asset. That predictability comes at the cost of giving up the unlimited upside a shareholder retains if the underlying business does extremely well.
 
-## In Practice
+## Example
 
 When a corporate treasurer needs to fund a new factory, they weigh two paths: sell shares in the company, diluting existing owners and giving up a claim on future profits forever, or issue bonds, borrowing a fixed sum from investors under a known schedule of interest and principal payments. Most established companies lean on bonds for routine financing needs precisely because that fixed, contractual obligation is typically cheaper than what equity investors would demand in return for taking on open-ended risk.
 

@@ -20,7 +20,7 @@ Many modern futures contracts, especially financial futures, are cash-settled by
 
 A trader who wants continuous exposure without ever taking delivery closes out the expiring contract and simultaneously opens an equivalent position in a later-dated contract — a roll. The price difference between the two contracts, driven largely by the same cost-of-carry logic behind forward pricing, becomes a return or a cost of maintaining that exposure over time, which is exactly the dynamic behind both calendar-spread trading and roll yield in commodity futures.
 
-## Example in Practice
+## Example
 
 A retail trader who went long a natural gas futures contract purely as a short-term price bet has no storage tanks, pipeline access, or any real use for physical natural gas — so as expiration nears, they simply close the position out with an offsetting trade, leaving delivery to the utilities and energy companies that actually need the gas. A trader rolling a crude oil position runs through that same close-out step, just with an extra wrinkle: long one September contract (1,000 barrels) at $75, they sell it at $76 as expiration nears, banking a $1-per-barrel, $1,000 gain. To keep the exposure going, they simultaneously buy a December contract at $77 — $1 more expensive, since the market's in contango — a $1,000 roll cost on top of whatever September earned. Repeated month after month through a persistent contango market, that recurring roll cost is exactly what quietly erodes the return of holding continuous futures exposure, regardless of what crude's outright price does.
 

@@ -20,7 +20,7 @@ Because a forward settles bilaterally rather than through a centralized exchange
 
 Following reforms introduced after the 2008 financial crisis, many jurisdictions now require OTC derivatives, including forwards, to be reported to regulated trade repositories, and require certain counterparties to post regulatory-mandated collateral on their OTC positions — extending some of the transparency and collateral discipline of the exchange-cleared world into the bilateral OTC market, without making forwards centrally cleared the way futures are.
 
-## Example in Practice
+## Example
 
 A corporate treasury entering its first-ever forward with a new bank counterparty typically has to negotiate an ISDA master agreement before any trading can begin at all — a process that can take weeks — which is exactly why companies tend to concentrate their forward trading with a handful of banks they've already been through that process with, rather than shopping every trade to a new counterparty. Two banks that trade FX forwards with each other regularly show what that investment buys: after signing a single ISDA Master Agreement once, along with a CSA covering collateral terms, every subsequent trade between them, potentially hundreds over the following years, needs only a short trade confirmation citing that master agreement, not a fresh legal negotiation each time.
 

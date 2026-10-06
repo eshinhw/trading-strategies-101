@@ -20,7 +20,7 @@ Redemption runs the reverse: an AP hands back a creation unit's worth of ETF sha
 
 Because APs can profit from any gap between an ETF's market price and the actual value of its underlying holdings — buying whichever is cheaper and creating or redeeming to capture the difference — this arbitrage mechanism is what keeps an ETF's trading price closely tethered to its net asset value, without the fund itself having to intervene.
 
-## In Practice
+## Example
 
 Suppose an ETF's shares start trading noticeably above the combined value of the stocks it actually holds, because a wave of buying demand has pushed the ETF's price up faster than its underlying basket. An authorized participant can step in, buy up the cheaper underlying stocks, hand them to the ETF issuer in exchange for newly created ETF shares, and sell those new shares into the market at the higher price — pocketing the spread while also increasing the ETF's share count, which pushes its price back down toward the value of its actual holdings.
 

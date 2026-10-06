@@ -20,7 +20,7 @@ A more structured version borrows money at a taxable interest rate to fund the p
 
 A muni's yield can stay elevated relative to what looks "fair" for reasons beyond tax treatment alone — credit concerns specific to the issuer, a wave of new muni supply, or reduced demand from investors in a particular tax bracket — so this strategy still requires real credit and market analysis, not just a mechanical tax calculation.
 
-## In Practice
+## Example
 
 A trader notices that a state's general-obligation municipal bonds are yielding meaningfully more than the taxable-equivalent-yield formula would suggest is fair for investors in the relevant tax bracket, with no obvious credit deterioration behind it. The trader buys the munis, funded partly with taxable short-term borrowing, capturing the spread between the tax-exempt yield and the taxable financing cost while that mispricing persists.
 

@@ -20,7 +20,7 @@ Because these instruments serve a narrower base of natural users than a stock or
 
 Despite fitting no single asset class, this course's four strategies share underlying concepts worth learning together: breakeven inflation, weather derivatives, and basis or spread trading — each covered in the lessons that follow — before applying all three, in different combinations, to the strategies ahead.
 
-## In Practice
+## Example
 
 A power plant operator doesn't wake up wanting to speculate on natural gas prices — they want to lock in their generation margin against the risk that gas costs rise faster than the price they can sell electricity for. The spark-spread instrument covered later in this course exists specifically to serve that real operational need, and only secondarily became something traders also use to express a pure view on that same margin.
 

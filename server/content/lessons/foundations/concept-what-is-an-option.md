@@ -20,7 +20,7 @@ Every strategy in this course, no matter how many legs it has, is built from jus
 
 One habit worth building now: always ask 'who benefits if the stock goes up, and who benefits if it goes down?' for each leg separately, before you look at the combined position. It's the fastest way to understand any strategy, including ones you've never seen before.
 
-## In Practice
+## Example
 
 A right without an obligation shows up outside the options market too — when a homebuyer pays a deposit for the exclusive right to buy a house at an agreed price within 60 days, they've effectively bought a call option on that house: if the market moves further in their favor they can still buy at the locked-in price, and if it doesn't, they can walk away and lose only the deposit.
 

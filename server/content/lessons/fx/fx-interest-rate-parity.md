@@ -20,7 +20,7 @@ A related, looser idea is uncovered interest rate parity: the theory that a high
 
 If uncovered interest rate parity held perfectly and consistently, there would be no expected profit from the carry trade covered later in this course, since the higher-rate currency's interest advantage would be expected to be offset exactly by its own depreciation. In practice, that offsetting depreciation doesn't show up reliably enough, or by the theoretically "correct" amount, which is precisely the persistent anomaly the carry trade is designed to exploit.
 
-## In Practice
+## Example
 
 A carry trader borrowing in a currency with a low interest rate and investing the proceeds in a currency with a higher interest rate is explicitly betting against uncovered interest rate parity — wagering that the higher-yielding currency won't depreciate by enough to wipe out the rate advantage — while a corporate treasurer hedging that same currency exposure with a forward contract instead locks in the return covered interest rate parity says should be arbitrage-free, accepting a known, hedged outcome rather than the carry trader's open bet.
 

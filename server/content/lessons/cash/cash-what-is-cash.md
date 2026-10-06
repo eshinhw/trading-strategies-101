@@ -20,7 +20,7 @@ Cash covers near-term obligations without forcing a sale of other assets at a ba
 
 Even within "cash and cash equivalents" there's a spectrum: a checking account is safest and most liquid but pays almost nothing, while a 90-day Treasury bill or CD ties up money briefly in exchange for a bit more yield. The rest of this course looks at the actual instruments and techniques used to manage that spectrum in practice.
 
-## In Practice
+## Example
 
 A company sitting on a large cash reserve during a strong economy is often criticized for "wasting" capital that could be earning a higher return elsewhere — until a downturn hits, revenue drops, and that same reserve is what lets it keep paying employees and suppliers while competitors with less cash are forced into distressed asset sales or bankruptcy.
 

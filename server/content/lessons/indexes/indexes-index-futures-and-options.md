@@ -20,7 +20,7 @@ A portfolio manager holding a diversified stock portfolio can hedge against a br
 
 Index derivatives are also a common way to speculate directly on the broad market's direction, or on the relative performance of one index against another, without taking a view on any specific individual company — a genuinely different kind of bet from picking individual stocks.
 
-## In Practice
+## Example
 
 Ahead of a heavy week of earnings reports and economic data, a portfolio manager who believes their individual stock picks are strong but is nervous about the broad market pulling everything down sells index futures against the portfolio's value. If the market does drop, gains on the futures position offset the paper losses across the stock portfolio, letting the manager ride out the volatility without having to unwind carefully built individual positions.
 

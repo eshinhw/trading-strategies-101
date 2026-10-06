@@ -20,7 +20,7 @@ Energy utilities are the most natural users, since demand for heating or cooling
 
 Weather outcomes are largely uncorrelated with broader financial markets, which is exactly what makes weather derivatives useful as a hedge: a company can neutralize a real, weather-driven swing in its business without taking on offsetting exposure to interest rates, equities, or credit that an unrelated financial hedge might otherwise introduce.
 
-## In Practice
+## Example
 
 A natural gas utility expecting a mild winter to hurt heating-related demand and revenue might buy a weather derivative that pays out if the winter's cumulative heating degree days come in below a set threshold — directly offsetting the revenue shortfall a warmer-than-normal winter would otherwise cause, regardless of what's happening in financial markets at the same time.
 

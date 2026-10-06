@@ -20,7 +20,7 @@ A company emerging from bankruptcy often needs new financing to operate going fo
 
 More than one creditor group can sometimes propose a competing plan of reorganization if they believe it delivers a better outcome than the company's own proposal, and the court and voting creditors ultimately decide between them — which is exactly the scenario a plan-shaping investor is positioning to win.
 
-## In Practice
+## Example
 
 A distressed investor holding a large position across several classes of a company's debt works with restructuring advisors to draft an alternative reorganization plan, offering better recovery terms to junior creditors than the company's own initial proposal while also committing to provide the company's exit financing — a package designed to win the necessary creditor votes over the competing, less favorable plan.
 

@@ -30,7 +30,7 @@ Conventions for counting days differ between markets, but the idea is the same e
 
 A dealer earns the difference between the price it pays and the price it sells at, so the bid-ask spread is a cost to every investor. Spreads are narrow for heavily traded government bonds and wider for less liquid corporate and municipal bonds, so an investor who may need to sell before maturity should check how easily a bond can be sold.
 
-## In Practice
+## Example
 
 An investor buys a bond with a face value of 1,000 dollars, paying a 6% annual coupon in two equal payments, which is 30 dollars per period. The quoted price is 98.50, so the clean price is 985 dollars. It's 60 days into a 180-day coupon period, so the accrued interest is 30 × 60 / 180 = 10 dollars. The investor pays the seller 985 + 10 = 995 dollars, and at the next coupon date receives the full 30 dollars, which includes the 10 dollars paid to the previous owner.
 

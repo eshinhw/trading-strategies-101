@@ -20,7 +20,7 @@ A forward rate isn't the same as today's spot rate: as covered in the interest r
 
 A hedge doesn't have to cover the whole exposure. Companies often hedge only part of what they expect to receive, or only the portion they're most sure about, to leave room for benefit if the rate moves their way. An option can also provide protection while keeping the upside, but the buyer pays a premium up front for it, while a forward has no upfront premium and gives up the upside completely.
 
-## In Practice
+## Example
 
 A U.S. exporter expects 1,000,000 euros in three months, when spot EUR/USD is 1.10. It sells the euros forward at 1.1050, locking in 1,105,000 dollars. If EUR/USD later falls to 1.05, an unhedged exporter would have received only 1,050,000 dollars, so the hedge saved 55,000. If it rises to 1.15, the unhedged exporter would have received 1,150,000, and the hedged one gave up 45,000 of potential gain in exchange for certainty.
 

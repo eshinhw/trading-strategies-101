@@ -24,7 +24,7 @@ A contract with low volume and open interest, and a wide bid-ask spread, can be 
 
 Putting on a position sized to what feels exciting, rather than to a predetermined fraction of account capital, is the single fastest way a string of ordinary losing trades turns into a career-ending drawdown — precisely the discipline the risk-management lesson's position-sizing and stop-loss framework exists to prevent.
 
-## Example in Practice
+## Example
 
 An experienced desk's onboarding checklist for a new trader covers exactly the five mistakes in this lesson explicitly — confirm margin isn't a down payment, know the contract's tick value before sizing a trade, know its first notice date, check its typical bid-ask spread and open interest, and cap risk per trade as a fixed share of capital — precisely because they're common enough to be worth spelling out up front. A trader who skipped that checklist shows exactly why it exists: with a $10,000 account, they put on five crude oil contracts (5,000 barrels) purely because the margin requirement allowed it, without separately checking that a routine $2 adverse move would cost $10,000 — the entire account — a mistake combining ignored notional exposure with over-risking a single position that a two-minute, pre-trade dollar-risk calculation would have caught.
 

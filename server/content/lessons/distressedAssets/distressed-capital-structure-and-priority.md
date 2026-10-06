@@ -20,7 +20,7 @@ When a company's total value isn't enough to repay every claim in full, that ran
 
 Because recovery is so sensitive to seniority, a distressed-debt investor needs to know precisely which layer of the capital structure a given security sits in before estimating what it's likely to recover — two bonds from the same company can have wildly different outcomes depending on this ranking alone.
 
-## In Practice
+## Example
 
 If a distressed company's total value covers its secured debt in full but only half of its unsecured debt, secured bondholders might recover 100 cents on the dollar while unsecured bondholders recover roughly 50 cents — and equity holders, sitting below both, recover nothing at all, despite technically still owning the company on paper until the reorganization is finalized.
 

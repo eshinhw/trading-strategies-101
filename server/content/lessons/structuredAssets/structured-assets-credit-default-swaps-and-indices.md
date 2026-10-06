@@ -20,7 +20,7 @@ A credit index like CDX, for North American names, or iTraxx, for European names
 
 Beyond the plain index, tranches can also be written on the index itself — for example, a 0-3% equity tranche or a 3-7% mezzanine tranche of the index — absorbing losses only once the index's cumulative default losses fall within that specific tranche's range. This is directly analogous to CDO tranching, but built on a standardized index rather than a bespoke pool of loans.
 
-## In Practice
+## Example
 
 Suppose a bank holds a large position in a company's bonds and wants to reduce its exposure to that company's credit without selling the bonds outright, perhaps because selling would signal distress or disrupt a lending relationship. Buying CDS protection on that reference entity lets the bank keep the bonds on its books while paying a periodic premium to transfer the default risk elsewhere. A macro fund that instead wants broad, quick exposure to overall corporate credit conditions, rather than a view on any single issuer, can buy or sell protection on a credit index like CDX in one trade rather than assembling the same exposure across a hundred separate single-name CDS.
 

@@ -20,7 +20,7 @@ Because each exposure is specific, the contracts are often tailored, traded by a
 
 A hedge only works to the extent that the instrument's payout matches the actual loss. A temperature index measured at an airport might not match the weather at a particular resort, and an inflation index may not match a firm's own costs. This mismatch is called basis risk, and it is one reason spread and basis trading, covered later in this course, matters for these markets.
 
-## In Practice
+## Example
 
 A ski resort earns less when winters are mild. It buys a weather derivative that pays out if a temperature index shows a warmer winter than a set level, so a bad season is partly offset by the payout. The counterparty might be an investor or insurer who accepts the risk in return for a premium, and who values it because weather is largely unrelated to what happens in the stock market.
 

@@ -24,7 +24,7 @@ Implied volatility often climbs before a known event, such as an earnings report
 
 A long straddle has a large positive vega, making it a bet that volatility, or the stock's actual movement, will exceed what the market expects. A short iron condor or short strangle has negative vega and does well when volatility falls. Spreads that combine long and short options at different strikes have a smaller net vega because the legs offset each other.
 
-## In Practice
+## Example
 
 A trader buys a call with a vega of 0.20 two days before earnings, when implied volatility is 50%. After the report the stock rises, but implied volatility falls to 35%, a drop of 15 points. The vega effect is about 0.20 × (−15) = −3.00 per share, or 300 dollars per contract, which can easily outweigh the gain from the stock's move.
 

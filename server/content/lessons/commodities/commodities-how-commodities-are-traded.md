@@ -20,7 +20,7 @@ As covered in the Futures course, the overwhelming majority of commodity futures
 
 Beyond trading futures directly, investors can get commodity exposure through commodity-linked ETFs (which themselves typically hold futures rather than physical barrels or bushels, aside from a few exceptions like certain gold funds), or through the stocks of companies whose businesses are tied to a commodity's price, such as an oil producer or a mining company — an indirect, imperfect substitute that also carries that company's own business risk.
 
-## In Practice
+## Example
 
 A jewelry manufacturer that needs gold every month to keep production running doesn't want to deal with vaulting bars of physical metal, so it instead buys and rolls gold futures contracts to lock in a price, closing each one out for cash well before delivery and buying the actual metal separately from its usual bullion supplier. A retail investor with no use for physical gold at all can get similar price exposure even more simply, by buying shares of a gold ETF instead of opening a futures account at all.
 

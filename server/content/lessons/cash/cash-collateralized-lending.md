@@ -20,7 +20,7 @@ Collateral takes many forms depending on the loan: real estate secures a mortgag
 
 This same pattern — cash lent against securities as collateral, at a low rate because the loan is fully secured — underlies the repurchase agreement (repo) market covered later in this course: a way for holders of safe securities to borrow cash cheaply overnight, and for cash-rich lenders to earn a safe return the whole time backed by that collateral.
 
-## In Practice
+## Example
 
 Compare a pawn loan secured by a piece of jewelry against an unsecured personal loan of the same size: the pawn loan can be issued in minutes with no credit check at all, because the lender's risk is capped by the jewelry's resale value rather than the borrower's promise to repay — collateral is doing all the work that a credit check would otherwise have to do.
 

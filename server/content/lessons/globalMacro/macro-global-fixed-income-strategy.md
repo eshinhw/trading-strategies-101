@@ -20,7 +20,7 @@ Investing in a foreign government bond means taking on currency exposure alongsi
 
 Unlike a single country's own Treasury market, comparing government bonds across countries also means comparing different credit qualities and levels of political risk — a wider yield in one country's bonds isn't automatically attractive if a meaningful part of that extra yield simply compensates for materially higher default or political risk.
 
-## In Practice
+## Example
 
 A trader who expects one country's central bank to cut rates well before another's might go long that country's government bonds and short the other's, deliberately choosing to leave the resulting currency exposure unhedged because the same rate-differential view that's driving the bond trade would also be expected to move the currency pair in a complementary direction.
 

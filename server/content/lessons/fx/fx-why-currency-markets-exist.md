@@ -20,7 +20,7 @@ After World War II, the Bretton Woods system tied major currencies to the U.S. d
 
 The market brings together very different participants with very different motives. Corporations and travelers trade because they need a currency; central banks trade to implement monetary policy or manage reserves; banks act as dealers that quote prices to everyone else; and asset managers and hedge funds trade to protect or grow investment returns. Some participants are forced to trade, others choose to, and that mix is a large part of why the market is so liquid.
 
-## In Practice
+## Example
 
 A German carmaker sells vehicles in the United States and is paid in dollars, but it pays its factory workers and suppliers in euros. Every month it has to convert dollars into euros, and the number of euros it receives depends entirely on the exchange rate that day. Nothing about this is speculation, it's simply the cost of doing business across borders, and countless routine transactions like it are the foundation of the FX market.
 

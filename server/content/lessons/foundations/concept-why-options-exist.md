@@ -24,7 +24,7 @@ One option contract controls 100 shares for a fraction of what the shares would 
 
 Agreements giving someone the right to buy or sell at a set price have existed for a very long time, but they were private deals that were hard to price or exit. In 1973 the Chicago Board Options Exchange opened and began listing standardized contracts, backed by a clearinghouse that guarantees each trade. Standard terms and a central guarantee made options easy to trade and liquid, and that is the market investors use today.
 
-## In Practice
+## Example
 
 A fund manager holds a large position in a stock and worries about an earnings report next week. Selling the stock would lock in a result and may cause a tax bill, while doing nothing leaves the fund fully exposed. Instead, the manager buys put options that pay off if the stock falls sharply. If the report disappoints, the puts offset much of the loss, and if the stock rises, the manager keeps the gains and has only lost the cost of the puts.
 

@@ -20,7 +20,7 @@ The "gap" being traded takes different forms depending on the situation: it can 
 
 A spread's historical range is a useful reference point, but it isn't a hard boundary — genuine structural change, a shift in supply and demand, or a change in the underlying relationship itself can push a spread persistently outside its historical range rather than reliably reverting, which is a real risk in any spread-trading approach.
 
-## In Practice
+## Example
 
 A trader who believes electricity prices will rise faster than natural gas prices doesn't need a view on where either price ends up in isolation — they can position directly on the gap between the two widening, profiting even if both prices happen to fall, as long as the electricity price falls by less (or rises by more) than the gas price does.
 

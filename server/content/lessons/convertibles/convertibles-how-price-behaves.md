@@ -20,7 +20,7 @@ In between those two extremes, a convertible typically trades above both its bon
 
 Plotting a convertible's price against the underlying stock's price traces out a curve: flat and bond-like at low stock prices, rising and increasingly stock-like at high stock prices, with the premium most pronounced in between. That shape is what gives convertible investors participation in a rising stock while cushioning a falling one — the central appeal covered in the Why Companies Issue, and Investors Buy, Convertibles lesson.
 
-## In Practice
+## Example
 
 Think of a convertible desk tracking the same bond over a year in which the underlying stock first drops 30% and then rallies 80%. During the drop, the convertible's price barely moves, since it's anchored to its bond floor and investors are still confident in the coupon and principal; during the rally, once the stock pushes well past the conversion price, the convertible's price starts moving almost dollar-for-dollar with the stock. Somewhere in between, when the stock is hovering near the conversion price, the desk sees the convertible command its richest premium, since neither the bond floor nor the stock value alone fully explains what buyers are willing to pay for keeping both outcomes open.
 

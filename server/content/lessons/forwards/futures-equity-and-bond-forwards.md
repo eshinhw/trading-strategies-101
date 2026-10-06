@@ -24,7 +24,7 @@ An FRA, covered earlier in this module, settles a notional interest-rate differe
 
 A bond forward's fair price nets out the bond's coupon income the same way an equity forward nets out dividends, and additionally has to account for the bond's price naturally converging toward face value as it moves closer to maturity — both effects covered in more detail in the Forward Pricing lesson's treatment of bonds and notes.
 
-## Example in Practice
+## Example
 
 A pension fund wanting exposure to a stock index for the next quarter, without actually buying and later selling every underlying stock, can simply enter an equity forward instead — locking in a price today and settling in cash off the index's level at maturity, sidestepping the operational cost of trading dozens of individual shares directly. The same dividend adjustment applies whether the forward is on a broad index or a single stock: an investor entering a six-month forward to buy 10,000 shares of a company expected to pay $0.50 per share in dividends before delivery sees a forward price sitting below pure financing cost by roughly that $0.50-per-share amount, since whoever holds the forward, not the actual stock, misses out on those dividend payments along the way.
 

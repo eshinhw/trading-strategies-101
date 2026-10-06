@@ -20,7 +20,7 @@ The VIX and the S&P 500 have a strong, well-documented negative correlation: the
 
 The VIX index is a calculated number, not a tradable security — there's no way to simply buy or sell the VIX the way you'd buy a stock. Trading exposure to it requires derivatives built on top of the index, like VIX futures or VIX options, or exchange-traded products built on those derivatives, all covered in the Trading Volatility: VIX Futures and ETNs lesson.
 
-## In Practice
+## Example
 
 A portfolio manager checking the market open each morning often glances at the VIX level the same way a driver glances at a dashboard warning light: a VIX sitting quietly at a low level signals a market that's calm and complacent, while a VIX jumping sharply higher signals that other market participants are suddenly paying up for downside protection — a useful gut-check on overall market stress well before it shows up in the manager's own portfolio.
 
