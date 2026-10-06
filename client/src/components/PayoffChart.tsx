@@ -121,7 +121,7 @@ export function PayoffChart({
           }}
         />
         <YAxis
-          tickFormatter={(v) => `$${v}`}
+          tickFormatter={(v) => `${v < 0 ? "-" : ""}$${Math.abs(v)}`}
           stroke={COLOR.mutedText}
           tick={{ fill: COLOR.mutedText, fontSize: 12 }}
           label={{

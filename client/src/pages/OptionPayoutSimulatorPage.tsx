@@ -11,6 +11,7 @@ import { ParamControls } from "../components/ParamControls";
 import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
 import { ParamNumberCard } from "../components/ParamNumberCard";
+import { StrategyPicker } from "../components/StrategyPicker";
 import { ACCENT } from "../lib/courseVisuals";
 import { SIMULATOR_PRESETS, type SimulatorPreset } from "../lib/simulatorPresets";
 import { legsFromStrategy } from "../lib/strategyToLegs";
@@ -65,7 +66,8 @@ export function OptionPayoutSimulatorPage() {
 
   const [entry, setEntry] = useState<ParamValues>(defaultEntryValues());
   // A Practice-page quick link can open the simulator with a strategy already built (?preset=long-straddle).
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const chartRef = useRef<HTMLElement>(null);
   const [legs, setLegs] = useState<BuilderLeg[]>(() => {
     const spot = defaultEntryValues().S0;
     const preset = SIMULATOR_PRESETS.find((p) => p.id === searchParams.get("preset"));
@@ -110,8 +112,15 @@ export function OptionPayoutSimulatorPage() {
     setLegs((prev) => (prev.length <= 1 ? prev : prev.filter((l) => l.id !== id)));
   }
 
-  function applyPreset(preset: SimulatorPreset) {
-    setLegs(legsFromPreset(preset, entry.S0 ?? 100));
+  // Loads a course strategy (its own strikes and spot) and brings its payoff diagram into view.
+  function loadStrategy(strategy: Strategy) {
+    const built = legsFromStrategy(strategy);
+    if (!built) return;
+    if (built.spot !== null) setEntry((prev) => ({ ...prev, S0: built.spot as number }));
+    setLegs(built.legs.map((l) => ({ id: nextLegId++, ...l })));
+    setSearchParams({ strategy: strategy.slug }, { replace: true });
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    window.setTimeout(() => chartRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }), 60);
   }
 
   function resetAll() {
@@ -233,6 +242,12 @@ export function OptionPayoutSimulatorPage() {
         {error && <p className="mb-4 text-red-400">{error}</p>}
 
         <div className="flex flex-col gap-6">
+          {strategies ? (
+            <StrategyPicker strategies={strategies} activeSlug={matched?.slug ?? null} onPick={loadStrategy} />
+          ) : (
+            !error && <p className="text-sm text-[#898781]">Loading strategies…</p>
+          )}
+
           <section>
             <ParamControls
               params={ENTRY_PARAMS}
@@ -255,21 +270,6 @@ export function OptionPayoutSimulatorPage() {
               <button onClick={resetAll} className="text-xs text-[#a99dff] hover:underline">
                 Reset everything
               </button>
-            </div>
-
-            <div className="mb-4">
-              <div className="mb-2 text-xs text-[#898781]">Start from a common strategy</div>
-              <div className="flex flex-wrap gap-1.5">
-                {SIMULATOR_PRESETS.map((preset) => (
-                  <button
-                    key={preset.name}
-                    onClick={() => applyPreset(preset)}
-                    className="rounded-full border border-[#2a3040] px-3 py-1 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/10 hover:text-[#e6e8ec]"
-                  >
-                    {preset.name}
-                  </button>
-                ))}
-              </div>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -299,7 +299,7 @@ export function OptionPayoutSimulatorPage() {
             </div>
           </section>
 
-          <section className="rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5">
+          <section ref={chartRef} className="scroll-mt-24 rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
               {matched && (
