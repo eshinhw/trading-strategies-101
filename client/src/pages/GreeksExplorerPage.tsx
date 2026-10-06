@@ -141,6 +141,60 @@ function sentenceFor(id: GreekName, g: ReturnType<typeof greeksOf>, type: Option
   }
 }
 
+// What the chart's horizontal axis can show. Stock price is the default; "time" and "volatility" sweep those inputs
+// instead, so you can see how each Greek behaves as expiration nears or as volatility changes.
+type XAxis = "spot" | "days" | "vol";
+interface AxisConfig {
+  id: XAxis;
+  label: string; // the control
+  noun: string; // "<Greek> vs. <noun>"
+  range: (v: Values) => [number, number];
+  /** overrides applied to the Greek inputs for a given x value */
+  override: (x: number) => Partial<GreekInputs>;
+  current: (v: Values) => number;
+  tick: (x: number) => string;
+  hover: (x: number) => string;
+  nowLabel: string;
+  /** days to expiration count down as time passes, so that axis runs right to left */
+  flip?: boolean;
+}
+const AXES: AxisConfig[] = [
+  {
+    id: "spot",
+    label: "Stock price",
+    noun: "stock price",
+    range: (v) => [Math.max(1, v.strike * 0.6), v.strike * 1.4],
+    override: (x) => ({ spot: x }),
+    current: (v) => v.spot,
+    tick: (x) => `$${x.toFixed(0)}`,
+    hover: (x) => `Stock $${x.toFixed(2)}`,
+    nowLabel: "Where the stock is now",
+  },
+  {
+    id: "days",
+    label: "Time",
+    noun: "days to expiration",
+    range: () => [1, 180],
+    override: (x) => ({ days: x }),
+    current: (v) => v.days,
+    tick: (x) => `${x.toFixed(0)}d`,
+    hover: (x) => `${x.toFixed(0)} days left`,
+    nowLabel: "Days left now",
+    flip: true,
+  },
+  {
+    id: "vol",
+    label: "Volatility",
+    noun: "implied volatility",
+    range: () => [5, 120],
+    override: (x) => ({ vol: x / 100 }),
+    current: (v) => v.vol,
+    tick: (x) => `${x.toFixed(0)}%`,
+    hover: (x) => `Volatility ${x.toFixed(0)}%`,
+    nowLabel: "Volatility now",
+  },
+];
+
 const W = 720;
 const H = 340;
 const M = { top: 20, right: 24, bottom: 44, left: 64 };
@@ -233,6 +287,133 @@ function TileSpark({ ys, at, color }: { ys: number[]; at: number | null; color: 
   );
 }
 
+// "What if?" turns the Greeks into a profit-and-loss estimate: move the stock, let some days pass, shift volatility,
+// and see how much of the price change each Greek explains versus what the option is really worth afterwards.
+function WhatIf({ values, type, now }: { values: Values; type: OptionKind; now: ReturnType<typeof greeksOf> }) {
+  const [dS, setDS] = useState(5);
+  const [dDays, setDDays] = useState(0);
+  const [dVol, setDVol] = useState(0);
+
+  const maxDays = Math.max(0, Math.floor(values.days) - 1);
+  const days = Math.min(dDays, maxDays);
+
+  const after = greeksOf({
+    spot: Math.max(1, values.spot + dS),
+    strike: values.strike,
+    days: Math.max(values.days - days, 0.05),
+    vol: Math.max(values.vol + dVol, 1) / 100,
+    rate: values.rate / 100,
+    type,
+  });
+
+  const parts = [
+    { id: "delta", label: "Delta", note: "from the stock move", value: now.delta * dS },
+    { id: "gamma", label: "Gamma", note: "the curve in that move", value: 0.5 * now.gamma * dS * dS },
+    { id: "theta", label: "Theta", note: "from time passing", value: now.theta * days },
+    { id: "vega", label: "Vega", note: "from volatility", value: now.vega * dVol },
+  ];
+  const estimate = now.price + parts.reduce((n, p) => n + p.value, 0);
+  const gap = after.price - estimate;
+  const biggest = Math.max(0.0001, ...parts.map((p) => Math.abs(p.value)));
+  const money = (n: number) => `${n < 0 ? "-" : n > 0 ? "+" : ""}$${Math.abs(n).toFixed(2)}`;
+
+  const slider = (label: string, value: number, set: (n: number) => void, min: number, max: number, step: number, suffix: string) => (
+    <label className="block text-xs text-[#898781]">
+      <span className="flex items-center justify-between">
+        {label}
+        <span className="font-semibold text-[#e6e8ec]">
+          {value > 0 && suffix !== " days" ? "+" : ""}
+          {value}
+          {suffix}
+        </span>
+      </span>
+      <input
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => set(Number(e.target.value))}
+        className="mt-1.5 w-full accent-[#7c6cff]"
+      />
+    </label>
+  );
+
+  return (
+    <section className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5">
+      <h2 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">What if the stock moves?</h2>
+      <p className="mt-1 text-sm text-[#898781]">
+        The Greeks estimate how the price will change. Try a move, some time passing and a volatility shift, then compare
+        the estimate with what the option is really worth afterwards.
+      </p>
+
+      <div className="mt-4 grid grid-cols-1 gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
+        <div className="flex flex-col gap-4">
+          {slider("Stock moves", dS, setDS, -25, 25, 0.5, "")}
+          {slider("Days pass", days, setDDays, 0, Math.max(1, maxDays), 1, " days")}
+          {slider("Volatility changes", dVol, setDVol, -20, 20, 1, " pts")}
+          <button
+            onClick={() => {
+              setDS(0);
+              setDDays(0);
+              setDVol(0);
+            }}
+            className="w-fit text-xs text-[#a99dff] hover:underline"
+          >
+            Reset the what-if
+          </button>
+        </div>
+
+        <div>
+          <ul className="flex flex-col gap-2">
+            {parts.map((p) => (
+              <li key={p.id} className="grid grid-cols-[84px_minmax(0,1fr)_70px] items-center gap-3 text-sm">
+                <span className="text-[#e6e8ec]">{p.label}</span>
+                <span className="relative h-2 rounded-full bg-[#1b2029]" aria-hidden="true">
+                  <span className="absolute inset-y-0 left-1/2 w-px bg-[#2a3040]" />
+                  <span
+                    className="absolute inset-y-0 rounded-full"
+                    style={{
+                      background: p.value >= 0 ? "#34d399" : "#f87171",
+                      width: `${(Math.abs(p.value) / biggest) * 50}%`,
+                      left: p.value >= 0 ? "50%" : undefined,
+                      right: p.value < 0 ? "50%" : undefined,
+                    }}
+                  />
+                </span>
+                <span className={`text-right font-semibold tabular-nums ${p.value >= 0 ? "text-emerald-400" : "text-red-400"}`}>
+                  {money(p.value)}
+                </span>
+                <span className="col-span-3 -mt-1 pl-[96px] text-[11px] text-[#898781]">{p.note}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border border-[#2a3040] bg-[#0e1117]/70 px-3 py-2.5">
+              <div className="text-[11px] uppercase tracking-wide text-[#898781]">Price now</div>
+              <div className="text-lg font-bold text-[#e6e8ec]">${now.price.toFixed(2)}</div>
+            </div>
+            <div className="rounded-xl border border-[#2a3040] bg-[#0e1117]/70 px-3 py-2.5">
+              <div className="text-[11px] uppercase tracking-wide text-[#898781]">Greeks estimate</div>
+              <div className="text-lg font-bold text-[#c4bbff]">${Math.max(estimate, 0).toFixed(2)}</div>
+            </div>
+            <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2.5">
+              <div className="text-[11px] uppercase tracking-wide text-[#898781]">Actually worth</div>
+              <div className="text-lg font-bold text-emerald-300">${after.price.toFixed(2)}</div>
+            </div>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-[#898781]" aria-live="polite">
+            {Math.abs(gap) < 0.005
+              ? "The estimate matches almost exactly for a change this small."
+              : `The estimate is off by $${Math.abs(gap).toFixed(2)} (${gap > 0 ? "the option is worth more than estimated" : "the option is worth less than estimated"}). The Greeks are approximations that are best for small moves, and the gap grows as the moves get bigger.`}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function GreeksExplorerPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialGreek = GREEKS.find((g) => g.id === searchParams.get("greek"))?.id ?? "delta";
@@ -243,6 +424,7 @@ export function GreeksExplorerPage() {
   const [compare, setCompare] = useState<Compare>(
     COMPARES.find((c) => c.id === searchParams.get("compare"))?.id ?? "none",
   );
+  const [xAxis, setXAxis] = useState<XAxis>(AXES.find((a) => a.id === searchParams.get("x"))?.id ?? "spot");
   const [lockScale, setLockScale] = useState(false);
   const [done, setDone] = useState<string[]>(loadChallenges);
   const [hoverSpot, setHoverSpot] = useState<number | null>(null);
@@ -250,6 +432,7 @@ export function GreeksExplorerPage() {
   const svgRef = useRef<SVGSVGElement>(null);
 
   const info = GREEKS.find((g) => g.id === selected) ?? GREEKS[1];
+  const axis = AXES.find((a) => a.id === xAxis) ?? AXES[0];
 
   const inputs = (v: Values, overrides: Partial<GreekInputs> = {}): GreekInputs => ({
     spot: v.spot,
@@ -264,28 +447,28 @@ export function GreeksExplorerPage() {
   const now = useMemo(() => greeksOf(inputs(values)), [values, type]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const chart = useMemo(() => {
-    const lo = Math.max(1, values.strike * 0.6);
-    const hi = values.strike * 1.4;
+    const [lo, hi] = axis.range(values);
     const steps = 90;
     const xs = Array.from({ length: steps + 1 }, (_, i) => lo + ((hi - lo) * i) / steps);
     const curveFor = (overrides: Partial<GreekInputs>) =>
-      xs.map((s) => greeksOf(inputs(values, { spot: s, ...overrides }))[selected]);
+      xs.map((s) => greeksOf(inputs(values, { ...axis.override(s), ...overrides }))[selected]);
 
     const main = curveFor({});
+    // A comparison only makes sense when it varies something other than the x axis itself.
     let second: number[] | null = null;
-    if (compare === "half-time") second = curveFor({ days: Math.max(1, values.days / 2) });
-    if (compare === "vol-up") second = curveFor({ vol: (values.vol + 15) / 100 });
+    if (compare === "half-time" && xAxis !== "days") second = curveFor({ days: Math.max(1, values.days / 2) });
+    if (compare === "vol-up" && xAxis !== "vol") second = curveFor({ vol: (values.vol + 15) / 100 });
     if (compare === "opposite") second = curveFor({ type: type === "call" ? "put" : "call" });
     // the price chart also shows the payoff if the option were held to expiration
     const payoff =
-      selected === "price"
+      selected === "price" && xAxis === "spot"
         ? xs.map((s) => (type === "call" ? Math.max(s - values.strike, 0) : Math.max(values.strike - s, 0)))
         : null;
 
     // With the scale locked (or while the decay replay runs) the axis covers every time to expiration, so changes in
     // the curve's height are visible instead of being rescaled away.
     const lockedExtras: number[] = [];
-    if (lockScale || playing) {
+    if ((lockScale || playing) && xAxis === "spot") {
       for (const d of [1, 3, 7, 15, 30, 60, 90]) lockedExtras.push(...curveFor({ days: d }));
     }
     const all = [...main, ...(second ?? []), ...(payoff ?? []), ...lockedExtras];
@@ -302,30 +485,39 @@ export function GreeksExplorerPage() {
     const ticks: number[] = [];
     for (let t = Math.ceil(yMin / step) * step; t <= yMax + 1e-9; t += step) ticks.push(Number(t.toFixed(6)));
 
-    const x = (s: number) => M.left + ((s - lo) / (hi - lo)) * (W - M.left - M.right);
+    const frac = (s: number) => (axis.flip ? (hi - s) / (hi - lo) : (s - lo) / (hi - lo));
+    const x = (s: number) => M.left + frac(s) * (W - M.left - M.right);
+    const valueAt = (f: number) => (axis.flip ? hi - f * (hi - lo) : lo + f * (hi - lo));
     const y = (v: number) => M.top + (1 - (v - yMin) / (yMax - yMin)) * (H - M.top - M.bottom);
     const path = (ys: number[]) => ys.map((v, i) => `${i === 0 ? "M" : "L"}${x(xs[i]).toFixed(1)} ${y(v).toFixed(1)}`).join(" ");
-    return { lo, hi, xs, main, second, payoff, ticks, x, y, path, yMin, yMax };
-  }, [values, type, selected, compare, lockScale, playing]); // eslint-disable-line react-hooks/exhaustive-deps
+    return { lo, hi, xs, main, second, payoff, ticks, x, y, path, yMin, yMax, valueAt };
+  }, [values, type, selected, compare, lockScale, playing, xAxis]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // A small curve for every Greek, over the same stock-price range as the chart, so each tile shows its shape.
+  // A small curve for every Greek across the stock-price range, so each tile shows its shape. (Always against the
+  // stock price, whatever the chart's x axis is.)
+  const spotRange = useMemo(() => [Math.max(1, values.strike * 0.6), values.strike * 1.4] as const, [values.strike]);
   const sparks = useMemo(() => {
+    const [lo, hi] = spotRange;
+    const spots = Array.from({ length: 61 }, (_, i) => lo + ((hi - lo) * i) / 60);
     const out = {} as Record<GreekName, number[]>;
-    for (const g of GREEKS) out[g.id] = chart.xs.map((sp) => greeksOf(inputs(values, { spot: sp }))[g.id]);
+    for (const g of GREEKS) out[g.id] = spots.map((sp) => greeksOf(inputs(values, { spot: sp }))[g.id]);
     return out;
-  }, [values, type, chart.xs]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [values, type, spotRange]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function onMove(e: React.PointerEvent<SVGSVGElement>) {
     const rect = svgRef.current?.getBoundingClientRect();
     if (!rect) return;
     const px = ((e.clientX - rect.left) / rect.width) * W;
-    const frac = (px - M.left) / (W - M.left - M.right);
-    setHoverSpot(frac < 0 || frac > 1 ? null : chart.lo + frac * (chart.hi - chart.lo));
+    const f = (px - M.left) / (W - M.left - M.right);
+    setHoverSpot(f < 0 || f > 1 ? null : chart.valueAt(f));
   }
 
-  const hoverIndex = hoverSpot === null ? null : Math.round(((hoverSpot - chart.lo) / (chart.hi - chart.lo)) * (chart.xs.length - 1));
+  // hoverSpot is the value on the chart's current x axis (a stock price, a number of days or a volatility).
+  const hoverIndex =
+    hoverSpot === null ? null : Math.round(((hoverSpot - chart.lo) / (chart.hi - chart.lo)) * (chart.xs.length - 1));
   const hoverValue = hoverIndex === null ? null : chart.main[hoverIndex];
-  const spotInRange = values.spot >= chart.lo && values.spot <= chart.hi;
+  const currentX = axis.current(values);
+  const spotInRange = currentX >= chart.lo && currentX <= chart.hi;
   const currentValue = now[selected];
   const daysShown = Math.round(values.days * 10) / 10;
 
@@ -346,13 +538,15 @@ export function GreeksExplorerPage() {
           else next.set("greek", selected);
           if (compare === "none") next.delete("compare");
           else next.set("compare", compare);
+          if (xAxis === "spot") next.delete("x");
+          else next.set("x", xAxis);
           return next;
         },
         { replace: true },
       );
     }, 250);
     return () => window.clearTimeout(id);
-  }, [values, type, selected, compare, playing, setSearchParams]);
+  }, [values, type, selected, compare, xAxis, playing, setSearchParams]);
 
   // A challenge counts the moment the numbers satisfy it, and stays done (remembered in this browser).
   useEffect(() => {
@@ -396,8 +590,8 @@ export function GreeksExplorerPage() {
   // The tiles and the plain-language reading follow the pointer while it is over the chart, so you can read every
   // Greek at any stock price; otherwise they show the stock price set on the left.
   const shown = useMemo(
-    () => (hoverSpot === null ? now : greeksOf(inputs(values, { spot: hoverSpot }))),
-    [hoverSpot, now, values, type], // eslint-disable-line react-hooks/exhaustive-deps
+    () => (hoverSpot === null ? now : greeksOf(inputs(values, axis.override(hoverSpot)))),
+    [hoverSpot, now, values, type, xAxis], // eslint-disable-line react-hooks/exhaustive-deps
   );
   const compareLabel = (id: Compare) =>
     id === "opposite" ? `As a ${type === "call" ? "put" : "call"}` : (COMPARES.find((c) => c.id === id)?.label ?? "");
@@ -443,6 +637,18 @@ export function GreeksExplorerPage() {
       </header>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[320px_minmax(0,1fr)]">
+        {/* On a phone the inputs sit above the results, so keep the headline numbers pinned while you adjust them. */}
+        <div className="sticky top-16 z-20 -mx-6 flex items-center justify-between gap-3 border-b border-[#2a3040] bg-[#0e1117]/95 px-6 py-2 backdrop-blur lg:hidden">
+          <div className="min-w-0 text-xs text-[#898781]">
+            <span className="font-semibold capitalize text-[#e6e8ec]">{type}</span> ·{" "}
+            <span className="font-semibold text-[#e6e8ec]">${now.price.toFixed(2)}</span>
+          </div>
+          <div className="text-xs text-[#898781]">
+            {info.label}{" "}
+            <span className="font-semibold text-[#c4bbff]">{formatValue(info, now[selected])}</span>
+          </div>
+        </div>
+
         {/* Inputs stay in view beside the chart, so changing a number never scrolls the result away. */}
         <aside className="flex flex-col gap-4 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:self-start lg:overflow-y-auto [scrollbar-color:#2a3040_transparent] [scrollbar-width:thin]">
           <ParamControls
@@ -531,9 +737,11 @@ export function GreeksExplorerPage() {
                     ys={sparks[g.id]}
                     color={active ? "#a99dff" : "#6b7280"}
                     at={(() => {
-                      const sp = hoverSpot ?? values.spot;
-                      if (sp < chart.lo || sp > chart.hi) return null;
-                      return Math.round(((sp - chart.lo) / (chart.hi - chart.lo)) * (chart.xs.length - 1));
+                      // the mini curves are always against the stock price; follow the pointer only on that axis
+                      const sp = xAxis === "spot" && hoverSpot !== null ? hoverSpot : values.spot;
+                      const [lo, hi] = spotRange;
+                      if (sp < lo || sp > hi) return null;
+                      return Math.round(((sp - lo) / (hi - lo)) * 60);
                     })()}
                   />
                 </button>
@@ -543,13 +751,13 @@ export function GreeksExplorerPage() {
           <p className="-mt-3 text-xs text-[#898781]" aria-live="polite">
             {hoverSpot !== null ? (
               <>
-                Showing every value at a stock price of{" "}
-                <span className="font-semibold text-[#e6e8ec]">${hoverSpot.toFixed(2)}</span> (from the chart).
+                Showing every value at <span className="font-semibold text-[#e6e8ec]">{axis.hover(hoverSpot).toLowerCase()}</span>{" "}
+                (from the chart).
               </>
             ) : (
               <>
-                Showing every value at the stock price you set (${values.spot}). Hover the chart to read them at any
-                other price.
+                Showing every value at the inputs you set. Hover the chart to read them at any other{" "}
+                {xAxis === "spot" ? "stock price" : xAxis === "days" ? "time to expiration" : "volatility"}.
               </>
             )}
           </p>
@@ -557,14 +765,32 @@ export function GreeksExplorerPage() {
           <section className="rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-x-5 gap-y-3">
               <h2 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-                {info.label} vs. stock price
+                {info.label} vs. {axis.noun}
               </h2>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <div role="radiogroup" aria-label="Horizontal axis" className="flex rounded-lg border border-[#2a3040] bg-[#0e1117] p-0.5">
+                {AXES.map((a) => (
+                  <button
+                    key={a.id}
+                    role="radio"
+                    aria-checked={xAxis === a.id}
+                    onClick={() => {
+                      setXAxis(a.id);
+                      setHoverSpot(null);
+                    }}
+                    className={`rounded-md px-2.5 py-1 text-xs font-medium transition ${
+                      xAxis === a.id ? "bg-[#7c6cff]/25 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
+                    }`}
+                  >
+                    {a.label}
+                  </button>
+                ))}
+              </div>
               <label className="flex items-center gap-1.5 text-xs text-[#898781]" title="Keep the vertical axis wide enough for every time to expiration, so the curve's height visibly changes as time passes">
                 <input
                   type="checkbox"
-                  checked={lockScale || playing}
-                  disabled={playing}
+                  checked={(lockScale || playing) && xAxis === "spot"}
+                  disabled={playing || xAxis !== "spot"}
                   onChange={(e) => setLockScale(e.target.checked)}
                   className="accent-[#7c6cff]"
                 />
@@ -578,7 +804,11 @@ export function GreeksExplorerPage() {
                   className="rounded-lg border border-[#2a3040] bg-[#0e1117] px-2.5 py-1.5 text-xs text-[#e6e8ec] focus:border-[#7c6cff] focus:outline-none [&>option]:bg-[#141821]"
                 >
                   {COMPARES.map((c) => (
-                    <option key={c.id} value={c.id}>
+                    <option
+                      key={c.id}
+                      value={c.id}
+                      disabled={(c.id === "half-time" && xAxis === "days") || (c.id === "vol-up" && xAxis === "vol")}
+                    >
                       {compareLabel(c.id)}
                     </option>
                   ))}
@@ -592,12 +822,12 @@ export function GreeksExplorerPage() {
               viewBox={`0 0 ${W} ${H}`}
               className="w-full touch-pan-y select-none"
               role="img"
-              aria-label={`${info.label} of a ${type} against the stock price`}
+              aria-label={`${info.label} of a ${type} against ${axis.noun}`}
               onPointerMove={onMove}
               onPointerLeave={() => setHoverSpot(null)}
             >
               {/* in the money / out of the money */}
-              {(() => {
+              {xAxis === "spot" && (() => {
                 const strikeX = chart.x(values.strike);
                 const itmRight = type === "call";
                 const left = M.left;
@@ -633,22 +863,26 @@ export function GreeksExplorerPage() {
               ))}
               {/* x axis */}
               {[0, 0.25, 0.5, 0.75, 1].map((f) => {
-                const sp = chart.lo + f * (chart.hi - chart.lo);
+                const sp = chart.valueAt(f);
                 return (
-                  <text key={f} x={chart.x(sp)} y={H - 22} textAnchor="middle" fontSize="10.5" fill="#898781">
-                    ${sp.toFixed(0)}
+                  <text key={f} x={M.left + f * (W - M.left - M.right)} y={H - 22} textAnchor="middle" fontSize="10.5" fill="#898781">
+                    {axis.tick(sp)}
                   </text>
                 );
               })}
               <text x={M.left + (W - M.left - M.right) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#9aa3b2">
-                Stock price
+                {xAxis === "days" ? "Days to expiration (time passes left to right)" : axis.label}
               </text>
 
               {/* strike */}
-              <line x1={chart.x(values.strike)} x2={chart.x(values.strike)} y1={M.top} y2={H - M.bottom} stroke="#a99dff" strokeOpacity="0.4" strokeDasharray="4 4" />
-              <text x={chart.x(values.strike) + 4} y={M.top + 10} fontSize="10" fill="#a99dff">
-                strike ${values.strike}
-              </text>
+              {xAxis === "spot" && (
+                <>
+                  <line x1={chart.x(values.strike)} x2={chart.x(values.strike)} y1={M.top} y2={H - M.bottom} stroke="#a99dff" strokeOpacity="0.4" strokeDasharray="4 4" />
+                  <text x={chart.x(values.strike) + 4} y={M.top + 10} fontSize="10" fill="#a99dff">
+                    strike ${values.strike}
+                  </text>
+                </>
+              )}
 
               {chart.payoff && (
                 <path d={chart.path(chart.payoff)} fill="none" stroke="#9aa3b2" strokeOpacity="0.6" strokeWidth="1.5" strokeDasharray="5 4" />
@@ -658,11 +892,11 @@ export function GreeksExplorerPage() {
               )}
               <path d={chart.path(chart.main)} fill="none" stroke="#7c6cff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ filter: "drop-shadow(0 0 5px rgba(124,108,255,0.55))" }} />
 
-              {/* current stock price */}
+              {/* where the inputs currently are on this axis */}
               {spotInRange && (
                 <>
-                  <line x1={chart.x(values.spot)} x2={chart.x(values.spot)} y1={M.top} y2={H - M.bottom} stroke="#34d399" strokeOpacity="0.5" />
-                  <circle cx={chart.x(values.spot)} cy={chart.y(currentValue)} r="6" fill="#34d399" stroke="#0e1117" strokeWidth="2" />
+                  <line x1={chart.x(currentX)} x2={chart.x(currentX)} y1={M.top} y2={H - M.bottom} stroke="#34d399" strokeOpacity="0.5" />
+                  <circle cx={chart.x(currentX)} cy={chart.y(currentValue)} r="6" fill="#34d399" stroke="#0e1117" strokeWidth="2" />
                 </>
               )}
 
@@ -674,7 +908,7 @@ export function GreeksExplorerPage() {
                   <g transform={`translate(${Math.min(chart.x(hoverSpot) + 10, W - 150)} ${Math.max(chart.y(hoverValue) - 34, M.top)})`}>
                     <rect width="138" height="34" rx="6" fill="#1b2029" stroke="#2a3040" />
                     <text x="8" y="14" fontSize="10.5" fill="#898781">
-                      Stock ${hoverSpot.toFixed(2)}
+                      {axis.hover(hoverSpot)}
                     </text>
                     <text x="8" y="28" fontSize="12" fontWeight="600" fill="#e6e8ec">
                       {info.label} {formatValue(info, hoverValue)}
@@ -699,7 +933,7 @@ export function GreeksExplorerPage() {
                 </span>
               )}
               <span className="flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#34d399]" /> Where the stock is now
+                <span className="h-2.5 w-2.5 rounded-full bg-[#34d399]" /> {axis.nowLabel}
               </span>
             </div>
           </section>
@@ -707,7 +941,7 @@ export function GreeksExplorerPage() {
           <section className="grid grid-cols-1 gap-4 xl:grid-cols-2">
             <div className="rounded-2xl border p-5" style={{ borderColor: `${accent}55`, background: `${accent}12` }}>
               <div className="text-xs font-semibold uppercase tracking-[0.1em]" style={{ color: "#a99dff" }}>
-                {hoverSpot !== null ? `At $${hoverSpot.toFixed(0)}` : "Right now"}
+                {hoverSpot !== null ? `At ${axis.tick(hoverSpot)}` : "Right now"}
               </div>
               <p className="mt-2 leading-relaxed text-[#e6e8ec]">{sentenceFor(selected, shown, type)}</p>
               <p className="mt-2 text-xs text-[#898781]">Figures are per share. One option contract covers 100 shares.</p>
@@ -722,6 +956,8 @@ export function GreeksExplorerPage() {
               )}
             </div>
           </section>
+
+          <WhatIf values={values} type={type} now={now} />
 
           <section className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
