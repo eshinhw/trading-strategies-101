@@ -125,11 +125,13 @@ export function LessonPage() {
       />
       <LessonHeader lesson={lesson} ctx={ctx} textSize={textSize} onTextSize={setTextSize} />
       <div className="mx-auto max-w-6xl px-6 py-10">
+        {lesson.kind === "concept" && <GreeksExplorerCallout slug={lesson.slug} accent={ctx.accent} />}
         {lesson.kind === "concept" ? (
           <ConceptLessonBody lesson={lesson} ctx={ctx} />
         ) : (
           <StrategyLessonBody lesson={lesson} ctx={ctx} />
         )}
+        <QuizBankNudge lesson={lesson} ctx={ctx} />
         <ModuleStrip lesson={lesson} ctx={ctx} />
         <LessonNav lesson={lesson} ctx={ctx} />
       </div>
@@ -224,6 +226,59 @@ function StickyLessonBar({ title, position, hasQuiz }: { title: string; position
         )}
       </div>
     </div>
+  );
+}
+
+// Lessons that have a matching interactive: the Greeks Explorer opens on the Greek the lesson is about.
+const GREEKS_EXPLORER_FOR: Record<string, { greek: string; about: string }> = {
+  "greeks-introduction": { greek: "delta", about: "the Greeks" },
+  "greeks-delta": { greek: "delta", about: "delta" },
+  "greeks-gamma": { greek: "gamma", about: "gamma" },
+  "greeks-theta": { greek: "theta", about: "theta" },
+  "greeks-vega": { greek: "vega", about: "vega" },
+  "greeks-rho": { greek: "rho", about: "rho" },
+  "concept-how-options-are-priced": { greek: "price", about: "an option's price" },
+};
+
+function GreeksExplorerCallout({ slug, accent }: { slug: string; accent: string }) {
+  const target = GREEKS_EXPLORER_FOR[slug];
+  if (!target) return null;
+  return (
+    <Link
+      to={`/practice/greeks-explorer?greek=${target.greek}`}
+      className="group mb-8 flex max-w-3xl items-center gap-4 rounded-2xl border p-4 transition duration-200 hover:-translate-y-px"
+      style={{ borderColor: `${accent}55`, background: `${accent}12` }}
+    >
+      <span
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border text-lg"
+        style={{ borderColor: `${accent}66`, background: `${accent}22` }}
+        aria-hidden="true"
+      >
+        📈
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-sm font-semibold text-[#e6e8ec]">See {target.about} move for yourself</span>
+        <span className="block text-sm text-[#9aa3b2]">
+          Change the stock price, volatility or time in the Greeks Explorer and watch the curve respond.
+        </span>
+      </span>
+      <span aria-hidden="true" className="shrink-0 text-[#a99dff] transition group-hover:translate-x-0.5">
+        →
+      </span>
+    </Link>
+  );
+}
+
+// A pointer from a lesson's quiz to open practice over the whole course.
+function QuizBankNudge({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContext }) {
+  if (!lesson.courseSlug || lesson.quiz.length === 0) return null;
+  return (
+    <p className="mt-4 max-w-3xl text-sm text-[#898781]">
+      Want more reps on {ctx.course?.title ?? "this course"}?{" "}
+      <Link to={`/practice/quiz-bank?course=${lesson.courseSlug}`} className="text-[#a99dff] hover:underline">
+        Practice it in the Quiz Bank →
+      </Link>
+    </p>
   );
 }
 

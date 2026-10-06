@@ -1,0 +1,462 @@
+import { useMemo, useRef, useState, type CSSProperties } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { greeksOf, type GreekInputs, type GreekName, type OptionKind } from "../engine/greeks";
+import { ParamControls } from "../components/ParamControls";
+import { ACCENT } from "../lib/courseVisuals";
+
+// An interactive look at how an option's price and its Greeks respond to the stock price, volatility, time and
+// rates. Everything is computed in the browser from the Black-Scholes formulas, per share.
+
+const accent = ACCENT.derivatives;
+
+const PARAMS = [
+  { key: "spot", label: "Stock price", default: 100, min: 20, max: 200, step: 1 },
+  { key: "strike", label: "Strike", default: 100, min: 20, max: 200, step: 1 },
+  { key: "vol", label: "Implied volatility (%)", default: 30, min: 5, max: 120, step: 1 },
+  { key: "days", label: "Days to expiration", default: 30, min: 1, max: 365, step: 1 },
+  { key: "rate", label: "Risk-free rate (%)", default: 2, min: 0, max: 10, step: 0.25 },
+];
+
+type Values = Record<string, number>;
+const defaults = (): Values => Object.fromEntries(PARAMS.map((p) => [p.key, p.default]));
+
+interface GreekInfo {
+  id: GreekName;
+  label: string;
+  unit: string;
+  lesson: string | null; // lesson that explains it
+  decimals: number;
+  money: boolean;
+  /** what to notice in the chart */
+  notice: string;
+}
+
+const GREEKS: GreekInfo[] = [
+  {
+    id: "price",
+    label: "Price",
+    unit: "premium",
+    lesson: "concept-how-options-are-priced",
+    decimals: 2,
+    money: true,
+    notice:
+      "The curve sits above the expiration payoff by the option's time value, and the gap is widest at the money. Time value shrinks as expiration nears.",
+  },
+  {
+    id: "delta",
+    label: "Delta",
+    unit: "per $1 move",
+    lesson: "greeks-delta",
+    decimals: 2,
+    money: false,
+    notice:
+      "Delta runs from 0 to 1 for a call (0 to −1 for a put) and is about 0.5 at the money. It heads toward 1 as the option goes deeper in the money, and it changes faster near the strike when expiration is close.",
+  },
+  {
+    id: "gamma",
+    label: "Gamma",
+    unit: "delta change per $1",
+    lesson: "greeks-gamma",
+    decimals: 3,
+    money: false,
+    notice:
+      "Gamma peaks near the strike and fades on either side. With less time left (or lower volatility) the peak gets taller and narrower, which is why near-expiry options can swing so sharply.",
+  },
+  {
+    id: "theta",
+    label: "Theta",
+    unit: "per day",
+    lesson: "greeks-theta",
+    decimals: 3,
+    money: true,
+    notice:
+      "Theta is time decay: what a long option loses each day if nothing else moves. It is most negative at the money and gets steeper as expiration approaches.",
+  },
+  {
+    id: "vega",
+    label: "Vega",
+    unit: "per 1 vol point",
+    lesson: "greeks-vega",
+    decimals: 3,
+    money: true,
+    notice:
+      "Vega is largest at the money and grows with time to expiration. A long option gains when implied volatility rises, and the same effect works against a short option.",
+  },
+  {
+    id: "rho",
+    label: "Rho",
+    unit: "per 1 rate point",
+    lesson: "greeks-rho",
+    decimals: 3,
+    money: true,
+    notice:
+      "Rho is usually the smallest of the Greeks. It is positive for calls and negative for puts, and it is larger for longer-dated options.",
+  },
+];
+
+const SCENARIOS: { label: string; apply: (v: Values) => Values }[] = [
+  { label: "At the money", apply: (v) => ({ ...v, spot: 100, strike: 100 }) },
+  { label: "In the money", apply: (v) => ({ ...v, spot: 115, strike: 100 }) },
+  { label: "Out of the money", apply: (v) => ({ ...v, spot: 85, strike: 100 }) },
+  { label: "Near expiry", apply: (v) => ({ ...v, days: 3 }) },
+  { label: "High volatility", apply: (v) => ({ ...v, vol: 70 }) },
+];
+
+type Compare = "none" | "half-time" | "vol-up";
+const COMPARES: { id: Compare; label: string }[] = [
+  { id: "none", label: "Nothing" },
+  { id: "half-time", label: "Half the time left" },
+  { id: "vol-up", label: "Volatility +15 points" },
+];
+
+function formatValue(info: GreekInfo, v: number): string {
+  const sign = v < 0 ? "-" : "";
+  const abs = Math.abs(v).toFixed(info.decimals);
+  return info.money ? `${sign}$${abs}` : `${v < 0 ? "-" : ""}${abs}`;
+}
+
+// A plain-language reading of the current number for the selected Greek.
+function sentenceFor(id: GreekName, g: ReturnType<typeof greeksOf>, type: OptionKind): string {
+  const money = (n: number) => `$${Math.abs(n).toFixed(2)}`;
+  switch (id) {
+    case "price":
+      return `This ${type} costs ${money(g.price)} per share (${money(g.price * 100)} for one contract of 100 shares).`;
+    case "delta":
+      return g.delta >= 0
+        ? `For each $1 the stock rises, this option gains about ${money(g.delta)}.`
+        : `For each $1 the stock rises, this option loses about ${money(g.delta)}.`;
+    case "gamma":
+      return `For each $1 the stock moves, delta changes by about ${Math.abs(g.gamma).toFixed(3)}.`;
+    case "theta":
+      return g.theta <= 0
+        ? `Holding one more day, all else equal, costs about ${money(g.theta)} of value.`
+        : `Holding one more day, all else equal, adds about ${money(g.theta)} of value.`;
+    case "vega":
+      return `If implied volatility rises one point, the option gains about ${money(g.vega)}.`;
+    case "rho":
+      return g.rho >= 0
+        ? `If interest rates rise one point, the option gains about ${money(g.rho)}.`
+        : `If interest rates rise one point, the option loses about ${money(g.rho)}.`;
+  }
+}
+
+const W = 720;
+const H = 340;
+const M = { top: 20, right: 24, bottom: 44, left: 64 };
+
+function niceStep(range: number, target = 4): number {
+  const raw = range / target;
+  const pow = Math.pow(10, Math.floor(Math.log10(raw)));
+  const frac = raw / pow;
+  return (frac < 1.5 ? 1 : frac < 3.5 ? 2 : frac < 7.5 ? 5 : 10) * pow;
+}
+
+export function GreeksExplorerPage() {
+  const [searchParams] = useSearchParams();
+  const initialGreek = GREEKS.find((g) => g.id === searchParams.get("greek"))?.id ?? "delta";
+
+  const [values, setValues] = useState<Values>(defaults);
+  const [type, setType] = useState<OptionKind>("call");
+  const [selected, setSelected] = useState<GreekName>(initialGreek);
+  const [compare, setCompare] = useState<Compare>("none");
+  const [hoverSpot, setHoverSpot] = useState<number | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  const info = GREEKS.find((g) => g.id === selected) ?? GREEKS[1];
+
+  const inputs = (v: Values, overrides: Partial<GreekInputs> = {}): GreekInputs => ({
+    spot: v.spot,
+    strike: v.strike,
+    days: v.days,
+    vol: v.vol / 100,
+    rate: v.rate / 100,
+    type,
+    ...overrides,
+  });
+
+  const now = useMemo(() => greeksOf(inputs(values)), [values, type]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const chart = useMemo(() => {
+    const lo = Math.max(1, values.strike * 0.6);
+    const hi = values.strike * 1.4;
+    const steps = 90;
+    const xs = Array.from({ length: steps + 1 }, (_, i) => lo + ((hi - lo) * i) / steps);
+    const curveFor = (overrides: Partial<GreekInputs>) =>
+      xs.map((s) => greeksOf(inputs(values, { spot: s, ...overrides }))[selected]);
+
+    const main = curveFor({});
+    let second: number[] | null = null;
+    if (compare === "half-time") second = curveFor({ days: Math.max(1, values.days / 2) });
+    if (compare === "vol-up") second = curveFor({ vol: (values.vol + 15) / 100 });
+    // the price chart also shows the payoff if the option were held to expiration
+    const payoff =
+      selected === "price"
+        ? xs.map((s) => (type === "call" ? Math.max(s - values.strike, 0) : Math.max(values.strike - s, 0)))
+        : null;
+
+    const all = [...main, ...(second ?? []), ...(payoff ?? [])];
+    let yMin = Math.min(...all);
+    let yMax = Math.max(...all);
+    if (selected !== "price") {
+      yMin = Math.min(yMin, 0);
+      yMax = Math.max(yMax, 0);
+    }
+    const pad = (yMax - yMin || 1) * 0.08;
+    yMax += pad;
+    if (selected === "price" || yMin !== 0) yMin -= pad;
+    const step = niceStep(yMax - yMin);
+    const ticks: number[] = [];
+    for (let t = Math.ceil(yMin / step) * step; t <= yMax + 1e-9; t += step) ticks.push(Number(t.toFixed(6)));
+
+    const x = (s: number) => M.left + ((s - lo) / (hi - lo)) * (W - M.left - M.right);
+    const y = (v: number) => M.top + (1 - (v - yMin) / (yMax - yMin)) * (H - M.top - M.bottom);
+    const path = (ys: number[]) => ys.map((v, i) => `${i === 0 ? "M" : "L"}${x(xs[i]).toFixed(1)} ${y(v).toFixed(1)}`).join(" ");
+    return { lo, hi, xs, main, second, payoff, ticks, x, y, path, yMin, yMax };
+  }, [values, type, selected, compare]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  function onMove(e: React.PointerEvent<SVGSVGElement>) {
+    const rect = svgRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const px = ((e.clientX - rect.left) / rect.width) * W;
+    const frac = (px - M.left) / (W - M.left - M.right);
+    setHoverSpot(frac < 0 || frac > 1 ? null : chart.lo + frac * (chart.hi - chart.lo));
+  }
+
+  const hoverIndex = hoverSpot === null ? null : Math.round(((hoverSpot - chart.lo) / (chart.hi - chart.lo)) * (chart.xs.length - 1));
+  const hoverValue = hoverIndex === null ? null : chart.main[hoverIndex];
+  const spotInRange = values.spot >= chart.lo && values.spot <= chart.hi;
+  const currentValue = now[selected];
+
+  const setParam = (key: string, value: number) => setValues((v) => ({ ...v, [key]: value }));
+
+  return (
+    <div style={{ "--accent": accent } as CSSProperties}>
+      <header className="relative overflow-hidden border-b border-[#2a3040]">
+        <div
+          className="pointer-events-none absolute left-1/2 top-[-220px] h-[360px] w-[820px] -translate-x-1/2 rounded-full blur-3xl"
+          style={{ background: accent, opacity: 0.13 }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-50"
+          style={{
+            backgroundImage: "radial-gradient(rgba(154,163,178,0.12) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+            maskImage: "linear-gradient(to bottom, black, transparent)",
+            WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-6">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[#898781]">
+            <Link to="/practice" className="hover:text-[#e6e8ec]">
+              Practice
+            </Link>
+            <span aria-hidden="true">/</span>
+            <span className="text-[#9aa3b2]">Greeks Explorer</span>
+          </nav>
+          <div className="mt-5 text-xs font-semibold uppercase tracking-[0.12em]" style={{ color: accent }}>
+            Options
+          </div>
+          <h1 className="mt-1 text-4xl font-bold text-[#e6e8ec]">Greeks Explorer</h1>
+          <p className="mt-3 max-w-2xl leading-relaxed text-[#9aa3b2]">
+            See how an option's price and each Greek react to the stock price, volatility, time and interest rates.
+            Change a number and watch every curve move.
+          </p>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        <div className="flex flex-col gap-6">
+          <ParamControls
+            params={PARAMS}
+            values={values}
+            onChange={setParam}
+            onReset={() => setValues(defaults())}
+            gridClassName="grid grid-cols-2 gap-4 lg:grid-cols-5"
+            compact
+          />
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <div role="radiogroup" aria-label="Option type" className="flex rounded-lg border border-[#2a3040] bg-[#141821] p-0.5">
+              {(["call", "put"] as const).map((t) => (
+                <button
+                  key={t}
+                  role="radio"
+                  aria-checked={type === t}
+                  onClick={() => setType(t)}
+                  className={`rounded-md px-4 py-1.5 text-sm font-semibold capitalize transition ${
+                    type === t ? "bg-[#7c6cff]/25 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
+                  }`}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="mr-1 text-xs text-[#898781]">Try a scenario</span>
+              {SCENARIOS.map((s) => (
+                <button
+                  key={s.label}
+                  onClick={() => setValues(s.apply)}
+                  className="rounded-full border border-[#2a3040] px-3 py-1 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/10 hover:text-[#e6e8ec]"
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            {GREEKS.map((g) => {
+              const active = g.id === selected;
+              return (
+                <button
+                  key={g.id}
+                  onClick={() => setSelected(g.id)}
+                  aria-pressed={active}
+                  className={`rounded-xl border px-4 py-3 text-left transition hover:-translate-y-px ${
+                    active ? "border-[#7c6cff] bg-[#7c6cff]/12" : "border-[#2a3040] bg-[#141821] hover:border-[#7c6cff]/50"
+                  }`}
+                >
+                  <div className="text-xs uppercase tracking-wide text-[#898781]">{g.label}</div>
+                  <div className="mt-1 text-xl font-bold text-[#e6e8ec]">{formatValue(g, now[g.id])}</div>
+                  <div className="mt-0.5 text-[11px] text-[#898781]">{g.unit}</div>
+                </button>
+              );
+            })}
+          </div>
+
+          <section className="rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5">
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
+                {info.label} vs. stock price
+              </h2>
+              <label className="flex items-center gap-2 text-xs text-[#898781]">
+                Compare with
+                <select
+                  value={compare}
+                  onChange={(e) => setCompare(e.target.value as Compare)}
+                  className="rounded-lg border border-[#2a3040] bg-[#0e1117] px-2.5 py-1.5 text-xs text-[#e6e8ec] focus:border-[#7c6cff] focus:outline-none [&>option]:bg-[#141821]"
+                >
+                  {COMPARES.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <svg
+              ref={svgRef}
+              viewBox={`0 0 ${W} ${H}`}
+              className="w-full touch-none select-none"
+              role="img"
+              aria-label={`${info.label} of a ${type} against the stock price`}
+              onPointerMove={onMove}
+              onPointerLeave={() => setHoverSpot(null)}
+            >
+              {/* grid + y axis */}
+              {chart.ticks.map((t) => (
+                <g key={t}>
+                  <line x1={M.left} x2={W - M.right} y1={chart.y(t)} y2={chart.y(t)} stroke="#2a3040" strokeOpacity={t === 0 ? 1 : 0.5} strokeDasharray={t === 0 ? undefined : "2 5"} />
+                  <text x={M.left - 8} y={chart.y(t) + 3.5} textAnchor="end" fontSize="10.5" fill="#898781">
+                    {info.money ? `$${t.toFixed(Math.max(0, info.decimals - (Math.abs(t) >= 1 ? 1 : 0)))}` : t.toFixed(info.decimals)}
+                  </text>
+                </g>
+              ))}
+              {/* x axis */}
+              {[0, 0.25, 0.5, 0.75, 1].map((f) => {
+                const s = chart.lo + f * (chart.hi - chart.lo);
+                return (
+                  <text key={f} x={chart.x(s)} y={H - 22} textAnchor="middle" fontSize="10.5" fill="#898781">
+                    ${s.toFixed(0)}
+                  </text>
+                );
+              })}
+              <text x={M.left + (W - M.left - M.right) / 2} y={H - 6} textAnchor="middle" fontSize="11" fill="#9aa3b2">
+                Stock price
+              </text>
+
+              {/* strike */}
+              <line x1={chart.x(values.strike)} x2={chart.x(values.strike)} y1={M.top} y2={H - M.bottom} stroke="#a99dff" strokeOpacity="0.4" strokeDasharray="4 4" />
+              <text x={chart.x(values.strike) + 4} y={M.top + 10} fontSize="10" fill="#a99dff">
+                strike ${values.strike}
+              </text>
+
+              {chart.payoff && (
+                <path d={chart.path(chart.payoff)} fill="none" stroke="#9aa3b2" strokeOpacity="0.6" strokeWidth="1.5" strokeDasharray="5 4" />
+              )}
+              {chart.second && (
+                <path d={chart.path(chart.second)} fill="none" stroke="#fbbf24" strokeWidth="2" strokeDasharray="6 4" strokeLinecap="round" />
+              )}
+              <path d={chart.path(chart.main)} fill="none" stroke="#7c6cff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ filter: "drop-shadow(0 0 5px rgba(124,108,255,0.55))" }} />
+
+              {/* current stock price */}
+              {spotInRange && (
+                <>
+                  <line x1={chart.x(values.spot)} x2={chart.x(values.spot)} y1={M.top} y2={H - M.bottom} stroke="#34d399" strokeOpacity="0.5" />
+                  <circle cx={chart.x(values.spot)} cy={chart.y(currentValue)} r="6" fill="#34d399" stroke="#0e1117" strokeWidth="2" />
+                </>
+              )}
+
+              {/* hover read-out */}
+              {hoverSpot !== null && hoverValue !== null && (
+                <g pointerEvents="none">
+                  <line x1={chart.x(hoverSpot)} x2={chart.x(hoverSpot)} y1={M.top} y2={H - M.bottom} stroke="#e6e8ec" strokeOpacity="0.3" />
+                  <circle cx={chart.x(hoverSpot)} cy={chart.y(hoverValue)} r="4.5" fill="#e6e8ec" />
+                  <g transform={`translate(${Math.min(chart.x(hoverSpot) + 10, W - 150)} ${Math.max(chart.y(hoverValue) - 34, M.top)})`}>
+                    <rect width="138" height="34" rx="6" fill="#1b2029" stroke="#2a3040" />
+                    <text x="8" y="14" fontSize="10.5" fill="#898781">
+                      Stock ${hoverSpot.toFixed(2)}
+                    </text>
+                    <text x="8" y="28" fontSize="12" fontWeight="600" fill="#e6e8ec">
+                      {info.label} {formatValue(info, hoverValue)}
+                    </text>
+                  </g>
+                </g>
+              )}
+            </svg>
+
+            <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-[#898781]">
+              <span className="flex items-center gap-1.5">
+                <span className="h-0.5 w-5 rounded bg-[#7c6cff]" /> {info.label}, as set above
+              </span>
+              {chart.second && (
+                <span className="flex items-center gap-1.5">
+                  <span className="h-0.5 w-5 rounded bg-[#fbbf24]" /> {COMPARES.find((c) => c.id === compare)?.label}
+                </span>
+              )}
+              {chart.payoff && (
+                <span className="flex items-center gap-1.5">
+                  <span className="h-0.5 w-5 rounded bg-[#9aa3b2]" /> Value at expiration
+                </span>
+              )}
+              <span className="flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#34d399]" /> Where the stock is now
+              </span>
+            </div>
+          </section>
+
+          <section className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="rounded-2xl border p-5" style={{ borderColor: `${accent}55`, background: `${accent}12` }}>
+              <div className="text-xs font-semibold uppercase tracking-[0.1em]" style={{ color: "#a99dff" }}>
+                Right now
+              </div>
+              <p className="mt-2 leading-relaxed text-[#e6e8ec]">{sentenceFor(selected, now, type)}</p>
+              <p className="mt-2 text-xs text-[#898781]">Figures are per share. One option contract covers 100 shares.</p>
+            </div>
+            <div className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5">
+              <div className="text-xs font-semibold uppercase tracking-[0.1em] text-[#898781]">What to notice</div>
+              <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">{info.notice}</p>
+              {info.lesson && (
+                <Link to={`/lesson/${info.lesson}`} className="mt-3 inline-block text-sm text-[#a99dff] hover:underline">
+                  Read the {info.label.toLowerCase()} lesson →
+                </Link>
+              )}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+}

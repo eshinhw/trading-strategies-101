@@ -11,6 +11,7 @@ import type { BooksResponse } from "./types/book";
 import type { PapersResponse } from "./types/paper";
 import type { ConstructionExerciseSummary, ConstructionExerciseDetail, ConstructionGradeResult } from "./types/construction";
 import type { Strategy } from "./types/strategy";
+import type { BankCourse, BankQuestion } from "./types/practice";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(path, {
@@ -127,4 +128,16 @@ export function submitLesson(slug: string, body: unknown): Promise<GradeResponse
     method: "POST",
     body: JSON.stringify(body),
   });
+}
+
+// --- practice ---
+
+export function fetchBankCourses(): Promise<BankCourse[]> {
+  return request<{ courses: BankCourse[] }>("/api/practice/quiz-bank/courses").then((d) => d.courses);
+}
+
+export function fetchBankQuestions(courses: string[], count: number): Promise<BankQuestion[]> {
+  const params = new URLSearchParams({ count: String(count) });
+  if (courses.length > 0) params.set("courses", courses.join(","));
+  return request<{ questions: BankQuestion[] }>(`/api/practice/quiz-bank/questions?${params}`).then((d) => d.questions);
 }

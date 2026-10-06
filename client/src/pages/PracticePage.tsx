@@ -195,6 +195,100 @@ function Section({ title, description, children }: { title: string; description:
   );
 }
 
+function QuizBankPreview() {
+  const choices = ["Intrinsic value and time value", "Strike and expiration", "Delta and gamma"];
+  return (
+    <div className="flex h-full flex-col justify-center gap-2 p-5" aria-hidden="true">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-semibold uppercase tracking-wide text-[#898781]">Question 4 of 10</span>
+        <span className="rounded-full border border-amber-400/50 bg-amber-400/15 px-2 py-0.5 text-[11px] font-medium text-amber-300">
+          Streak 3
+        </span>
+      </div>
+      <div className="text-sm font-medium text-[#e6e8ec]">What are the two parts of an option's premium?</div>
+      {choices.map((c, i) => (
+        <div
+          key={c}
+          className={`flex items-center gap-2.5 rounded-lg border px-2.5 py-1.5 text-xs ${
+            i === 0 ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-200" : "border-[#2a3040] text-[#898781]"
+          }`}
+        >
+          <span
+            className={`flex h-5 w-5 items-center justify-center rounded text-[10px] font-bold ${
+              i === 0 ? "bg-emerald-500 text-[#06281c]" : "bg-[#1b2029]"
+            }`}
+          >
+            {i === 0 ? "✓" : String.fromCharCode(65 + i)}
+          </span>
+          {c}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function GreeksPreview() {
+  return (
+    <svg viewBox="0 0 280 150" className="h-full w-full p-4" aria-hidden="true">
+      {[30, 60, 90, 120].map((y) => (
+        <line key={y} x1="0" x2="280" y1={y} y2={y} stroke="#2a3040" strokeOpacity="0.5" strokeDasharray="2 5" />
+      ))}
+      <line x1="140" x2="140" y1="8" y2="140" stroke="#a99dff" strokeOpacity="0.35" strokeDasharray="4 4" />
+      {/* delta: an S-curve from 0 to 1 */}
+      <path d="M0 132 C80 130 100 124 140 78 S200 22 280 20" fill="none" stroke="#7c6cff" strokeWidth="2.5" strokeLinecap="round" />
+      {/* gamma: a bell centred on the strike */}
+      <path d="M0 138 C70 138 100 128 140 52 C180 128 210 138 280 138" fill="none" stroke="#34d399" strokeWidth="2.5" strokeLinecap="round" />
+      {/* theta: a dip at the strike */}
+      <path d="M0 40 C70 42 100 54 140 100 C180 54 210 42 280 40" fill="none" stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="1 0" />
+      <g fontSize="10" fontWeight="600">
+        <text x="228" y="14" fill="#7c6cff">Delta</text>
+        <text x="146" y="40" fill="#34d399">Gamma</text>
+        <text x="8" y="32" fill="#fbbf24">Theta</text>
+      </g>
+    </svg>
+  );
+}
+
+function ToolCard({
+  to,
+  title,
+  tag,
+  description,
+  cta,
+  preview,
+  tint,
+}: {
+  to: string;
+  title: string;
+  tag: string;
+  description: string;
+  cta: string;
+  preview: ReactNode;
+  tint: string;
+}) {
+  return (
+    <Link
+      to={to}
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] card-glow transition duration-200 hover:-translate-y-0.5 hover:border-[#7c6cff]/50"
+    >
+      <div className="relative h-[190px] border-b border-[#2a3040] bg-[#0e1117]">
+        <div className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full blur-3xl" style={{ background: tint, opacity: 0.14 }} />
+        <div className="relative h-full">{preview}</div>
+      </div>
+      <div className="flex flex-1 flex-col p-5">
+        <span className="w-fit rounded-full border px-2.5 py-0.5 text-[11px] font-medium" style={{ borderColor: `${tint}55`, background: `${tint}1a`, color: tint }}>
+          {tag}
+        </span>
+        <h3 className="mt-2 text-xl font-bold text-[#e6e8ec]">{title}</h3>
+        <p className="mt-1.5 text-sm leading-relaxed text-[#9aa3b2]">{description}</p>
+        <span className="mt-auto pt-4 text-sm font-semibold text-[#a99dff]">
+          {cta} <span className="inline-block transition group-hover:translate-x-0.5">→</span>
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 export function PracticePage() {
   const [exercises, setExercises] = useState<ConstructionExerciseSummary[]>([]);
   const accent = ACCENT.derivatives;
@@ -231,7 +325,7 @@ export function PracticePage() {
       </header>
 
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6 py-10">
-        <Section title="Simulators" description="Sandboxes with no lesson or quiz attached, just a place to build intuition.">
+        <Section title="Practice tools" description="Interactive tools for building intuition and getting the repetitions in. None of them touch your course progress.">
           <div className="relative grid overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] card-glow transition duration-200 hover:border-[#7c6cff]/50 lg:grid-cols-[1fr_1.1fr]">
             <div
               className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full blur-3xl"
@@ -282,6 +376,27 @@ export function PracticePage() {
 
             <AnimatedPreview />
           </div>
+
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <ToolCard
+              to="/practice/quiz-bank"
+              title="Quiz Bank"
+              tag="All courses"
+              description="Mixed questions from every lesson's knowledge check, drawn evenly across the courses you pick. Instant explanations, a streak counter, and a retry pass on what you missed."
+              cta="Open the Quiz Bank"
+              preview={<QuizBankPreview />}
+              tint={ACCENT.rates}
+            />
+            <ToolCard
+              to="/practice/greeks-explorer"
+              title="Greeks Explorer"
+              tag="Options"
+              description="Move the stock price, volatility, time and rates, and watch an option's price and every Greek respond. Compare scenarios side by side on the same chart."
+              cta="Open the Greeks Explorer"
+              preview={<GreeksPreview />}
+              tint={ACCENT.derivatives}
+            />
+          </div>
         </Section>
 
         <Section title="More ways to practice" description="Beyond the simulator, every course has built-in practice.">
@@ -317,7 +432,7 @@ export function PracticePage() {
             </div>
 
             <Link
-              to="/courses"
+              to="/practice/quiz-bank"
               className="group flex flex-col rounded-2xl border border-[#2a3040] bg-[#141821] p-5 transition duration-200 hover:-translate-y-0.5 hover:border-[#7c6cff]/50"
             >
               <span
@@ -329,10 +444,11 @@ export function PracticePage() {
               </span>
               <h3 className="mt-3 font-semibold text-[#e6e8ec]">Lesson knowledge checks</h3>
               <p className="mt-1 text-sm leading-relaxed text-[#9aa3b2]">
-                Every lesson ends with a short quiz that explains each answer as you go, the fastest way to see what stuck.
+                Every lesson ends with a short quiz that explains each answer as you go. Want more reps than one lesson gives
+                you? The Quiz Bank mixes questions from any courses you choose.
               </p>
               <span className="mt-auto pt-4 text-sm font-medium text-[#a99dff]">
-                Browse courses <span className="inline-block transition group-hover:translate-x-0.5">→</span>
+                Open the Quiz Bank <span className="inline-block transition group-hover:translate-x-0.5">→</span>
               </span>
             </Link>
 

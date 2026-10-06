@@ -13,6 +13,10 @@ const LandingPage = lazy(() => import("./pages/LandingPage").then((m) => ({ defa
 const CoursesPage = lazy(() => import("./pages/CoursesPage").then((m) => ({ default: m.CoursesPage })));
 const CoursePage = lazy(() => import("./pages/CoursePage").then((m) => ({ default: m.CoursePage })));
 const PracticePage = lazy(() => import("./pages/PracticePage").then((m) => ({ default: m.PracticePage })));
+const QuizBankPage = lazy(() => import("./pages/QuizBankPage").then((m) => ({ default: m.QuizBankPage })));
+const GreeksExplorerPage = lazy(() =>
+  import("./pages/GreeksExplorerPage").then((m) => ({ default: m.GreeksExplorerPage })),
+);
 const OptionPayoutSimulatorPage = lazy(() =>
   import("./pages/OptionPayoutSimulatorPage").then((m) => ({ default: m.OptionPayoutSimulatorPage })),
 );
@@ -41,6 +45,8 @@ function App() {
                 <Route path="/courses/:slug/exam" element={<ExamPage />} />
                 <Route path="/practice" element={<PracticePage />} />
                 <Route path="/practice/options-payoff-simulator" element={<OptionPayoutSimulatorPage />} />
+                <Route path="/practice/greeks-explorer" element={<GreeksExplorerPage />} />
+                <Route path="/practice/quiz-bank" element={<QuizBankPage />} />
                 <Route path="/books" element={<BooksPage />} />
                 <Route path="/papers" element={<PapersPage />} />
                 <Route path="/module/:slug" element={<ModulePage />} />

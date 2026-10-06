@@ -10,6 +10,7 @@ import coursesRouter from "./routes/courses.js";
 import booksRouter from "./routes/books.js";
 import papersRouter from "./routes/papers.js";
 import constructionRouter from "./routes/construction.js";
+import practiceRouter from "./routes/practice.js";
 
 const app = express();
 const PORT = process.env.PORT ? Number(process.env.PORT) : 4000;
@@ -28,6 +29,7 @@ app.use("/api/courses", coursesRouter);
 app.use("/api/books", booksRouter);
 app.use("/api/papers", papersRouter);
 app.use("/api/construction", constructionRouter);
+app.use("/api/practice", practiceRouter);
 
 // In production this process also serves the client's built assets, so the
 // whole app is one Railway service on one origin — no separate static host,
