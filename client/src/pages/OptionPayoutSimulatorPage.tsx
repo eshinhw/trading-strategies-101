@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { fetchOptionsStrategies } from "../api";
 import type { Strategy, OptionType, Side } from "../types/strategy";
@@ -13,6 +13,7 @@ import { StatTile } from "../components/StatTile";
 import { ParamNumberCard } from "../components/ParamNumberCard";
 import { ACCENT } from "../lib/courseVisuals";
 import { SIMULATOR_PRESETS, type SimulatorPreset } from "../lib/simulatorPresets";
+import { legsFromStrategy } from "../lib/strategyToLegs";
 
 interface BuilderLeg {
   id: number;
@@ -76,6 +77,20 @@ export function OptionPayoutSimulatorPage() {
       .then((d) => setStrategies(d.strategies))
       .catch((e) => setError(e.message));
   }, []);
+
+  // A lesson's "open in the simulator" link (?strategy=<slug>) loads that strategy's own strikes and spot once the
+  // strategy list has arrived. Applied once, so it never overwrites edits the learner makes afterwards.
+  const appliedStrategyParam = useRef(false);
+  useEffect(() => {
+    const wanted = searchParams.get("strategy");
+    if (!wanted || !strategies || appliedStrategyParam.current) return;
+    appliedStrategyParam.current = true;
+    const found = strategies.find((st) => st.slug === wanted);
+    const built = found ? legsFromStrategy(found) : null;
+    if (!built) return;
+    if (built.spot !== null) setEntry((prev) => ({ ...prev, S0: built.spot as number }));
+    setLegs(built.legs.map((l) => ({ id: nextLegId++, ...l })));
+  }, [strategies, searchParams]);
 
   const signatureIndex = useMemo(() => (strategies ? buildSignatureIndex(strategies) : null), [strategies]);
 

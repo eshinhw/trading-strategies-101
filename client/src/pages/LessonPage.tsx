@@ -4,6 +4,7 @@ import { fetchCourse, fetchLesson, fetchModules } from "../api";
 import type { Course } from "../types/course";
 import type { LessonDetail, ModulesResponse } from "../types/curriculum";
 import { courseAccent } from "../lib/courseVisuals";
+import { legsFromStrategy } from "../lib/strategyToLegs";
 import type { ParamValues } from "../engine/payoff";
 import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { OutlookBadge, PlainBadge } from "../components/Badge";
@@ -106,6 +107,7 @@ export function LessonPage() {
         ) : (
           <StrategyLessonBody lesson={lesson} ctx={ctx} />
         )}
+        <ModuleStrip lesson={lesson} ctx={ctx} />
         <LessonNav lesson={lesson} ctx={ctx} />
       </div>
     </div>
@@ -217,6 +219,53 @@ function LessonHeader({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContex
         <p className="mt-3 max-w-3xl text-lg leading-relaxed text-[#9aa3b2]">{summary}</p>
       </div>
     </header>
+  );
+}
+
+// Every lesson in this lesson's module as a compact row of chips, so you can see where you are and hop elsewhere
+// without going back to the module page. Needs the module outline; renders nothing until that has loaded.
+function ModuleStrip({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContext }) {
+  const currentSlug = lesson.kind === "strategy" ? lesson.strategy.slug : lesson.slug;
+  const mod = ctx.modules?.modules.find((m) => m.lessons.some((l) => l.slug === currentSlug));
+  if (!mod || mod.lessons.length < 2) return null;
+  return (
+    <section className="mt-12 rounded-2xl border border-[#2a3040] bg-[#141821]/70 p-5" aria-label={`In ${mod.title}`}>
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">
+          In this module <span className="ml-1 normal-case tracking-normal text-[#9aa3b2]">{mod.title}</span>
+        </h2>
+        <Link to={`/module/${mod.slug}`} className="text-xs text-[#a99dff] hover:underline">
+          Module overview →
+        </Link>
+      </div>
+      <ol className="flex flex-wrap gap-1.5">
+        {mod.lessons.map((l, i) => {
+          const current = l.slug === currentSlug;
+          return (
+            <li key={l.slug}>
+              <Link
+                to={`/lesson/${l.slug}`}
+                aria-current={current ? "page" : undefined}
+                className={`flex items-center gap-2 rounded-lg border px-2.5 py-1.5 text-sm transition ${
+                  current
+                    ? "border-[var(--accent)] bg-[var(--accent)]/15 font-medium text-[#e6e8ec]"
+                    : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150] hover:text-[#e6e8ec]"
+                }`}
+              >
+                <span
+                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold ${
+                    l.completed ? "bg-emerald-500/20 text-emerald-400" : "bg-[#1b2029] text-[#898781]"
+                  }`}
+                >
+                  {l.completed ? "✓" : i + 1}
+                </span>
+                {l.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
   );
 }
 
@@ -505,6 +554,10 @@ function StrategyLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { k
   const { strategy } = lesson;
   const { accent } = ctx;
   const nextTitle = ctx.titleOf(lesson.nextLessonSlug);
+  // Only strategies the simulator can represent get the link.
+  const simulatorHref = legsFromStrategy(strategy)
+    ? `/practice/options-payoff-simulator?strategy=${strategy.slug}`
+    : null;
 
   // Static picture only: computed once from the strategy's own default numbers. (Hands-on exploring
   // lives in Practice > Options Payoff Simulator.)
@@ -525,7 +578,18 @@ function StrategyLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { k
   return (
     <div>
       <section className="mb-8 rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5 sm:p-6">
-        <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Payoff at expiration</h3>
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Payoff at expiration</h3>
+          {simulatorHref && (
+            <Link
+              to={simulatorHref}
+              className="rounded-lg border px-3 py-1.5 text-xs font-semibold transition hover:brightness-125"
+              style={{ borderColor: `${accent}66`, background: `${accent}18`, color: "#c4bbff" }}
+            >
+              Try it in the simulator →
+            </Link>
+          )}
+        </div>
         <div className="mx-auto max-w-3xl">
           <StaticPayoffDiagram
             curve={stats.curve}
@@ -547,11 +611,18 @@ function StrategyLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { k
           <StatTile label="Legs" value={String(strategy.legCount)} tone="neutral" />
         </div>
         <p className="mt-3 text-xs text-[#898781]">
-          Drawn with the example numbers in the scenario below. To try your own, use the{" "}
-          <Link to="/practice/options-payoff-simulator" className="text-[#7c6cff] hover:underline">
-            Options Payoff Simulator
-          </Link>
-          .
+          Drawn with the example numbers in the scenario below.
+          {simulatorHref
+            ? " Open it in the simulator to change the strikes and see the payoff move."
+            : " To try your own, use the "}
+          {!simulatorHref && (
+            <>
+              <Link to="/practice/options-payoff-simulator" className="text-[#7c6cff] hover:underline">
+                Options Payoff Simulator
+              </Link>
+              .
+            </>
+          )}
         </p>
       </section>
 
