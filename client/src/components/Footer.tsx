@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
+import { LogoMark } from "./Nav";
 
 const EXPLORE_LINKS = [
-  { to: "/courses", label: "Courses" },
+  { to: "/courses", label: "All courses" },
+  { to: "/practice", label: "Practice" },
   { to: "/books", label: "Books" },
   { to: "/papers", label: "Papers" },
+];
+
+const POPULAR_LINKS = [
+  { to: "/courses/options", label: "Options" },
+  { to: "/courses/futures", label: "Futures" },
+  { to: "/courses/fixed-income", label: "Fixed Income" },
+  { to: "/courses/stocks", label: "Stocks" },
+  { to: "/courses/fx", label: "FX" },
 ];
 
 const ACCOUNT_LINKS = [
@@ -50,21 +60,16 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-[#2a3040] bg-[#0e1117]">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#7c6cff]/70 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 top-[-160px] h-[260px] w-[720px] -translate-x-1/2 rounded-full bg-[#7c6cff] opacity-[0.08] blur-3xl" />
       <FooterBackground />
       <div className="relative mx-auto max-w-7xl px-6 py-14">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div className="col-span-2 sm:col-span-1">
-            <Link to="/" className="flex items-center gap-2 font-semibold text-[#e6e8ec]">
-              <svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true" className="shrink-0">
-                <polyline
-                  points="24,30 50,68 76,30"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="13"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <Link to="/" className="inline-flex items-center gap-2.5 font-semibold text-[#e6e8ec]">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#8f82ff] to-[#5a46e8] text-white shadow-md shadow-[#7c6cff]/30">
+                <LogoMark size={18} />
+              </span>
               Trading Strategies 101
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#9aa3b2]">
@@ -85,14 +90,21 @@ export function Footer() {
           </div>
 
           <FooterColumn title="Explore" links={EXPLORE_LINKS} />
+          <FooterColumn title="Popular courses" links={POPULAR_LINKS} />
           <FooterColumn title="Account" links={ACCOUNT_LINKS} />
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-[#2a3040] pt-6 text-xs text-[#898781] sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Trading Strategies 101. All rights reserved.</p>
-          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#e6e8ec]">
-            View source on GitHub
-          </a>
+        <div className="mt-10 flex flex-col gap-3 border-t border-[#2a3040] pt-6 text-xs text-[#898781]">
+          <p className="max-w-3xl leading-relaxed">
+            Educational content only. Nothing here is investment advice, and past performance of any strategy does not
+            guarantee future results.
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {year} Trading Strategies 101. All rights reserved.</p>
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#e6e8ec]">
+              View source on GitHub
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -102,11 +114,11 @@ export function Footer() {
 function FooterColumn({ title, links }: { title: string; links: { to: string; label: string }[] }) {
   return (
     <div>
-      <h4 className="text-xs font-semibold uppercase tracking-wide text-[#9aa3b2]">{title}</h4>
+      <h4 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#e6e8ec]">{title}</h4>
       <ul className="mt-3 flex flex-col gap-2">
         {links.map((l) => (
           <li key={l.label}>
-            <Link to={l.to} className="text-sm text-[#9aa3b2] hover:text-[#e6e8ec]">
+            <Link to={l.to} className="text-sm text-[#9aa3b2] transition hover:text-[#a99dff]">
               {l.label}
             </Link>
           </li>
