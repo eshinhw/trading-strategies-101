@@ -136,9 +136,10 @@ export function fetchBankCourses(): Promise<BankCourse[]> {
   return request<{ courses: BankCourse[] }>("/api/practice/quiz-bank/courses").then((d) => d.courses);
 }
 
-export function fetchBankQuestions(courses: string[], count: number): Promise<BankQuestion[]> {
+export function fetchBankQuestions(courses: string[], count: number, modules: string[] = []): Promise<BankQuestion[]> {
   const params = new URLSearchParams({ count: String(count) });
   if (courses.length > 0) params.set("courses", courses.join(","));
+  if (modules.length > 0) params.set("modules", modules.join(","));
   return request<{ questions: BankQuestion[] }>(`/api/practice/quiz-bank/questions?${params}`).then((d) => d.questions);
 }
 

@@ -130,6 +130,8 @@ export function QuizBankPage() {
 
   // Empty selection means "every course".
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  // Optional: narrow the chosen courses to specific modules (empty means every module).
+  const [selectedModules, setSelectedModules] = useState<Set<string>>(new Set());
   const [count, setCount] = useState<number>(10);
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
@@ -152,7 +154,15 @@ export function QuizBankPage() {
           .split(",")
           .map((s) => s.trim())
           .filter((s) => courses.some((c) => c.slug === s));
-        if (wanted.length > 0) setSelected(new Set(wanted));
+        const wantedModules = (searchParams.get("modules") ?? searchParams.get("module") ?? "")
+          .split(",")
+          .map((s) => s.trim())
+          .filter((m) => courses.some((c) => c.modules.some((x) => x.slug === m)));
+        // a module link selects its course too, even if the link didn't name one
+        const courseOfModules = courses.filter((c) => c.modules.some((m) => wantedModules.includes(m.slug))).map((c) => c.slug);
+        const allWanted = [...new Set([...wanted, ...courseOfModules])];
+        if (allWanted.length > 0) setSelected(new Set(allWanted));
+        if (wantedModules.length > 0) setSelectedModules(new Set(wantedModules));
       })
       .catch((e) => setLoadError(e.message));
     // the query string only seeds the initial selection
@@ -161,13 +171,33 @@ export function QuizBankPage() {
 
   const available = useMemo(() => {
     if (!bankCourses) return 0;
-    return bankCourses
-      .filter((c) => selected.size === 0 || selected.has(c.slug))
-      .reduce((n, c) => n + c.questionCount, 0);
-  }, [bankCourses, selected]);
+    const inScope = bankCourses.filter((c) => selected.size === 0 || selected.has(c.slug));
+    if (selectedModules.size === 0) return inScope.reduce((n, c) => n + c.questionCount, 0);
+    return inScope.reduce(
+      (n, c) => n + c.modules.filter((m) => selectedModules.has(m.slug)).reduce((k, m) => k + m.questionCount, 0),
+      0,
+    );
+  }, [bankCourses, selected, selectedModules]);
 
   function toggleCourse(slug: string) {
     setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
+    });
+    // dropping a course drops any modules chosen from it
+    setSelectedModules((prev) => {
+      const course = bankCourses?.find((c) => c.slug === slug);
+      if (!course || prev.size === 0) return prev;
+      const next = new Set(prev);
+      for (const m of course.modules) next.delete(m.slug);
+      return next;
+    });
+  }
+
+  function toggleModule(slug: string) {
+    setSelectedModules((prev) => {
       const next = new Set(prev);
       if (next.has(slug)) next.delete(slug);
       else next.add(slug);
@@ -190,7 +220,7 @@ export function QuizBankPage() {
     setStarting(true);
     setStartError(null);
     try {
-      const qs = await fetchBankQuestions([...selected], count);
+      const qs = await fetchBankQuestions([...selected], count, [...selectedModules]);
       if (qs.length === 0) setStartError("There are no questions for that selection yet.");
       else beginSession(qs, count);
     } catch (e) {
@@ -214,6 +244,21 @@ export function QuizBankPage() {
         // the list is the whole set, so there is no "asked for more than were available" to report
         beginSession(qs, qs.length);
       }
+    } catch (e) {
+      setStartError(e instanceof Error ? e.message : "Couldn't load questions.");
+    } finally {
+      setStarting(false);
+    }
+  }
+
+  // From the results: another session on just one module the learner struggled with.
+  async function startFocus(courseSlug: string, moduleSlug: string) {
+    setStarting(true);
+    setStartError(null);
+    try {
+      const qs = await fetchBankQuestions([courseSlug], 10, [moduleSlug]);
+      if (qs.length === 0) setStartError("There are no questions for that module.");
+      else beginSession(qs, 10);
     } catch (e) {
       setStartError(e instanceof Error ? e.message : "Couldn't load questions.");
     } finally {
@@ -434,13 +479,60 @@ export function QuizBankPage() {
                 })}
               </div>
             )}
+
+            {bankCourses && selected.size > 0 && selected.size <= 3 && (
+              <div className="mt-6 rounded-2xl border border-[#2a3040] bg-[#141821]/70 p-4">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">
+                    Narrow to modules <span className="font-normal normal-case tracking-normal">(optional)</span>
+                  </h3>
+                  {selectedModules.size > 0 && (
+                    <button onClick={() => setSelectedModules(new Set())} className="text-xs text-[#a99dff] hover:underline">
+                      Use every module
+                    </button>
+                  )}
+                </div>
+                <div className="mt-3 flex flex-col gap-4">
+                  {bankCourses
+                    .filter((c) => selected.has(c.slug))
+                    .map((c) => (
+                      <div key={c.slug}>
+                        {selected.size > 1 && <div className="mb-1.5 text-xs text-[#9aa3b2]">{c.title}</div>}
+                        <div className="flex flex-wrap gap-1.5">
+                          {c.modules.map((m) => {
+                            const on = selectedModules.has(m.slug);
+                            const color = courseAccent(c.slug);
+                            return (
+                              <button
+                                key={m.slug}
+                                onClick={() => toggleModule(m.slug)}
+                                aria-pressed={on}
+                                className="flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition"
+                                style={{
+                                  borderColor: on ? `${color}99` : "#2a3040",
+                                  background: on ? `${color}22` : "transparent",
+                                  color: on ? "#e6e8ec" : "#9aa3b2",
+                                }}
+                              >
+                                {m.title}
+                                <span className="text-[#898781]">{m.questionCount}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
           </section>
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-2xl border border-[#2a3040] bg-gradient-to-b from-[#181c28] to-[#12151d] p-5">
               <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Session</h2>
               <p className="mt-3 text-sm text-[#9aa3b2]">
-                {selected.size === 0 ? "Every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`} ·{" "}
+                {selected.size === 0 ? "Every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`}
+                {selectedModules.size > 0 ? `, ${selectedModules.size} module${selectedModules.size === 1 ? "" : "s"}` : ""} ·{" "}
                 <span className="text-[#e6e8ec]">{available}</span> questions available
               </p>
 
@@ -478,6 +570,26 @@ export function QuizBankPage() {
               </p>
             </div>
           </aside>
+        </div>
+
+        {/* On a phone the Start button would sit below every course chip, so keep it in reach. */}
+        <div className="h-20 lg:hidden" aria-hidden="true" />
+        <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[#2a3040] bg-[#0b0d12]/95 px-4 py-3 backdrop-blur lg:hidden">
+          <div className="mx-auto flex max-w-5xl items-center gap-3">
+            <div className="min-w-0 flex-1 text-xs text-[#9aa3b2]">
+              <span className="font-semibold text-[#e6e8ec]">{count}</span> questions ·{" "}
+              {selected.size === 0 ? "every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`}
+              {selectedModules.size > 0 ? `, ${selectedModules.size} module${selectedModules.size === 1 ? "" : "s"}` : ""}
+            </div>
+            <button
+              onClick={start}
+              disabled={starting || !bankCourses || available === 0}
+              className="shrink-0 rounded-lg px-5 py-2.5 text-sm font-semibold text-[#0b0d12] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+              style={{ background: accent }}
+            >
+              {starting ? "Loading…" : "Start →"}
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -611,6 +723,14 @@ export function QuizBankPage() {
     if (r.correct) entry.correct += 1;
     byCourse.set(r.q.courseSlug, entry);
   }
+  // Modules with at least one miss, most missed first, for the "practise again" row.
+  const focusMap = new Map<string, { slug: string; title: string; courseSlug: string; missed: number }>();
+  for (const m of missed) {
+    const entry = focusMap.get(m.moduleSlug) ?? { slug: m.moduleSlug, title: m.moduleTitle, courseSlug: m.courseSlug, missed: 0 };
+    entry.missed += 1;
+    focusMap.set(m.moduleSlug, entry);
+  }
+  const focusModules = [...focusMap.values()].sort((a, b) => b.missed - a.missed).slice(0, 4);
   const ringColor = score >= 0.7 ? "#34d399" : "#fbbf24";
   const radius = 38;
   const circumference = 2 * Math.PI * radius;
@@ -694,6 +814,29 @@ export function QuizBankPage() {
                 );
               })}
             </div>
+          </section>
+        )}
+
+        {focusModules.length > 0 && (
+          <section className="mt-8">
+            <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Practise these modules again</h2>
+            <div className="flex flex-wrap gap-2">
+              {focusModules.map((m) => (
+                <button
+                  key={m.slug}
+                  onClick={() => startFocus(m.courseSlug, m.slug)}
+                  disabled={starting}
+                  className="flex items-center gap-2 rounded-xl border border-[#2a3040] bg-[#141821] px-3 py-2 text-sm text-[#e6e8ec] transition hover:-translate-y-px hover:border-[#7c6cff]/50 disabled:opacity-60"
+                >
+                  <span className="h-2 w-2 rounded-full" style={{ background: courseAccent(m.courseSlug) }} />
+                  {m.title}
+                  <span className="rounded-full bg-red-500/15 px-1.5 py-px text-[10px] font-semibold text-red-300">
+                    {m.missed} missed
+                  </span>
+                </button>
+              ))}
+            </div>
+            {startError && <p className="mt-2 text-sm text-red-400">{startError}</p>}
           </section>
         )}
 

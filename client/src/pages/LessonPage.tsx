@@ -274,8 +274,11 @@ function QuizBankNudge({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonConte
   if (!lesson.courseSlug || lesson.quiz.length === 0) return null;
   return (
     <p className="mt-4 max-w-3xl text-sm text-[#898781]">
-      Want more reps on {ctx.course?.title ?? "this course"}?{" "}
-      <Link to={`/practice/quiz-bank?course=${lesson.courseSlug}`} className="text-[#a99dff] hover:underline">
+      Want more reps on {lesson.moduleTitle ?? ctx.course?.title ?? "this course"}?{" "}
+      <Link
+        to={`/practice/quiz-bank?course=${lesson.courseSlug}${lesson.moduleSlug ? `&module=${lesson.moduleSlug}` : ""}`}
+        className="text-[#a99dff] hover:underline"
+      >
         Practice it in the Quiz Bank →
       </Link>
     </p>

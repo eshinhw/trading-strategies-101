@@ -8,6 +8,7 @@ export interface BankQuestion {
   id: string; // unique across the pool: "<lessonSlug>:<questionId>"
   courseSlug: string;
   courseTitle: string;
+  moduleSlug: string;
   moduleTitle: string;
   lessonSlug: string;
   lessonTitle: string;
@@ -17,10 +18,18 @@ export interface BankQuestion {
   explanation: string;
 }
 
+export interface BankModule {
+  slug: string;
+  title: string;
+  questionCount: number;
+}
+
 export interface BankCourse {
   slug: string;
   title: string;
   questionCount: number;
+  /** in curriculum order, so a learner can narrow a session to part of a course */
+  modules: BankModule[];
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -46,6 +55,7 @@ function poolForCourse(courseSlug: string): BankQuestion[] {
           id: `${lessonSlug}:${q.id}`,
           courseSlug,
           courseTitle: course.title,
+          moduleSlug: module.slug,
           moduleTitle: module.title,
           lessonSlug,
           lessonTitle,
@@ -60,10 +70,22 @@ function poolForCourse(courseSlug: string): BankQuestion[] {
   return out;
 }
 
-/** Every course that has at least one question, with how many. */
+/** Every course that has at least one question, with how many, and how they split across its modules. */
 export function bankCourses(): BankCourse[] {
   return courses
-    .map((c) => ({ slug: c.slug, title: c.title, questionCount: poolForCourse(c.slug).length }))
+    .map((c) => {
+      const pool = poolForCourse(c.slug);
+      const modules = modulesForCourse(c.slug)
+        .slice()
+        .sort((a, b) => a.order - b.order)
+        .map((m) => ({
+          slug: m.slug,
+          title: m.title,
+          questionCount: pool.filter((q) => q.moduleSlug === m.slug).length,
+        }))
+        .filter((m) => m.questionCount > 0);
+      return { slug: c.slug, title: c.title, questionCount: pool.length, modules };
+    })
     .filter((c) => c.questionCount > 0);
 }
 
@@ -80,15 +102,24 @@ export function bankQuestionsByIds(ids: string[], count: number): BankQuestion[]
  * a big course (Options) doesn't drown out a small one, and questions are spread across lessons: at most two per
  * lesson until the pool runs short, so a session doesn't camp on one topic.
  */
-export function sampleBankQuestions(courseSlugs: string[], count: number): BankQuestion[] {
+export function sampleBankQuestions(courseSlugs: string[], count: number, moduleSlugs: string[] = []): BankQuestion[] {
   const slugs = courseSlugs.length > 0 ? courseSlugs : courses.map((c) => c.slug);
-  const queues = slugs.map((slug) => shuffle(poolForCourse(slug))).filter((q) => q.length > 0);
+  const onlyModules = new Set(moduleSlugs);
+  const pool = slugs.flatMap(poolForCourse).filter((q) => onlyModules.size === 0 || onlyModules.has(q.moduleSlug));
+
+  // Sample evenly across modules when the learner narrowed to modules, otherwise across courses.
+  const groups = new Map<string, BankQuestion[]>();
+  for (const q of pool) {
+    const key = onlyModules.size > 0 ? q.moduleSlug : q.courseSlug;
+    groups.set(key, [...(groups.get(key) ?? []), q]);
+  }
+  const queues = [...groups.values()].map((g) => shuffle(g));
 
   const perLesson = new Map<string, number>();
   const picked: BankQuestion[] = [];
   const leftovers: BankQuestion[] = [];
 
-  // Round-robin: one question from each course in turn.
+  // Round-robin: one question from each group in turn.
   while (picked.length < count && queues.some((q) => q.length > 0)) {
     for (const queue of queues) {
       if (picked.length >= count) break;

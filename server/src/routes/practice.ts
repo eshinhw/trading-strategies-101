@@ -33,7 +33,16 @@ router.get("/quiz-bank/questions", (req, res) => {
   const unknown = requested.filter((s) => !known.has(s));
   if (unknown.length > 0) return res.status(400).json({ error: `Unknown course: ${unknown.join(", ")}` });
 
-  res.json({ questions: sampleBankQuestions(requested, wanted) });
+  // ?modules=a,b narrows the session to those modules (within the chosen courses, or any course)
+  const knownModules = new Set(bankCourses().flatMap((c) => c.modules.map((m) => m.slug)));
+  const requestedModules = (typeof req.query.modules === "string" ? req.query.modules : "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const unknownModules = requestedModules.filter((s) => !knownModules.has(s));
+  if (unknownModules.length > 0) return res.status(400).json({ error: `Unknown module: ${unknownModules.join(", ")}` });
+
+  res.json({ questions: sampleBankQuestions(requested, wanted, requestedModules) });
 });
 
 export default router;
