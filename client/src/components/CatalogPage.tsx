@@ -74,6 +74,7 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   gridColsClassName = "sm:grid-cols-2",
   renderCard,
   renderRow,
+  renderTimeline,
   sorters,
 }: {
   eyebrow: string;
@@ -94,6 +95,11 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   renderCard: (item: TItem, accent: string) => ReactNode;
   /** a compact one-line layout; when given, a Cards / List toggle appears */
   renderRow?: (item: TItem, accent: string) => ReactNode;
+  /** a chronological layout over the filtered items; when given, a Timeline option joins the layout toggle */
+  renderTimeline?: (
+    items: TItem[],
+    helpers: { accentOf: (item: TItem) => string; categoryOf: (item: TItem) => TCategory | undefined },
+  ) => ReactNode;
   /** extra sort orders; the catalog's own order ("Recommended") is always the default */
   sorters?: { id: string; label: string; compare: (a: TItem, b: TItem) => number }[];
 }) {
@@ -103,7 +109,7 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
   const [level, setLevel] = useState<TLevel | "all">("all");
   const [topic, setTopic] = useState<string>("all");
   const [sortId, setSortId] = useState("recommended");
-  const [view, setView] = useState<"cards" | "list">("cards");
+  const [view, setView] = useState<"cards" | "list" | "timeline">("cards");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -269,26 +275,29 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                     </select>
                   </label>
                 )}
-                {renderRow && (
+                {(renderRow || renderTimeline) && (
                   <div role="radiogroup" aria-label="Layout" className="flex rounded-lg border border-[#2a3040] bg-[#141821] p-0.5">
                     {(
                       [
-                        ["cards", "Cards"],
-                        ["list", "List"],
+                        ["cards", "Cards", true],
+                        ["list", "List", Boolean(renderRow)],
+                        ["timeline", "Timeline", Boolean(renderTimeline)],
                       ] as const
-                    ).map(([key, label]) => (
-                      <button
-                        key={key}
-                        role="radio"
-                        aria-checked={view === key}
-                        onClick={() => setView(key)}
-                        className={`rounded-md px-3 py-1 text-xs font-medium transition ${
-                          view === key ? "bg-[#7c6cff]/20 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
-                        }`}
-                      >
-                        {label}
-                      </button>
-                    ))}
+                    )
+                      .filter(([, , available]) => available)
+                      .map(([key, label]) => (
+                        <button
+                          key={key}
+                          role="radio"
+                          aria-checked={view === key}
+                          onClick={() => setView(key)}
+                          className={`rounded-md px-3 py-1 text-xs font-medium transition ${
+                            view === key ? "bg-[#7c6cff]/20 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      ))}
                   </div>
                 )}
               </div>
@@ -303,6 +312,11 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                   </button>
                 )}
               </div>
+            ) : view === "timeline" && renderTimeline ? (
+              renderTimeline(filteredItems, {
+                accentOf: (item) => getCategoryAccent(getCategorySlug(item)),
+                categoryOf: (item) => data.categories.find((c) => c.slug === getCategorySlug(item)),
+              })
             ) : (
               <div className="flex flex-col gap-12">
                 {data.categories.map((category) => {
