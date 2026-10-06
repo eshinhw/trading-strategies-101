@@ -7,6 +7,7 @@ import { AssetMap } from "../components/AssetMap";
 import { RiskRewardHero } from "../components/RiskRewardHero";
 import { Reveal } from "../components/Reveal";
 import { TryItSection } from "../components/TryItSection";
+import { PayoffPlayground } from "../components/PayoffPlayground";
 import { Faq } from "../components/Faq";
 
 export function LandingPage() {
@@ -32,6 +33,9 @@ export function LandingPage() {
       <Hero courses={courses} />
       <Reveal>
         <Features />
+      </Reveal>
+      <Reveal>
+        <PayoffPlayground />
       </Reveal>
       <Reveal>
         <TryItSection />
