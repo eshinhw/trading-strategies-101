@@ -192,6 +192,31 @@ function AvailableCourse({ course, data, accent }: { course: Course; data: Modul
     return new Set(modules.filter((m) => m.slug !== open).map((m) => m.slug));
   });
 
+  const [lessonQuery, setLessonQuery] = useState("");
+  const [hideCompleted, setHideCompleted] = useState(false);
+  const q = lessonQuery.trim().toLowerCase();
+  const filtering = q !== "" || hideCompleted;
+
+  // With a search or "hide completed" on, each module lists only its matching lessons and modules with none
+  // drop out; without one, every module shows everything.
+  const visible = useMemo(
+    () =>
+      modules
+        .map((m, index) => ({
+          m,
+          index,
+          lessons: m.lessons.filter(
+            (l) =>
+              (!hideCompleted || !l.completed) &&
+              (q === "" || l.title.toLowerCase().includes(q) || l.summary.toLowerCase().includes(q)),
+          ),
+        }))
+        .filter((v) => !filtering || v.lessons.length > 0),
+    [modules, q, hideCompleted, filtering],
+  );
+  const matchCount = visible.reduce((n, v) => n + v.lessons.length, 0);
+
+  const hasPhases = new Set(modules.map(phaseOf)).size >= 2;
   const allCollapsed = collapsed.size === modules.length;
   const toggle = (slug: string) =>
     setCollapsed((prev) => {
@@ -217,30 +242,95 @@ function AvailableCourse({ course, data, accent }: { course: Course; data: Modul
         <CourseMap modules={modules} accent={accent} onJump={jumpTo} />
         <StrategiesCovered modules={modules} accent={accent} />
 
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Curriculum</h2>
-          <button
-            onClick={() => setCollapsed(allCollapsed ? new Set() : new Set(modules.map((m) => m.slug)))}
-            className="text-xs text-[#a99dff] hover:underline"
-          >
-            {allCollapsed ? "Expand all" : "Collapse all"}
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="relative">
+              <svg
+                viewBox="0 0 20 20"
+                className="pointer-events-none absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[#898781]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="9" cy="9" r="5.5" />
+                <path d="m13.5 13.5 3.5 3.5" />
+              </svg>
+              <input
+                type="text"
+                value={lessonQuery}
+                onChange={(e) => setLessonQuery(e.target.value)}
+                placeholder={`Search ${data.totalLessons} lessons`}
+                aria-label="Search this course's lessons"
+                className="input !w-56 !py-1.5 !pl-8 text-xs"
+              />
+            </div>
+            {data.totalCompleted > 0 && (
+              <button
+                onClick={() => setHideCompleted((h) => !h)}
+                aria-pressed={hideCompleted}
+                className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
+                  hideCompleted
+                    ? "border-[#7c6cff]/50 bg-[#7c6cff]/15 text-[#e6e8ec]"
+                    : "border-[#2a3040] text-[#9aa3b2] hover:text-[#e6e8ec]"
+                }`}
+              >
+                Hide completed
+              </button>
+            )}
+            {!filtering && (
+              <button
+                onClick={() => setCollapsed(allCollapsed ? new Set() : new Set(modules.map((m) => m.slug)))}
+                className="text-xs text-[#a99dff] hover:underline"
+              >
+                {allCollapsed ? "Expand all" : "Collapse all"}
+              </button>
+            )}
+          </div>
         </div>
 
+        {filtering && (
+          <p className="mb-4 text-xs text-[#898781]" aria-live="polite">
+            {matchCount === 0 ? "No lessons match." : `${matchCount} lesson${matchCount === 1 ? "" : "s"} shown`}{" "}
+            <button
+              onClick={() => {
+                setLessonQuery("");
+                setHideCompleted(false);
+              }}
+              className="text-[#a99dff] hover:underline"
+            >
+              Clear
+            </button>
+          </p>
+        )}
+
         <div className="flex flex-col">
-          {modules.map((m, i) => (
-            <ModuleSection
-              key={m.slug}
-              module={m}
-              index={i}
-              isLast={false}
-              accent={accent}
-              allModules={modules}
-              collapsed={collapsed.has(m.slug)}
-              onToggle={() => toggle(m.slug)}
-            />
-          ))}
-          <ExamSection slug={course.slug} accent={accent} />
+          {visible.map(({ m, index, lessons }, vi) => {
+            // Name the stage a module belongs to the first time that stage appears, so a 15-module course reads
+            // as Foundations, then Applications, then Strategies rather than one long list.
+            const phase = phaseOf(m);
+            const prevPhase = vi > 0 ? phaseOf(visible[vi - 1].m) : null;
+            const showPhase = hasPhases && phase !== prevPhase;
+            return (
+              <div key={m.slug}>
+                {showPhase && <PhaseHeading label={phase} />}
+                <ModuleSection
+                  module={m}
+                  index={index}
+                  isLast={false}
+                  accent={accent}
+                  allModules={modules}
+                  collapsed={filtering ? false : collapsed.has(m.slug)}
+                  onToggle={() => toggle(m.slug)}
+                  lessons={lessons}
+                  filtering={filtering}
+                />
+              </div>
+            );
+          })}
+          {!filtering && <ExamSection slug={course.slug} accent={accent} />}
         </div>
       </main>
 
@@ -464,6 +554,26 @@ function joinNaturally(items: string[]): string {
   return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
 }
 
+// The curriculum is built in stages (what it is and why it exists, then how it's used and priced, then strategies);
+// module slugs and titles follow that convention, so the stage can be read off them.
+function phaseOf(m: ModuleSummary): string {
+  const key = `${m.slug} ${m.title}`.toLowerCase();
+  if (/basics|foundations/.test(key)) return "Foundations";
+  if (/applications|pricing/.test(key)) return "Applications & pricing";
+  if (/greeks/.test(key)) return "The Greeks";
+  return "Strategies";
+}
+
+function PhaseHeading({ label }: { label: string }) {
+  return (
+    <div className="relative flex items-center gap-3 pb-4 pl-[52px] pt-1">
+      <div className="absolute bottom-0 left-[17px] top-0 w-px bg-[#2a3040]" aria-hidden="true" />
+      <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#898781]">{label}</span>
+      <span className="h-px flex-1 bg-gradient-to-r from-[#2a3040] to-transparent" aria-hidden="true" />
+    </div>
+  );
+}
+
 function ModuleSection({
   module: m,
   index,
@@ -472,6 +582,8 @@ function ModuleSection({
   allModules,
   collapsed,
   onToggle,
+  lessons,
+  filtering,
 }: {
   module: ModuleSummary;
   index: number;
@@ -480,6 +592,9 @@ function ModuleSection({
   allModules: ModuleSummary[];
   collapsed: boolean;
   onToggle: () => void;
+  /** the lessons to list: all of them normally, or just those matching the search / hide-completed filter */
+  lessons: ModuleSummary["lessons"];
+  filtering: boolean;
 }) {
   const prerequisiteTitles = m.prerequisiteModuleSlugs.map(
     (slug) => allModules.find((other) => other.slug === slug)?.title ?? slug,
@@ -516,8 +631,9 @@ function ModuleSection({
             {m.description && <p className="mt-0.5 text-sm leading-relaxed text-[#898781]">{m.description}</p>}
             {m.unlocked && m.lessons.length > 0 && (
               <p className="mt-1 text-xs text-[#898781]">
-                {m.lessons.length} lessons
-                {m.lessons.some((l) => l.isPaperStrategy) &&
+                {filtering ? `${lessons.length} of ${m.lessons.length} lessons shown` : `${m.lessons.length} lessons`}
+                {!filtering &&
+                  m.lessons.some((l) => l.isPaperStrategy) &&
                   ` · ${m.lessons.filter((l) => l.isPaperStrategy).length} strategies`}
               </p>
             )}
@@ -557,7 +673,7 @@ function ModuleSection({
             </p>
           ) : (
             <div className="mt-3 grid grid-cols-1 gap-2 xl:grid-cols-2">
-              {m.lessons.map((lesson, i) => (
+              {lessons.map((lesson, i) => (
                 <LessonListItem key={lesson.slug} lesson={lesson} number={i + 1} accent={accent} />
               ))}
             </div>
