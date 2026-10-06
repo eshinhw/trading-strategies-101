@@ -152,14 +152,99 @@ function niceStep(range: number, target = 4): number {
   return (frac < 1.5 ? 1 : frac < 3.5 ? 2 : frac < 7.5 ? 5 : 10) * pow;
 }
 
+// Which of the five inputs, the option type, the Greek on the chart and the comparison are in the URL, so a
+// scenario can be shared and survives a refresh. Only values that differ from the defaults are written.
+function valuesFromParams(params: URLSearchParams): Values {
+  const v = defaults();
+  for (const p of PARAMS) {
+    const raw = params.get(p.key);
+    const n = raw === null ? NaN : Number(raw);
+    if (Number.isFinite(n)) v[p.key] = Math.min(p.max, Math.max(p.min, n));
+  }
+  return v;
+}
+
+const CHALLENGES_KEY = "greeks:challenges";
+function loadChallenges(): string[] {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(CHALLENGES_KEY) ?? "[]") as unknown;
+    return Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
+// Goals that send the learner hunting for the behaviour a lesson describes. Each is checked against the current
+// numbers, and none is already true at the starting values.
+interface Challenge {
+  id: string;
+  title: string;
+  hint: string;
+  met: (g: ReturnType<typeof greeksOf>) => boolean;
+}
+const CHALLENGES: Challenge[] = [
+  {
+    id: "delta-75",
+    title: "Find a delta of about 0.75",
+    hint: "Delta grows as the option moves in the money. Try raising the stock price above the strike.",
+    met: (g) => Math.abs(Math.abs(g.delta) - 0.75) < 0.04,
+  },
+  {
+    id: "gamma-10",
+    title: "Push gamma above 0.10",
+    hint: "Gamma peaks at the strike and builds as expiration nears. Try the Near expiry scenario.",
+    met: (g) => g.gamma > 0.1,
+  },
+  {
+    id: "theta-15",
+    title: "Make theta cost more than $0.15 a day",
+    hint: "Time decay is steepest at the money, close to expiration, and when volatility is high.",
+    met: (g) => g.theta < -0.15,
+  },
+  {
+    id: "vega-02",
+    title: "Get vega under $0.02",
+    hint: "Vega fades far from the strike. Try moving the stock price well away from it.",
+    met: (g) => g.vega < 0.02,
+  },
+  {
+    id: "price-50",
+    title: "Find an option priced under $0.50",
+    hint: "Out-of-the-money options with little time left are cheap.",
+    met: (g) => g.price < 0.5,
+  },
+];
+
+// The shape of one Greek across the stock-price range, with a dot where the stock is now.
+function TileSpark({ ys, at, color }: { ys: number[]; at: number | null; color: string }) {
+  const w = 100;
+  const h = 26;
+  const min = Math.min(...ys);
+  const max = Math.max(...ys);
+  const span = max - min || 1;
+  const px = (i: number) => (i / (ys.length - 1)) * w;
+  const py = (v: number) => 3 + (1 - (v - min) / span) * (h - 6);
+  const line = ys.map((v, i) => `${i === 0 ? "M" : "L"}${px(i).toFixed(1)} ${py(v).toFixed(1)}`).join(" ");
+  return (
+    <svg viewBox={`0 0 ${w} ${h}`} className="mt-2 h-6 w-full" aria-hidden="true" preserveAspectRatio="none">
+      <path d={line} fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+      {at !== null && <circle cx={px(at)} cy={py(ys[at])} r="2.6" fill="#34d399" stroke="#0e1117" strokeWidth="1" vectorEffect="non-scaling-stroke" />}
+    </svg>
+  );
+}
+
 export function GreeksExplorerPage() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const initialGreek = GREEKS.find((g) => g.id === searchParams.get("greek"))?.id ?? "delta";
 
-  const [values, setValues] = useState<Values>(defaults);
-  const [type, setType] = useState<OptionKind>("call");
+  const [values, setValues] = useState<Values>(() => valuesFromParams(searchParams));
+  const [type, setType] = useState<OptionKind>(searchParams.get("type") === "put" ? "put" : "call");
   const [selected, setSelected] = useState<GreekName>(initialGreek);
-  const [compare, setCompare] = useState<Compare>("none");
+  const [compare, setCompare] = useState<Compare>(
+    COMPARES.find((c) => c.id === searchParams.get("compare"))?.id ?? "none",
+  );
+  const [lockScale, setLockScale] = useState(false);
+  const [done, setDone] = useState<string[]>(loadChallenges);
   const [hoverSpot, setHoverSpot] = useState<number | null>(null);
   const [playing, setPlaying] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -197,7 +282,13 @@ export function GreeksExplorerPage() {
         ? xs.map((s) => (type === "call" ? Math.max(s - values.strike, 0) : Math.max(values.strike - s, 0)))
         : null;
 
-    const all = [...main, ...(second ?? []), ...(payoff ?? [])];
+    // With the scale locked (or while the decay replay runs) the axis covers every time to expiration, so changes in
+    // the curve's height are visible instead of being rescaled away.
+    const lockedExtras: number[] = [];
+    if (lockScale || playing) {
+      for (const d of [1, 3, 7, 15, 30, 60, 90]) lockedExtras.push(...curveFor({ days: d }));
+    }
+    const all = [...main, ...(second ?? []), ...(payoff ?? []), ...lockedExtras];
     let yMin = Math.min(...all);
     let yMax = Math.max(...all);
     if (selected !== "price") {
@@ -215,7 +306,14 @@ export function GreeksExplorerPage() {
     const y = (v: number) => M.top + (1 - (v - yMin) / (yMax - yMin)) * (H - M.top - M.bottom);
     const path = (ys: number[]) => ys.map((v, i) => `${i === 0 ? "M" : "L"}${x(xs[i]).toFixed(1)} ${y(v).toFixed(1)}`).join(" ");
     return { lo, hi, xs, main, second, payoff, ticks, x, y, path, yMin, yMax };
-  }, [values, type, selected, compare]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [values, type, selected, compare, lockScale, playing]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // A small curve for every Greek, over the same stock-price range as the chart, so each tile shows its shape.
+  const sparks = useMemo(() => {
+    const out = {} as Record<GreekName, number[]>;
+    for (const g of GREEKS) out[g.id] = chart.xs.map((sp) => greeksOf(inputs(values, { spot: sp }))[g.id]);
+    return out;
+  }, [values, type, chart.xs]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function onMove(e: React.PointerEvent<SVGSVGElement>) {
     const rect = svgRef.current?.getBoundingClientRect();
@@ -230,6 +328,44 @@ export function GreeksExplorerPage() {
   const spotInRange = values.spot >= chart.lo && values.spot <= chart.hi;
   const currentValue = now[selected];
   const daysShown = Math.round(values.days * 10) / 10;
+
+  // Keep the URL in step with the controls (not while the replay is running, which would rewrite it every frame).
+  useEffect(() => {
+    if (playing) return;
+    const id = window.setTimeout(() => {
+      setSearchParams(
+        (prev) => {
+          const next = new URLSearchParams(prev);
+          for (const p of PARAMS) {
+            if (values[p.key] === p.default) next.delete(p.key);
+            else next.set(p.key, String(Math.round(values[p.key] * 100) / 100));
+          }
+          if (type === "call") next.delete("type");
+          else next.set("type", type);
+          if (selected === "delta") next.delete("greek");
+          else next.set("greek", selected);
+          if (compare === "none") next.delete("compare");
+          else next.set("compare", compare);
+          return next;
+        },
+        { replace: true },
+      );
+    }, 250);
+    return () => window.clearTimeout(id);
+  }, [values, type, selected, compare, playing, setSearchParams]);
+
+  // A challenge counts the moment the numbers satisfy it, and stays done (remembered in this browser).
+  useEffect(() => {
+    const newlyMet = CHALLENGES.filter((c) => !done.includes(c.id) && c.met(now)).map((c) => c.id);
+    if (newlyMet.length === 0) return;
+    const next = [...done, ...newlyMet];
+    setDone(next);
+    try {
+      localStorage.setItem(CHALLENGES_KEY, JSON.stringify(next));
+    } catch {
+      // storage unavailable — progress just won't persist
+    }
+  }, [now, done]);
 
   // Time-decay replay: days to expiration count down from 90 to 1, so you can watch theta and gamma take over.
   useEffect(() => {
@@ -391,6 +527,15 @@ export function GreeksExplorerPage() {
                   <div className="text-xs uppercase tracking-wide text-[#898781]">{g.label}</div>
                   <div className="mt-1 text-xl font-bold text-[#e6e8ec]">{formatValue(g, shown[g.id])}</div>
                   <div className="mt-0.5 text-[11px] text-[#898781]">{g.unit}</div>
+                  <TileSpark
+                    ys={sparks[g.id]}
+                    color={active ? "#a99dff" : "#6b7280"}
+                    at={(() => {
+                      const sp = hoverSpot ?? values.spot;
+                      if (sp < chart.lo || sp > chart.hi) return null;
+                      return Math.round(((sp - chart.lo) / (chart.hi - chart.lo)) * (chart.xs.length - 1));
+                    })()}
+                  />
                 </button>
               );
             })}
@@ -410,10 +555,21 @@ export function GreeksExplorerPage() {
           </p>
 
           <section className="rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-x-5 gap-y-3">
               <h2 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
                 {info.label} vs. stock price
               </h2>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <label className="flex items-center gap-1.5 text-xs text-[#898781]" title="Keep the vertical axis wide enough for every time to expiration, so the curve's height visibly changes as time passes">
+                <input
+                  type="checkbox"
+                  checked={lockScale || playing}
+                  disabled={playing}
+                  onChange={(e) => setLockScale(e.target.checked)}
+                  className="accent-[#7c6cff]"
+                />
+                Keep the scale fixed
+              </label>
               <label className="flex items-center gap-2 text-xs text-[#898781]">
                 Compare with
                 <select
@@ -428,6 +584,7 @@ export function GreeksExplorerPage() {
                   ))}
                 </select>
               </label>
+              </div>
             </div>
 
             <svg
@@ -470,7 +627,7 @@ export function GreeksExplorerPage() {
                 <g key={t}>
                   <line x1={M.left} x2={W - M.right} y1={chart.y(t)} y2={chart.y(t)} stroke="#2a3040" strokeOpacity={t === 0 ? 1 : 0.5} strokeDasharray={t === 0 ? undefined : "2 5"} />
                   <text x={M.left - 8} y={chart.y(t) + 3.5} textAnchor="end" fontSize="10.5" fill="#898781">
-                    {info.money ? `$${t.toFixed(Math.max(0, info.decimals - (Math.abs(t) >= 1 ? 1 : 0)))}` : t.toFixed(info.decimals)}
+                    {info.money ? `${t < 0 ? "-" : ""}$${Math.abs(t).toFixed(Math.max(0, info.decimals - (Math.abs(t) >= 1 ? 1 : 0)))}` : t.toFixed(info.decimals)}
                   </text>
                 </g>
               ))}
@@ -564,6 +721,64 @@ export function GreeksExplorerPage() {
                 </Link>
               )}
             </div>
+          </section>
+
+          <section className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Challenges</h2>
+                <p className="mt-1 text-sm text-[#898781]">
+                  Change the inputs until the numbers do what each goal asks. A goal checks off the moment you get there.
+                </p>
+              </div>
+              <span className="rounded-full border border-[#2a3040] bg-[#0e1117]/70 px-2.5 py-0.5 text-xs text-[#9aa3b2]">
+                {CHALLENGES.filter((c) => done.includes(c.id)).length} of {CHALLENGES.length} done
+              </span>
+            </div>
+            <ul className="mt-4 grid grid-cols-1 gap-2 md:grid-cols-2">
+              {CHALLENGES.map((c) => {
+                const isDone = done.includes(c.id);
+                return (
+                  <li
+                    key={c.id}
+                    className={`flex items-start gap-3 rounded-xl border px-3.5 py-3 transition ${
+                      isDone ? "border-emerald-500/30 bg-emerald-500/10" : "border-[#2a3040] bg-[#0e1117]/60"
+                    }`}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[11px] font-bold ${
+                        isDone ? "border-emerald-500 bg-emerald-500 text-[#06281c]" : "border-[#2a3040] text-transparent"
+                      }`}
+                    >
+                      ✓
+                    </span>
+                    <span className="min-w-0">
+                      <span className={`block text-sm font-medium ${isDone ? "text-emerald-200" : "text-[#e6e8ec]"}`}>
+                        {c.title}
+                        {isDone && <span className="sr-only"> (done)</span>}
+                      </span>
+                      <span className="mt-0.5 block text-xs leading-relaxed text-[#898781]">{c.hint}</span>
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+            {done.length > 0 && (
+              <button
+                onClick={() => {
+                  setDone([]);
+                  try {
+                    localStorage.removeItem(CHALLENGES_KEY);
+                  } catch {
+                    // nothing to clear
+                  }
+                }}
+                className="mt-3 text-xs text-[#898781] hover:text-[#e6e8ec]"
+              >
+                Reset challenges
+              </button>
+            )}
           </section>
         </main>
       </div>
