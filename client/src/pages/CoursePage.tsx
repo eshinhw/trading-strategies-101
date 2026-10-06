@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchCourse, fetchModules, fetchExamStatus } from "../api";
+import { fetchCourse, fetchCourses, fetchModules, fetchExamStatus } from "../api";
 import type { Course } from "../types/course";
 import type { ModulesResponse } from "../types/curriculum";
 import type { ExamStatus } from "../types/exam";
@@ -163,14 +163,13 @@ export function CoursePage() {
           <ComingSoonStrategies course={course} />
         )}
       </div>
+      <RelatedCourses course={course} />
     </div>
   );
 }
 
 function AvailableCourse({ course, data, accent }: { course: Course; data: ModulesResponse; accent: string }) {
   const modules = useMemo(() => data.modules.slice().sort((a, b) => a.order - b.order), [data]);
-  const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
-
   const pct = data.totalLessons > 0 ? Math.round((data.totalCompleted / data.totalLessons) * 100) : 0;
   const started = data.totalCompleted > 0;
   const finished = data.totalLessons > 0 && data.totalCompleted >= data.totalLessons;
@@ -184,6 +183,14 @@ function AvailableCourse({ course, data, accent }: { course: Course; data: Modul
     }
     return null;
   }, [modules]);
+
+  // A long course opens with only the module you're on expanded (the first one if you haven't started),
+  // so the page isn't a wall of lessons. A short course just shows everything.
+  const [collapsed, setCollapsed] = useState<Set<string>>(() => {
+    if (modules.length <= 5) return new Set();
+    const open = nextLesson?.module.slug ?? modules[0]?.slug;
+    return new Set(modules.filter((m) => m.slug !== open).map((m) => m.slug));
+  });
 
   const allCollapsed = collapsed.size === modules.length;
   const toggle = (slug: string) =>
@@ -207,6 +214,9 @@ function AvailableCourse({ course, data, accent }: { course: Course; data: Modul
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_300px]">
       <main>
+        <CourseMap modules={modules} accent={accent} onJump={jumpTo} />
+        <StrategiesCovered modules={modules} accent={accent} />
+
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Curriculum</h2>
           <button
@@ -303,6 +313,151 @@ function AvailableCourse({ course, data, accent }: { course: Course; data: Modul
   );
 }
 
+// The shape of the whole course at a glance: one segment per module, sized by its lesson count and filled
+// as lessons are completed. Hover or focus a segment to read it; click to jump to that module.
+function CourseMap({
+  modules,
+  accent,
+  onJump,
+}: {
+  modules: ModuleSummary[];
+  accent: string;
+  onJump: (slug: string) => void;
+}) {
+  const [hovered, setHovered] = useState<number | null>(null);
+  if (modules.length < 2) return null;
+  const active = hovered !== null ? modules[hovered] : null;
+
+  return (
+    <section className="mb-8" aria-label="Course map">
+      <div className="flex gap-1.5">
+        {modules.map((m, i) => {
+          const pct = m.totalLessons > 0 ? (m.completedLessons / m.totalLessons) * 100 : 0;
+          return (
+            <button
+              key={m.slug}
+              onClick={() => onJump(m.slug)}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              onFocus={() => setHovered(i)}
+              onBlur={() => setHovered(null)}
+              aria-label={`${m.title}: ${m.completedLessons} of ${m.totalLessons} lessons done`}
+              className="group relative h-3 min-w-[6px] overflow-hidden rounded-full bg-[#1b2029] outline-none transition hover:brightness-125 focus-visible:ring-2 focus-visible:ring-[#7c6cff]/60"
+              style={{ flexGrow: Math.max(1, m.totalLessons), flexBasis: 0, opacity: m.unlocked ? 1 : 0.5 }}
+            >
+              <span
+                className="absolute inset-y-0 left-0 rounded-full transition-all"
+                style={{ width: `${m.completed ? 100 : pct}%`, background: m.completed ? "#34d399" : accent }}
+              />
+              {!m.completed && pct === 0 && (
+                <span className="absolute inset-0 rounded-full opacity-0 transition group-hover:opacity-100" style={{ background: `${accent}55` }} />
+              )}
+            </button>
+          );
+        })}
+      </div>
+      <p className="mt-2 h-5 text-xs text-[#898781]" aria-live="polite">
+        {active ? (
+          <>
+            <span className="font-medium text-[#e6e8ec]">
+              {hovered! + 1}. {active.title}
+            </span>{" "}
+            · {active.totalLessons} lessons{active.completedLessons > 0 ? ` · ${active.completedLessons} done` : ""}
+          </>
+        ) : (
+          "The course at a glance. Each segment is a module, sized by its lessons. Click one to jump to it."
+        )}
+      </p>
+    </section>
+  );
+}
+
+// The named strategies a course teaches, each linking to its lesson. A disclosure, so a 60-strategy course
+// doesn't push the curriculum off screen. Locked modules don't list lessons, so they contribute nothing here.
+function StrategiesCovered({ modules, accent }: { modules: ModuleSummary[]; accent: string }) {
+  const strategies = modules.flatMap((m) => m.lessons.filter((l) => l.isPaperStrategy));
+  if (strategies.length === 0) return null;
+  return (
+    <details className="group mb-8 rounded-xl border border-[#2a3040] bg-[#141821]/80" open={strategies.length <= 8}>
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 [&::-webkit-details-marker]:hidden">
+        <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">
+          Strategies covered{" "}
+          <span
+            className="ml-1 rounded-full border px-2 py-0.5 text-[11px] normal-case tracking-normal"
+            style={{ borderColor: `${accent}50`, background: `${accent}18`, color: accent }}
+          >
+            {strategies.length}
+          </span>
+        </span>
+        <svg viewBox="0 0 20 20" className="h-4 w-4 text-[#898781] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="m5 8 5 5 5-5" />
+        </svg>
+      </summary>
+      <ul className="flex flex-wrap gap-1.5 px-4 pb-4">
+        {strategies.map((l) => (
+          <li key={l.slug}>
+            <Link
+              to={`/lesson/${l.slug}`}
+              className="block rounded-full border border-[#2a3040] bg-[#0e1117]/70 px-2.5 py-1 text-xs text-[#c3c9d4] transition hover:border-[var(--accent)] hover:text-[#e6e8ec]"
+              style={{ "--accent": `${accent}99` } as CSSProperties}
+            >
+              {l.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </details>
+  );
+}
+
+// Other courses in the same asset-class family, for discovery once you've seen what this one covers.
+function RelatedCourses({ course }: { course: Course }) {
+  const [related, setRelated] = useState<Course[]>([]);
+  const family = COURSE_FAMILIES.find((f) => f.slugs.includes(course.slug));
+
+  useEffect(() => {
+    if (!family) return;
+    fetchCourses()
+      .then((all) => setRelated(all.filter((c) => c.slug !== course.slug && family.slugs.includes(c.slug)).slice(0, 3)))
+      .catch(() => setRelated([]));
+  }, [course.slug, family]);
+
+  if (!family || related.length === 0) return null;
+  return (
+    <section className="border-t border-[#2a3040]">
+      <div className="mx-auto max-w-7xl px-6 py-10">
+        <h2 className="text-xl font-bold text-[#e6e8ec]">
+          More in <span style={{ color: family.accent }}>{family.name}</span>
+        </h2>
+        <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {related.map((c) => {
+            const accent = courseAccent(c.slug);
+            return (
+              <Link
+                key={c.slug}
+                to={`/courses/${c.slug}`}
+                className="group flex gap-3 rounded-xl border border-[#2a3040] bg-[#141821] p-4 transition duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)]"
+                style={{ "--accent": accent } as CSSProperties}
+              >
+                <span
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border"
+                  style={{ background: `${accent}22`, borderColor: `${accent}55`, color: accent }}
+                >
+                  <CourseIcon slug={c.slug} className="h-5 w-5" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-semibold text-[#e6e8ec]">{c.title}</span>
+                  <span className="mt-0.5 line-clamp-2 block text-xs leading-relaxed text-[#898781]">{c.description}</span>
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function joinNaturally(items: string[]): string {
   if (items.length <= 1) return items[0] ?? "";
   if (items.length === 2) return `${items[0]} and ${items[1]}`;
@@ -359,6 +514,13 @@ function ModuleSection({
           <div className="min-w-0">
             <h3 className={`text-lg font-semibold ${m.unlocked ? "text-[#e6e8ec]" : "text-[#898781]"}`}>{m.title}</h3>
             {m.description && <p className="mt-0.5 text-sm leading-relaxed text-[#898781]">{m.description}</p>}
+            {m.unlocked && m.lessons.length > 0 && (
+              <p className="mt-1 text-xs text-[#898781]">
+                {m.lessons.length} lessons
+                {m.lessons.some((l) => l.isPaperStrategy) &&
+                  ` · ${m.lessons.filter((l) => l.isPaperStrategy).length} strategies`}
+              </p>
+            )}
           </div>
           <div className="flex shrink-0 items-center gap-3 pt-1">
             {m.unlocked && (
