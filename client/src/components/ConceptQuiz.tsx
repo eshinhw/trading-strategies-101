@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import type { ConceptQuizPrompt } from "../types/curriculum";
 import { submitLesson } from "../api";
-import { QuizResultPanel } from "./QuizResultPanel";
+import { QuizResultPanel, type QuizNext } from "./QuizResultPanel";
 import { QuizProgress } from "./QuizProgress";
 import { QuizChoiceOption } from "./QuizChoiceOption";
 import { QuizFeedback } from "./QuizFeedback";
@@ -13,10 +13,12 @@ export function ConceptQuiz({
   lessonSlug,
   questions,
   onGraded,
+  nextLesson,
 }: {
   lessonSlug: string;
   questions: ConceptQuizPrompt[];
   onGraded?: (result: GradeResponse) => void;
+  nextLesson?: QuizNext;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -69,25 +71,26 @@ export function ConceptQuiz({
 
   if (result) {
     return (
-      <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-        <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-          Knowledge check
-        </h3>
-        <QuizResultPanel result={result} onRetry={retry} />
-      </div>
+      <QuizCard>
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Knowledge check</h3>
+        <QuizResultPanel result={result} onRetry={retry} next={nextLesson} />
+      </QuizCard>
     );
   }
 
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
+    <QuizCard>
       <QuizProgress current={currentIndex} total={questions.length} />
 
-      <p className="mb-3 text-sm text-[#e6e8ec]"><InlineText text={q.prompt} /></p>
-      <div className="flex flex-col gap-1.5">
+      <p className="mb-4 text-base font-medium leading-relaxed text-[#e6e8ec]">
+        <InlineText text={q.prompt} />
+      </p>
+      <div className="flex flex-col gap-2">
         {q.choices.map((choice, ci) => (
           <QuizChoiceOption
             key={ci}
             name={q.id}
+            index={ci}
             label={<InlineText text={choice} />}
             isSelected={answers[q.id] === ci}
             isCorrectChoice={ci === q.correctIndex}
@@ -128,6 +131,18 @@ export function ConceptQuiz({
           Sign in to submit and save your progress on this lesson.
         </p>
       )}
-    </div>
+    </QuizCard>
+  );
+}
+
+function QuizCard({ children }: { children: ReactNode }) {
+  return (
+    <section
+      id="knowledge-check"
+      className="relative scroll-mt-24 overflow-hidden rounded-2xl border border-[#7c6cff]/25 bg-gradient-to-b from-[#181c28] to-[#12151d] p-5 sm:p-6"
+    >
+      <div className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#7c6cff] opacity-15 blur-3xl" />
+      <div className="relative">{children}</div>
+    </section>
   );
 }

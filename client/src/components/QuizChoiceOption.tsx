@@ -1,14 +1,13 @@
 import type { ReactNode } from "react";
 import type { KeyboardEvent } from "react";
 
-// Shared radio-choice row for ConceptQuiz and StrategyKnowledgeCheck's MCQ
-// questions — same locked/selected/correct styling in both, parameterized
-// because the two callers differ in how "disabled" and keyboard handling
-// work: ConceptQuiz keeps the input enabled after checking so Enter can
-// still advance to the next question (see its onKeyDown comment), while
-// StrategyKnowledgeCheck just disables it outright.
+// Radio-choice row for ConceptQuiz: a lettered card with locked/selected/correct styling. The native
+// radio stays in the DOM (visually hidden) so keyboard and screen-reader behaviour is unchanged;
+// ConceptQuiz keeps it enabled after checking so Enter can still advance to the next question —
+// selectChoice() already no-ops further changes once checked.
 export function QuizChoiceOption({
   name,
+  index,
   label,
   isSelected,
   isCorrectChoice,
@@ -19,6 +18,7 @@ export function QuizChoiceOption({
   onKeyDown,
 }: {
   name: string;
+  index: number;
   label: ReactNode;
   isSelected: boolean;
   isCorrectChoice: boolean;
@@ -28,23 +28,39 @@ export function QuizChoiceOption({
   onSelect: () => void;
   onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void;
 }) {
-  const stateClasses = isChecked
+  const state = isChecked
     ? isCorrectChoice
-      ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-300"
+      ? "correct"
       : isSelected
-        ? "border-red-500/40 bg-red-500/10 text-red-300"
-        : "border-[#2a3040] text-[#9aa3b2]"
+        ? "wrong"
+        : "idle-locked"
     : isSelected
-      ? "border-[#7c6cff] bg-[#7c6cff]/10 text-[#e6e8ec]"
-      : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]";
+      ? "selected"
+      : "idle";
+
+  const cardClasses = {
+    correct: "border-emerald-500/50 bg-emerald-500/10 text-emerald-200",
+    wrong: "border-red-500/50 bg-red-500/10 text-red-200",
+    "idle-locked": "border-[#2a3040] text-[#898781] opacity-70",
+    selected: "border-[#7c6cff] bg-[#7c6cff]/10 text-[#e6e8ec]",
+    idle: "border-[#2a3040] text-[#c3c9d4] hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/5",
+  }[state];
+
+  const badgeClasses = {
+    correct: "bg-emerald-500 text-[#06281c]",
+    wrong: "bg-red-500 text-[#2b0a0a]",
+    "idle-locked": "bg-[#1b2029] text-[#898781]",
+    selected: "bg-[#7c6cff] text-white",
+    idle: "bg-[#1b2029] text-[#9aa3b2]",
+  }[state];
 
   return (
     <label
       className={[
-        "flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition",
+        "flex items-start gap-3 rounded-xl border px-3.5 py-3 text-[15px] leading-snug transition focus-within:ring-2 focus-within:ring-[#7c6cff]/50",
         capitalize ? "capitalize" : "",
         isChecked ? "" : "cursor-pointer",
-        stateClasses,
+        cardClasses,
       ]
         .filter(Boolean)
         .join(" ")}
@@ -52,13 +68,19 @@ export function QuizChoiceOption({
       <input
         type="radio"
         name={name}
-        className="accent-[#7c6cff]"
+        className="sr-only"
         disabled={disabled}
         checked={isSelected}
         onChange={onSelect}
         onKeyDown={onKeyDown}
       />
-      {label}
+      <span
+        className={`mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-xs font-bold transition ${badgeClasses}`}
+        aria-hidden="true"
+      >
+        {state === "correct" ? "✓" : state === "wrong" ? "✕" : String.fromCharCode(65 + index)}
+      </span>
+      <span className="min-w-0 flex-1 pt-px">{label}</span>
     </label>
   );
 }

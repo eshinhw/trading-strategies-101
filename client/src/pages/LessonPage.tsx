@@ -1,7 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { fetchLesson } from "../api";
-import type { LessonDetail } from "../types/curriculum";
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
+import { Link, useParams } from "react-router-dom";
+import { fetchCourse, fetchLesson, fetchModules } from "../api";
+import type { Course } from "../types/course";
+import type { LessonDetail, ModulesResponse } from "../types/curriculum";
+import { courseAccent } from "../lib/courseVisuals";
 import type { ParamValues } from "../engine/payoff";
 import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { OutlookBadge, PlainBadge } from "../components/Badge";
@@ -14,20 +16,70 @@ import { DisplayMath, InlineText, displayMathOf } from "../components/InlineText
 import type { LessonBlock } from "../types/curriculum";
 import { useAuth } from "../auth/AuthContext";
 
+interface LessonContext {
+  course: Course | null;
+  modules: ModulesResponse | null;
+  accent: string;
+  /** 1-based position within the module, and the module's lesson count */
+  position: { index: number; total: number } | null;
+  completed: boolean;
+  titleOf: (slug: string | null) => string | null;
+  refresh: () => void;
+}
+
 export function LessonPage() {
   const { slug } = useParams<{ slug: string }>();
   const { user } = useAuth();
-  const navigate = useNavigate();
   const [lesson, setLesson] = useState<LessonDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [course, setCourse] = useState<Course | null>(null);
+  const [modules, setModules] = useState<ModulesResponse | null>(null);
 
   useEffect(() => {
     if (!slug) return;
     setLesson(null);
+    setError(null);
     fetchLesson(slug)
       .then(setLesson)
       .catch((e) => setError(e.message));
   }, [slug, user]);
+
+  const courseSlug = lesson?.courseSlug ?? null;
+  const loadModules = useCallback(() => {
+    if (!courseSlug) return;
+    fetchModules(courseSlug)
+      .then(setModules)
+      .catch(() => {});
+  }, [courseSlug]);
+
+  // Course title/colour and the module outline are decoration and navigation — if they fail to load
+  // the lesson itself still renders.
+  useEffect(() => {
+    if (!courseSlug) return;
+    setCourse(null);
+    fetchCourse(courseSlug)
+      .then(setCourse)
+      .catch(() => {});
+    loadModules();
+  }, [courseSlug, loadModules, user]);
+
+  const ctx = useMemo<LessonContext>(() => {
+    const flat = (modules?.modules ?? [])
+      .slice()
+      .sort((a, b) => a.order - b.order)
+      .flatMap((m) => m.lessons);
+    const mod = modules?.modules.find((m) => m.lessons.some((l) => l.slug === slug));
+    const idx = mod ? mod.lessons.findIndex((l) => l.slug === slug) : -1;
+    return {
+      course,
+      modules,
+      accent: courseSlug ? courseAccent(courseSlug) : "#7c6cff",
+      position: mod && idx >= 0 ? { index: idx + 1, total: mod.lessons.length } : null,
+      completed: mod && idx >= 0 ? mod.lessons[idx].completed : false,
+      titleOf: (s) => (s ? (flat.find((l) => l.slug === s)?.title ?? null) : null),
+      refresh: loadModules,
+    };
+  }, [course, modules, slug, courseSlug, loadModules]);
 
   if (error) {
     return (
@@ -45,55 +97,172 @@ export function LessonPage() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-10">
-      <Breadcrumb lesson={lesson} />
-      {lesson.kind === "concept" ? <ConceptLessonBody lesson={lesson} /> : <StrategyLessonBody lesson={lesson} />}
-      <LessonNav lesson={lesson} onNavigate={(s) => navigate(`/lesson/${s}`)} />
+    <div style={{ "--accent": ctx.accent } as CSSProperties}>
+      <ReadingProgress accent={ctx.accent} />
+      <LessonHeader lesson={lesson} ctx={ctx} />
+      <div className="mx-auto max-w-6xl px-6 py-10">
+        {lesson.kind === "concept" ? (
+          <ConceptLessonBody lesson={lesson} ctx={ctx} />
+        ) : (
+          <StrategyLessonBody lesson={lesson} ctx={ctx} />
+        )}
+        <LessonNav lesson={lesson} ctx={ctx} />
+      </div>
     </div>
   );
 }
 
-function Breadcrumb({ lesson }: { lesson: LessonDetail }) {
+// A thin bar under the navbar showing how far through the page you've scrolled.
+function ReadingProgress({ accent }: { accent: string }) {
+  const [pct, setPct] = useState(0);
+  useEffect(() => {
+    let ticking = false;
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setPct(max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0);
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
   return (
-    <div className="mb-4 flex items-center gap-2 text-sm">
-      <Link
-        to={lesson.courseSlug ? `/courses/${lesson.courseSlug}` : "/courses"}
-        className="text-[#7c6cff] hover:underline"
-      >
-        Course
-      </Link>
-      {lesson.moduleSlug && (
-        <>
-          <span className="text-[#898781]">/</span>
-          <Link to={`/module/${lesson.moduleSlug}`} className="text-[#7c6cff] hover:underline">
-            {lesson.moduleTitle}
+    <div className="pointer-events-none fixed inset-x-0 top-16 z-30 h-0.5 bg-transparent" aria-hidden="true">
+      <div className="h-full transition-[width] duration-100" style={{ width: `${pct}%`, background: accent, boxShadow: `0 0 8px ${accent}` }} />
+    </div>
+  );
+}
+
+function readingMinutes(body: LessonBlock[]): number {
+  const words = body.reduce((n, b) => {
+    if (b.type === "paragraph" || b.type === "heading" || b.type === "subheading") return n + b.text.split(/\s+/).length;
+    if (b.type === "list") return n + b.items.join(" ").split(/\s+/).length;
+    return n;
+  }, 0);
+  return Math.max(1, Math.round(words / 200));
+}
+
+function LessonHeader({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContext }) {
+  const { accent } = ctx;
+  const strategy = lesson.kind === "strategy" ? lesson.strategy : null;
+  const title = lesson.kind === "strategy" ? lesson.strategy.name : lesson.title;
+  const summary = lesson.kind === "strategy" ? lesson.strategy.content.summary : lesson.summary;
+  const courseHref = lesson.courseSlug ? `/courses/${lesson.courseSlug}` : "/courses";
+  const minutes = lesson.kind === "concept" ? readingMinutes(lesson.body) : null;
+
+  return (
+    <header className="relative overflow-hidden border-b border-[#2a3040]">
+      <div
+        className="pointer-events-none absolute left-1/2 top-[-220px] h-[360px] w-[820px] -translate-x-1/2 rounded-full blur-3xl"
+        style={{ background: accent, opacity: 0.13 }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-50"
+        style={{
+          backgroundImage: "radial-gradient(rgba(154,163,178,0.12) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          maskImage: "linear-gradient(to bottom, black, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+        }}
+      />
+      <div className="relative mx-auto max-w-6xl px-6 pb-9 pt-6">
+        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[#898781]">
+          <Link to="/courses" className="hover:text-[#e6e8ec]">
+            Courses
           </Link>
-        </>
-      )}
-    </div>
+          <span aria-hidden="true">/</span>
+          <Link to={courseHref} className="hover:text-[#e6e8ec]" style={{ color: accent }}>
+            {ctx.course?.title ?? "Course"}
+          </Link>
+          {lesson.moduleSlug && (
+            <>
+              <span aria-hidden="true">/</span>
+              <Link to={`/module/${lesson.moduleSlug}`} className="hover:text-[#e6e8ec]">
+                {lesson.moduleTitle}
+              </Link>
+            </>
+          )}
+        </nav>
+
+        <div className="mt-5 flex flex-wrap items-center gap-2">
+          {ctx.position && (
+            <span className="rounded-full border px-2.5 py-0.5 text-xs font-medium" style={{ borderColor: `${accent}55`, background: `${accent}18`, color: accent }}>
+              Lesson {ctx.position.index} of {ctx.position.total}
+            </span>
+          )}
+          {lesson.isPaperStrategy && <PlainBadge>Strategy</PlainBadge>}
+          {strategy && <OutlookBadge outlook={strategy.outlook} />}
+          {strategy && <PlainBadge>{strategy.style.replace("-", " ")}</PlainBadge>}
+          {strategy && <PlainBadge>{strategy.netPosition.replace("-", " ")}</PlainBadge>}
+          {minutes !== null && <span className="text-xs text-[#898781]">{minutes} min read</span>}
+          {ctx.completed && (
+            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400">
+              ✓ Completed
+            </span>
+          )}
+        </div>
+
+        <h1 className="mt-3 max-w-4xl text-4xl font-bold leading-tight text-[#e6e8ec]">{title}</h1>
+        {strategy?.aka && <div className="mt-1 text-sm text-[#898781]">a.k.a. {strategy.aka}</div>}
+        <p className="mt-3 max-w-3xl text-lg leading-relaxed text-[#9aa3b2]">{summary}</p>
+      </div>
+    </header>
   );
 }
 
-function LessonNav({ lesson, onNavigate }: { lesson: LessonDetail; onNavigate: (slug: string) => void }) {
-  if (!lesson.prevLessonSlug && !lesson.nextLessonSlug) return null;
+function NavCard({ to, direction, title, accent }: { to: string; direction: "prev" | "next" | "back"; title: string; accent: string }) {
+  const label = direction === "prev" ? "Previous lesson" : direction === "next" ? "Next lesson" : "Finished the module";
   return (
-    <div className="mt-10 flex items-center justify-between border-t border-[#2a3040] pt-6">
+    <Link
+      to={to}
+      className={`group flex flex-1 flex-col rounded-xl border border-[#2a3040] bg-[#141821] p-4 transition duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] ${
+        direction === "prev" ? "items-start text-left" : "items-end text-right"
+      }`}
+    >
+      <span className="text-xs uppercase tracking-[0.1em] text-[#898781]">{label}</span>
+      <span className="mt-1 flex items-center gap-2 font-semibold text-[#e6e8ec]">
+        {direction === "prev" && (
+          <span aria-hidden="true" className="transition group-hover:-translate-x-0.5" style={{ color: accent }}>
+            ←
+          </span>
+        )}
+        {title}
+        {direction !== "prev" && (
+          <span aria-hidden="true" className="transition group-hover:translate-x-0.5" style={{ color: accent }}>
+            →
+          </span>
+        )}
+      </span>
+    </Link>
+  );
+}
+
+function LessonNav({ lesson, ctx }: { lesson: LessonDetail; ctx: LessonContext }) {
+  if (!lesson.prevLessonSlug && !lesson.nextLessonSlug && !lesson.courseSlug) return null;
+  const prevTitle = ctx.titleOf(lesson.prevLessonSlug) ?? "Previous lesson";
+  const nextTitle = ctx.titleOf(lesson.nextLessonSlug) ?? "Next lesson";
+  return (
+    <div className="mt-12 flex flex-col gap-3 border-t border-[#2a3040] pt-8 sm:flex-row">
       {lesson.prevLessonSlug ? (
-        <button onClick={() => onNavigate(lesson.prevLessonSlug!)} className="text-sm text-[#7c6cff] hover:underline">
-          ← Previous lesson
-        </button>
+        <NavCard to={`/lesson/${lesson.prevLessonSlug}`} direction="prev" title={prevTitle} accent={ctx.accent} />
       ) : (
-        <span />
+        <div className="hidden flex-1 sm:block" />
       )}
       {lesson.nextLessonSlug ? (
-        <button onClick={() => onNavigate(lesson.nextLessonSlug!)} className="text-sm text-[#7c6cff] hover:underline">
-          Next lesson →
-        </button>
+        <NavCard to={`/lesson/${lesson.nextLessonSlug}`} direction="next" title={nextTitle} accent={ctx.accent} />
       ) : (
-        lesson.moduleSlug && (
-          <Link to={`/module/${lesson.moduleSlug}`} className="text-sm text-[#7c6cff] hover:underline">
-            Back to module →
-          </Link>
+        lesson.courseSlug && (
+          <NavCard to={`/courses/${lesson.courseSlug}`} direction="back" title="Back to the course" accent={ctx.accent} />
         )
       )}
     </div>
@@ -153,7 +322,8 @@ function headingWithEmoji(heading: string): string {
   return emoji ? `${emoji} ${heading}` : heading;
 }
 
-function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "concept" }> }) {
+function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { kind: "concept" }>; ctx: LessonContext }) {
+  const { accent } = ctx;
   const segments = useMemo(() => groupBodySegments(lesson.body), [lesson.body]);
   const outlineItems = useMemo(
     () =>
@@ -161,26 +331,29 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
         .map((seg, i) =>
           seg.kind === "paragraphs" && seg.heading ? { id: `section-${i}`, text: headingWithEmoji(seg.heading) } : null,
         )
-        .filter((item): item is { id: string; text: string } => item !== null),
-    [segments],
+        .filter((item): item is { id: string; text: string } => item !== null)
+        .concat(lesson.quiz.length > 0 ? [{ id: "knowledge-check", text: "Knowledge check" }] : []),
+    [segments, lesson.quiz.length],
   );
+  const nextTitle = ctx.titleOf(lesson.nextLessonSlug);
 
   return (
     <div>
-      <header className="mb-6">
-        {lesson.isPaperStrategy && <PlainBadge>Strategy</PlainBadge>}
-        <h1 className={`text-3xl font-bold text-[#e6e8ec] ${lesson.isPaperStrategy ? "mt-3" : ""}`}>{lesson.title}</h1>
-        <p className="mt-2 text-lg text-[#9aa3b2]">{lesson.summary}</p>
-      </header>
-
-      <div className="lg:grid lg:grid-cols-[1fr_200px] lg:items-start lg:gap-10">
-        <div className="mb-8 flex flex-col gap-10">
+      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start lg:gap-12">
+        <div className="mb-10 flex max-w-3xl flex-col gap-10">
           {segments.map((seg, i) => {
             if (seg.kind === "paragraphs") {
+              const isExample = seg.heading !== undefined && seg.heading in HEADING_EMOJI;
               return (
-                <div key={i} id={seg.heading ? `section-${i}` : undefined} className="scroll-mt-6 flex flex-col gap-4">
+                <div
+                  key={i}
+                  id={seg.heading ? `section-${i}` : undefined}
+                  className={`scroll-mt-28 flex flex-col gap-4 ${isExample ? "rounded-2xl border p-5 sm:p-6" : ""}`}
+                  style={isExample ? { borderColor: `${accent}40`, background: `${accent}0d` } : undefined}
+                >
                   {seg.heading && (
-                    <h3 className="border-b border-[#2a3040] pb-2 text-xl font-semibold text-[#e6e8ec]">
+                    <h3 className="flex items-center gap-3 text-2xl font-semibold text-[#e6e8ec]">
+                      {!isExample && <span className="h-6 w-1 shrink-0 rounded-full" style={{ background: accent }} />}
                       {headingWithEmoji(seg.heading)}
                     </h3>
                   )}
@@ -203,7 +376,7 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
                       const display = displayMathOf(item.text);
                       if (display !== null) return <DisplayMath key={j} latex={display} />;
                       return (
-                        <p key={j} className="leading-relaxed text-[#e6e8ec]">
+                        <p key={j} className="text-base leading-7 sm:text-[17px] sm:leading-8 text-[#d5d9e0]">
                           <InlineText text={item.text} />
                         </p>
                       );
@@ -212,7 +385,7 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
                     return (
                       <ListTag
                         key={j}
-                        className={`flex flex-col gap-2 pl-6 leading-relaxed text-[#e6e8ec] marker:text-[#7c6cff] ${
+                        className={`flex flex-col gap-2.5 pl-6 text-base leading-7 sm:text-[17px] sm:leading-8 text-[#d5d9e0] marker:font-semibold marker:text-[var(--accent)] ${
                           item.ordered ? "list-decimal" : "list-disc"
                         }`}
                       >
@@ -235,7 +408,20 @@ function ConceptLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "
         <LessonOutline items={outlineItems} />
       </div>
 
-      <ConceptQuiz lessonSlug={lesson.slug} questions={lesson.quiz} />
+      <div className="max-w-3xl">
+        <ConceptQuiz
+          lessonSlug={lesson.slug}
+          questions={lesson.quiz}
+          onGraded={ctx.refresh}
+          nextLesson={
+            lesson.nextLessonSlug
+              ? { to: `/lesson/${lesson.nextLessonSlug}`, label: `Next: ${nextTitle ?? "lesson"} →` }
+              : lesson.courseSlug
+                ? { to: `/courses/${lesson.courseSlug}`, label: "Back to the course →" }
+                : undefined
+          }
+        />
+      </div>
     </div>
   );
 }
@@ -287,8 +473,8 @@ function LessonOutline({ items }: { items: { id: string; text: string }[] }) {
   if (items.length === 0) return null;
 
   return (
-    <nav className="sticky top-6 mb-8 hidden lg:block" aria-label="On this page">
-      <div className="text-xs font-semibold uppercase tracking-wide text-[#898781]">On this page</div>
+    <nav className="sticky top-24 mb-8 hidden lg:block" aria-label="On this page">
+      <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">On this page</div>
       <ul className="mt-3 flex flex-col gap-1">
         {items.map((item) => (
           <li key={item.id}>
@@ -296,7 +482,7 @@ function LessonOutline({ items }: { items: { id: string; text: string }[] }) {
               href={`#${item.id}`}
               className={`block border-l-2 py-1 pl-3 text-sm transition ${
                 activeId === item.id
-                  ? "border-[#7c6cff] font-medium text-[#7c6cff]"
+                  ? "border-[var(--accent)] font-medium text-[var(--accent)]"
                   : "border-[#2a3040] text-[#898781] hover:border-[#3a4150] hover:text-[#e6e8ec]"
               }`}
             >
@@ -315,8 +501,10 @@ function defaultsFor(params: { key: string; default: number }[]): ParamValues {
   return values;
 }
 
-function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "strategy" }> }) {
+function StrategyLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { kind: "strategy" }>; ctx: LessonContext }) {
   const { strategy } = lesson;
+  const { accent } = ctx;
+  const nextTitle = ctx.titleOf(lesson.nextLessonSlug);
 
   // Static picture only: computed once from the strategy's own default numbers. (Hands-on exploring
   // lives in Practice > Options Payoff Simulator.)
@@ -336,21 +524,8 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
 
   return (
     <div>
-      <header className="mb-8">
-        <div className="mb-3 flex flex-wrap items-center gap-2">
-          {lesson.isPaperStrategy && <PlainBadge>Strategy</PlainBadge>}
-          <OutlookBadge outlook={strategy.outlook} />
-          <PlainBadge>{strategy.style.replace("-", " ")}</PlainBadge>
-          <PlainBadge>{strategy.netPosition.replace("-", " ")}</PlainBadge>
-          {/* <PlainBadge>§{strategy.section}</PlainBadge> */}
-        </div>
-        <h1 className="text-3xl font-bold text-[#e6e8ec]">{strategy.name}</h1>
-        {strategy.aka && <div className="mt-1 text-sm text-[#898781]">a.k.a. {strategy.aka}</div>}
-        <p className="mt-3 max-w-3xl text-lg text-[#9aa3b2]">{strategy.content.summary}</p>
-      </header>
-
-      <section className="mb-8 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
+      <section className="mb-8 rounded-2xl border border-[#2a3040] bg-[#141821] card-glow p-5 sm:p-6">
+        <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Payoff at expiration</h3>
         <div className="mx-auto max-w-3xl">
           <StaticPayoffDiagram
             curve={stats.curve}
@@ -380,27 +555,50 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
         </p>
       </section>
 
-      <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <InfoCard title="When to use it" text={strategy.content.whenToUse} />
-        <InfoCard title="Why use it" text={strategy.content.whyUse} />
-        <InfoCard title="How to use it" text={strategy.content.howToUse} />
+      <section className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <InfoCard step="When" title="When to use it" text={strategy.content.whenToUse} color="#5aa9ff" />
+        <InfoCard step="Why" title="Why use it" text={strategy.content.whyUse} color="#2dd4bf" />
+        <InfoCard step="How" title="How to use it" text={strategy.content.howToUse} color="#a99dff" />
       </section>
 
-      <section className="mb-8 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-        <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Scenario</h3>
-        <p className="leading-relaxed text-[#e6e8ec]">{strategy.content.scenario}</p>
+      <section
+        className="mb-10 rounded-2xl border p-5 sm:p-6"
+        style={{ borderColor: `${accent}40`, background: `${accent}0d` }}
+      >
+        <h3 className="mb-2 flex items-center gap-2 text-xl font-semibold text-[#e6e8ec]">
+          <span aria-hidden="true">💡</span> Scenario
+        </h3>
+        <p className="text-base leading-7 sm:text-[17px] sm:leading-8 text-[#d5d9e0]">{strategy.content.scenario}</p>
       </section>
 
-      <ConceptQuiz lessonSlug={strategy.slug} questions={lesson.quiz} />
+      <ConceptQuiz
+        lessonSlug={strategy.slug}
+        questions={lesson.quiz}
+        onGraded={ctx.refresh}
+        nextLesson={
+          lesson.nextLessonSlug
+            ? { to: `/lesson/${lesson.nextLessonSlug}`, label: `Next: ${nextTitle ?? "lesson"} →` }
+            : lesson.courseSlug
+              ? { to: `/courses/${lesson.courseSlug}`, label: "Back to the course →" }
+              : undefined
+        }
+      />
     </div>
   );
 }
 
-function InfoCard({ title, text }: { title: string; text: string }) {
+function InfoCard({ step, title, text, color }: { step: string; title: string; text: string; color: string }) {
   return (
-    <div className="rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-      <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">{title}</h3>
-      <p className="text-sm leading-relaxed text-[#e6e8ec]">{text}</p>
+    <div className="relative overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] p-5">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }} />
+      <span
+        className="inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.08em]"
+        style={{ borderColor: `${color}55`, background: `${color}1a`, color }}
+      >
+        {step}
+      </span>
+      <h3 className="mt-3 text-sm font-semibold text-[#e6e8ec]">{title}</h3>
+      <p className="mt-1.5 text-sm leading-relaxed text-[#9aa3b2]">{text}</p>
     </div>
   );
 }

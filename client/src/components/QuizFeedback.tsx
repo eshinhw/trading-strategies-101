@@ -1,18 +1,26 @@
 import type { ReactNode } from "react";
 
-// Shared correct/incorrect banner shown after a question is checked —
-// same styling in ConceptQuiz and StrategyKnowledgeCheck, only the message
-// content (children) differs.
+// Correct/incorrect banner shown after a question is checked — only the message content (children)
+// differs between uses.
 export function QuizFeedback({ correct, children }: { correct: boolean; children: ReactNode }) {
   return (
     <div
-      className={`mt-3 rounded-md border px-3 py-2 text-sm ${
+      role="status"
+      className={`mt-4 flex gap-3 rounded-xl border px-4 py-3 text-sm leading-relaxed ${
         correct
-          ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
-          : "border-red-500/30 bg-red-500/10 text-red-300"
+          ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-200"
+          : "border-amber-500/30 bg-amber-500/10 text-amber-100"
       }`}
     >
-      {children}
+      <span
+        aria-hidden="true"
+        className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+          correct ? "bg-emerald-500 text-[#06281c]" : "bg-amber-400 text-[#2b1a02]"
+        }`}
+      >
+        {correct ? "✓" : "!"}
+      </span>
+      <div>{children}</div>
     </div>
   );
 }

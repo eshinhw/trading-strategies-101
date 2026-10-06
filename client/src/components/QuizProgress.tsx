@@ -2,9 +2,7 @@ export function QuizProgress({ current, total }: { current: number; total: numbe
   return (
     <div className="mb-5">
       <div className="mb-2 flex items-center justify-between">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">
-          Knowledge check
-        </h3>
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Knowledge check</h3>
         <span className="text-xs text-[#898781]">
           Question {current + 1} of {total}
         </span>
@@ -14,7 +12,7 @@ export function QuizProgress({ current, total }: { current: number; total: numbe
           <div
             key={i}
             className={`h-1.5 flex-1 rounded-full transition-colors ${
-              i < current ? "bg-[#7c6cff]" : i === current ? "bg-[#7c6cff]/40" : "bg-[#1b2029]"
+              i < current ? "bg-[#7c6cff]" : i === current ? "bg-[#7c6cff]/50" : "bg-[#1b2029]"
             }`}
           />
         ))}
