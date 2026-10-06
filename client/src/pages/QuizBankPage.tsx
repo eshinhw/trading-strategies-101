@@ -405,11 +405,27 @@ export function QuizBankPage() {
               </span>
             </div>
           </div>
-          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#1b2029]">
-            <div
-              className="h-full rounded-full transition-all duration-300"
-              style={{ width: `${(answeredCount / questions.length) * 100}%`, background: color }}
-            />
+          {/* One segment per question: green once answered correctly, red once answered wrongly, the current
+              question lit in the course colour, the rest dim. */}
+          <div
+            role="img"
+            aria-label={`Question ${index + 1} of ${questions.length}: ${correctCount} correct, ${answeredCount - correctCount} wrong so far`}
+            className="mt-2 flex gap-1"
+          >
+            {questions.map((x, i) => {
+              const result = answers[x.id];
+              const isCurrent = i === index && result === undefined;
+              const background =
+                result === undefined ? (isCurrent ? `${color}99` : "#1b2029") : result === x.correctIndex ? "#34d399" : "#f87171";
+              return (
+                <span
+                  key={x.id}
+                  aria-hidden="true"
+                  className="h-1.5 flex-1 rounded-full transition-colors duration-300"
+                  style={{ background, boxShadow: isCurrent ? `0 0 0 1px ${color}` : undefined }}
+                />
+              );
+            })}
           </div>
 
           <section className="relative mt-5 overflow-hidden rounded-2xl border border-[#2a3040] bg-gradient-to-b from-[#181c28] to-[#12151d] p-5 sm:p-6">
