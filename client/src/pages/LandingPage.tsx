@@ -5,6 +5,9 @@ import type { Course } from "../types/course";
 import { RolePicker } from "../components/RolePicker";
 import { AssetMap } from "../components/AssetMap";
 import { RiskRewardHero } from "../components/RiskRewardHero";
+import { Reveal } from "../components/Reveal";
+import { TryItSection } from "../components/TryItSection";
+import { Faq } from "../components/Faq";
 
 export function LandingPage() {
   const [courses, setCourses] = useState<Course[] | null>(null);
@@ -26,10 +29,22 @@ export function LandingPage() {
 
   return (
     <div>
-      <Hero />
-      <Features />
-      <AssetMap courses={courses} />
-      <RolePicker courses={courses} />
+      <Hero courses={courses} />
+      <Reveal>
+        <Features />
+      </Reveal>
+      <Reveal>
+        <TryItSection />
+      </Reveal>
+      <Reveal>
+        <AssetMap courses={courses} />
+      </Reveal>
+      <Reveal>
+        <RolePicker courses={courses} />
+      </Reveal>
+      <Reveal>
+        <Faq />
+      </Reveal>
       <FinalCta />
     </div>
   );
@@ -75,7 +90,9 @@ function HeroBackground() {
   );
 }
 
-function Hero() {
+function Hero({ courses }: { courses: Course[] | null }) {
+  const totalLessons = (courses ?? []).reduce((n, c) => n + (c.lessonCount ?? 0), 0);
+  const totalStrategies = (courses ?? []).reduce((n, c) => n + c.strategyCount, 0);
   return (
     <section className="relative overflow-hidden border-b border-[#2a3040]">
       <HeroBackground />
@@ -100,6 +117,22 @@ function Hero() {
             </a>
           </div>
           <p className="mt-4 text-sm text-[#898781]">Browse and try any lesson before you sign up.</p>
+          <div className="mt-8 flex min-h-[52px] gap-8 border-t border-[#2a3040] pt-5">
+            {courses && (
+              <>
+                {[
+                  [courses.length, "courses"],
+                  [totalLessons, "lessons"],
+                  [totalStrategies, "strategies"],
+                ].map(([n, label]) => (
+                  <div key={label} className="rr-point">
+                    <div className="text-2xl font-bold leading-none text-[#e6e8ec]">{n}</div>
+                    <div className="mt-1 text-xs text-[#898781]">{label}</div>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
         </div>
         <RiskRewardHero />
       </div>
