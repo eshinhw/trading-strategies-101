@@ -429,6 +429,10 @@ export function GreeksExplorerPage() {
   const [done, setDone] = useState<string[]>(loadChallenges);
   const [hoverSpot, setHoverSpot] = useState<number | null>(null);
   const [playing, setPlaying] = useState(false);
+  // The replay borrows the Days input: it remembers what the learner had set, counts down from it, and puts it back.
+  const [replaying, setReplaying] = useState(false);
+  const startDaysRef = useRef<number | null>(null);
+  const holdTimerRef = useRef<number | undefined>(undefined);
   const svgRef = useRef<SVGSVGElement>(null);
 
   const info = GREEKS.find((g) => g.id === selected) ?? GREEKS[1];
@@ -469,7 +473,8 @@ export function GreeksExplorerPage() {
     // the curve's height are visible instead of being rescaled away.
     const lockedExtras: number[] = [];
     if ((lockScale || playing) && xAxis === "spot") {
-      for (const d of [1, 3, 7, 15, 30, 60, 90]) lockedExtras.push(...curveFor({ days: d }));
+      const top = Math.max(2, (playing ? startDaysRef.current : null) ?? values.days);
+      for (let i = 0; i <= 7; i++) lockedExtras.push(...curveFor({ days: Math.max(1, (top * i) / 7) }));
     }
     const all = [...main, ...(second ?? []), ...(payoff ?? []), ...lockedExtras];
     let yMin = Math.min(...all);
@@ -550,6 +555,7 @@ export function GreeksExplorerPage() {
 
   // A challenge counts the moment the numbers satisfy it, and stays done (remembered in this browser).
   useEffect(() => {
+    if (replaying) return; // the replay moves the numbers, not the learner
     const newlyMet = CHALLENGES.filter((c) => !done.includes(c.id) && c.met(now)).map((c) => c.id);
     if (newlyMet.length === 0) return;
     const next = [...done, ...newlyMet];
@@ -559,31 +565,53 @@ export function GreeksExplorerPage() {
     } catch {
       // storage unavailable — progress just won't persist
     }
-  }, [now, done]);
+  }, [now, done, replaying]);
 
-  // Time-decay replay: days to expiration count down from 90 to 1, so you can watch theta and gamma take over.
+  // Time-decay replay: the days to expiration the learner has set count down to 1, so they can watch theta and gamma
+  // take over for their own option. Their setting is put back when it finishes or they press Stop.
+  function endReplay(restore: boolean) {
+    window.clearTimeout(holdTimerRef.current);
+    setPlaying(false);
+    setReplaying(false);
+    const from = startDaysRef.current;
+    startDaysRef.current = null;
+    if (restore && from !== null) setValues((v) => ({ ...v, days: from }));
+  }
+
   useEffect(() => {
     if (!playing) return;
+    const from = startDaysRef.current ?? 30;
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    // about six seconds whatever the starting point (a handful of jumps if motion is reduced)
+    const step = Math.max(0.05, (from - 1) / (reduce ? 8 : 100));
+    let days = from;
     const id = window.setInterval(() => {
-      setValues((v) => {
-        const nextDays = v.days - (reduce ? 12 : 1.1);
-        if (nextDays <= 1) {
-          setPlaying(false);
-          return { ...v, days: 1 };
-        }
-        return { ...v, days: nextDays };
-      });
+      days -= step;
+      if (days <= 1) {
+        window.clearInterval(id);
+        setValues((v) => ({ ...v, days: 1 }));
+        setPlaying(false);
+        // hold on the last day for a moment, then put the learner's setting back
+        holdTimerRef.current = window.setTimeout(() => endReplay(true), 800);
+        return;
+      }
+      setValues((v) => ({ ...v, days }));
     }, 60);
     return () => window.clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing]);
 
+  useEffect(() => () => window.clearTimeout(holdTimerRef.current), []);
+
+  const canReplay = values.days > 2;
   function playDecay() {
-    if (playing) {
-      setPlaying(false);
+    if (playing || replaying) {
+      endReplay(true);
       return;
     }
-    setValues((v) => ({ ...v, days: 90 }));
+    if (!canReplay) return;
+    startDaysRef.current = values.days;
+    setReplaying(true);
     setPlaying(true);
   }
 
@@ -596,8 +624,10 @@ export function GreeksExplorerPage() {
   const compareLabel = (id: Compare) =>
     id === "opposite" ? `As a ${type === "call" ? "put" : "call"}` : (COMPARES.find((c) => c.id === id)?.label ?? "");
 
+  // Picking new numbers mid-replay ends it without putting the old Days value back.
+  const abandonReplay = () => endReplay(false);
   const setParam = (key: string, value: number) => {
-    if (key === "days") setPlaying(false);
+    if (key === "days" && (playing || replaying)) abandonReplay();
     setValues((v) => ({ ...v, [key]: value }));
   };
 
@@ -656,7 +686,7 @@ export function GreeksExplorerPage() {
             values={values}
             onChange={setParam}
             onReset={() => {
-              setPlaying(false);
+              abandonReplay();
               setValues(defaults());
             }}
             gridClassName="grid grid-cols-2 gap-x-3 gap-y-4"
@@ -689,7 +719,7 @@ export function GreeksExplorerPage() {
                 <button
                   key={sc.label}
                   onClick={() => {
-                    setPlaying(false);
+                    abandonReplay();
                     setValues(sc.apply);
                   }}
                   className="rounded-full border border-[#2a3040] px-3 py-1 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/10 hover:text-[#e6e8ec]"
@@ -701,18 +731,24 @@ export function GreeksExplorerPage() {
 
             <button
               onClick={playDecay}
-              aria-pressed={playing}
-              className={`mt-4 flex w-full items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold transition ${
-                playing
+              disabled={!playing && !replaying && !canReplay}
+              aria-pressed={playing || replaying}
+              title={!canReplay && !playing && !replaying ? "Set more than 2 days to expiration to replay the decay" : undefined}
+              className={`mt-4 flex w-full items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                playing || replaying
                   ? "border-amber-400/50 bg-amber-400/15 text-amber-200"
                   : "border-[#7c6cff]/40 bg-[#7c6cff]/15 text-[#c4bbff] hover:bg-[#7c6cff]/25"
               }`}
             >
-              <span aria-hidden="true">{playing ? "■" : "▶"}</span>
-              {playing ? `Stop (${daysShown.toFixed(0)} days left)` : "Watch time decay"}
+              <span aria-hidden="true">{playing || replaying ? "■" : "▶"}</span>
+              {playing || replaying ? `Stop (${daysShown.toFixed(0)} days left)` : "Watch time decay"}
             </button>
             <p className="mt-2 text-xs leading-relaxed text-[#898781]">
-              Counts the days down from 90 to 1 so you can see time value drain away and gamma build.
+              {playing || replaying
+                ? `Counting down from your ${Math.round(startDaysRef.current ?? values.days)} days. Press Stop to go back to your setting.`
+                : canReplay
+                  ? `Counts your ${Math.round(values.days)} days to expiration down to 1 so you can see time value drain away and gamma build, then puts your setting back.`
+                  : "Set more than 2 days to expiration to replay the decay."}
             </p>
           </div>
         </aside>
@@ -790,7 +826,7 @@ export function GreeksExplorerPage() {
                 <input
                   type="checkbox"
                   checked={(lockScale || playing) && xAxis === "spot"}
-                  disabled={playing || xAxis !== "spot"}
+                  disabled={playing || replaying || xAxis !== "spot"}
                   onChange={(e) => setLockScale(e.target.checked)}
                   className="accent-[#7c6cff]"
                 />

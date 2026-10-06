@@ -7,6 +7,6 @@ export interface PracticeToolLink {
 
 export const PRACTICE_TOOL_LINKS: PracticeToolLink[] = [
   { slug: "quiz-bank", title: "Quiz Bank" },
-  { slug: "greeks-explorer", title: "Greeks Explorer" },
   { slug: "options-payoff-simulator", title: "Options Payoff Simulator" },
+  { slug: "greeks-explorer", title: "Greeks Explorer" },
 ];

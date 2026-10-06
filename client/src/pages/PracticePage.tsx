@@ -4,6 +4,7 @@ import { fetchConstructionExercises } from "../api";
 import type { ConstructionExerciseSummary } from "../types/construction";
 import { ACCENT } from "../lib/courseVisuals";
 import { SIMULATOR_PRESETS } from "../lib/simulatorPresets";
+import { AnswerProgressBar } from "../components/AnswerProgressBar";
 
 // Illustrative payoff shapes the featured card cycles through (SVG units: zero line at y=120, higher
 // profit = smaller y). They preview what the simulator draws; they aren't computed from real inputs.
@@ -118,7 +119,7 @@ function PayoffPreview({ example }: { example: PreviewExample }) {
   );
 }
 
-function AnimatedPreview() {
+function AnimatedPreview({ compact = false }: { compact?: boolean }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -132,11 +133,15 @@ function AnimatedPreview() {
   const example = EXAMPLES[index];
   return (
     <div
-      className="relative min-h-[260px] border-t border-[#2a3040] bg-[#0e1117] p-5 lg:border-l lg:border-t-0"
+      className={
+        compact
+          ? "relative h-full bg-[#0e1117] p-4"
+          : "relative min-h-[260px] border-t border-[#2a3040] bg-[#0e1117] p-5 lg:border-l lg:border-t-0"
+      }
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="absolute inset-x-5 top-4 z-10 flex items-start justify-between gap-3">
+      <div className={`absolute z-10 flex items-start justify-between gap-3 ${compact ? "inset-x-4 top-3" : "inset-x-5 top-4"}`}>
         <div className="text-sm font-semibold text-[#e6e8ec]">{example.name}</div>
         <div key={example.name} className="rr-point flex flex-wrap justify-end gap-1.5">
           {example.legs.map((leg, i) => (
@@ -149,11 +154,11 @@ function AnimatedPreview() {
           ))}
         </div>
       </div>
-      <div className="flex h-full items-center pt-6">
+      <div className={`flex h-full items-center ${compact ? "pb-4 pt-5" : "pt-6"}`}>
         <PayoffPreview example={example} />
       </div>
-      <div className="absolute bottom-3 left-5 right-5 flex items-center justify-between text-[11px] text-[#898781]">
-        <span>Example output</span>
+      <div className={`absolute flex items-center justify-between text-[11px] text-[#898781] ${compact ? "bottom-2 left-4 right-4" : "bottom-3 left-5 right-5"}`}>
+        <span>{compact ? "" : "Example output"}</span>
         <div className="flex items-center gap-1.5">
           {EXAMPLES.map((e, i) => (
             <button
@@ -173,11 +178,10 @@ function AnimatedPreview() {
   );
 }
 
-const STEPS = [
-  "Set the entry price and expiry assumptions",
-  "Add legs: stock, calls and puts, long or short",
-  "Read the payoff, break-evens and max profit or loss",
-  "See which named strategy you've built",
+const QUIZ_BANK_POINTS = [
+  "Pick any mix of courses, or narrow to a single module",
+  "Answer with an instant explanation and a streak counter",
+  "Revisit the questions you missed, or practise a weak module again",
 ];
 
 function Section({ title, description, children }: { title: string; description: string; children: ReactNode }) {
@@ -192,38 +196,6 @@ function Section({ title, description, children }: { title: string; description:
       </div>
       <div className="mt-5">{children}</div>
     </section>
-  );
-}
-
-function QuizBankPreview() {
-  const choices = ["Intrinsic value and time value", "Strike and expiration", "Delta and gamma"];
-  return (
-    <div className="flex h-full flex-col justify-center gap-2 p-5" aria-hidden="true">
-      <div className="flex items-center justify-between">
-        <span className="text-[11px] font-semibold uppercase tracking-wide text-[#898781]">Question 4 of 10</span>
-        <span className="rounded-full border border-amber-400/50 bg-amber-400/15 px-2 py-0.5 text-[11px] font-medium text-amber-300">
-          Streak 3
-        </span>
-      </div>
-      <div className="text-sm font-medium text-[#e6e8ec]">What are the two parts of an option's premium?</div>
-      {choices.map((c, i) => (
-        <div
-          key={c}
-          className={`flex items-center gap-2.5 rounded-lg border px-2.5 py-1.5 text-xs ${
-            i === 0 ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-200" : "border-[#2a3040] text-[#898781]"
-          }`}
-        >
-          <span
-            className={`flex h-5 w-5 items-center justify-center rounded text-[10px] font-bold ${
-              i === 0 ? "bg-emerald-500 text-[#06281c]" : "bg-[#1b2029]"
-            }`}
-          >
-            {i === 0 ? "✓" : String.fromCharCode(65 + i)}
-          </span>
-          {c}
-        </div>
-      ))}
-    </div>
   );
 }
 
@@ -252,42 +224,91 @@ function GreeksPreview() {
 function ToolCard({
   to,
   title,
-  tag,
   description,
   cta,
   preview,
   tint,
+  footer,
 }: {
   to: string;
   title: string;
-  tag: string;
   description: string;
   cta: string;
   preview: ReactNode;
   tint: string;
+  /** extra links under the card; they sit outside the card's own link so they can be links too */
+  footer?: ReactNode;
 }) {
   return (
-    <Link
-      to={to}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] card-glow transition duration-200 hover:-translate-y-0.5 hover:border-[#7c6cff]/50"
-    >
-      <div className="relative h-[190px] border-b border-[#2a3040] bg-[#0e1117]">
-        <div className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full blur-3xl" style={{ background: tint, opacity: 0.14 }} />
-        <div className="relative h-full">{preview}</div>
-      </div>
-      <div className="flex flex-1 flex-col p-5">
-        <span className="w-fit rounded-full border px-2.5 py-0.5 text-[11px] font-medium" style={{ borderColor: `${tint}55`, background: `${tint}1a`, color: tint }}>
-          {tag}
-        </span>
-        <h3 className="mt-2 text-xl font-bold text-[#e6e8ec]">{title}</h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-[#9aa3b2]">{description}</p>
-        <span className="mt-auto pt-4 text-sm font-semibold text-[#a99dff]">
-          {cta} <span className="inline-block transition group-hover:translate-x-0.5">→</span>
-        </span>
-      </div>
-    </Link>
+    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] card-glow transition duration-200 hover:-translate-y-0.5 hover:border-[#7c6cff]/50">
+      <Link to={to} className="flex flex-1 flex-col">
+        <div className="relative h-[190px] border-b border-[#2a3040] bg-[#0e1117]">
+          <div className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full blur-3xl" style={{ background: tint, opacity: 0.14 }} />
+          <div className="relative h-full">{preview}</div>
+        </div>
+        <div className="flex flex-1 flex-col p-5">
+          <h3 className="text-xl font-bold text-[#e6e8ec]">{title}</h3>
+          <p className="mt-1.5 text-sm leading-relaxed text-[#9aa3b2]">{description}</p>
+          <span className="mt-auto pt-4 text-sm font-semibold text-[#a99dff]">
+            {cta} <span className="inline-block transition group-hover:translate-x-0.5">→</span>
+          </span>
+        </div>
+      </Link>
+      {footer && <div className="border-t border-[#2a3040] px-5 py-4">{footer}</div>}
+    </div>
   );
 }
+
+// A larger version of the Quiz Bank card's preview for the featured slot: a question mid-session, with the
+// green/red progress bar showing how the earlier answers went.
+function QuizBankFeaturedPreview() {
+  const choices = ["Intrinsic value and time value", "Strike and expiration", "Delta and gamma"];
+  return (
+    <div className="flex h-full flex-col justify-center gap-3 p-6 sm:p-8" aria-hidden="true">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] font-semibold uppercase tracking-wide text-[#898781]">Question 5 of 10</span>
+        <span className="rounded-full border border-amber-400/50 bg-amber-400/15 px-2 py-0.5 text-[11px] font-medium text-amber-300">
+          Streak 2
+        </span>
+      </div>
+      <AnswerProgressBar
+        accent={ACCENT.rates}
+        label="Example progress"
+        statuses={["correct", "correct", "wrong", "correct", "current", "pending", "pending", "pending", "pending", "pending"]}
+      />
+      <div className="mt-1 text-base font-medium text-[#e6e8ec]">What are the two parts of an option's premium?</div>
+      {choices.map((c, i) => (
+        <div
+          key={c}
+          className={`flex items-center gap-2.5 rounded-lg border px-3 py-2 text-sm ${
+            i === 0 ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-200" : "border-[#2a3040] text-[#898781]"
+          }`}
+        >
+          <span
+            className={`flex h-5 w-5 items-center justify-center rounded text-[10px] font-bold ${
+              i === 0 ? "bg-emerald-500 text-[#06281c]" : "bg-[#1b2029]"
+            }`}
+          >
+            {i === 0 ? "✓" : String.fromCharCode(65 + i)}
+          </span>
+          {c}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Courses to jump straight into from the Quiz Bank card (the Quiz Bank itself opens with that course selected).
+const QUIZ_BANK_COURSES = [
+  { slug: "options", title: "Options" },
+  { slug: "futures", title: "Futures" },
+  { slug: "forwards", title: "Forwards" },
+  { slug: "stocks", title: "Stocks" },
+  { slug: "fixed-income", title: "Fixed Income" },
+  { slug: "fx", title: "Foreign Exchange" },
+  { slug: "volatility", title: "Volatility" },
+  { slug: "commodities", title: "Commodities" },
+];
 
 export function PracticePage() {
   const [exercises, setExercises] = useState<ConstructionExerciseSummary[]>([]);
@@ -329,68 +350,84 @@ export function PracticePage() {
           <div className="relative grid overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] card-glow transition duration-200 hover:border-[#7c6cff]/50 lg:grid-cols-[1fr_1.1fr]">
             <div
               className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full blur-3xl"
-              style={{ background: accent, opacity: 0.12 }}
+              style={{ background: ACCENT.rates, opacity: 0.12 }}
             />
             <div className="relative flex flex-col p-6 sm:p-8">
-              <h3 className="text-2xl font-bold text-[#e6e8ec]">Options Payoff Simulator</h3>
+              <h3 className="text-2xl font-bold text-[#e6e8ec]">Quiz Bank</h3>
               <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">
-                Build a position leg by leg, stock, calls, puts, long or short, and watch the payoff update live. If what
-                you build matches a strategy from the course, its explanation shows up automatically.
+                Mixed questions from every lesson's knowledge check, drawn evenly across the courses you pick. Instant
+                explanations, a streak counter, and a retry pass on what you missed.
               </p>
               <ol className="mt-5 flex flex-col gap-2.5">
-                {STEPS.map((step, i) => (
-                  <li key={step} className="flex items-start gap-3 text-sm text-[#e6e8ec]">
+                {QUIZ_BANK_POINTS.map((point, i) => (
+                  <li key={point} className="flex items-start gap-3 text-sm text-[#e6e8ec]">
                     <span
                       className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold text-[#0b0d12]"
-                      style={{ background: accent }}
+                      style={{ background: ACCENT.rates }}
                     >
                       {i + 1}
                     </span>
-                    {step}
+                    {point}
                   </li>
                 ))}
               </ol>
               <Link
-                to="/practice/options-payoff-simulator"
+                to="/practice/quiz-bank"
                 className="mt-7 inline-flex w-fit items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-[#0b0d12] transition hover:brightness-110"
-                style={{ background: accent }}
+                style={{ background: ACCENT.rates }}
               >
-                Open the simulator <span aria-hidden="true">→</span>
+                Open the Quiz Bank <span aria-hidden="true">→</span>
               </Link>
 
               <div className="mt-6 border-t border-[#2a3040] pt-4">
-                <div className="mb-2 text-xs text-[#898781]">Or jump in with a ready-made position</div>
+                <div className="mb-2 text-xs text-[#898781]">Or jump straight into a course</div>
                 <div className="flex flex-wrap gap-1.5">
-                  {SIMULATOR_PRESETS.map((p) => (
+                  {QUIZ_BANK_COURSES.map((c) => (
                     <Link
-                      key={p.id}
-                      to={`/practice/options-payoff-simulator?preset=${p.id}`}
+                      key={c.slug}
+                      to={`/practice/quiz-bank?course=${c.slug}`}
                       className="rounded-full border border-[#2a3040] px-3 py-1 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/10 hover:text-[#e6e8ec]"
                     >
-                      {p.name}
+                      {c.title}
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
 
-            <AnimatedPreview />
+            <div className="relative min-h-[260px] border-t border-[#2a3040] bg-[#0e1117] lg:border-l lg:border-t-0">
+              <QuizBankFeaturedPreview />
+            </div>
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
             <ToolCard
-              to="/practice/quiz-bank"
-              title="Quiz Bank"
-              tag="All courses"
-              description="Mixed questions from every lesson's knowledge check, drawn evenly across the courses you pick. Instant explanations, a streak counter, and a retry pass on what you missed."
-              cta="Open the Quiz Bank"
-              preview={<QuizBankPreview />}
-              tint={ACCENT.rates}
+              to="/practice/options-payoff-simulator"
+              title="Options Payoff Simulator"
+              description="Build a position leg by leg, stock, calls, puts, long or short, and watch the payoff update live. If what you build matches a strategy from the course, its explanation shows up automatically."
+              cta="Open the simulator"
+              preview={<AnimatedPreview compact />}
+              tint={ACCENT.derivatives}
+              footer={
+                <>
+                  <div className="mb-2 text-xs text-[#898781]">Or jump in with a ready-made position</div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {SIMULATOR_PRESETS.map((p) => (
+                      <Link
+                        key={p.id}
+                        to={`/practice/options-payoff-simulator?preset=${p.id}`}
+                        className="rounded-full border border-[#2a3040] px-3 py-1 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/10 hover:text-[#e6e8ec]"
+                      >
+                        {p.name}
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              }
             />
             <ToolCard
               to="/practice/greeks-explorer"
               title="Greeks Explorer"
-              tag="Options"
               description="Move the stock price, volatility, time and rates, and watch an option's price and every Greek respond. Compare scenarios side by side on the same chart."
               cta="Open the Greeks Explorer"
               preview={<GreeksPreview />}
