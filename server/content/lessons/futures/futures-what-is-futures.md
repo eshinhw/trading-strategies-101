@@ -6,7 +6,7 @@ summary: The simplest possible definition of a futures contract — the same bas
 
 ## A Simple Definition
 
-A futures contract is an agreement to buy or sell an asset at an agreed price on an agreed future date — the exact same basic idea as the forward contract covered in the previous module. What makes it a "future" rather than a plain forward is entirely about how that agreement is made and enforced, not what it fundamentally promises.
+A futures contract is an agreement to buy or sell an asset at an agreed price on an agreed future date — the exact same basic idea as the forward contract covered in the Forwards course. What makes it a "future" rather than a plain forward is entirely about how that agreement is made and enforced, not what it fundamentally promises.
 
 ## Same Long and Short, Different Venue
 
@@ -18,11 +18,11 @@ A trader who believes oil prices will rise over the next few months can go long 
 
 ## Building on What You Already Know
 
-Everything covered in the Forward Basics module — long and short positions, agreeing on a price today for a transaction later — carries over directly to futures. The rest of this module covers what's specifically different about a futures contract: the margin and daily settlement, the standardized contract terms, and the clearinghouse that stands behind every trade, none of which a plain forward has.
+Everything covered in the Forwards course — long and short positions, agreeing on a price today for a transaction later — carries over directly to futures. The rest of this course covers what's specifically different about a futures contract: the margin and daily settlement, the standardized contract terms, and the clearinghouse that stands behind every trade, none of which a plain forward has.
 
 ## How a Future Differs from a Stock, an Option, and a CFD
 
-A share of stock is outright ownership of a piece of a company, held for as long as you like, with no expiration and no obligation ever to sell. An option buyer pays a premium for the right, but not the obligation, to buy or sell later, and can simply let it expire worthless if it doesn't pay off. A futures contract gives neither side that choice: both the long and the short are obligated to settle at expiration (or close out first), which is exactly why futures carry the daily margining and mark-to-market machinery covered in the next lesson — there's real, symmetric obligation on both sides to manage. A CFD (contract for difference) mimics a future's cash-settled, leveraged exposure, but is typically an uncleared, over-the-counter product offered directly by a broker rather than a standardized, exchange-listed, clearinghouse-guaranteed contract — closer in spirit to a private forward than to a future.
+A share of stock is outright ownership of a piece of a company, held for as long as you like, with no expiration and no obligation ever to sell. An option buyer pays a premium for the right, but not the obligation, to buy or sell later, and can simply let it expire worthless if it doesn't pay off. A futures contract gives neither side that choice: both the long and the short are obligated to settle at expiration (or close out first), which is exactly why futures carry the daily margining and mark-to-market machinery covered in the Margin and Daily Settlement lesson — there's real, symmetric obligation on both sides to manage. A CFD (contract for difference) mimics a future's cash-settled, leveraged exposure, but is typically an uncleared, over-the-counter product offered directly by a broker rather than a standardized, exchange-listed, clearinghouse-guaranteed contract — closer in spirit to a private forward than to a future.
 
 ## Long and Short: P&L Mechanics
 
@@ -55,19 +55,19 @@ Two strangers on opposite sides of the country — a wheat farmer and a commodit
    - Because the trader is required to physically own oil first
    > The exchange, not a specific counterparty, is what makes it possible to go long or short a futures contract instantly, without negotiating a private deal the way a forward would require.
 
-4. Which concepts from the Forward Basics module carry over directly to futures?
+4. Which concepts from the Forwards course carry over directly to futures?
    - Nothing carries over — futures and forwards are entirely unrelated
    - [x] Long and short positions, and the idea of agreeing on a price today for a transaction later
    - Only the idea of daily margin calls
    - Only the concept of a clearinghouse
-   > The core long/short, price-agreed-today-for-later logic is shared between forwards and futures — what the rest of this module covers is what's specifically different about futures.
+   > The core long/short, price-agreed-today-for-later logic is shared between forwards and futures — what the rest of this course covers is what's specifically different about futures.
 
-5. What does the rest of the Futures Basics module go on to cover, building on this lesson?
+5. What does the rest of this course go on to cover, building on this lesson?
    - [x] What's specifically different about futures — margin and daily settlement, standardized contract terms, and the clearinghouse
    - A repeat of exactly the same forward-contract content already covered
    - Only how to physically deliver a commodity
    - Nothing further — this lesson covers everything about futures
-   > Having established what a futures contract fundamentally is, the module moves on to the mechanics that actually distinguish it from a forward — margin, standardization, and the clearinghouse guarantee.
+   > Having established what a futures contract fundamentally is, the course moves on to the mechanics that actually distinguish it from a forward — margin, standardization, and the clearinghouse guarantee.
 
 6. How does a futures contract differ from an option, in terms of obligation?
    - [x] An option buyer pays a premium for the right, not the obligation, to transact — a futures long and short are both obligated to settle (or close out) the position

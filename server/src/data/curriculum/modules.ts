@@ -211,33 +211,33 @@ export const modules: Module[] = [
     courseSlug: "futures",
     title: "Futures Basics",
     description:
-      "What actually makes a futures contract a futures contract, mechanically — margin and daily mark-to-market, standardized contract specs, how (and whether) a contract ever reaches physical delivery, the clearinghouse that guarantees every trade, and the price limits that can pause trading.",
+      "What a futures contract is and what its standardized specification spells out, why futures markets exist, who trades them and why, and a tour of the major futures markets.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "futures-what-is-futures",
-      "futures-margin-and-mark-to-market",
       "futures-contract-specifications",
-      "futures-delivery-and-close-out",
-      "futures-clearinghouses-and-novation",
-      "futures-price-limits-and-trading-halts",
+      "futures-why-futures-markets-exist",
+      "futures-market-participants",
+      "futures-major-futures-markets",
     ],
   },
   {
     slug: "futures-markets-and-trading",
     courseSlug: "futures",
-    title: "Futures Markets & Trading",
+    title: "Futures Applications, Pricing & Risk",
     description:
-      "Why futures markets exist and who trades in them, a tour of the major markets, how the futures price relates to spot, how orders actually get filled, how to read a quote or a chart, and the risk-management, regulatory, and beginner-mistake ground every trader should cover before risking real money.",
+      "How futures work and get traded: margin and daily settlement, the clearinghouse guarantee, delivery and closing out, price limits and trading halts, how orders get filled, how to read quotes and charts, how futures prices relate to spot (basis, contango, and backwardation), and the risk management, regulation, and common mistakes that come with trading them.",
     order: 2,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
-      "futures-why-futures-markets-exist",
-      "futures-market-participants",
-      "futures-major-futures-markets",
-      "futures-basis-and-contango-backwardation",
+      "futures-margin-and-mark-to-market",
+      "futures-clearinghouses-and-novation",
+      "futures-delivery-and-close-out",
+      "futures-price-limits-and-trading-halts",
       "futures-trading-mechanics-orders-and-liquidity",
       "futures-reading-quotes-and-charts",
+      "futures-basis-and-contango-backwardation",
       "futures-risk-management",
       "futures-regulation-and-trader-protections",
       "futures-common-beginner-mistakes",
@@ -266,15 +266,25 @@ export const modules: Module[] = [
     courseSlug: "stocks",
     title: "Stocks Basics",
     description:
-      "What a share of stock actually is, how buying and selling one works, how companies are measured and grouped, and how they return cash to shareholders — the foundation the rest of this course's strategies are built on.",
+      "What a stock is — ownership in a company, not a loan — why companies issue shares and investors buy them, how a company's size and industry are described, and how dividends and corporate actions work.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "stocks-what-is-a-stock",
-      "stocks-how-stock-trading-works",
+      "stocks-why-stocks-exist",
       "stocks-market-capitalization-and-sectors",
       "stocks-dividends-and-corporate-actions",
     ],
+  },
+  {
+    slug: "stocks-applications-and-pricing",
+    courseSlug: "stocks",
+    title: "Stocks Applications & Pricing",
+    description:
+      "How stock trading works — exchanges, order types, going long or short — and how a stock is valued, from the P/E ratio to discounting expected dividends.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["stocks-how-stock-trading-works", "stocks-valuing-a-stock"],
   },
   {
     slug: "stocks-strategies",
@@ -282,7 +292,7 @@ export const modules: Module[] = [
     title: "Basic Strategies",
     description:
       "A first tour of equity trading strategies — factor investing (momentum and value), statistical arbitrage (pairs trading and cluster mean-reversion), technical trend-following, and market-making.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "stocks-price-momentum",
@@ -299,7 +309,7 @@ export const modules: Module[] = [
     title: "Factor & Quant Strategies",
     description:
       "Deeper factor investing (earnings-momentum, low-volatility, multifactor, residual momentum), a signal drawn from the options market (implied volatility), and how a real stat-arb desk combines many signals and builds a portfolio from them.",
-    order: 3,
+    order: 4,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "stocks-earnings-momentum",
@@ -317,7 +327,7 @@ export const modules: Module[] = [
     title: "Technical & Event-Driven Strategies",
     description:
       "Chart-based trend-following (moving-average crossovers, support/resistance, channels), mean-reversion scaled across many industry clusters, merger arbitrage, and a machine-learning approach to single-stock prediction.",
-    order: 4,
+    order: 5,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "stocks-mean-reversion-multiple-clusters",
@@ -334,10 +344,23 @@ export const modules: Module[] = [
     courseSlug: "etfs",
     title: "ETF Basics",
     description:
-      "What an ETF actually is, how the creation/redemption mechanism manufactures and retires shares (and keeps price tethered to NAV), how to actually trade one, and why investors reach for ETFs in the first place.",
+      "What an ETF is — a basket of assets that trades like a single stock — and why investors reach for one instead of individual stocks, a mutual fund, or futures.",
     order: 1,
     prerequisiteModuleSlugs: [],
-    lessonSlugs: ["etf-what-is-an-etf", "etf-creation-and-redemption", "etf-how-to-trade-etfs", "etf-why-trade-etfs"],
+    lessonSlugs: [
+      "etf-what-is-an-etf",
+      "etf-why-trade-etfs",
+    ],
+  },
+  {
+    slug: "etf-applications-and-pricing",
+    courseSlug: "etfs",
+    title: "ETF Applications & Pricing",
+    description:
+      "How ETFs work and get used: the creation and redemption mechanism that keeps price in line with NAV, how to trade ETF shares, and what owning one actually costs — expense ratio, spreads, and tracking error.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["etf-creation-and-redemption", "etf-how-to-trade-etfs", "etf-costs-and-tracking-error"],
   },
   {
     slug: "etfs-strategies",
@@ -345,7 +368,7 @@ export const modules: Module[] = [
     title: "ETF Strategies",
     description:
       "Sector and alpha rotation strategies (plain, MA-filtered, and dual momentum), the technical tools that refine and complement them (R-squared, mean-reversion), and structural ETF mechanics (leveraged ETF decay, multi-asset trend following).",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "etf-sector-momentum-rotation",
@@ -363,14 +386,28 @@ export const modules: Module[] = [
     courseSlug: "fixed-income",
     title: "Fixed Income Basics",
     description:
-      "What a bond actually is, why price and yield move inversely, duration as the measure of rate sensitivity, and the yield curve whose shape drives most of this course's strategies.",
+      "What a bond is — a loan in security form — and why governments and companies issue bonds and investors buy them.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fixed-income-what-is-a-bond",
+      "fixed-income-why-bonds-exist",
+    ],
+  },
+  {
+    slug: "fixed-income-applications-and-pricing",
+    courseSlug: "fixed-income",
+    title: "Fixed Income Applications & Pricing",
+    description:
+      "How bonds are traded and priced: the dealer market and accrued interest, the inverse relationship between price and yield, duration as a measure of rate sensitivity, the shape of the yield curve, and credit risk and spreads.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "fixed-income-how-bonds-are-traded",
       "fixed-income-yield-and-price",
       "fixed-income-duration",
       "fixed-income-the-yield-curve",
+      "fixed-income-credit-risk-and-spreads",
     ],
   },
   {
@@ -379,7 +416,7 @@ export const modules: Module[] = [
     title: "Fixed Income Strategies",
     description:
       "The classic bond-portfolio structures (bullets, barbells, ladders), immunizing a portfolio against rate risk, a duration-neutral curvature trade, and capturing price gains as a bond ages down the yield curve.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fixed-income-bullets",
@@ -396,7 +433,7 @@ export const modules: Module[] = [
     title: "Butterfly & Curve Trades",
     description:
       "Three more ways to weight a butterfly trade's wings — fixed split, historical regression, and maturity distance — plus betting on the curve steepening or flattening rather than on rates overall.",
-    order: 3,
+    order: 4,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fixed-income-fifty-fifty-butterfly",
@@ -411,7 +448,7 @@ export const modules: Module[] = [
     title: "Factor & Credit Strategies",
     description:
       "Factor investing applied to bonds (low-risk, value, and carry), plus two spread-arbitrage trades that isolate a mispricing between related credit and rates markets.",
-    order: 4,
+    order: 5,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "fixed-income-low-risk-factor",
