@@ -10,7 +10,7 @@ An inflation swap exchanges a fixed payment for a floating payment tied to reali
 
 ## Zero-Coupon vs. Year-on-Year Structures
 
-A zero-coupon inflation swap settles the entire cumulative inflation difference in a single payment at maturity, closely mirroring the breakeven-inflation concept covered earlier in this module. A year-on-year swap instead exchanges payments periodically based on each period's own inflation reading, which changes the risk profile to be more sensitive to the path of inflation over time, not just its cumulative total.
+A zero-coupon inflation swap settles the entire cumulative inflation difference in a single payment at maturity, closely mirroring the breakeven-inflation concept covered earlier in this course. A year-on-year swap instead exchanges payments periodically based on each period's own inflation reading, which changes the risk profile to be more sensitive to the path of inflation over time, not just its cumulative total.
 
 ## Why Trade the Swap Instead of a Bond
 

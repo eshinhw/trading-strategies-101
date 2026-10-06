@@ -68,7 +68,7 @@ export function Footer() {
               Trading Strategies 101
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#9aa3b2]">
-              Hands-on lessons for 18 asset classes, from options to distressed debt — 173 strategies, learned by doing,
+              Hands-on lessons for 18 asset classes, from options to distressed debt — 177 strategies, learned by doing,
               not memorizing.
             </p>
             <a

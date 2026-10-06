@@ -18,7 +18,7 @@ Cash covers near-term obligations without forcing a sale of other assets at a ba
 
 ## The Safety-Liquidity-Yield Tradeoff
 
-Even within "cash and cash equivalents" there's a spectrum: a checking account is safest and most liquid but pays almost nothing, while a 90-day Treasury bill or CD ties up money briefly in exchange for a bit more yield. The rest of this module looks at the actual instruments and techniques used to manage that spectrum in practice.
+Even within "cash and cash equivalents" there's a spectrum: a checking account is safest and most liquid but pays almost nothing, while a 90-day Treasury bill or CD ties up money briefly in exchange for a bit more yield. The rest of this course looks at the actual instruments and techniques used to manage that spectrum in practice.
 
 ## In Practice
 

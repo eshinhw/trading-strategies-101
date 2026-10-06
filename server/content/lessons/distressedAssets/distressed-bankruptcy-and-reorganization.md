@@ -18,7 +18,7 @@ The company, often alongside its major creditors, develops a plan of reorganizat
 
 ## Emergence From Bankruptcy
 
-Once a plan is confirmed and implemented, the company emerges from bankruptcy, typically with a lighter debt load and a new or adjusted ownership structure. Former creditors frequently end up holding equity in the reorganized company, which is exactly the mechanism the strategies later in this module are built around.
+Once a plan is confirmed and implemented, the company emerges from bankruptcy, typically with a lighter debt load and a new or adjusted ownership structure. Former creditors frequently end up holding equity in the reorganized company, which is exactly the mechanism the strategies later in this course are built around.
 
 ## In Practice
 
@@ -52,7 +52,7 @@ A company with a viable core business but too much debt might file for reorganiz
    - They are always paid the full original face value of their debt in cash
    - They automatically lose all rights to any recovery
    - Former creditors have no possible role in the reorganized company
-   > Debt-to-equity conversion is a common feature of reorganization plans, turning former lenders into the new owners — a mechanism central to several strategies covered later in this module.
+   > Debt-to-equity conversion is a common feature of reorganization plans, turning former lenders into the new owners — a mechanism central to several strategies covered later in this course.
 
 5. In the example, what changes about the company after it emerges from bankruptcy?
    - [x] Its capital structure — a lighter debt load, with some former bondholders now holding equity — while the underlying business is unchanged

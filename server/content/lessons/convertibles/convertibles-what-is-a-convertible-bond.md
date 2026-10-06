@@ -14,11 +14,11 @@ A convertible holder can simply hold the bond to maturity like an ordinary bond,
 
 ## Where Convertibles Sit Between Stocks and Bonds
 
-Building on what a bond and a stock each are, covered in this curriculum's Fixed Income and Stocks Basics, a convertible sits in between: it behaves like a bond when the stock price is low, since conversion isn't attractive and the fixed coupon and principal dominate its value, and increasingly like the underlying stock as the stock price rises and conversion becomes the better choice.
+Building on what a bond and a stock each are, covered in this curriculum's Fixed Income and Stocks courses, a convertible sits in between: it behaves like a bond when the stock price is low, since conversion isn't attractive and the fixed coupon and principal dominate its value, and increasingly like the underlying stock as the stock price rises and conversion becomes the better choice.
 
 ## A Common Financing Tool
 
-Convertible bonds are widely issued by companies, particularly growth companies that want to raise debt financing at a lower coupon than a plain bond would require, in exchange for offering investors the upside potential of eventual conversion into equity — a tradeoff explored in more depth later in this module.
+Convertible bonds are widely issued by companies, particularly growth companies that want to raise debt financing at a lower coupon than a plain bond would require, in exchange for offering investors the upside potential of eventual conversion into equity — a tradeoff explored in more depth later in this course.
 
 ## In Practice
 

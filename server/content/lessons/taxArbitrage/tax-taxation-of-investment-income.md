@@ -18,7 +18,7 @@ The same income can also be taxed differently depending on where the investor is
 
 ## Why This Creates Room for Arbitrage
 
-Whenever two parties face different tax treatment on the same or economically equivalent cash flow, there's room, within the law, to structure a transaction so the income lands with whichever party is taxed more favorably on it — the shared idea behind every strategy in this module.
+Whenever two parties face different tax treatment on the same or economically equivalent cash flow, there's room, within the law, to structure a transaction so the income lands with whichever party is taxed more favorably on it — the shared idea behind every strategy in this course.
 
 ## In Practice
 
@@ -52,7 +52,7 @@ A pension fund and a highly taxed individual investor both want exposure to the 
    - Avoiding any legal obligation to pay tax
    - Tax arbitrage strategies share no common underlying idea
    - Randomly assigning income to different investors with no tax consideration
-   > Legally directing income toward the more favorably taxed party is the consistent theme running through every strategy in this module.
+   > Legally directing income toward the more favorably taxed party is the consistent theme running through every strategy in this course.
 
 5. In the example, why is there an incentive to have the pension fund hold the interest-bearing position?
    - [x] The pension fund owes little or no tax on the interest, unlike the individual investor, creating a legal incentive to structure ownership accordingly

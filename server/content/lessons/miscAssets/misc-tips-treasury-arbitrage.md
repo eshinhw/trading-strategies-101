@@ -6,7 +6,7 @@ summary: A relative-value trade on the breakeven-inflation gap between TIPS and 
 
 ## The Core Trade
 
-This strategy trades the breakeven-inflation relationship, covered earlier in this module, directly: taking a long position in one of TIPS or nominal Treasuries and a short position in the matched-maturity other, positioned for the breakeven-inflation gap to move toward whatever level the trader estimates is fair.
+This strategy trades the breakeven-inflation relationship, covered earlier in this course, directly: taking a long position in one of TIPS or nominal Treasuries and a short position in the matched-maturity other, positioned for the breakeven-inflation gap to move toward whatever level the trader estimates is fair.
 
 ## Why the Spread Can Drift From Fair Value
 
@@ -31,7 +31,7 @@ A trader believes 10-year breakeven inflation, currently at 2.7%, is too high re
    - The exchange rate between two currencies
    - The credit spread between two unrelated corporate bonds
    - This strategy has no connection to breakeven inflation
-   > This strategy is a direct application of the breakeven-inflation concept covered earlier in the module, traded as a relative-value position.
+   > This strategy is a direct application of the breakeven-inflation concept covered earlier in the course, traded as a relative-value position.
 
 2. Why can breakeven inflation drift from a pure read on inflation expectations?
    - [x] TIPS are less liquid than nominal Treasuries and the two attract somewhat different natural buyers

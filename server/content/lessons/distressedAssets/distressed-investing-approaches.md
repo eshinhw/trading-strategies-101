@@ -1,7 +1,7 @@
 ---
 slug: distressed-investing-approaches
 title: Distressed Debt Investing Approaches
-summary: The spectrum from passively holding distressed debt through to actively shaping the reorganization itself — the basic split this module's strategies are built around.
+summary: The spectrum from passively holding distressed debt through to actively shaping the reorganization itself — the basic split this course's strategies are built around.
 ---
 
 ## Passive: Buy and Hold Through the Process

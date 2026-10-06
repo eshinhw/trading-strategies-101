@@ -6,7 +6,7 @@ summary: Legally structuring cross-border investments, often by routing through 
 
 ## The Core Idea
 
-As covered in this module's Basics, withholding tax on cross-border payments depends heavily on the treaty relationship between the source country and the investor's residence. This strategy structures an investment, often by routing it through an intermediary entity resident in a treaty-favorable jurisdiction, to legally access a lower withholding rate than the investor's home country would receive directly.
+As covered earlier in this course, withholding tax on cross-border payments depends heavily on the treaty relationship between the source country and the investor's residence. This strategy structures an investment, often by routing it through an intermediary entity resident in a treaty-favorable jurisdiction, to legally access a lower withholding rate than the investor's home country would receive directly.
 
 ## Treaty Shopping
 

@@ -39,9 +39,9 @@ export const courses: Course[] = [
     title: "Options",
     section: "2",
     description:
-      "Calls, puts, and every combination the curriculum covers — from a simple covered call to multi-leg spreads, straddles, and condors.",
+      "Calls, puts, and every combination the curriculum covers — from a single long call to covered strategies, spreads, straddles, butterflies, condors, and calendar spreads.",
     status: "available",
-    strategyCount: 58,
+    strategyCount: 62,
   },
   {
     slug: "stocks",

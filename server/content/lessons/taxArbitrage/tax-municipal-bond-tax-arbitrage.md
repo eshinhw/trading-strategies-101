@@ -6,7 +6,7 @@ summary: Exploiting a pricing gap between a tax-exempt municipal bond's yield an
 
 ## The Core Observation
 
-As covered in this module's Basics, a municipal bond's tax-exempt status justifies a lower yield than a comparable taxable bond. When the actual market gap between muni and taxable yields drifts away from what a reasonable taxable-equivalent-yield calculation implies is fair, for a given tax rate, that mispricing is the opportunity this strategy targets.
+As covered earlier in this course, a municipal bond's tax-exempt status justifies a lower yield than a comparable taxable bond. When the actual market gap between muni and taxable yields drifts away from what a reasonable taxable-equivalent-yield calculation implies is fair, for a given tax rate, that mispricing is the opportunity this strategy targets.
 
 ## A Simple Version: Relative Value Between Munis
 
@@ -31,7 +31,7 @@ A trader notices that a state's general-obligation municipal bonds are yielding 
    - A gap between two entirely unrelated asset classes with no shared tax logic
    - The strategy targets no specific pricing gap at all
    - A fixed, government-guaranteed spread that never changes
-   > The strategy is built directly on the same taxable-equivalent-yield logic from the Basics module, looking for cases where the market price diverges from that fair-value benchmark.
+   > The strategy is built directly on the same taxable-equivalent-yield logic from earlier in this course, looking for cases where the market price diverges from that fair-value benchmark.
 
 2. What does a simple relative-value version of this strategy compare?
    - [x] Similar municipal bonds against each other, buying ones that look cheap relative to peers of similar credit and maturity

@@ -14,7 +14,7 @@ Issuing a convertible doesn't dilute existing shareholders immediately, the way 
 
 ## Downside Protection for the Investor
 
-In exchange, an investor gives up some coupon income compared to a plain bond, but gains the bond floor described in the previous lesson: if the stock falls or stagnates, the convertible still behaves like a bond, protecting much of the investor's principal in a way an outright stock purchase never would.
+In exchange, an investor gives up some coupon income compared to a plain bond, but gains the bond floor described in the How a Convertible's Price Behaves lesson: if the stock falls or stagnates, the convertible still behaves like a bond, protecting much of the investor's principal in a way an outright stock purchase never would.
 
 ## Upside Participation for the Investor
 

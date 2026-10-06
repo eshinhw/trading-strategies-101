@@ -6,7 +6,7 @@ summary: Using a weather derivative to directly hedge the demand risk a weather-
 
 ## Starting From the Business Risk
 
-This strategy starts from the weather-derivative concept covered earlier in this module and applies it to a specific, real hedging problem: a business whose demand, and therefore revenue, moves with weather outcomes it has no control over — an energy utility is the clearest example, but the same logic applies to any weather-sensitive business.
+This strategy starts from the weather-derivative concept covered earlier in this course and applies it to a specific, real hedging problem: a business whose demand, and therefore revenue, moves with weather outcomes it has no control over — an energy utility is the clearest example, but the same logic applies to any weather-sensitive business.
 
 ## Quantifying the Exposure First
 

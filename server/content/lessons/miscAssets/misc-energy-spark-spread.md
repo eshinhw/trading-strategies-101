@@ -14,7 +14,7 @@ Because different power plants convert fuel to electricity with different effici
 
 ## Hedging the Spread, Not Either Price Alone
 
-A gas-fired generator's actual economic risk isn't the level of electricity prices or gas prices individually, but the gap between them — the same basis-trading logic covered earlier in this module — which is exactly why generators hedge the spread directly, often using electricity and gas futures together, rather than hedging either price in isolation.
+A gas-fired generator's actual economic risk isn't the level of electricity prices or gas prices individually, but the gap between them — the same basis-trading logic covered earlier in this course — which is exactly why generators hedge the spread directly, often using electricity and gas futures together, rather than hedging either price in isolation.
 
 ## Trading the Spread Without Owning a Plant
 
@@ -41,7 +41,7 @@ A gas-fired power plant with a known heat rate locks in its spark spread by simu
    > Efficiency differences mean the same gas price produces a different effective fuel cost — and therefore a different spark spread — for plants with different heat rates.
 
 3. Why do generators typically hedge the spark spread directly rather than hedging gas and electricity prices separately?
-   - [x] Their real economic risk is the gap between the two prices, the same basis-trading logic covered earlier in the module
+   - [x] Their real economic risk is the gap between the two prices, the same basis-trading logic covered earlier in the course
    - Hedging the spread directly is always more expensive with no benefit
    - Generators are legally prohibited from hedging gas and electricity prices separately
    - There is no meaningful difference between hedging the spread and hedging either price alone

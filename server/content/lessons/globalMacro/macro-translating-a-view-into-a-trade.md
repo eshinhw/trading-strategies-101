@@ -18,7 +18,7 @@ Beyond picking the instrument, a macro trader decides how to structure the posit
 
 ## Time Horizon Matters
 
-A macro thesis can play out over very different time frames — some macro trends unfold over months or years as economic data confirms a slow-moving story, while others are meant to capture a single scheduled event. That time horizon is itself part of choosing the trade, and it's exactly the distinction between this module's momentum-style strategy and its event-driven one.
+A macro thesis can play out over very different time frames — some macro trends unfold over months or years as economic data confirms a slow-moving story, while others are meant to capture a single scheduled event. That time horizon is itself part of choosing the trade, and it's exactly the distinction between this course's momentum-style strategy and its event-driven one.
 
 ## In Practice
 

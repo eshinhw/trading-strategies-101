@@ -5,12 +5,9 @@ import type { LessonDetail } from "../types/curriculum";
 import type { ParamValues } from "../engine/payoff";
 import { computePayoffStats, defaultRange } from "../engine/payoff";
 import { OutlookBadge, PlainBadge } from "../components/Badge";
-import { ParamControls } from "../components/ParamControls";
-import { PayoffChart } from "../components/PayoffChart";
+import { StaticPayoffDiagram } from "../components/StaticPayoffDiagram";
 import { StatTile } from "../components/StatTile";
 import { ConceptQuiz } from "../components/ConceptQuiz";
-import { StrategyKnowledgeCheck } from "../components/StrategyKnowledgeCheck";
-import { FormulaReference } from "../components/FormulaReference";
 import { LessonDiagram } from "../components/LessonDiagram";
 import { LessonVideo } from "../components/LessonVideo";
 import { DisplayMath, InlineText, displayMathOf } from "../components/InlineText";
@@ -321,15 +318,22 @@ function defaultsFor(params: { key: string; default: number }[]): ParamValues {
 
 function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: "strategy" }> }) {
   const { strategy } = lesson;
-  const [params, setParams] = useState<ParamValues>(() => defaultsFor(strategy.params));
 
-  const stats = useMemo(() => {
+  // Static picture only: computed once from the strategy's own default numbers. (Hands-on exploring
+  // lives in Practice > Options Payoff Simulator.)
+  const { stats, markers } = useMemo(() => {
+    const params = defaultsFor(strategy.params);
     const [lo, hi] = defaultRange(strategy, params);
     const result = computePayoffStats(strategy, params, lo, hi);
-    return { ...result, displayRange: [lo, hi] as [number, number] };
-  }, [strategy, params]);
-
-  const currentPrice = params.S0 ?? params.K ?? undefined;
+    const strikeKeys = strategy.calendar
+      ? [strategy.calendar.shortStrikeKey, strategy.calendar.longStrikeKey]
+      : strategy.params.map((p) => p.key).filter((k) => /^K/i.test(k));
+    const keys = params.S0 !== undefined ? ["S0", ...strikeKeys] : strikeKeys;
+    return {
+      stats: { ...result, displayRange: [lo, hi] as [number, number] },
+      markers: [...new Set(keys)].filter((k) => params[k] !== undefined).map((k) => ({ value: params[k], label: k })),
+    };
+  }, [strategy]);
 
   return (
     <div>
@@ -346,6 +350,37 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
         <p className="mt-3 max-w-3xl text-lg text-[#9aa3b2]">{strategy.content.summary}</p>
       </header>
 
+      <section className="mb-8 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
+        <div className="mx-auto max-w-3xl">
+          <StaticPayoffDiagram
+            curve={stats.curve}
+            breakevens={stats.breakevens}
+            markers={markers}
+            maxProfit={stats.maxProfit}
+            maxLoss={stats.maxLoss}
+            title={strategy.name}
+          />
+        </div>
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <StatTile label="Max profit" value={stats.maxProfit} tone="good" />
+          <StatTile label="Max loss" value={stats.maxLoss} tone="critical" />
+          <StatTile
+            label="Breakeven"
+            value={stats.breakevens.length === 0 ? "—" : stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")}
+            tone="neutral"
+          />
+          <StatTile label="Legs" value={String(strategy.legCount)} tone="neutral" />
+        </div>
+        <p className="mt-3 text-xs text-[#898781]">
+          Drawn with the example numbers in the scenario below. To try your own, use the{" "}
+          <Link to="/practice/options-payoff-simulator" className="text-[#7c6cff] hover:underline">
+            Options Payoff Simulator
+          </Link>
+          .
+        </p>
+      </section>
+
       <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <InfoCard title="When to use it" text={strategy.content.whenToUse} />
         <InfoCard title="Why use it" text={strategy.content.whyUse} />
@@ -357,46 +392,7 @@ function StrategyLessonBody({ lesson }: { lesson: Extract<LessonDetail, { kind: 
         <p className="leading-relaxed text-[#e6e8ec]">{strategy.content.scenario}</p>
       </section>
 
-      <section className="mb-6">
-        <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Try it yourself</h3>
-        <ParamControls
-          params={strategy.params}
-          values={params}
-          onChange={(key, value) => setParams((prev) => ({ ...prev, [key]: value }))}
-          onReset={() => setParams(defaultsFor(strategy.params))}
-        />
-      </section>
-
-      <section className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <StatTile label="Max profit" value={stats.maxProfit} tone="good" />
-        <StatTile label="Max loss" value={stats.maxLoss} tone="critical" />
-        <StatTile
-          label="Breakeven"
-          value={stats.breakevens.length === 0 ? "—" : stats.breakevens.map((b) => `$${b.toFixed(2)}`).join(" / ")}
-          tone="neutral"
-        />
-        <StatTile label="Legs" value={String(strategy.legCount)} tone="neutral" />
-      </section>
-
-      <section className="mb-10 rounded-xl border border-[#2a3040] bg-[#141821] card-glow p-5">
-        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Payoff at expiration</h3>
-        <PayoffChart
-          curve={stats.curve}
-          breakevens={stats.breakevens.filter((b) => b >= stats.displayRange[0] && b <= stats.displayRange[1])}
-          currentPrice={currentPrice}
-        />
-      </section>
-
-      <div className="mb-6">
-        <FormulaReference strategy={strategy} />
-      </div>
-
-      <StrategyKnowledgeCheck
-        lessonSlug={lesson.strategy.slug}
-        strategy={strategy}
-        practiceParams={lesson.practiceParams}
-        questions={lesson.questions}
-      />
+      <ConceptQuiz lessonSlug={strategy.slug} questions={lesson.quiz} />
     </div>
   );
 }

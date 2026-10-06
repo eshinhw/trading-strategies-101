@@ -9,24 +9,71 @@ export const modules: Module[] = [
     courseSlug: "options",
     title: "Options Basics",
     description:
-      "The vocabulary and mental models every strategy in this course leans on: what an option is, moneyness, reading a payoff diagram, debit vs. credit, and the 'legs' way of thinking about strategies.",
+      "What an option is — a right without an obligation, split into calls and puts, buyers and sellers — why options exist, and the moneyness vocabulary (in, at, and out of the money) used throughout the course.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "concept-what-is-an-option",
+      "concept-why-options-exist",
       "concept-moneyness",
+    ],
+  },
+  {
+    slug: "options-applications",
+    courseSlug: "options",
+    title: "Options Applications & Pricing",
+    description:
+      "How options are traded on exchanges, the three main ways investors use them, how to read a payoff diagram and tell debit from credit trades, how legs combine into strategies, and how an option's price is built from intrinsic and time value.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "concept-how-options-are-traded",
+      "concept-how-investors-use-options",
       "concept-reading-a-payoff-diagram",
       "concept-debit-vs-credit",
       "concept-legs-and-combinations",
+      "concept-how-options-are-priced",
+    ],
+  },
+  {
+    slug: "options-greeks",
+    courseSlug: "options",
+    title: "Options Greeks Introduction",
+    description:
+      "The Greeks — delta, gamma, theta, vega, and rho — each isolating how an option's price responds to one input: the stock price, how that sensitivity changes, time, volatility, and interest rates.",
+    order: 3,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "greeks-introduction",
+      "greeks-delta",
+      "greeks-gamma",
+      "greeks-theta",
+      "greeks-vega",
+      "greeks-rho",
+    ],
+  },
+  {
+    slug: "single-leg-strategies",
+    courseSlug: "options",
+    title: "Single-Leg Strategies",
+    description:
+      "The simplest strategies and the building blocks of every other one: buying or selling a single call or put.",
+    order: 4,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: [
+      "long-call",
+      "short-call",
+      "long-put",
+      "short-put",
     ],
   },
   {
     slug: "income-strategies",
     courseSlug: "options",
-    title: "Income Strategies",
+    title: "Stock & Option Strategies",
     description:
-      "Strategies built around an existing (or hypothetical) stock position, designed to generate recurring premium income: covered calls, covered puts, protective hedges, and the collar.",
-    order: 2,
+      "Strategies that pair an option with a stock position: covered calls and puts to generate income, protective puts and calls to hedge, and the collar that combines the two.",
+    order: 5,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "covered-call",
@@ -34,8 +81,6 @@ export const modules: Module[] = [
       "protective-put",
       "protective-call",
       "collar",
-      "covered-short-straddle",
-      "covered-short-strangle",
     ],
   },
   {
@@ -44,7 +89,7 @@ export const modules: Module[] = [
     title: "Vertical Spreads",
     description:
       "The core building block for most of the rest of this course: buying one option and selling another at a different strike, same expiration, to define your risk in a directional bet.",
-    order: 3,
+    order: 6,
     prerequisiteModuleSlugs: [],
     lessonSlugs: ["bull-call-spread", "bull-put-spread", "bear-call-spread", "bear-put-spread"],
   },
@@ -53,10 +98,19 @@ export const modules: Module[] = [
     courseSlug: "options",
     title: "Straddles & Strangles",
     description:
-      "Non-directional strategies that bet on how much the stock moves rather than which way: long versions bet on a big move, short versions bet on the stock staying put.",
-    order: 6,
+      "Non-directional strategies that bet on how much the stock moves rather than which way: long versions bet on a big move, short versions bet on the stock staying put, with covered versions that sell the straddle or strangle against stock you own.",
+    order: 7,
     prerequisiteModuleSlugs: [],
-    lessonSlugs: ["long-straddle", "long-strangle", "long-guts", "short-straddle", "short-strangle", "short-guts"],
+    lessonSlugs: [
+      "long-straddle",
+      "long-strangle",
+      "long-guts",
+      "short-straddle",
+      "short-strangle",
+      "short-guts",
+      "covered-short-straddle",
+      "covered-short-strangle",
+    ],
   },
   {
     slug: "synthetics-and-combos",
@@ -64,7 +118,7 @@ export const modules: Module[] = [
     title: "Synthetics & Combos",
     description:
       "Using options to replicate a stock position (synthetic forwards), cheaper variations of that idea (combos), and a strategy that isolates a pure, near risk-free payoff (the box).",
-    order: 4,
+    order: 8,
     prerequisiteModuleSlugs: [],
     lessonSlugs: ["long-synthetic-forward", "short-synthetic-forward", "long-combo", "short-combo", "long-box"],
   },
@@ -74,7 +128,7 @@ export const modules: Module[] = [
     title: "Ladders",
     description:
       "What happens when you finance a vertical spread with an extra short option — cheaper entry, but a new risk that shows up if the stock moves too far. Also covers adjusting a losing spread into a ladder.",
-    order: 5,
+    order: 11,
     prerequisiteModuleSlugs: [],
     lessonSlugs: ["bull-call-ladder", "bull-put-ladder", "bear-call-ladder", "bear-put-ladder"],
   },
@@ -84,7 +138,7 @@ export const modules: Module[] = [
     title: "Butterflies",
     description:
       "Three-strike, low-cost bets on the stock pinning near a specific price (or, in the short versions, on it moving away from one) — built from two vertical spreads stacked against each other.",
-    order: 9,
+    order: 13,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "long-call-butterfly",
@@ -103,7 +157,7 @@ export const modules: Module[] = [
     title: "Calendar & Diagonal Spreads",
     description:
       "Strategies that span two different expirations, profiting from the near-term option losing time value faster than the longer-dated one. Introduces Black-Scholes valuation for the still-alive leg.",
-    order: 11,
+    order: 15,
     prerequisiteModuleSlugs: [],
     lessonSlugs: ["calendar-call-spread", "calendar-put-spread", "diagonal-call-spread", "diagonal-put-spread"],
   },
@@ -113,7 +167,7 @@ export const modules: Module[] = [
     title: "Synthetic Straddles",
     description:
       "The same straddle payoff shapes, rebuilt from a stock position plus two same-type options instead of a call and a put — useful when you already hold the stock position.",
-    order: 7,
+    order: 9,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "long-call-synthetic-straddle",
@@ -128,7 +182,7 @@ export const modules: Module[] = [
     title: "Strap, Strip & Ratio Spreads",
     description:
       "Directionally-biased straddles (strap/strip), and spreads built with unequal numbers of contracts on each leg (ratio backspreads and ratio spreads) — where the leg count itself becomes a lever.",
-    order: 8,
+    order: 10,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "strap",
@@ -146,7 +200,7 @@ export const modules: Module[] = [
     title: "Condors",
     description:
       "A butterfly with its middle strike split into two — wider, more forgiving range-bound (or breakout) bets, at the cost of a smaller maximum payoff.",
-    order: 10,
+    order: 14,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "long-call-condor",
@@ -628,15 +682,24 @@ export const modules: Module[] = [
     courseSlug: "real-estate",
     title: "Real Estate Basics",
     description:
-      "What real estate investing actually is (direct vs. indirect, income vs. appreciation), REITs, how property value is actually determined, and the leverage that's central to how real estate is typically bought.",
+      "What real estate investing is — owning property directly or through a fund for income and changes in value — why investors choose it, and how REITs let ordinary investors buy real estate like a stock.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "real-estate-what-is-real-estate-investing",
+      "real-estate-why-invest-in-real-estate",
       "real-estate-reits",
-      "real-estate-how-value-is-determined",
-      "real-estate-leverage",
     ],
+  },
+  {
+    slug: "real-estate-applications-and-pricing",
+    courseSlug: "real-estate",
+    title: "Real Estate Applications & Pricing",
+    description:
+      "How property is valued — income, comparable sales, and replacement cost — and how debt financing amplifies both gains and losses.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["real-estate-how-value-is-determined", "real-estate-leverage"],
   },
   {
     slug: "real-estate-diversification",
@@ -644,7 +707,7 @@ export const modules: Module[] = [
     title: "Real Estate Diversification",
     description:
       "How real estate fits into a broader portfolio, and the different dimensions — property type, region, and economic driver — for diversifying within a real estate allocation itself.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "real-estate-mixed-asset-diversification",
@@ -660,7 +723,7 @@ export const modules: Module[] = [
     title: "Return Drivers and Active Strategies",
     description:
       "How real estate returns behave over time and can be actively traded — regional momentum, inflation hedging, and a hands-on fix-and-flip strategy.",
-    order: 3,
+    order: 4,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "real-estate-momentum-regional-approach",
@@ -673,15 +736,23 @@ export const modules: Module[] = [
     courseSlug: "structured-assets",
     title: "Structured Assets Basics",
     description:
-      "The building blocks every structured-credit strategy leans on: what securitization and tranching actually are, how CDS and credit indices transfer default risk, and how mortgage-backed securities work.",
+      "What a structured asset is — many loans pooled and repackaged into new securities — and why securitization exists: freeing lenders' capital, spreading risk, and letting investors choose their level of risk.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "structured-assets-what-is-a-structured-asset",
-      "structured-assets-tranches-and-the-waterfall",
-      "structured-assets-credit-default-swaps-and-indices",
-      "structured-assets-mortgage-backed-securities",
+      "structured-assets-why-securitization-exists",
     ],
+  },
+  {
+    slug: "structured-assets-applications-and-pricing",
+    courseSlug: "structured-assets",
+    title: "Structured Assets Applications & Pricing",
+    description:
+      "How structured deals work: splitting cash flows into tranches and paying them through the waterfall, how credit default swaps and credit indices transfer credit risk, and how mortgage-backed securities carry prepayment risk.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["structured-assets-tranches-and-the-waterfall", "structured-assets-credit-default-swaps-and-indices", "structured-assets-mortgage-backed-securities"],
   },
   {
     slug: "structured-assets-strategies",
@@ -689,7 +760,7 @@ export const modules: Module[] = [
     title: "Structured Assets Strategies",
     description:
       "Carry trades across the tranche capital structure, hedged with the index, another tranche, or single-name CDS; betting on the shape of the credit curve; and trading MBS on prepayment and relative value.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "structured-assets-carry-equity-tranche-index-hedging",
@@ -705,15 +776,23 @@ export const modules: Module[] = [
     courseSlug: "convertibles",
     title: "Convertibles Basics",
     description:
-      "What a convertible bond actually is, the conversion ratio/price/value mechanics, how its price behaves between a bond floor and the stock's own value, and why issuers and investors both reach for them.",
+      "What a convertible bond is — a bond that can be converted into shares — and why companies issue them and investors buy them.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "convertibles-what-is-a-convertible-bond",
-      "convertibles-conversion-ratio-and-price",
-      "convertibles-how-price-behaves",
       "convertibles-why-issue-and-buy",
     ],
+  },
+  {
+    slug: "convertibles-applications-and-pricing",
+    courseSlug: "convertibles",
+    title: "Convertibles Applications & Pricing",
+    description:
+      "How a convertible is defined and priced: the conversion ratio and conversion price, and how its price traces out a curve between a bond floor and the stock's own value.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["convertibles-conversion-ratio-and-price", "convertibles-how-price-behaves"],
   },
   {
     slug: "convertibles-strategies",
@@ -721,7 +800,7 @@ export const modules: Module[] = [
     title: "Convertibles Strategies",
     description:
       "Buying a convertible and delta-hedging with the underlying stock to harvest coupon and convexity, and a relative-value approach that trades convertibles on option-adjusted spread.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: ["convertible-arbitrage", "convertible-option-adjusted-spread"],
   },
@@ -730,15 +809,23 @@ export const modules: Module[] = [
     courseSlug: "cash",
     title: "Cash Basics",
     description:
-      "Cash as a real portfolio choice, the money market instruments that let it earn a modest return, how collateralized short-term lending works, and the regulatory backdrop — AML rules and usury law — behind this module's strategies.",
+      "Why holding cash is a real investment choice with its own safety, liquidity, and yield trade-off, and why money and short-term cash markets exist.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "cash-what-is-cash",
-      "cash-money-market-instruments",
-      "cash-collateralized-lending",
-      "cash-financial-regulation",
+      "cash-why-money-and-cash-markets-exist",
     ],
+  },
+  {
+    slug: "cash-applications-and-pricing",
+    courseSlug: "cash",
+    title: "Cash Applications & Pricing",
+    description:
+      "The instruments that let cash earn a modest return safely — Treasury bills, commercial paper, CDs, and money market funds — how collateral makes short-term borrowing cheaper, and the regulation that polices cash businesses and lending.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["cash-money-market-instruments", "cash-collateralized-lending", "cash-financial-regulation"],
   },
   {
     slug: "cash-strategies",
@@ -746,7 +833,7 @@ export const modules: Module[] = [
     title: "Cash Strategies",
     description:
       "Five real cash-based practices from the book's own table of contents, some entirely legitimate (repo, liquidity management, pawnbroking) and some illegal (money laundering, loan sharking) — covered for regulatory and historical context, not as guidance.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "cash-money-laundering",
@@ -761,15 +848,23 @@ export const modules: Module[] = [
     courseSlug: "cryptocurrencies",
     title: "Cryptocurrencies Basics",
     description:
-      "What a cryptocurrency and blockchain actually are, how crypto markets trade and get custodied, the volatility and risk layered on top of that, and a primer on machine learning in trading that sets up this module's two strategies.",
+      "What a cryptocurrency and a blockchain are, and why they were created — payments and record-keeping without a trusted central intermediary.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "crypto-what-is-cryptocurrency",
-      "crypto-how-crypto-markets-trade",
-      "crypto-volatility-and-risk",
-      "crypto-machine-learning-in-trading",
+      "crypto-why-cryptocurrencies-exist",
     ],
+  },
+  {
+    slug: "crypto-applications-and-pricing",
+    courseSlug: "cryptocurrencies",
+    title: "Cryptocurrencies Applications & Pricing",
+    description:
+      "How crypto markets trade around the clock across fragmented exchanges, why prices swing so widely and what other risks sit on top, and how machine-learning models are used to generate trading signals.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["crypto-how-crypto-markets-trade", "crypto-volatility-and-risk", "crypto-machine-learning-in-trading"],
   },
   {
     slug: "crypto-strategies",
@@ -777,7 +872,7 @@ export const modules: Module[] = [
     title: "Cryptocurrencies Strategies",
     description:
       "Two machine-learning approaches to crypto trading: a neural network learning non-linear patterns in price and volume data, and a Naive Bayes classifier turning social-media sentiment into a trading signal.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: ["crypto-artificial-neural-network", "crypto-sentiment-analysis-naive-bayes"],
   },
@@ -786,15 +881,23 @@ export const modules: Module[] = [
     courseSlug: "global-macro",
     title: "Global Macro Basics",
     description:
-      "What top-down, cross-asset macro investing actually is, the economic indicators and central-bank policy tools that drive a macro view, and how that view gets translated into a specific trade before this module's four strategies.",
+      "What global macro investing is — a top-down approach that starts from a view on growth, inflation, and policy — and why macro forces move every asset class at once.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "macro-what-is-global-macro",
-      "macro-key-economic-indicators",
-      "macro-central-banks-and-monetary-policy",
-      "macro-translating-a-view-into-a-trade",
+      "macro-why-macro-forces-matter",
     ],
+  },
+  {
+    slug: "macro-applications-and-pricing",
+    courseSlug: "global-macro",
+    title: "Global Macro Applications & Pricing",
+    description:
+      "The data macro investors watch, how central bank decisions ripple through currencies, bonds, and equities, and how a single macro view gets turned into a specific trade.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["macro-key-economic-indicators", "macro-central-banks-and-monetary-policy", "macro-translating-a-view-into-a-trade"],
   },
   {
     slug: "macro-strategies",
@@ -802,7 +905,7 @@ export const modules: Module[] = [
     title: "Global Macro Strategies",
     description:
       "Trading confirmed macro trends with momentum, hedging inflation across bonds/commodities/swaps, positioning across countries' government bond markets, and trading the immediate surprise around scheduled economic announcements.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "macro-fundamental-macro-momentum",
@@ -816,15 +919,23 @@ export const modules: Module[] = [
     courseSlug: "distressed-assets",
     title: "Distressed Assets Basics",
     description:
-      "What distressed debt is, how bankruptcy and reorganization work, why priority of claims in the capital structure determines recovery, and the passive-to-active spectrum of distressed investing approaches.",
+      "What distressed debt is — debt trading at a steep discount because of default risk — and why distress creates opportunity.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "distressed-what-is-distressed-debt",
-      "distressed-bankruptcy-and-reorganization",
-      "distressed-capital-structure-and-priority",
-      "distressed-investing-approaches",
+      "distressed-why-distress-creates-opportunity",
     ],
+  },
+  {
+    slug: "distressed-applications-and-pricing",
+    courseSlug: "distressed-assets",
+    title: "Distressed Assets Applications & Pricing",
+    description:
+      "How bankruptcy and reorganization work, how a claim's place in the capital structure determines what it recovers, and the range of approaches from passive holding to actively shaping the reorganization.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["distressed-bankruptcy-and-reorganization", "distressed-capital-structure-and-priority", "distressed-investing-approaches"],
   },
   {
     slug: "distressed-strategies",
@@ -832,7 +943,7 @@ export const modules: Module[] = [
     title: "Distressed Assets Strategies",
     description:
       "Seven approaches spanning passive buy-and-hold, active creditor-committee influence, shaping the reorganization plan itself, diversified debt sourcing, loan-to-own control bids, and the well-documented distress risk puzzle and how to manage around it.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "distressed-buying-and-holding-distressed-debt",
@@ -849,15 +960,23 @@ export const modules: Module[] = [
     courseSlug: "tax-arbitrage",
     title: "Tax Arbitrage Basics",
     description:
-      "How investment income is taxed differently by type, investor, and jurisdiction, why municipal bonds trade tax-exempt, how cross-border withholding tax and treaties work, and the general legal principle behind every strategy in this module.",
+      "The basic idea behind tax arbitrage — legally capturing a tax-treatment gap between investors, instruments, or jurisdictions — and how interest, dividends, and capital gains are taxed differently.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
-      "tax-taxation-of-investment-income",
-      "tax-municipal-bonds-and-tax-exempt-income",
-      "tax-cross-border-taxation-and-withholding-tax",
       "tax-the-basic-idea-of-tax-arbitrage",
+      "tax-taxation-of-investment-income",
     ],
+  },
+  {
+    slug: "tax-applications-and-pricing",
+    courseSlug: "tax-arbitrage",
+    title: "Tax Arbitrage Applications & Pricing",
+    description:
+      "How tax treatment shows up in prices: why municipal bond interest is exempt and what that does to equilibrium yield, and how withholding tax and treaties change net-of-tax outcomes across borders.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["tax-municipal-bonds-and-tax-exempt-income", "tax-cross-border-taxation-and-withholding-tax"],
   },
   {
     slug: "tax-strategies",
@@ -865,7 +984,7 @@ export const modules: Module[] = [
     title: "Tax Arbitrage Strategies",
     description:
       "Trading municipal bond yield gaps against their taxable-equivalent fair value, structuring cross-border investments through treaty-favorable jurisdictions, and using options to replicate foreign-security exposure under more favorable tax treatment.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "tax-municipal-bond-tax-arbitrage",
@@ -878,15 +997,23 @@ export const modules: Module[] = [
     courseSlug: "miscellaneous-assets",
     title: "Miscellaneous Assets Basics",
     description:
-      "What makes an instrument a niche, hedging-first asset class, breakeven inflation as read from inflation-linked bonds, how weather derivatives work, and the general logic of trading a spread rather than a price.",
+      "What makes an instrument miscellaneous — built to hedge a specific real-world risk — and why niche risks like weather, inflation, and energy margins get their own traded instruments.",
     order: 1,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "misc-alternative-and-niche-asset-classes",
-      "misc-inflation-linked-instruments",
-      "misc-weather-derivatives",
-      "misc-spread-and-basis-trading",
+      "misc-why-niche-risks-get-traded",
     ],
+  },
+  {
+    slug: "misc-assets-applications-and-pricing",
+    courseSlug: "miscellaneous-assets",
+    title: "Miscellaneous Assets Applications & Pricing",
+    description:
+      "The building blocks behind the course's strategies: breakeven inflation from inflation-linked bonds, weather derivatives that pay on a weather index, and trading the gap between two related prices.",
+    order: 2,
+    prerequisiteModuleSlugs: [],
+    lessonSlugs: ["misc-inflation-linked-instruments", "misc-weather-derivatives", "misc-spread-and-basis-trading"],
   },
   {
     slug: "misc-assets-strategies",
@@ -894,7 +1021,7 @@ export const modules: Module[] = [
     title: "Miscellaneous Assets Strategies",
     description:
       "Trading inflation swaps directly, the TIPS-Treasury breakeven-inflation basis trade financed via repo, sizing a weather hedge to a business's actual demand exposure, and locking in a power generator's spark-spread margin.",
-    order: 2,
+    order: 3,
     prerequisiteModuleSlugs: [],
     lessonSlugs: [
       "misc-inflation-hedging-inflation-swaps",

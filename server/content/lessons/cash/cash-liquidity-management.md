@@ -14,7 +14,7 @@ Good liquidity management starts with forecasting: projecting expected cash infl
 
 ## Laddering and Sweep Accounts
 
-Two common techniques keep idle cash working without sacrificing access to it: laddering staggers the maturities of short-term instruments (like the T-bills and CDs covered earlier in this module) so something is always coming due, while a sweep account automatically moves cash above a set threshold into an interest-bearing instrument overnight and sweeps it back the next morning.
+Two common techniques keep idle cash working without sacrificing access to it: laddering staggers the maturities of short-term instruments (like the T-bills and CDs covered earlier in this course) so something is always coming due, while a sweep account automatically moves cash above a set threshold into an interest-bearing instrument overnight and sweeps it back the next morning.
 
 ## The Cost of Getting It Wrong
 

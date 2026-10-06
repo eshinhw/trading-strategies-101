@@ -14,7 +14,7 @@ The party selling securities and receiving cash needs short-term funding — tha
 
 ## The Repo Rate and Haircuts
 
-The implicit interest rate on a repo, the repo rate, is generally very low, since the loan is fully collateralized by high-quality securities. As with the collateralized lending covered earlier in this module, a haircut is also typically applied — the cash advanced is a bit less than the collateral's market value, adding a further buffer for the lender.
+The implicit interest rate on a repo, the repo rate, is generally very low, since the loan is fully collateralized by high-quality securities. As with the collateralized lending covered earlier in this course, a haircut is also typically applied — the cash advanced is a bit less than the collateral's market value, adding a further buffer for the lender.
 
 ## Why the Repo Market Matters
 

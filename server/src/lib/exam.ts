@@ -1,16 +1,5 @@
-import { conceptLessons, resolveLesson, modulesForCourse } from "../data/curriculum/index.js";
-import { optionsStrategies } from "../data/options/index.js";
-import { generatePracticeParams } from "../data/curriculum/practiceParams.js";
-import { computePayoffStats } from "../engine/payoff.js";
-import {
-  buildStrategyQuestions,
-  numericMatches,
-  fmtAnswer,
-  OUTLOOK_CHOICES,
-  NET_POSITION_CHOICES,
-  PASS_THRESHOLD,
-} from "./grading.js";
-import type { NumericAnswer } from "./grading.js";
+import { resolveLesson, modulesForCourse, quizForLesson } from "../data/curriculum/index.js";
+import { PASS_THRESHOLD } from "./grading.js";
 
 const EXAMINABLE_COURSES = new Set([
   "options",
@@ -63,14 +52,9 @@ export interface ExamQuestion {
   moduleTitle: string;
   lessonSlug: string;
   lessonTitle: string;
-  kind: "concept" | "strategy";
   questionId: string;
   prompt: string;
-  type: "mcq" | "numeric-or-unlimited";
-  choices?: string[];
-  /** strategy questions only — the scenario shown, and the labels to display it */
-  practiceParams?: Record<string, number>;
-  paramDefs?: { key: string; label: string }[];
+  choices: string[];
 }
 
 export function isExaminableCourse(courseSlug: string): boolean {
@@ -101,44 +85,19 @@ export function generateExamQuestions(courseSlug: string): ExamQuestion[] {
     const resolved = resolveLesson(lessonSlug);
     if (!resolved) return;
 
-    const desiredCount = questionBudgetFor(i, sampledLessons.length);
-
-    if (resolved.kind === "concept") {
-      const picked = shuffle(resolved.lesson.quiz).slice(0, desiredCount);
-      for (const q of picked) {
-        questions.push({
-          id: `${lessonSlug}:${q.id}`,
-          moduleSlug,
-          moduleTitle,
-          lessonSlug,
-          lessonTitle: resolved.lesson.title,
-          kind: "concept",
-          questionId: q.id,
-          prompt: q.prompt,
-          type: "mcq",
-          choices: q.choices,
-        });
-      }
-    } else {
-      const strategy = resolved.strategy;
-      const practiceParams = generatePracticeParams(strategy);
-      const picked = shuffle(buildStrategyQuestions(strategy)).slice(0, desiredCount);
-      for (const q of picked) {
-        questions.push({
-          id: `${lessonSlug}:${q.id}`,
-          moduleSlug,
-          moduleTitle,
-          lessonSlug,
-          lessonTitle: strategy.name,
-          kind: "strategy",
-          questionId: q.id,
-          prompt: q.prompt,
-          type: q.type,
-          choices: q.choices ? [...q.choices] : undefined,
-          practiceParams,
-          paramDefs: strategy.params.map((p) => ({ key: p.key, label: p.label })),
-        });
-      }
+    const lessonTitle = resolved.kind === "concept" ? resolved.lesson.title : resolved.strategy.name;
+    const picked = shuffle(quizForLesson(lessonSlug)).slice(0, questionBudgetFor(i, sampledLessons.length));
+    for (const q of picked) {
+      questions.push({
+        id: `${lessonSlug}:${q.id}`,
+        moduleSlug,
+        moduleTitle,
+        lessonSlug,
+        lessonTitle,
+        questionId: q.id,
+        prompt: q.prompt,
+        choices: q.choices,
+      });
     }
   });
 
@@ -150,12 +109,9 @@ export interface ExamAnswerSubmission {
   lessonSlug: string;
   moduleTitle: string;
   lessonTitle: string;
-  kind: "concept" | "strategy";
   questionId: string;
   prompt: string;
   choiceIndex?: number;
-  numeric?: NumericAnswer;
-  practiceParams?: Record<string, number>;
 }
 
 export interface ExamQuestionResult {
@@ -184,33 +140,14 @@ function gradeOne(a: ExamAnswerSubmission): ExamQuestionResult {
     prompt: a.prompt,
   };
 
-  if (a.kind === "concept") {
-    const lesson = conceptLessons.find((l) => l.slug === a.lessonSlug);
-    const q = lesson?.quiz.find((qq) => qq.id === a.questionId);
-    if (!q) return { ...base, correct: false, correctAnswer: "—" };
-    return {
-      ...base,
-      correct: a.choiceIndex === q.correctIndex,
-      correctAnswer: q.choices[q.correctIndex],
-      explanation: q.explanation,
-    };
-  }
-
-  const strategy = optionsStrategies.find((s) => s.slug === a.lessonSlug);
-  if (!strategy || !a.practiceParams) return { ...base, correct: false, correctAnswer: "—" };
-
-  if (a.questionId === "maxProfit" || a.questionId === "maxLoss") {
-    const stats = computePayoffStats(strategy, a.practiceParams);
-    const correctVal = a.questionId === "maxProfit" ? stats.maxProfit : stats.maxLoss;
-    return { ...base, correct: numericMatches(correctVal, a.numeric), correctAnswer: fmtAnswer(correctVal) };
-  }
-  if (a.questionId === "outlook") {
-    const correctIndex = OUTLOOK_CHOICES.indexOf(strategy.outlook);
-    return { ...base, correct: a.choiceIndex === correctIndex, correctAnswer: OUTLOOK_CHOICES[correctIndex] };
-  }
-  // netPosition
-  const correctIndex = strategy.netPosition === "debit" ? 0 : 1;
-  return { ...base, correct: a.choiceIndex === correctIndex, correctAnswer: NET_POSITION_CHOICES[correctIndex] };
+  const q = quizForLesson(a.lessonSlug).find((qq) => qq.id === a.questionId);
+  if (!q) return { ...base, correct: false, correctAnswer: "—" };
+  return {
+    ...base,
+    correct: a.choiceIndex === q.correctIndex,
+    correctAnswer: q.choices[q.correctIndex],
+    explanation: q.explanation,
+  };
 }
 
 export function gradeExamSubmission(answers: ExamAnswerSubmission[]): ExamGradeResult {

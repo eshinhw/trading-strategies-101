@@ -6,7 +6,7 @@ summary: What makes an instrument "miscellaneous" rather than fitting a standard
 
 ## Why a Grab-Bag Category Exists
 
-Most of this curriculum organizes strategies by a clear underlying asset class — stocks, bonds, currencies. Some instruments don't fit that mold cleanly at all, because they were built to solve a narrow, specific problem rather than to represent a standard, broadly tradable asset — this module's four strategies are exactly that kind of instrument.
+Most of this curriculum organizes strategies by a clear underlying asset class — stocks, bonds, currencies. Some instruments don't fit that mold cleanly at all, because they were built to solve a narrow, specific problem rather than to represent a standard, broadly tradable asset — this course's four strategies are exactly that kind of instrument.
 
 ## Built for Hedging First, Trading Second
 
@@ -18,20 +18,20 @@ Because these instruments serve a narrower base of natural users than a stock or
 
 ## The Common Thread Across This Module
 
-Despite fitting no single asset class, this module's four strategies share underlying concepts worth learning together: breakeven inflation, weather derivatives, and basis or spread trading — each covered in the next three lessons — before applying all three, in different combinations, to the strategies ahead.
+Despite fitting no single asset class, this course's four strategies share underlying concepts worth learning together: breakeven inflation, weather derivatives, and basis or spread trading — each covered in the lessons that follow — before applying all three, in different combinations, to the strategies ahead.
 
 ## In Practice
 
-A power plant operator doesn't wake up wanting to speculate on natural gas prices — they want to lock in their generation margin against the risk that gas costs rise faster than the price they can sell electricity for. The spark-spread instrument covered later in this module exists specifically to serve that real operational need, and only secondarily became something traders also use to express a pure view on that same margin.
+A power plant operator doesn't wake up wanting to speculate on natural gas prices — they want to lock in their generation margin against the risk that gas costs rise faster than the price they can sell electricity for. The spark-spread instrument covered later in this course exists specifically to serve that real operational need, and only secondarily became something traders also use to express a pure view on that same margin.
 
 # Quiz
 
-1. Why don't this module's instruments fit neatly into a standard asset-class category?
+1. Why don't this course's instruments fit neatly into a standard asset-class category?
    - [x] They were built to solve a specific, narrow real-world problem rather than to represent a standard, broadly tradable asset
    - They are all technically stocks, just mislabeled
    - There is no real reason — the categorization is entirely arbitrary
    - They are all technically bonds issued by governments
-   > The defining feature of this module's instruments is their origin in solving a specific hedging need, not fitting a conventional asset-class mold.
+   > The defining feature of this course's instruments is their origin in solving a specific hedging need, not fitting a conventional asset-class mold.
 
 2. What typically comes first in the life of a niche instrument like these — hedging or trading?
    - [x] Hedging a specific real-world risk usually comes first, with speculative trading following afterward
@@ -47,12 +47,12 @@ A power plant operator doesn't wake up wanting to speculate on natural gas price
    - Thinner liquidity applies only to municipal bonds, never to niche instruments
    > A smaller pool of natural participants translates directly into generally thinner liquidity compared to broadly held, standardized instruments.
 
-4. What three underlying concepts does this lesson say the rest of the Basics module will cover?
+4. What three underlying concepts does this lesson say the lessons that follow will cover?
    - [x] Breakeven inflation, weather derivatives, and basis or spread trading
    - Stock valuation, bond duration, and currency parity
-   - This module covers no underlying concepts beyond the four strategies themselves
+   - This course covers no underlying concepts beyond the four strategies themselves
    - Options pricing, futures margin, and credit default swaps
-   > These three concepts are the shared foundation the next three lessons build, feeding directly into the four strategies that follow.
+   > These three concepts are the shared foundation the lessons that follow build, feeding directly into the four strategies that follow.
 
 5. In the power plant example, why does the spark-spread instrument exist in the first place?
    - [x] To let the operator lock in its generation margin against the risk that fuel costs rise faster than electricity prices

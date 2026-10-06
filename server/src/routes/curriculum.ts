@@ -8,10 +8,9 @@ import {
   computeModuleStatuses,
   allLessonSlugs,
   isPaperStrategy,
+  quizForLesson,
 } from "../data/curriculum/index.js";
-import { generatePracticeParams } from "../data/curriculum/practiceParams.js";
-import { buildStrategyQuestions, gradeStrategySubmission, gradeConceptSubmission } from "../lib/grading.js";
-import type { StrategySubmission } from "../lib/grading.js";
+import { gradeQuizSubmission } from "../lib/grading.js";
 import { completedLessonSlugs } from "../lib/progress.js";
 import { optionsStrategies } from "../data/options/index.js";
 
@@ -164,15 +163,7 @@ router.get("/lessons/:slug", async (req, res) => {
     return res.json({ ...base, kind, ...rest });
   }
 
-  const practiceParams = generatePracticeParams(resolved.strategy);
-  const questions = buildStrategyQuestions(resolved.strategy);
-  res.json({
-    ...base,
-    kind: "strategy",
-    strategy: resolved.strategy,
-    practiceParams,
-    questions,
-  });
+  res.json({ ...base, kind: "strategy", strategy: resolved.strategy, quiz: quizForLesson(slug) });
 });
 
 router.post("/lessons/:slug/submit", requireAuth, async (req, res) => {
@@ -180,10 +171,7 @@ router.post("/lessons/:slug/submit", requireAuth, async (req, res) => {
   const resolved = resolveLesson(slug);
   if (!resolved) return res.status(404).json({ error: "Lesson not found" });
 
-  const grade =
-    resolved.kind === "concept"
-      ? gradeConceptSubmission(resolved.lesson, req.body?.answers ?? {})
-      : gradeStrategySubmission(resolved.strategy, req.body as StrategySubmission);
+  const grade = gradeQuizSubmission(quizForLesson(slug), req.body?.answers ?? {});
 
   const existing = await prisma.lessonProgress.findUnique({
     where: { userId_lessonSlug: { userId: req.userId!, lessonSlug: slug } },

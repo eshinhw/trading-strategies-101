@@ -70,3 +70,32 @@ $$
 - `# Quiz` must be the last section. Every question needs 2+ choices, exactly one `[x]`, and a `>` explanation.
 - Don't rename a question's id (or reorder quiz questions that use default ids) once learners have
   used the lesson, in case progress is keyed to it.
+
+## Options strategy quizzes
+
+The Options strategy lessons (Long Call, Covered Call, Iron Condor, ...) are defined in code under
+`src/data/options`, but each one's knowledge-check quiz lives here as Markdown, one file per strategy:
+`content/strategy-quizzes/<strategy-slug>.md`.
+
+```markdown
+---
+slug: covered-call
+---
+
+# Quiz
+
+1. Which investor is the best fit for a covered call?
+   - Someone who expects a big rally
+   - [x] Someone who owns the stock and expects it to stay flat or rise only modestly
+   - Someone who expects the stock to crash
+   - Someone who wants unlimited upside
+   > Explanation shown after the learner answers.
+```
+
+- The file name must match the `slug:` line and the strategy's slug. The server refuses to start if a strategy has no
+  quiz file, or if a quiz file has no matching strategy.
+- Questions test the concepts (when to use the strategy, why, how it is built, and what happens in a scenario), not
+  payoff arithmetic. Same question format and rules as a concept lesson's quiz.
+- The Final Quiz for the Options course samples from these questions too.
+- Keep the wrong answers about as long and as specific as the right one, and vary which choice is correct, so the
+  answer can't be guessed from its length or position.

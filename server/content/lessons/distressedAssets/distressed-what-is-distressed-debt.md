@@ -18,7 +18,7 @@ The core opportunity in distressed debt investing is the gap between the price p
 
 ## Why This Isn't Just "Buying Cheap Bonds"
 
-Unlike an ordinary discount bond bought simply because it's cheap, distressed debt requires real analysis of what happens if the company doesn't simply recover on its own — understanding the bankruptcy and reorganization process covered in the next lesson is central to estimating what a distressed claim is actually likely to be worth.
+Unlike an ordinary discount bond bought simply because it's cheap, distressed debt requires real analysis of what happens if the company doesn't simply recover on its own — understanding the bankruptcy and reorganization process covered in the Bankruptcy and Reorganization lesson is central to estimating what a distressed claim is actually likely to be worth.
 
 ## In Practice
 

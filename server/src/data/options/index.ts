@@ -1,4 +1,5 @@
 import type { Strategy } from "../../types.js";
+import { singleLegs } from "./singleLegs.js";
 import { incomeAndHedging } from "./incomeAndHedging.js";
 import { verticalSpreads } from "./verticalSpreads.js";
 import { syntheticsAndCombos } from "./syntheticsAndCombos.js";
@@ -12,6 +13,7 @@ import { condors } from "./condors.js";
 import { seagulls } from "./seagulls.js";
 
 export const optionsStrategies: Strategy[] = [
+  ...singleLegs,
   ...incomeAndHedging,
   ...verticalSpreads,
   ...syntheticsAndCombos,

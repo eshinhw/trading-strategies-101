@@ -1,7 +1,7 @@
 ---
 slug: concept-legs-and-combinations
 title: Legs and Combinations
-summary: The mental model that makes 58 strategies feel like far fewer.
+summary: The mental model that makes dozens of strategies feel like far fewer.
 ---
 
 ## What a Leg Is
@@ -10,15 +10,15 @@ Every strategy in this course — no matter how exotic-sounding — is a combina
 
 ## Combining Simpler Strategies
 
-This matters because it means you don't need to memorize 58 unrelated recipes. A bull call spread is a long call plus a short call. An iron condor is a bull put spread plus a bear call spread, run at the same time. A long straddle is a long call plus a long put at the same strike. Once you can see a complex strategy as 'strategy A plus strategy B,' it stops being intimidating.
+This matters because it means you don't need to memorize dozens of unrelated recipes. A bull call spread is a long call plus a short call. An iron condor is a bull put spread plus a bear call spread, run at the same time. A long straddle is a long call plus a long put at the same strike. Once you can see a complex strategy as 'strategy A plus strategy B,' it stops being intimidating.
 
 ## How This Course Is Ordered
 
-This course's modules are ordered around that idea: simple 2-leg strategies first, then the 3- and 4-leg strategies that are built by combining or adjusting them. When you hit a new strategy, your first move should be to count the legs and ask which simpler strategies (if any) you can already see inside it.
+The strategies in this course are ordered from the simplest to the most advanced. They start with single options, long and short calls and puts, then move to a stock position paired with an option, then to two-leg spreads, and finally to the three- and four-leg strategies built by combining or adjusting those spreads, such as butterflies, condors, and calendar spreads. When you reach a new strategy, your first move should be to count the legs and ask which simpler strategies you can already see inside it.
 
-## Seeing It in the Tool
+## Seeing It in the Simulator
 
-The interactive payoff tool in every strategy lesson is designed to reinforce this: watch how the combined line is really just the sum of what each leg would do on its own.
+The Options Payoff Simulator in the Practice section lets you build a position one leg at a time and watch the combined payoff line, which is really just the sum of what each leg would do on its own.
 
 ## In Practice
 
@@ -54,7 +54,7 @@ This is exactly how professional options traders read an unfamiliar position on 
    - A long stock position plus a short call
    > A long straddle is a long call plus a long put at the same strike — betting on a big move in either direction.
 
-5. What is the interactive payoff tool in each strategy lesson specifically designed to show, according to this lesson?
+5. What does the Options Payoff Simulator in the Practice section let you see, according to this lesson?
    - That every strategy is unique and unrelated to the others
    - [x] How the combined payoff line is really just the sum of what each individual leg would do on its own
    - The historical price of the underlying stock

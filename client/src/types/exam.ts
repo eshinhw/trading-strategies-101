@@ -10,28 +10,19 @@ export interface ExamQuestion {
   moduleTitle: string;
   lessonSlug: string;
   lessonTitle: string;
-  kind: "concept" | "strategy";
   questionId: string;
   prompt: string;
-  type: "mcq" | "numeric-or-unlimited";
-  choices?: string[];
-  practiceParams?: Record<string, number>;
-  paramDefs?: { key: string; label: string }[];
+  choices: string[];
 }
-
-export type ExamNumericAnswer = { unlimited: boolean; text: string };
 
 export interface ExamAnswerSubmission {
   id: string;
   lessonSlug: string;
   moduleTitle: string;
   lessonTitle: string;
-  kind: "concept" | "strategy";
   questionId: string;
   prompt: string;
   choiceIndex?: number;
-  numeric?: { unlimited: boolean; value?: number };
-  practiceParams?: Record<string, number>;
 }
 
 export interface ExamQuestionResult {

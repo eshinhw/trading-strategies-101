@@ -1,7 +1,7 @@
 ---
 slug: misc-spread-and-basis-trading
 title: Spread and Basis Trading
-summary: Trading the gap between two related prices — a spread or basis — rather than either price outright, the shared logic behind several of this module's otherwise very different strategies.
+summary: Trading the gap between two related prices — a spread or basis — rather than either price outright, the shared logic behind several of this course's otherwise very different strategies.
 ---
 
 ## Trading a Gap, Not a Level
@@ -45,7 +45,7 @@ A trader who believes electricity prices will rise faster than natural gas price
    - The total market capitalization of the entire stock market
    - A single company's quarterly earnings figure
    - The nominal face value of a single bond
-   > An input-output margin, like the spark spread covered in the next lesson, is exactly the kind of relationship a spread trade can target.
+   > An input-output margin, like the spark spread covered later in this course, is exactly the kind of relationship a spread trade can target.
 
 4. Why isn't a spread's historical range a hard, reliable boundary?
    - [x] Genuine structural change or shifts in supply and demand can push a spread persistently outside its historical range

@@ -22,7 +22,7 @@ A PMI survey asks purchasing managers at businesses whether conditions (new orde
 
 ## In Practice
 
-A macro desk positioning ahead of a closely watched inflation report will often reduce position sizes beforehand, since a surprise reading, in either direction, can move rate, currency, and equity markets sharply within seconds of release — exactly the kind of event covered directly in this module's strategy on trading economic announcements.
+A macro desk positioning ahead of a closely watched inflation report will often reduce position sizes beforehand, since a surprise reading, in either direction, can move rate, currency, and equity markets sharply within seconds of release — exactly the kind of event covered directly in this course's strategy on trading economic announcements.
 
 # Quiz
 

@@ -18,7 +18,7 @@ Collateral takes many forms depending on the loan: real estate secures a mortgag
 
 ## Short-Term Collateralized Lending in Practice
 
-This same pattern — cash lent against securities as collateral, at a low rate because the loan is fully secured — underlies the repurchase agreement (repo) market covered later in this module: a way for holders of safe securities to borrow cash cheaply overnight, and for cash-rich lenders to earn a safe return the whole time backed by that collateral.
+This same pattern — cash lent against securities as collateral, at a low rate because the loan is fully secured — underlies the repurchase agreement (repo) market covered later in this course: a way for holders of safe securities to borrow cash cheaply overnight, and for cash-rich lenders to earn a safe return the whole time backed by that collateral.
 
 ## In Practice
 

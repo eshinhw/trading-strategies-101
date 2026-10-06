@@ -3,14 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { fetchExam, submitExam } from "../api";
 import type { ExamQuestion, ExamAnswerSubmission, ExamGradeResponse } from "../types/exam";
 import { QuizProgress } from "../components/QuizProgress";
-import { ParamLabel } from "../components/ParamLabel";
 
-type AnswerState = { kind: "mcq"; choiceIndex: number } | { kind: "numeric"; unlimited: boolean; text: string };
-
-function isAnswered(a: AnswerState | undefined): boolean {
-  if (!a) return false;
-  if (a.kind === "mcq") return true;
-  return a.unlimited || a.text.trim() !== "";
+function isAnswered(a: number | undefined): boolean {
+  return a !== undefined;
 }
 
 export function ExamPage() {
@@ -18,7 +13,7 @@ export function ExamPage() {
   const [questions, setQuestions] = useState<ExamQuestion[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, AnswerState>>({});
+  const [answers, setAnswers] = useState<Record<string, number>>({});
   const [result, setResult] = useState<ExamGradeResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -46,24 +41,15 @@ export function ExamPage() {
     if (!questions || !slug) return;
     setSubmitting(true);
     setError(null);
-    const submission: ExamAnswerSubmission[] = questions.map((q) => {
-      const a = answers[q.id];
-      const base: ExamAnswerSubmission = {
-        id: q.id,
-        lessonSlug: q.lessonSlug,
-        moduleTitle: q.moduleTitle,
-        lessonTitle: q.lessonTitle,
-        kind: q.kind,
-        questionId: q.questionId,
-        prompt: q.prompt,
-        practiceParams: q.practiceParams,
-      };
-      if (a?.kind === "mcq") return { ...base, choiceIndex: a.choiceIndex };
-      if (a?.kind === "numeric") {
-        return { ...base, numeric: a.unlimited ? { unlimited: true } : { unlimited: false, value: Number(a.text) } };
-      }
-      return base;
-    });
+    const submission: ExamAnswerSubmission[] = questions.map((q) => ({
+      id: q.id,
+      lessonSlug: q.lessonSlug,
+      moduleTitle: q.moduleTitle,
+      lessonTitle: q.lessonTitle,
+      questionId: q.questionId,
+      prompt: q.prompt,
+      choiceIndex: answers[q.id],
+    }));
 
     try {
       const res = await submitExam(slug, submission);
@@ -123,85 +109,32 @@ export function ExamPage() {
           </span>
         </div>
 
-        {q.kind === "strategy" && q.paramDefs && q.practiceParams && (
-          <div className="mb-4 rounded-lg border border-[#2a3040] bg-[#0e1117] card-glow p-4">
-            <div className="mb-2 text-xs uppercase tracking-wide text-[#898781]">Given</div>
-            <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
-              {q.paramDefs.map((p) => (
-                <span key={p.key} className="text-[#e6e8ec]">
-                  <span className="text-[#898781]">
-                    <ParamLabel label={p.label} />:
-                  </span>{" "}
-                  <span className="font-mono text-[#7c6cff]">{q.practiceParams![p.key]}</span>
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
         <p className="mb-3 text-sm text-[#e6e8ec]">{q.prompt}</p>
 
-        {q.type === "numeric-or-unlimited" ? (
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[#898781]">$</span>
-              <input
-                type="number"
-                step="0.01"
-                autoFocus
-                disabled={a?.kind === "numeric" && a.unlimited}
-                value={a?.kind === "numeric" ? a.text : ""}
-                onChange={(e) =>
-                  setAnswers((prev) => ({
-                    ...prev,
-                    [q.id]: { kind: "numeric", unlimited: false, text: e.target.value },
-                  }))
-                }
-                className="input w-32"
-                placeholder="0.00"
-              />
-            </div>
-            <label className="flex items-center gap-1.5 text-sm text-[#9aa3b2]">
-              <input
-                type="checkbox"
-                checked={a?.kind === "numeric" && a.unlimited}
-                onChange={(e) =>
-                  setAnswers((prev) => ({
-                    ...prev,
-                    [q.id]: { kind: "numeric", unlimited: e.target.checked, text: a?.kind === "numeric" ? a.text : "" },
-                  }))
-                }
-                className="accent-[#7c6cff]"
-              />
-              Unlimited
-            </label>
-          </div>
-        ) : (
-          <div className="flex flex-col gap-1.5">
-            {q.choices!.map((choice, ci) => {
-              const isSelected = a?.kind === "mcq" && a.choiceIndex === ci;
-              return (
-                <label
-                  key={ci}
-                  className={`flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-sm capitalize transition ${
-                    isSelected
-                      ? "border-[#7c6cff] bg-[#7c6cff]/10 text-[#e6e8ec]"
-                      : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name={q.id}
-                    className="accent-[#7c6cff]"
-                    checked={isSelected}
-                    onChange={() => setAnswers((prev) => ({ ...prev, [q.id]: { kind: "mcq", choiceIndex: ci } }))}
-                  />
-                  {choice}
-                </label>
-              );
-            })}
-          </div>
-        )}
+        <div className="flex flex-col gap-1.5">
+          {q.choices.map((choice, ci) => {
+            const isSelected = a === ci;
+            return (
+              <label
+                key={ci}
+                className={`flex cursor-pointer items-center gap-2 rounded-md border px-3 py-2 text-sm transition ${
+                  isSelected
+                    ? "border-[#7c6cff] bg-[#7c6cff]/10 text-[#e6e8ec]"
+                    : "border-[#2a3040] text-[#9aa3b2] hover:border-[#3a4150]"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name={q.id}
+                  className="accent-[#7c6cff]"
+                  checked={isSelected}
+                  onChange={() => setAnswers((prev) => ({ ...prev, [q.id]: ci }))}
+                />
+                {choice}
+              </label>
+            );
+          })}
+        </div>
 
         <div className="mt-5 flex items-center justify-between">
           <button

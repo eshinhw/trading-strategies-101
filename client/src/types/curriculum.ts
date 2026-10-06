@@ -92,18 +92,10 @@ export interface ConceptLessonDetail extends LessonBase {
   quiz: ConceptQuizPrompt[];
 }
 
-export interface StrategyQuestionPrompt {
-  id: "maxProfit" | "maxLoss" | "outlook" | "netPosition";
-  type: "numeric-or-unlimited" | "mcq";
-  prompt: string;
-  choices?: string[];
-}
-
 export interface StrategyLessonDetail extends LessonBase {
   kind: "strategy";
   strategy: Strategy;
-  practiceParams: Record<string, number>;
-  questions: StrategyQuestionPrompt[];
+  quiz: ConceptQuizPrompt[];
 }
 
 export type LessonDetail = ConceptLessonDetail | StrategyLessonDetail;

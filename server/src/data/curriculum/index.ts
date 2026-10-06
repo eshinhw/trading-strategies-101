@@ -1,8 +1,8 @@
 import { optionsStrategies } from "../options/index.js";
 import { courses } from "../courses/index.js";
-import { loadConceptLessonsFromMarkdown } from "./markdownLessons.js";
+import { loadConceptLessonsFromMarkdown, loadStrategyQuizzes } from "./markdownLessons.js";
 import { modules } from "./modules.js";
-import type { ConceptLesson, Module } from "./types.js";
+import type { ConceptLesson, ConceptQuizQuestion, Module } from "./types.js";
 
 export const conceptLessons: ConceptLesson[] = loadConceptLessonsFromMarkdown();
 export { modules };
@@ -10,6 +10,21 @@ export { modules };
 const strategyBySlug = new Map(optionsStrategies.map((s) => [s.slug, s]));
 const conceptBySlug = new Map(conceptLessons.map((l) => [l.slug, l]));
 const moduleBySlug = new Map(modules.map((m) => [m.slug, m]));
+
+// Every Options strategy lesson has a conceptual knowledge check, authored as Markdown in
+// content/strategy-quizzes/<slug>.md. Fail loudly at startup if one is missing or orphaned.
+export const strategyQuizzes = loadStrategyQuizzes();
+{
+  const missing = optionsStrategies.filter((s) => !strategyQuizzes.has(s.slug)).map((s) => s.slug);
+  if (missing.length) throw new Error(`Missing strategy quiz file(s) in content/strategy-quizzes: ${missing.join(", ")}`);
+  const unknown = [...strategyQuizzes.keys()].filter((slug) => !strategyBySlug.has(slug));
+  if (unknown.length) throw new Error(`Strategy quiz file(s) with no matching strategy: ${unknown.join(", ")}`);
+}
+
+/** The knowledge-check questions for any lesson, concept or strategy. */
+export function quizForLesson(slug: string): ConceptQuizQuestion[] {
+  return conceptBySlug.get(slug)?.quiz ?? strategyQuizzes.get(slug) ?? [];
+}
 
 export type ResolvedLesson =
   | { kind: "concept"; lesson: (typeof conceptLessons)[number] }

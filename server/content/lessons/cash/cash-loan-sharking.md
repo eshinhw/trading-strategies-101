@@ -6,7 +6,7 @@ summary: Illegal, unlicensed lending at extortionate interest rates, enforced ou
 
 ## What Makes a Loan "Shark" Lending
 
-Loan sharking means lending money at interest rates far above the legal usury cap covered earlier in this module, from an unlicensed lender operating entirely outside the regulated financial system — historically often associated with organized crime.
+Loan sharking means lending money at interest rates far above the legal usury cap covered earlier in this course, from an unlicensed lender operating entirely outside the regulated financial system — historically often associated with organized crime.
 
 ## Why It Exists: The Credit Gap
 

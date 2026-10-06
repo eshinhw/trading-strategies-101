@@ -8,6 +8,7 @@ import type { ConceptLesson, ConceptQuizQuestion, LessonBlock } from "./types.js
 // server/content/README.md for the authoring format.
 
 const CONTENT_ROOT = fileURLToPath(new URL("../../../content/lessons", import.meta.url));
+const STRATEGY_QUIZ_ROOT = fileURLToPath(new URL("../../../content/strategy-quizzes", import.meta.url));
 
 class LessonParseError extends Error {
   constructor(file: string, line: number, message: string) {
@@ -237,4 +238,29 @@ export function loadConceptLessonsFromMarkdown(root = CONTENT_ROOT): ConceptLess
     }
   }
   return lessons;
+}
+
+// An Options strategy lesson's body lives in code (server/src/data/options), but its knowledge-check
+// quiz is authored as Markdown like a concept lesson's: content/strategy-quizzes/<strategy-slug>.md,
+// with a `slug:` front matter line and a "# Quiz" section.
+export function parseStrategyQuizMarkdown(source: string, file = "quiz.md"): { slug: string; quiz: ConceptQuizQuestion[] } {
+  const lines = source.replace(/\r\n/g, "\n").split("\n");
+  const { meta, next } = parseFrontmatter(lines, file);
+  if (!meta.slug) throw new LessonParseError(file, 1, 'front matter is missing "slug"');
+  const quizAt = lines.findIndex((l, i) => i >= next && l.trim() === "# Quiz");
+  if (quizAt === -1) throw new LessonParseError(file, next + 1, 'missing a "# Quiz" section');
+  const quiz = parseQuiz(lines.slice(quizAt + 1), quizAt + 2, file);
+  if (quiz.length === 0) throw new LessonParseError(file, quizAt + 1, "the quiz has no questions");
+  return { slug: meta.slug, quiz };
+}
+
+export function loadStrategyQuizzes(root = STRATEGY_QUIZ_ROOT): Map<string, ConceptQuizQuestion[]> {
+  const quizzes = new Map<string, ConceptQuizQuestion[]>();
+  if (!fs.existsSync(root)) return quizzes;
+  for (const f of fs.readdirSync(root).filter((name) => name.endsWith(".md")).sort()) {
+    const { slug, quiz } = parseStrategyQuizMarkdown(fs.readFileSync(path.join(root, f), "utf8"), `strategy-quizzes/${f}`);
+    if (slug !== f.replace(/\.md$/, "")) throw new Error(`strategy-quizzes/${f}: slug "${slug}" must match the file name`);
+    quizzes.set(slug, quiz);
+  }
+  return quizzes;
 }

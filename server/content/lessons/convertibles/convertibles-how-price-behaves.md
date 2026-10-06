@@ -18,7 +18,7 @@ In between those two extremes, a convertible typically trades above both its bon
 
 ## A Curved, Not Straight, Relationship
 
-Plotting a convertible's price against the underlying stock's price traces out a curve: flat and bond-like at low stock prices, rising and increasingly stock-like at high stock prices, with the premium most pronounced in between. That shape is what gives convertible investors participation in a rising stock while cushioning a falling one — the central appeal covered in the next lesson.
+Plotting a convertible's price against the underlying stock's price traces out a curve: flat and bond-like at low stock prices, rising and increasingly stock-like at high stock prices, with the premium most pronounced in between. That shape is what gives convertible investors participation in a rising stock while cushioning a falling one — the central appeal covered in the Why Companies Issue, and Investors Buy, Convertibles lesson.
 
 ## In Practice
 

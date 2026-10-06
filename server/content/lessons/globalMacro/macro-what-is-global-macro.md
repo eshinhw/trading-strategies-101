@@ -18,7 +18,7 @@ A macro view is built from a mix of economic data, central bank policy signals, 
 
 ## Discretionary and Systematic Approaches
 
-Some macro investors form views through discretionary judgment, weighing data and events qualitatively; others build systematic, rules-based processes that translate observable data directly into positions, an approach explored further in this module's strategies. Both share the same top-down starting point, even though they arrive at a position differently.
+Some macro investors form views through discretionary judgment, weighing data and events qualitatively; others build systematic, rules-based processes that translate observable data directly into positions, an approach explored further in this course's strategies. Both share the same top-down starting point, even though they arrive at a position differently.
 
 ## In Practice
 

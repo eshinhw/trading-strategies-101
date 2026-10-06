@@ -10,7 +10,6 @@ import type { LegInput } from "../engine/strategyMatcher";
 import { ParamControls } from "../components/ParamControls";
 import { PayoffChart } from "../components/PayoffChart";
 import { StatTile } from "../components/StatTile";
-import { FormulaReference } from "../components/FormulaReference";
 import { ParamNumberCard } from "../components/ParamNumberCard";
 
 interface BuilderLeg {
@@ -257,11 +256,10 @@ export function OptionPayoutSimulatorPage() {
                     <p className="mt-1 text-[#9aa3b2]">{matched.content.howToUse}</p>
                   </div>
                 </div>
-                <div className="mt-4 flex items-center gap-4">
+                <div className="mt-4">
                   <Link to={`/lesson/${matched.slug}`} className="text-sm text-[#7c6cff] hover:underline">
                     Open the full lesson →
                   </Link>
-                  <FormulaReference strategy={matched} />
                 </div>
               </section>
             ) : (
