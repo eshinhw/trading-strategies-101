@@ -253,10 +253,6 @@ export function RolePicker({ courses }: { courses: Course[] | null }) {
                 <div className="text-xs text-[#898781]">lessons</div>
               </div>
             </div>
-            <p className="relative mt-4 text-sm leading-relaxed text-[#9aa3b2]">
-              Each course opens with what the asset is and why it exists, then how it's priced and used, so the path
-              builds in the right order.
-            </p>
             {steps[0] && (
               <Link
                 to={`/courses/${steps[0].slug}`}

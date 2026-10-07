@@ -60,7 +60,7 @@ export function LandingPage() {
 const HERO_SYMBOLS = [
   { char: "SPX", left: "6%", top: "12%", delay: "0s" },
   { char: "WTI", left: "92%", top: "10%", delay: "1.2s" },
-  { char: "BTC", left: "16%", top: "72%", delay: "2.1s" },
+  { char: "BTC", left: "30%", top: "92%", delay: "2.1s" },
   { char: "10Y", left: "80%", top: "68%", delay: "0.6s" },
   { char: "XAU", left: "50%", top: "6%", delay: "3s" },
   { char: "CDS", left: "38%", top: "82%", delay: "1.8s" },
@@ -286,7 +286,7 @@ function FinalCta() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 text-center">
       <h2 className="text-2xl font-bold text-[#e6e8ec]">Ready to start?</h2>
-      <p className="mx-auto mt-2 max-w-md text-[#9aa3b2]">
+      <p className="mx-auto mt-2 max-w-lg text-[#9aa3b2]">
         Save your progress and unlock modules as you complete them.
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4">

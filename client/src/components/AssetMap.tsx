@@ -23,37 +23,19 @@ export function AssetMap({ courses }: { courses: Course[] | null }) {
   const selectedAccent = selected ? courseAccent(selected.slug) : "#7c6cff";
   const familyOfSelected = selected ? COURSE_FAMILIES.find((f) => f.slugs.includes(selected.slug)) : undefined;
 
-  const totalLessons = (courses ?? []).reduce((sum, c) => sum + (c.lessonCount ?? 0), 0);
-  const totalStrategies = (courses ?? []).reduce((sum, c) => sum + c.strategyCount, 0);
   const moduleTitles = selected?.moduleTitles ?? [];
 
   return (
     <section id="courses" className="relative overflow-hidden border-t border-[#2a3040] bg-[#0e1117] py-16">
       <div className="pointer-events-none absolute left-1/2 top-[-180px] h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[#7c6cff] opacity-10 blur-3xl" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
           <div className="max-w-2xl">
             <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7c6cff]">Explore the curriculum</div>
             <h2 className="mt-2 text-3xl font-bold leading-tight text-[#e6e8ec] sm:text-4xl">
               Eighteen asset classes, one map.
             </h2>
           </div>
-          {courses && (
-            <div className="flex gap-6 sm:pb-1">
-              <div className="sm:text-right">
-                <div className="text-2xl font-bold text-[#e6e8ec]">{courses.length}</div>
-                <div className="text-xs text-[#898781]">courses</div>
-              </div>
-              <div className="sm:text-right">
-                <div className="text-2xl font-bold text-[#e6e8ec]">{totalLessons}</div>
-                <div className="text-xs text-[#898781]">lessons</div>
-              </div>
-              <div className="sm:text-right">
-                <div className="text-2xl font-bold text-[#e6e8ec]">{totalStrategies}</div>
-                <div className="text-xs text-[#898781]">strategies</div>
-              </div>
-            </div>
-          )}
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_340px]">
