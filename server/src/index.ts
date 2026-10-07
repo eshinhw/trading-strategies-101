@@ -13,6 +13,8 @@ import constructionRouter from "./routes/construction.js";
 import practiceRouter from "./routes/practice.js";
 
 const app = express();
+// Railway terminates TLS at its proxy; trusting it makes req.protocol "https" for the Google redirect URI.
+app.set("trust proxy", 1);
 const PORT = process.env.PORT ? Number(process.env.PORT) : 4000;
 
 app.use(cors({ origin: true, credentials: true }));

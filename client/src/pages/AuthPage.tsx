@@ -1,6 +1,7 @@
-import { useState, type FormEvent, type ReactNode } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
+import * as api from "../api";
 
 // Strength is only a hint (the server's rule is just 8+ characters): length plus character variety.
 function passwordStrength(pw: string): { score: number; label: string; color: string } {
@@ -91,6 +92,22 @@ function Field({
   );
 }
 
+function GoogleIcon() {
+  return (
+    <svg viewBox="0 0 18 18" className="h-[18px] w-[18px]" aria-hidden="true">
+      <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62Z" />
+      <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18Z" />
+      <path fill="#FBBC05" d="M3.97 10.72A5.4 5.4 0 0 1 3.68 9c0-.6.1-1.18.29-1.72V4.95H.96A9 9 0 0 0 0 9c0 1.45.35 2.83.96 4.05l3.01-2.33Z" />
+      <path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59A8.96 8.96 0 0 0 9 0 9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58Z" />
+    </svg>
+  );
+}
+
+const GOOGLE_ERRORS: Record<string, string> = {
+  google: "Google sign-in didn't go through. Please try again.",
+  google_unavailable: "Google sign-in isn't available right now.",
+};
+
 function EyeIcon({ off }: { off: boolean }) {
   return (
     <svg viewBox="0 0 20 20" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -106,13 +123,23 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
   const navigate = useNavigate();
   const location = useLocation();
   const redirectTo = (location.state as { from?: string } | null)?.from ?? "/courses";
+  const [searchParams] = useSearchParams();
+  const [googleAvailable, setGoogleAvailable] = useState(false);
+
+  useEffect(() => {
+    api
+      .fetchAuthProviders()
+      .then((p) => setGoogleAvailable(p.google))
+      .catch(() => setGoogleAvailable(false));
+  }, []);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [capsLock, setCapsLock] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // A failed Google round trip lands back here as /login?error=google.
+  const [error, setError] = useState<string | null>(() => GOOGLE_ERRORS[searchParams.get("error") ?? ""] ?? null);
   const [submitting, setSubmitting] = useState(false);
 
   const strength = passwordStrength(password);
@@ -148,7 +175,24 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
             {isSignup ? "Free, and it takes less than a minute." : "Sign in to pick up where you left off."}
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-7 flex flex-col gap-4">
+          {googleAvailable && (
+            <>
+              <a
+                href={api.googleSignInUrl(redirectTo)}
+                className="mt-7 flex items-center justify-center gap-2.5 rounded-lg border border-[#2a3040] bg-white px-4 py-2.5 font-semibold text-[#1f1f1f] transition hover:bg-[#f1f3f4]"
+              >
+                <GoogleIcon />
+                Continue with Google
+              </a>
+              <div className="mt-6 flex items-center gap-3 text-xs uppercase tracking-wide text-[#898781]" aria-hidden="true">
+                <span className="h-px flex-1 bg-[#2a3040]" />
+                or with email
+                <span className="h-px flex-1 bg-[#2a3040]" />
+              </div>
+            </>
+          )}
+
+          <form onSubmit={handleSubmit} className={`${googleAvailable ? "mt-6" : "mt-7"} flex flex-col gap-4`}>
             {isSignup && (
               <Field label="Name">
                 <input

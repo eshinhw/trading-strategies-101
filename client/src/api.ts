@@ -45,6 +45,15 @@ export function fetchMe(): Promise<{ user: User }> {
   return request("/api/auth/me");
 }
 
+export function fetchAuthProviders(): Promise<{ google: boolean }> {
+  return request("/api/auth/providers");
+}
+
+/** A full-page navigation (not fetch): the server redirects to Google and, after sign-in, back to `from`. */
+export function googleSignInUrl(from: string): string {
+  return `/api/auth/google?${new URLSearchParams({ from })}`;
+}
+
 // --- courses ---
 
 export function fetchCourses(): Promise<Course[]> {
