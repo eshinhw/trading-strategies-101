@@ -244,8 +244,7 @@ export function CoursesPage() {
             <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7c6cff]">Curriculum</div>
             <h1 className="mt-2 text-4xl font-bold text-[#e6e8ec]">All Courses</h1>
             <p className="mt-3 leading-relaxed text-[#9aa3b2]">
-              One course per asset class. Each starts with what the asset is and why it exists, moves on to how it's priced
-              and used, and ends with the strategies built on it.
+              One course per asset class, from what it is to the strategies built on it.
             </p>
           </div>
           {courses && (
@@ -285,8 +284,8 @@ export function CoursesPage() {
             )}
 
             <div className="mb-8 rounded-2xl border border-[#2a3040] bg-[#141821]/80 p-4">
-              <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                <div className="relative w-full lg:max-w-sm">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="relative w-full sm:flex-1">
                   <svg
                     viewBox="0 0 20 20"
                     className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#898781]"
@@ -308,20 +307,66 @@ export function CoursesPage() {
                     className="input w-full !pl-9"
                   />
                 </div>
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <FilterChip label="All" count={courses.length} active={family === "all"} onClick={() => setFamily("all")} />
-                  {COURSE_FAMILIES.map((f) => (
-                    <FilterChip
-                      key={f.name}
-                      label={f.name}
-                      count={familyCounts.get(f.name)}
-                      accent={f.accent}
-                      active={family === f.name}
-                      onClick={() => setFamily(family === f.name ? "all" : f.name)}
-                    />
-                  ))}
+                <div className="flex flex-wrap items-center gap-3">
+                  <label className="flex items-center gap-2 text-xs text-[#898781]">
+                    Sort
+                    <select
+                      value={sortId}
+                      onChange={(e) => setSortId(e.target.value as SortId)}
+                      className="rounded-lg border border-[#2a3040] bg-[#141821] px-2.5 py-2 text-xs text-[#e6e8ec] focus:border-[#7c6cff] focus:outline-none [&>option]:bg-[#141821]"
+                    >
+                      {SORTS.map((x) => (
+                        <option key={x.id} value={x.id}>
+                          {x.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <div role="radiogroup" aria-label="Layout" className="flex rounded-lg border border-[#2a3040] bg-[#141821] p-0.5">
+                    {(
+                      [
+                        ["cards", "Cards"],
+                        ["list", "List"],
+                      ] as const
+                    ).map(([key, label]) => (
+                      <button
+                        key={key}
+                        role="radio"
+                        aria-checked={view === key}
+                        onClick={() => setView(key)}
+                        className={`rounded-md px-3 py-1.5 text-xs font-medium transition ${
+                          view === key ? "bg-[#7c6cff]/20 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
+
+              <div className="mt-3 flex flex-wrap items-center gap-1.5 border-t border-[#2a3040] pt-3">
+                <FilterChip label="All" count={courses.length} active={family === "all"} onClick={() => setFamily("all")} />
+                {COURSE_FAMILIES.map((f) => (
+                  <FilterChip
+                    key={f.name}
+                    label={f.name}
+                    count={familyCounts.get(f.name)}
+                    accent={f.accent}
+                    active={family === f.name}
+                    onClick={() => setFamily(family === f.name ? "all" : f.name)}
+                  />
+                ))}
+                <p className="ml-auto text-xs text-[#898781]" aria-live="polite">
+                  <span className="font-medium text-[#e6e8ec]">{filteredCourses.length}</span> of {courses.length} courses
+                  {filtersActive && (
+                    <button onClick={clearFilters} className="ml-2 text-[#a99dff] hover:underline">
+                      Clear
+                    </button>
+                  )}
+                </p>
+              </div>
+
               {hasProgress && (
                 <div className="mt-3 flex flex-wrap items-center gap-1.5 border-t border-[#2a3040] pt-3">
                   <span className="mr-1 text-xs text-[#898781]">Status</span>
@@ -330,53 +375,6 @@ export function CoursesPage() {
                   ))}
                 </div>
               )}
-            </div>
-
-            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-sm text-[#898781]">
-                Showing <span className="font-medium text-[#e6e8ec]">{filteredCourses.length}</span> of {courses.length} courses
-                {filtersActive && (
-                  <button onClick={clearFilters} className="ml-3 text-[#a99dff] hover:underline">
-                    Clear filters
-                  </button>
-                )}
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                <label className="flex items-center gap-2 text-xs text-[#898781]">
-                  Sort
-                  <select
-                    value={sortId}
-                    onChange={(e) => setSortId(e.target.value as SortId)}
-                    className="rounded-lg border border-[#2a3040] bg-[#141821] px-2.5 py-1.5 text-xs text-[#e6e8ec] focus:border-[#7c6cff] focus:outline-none [&>option]:bg-[#141821]"
-                  >
-                    {SORTS.map((x) => (
-                      <option key={x.id} value={x.id}>
-                        {x.label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <div role="radiogroup" aria-label="Layout" className="flex rounded-lg border border-[#2a3040] bg-[#141821] p-0.5">
-                  {(
-                    [
-                      ["cards", "Cards"],
-                      ["list", "List"],
-                    ] as const
-                  ).map(([key, label]) => (
-                    <button
-                      key={key}
-                      role="radio"
-                      aria-checked={view === key}
-                      onClick={() => setView(key)}
-                      className={`rounded-md px-3 py-1 text-xs font-medium transition ${
-                        view === key ? "bg-[#7c6cff]/20 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {filteredCourses.length === 0 ? (

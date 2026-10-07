@@ -19,6 +19,9 @@ export function CourseCard({ course, progress }: { course: Course; progress?: Mo
   const accent = courseAccent(course.slug);
   const available = course.status === "available";
   const pct = progress && progress.totalLessons > 0 ? Math.round((progress.totalCompleted / progress.totalLessons) * 100) : 0;
+  // The bar only appears once the learner has started, so an untouched course shows its size instead of an empty bar.
+  const started = !!progress && progress.totalCompleted > 0;
+  const completed = started && progress.totalCompleted >= progress.totalLessons;
 
   return (
     <Link
@@ -46,12 +49,17 @@ export function CourseCard({ course, progress }: { course: Course; progress?: Mo
             Coming soon
           </span>
         )}
+        {completed && (
+          <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
+            ✓ Completed
+          </span>
+        )}
       </div>
 
       <h3 className="relative mt-4 text-lg font-semibold text-[#e6e8ec]">{course.title}</h3>
-      <p className="relative mt-1.5 line-clamp-5 text-sm leading-relaxed text-[#9aa3b2]">{course.description}</p>
+      <p className="relative mt-1.5 line-clamp-3 text-sm leading-relaxed text-[#9aa3b2]">{course.description}</p>
 
-      {progress && (
+      {started && progress && (
         <div className="relative mt-4 flex items-center gap-2">
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#1b2029]">
             <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, background: accent }} />
@@ -64,7 +72,7 @@ export function CourseCard({ course, progress }: { course: Course; progress?: Mo
 
       <div className="relative mt-auto flex items-center justify-between gap-3 pt-4">
         <div className="flex flex-wrap gap-1.5">
-          {!progress && course.lessonCount ? <Chip>{course.lessonCount} lessons</Chip> : null}
+          {!started && course.lessonCount ? <Chip>{course.lessonCount} lessons</Chip> : null}
           {course.moduleCount ? <Chip>{course.moduleCount} modules</Chip> : null}
           {course.strategyCount > 0 ? <Chip>{course.strategyCount} strategies</Chip> : null}
         </div>
