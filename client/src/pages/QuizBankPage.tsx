@@ -358,8 +358,7 @@ export function QuizBankPage() {
       <div style={{ "--accent": accent } as CSSProperties}>
         <BankHeader eyebrow="Practice" title="Quiz Bank">
           <p className="mt-3 max-w-2xl leading-relaxed text-[#9aa3b2]">
-            Mixed questions from every lesson's knowledge check, with an explanation after each answer. Nothing here
-            touches your course progress. It's just reps.
+            Mixed questions from every lesson's knowledge check. Nothing here affects your course progress.
           </p>
           {stats.answered > 0 && (
             <div className="mt-5 flex flex-wrap gap-6">
@@ -386,7 +385,7 @@ export function QuizBankPage() {
                     {missedIds.length} question{missedIds.length === 1 ? "" : "s"} to revisit
                   </div>
                   <p className="mt-0.5 text-sm text-[#9aa3b2]">
-                    Questions you got wrong and haven't answered correctly since. Get one right and it drops off the list.
+                    Get one right and it drops off the list.
                   </p>
                 </div>
                 <button
@@ -565,8 +564,7 @@ export function QuizBankPage() {
               </button>
               {startError && <p className="mt-3 text-sm text-red-400">{startError}</p>}
               <p className="mt-3 text-xs leading-relaxed text-[#898781]">
-                Press A–D to answer and Enter for the next question. Questions are drawn evenly across the courses you
-                pick.
+                Press A–D to answer, Enter for the next question. Drawn evenly across your courses.
               </p>
             </div>
           </aside>
@@ -604,7 +602,7 @@ export function QuizBankPage() {
     const color = courseAccent(q.courseSlug);
     return (
       <div style={{ "--accent": color } as CSSProperties}>
-        <div className="mx-auto max-w-3xl px-6 py-8">
+        <div className="mx-auto min-h-[640px] max-w-3xl px-6 py-8">
           <div className="flex items-center justify-between gap-3 text-sm">
             <Link to="/practice" className="text-[#898781] hover:text-[#e6e8ec]">
               ← Practice
@@ -755,7 +753,7 @@ export function QuizBankPage() {
                 strokeDashoffset={circumference * (1 - score)}
               />
             </svg>
-            <div className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-[#e6e8ec]">
+            <div className="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#e6e8ec]">
               {Math.round(score * 100)}%
             </div>
           </div>
