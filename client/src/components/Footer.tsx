@@ -70,7 +70,7 @@ export function Footer() {
       <FooterBackground />
       <div className="relative mx-auto max-w-7xl px-6 py-14">
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
-          <div className="col-span-2 sm:col-span-1">
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-2.5 font-semibold text-[#e6e8ec]">
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#8f82ff] to-[#5a46e8] text-white shadow-md shadow-[#7c6cff]/30">
                 <LogoMark size={18} />
@@ -78,17 +78,8 @@ export function Footer() {
               Trading Strategies 101
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#9aa3b2]">
-              Hands-on lessons for 18 asset classes, from options to distressed debt — 177 strategies, learned by doing,
-              not memorizing.
+              Hands-on lessons across 18 asset classes, from options to distressed debt.
             </p>
-            {!user && (
-              <Link
-                to="/signup"
-                className="mt-4 inline-block rounded-full bg-[#7c6cff] px-4 py-1.5 text-sm font-medium text-white shadow-md shadow-[#7c6cff]/30 transition hover:bg-[#6552f0]"
-              >
-                Start learning, it's free
-              </Link>
-            )}
           </div>
 
           <FooterColumn title="Explore" links={EXPLORE_LINKS} />
@@ -98,15 +89,15 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-[#2a3040] pt-6 text-xs text-[#898781]">
           <p className="max-w-3xl leading-relaxed">
-            Educational content only. Nothing here is investment advice, and past performance of any strategy does not
-            guarantee future results.
+            Educational content only. Nothing here is investment advice, and past performance does not guarantee future
+            results.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p>© {year} Trading Strategies 101. All rights reserved.</p>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center gap-1.5 hover:text-[#e6e8ec]"
+              className="flex items-center gap-1.5 rounded transition hover:text-[#e6e8ec] focus-visible:text-[#e6e8ec] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c6cff]"
             >
               Back to top <span aria-hidden="true">↑</span>
             </button>
@@ -126,7 +117,7 @@ function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) 
           <li key={l.label}>
             <Link
               to={l.to}
-              className="inline-flex items-center gap-2 text-sm text-[#9aa3b2] transition hover:text-[#a99dff]"
+              className="inline-flex items-center gap-2 rounded text-sm text-[#9aa3b2] transition hover:text-[#a99dff] focus-visible:text-[#a99dff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c6cff]"
             >
               {l.label}
             </Link>
