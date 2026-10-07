@@ -21,13 +21,18 @@ const BENEFITS = [
   { title: "Track the whole map", body: "See how far you are across every asset class." },
 ];
 
-function BrandPanel({ mode }: { mode: "login" | "signup" }) {
+// The brand panel's backdrop bleeds to the left edge of the window, while its copy (and the form) sit in the same
+// centered max-w-7xl px-6 container as the nav, so the page's side margins line up with the nav's.
+function BrandBackdrop() {
   return (
-    <aside className="relative hidden overflow-hidden border-r border-[#2a3040] bg-gradient-to-br from-[#1c1949] via-[#16183a] to-[#0e1117] lg:flex lg:flex-col lg:p-12">
-      <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#7c6cff] opacity-25 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 right-[-60px] h-80 w-80 rounded-full bg-[#4338ca] opacity-25 blur-3xl" />
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/2 overflow-hidden border-r border-[#2a3040] bg-gradient-to-br from-[#1c1949] via-[#16183a] to-[#0e1117] lg:block"
+    >
+      <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#7c6cff] opacity-25 blur-3xl" />
+      <div className="absolute -bottom-32 right-[-60px] h-80 w-80 rounded-full bg-[#4338ca] opacity-25 blur-3xl" />
       <svg
-        className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12]"
+        className="absolute inset-0 h-full w-full opacity-[0.12]"
         preserveAspectRatio="none"
         viewBox="0 0 600 800"
         aria-hidden="true"
@@ -45,8 +50,14 @@ function BrandPanel({ mode }: { mode: "login" | "signup" }) {
           strokeWidth="2"
         />
       </svg>
+    </div>
+  );
+}
 
-      <div className="relative my-auto">
+function BrandPanel({ mode }: { mode: "login" | "signup" }) {
+  return (
+    <aside className="relative hidden py-12 pr-12 lg:flex lg:flex-col">
+      <div className="my-auto">
         <h2 className="max-w-md text-4xl font-bold leading-tight text-white">
           {mode === "signup" ? "Learn markets by doing, not memorizing." : "Good to see you again."}
         </h2>
@@ -164,163 +175,166 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
   }
 
   return (
-    <div className="grid min-h-[calc(100vh-64px)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-      <BrandPanel mode={mode} />
+    <div className="relative min-h-[calc(100vh-64px)]">
+      <BrandBackdrop />
+      <div className="relative mx-auto grid min-h-[calc(100vh-64px)] w-full max-w-7xl px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <BrandPanel mode={mode} />
 
-      <main className="relative flex items-center justify-center px-6 py-12">
-        <div className="pointer-events-none absolute left-1/2 top-[-120px] h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-[#7c6cff] opacity-10 blur-3xl lg:hidden" />
-        <div className="relative w-full max-w-sm">
-          <h1 className="text-3xl font-bold text-[#e6e8ec]">{isSignup ? "Create your account" : "Welcome back"}</h1>
-          <p className="mt-2 text-sm text-[#9aa3b2]">
-            {isSignup ? "Free, and it takes less than a minute." : "Sign in to pick up where you left off."}
-          </p>
+        <main className="relative flex items-center justify-center py-12 lg:justify-end lg:pl-12">
+          <div className="pointer-events-none absolute left-1/2 top-[-120px] h-[280px] w-[520px] -translate-x-1/2 rounded-full bg-[#7c6cff] opacity-10 blur-3xl lg:hidden" />
+          <div className="relative w-full max-w-sm">
+            <h1 className="text-3xl font-bold text-[#e6e8ec]">{isSignup ? "Create your account" : "Welcome back"}</h1>
+            <p className="mt-2 text-sm text-[#9aa3b2]">
+              {isSignup ? "Free, and it takes less than a minute." : "Sign in to pick up where you left off."}
+            </p>
 
-          {googleAvailable && (
-            <>
-              <a
-                href={api.googleSignInUrl(redirectTo)}
-                className="mt-7 flex items-center justify-center gap-2.5 rounded-lg border border-[#2a3040] bg-white px-4 py-2.5 font-semibold text-[#1f1f1f] transition hover:bg-[#f1f3f4]"
-              >
-                <GoogleIcon />
-                Continue with Google
-              </a>
-              <div className="mt-6 flex items-center gap-3 text-xs uppercase tracking-wide text-[#898781]" aria-hidden="true">
-                <span className="h-px flex-1 bg-[#2a3040]" />
-                or with email
-                <span className="h-px flex-1 bg-[#2a3040]" />
-              </div>
-            </>
-          )}
+            {googleAvailable && (
+              <>
+                <a
+                  href={api.googleSignInUrl(redirectTo)}
+                  className="mt-7 flex items-center justify-center gap-2.5 rounded-lg border border-[#2a3040] bg-white px-4 py-2.5 font-semibold text-[#1f1f1f] transition hover:bg-[#f1f3f4]"
+                >
+                  <GoogleIcon />
+                  Continue with Google
+                </a>
+                <div className="mt-6 flex items-center gap-3 text-xs uppercase tracking-wide text-[#898781]" aria-hidden="true">
+                  <span className="h-px flex-1 bg-[#2a3040]" />
+                  or with email
+                  <span className="h-px flex-1 bg-[#2a3040]" />
+                </div>
+              </>
+            )}
 
-          <form onSubmit={handleSubmit} className={`${googleAvailable ? "mt-6" : "mt-7"} flex flex-col gap-4`}>
-            {isSignup && (
-              <Field label="Name">
+            <form onSubmit={handleSubmit} className={`${googleAvailable ? "mt-6" : "mt-7"} flex flex-col gap-4`}>
+              {isSignup && (
+                <Field label="Name">
+                  <input
+                    type="text"
+                    required
+                    autoFocus
+                    autoComplete="name"
+                    placeholder="Ada Lovelace"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="input !py-2.5"
+                  />
+                </Field>
+              )}
+              <Field label="Email">
                 <input
-                  type="text"
+                  type="email"
                   required
-                  autoFocus
-                  autoComplete="name"
-                  placeholder="Ada Lovelace"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  autoFocus={!isSignup}
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="input !py-2.5"
                 />
               </Field>
-            )}
-            <Field label="Email">
-              <input
-                type="email"
-                required
-                autoFocus={!isSignup}
-                autoComplete="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="input !py-2.5"
-              />
-            </Field>
-            <Field
-              label="Password"
-              hint={
-                isSignup ? (
-                  <div className="mt-2">
-                    <div className="flex gap-1">
-                      {[1, 2, 3, 4].map((n) => (
-                        <span
-                          key={n}
-                          className="h-1 flex-1 rounded-full transition-colors"
-                          style={{ background: n <= strength.score ? strength.color : "#1b2029" }}
-                        />
-                      ))}
+              <Field
+                label="Password"
+                hint={
+                  isSignup ? (
+                    <div className="mt-2">
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4].map((n) => (
+                          <span
+                            key={n}
+                            className="h-1 flex-1 rounded-full transition-colors"
+                            style={{ background: n <= strength.score ? strength.color : "#1b2029" }}
+                          />
+                        ))}
+                      </div>
+                      <div className="mt-1.5 flex items-center justify-between text-xs text-[#898781]">
+                        <span>At least 8 characters.</span>
+                        {strength.label && <span style={{ color: strength.color }}>{strength.label}</span>}
+                      </div>
                     </div>
-                    <div className="mt-1.5 flex items-center justify-between text-xs text-[#898781]">
-                      <span>At least 8 characters.</span>
-                      {strength.label && <span style={{ color: strength.color }}>{strength.label}</span>}
-                    </div>
-                  </div>
-                ) : undefined
-              }
-            >
-              <div className="relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  required
-                  minLength={8}
-                  autoComplete={isSignup ? "new-password" : "current-password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onKeyUp={(e) => setCapsLock(e.getModifierState("CapsLock"))}
-                  onBlur={() => setCapsLock(false)}
-                  className="input !py-2.5 !pr-11"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword((s) => !s)}
-                  aria-label={showPassword ? "Hide password" : "Show password"}
-                  aria-pressed={showPassword}
-                  className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-[#898781] transition hover:bg-white/5 hover:text-[#e6e8ec]"
-                >
-                  <EyeIcon off={showPassword} />
-                </button>
-              </div>
-              {capsLock && (
-                <span className="mt-1.5 block text-xs text-amber-300" role="status">
-                  Caps Lock is on
-                </span>
-              )}
-            </Field>
-
-            {error && (
-              <div
-                role="alert"
-                className="flex items-start gap-2.5 rounded-lg border border-red-500/30 bg-red-500/10 px-3.5 py-2.5 text-sm text-red-300"
+                  ) : undefined
+                }
               >
-                <span
-                  aria-hidden="true"
-                  className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-400 text-xs font-bold text-[#2b0a0a]"
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    required
+                    minLength={8}
+                    autoComplete={isSignup ? "new-password" : "current-password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onKeyUp={(e) => setCapsLock(e.getModifierState("CapsLock"))}
+                    onBlur={() => setCapsLock(false)}
+                    className="input !py-2.5 !pr-11"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((s) => !s)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
+                    aria-pressed={showPassword}
+                    className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-[#898781] transition hover:bg-white/5 hover:text-[#e6e8ec]"
+                  >
+                    <EyeIcon off={showPassword} />
+                  </button>
+                </div>
+                {capsLock && (
+                  <span className="mt-1.5 block text-xs text-amber-300" role="status">
+                    Caps Lock is on
+                  </span>
+                )}
+              </Field>
+
+              {error && (
+                <div
+                  role="alert"
+                  className="flex items-start gap-2.5 rounded-lg border border-red-500/30 bg-red-500/10 px-3.5 py-2.5 text-sm text-red-300"
                 >
-                  !
-                </span>
-                {error}
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={submitting}
-              className="mt-1 flex items-center justify-center gap-2 rounded-lg bg-[#7c6cff] px-4 py-2.5 font-semibold text-white shadow-md shadow-[#7c6cff]/30 transition hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
-            >
-              {submitting && (
-                <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" aria-hidden="true" />
+                  <span
+                    aria-hidden="true"
+                    className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-400 text-xs font-bold text-[#2b0a0a]"
+                  >
+                    !
+                  </span>
+                  {error}
+                </div>
               )}
-              {submitting ? "Please wait…" : isSignup ? "Create account" : "Sign in"}
-            </button>
-          </form>
 
-          <p className="mt-6 text-center text-sm text-[#9aa3b2]">
-            {isSignup ? (
-              <>
-                Already have an account?{" "}
-                <Link to="/login" state={location.state} className="font-medium text-[#a99dff] hover:underline">
-                  Sign in
-                </Link>
-              </>
-            ) : (
-              <>
-                New here?{" "}
-                <Link to="/signup" state={location.state} className="font-medium text-[#a99dff] hover:underline">
-                  Create an account
-                </Link>
-              </>
-            )}
-          </p>
-          <p className="mt-3 text-center text-xs text-[#898781]">
-            <Link to="/courses" className="hover:text-[#e6e8ec]">
-              or keep browsing without an account →
-            </Link>
-          </p>
-        </div>
-      </main>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="mt-1 flex items-center justify-center gap-2 rounded-lg bg-[#7c6cff] px-4 py-2.5 font-semibold text-white shadow-md shadow-[#7c6cff]/30 transition hover:bg-[#6552f0] disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none"
+              >
+                {submitting && (
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" aria-hidden="true" />
+                )}
+                {submitting ? "Please wait…" : isSignup ? "Create account" : "Sign in"}
+              </button>
+            </form>
+
+            <p className="mt-6 text-center text-sm text-[#9aa3b2]">
+              {isSignup ? (
+                <>
+                  Already have an account?{" "}
+                  <Link to="/login" state={location.state} className="font-medium text-[#a99dff] hover:underline">
+                    Sign in
+                  </Link>
+                </>
+              ) : (
+                <>
+                  New here?{" "}
+                  <Link to="/signup" state={location.state} className="font-medium text-[#a99dff] hover:underline">
+                    Create an account
+                  </Link>
+                </>
+              )}
+            </p>
+            <p className="mt-3 text-center text-xs text-[#898781]">
+              <Link to="/courses" className="hover:text-[#e6e8ec]">
+                or keep browsing without an account →
+              </Link>
+            </p>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
