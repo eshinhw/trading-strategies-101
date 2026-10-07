@@ -8,7 +8,7 @@ import { AnswerProgressBar } from "../components/AnswerProgressBar";
 import { InlineText } from "../components/InlineText";
 import { ACCENT, COURSE_FAMILIES, courseAccent } from "../lib/courseVisuals";
 
-// Open practice over every lesson's knowledge-check questions: pick courses and a session length, answer with instant
+// Open practice over the Quiz Bank's own questions (separate from the lessons' knowledge checks): pick courses and a session length, answer with instant
 // explanations, then review what you missed. Nothing here touches course progress; the only thing kept is a running
 // tally (questions answered, accuracy, best streak) in this browser.
 

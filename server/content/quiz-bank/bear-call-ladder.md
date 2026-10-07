@@ -4,28 +4,63 @@ slug: bear-call-ladder
 
 # Quiz
 
-1. {#bk1} [calc] A trader builds a Bear Call Ladder: sells one $100 call, buys one $105 call, and buys one $110 call, for no net premium. What is the maximum loss on 8 contracts (100 shares each), in dollars?
+1. {#q1} When is a bear call ladder typically used?
+   - [x] As an adjustment when a bear call spread's view fails and the stock breaks out upward
+   - As a first trade when the trader is very bearish and wants to collect as much premium as possible up front
+   - When the trader expects no movement
+   - To collect the maximum possible premium from a stock that is expected to fall sharply over the next month
+   > It converts a failing bearish position into one that can benefit from more strength.
+
+2. {#q2} What does buying the extra higher-strike call do?
+   - It raises the original credit, because the extra call adds premium on top of the amount already received
+   - [x] It flips the exposure so the position gains if the rally continues, uncapping the upside
+   - It removes all risk from the position, because the extra call pays out whenever the stock moves in any direction
+   - It makes the position bearish again, because the extra call gains value whenever the stock falls
+   > The extra long call profits as the stock keeps rising.
+
+3. {#q3} How is a bear call ladder built?
+   - Start from a bull put spread and sell another put at a lower strike, so that more premium is collected
+   - Sell two calls at the same strike and buy one call at a higher strike, so that the position is net short calls
+   - [x] Start from a bear call spread and buy another call at an even higher strike, same expiration
+   - Buy a put at a lower strike and sell a call at a higher strike, so that the position behaves like shorting
+   > It is an add-on to an existing bear call spread.
+
+4. {#q4} When a trader turns a losing bear call spread into a bear call ladder by buying an extra higher-strike call, what does that adjustment let them avoid?
+   - Paying any additional premium, because the adjustment is always free and adds no cost to the position
+   - Taking any further risk, because the extra call removes every remaining chance of losing money
+   - Having to hold the position to expiration, because the adjustment closes the trade for a fixed result
+   - [x] Closing everything and starting fresh, while turning a losing bearish trade into one that benefits from further strength
+   > It reshapes the existing position rather than replacing it.
+
+5. {#calc1} [calc] A bear call ladder sells a 100 call and buys a 105 call and a 110 call, for no net premium. What is the payoff per share if the stock ends at 118?
+   - −$3
+   - +$18
+   - [x] +$3
+   - $0
+   > The short 100 call costs 18, while the long 105 call pays 13 and the long 110 call pays 8: −18 + 13 + 8 = +3.
+
+6. {#bk1} [calc] A trader builds a Bear Call Ladder: sells one $100 call, buys one $105 call, and buys one $110 call, for no net premium. What is the maximum loss on 8 contracts (100 shares each), in dollars?
    - $40
    - $500
    - [x] $4,000
    - $4,500
    > The maximum loss is $5 per share. One contract covers 100 shares, so 8 contracts give $5 × 100 × 8 = $4,000.
 
-2. {#bk2} [calc] A trader builds a Bear Call Ladder: sells one $100 call, buys one $105 call, and buys one $110 call, for no net premium. The stock is at $105 at expiration. What is the profit or loss per share, counting the premium?
+7. {#bk2} [calc] A trader builds a Bear Call Ladder: sells one $100 call, buys one $105 call, and buys one $110 call, for no net premium. The stock is at $105 at expiration. What is the profit or loss per share, counting the premium?
    - [x] −$5
    - +$5
    - −$4
    - −$6
    > At $105 the legs are worth −$5 per share before the premium, and the net premium adds $0, for −$5 per share (given K1 = 100, K2 = 105, K3 = 110).
 
-3. {#bk3} [calc] A trader builds a Bear Call Ladder: sells one $100 call, buys one $105 call, and buys one $110 call, for no net premium. The stock is at $106 at expiration. What is the profit or loss per share, counting the premium?
+8. {#bk3} [calc] A trader builds a Bear Call Ladder: sells one $100 call, buys one $105 call, and buys one $110 call, for no net premium. The stock is at $106 at expiration. What is the profit or loss per share, counting the premium?
    - +$5
    - −$4
    - [x] −$5
    - −$6
    > At $106 the legs are worth −$5 per share before the premium, and the net premium adds $0, for −$5 per share (given K1 = 100, K2 = 105, K3 = 110).
 
-4. {#bk4} [calc] A trader builds a Bear Call Ladder: sells one $100 call, buys one $105 call, and buys one $110 call, for no net premium. At expiration the stock is at $110. What is the total profit or loss on 2 contracts (100 shares each), in dollars?
+9. {#bk4} [calc] A trader builds a Bear Call Ladder: sells one $100 call, buys one $105 call, and buys one $110 call, for no net premium. At expiration the stock is at $110. What is the total profit or loss on 2 contracts (100 shares each), in dollars?
    - −$10
    - [x] −$1,000
    - −$500

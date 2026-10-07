@@ -401,7 +401,7 @@ export function PracticePage() {
             />
             <div className="relative flex flex-col p-6 sm:p-8">
               <h3 className="text-2xl font-bold text-[#e6e8ec]">Quiz Bank</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">Mixed questions from every lesson's knowledge check.</p>
+              <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">Concept checks and calculations across every course.</p>
               <div className="mt-5 grid grid-cols-3 gap-2.5" aria-label="Quiz Bank size">
                 {bank === null ? (
                   [0, 1, 2].map((i) => <div key={i} className="h-[58px] animate-pulse rounded-xl border border-[#2a3040] bg-[#0e1117]/70" />)

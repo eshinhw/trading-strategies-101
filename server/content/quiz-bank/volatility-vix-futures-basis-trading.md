@@ -4,14 +4,63 @@ slug: volatility-vix-futures-basis-trading
 
 # Quiz
 
-1. {#bk1} [calc] VIX spot is 17.50 and the front VIX future is 19.00. What is the futures basis relative to spot?
+1. {#q1} What does the VIX index measure?
+   - The S&P 500's actual historical price
+   - [x] The market's expectation of 30-day forward S&P 500 volatility
+   - The dividend yield of the S&P 500
+   - The total trading volume of VIX futures
+   > The VIX is a forward-looking measure of expected volatility, calculated from a snapshot of S&P 500 option prices — it is not a measure of past price movement.
+
+2. {#q2} Why can't a trader simply "buy the VIX" directly?
+   - [x] The VIX index itself cannot be directly traded — it's a calculated index, not a tradeable instrument
+   - VIX trading is illegal in most markets
+   - The VIX index has no relationship to volatility
+   - The VIX index is only calculated once per year
+   > The VIX is an index, not a security — traders access volatility exposure through derivatives like VIX futures rather than the index itself.
+
+3. {#q3} What does "contango" mean in the context of VIX futures?
+   - VIX futures trading below the spot VIX index
+   - [x] VIX futures trading above the spot VIX index, common during calm periods
+   - The VIX index being permanently fixed at one level
+   - VIX futures being unavailable to trade
+   > Contango describes VIX futures pricing above spot — common because the market prices in some probability of a future volatility spike even when current volatility is low and calm.
+
+4. {#q4} What typically happens to the VIX futures-spot relationship during a market crisis?
+   - It stays exactly the same as during calm periods
+   - [x] It can flip into backwardation, where spot VIX spikes above futures prices, which reflect an expectation that the spike will partially fade
+   - VIX futures always disappear entirely during a crisis
+   - The spot VIX index stops being calculated during stress
+   > During stress, spot VIX can spike sharply while futures — pricing in some expected fading of the spike by expiration — trade below that elevated spot level, a state called backwardation.
+
+5. {#q5} What is the central risk of VIX futures basis trading?
+   - There is no risk once the trade is placed
+   - [x] Real crisis behavior can deviate from the "normal" pattern the trade assumes, with volatility spikes that are sudden, large, and longer-lasting than historical norms suggest
+   - VIX futures cannot be traded during any market condition
+   - The basis is always exactly zero and never changes
+   > A basis trade built on typical, calm-period relationships can suffer outsized losses if a genuine volatility spike behaves unusually relative to historical patterns.
+
+6. {#calc1} [calc] The VIX is 16 and the one-month VIX future is 18.5. Each point is worth $1,000 per contract. If the future converges to the spot level and nothing else changes, what does a short of 10 contracts earn?
+   - [x] $25,000
+   - $2,500
+   - $185,000
+   - $160,000
+   > The basis is 18.5 − 16 = 2.5 points, and 2.5 × $1,000 × 10 contracts = $25,000.
+
+7. {#calc2} [calc] VIX is 30 and the one-month future is 26 (backwardation). Each point is worth $1,000. If the future converges to spot, what does a long of 5 contracts earn?
+   - $4,000
+   - $30,000
+   - [x] $20,000
+   - $26,000
+   > The future would rise 4 points, and 4 × $1,000 × 5 = $20,000.
+
+8. {#bk1} [calc] VIX spot is 17.50 and the front VIX future is 19.00. What is the futures basis relative to spot?
    - −1.50 points
    - [x] 1.50 points
    - 0.50 points
    - 3.00 points
    > The basis is futures minus spot: 19.00 − 17.50 = 1.50 points (contango).
 
-2. {#bk2} [calc] A trader shorts one VIX future (multiplier $1,000 per point) at 20.5 while spot VIX is 17.0. At expiry the future converges to a spot of 17.0. What is the profit?
+9. {#bk2} [calc] A trader shorts one VIX future (multiplier $1,000 per point) at 20.5 while spot VIX is 17.0. At expiry the future converges to a spot of 17.0. What is the profit?
    - $350
    - $20,500
    - $17,000

@@ -1,6 +1,6 @@
 import { optionsStrategies } from "../options/index.js";
 import { courses } from "../courses/index.js";
-import { loadBankExtras, loadConceptLessonsFromMarkdown, loadStrategyQuizzes } from "./markdownLessons.js";
+import { loadQuizBank, loadConceptLessonsFromMarkdown, loadStrategyQuizzes } from "./markdownLessons.js";
 import { modules } from "./modules.js";
 import type { ConceptLesson, ConceptQuizQuestion, Module } from "./types.js";
 
@@ -21,21 +21,23 @@ export const strategyQuizzes = loadStrategyQuizzes();
   if (unknown.length) throw new Error(`Strategy quiz file(s) with no matching strategy: ${unknown.join(", ")}`);
 }
 
-// Extra practice questions that live only in the Quiz Bank (content/quiz-bank/<lesson-slug>.md). Each file must belong
-// to a real lesson, and its question ids may not collide with the lesson's own, since the bank ids are lesson:question.
-const bankExtras = loadBankExtras();
+// The Quiz Bank's own questions (content/quiz-bank/<lesson-slug>.md), separate from the lessons' knowledge checks. Each
+// file must belong to a real lesson, and ids must be unique within it, since the bank ids are lesson:question.
+const quizBank = loadQuizBank();
 {
-  for (const [slug, extra] of bankExtras) {
+  for (const [slug, questions] of quizBank) {
     if (!conceptBySlug.has(slug) && !strategyBySlug.has(slug)) throw new Error(`content/quiz-bank/${slug}.md has no matching lesson`);
-    const own = new Set((conceptBySlug.get(slug)?.quiz ?? strategyQuizzes.get(slug) ?? []).map((q) => q.id));
-    const clash = extra.find((q) => own.has(q.id));
-    if (clash) throw new Error(`content/quiz-bank/${slug}.md: question id "${clash.id}" is already used by the lesson's own quiz`);
+    const seen = new Set<string>();
+    for (const q of questions) {
+      if (seen.has(q.id)) throw new Error(`content/quiz-bank/${slug}.md: question id "${q.id}" is used twice`);
+      seen.add(q.id);
+    }
   }
 }
 
-/** Questions that appear only in the Quiz Bank for a lesson. */
-export function bankExtrasForLesson(slug: string): ConceptQuizQuestion[] {
-  return bankExtras.get(slug) ?? [];
+/** A lesson's Quiz Bank questions (not its knowledge check). */
+export function bankQuestionsForLesson(slug: string): ConceptQuizQuestion[] {
+  return quizBank.get(slug) ?? [];
 }
 
 /** The knowledge-check questions for any lesson, concept or strategy. */

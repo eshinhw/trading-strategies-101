@@ -268,17 +268,23 @@ export function loadStrategyQuizzes(root = STRATEGY_QUIZ_ROOT): Map<string, Conc
 }
 
 /**
- * Extra Quiz Bank questions, one file per lesson at content/quiz-bank/<lesson-slug>.md. They use the same format as
- * a lesson's own quiz, but they appear only in the Quiz Bank, so a lesson's knowledge check stays short while the
- * bank can hold many more practice questions (mostly calculations) for the same lesson.
+ * Quiz Bank questions, one file per lesson at content/quiz-bank/<lesson-slug>.md, in the same format as a lesson's own
+ * quiz. They are separate from the lesson's knowledge check: a bank question is shown without its lesson, so it must
+ * stand on its own and never point back at "this lesson", "the example" and the like.
  */
-export function loadBankExtras(root = BANK_ROOT): Map<string, ConceptQuizQuestion[]> {
-  const extras = new Map<string, ConceptQuizQuestion[]>();
-  if (!fs.existsSync(root)) return extras;
+const LESSON_REFERENCE = /\b(?:this|the|previous|next|that) (?:lesson|course|module)\b|\b(?:in|from) the (?:[\w-]+ )?example\b|\bthis curriculum\b/i;
+
+export function loadQuizBank(root = BANK_ROOT): Map<string, ConceptQuizQuestion[]> {
+  const bank = new Map<string, ConceptQuizQuestion[]>();
+  if (!fs.existsSync(root)) return bank;
   for (const f of fs.readdirSync(root).filter((name) => name.endsWith(".md")).sort()) {
     const { slug, quiz } = parseStrategyQuizMarkdown(fs.readFileSync(path.join(root, f), "utf8"), `quiz-bank/${f}`);
     if (slug !== f.replace(/\.md$/, "")) throw new Error(`quiz-bank/${f}: slug "${slug}" must match the file name`);
-    extras.set(slug, quiz);
+    for (const q of quiz) {
+      const ref = [q.prompt, ...q.choices, q.explanation].join("\n").match(LESSON_REFERENCE);
+      if (ref) throw new Error(`quiz-bank/${f}: question "${q.id}" refers to "${ref[0]}"; bank questions must stand on their own`);
+    }
+    bank.set(slug, quiz);
   }
-  return extras;
+  return bank;
 }
