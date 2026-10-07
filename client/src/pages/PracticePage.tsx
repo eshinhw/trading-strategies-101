@@ -209,9 +209,9 @@ function QuizBankStat({ value, label }: { value: string; label: string }) {
 }
 
 const QUIZ_BANK_POINTS = [
-  "Pick any mix of courses, or narrow to a single module",
-  "Answer with an instant explanation and a streak counter",
-  "Revisit the questions you missed, or practise a weak module again",
+  "Pick any mix of courses, or a single module",
+  "Instant explanations and a streak counter",
+  "Retry the questions you missed",
 ];
 
 function Section({ title, description, children }: { title: string; description: string; children: ReactNode }) {
@@ -272,7 +272,7 @@ function ToolCard({
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] card-glow transition duration-200 hover:-translate-y-0.5 hover:border-[#7c6cff]/50">
       <Link to={to} className="flex flex-1 flex-col">
-        <div className="relative h-[190px] border-b border-[#2a3040] bg-[#0e1117]">
+        <div className="relative h-[220px] border-b border-[#2a3040] bg-[#0e1117]">
           <div className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full blur-3xl" style={{ background: tint, opacity: 0.14 }} />
           <div className="relative h-full">{preview}</div>
         </div>
@@ -340,6 +340,14 @@ const QUIZ_BANK_COURSES = [
   { slug: "commodities", title: "Commodities" },
 ];
 
+const GREEK_LINKS = [
+  { id: "delta", label: "Delta" },
+  { id: "gamma", label: "Gamma" },
+  { id: "theta", label: "Theta" },
+  { id: "vega", label: "Vega" },
+  { id: "rho", label: "Rho" },
+];
+
 export function PracticePage() {
   const [exercises, setExercises] = useState<ConstructionExerciseSummary[]>([]);
   const [bank, setBank] = useState<BankCourse[] | null>(null);
@@ -376,15 +384,14 @@ export function PracticePage() {
             <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7c6cff]">Hands-on</div>
             <h1 className="mt-2 text-4xl font-bold text-[#e6e8ec]">Practice</h1>
             <p className="mt-3 leading-relaxed text-[#9aa3b2]">
-              Interactive tools for drilling the concepts and strategies covered throughout the courses. Build things,
-              break things, and get a feel for how each strategy behaves.
+              Interactive tools for drilling what the courses teach.
             </p>
           </div>
         </div>
       </header>
 
       <div className="mx-auto flex max-w-7xl flex-col gap-12 px-6 py-10">
-        <Section title="Practice tools" description="Interactive tools for building intuition and getting the repetitions in. None of them touch your course progress.">
+        <Section title="Practice tools" description="Build intuition and get the repetitions in. None of these affect your course progress.">
           <div className="relative grid overflow-hidden rounded-2xl border border-[#2a3040] bg-[#141821] card-glow transition duration-200 hover:border-[#7c6cff]/50 lg:grid-cols-[1fr_1.1fr]">
             <div
               className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full blur-3xl"
@@ -392,10 +399,7 @@ export function PracticePage() {
             />
             <div className="relative flex flex-col p-6 sm:p-8">
               <h3 className="text-2xl font-bold text-[#e6e8ec]">Quiz Bank</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">
-                Mixed questions from every lesson's knowledge check, drawn evenly across the courses you pick. Instant
-                explanations, a streak counter, and a retry pass on what you missed.
-              </p>
+              <p className="mt-2 text-sm leading-relaxed text-[#9aa3b2]">Mixed questions from every lesson's knowledge check.</p>
               <div className="mt-5 grid grid-cols-3 gap-2.5" aria-label="Quiz Bank size">
                 {bank === null ? (
                   [0, 1, 2].map((i) => <div key={i} className="h-[58px] animate-pulse rounded-xl border border-[#2a3040] bg-[#0e1117]/70" />)
@@ -458,7 +462,7 @@ export function PracticePage() {
             <ToolCard
               to="/practice/options-payoff-simulator"
               title="Options Payoff Simulator"
-              description="Build a position leg by leg, stock, calls, puts, long or short, and watch the payoff update live. If what you build matches a strategy from the course, its explanation shows up automatically."
+              description="Build a position leg by leg and watch the payoff update live. A match with a course strategy is explained automatically."
               cta="Open the simulator"
               preview={<AnimatedPreview compact />}
               tint={ACCENT.derivatives}
@@ -482,10 +486,26 @@ export function PracticePage() {
             <ToolCard
               to="/practice/greeks-explorer"
               title="Greeks Explorer"
-              description="Move the stock price, volatility, time and rates, and watch an option's price and every Greek respond. Compare scenarios side by side on the same chart."
+              description="Move the stock price, volatility, time and rates, and watch the price and every Greek respond."
               cta="Open the Greeks Explorer"
               preview={<GreeksPreview />}
               tint={ACCENT.derivatives}
+              footer={
+                <>
+                  <div className="mb-2 text-xs text-[#898781]">Or jump straight to a Greek</div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {GREEK_LINKS.map((g) => (
+                      <Link
+                        key={g.id}
+                        to={`/practice/greeks-explorer?greek=${g.id}`}
+                        className="rounded-full border border-[#2a3040] px-3 py-1 text-xs font-medium text-[#9aa3b2] transition hover:border-[#7c6cff]/50 hover:bg-[#7c6cff]/10 hover:text-[#e6e8ec]"
+                      >
+                        {g.label}
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              }
             />
           </div>
         </Section>
@@ -535,8 +555,8 @@ export function PracticePage() {
               </span>
               <h3 className="mt-3 font-semibold text-[#e6e8ec]">Lesson knowledge checks</h3>
               <p className="mt-1 text-sm leading-relaxed text-[#9aa3b2]">
-                Every lesson ends with a short quiz that explains each answer as you go. Want more reps than one lesson gives
-                you? The Quiz Bank mixes questions from any courses you choose.
+                Every lesson ends with a short quiz that explains each answer. For more reps, the Quiz Bank mixes questions
+                from any courses.
               </p>
               <span className="mt-auto pt-4 text-sm font-medium text-[#a99dff]">
                 Open the Quiz Bank <span className="inline-block transition group-hover:translate-x-0.5">→</span>
@@ -556,8 +576,7 @@ export function PracticePage() {
               </span>
               <h3 className="mt-3 font-semibold text-[#e6e8ec]">Final quizzes</h3>
               <p className="mt-1 text-sm leading-relaxed text-[#9aa3b2]">
-                Finish a course's modules to unlock a no-hints test across all of it, with a fresh set of questions each
-                attempt.
+                Finish a course's modules to unlock a no-hints test with fresh questions each attempt.
               </p>
               <span className="mt-auto pt-4 text-sm font-medium text-[#a99dff]">
                 Pick a course <span className="inline-block transition group-hover:translate-x-0.5">→</span>
