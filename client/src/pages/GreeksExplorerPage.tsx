@@ -343,8 +343,7 @@ function WhatIf({ values, type, now }: { values: Values; type: OptionKind; now: 
     <section className="rounded-2xl border border-[#2a3040] bg-[#141821] p-5">
       <h2 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">What if the stock moves?</h2>
       <p className="mt-1 text-sm text-[#898781]">
-        The Greeks estimate how the price will change. Try a move, some time passing and a volatility shift, then compare
-        the estimate with what the option is really worth afterwards.
+        Try a move, some time passing and a volatility shift, then compare the Greeks' estimate with the real price.
       </p>
 
       <div className="mt-4 grid grid-cols-1 gap-6 xl:grid-cols-[260px_minmax(0,1fr)]">
@@ -660,8 +659,7 @@ export function GreeksExplorerPage() {
           </div>
           <h1 className="mt-1 text-4xl font-bold text-[#e6e8ec]">Greeks Explorer</h1>
           <p className="mt-2 max-w-2xl leading-relaxed text-[#9aa3b2]">
-            See how an option's price and each Greek react to the stock price, volatility, time and interest rates.
-            Change a number on the left, or hover the chart, and watch everything move.
+            Change a number or hover the chart and watch the option's price and every Greek respond.
           </p>
         </div>
       </header>
@@ -747,7 +745,7 @@ export function GreeksExplorerPage() {
               {playing || replaying
                 ? `Counting down from your ${Math.round(startDaysRef.current ?? values.days)} days. Press Stop to go back to your setting.`
                 : canReplay
-                  ? `Counts your ${Math.round(values.days)} days to expiration down to 1 so you can see time value drain away and gamma build, then puts your setting back.`
+                  ? `Counts ${Math.round(values.days)} days down to 1 to show time value drain and gamma build.`
                   : "Set more than 2 days to expiration to replay the decay."}
             </p>
           </div>
@@ -792,7 +790,7 @@ export function GreeksExplorerPage() {
               </>
             ) : (
               <>
-                Showing every value at the inputs you set. Hover the chart to read them at any other{" "}
+                Showing the values at your inputs. Hover the chart to read any other{" "}
                 {xAxis === "spot" ? "stock price" : xAxis === "days" ? "time to expiration" : "volatility"}.
               </>
             )}
@@ -1000,7 +998,7 @@ export function GreeksExplorerPage() {
               <div>
                 <h2 className="text-sm font-semibold uppercase tracking-wide text-[#9aa3b2]">Challenges</h2>
                 <p className="mt-1 text-sm text-[#898781]">
-                  Change the inputs until the numbers do what each goal asks. A goal checks off the moment you get there.
+                  Change the inputs until the numbers hit each goal.
                 </p>
               </div>
               <span className="rounded-full border border-[#2a3040] bg-[#0e1117]/70 px-2.5 py-0.5 text-xs text-[#9aa3b2]">
