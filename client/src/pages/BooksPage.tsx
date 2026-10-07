@@ -34,7 +34,7 @@ export function BooksPage() {
       eyebrow="Reading list"
       title="Books"
       itemNoun="books"
-      description="Reading recommended across trading desks and quant research teams — the books that keep showing up on industry reading lists, grouped by what they're actually useful for."
+      description="Books that keep showing up on trading-desk and quant reading lists, grouped by what they're useful for."
       searchPlaceholder="Search by title, author or topic…"
       loadingLabel="Loading books…"
       emptyLabel="No books match your search."
@@ -52,7 +52,47 @@ export function BooksPage() {
       renderCard={(book, accent, bookmark) => <BookCard key={book.slug} book={book} accent={accent} bookmark={bookmark} />}
       renderRow={(book, accent, bookmark) => <BookRow key={book.slug} book={book} accent={accent} bookmark={bookmark} />}
       sorters={SORTERS}
+      renderOverview={(ctx) => (ctx.matching.length === ctx.items.length ? <StartHere items={ctx.items} accentOf={ctx.accentOf} /> : null)}
     />
+  );
+}
+
+// Approachable first reads, shown above the filters until the learner starts narrowing the list.
+const START_HERE_TITLES = ["Market Wizards", "Liar's Poker", "The Big Short", "Trading in the Zone"];
+
+function StartHere({ items, accentOf }: { items: Book[]; accentOf: (book: Book) => string }) {
+  const picks = START_HERE_TITLES.map((t) => items.find((b) => b.title === t)).filter((b): b is Book => Boolean(b));
+  if (picks.length === 0) return null;
+  return (
+    <section className="mb-8" aria-label="Start here">
+      <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Start here</h2>
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {picks.map((book, i) => {
+          const accent = accentOf(book);
+          return (
+            <a
+              key={book.slug}
+              href={book.amazonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group items-center gap-3 rounded-xl border border-[#2a3040] bg-[#141821] p-3 transition duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)] ${i < 2 ? "flex" : "hidden sm:flex"}`}
+              style={{ "--accent": `${accent}99` } as CSSProperties}
+            >
+              <BookCover book={book} accent={accent} small />
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-sm font-semibold text-[#e6e8ec]">{book.title}</span>
+                <span className="block truncate text-xs text-[#898781]">
+                  {book.author} · {book.year}
+                </span>
+              </span>
+              <span aria-hidden="true" className="text-[#a99dff] opacity-0 transition group-hover:opacity-100">
+                ↗
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 

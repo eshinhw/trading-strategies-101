@@ -288,8 +288,8 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                 onSelectTopic: (slug) => setTopic(topic === slug ? "all" : slug),
               })}
             <div className="mb-8 rounded-2xl border border-[#2a3040] bg-[#141821]/80 p-4">
-              <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-                <div className="relative w-full lg:max-w-sm">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
+                <div className="relative w-full lg:flex-1">
                   <svg
                     viewBox="0 0 20 20"
                     className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#898781]"
@@ -311,14 +311,68 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                     className="input w-full !pl-9"
                   />
                 </div>
-                <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="mr-1 text-xs text-[#898781]">Level</span>
-                  <LevelChip label="All" active={level === "all"} onClick={() => setLevel("all")} />
-                  {levels.map((lvl) => (
-                    <LevelChip key={lvl} label={levelLabel[lvl]} active={level === lvl} onClick={() => setLevel(lvl)} />
-                  ))}
+                <div className="flex flex-wrap items-center gap-3">
+                  {bookmarkKey && (
+                    <button
+                      onClick={() => setParams({ saved: onlySaved ? null : "1" })}
+                      aria-pressed={onlySaved}
+                      className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-2 text-xs font-medium transition ${
+                        onlySaved
+                          ? "border-[#7c6cff]/50 bg-[#7c6cff]/15 text-[#e6e8ec]"
+                          : "border-[#2a3040] text-[#9aa3b2] hover:text-[#e6e8ec]"
+                      }`}
+                    >
+                      <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill={onlySaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M5.5 3.5h9a1 1 0 0 1 1 1V17l-5.5-3.5L4.5 17V4.5a1 1 0 0 1 1-1Z" />
+                      </svg>
+                      Saved <span className="text-[#898781]">{saved.size}</span>
+                    </button>
+                  )}
+                  {sorters && sorters.length > 0 && (
+                    <label className="flex items-center gap-2 text-xs text-[#898781]">
+                      Sort
+                      <select
+                        value={sortId}
+                        onChange={(e) => setSortId(e.target.value)}
+                        className="rounded-lg border border-[#2a3040] bg-[#141821] px-2.5 py-2 text-xs text-[#e6e8ec] focus:border-[#7c6cff] focus:outline-none [&>option]:bg-[#141821]"
+                      >
+                        <option value="recommended">Recommended</option>
+                        {sorters.map((x) => (
+                          <option key={x.id} value={x.id}>
+                            {x.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  )}
+                  {(renderRow || renderTimeline) && (
+                    <div role="radiogroup" aria-label="Layout" className="flex rounded-lg border border-[#2a3040] bg-[#141821] p-0.5">
+                      {(
+                        [
+                          ["cards", "Cards", true],
+                          ["list", "List", Boolean(renderRow)],
+                          ["timeline", "Timeline", Boolean(renderTimeline)],
+                        ] as const
+                      )
+                        .filter(([, , available]) => available)
+                        .map(([key, label]) => (
+                          <button
+                            key={key}
+                            role="radio"
+                            aria-checked={view === key}
+                            onClick={() => setView(key)}
+                            className={`rounded-md px-3 py-1.5 text-xs font-medium transition ${
+                              view === key ? "bg-[#7c6cff]/20 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
+                            }`}
+                          >
+                            {label}
+                          </button>
+                        ))}
+                    </div>
+                  )}
                 </div>
               </div>
+
               <div className="mt-3 flex flex-wrap items-center gap-1.5 border-t border-[#2a3040] pt-3">
                 <span className="mr-1 text-xs text-[#898781]">Topic</span>
                 <TopicChip label="All" count={data.items.length} active={topic === "all"} onClick={() => setTopic("all")} />
@@ -333,77 +387,21 @@ export function CatalogPage<TItem, TLevel extends string, TCategory extends Cata
                   />
                 ))}
               </div>
-            </div>
 
-            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-sm text-[#898781]">
-                Showing <span className="font-medium text-[#e6e8ec]">{filteredItems.length}</span> of {data.items.length}{" "}
-                {itemNoun}
-                {filtersActive && (
-                  <button onClick={clearFilters} className="ml-3 text-[#a99dff] hover:underline">
-                    Clear filters
-                  </button>
-                )}
-              </p>
-              <div className="flex flex-wrap items-center gap-3">
-                {bookmarkKey && (
-                  <button
-                    onClick={() => setParams({ saved: onlySaved ? null : "1" })}
-                    aria-pressed={onlySaved}
-                    className={`flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-medium transition ${
-                      onlySaved
-                        ? "border-[#7c6cff]/50 bg-[#7c6cff]/15 text-[#e6e8ec]"
-                        : "border-[#2a3040] text-[#9aa3b2] hover:text-[#e6e8ec]"
-                    }`}
-                  >
-                    <svg viewBox="0 0 20 20" className="h-3.5 w-3.5" fill={onlySaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M5.5 3.5h9a1 1 0 0 1 1 1V17l-5.5-3.5L4.5 17V4.5a1 1 0 0 1 1-1Z" />
-                    </svg>
-                    Saved <span className="text-[#898781]">{saved.size}</span>
-                  </button>
-                )}
-                {sorters && sorters.length > 0 && (
-                  <label className="flex items-center gap-2 text-xs text-[#898781]">
-                    Sort
-                    <select
-                      value={sortId}
-                      onChange={(e) => setSortId(e.target.value)}
-                      className="rounded-lg border border-[#2a3040] bg-[#141821] px-2.5 py-1.5 text-xs text-[#e6e8ec] focus:border-[#7c6cff] focus:outline-none [&>option]:bg-[#141821]"
-                    >
-                      <option value="recommended">Recommended</option>
-                      {sorters.map((x) => (
-                        <option key={x.id} value={x.id}>
-                          {x.label}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                )}
-                {(renderRow || renderTimeline) && (
-                  <div role="radiogroup" aria-label="Layout" className="flex rounded-lg border border-[#2a3040] bg-[#141821] p-0.5">
-                    {(
-                      [
-                        ["cards", "Cards", true],
-                        ["list", "List", Boolean(renderRow)],
-                        ["timeline", "Timeline", Boolean(renderTimeline)],
-                      ] as const
-                    )
-                      .filter(([, , available]) => available)
-                      .map(([key, label]) => (
-                        <button
-                          key={key}
-                          role="radio"
-                          aria-checked={view === key}
-                          onClick={() => setView(key)}
-                          className={`rounded-md px-3 py-1 text-xs font-medium transition ${
-                            view === key ? "bg-[#7c6cff]/20 text-[#e6e8ec]" : "text-[#898781] hover:text-[#e6e8ec]"
-                          }`}
-                        >
-                          {label}
-                        </button>
-                      ))}
-                  </div>
-                )}
+              <div className="mt-3 flex flex-wrap items-center gap-1.5 border-t border-[#2a3040] pt-3">
+                <span className="mr-1 text-xs text-[#898781]">Level</span>
+                <LevelChip label="All" active={level === "all"} onClick={() => setLevel("all")} />
+                {levels.map((lvl) => (
+                  <LevelChip key={lvl} label={levelLabel[lvl]} active={level === lvl} onClick={() => setLevel(lvl)} />
+                ))}
+                <p className="ml-auto text-xs text-[#898781]" aria-live="polite">
+                  <span className="font-medium text-[#e6e8ec]">{filteredItems.length}</span> of {data.items.length} {itemNoun}
+                  {filtersActive && (
+                    <button onClick={clearFilters} className="ml-2 text-[#a99dff] hover:underline">
+                      Clear
+                    </button>
+                  )}
+                </p>
               </div>
             </div>
 
