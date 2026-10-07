@@ -40,13 +40,38 @@ For most pairs a pip is 0.0001, which is why points are the difference scaled by
 
 ## Example
 
-Suppose EUR/USD spot is 1.1000, the three-month dollar interest rate is 5% a year, the three-month euro rate is 3% a year, and the period is 0.25 years. The forward rate is:
+**Bid and ask**
+
+A dealer quotes EUR/USD at 1.1000 / 1.1002, a 2-pip spread.
+
+- Buying €1,000,000 at the ask: $1,100,200
+- Selling €1,000,000 at the bid: $1,100,000
+- Cost of crossing the spread: $200
+
+**Cross rate (EUR/GBP from two dollar rates)**
 
 $$
-F = 1.1000 \times \frac{1 + 0.05 \times 0.25}{1 + 0.03 \times 0.25} = 1.1000 \times \frac{1.0125}{1.0075} \approx 1.1055
+\text{EUR/USD} = 1.1000, \quad \text{GBP/USD} = 1.2650 \quad\Rightarrow\quad \text{EUR/GBP} = \frac{1.1000}{1.2650} = 0.8696
 $$
 
-The forward points are about 55, so a dealer would quote the three-month outright forward as spot plus roughly 55 pips. The dollar has the higher rate, so it trades at a forward discount, which is the same as saying the euro trades at a forward premium of about 55 pips against it. A company selling euros forward, like the exporter in the hedging lesson, locks in about 1.1055 rather than today's 1.1000.
+**Three-month forward rate**
+
+- EUR/USD spot: 1.1000
+- Three-month dollar rate: 5% a year
+- Three-month euro rate: 3% a year
+- Period: 0.25 years
+
+$$
+F = 1.1000 \times \frac{1 + 0.05 \times 0.25}{1 + 0.03 \times 0.25} = 1.1000 \times \frac{1.0125}{1.0075} \approx \boxed{1.1055}
+$$
+
+**Forward points**
+
+$$
+1.1055 - 1.1000 = 0.0055 = 55 \text{ pips}
+$$
+
+The dollar has the higher rate, so it trades at a forward discount and the euro at a forward premium of about 55 pips. A company selling euros forward, like the exporter in the hedging lesson, locks in about 1.1055 instead of today's 1.1000.
 
 # Quiz
 

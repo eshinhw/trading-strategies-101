@@ -22,7 +22,39 @@ A muni's yield can stay elevated relative to what looks "fair" for reasons beyon
 
 ## Example
 
-A trader notices that a state's general-obligation municipal bonds are yielding meaningfully more than the taxable-equivalent-yield formula would suggest is fair for investors in the relevant tax bracket, with no obvious credit deterioration behind it. The trader buys the munis, funded partly with taxable short-term borrowing, capturing the spread between the tax-exempt yield and the taxable financing cost while that mispricing persists.
+A trader compares a state's tax-exempt municipal bonds with comparable taxable bonds (illustrative).
+
+- Comparable taxable bond yield: 4.6%
+- Tax rate of the marginal investor: 35%
+- Municipal bond yield: 3.6%
+
+**Fair municipal yield**
+
+$$
+4.6\% \times (1 - 0.35) = 2.99\%
+$$
+
+**Taxable-equivalent yield of the muni**
+
+$$
+\frac{3.6\%}{1 - 0.35} = 5.54\% \quad\text{vs.}\quad 4.6\% \text{ on the taxable bond}
+$$
+
+The muni yields 0.61 percentage points more than it should, with no deterioration in credit behind it.
+
+**The trade: buy $10 million of munis, funded partly with taxable short-term borrowing at 2.8%**
+
+$$
+\$10{,}000{,}000 \times (3.6\% - 2.8\%) = \boxed{\$80{,}000 \text{ a year carry}}
+$$
+
+**If the mispricing closes and the muni yield falls to 2.99% (duration 7)**
+
+$$
+7 \times 0.61\% \times \$10{,}000{,}000 = +\$427{,}000
+$$
+
+The trader captures the spread while the mispricing lasts. The risk is that it widens, or that the credit does worsen, and tax rules on the borrowing differ by jurisdiction.
 
 # Quiz
 

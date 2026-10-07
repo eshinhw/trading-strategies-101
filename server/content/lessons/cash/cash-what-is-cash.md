@@ -22,7 +22,35 @@ Even within "cash and cash equivalents" there's a spectrum: a checking account i
 
 ## Example
 
-A company sitting on a large cash reserve during a strong economy is often criticized for "wasting" capital that could be earning a higher return elsewhere — until a downturn hits, revenue drops, and that same reserve is what lets it keep paying employees and suppliers while competitors with less cash are forced into distressed asset sales or bankruptcy.
+Two companies each have $4 million of monthly obligations. Their revenue then drops from $5 million to $2 million a month for six months.
+
+- Company A: holds $24 million in cash
+- Company B: holds $3 million in cash
+
+**Monthly shortfall during the downturn**
+
+$$
+\$4{,}000{,}000 - \$2{,}000{,}000 = \$2{,}000{,}000
+$$
+
+**Six-month cash need**
+
+$$
+6 \times \$2{,}000{,}000 = \$12{,}000{,}000
+$$
+
+- Company A: $24 million covers the $12 million need and leaves $12 million
+- Company B: $3 million lasts 1.5 months, then it needs distressed asset sales or bankruptcy
+
+**The cost of holding the cash in good times**
+
+If Company A's extra $21 million could have earned 8% instead of 4% in cash:
+
+$$
+\$21{,}000{,}000 \times (8\% - 4\%) = \$840{,}000 \text{ a year}
+$$
+
+That $840,000 is the price of safety, and in the downturn it is what kept Company A operating.
 
 # Quiz
 

@@ -34,7 +34,39 @@ Every input to these models is a forecast, and the result can be very sensitive 
 
 ## Example
 
-An analyst finds that a company earned 2.50 dollars per share and trades at 50 dollars, a P/E of 20, while similar companies in its sector trade at a P/E of around 15. The analyst also estimates a dividend-discount value of 42 dollars. Both measures suggest the stock is expensive, but each depends on assumptions about growth and risk, so the analyst would want to understand why the market is willing to pay more before drawing a conclusion.
+An analyst looks at a company.
+
+- Earnings per share: $2.50
+- Stock price: $50
+- Similar companies trade at a P/E of about 15
+
+**P/E of the company**
+
+$$
+\frac{\$50}{\$2.50} = 20
+$$
+
+**Value if it traded like its peers**
+
+$$
+15 \times \$2.50 = \$37.50 \quad\Rightarrow\quad \frac{\$50 - \$37.50}{\$37.50} = 33\% \text{ above}
+$$
+
+**Dividend discount value**
+
+- Next year's dividend: $1.68
+- Required return: 9%
+- Growth rate: 5%
+
+$$
+\frac{\$1.68}{0.09 - 0.05} = \boxed{\$42}
+$$
+
+$$
+\frac{\$50 - \$42}{\$42} = 19\% \text{ above}
+$$
+
+Both measures say the stock is expensive, by 33% against its peers and 19% against its dividends. Each depends on assumptions about growth and risk. If the market expects growth well above 5%, a higher price could be justified, so the analyst would find out why the market is paying more before concluding anything.
 
 # Quiz
 

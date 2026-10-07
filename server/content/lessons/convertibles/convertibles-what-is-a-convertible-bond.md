@@ -22,7 +22,34 @@ Convertible bonds are widely issued by companies, particularly growth companies 
 
 ## Example
 
-A young biotech or software company that isn't yet generating steady cash flow often struggles to issue a plain bond at an affordable rate, since lenders see real default risk and price it in, and issuing more stock outright dilutes existing shareholders immediately at what the company may see as a depressed price. Issuing a convertible bond splits the difference: the company locks in a lower coupon than a straight bond would cost, and investors accept that lower coupon because they're also buying the chance to convert into equity later if the stock takes off.
+A young software company needs $100 million. It is not yet profitable.
+
+- Plain bond: investors demand a 7% coupon because of default risk
+- Convertible bond: a 3% coupon, convertible at $50 a share
+- Stock price today: $40
+
+**Interest saved each year**
+
+$$
+\$100{,}000{,}000 \times (7\% - 3\%) = \boxed{\$4{,}000{,}000}
+$$
+
+**Shares created if the bonds convert**
+
+$$
+\frac{\$100{,}000{,}000}{\$50} = 2{,}000{,}000 \text{ shares}
+$$
+
+**Compared with selling stock today**
+
+$$
+\frac{\$100{,}000{,}000}{\$40} = 2{,}500{,}000 \text{ shares}
+$$
+
+- Dilution is 500,000 shares less, which is 20% fewer new shares.
+- The conversion price is 25% above today's price: ($50 − $40) ÷ $40.
+
+Investors accept the lower coupon because they also receive the right to convert into shares if the stock rises above $50.
 
 # Quiz
 

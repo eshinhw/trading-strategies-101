@@ -22,7 +22,30 @@ A low price isn't always a bargain, because the market may be right that the deb
 
 ## Example
 
-A bond with a face value of 1,000 dollars trades at 400 dollars after the issuer files for bankruptcy, mostly because funds that can't hold defaulted debt are selling. An investor studies the company's assets and the order of claims and estimates that the bond will eventually recover about 600 dollars. If that is right, buying at 400 and recovering 600 gives a gain of 50%, since 600 divided by 400 is 1.5. If the recovery is only 200 dollars, the investor loses 50%, which shows how much depends on the quality of the analysis.
+A bond with a face value of $1,000 trades at $400 after the issuer files for bankruptcy, mostly because funds that cannot hold defaulted debt are selling.
+
+- Purchase price: $400
+- Investor's estimate of the eventual recovery: $600 (from studying the assets and the order of claims)
+
+**If the estimate is right**
+
+$$
+\frac{\$600 - \$400}{\$400} = \boxed{+50\%}
+$$
+
+**If the recovery is only $200**
+
+$$
+\frac{\$200 - \$400}{\$400} = -50\%
+$$
+
+**Weighing both outcomes (60% chance of $600, 40% chance of $200)**
+
+$$
+0.6 \times \$600 + 0.4 \times \$200 = \$440 \quad\Rightarrow\quad \frac{\$440 - \$400}{\$400} = +10\%
+$$
+
+The forced selling creates the discount, but the gain depends on the quality of the analysis. A better estimate of the recovery is the investor's edge.
 
 # Quiz
 

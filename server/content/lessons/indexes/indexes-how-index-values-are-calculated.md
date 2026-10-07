@@ -22,7 +22,42 @@ Indices are also periodically rebalanced, adjusting each constituent's weight ba
 
 ## Example
 
-When a company in a widely followed index announces a multi-for-one stock split, the index provider recalculates the divisor that same day so the index's published level doesn't move at all because of the split itself — anyone watching the index sees only the moves caused by actual buying and selling, not by a change in how one constituent's shares happen to be counted. The same quiet divisor adjustment happens whenever the index provider swaps one company out for another during its periodic reconstitution.
+A price-weighted index holds three stocks.
+
+- Stock A: $300
+- Stock B: $100
+- Stock C: $50
+- Divisor: 3
+
+**Index level**
+
+$$
+\frac{300 + 100 + 50}{3} = \boxed{150}
+$$
+
+**Stock A announces a 3-for-1 split, so its price drops to $100**
+
+Without an adjustment, the index would fall from 150 to 83:
+
+$$
+\frac{100 + 100 + 50}{3} = 83.3
+$$
+
+The provider changes the divisor so the level stays at 150:
+
+$$
+\text{New divisor} = \frac{250}{150} = 1.667 \quad\Rightarrow\quad \frac{250}{1.667} = 150
+$$
+
+**Reconstitution: Stock C ($50) is replaced by Stock D ($80)**
+
+New sum: 100 + 100 + 80 = 280.
+
+$$
+\text{New divisor} = \frac{280}{150} = 1.867
+$$
+
+Neither the split nor the swap moves the index. Only real changes in prices do.
 
 # Quiz
 

@@ -22,7 +22,29 @@ A PMI survey asks purchasing managers at businesses whether conditions (new orde
 
 ## Example
 
-A macro desk positioning ahead of a closely watched inflation report will often reduce position sizes beforehand, since a surprise reading, in either direction, can move rate, currency, and equity markets sharply within seconds of release — exactly the kind of event covered directly in this course's strategy on trading economic announcements.
+A macro desk holds $20 million of 10-year Treasury notes with a duration of 8, ahead of an inflation report.
+
+**Value of a 1 basis point move in yields**
+
+$$
+\$20{,}000{,}000 \times 8 \times 0.01\% = \$16{,}000
+$$
+
+**A surprise of 0.2 percentage points in inflation moves the 10-year yield by about 12 basis points (illustrative)**
+
+$$
+12 \times \$16{,}000 = \boxed{\pm\$192{,}000}
+$$
+
+The move can go either way, and it happens within seconds of release.
+
+**The desk halves its position before the report**
+
+$$
+\$10{,}000{,}000 \times 8 \times 0.12\% = \pm\$96{,}000
+$$
+
+The desk accepts a smaller expected payoff in exchange for half the exposure to the surprise. Regular data releases such as GDP, inflation, employment and purchasing manager surveys move rate, currency and equity markets together, so desks plan for them ahead of time.
 
 # Quiz
 

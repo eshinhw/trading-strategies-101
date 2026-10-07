@@ -26,7 +26,31 @@ Brokers approve accounts for different levels of options trading depending on ex
 
 ## Example
 
-An investor looks at the option chain for a stock trading at 100 and sees the 100-strike call quoted at a bid of 3.90 and an ask of 4.10. Buying one contract costs the ask, 4.10 × 100 = 410 dollars. If the investor wanted to sell it right away, only the bid of 3.90 would be received, which is 390 dollars, so crossing the spread costs about 20 dollars. That small gap is the price of trading immediately.
+The option chain for a stock trading at 100 shows the 100-strike call quoted at 3.90 bid and 4.10 ask. Each contract controls 100 shares.
+
+**Buying one contract**
+
+$$
+4.10 \times 100 = \$410
+$$
+
+**Selling it right away**
+
+$$
+3.90 \times 100 = \$390
+$$
+
+**Cost of trading immediately in both directions**
+
+$$
+\$410 - \$390 = \boxed{\$20}
+$$
+
+$$
+\frac{\$20}{\$410} = 4.9\% \text{ of the price paid}
+$$
+
+The option must gain $0.20 in value, or about $0.40 of stock movement for a typical delta of 0.5, just to cover the spread. The $20 is the price of trading immediately. A limit order between the bid and ask can sometimes save part of it.
 
 # Quiz
 

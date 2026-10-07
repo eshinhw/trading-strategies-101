@@ -22,7 +22,26 @@ Rho becomes more important for long-dated options, such as those lasting a year 
 
 ## Example
 
-A trader holds a one-year call with a rho of 0.25. A central bank raises interest rates by 1 percentage point, and, all else equal, the call gains about 0.25 per share, or 25 dollars per contract. A one-week option at the same strike would barely change, which shows that rho depends mainly on how long the option has left.
+A trader holds a one-year call with a rho of 0.25 (per share, per 1 percentage point change in interest rates).
+
+**A central bank raises rates by 1 percentage point**
+
+$$
+0.25 \text{ per share} \times 100 = \boxed{+\$25 \text{ per contract}}
+$$
+
+**A one-week option at the same strike**
+
+Rho is roughly proportional to the time left. One week is 1/52 of a year:
+
+$$
+0.25 \times \frac{1}{52} \approx 0.005 \text{ per share} \quad\Rightarrow\quad 0.005 \times 100 = \$0.50 \text{ per contract}
+$$
+
+- One-year call: +$25 for a 1-point rate rise
+- One-week call: about +$0.50 for the same rise
+
+Rho depends mainly on how long the option has left. It matters for long-dated options and can usually be ignored for short-dated ones.
 
 # Quiz
 

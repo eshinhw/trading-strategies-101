@@ -22,7 +22,27 @@ This same pattern — cash lent against securities as collateral, at a low rate 
 
 ## Example
 
-Compare a pawn loan secured by a piece of jewelry against an unsecured personal loan of the same size: the pawn loan can be issued in minutes with no credit check at all, because the lender's risk is capped by the jewelry's resale value rather than the borrower's promise to repay — collateral is doing all the work that a credit check would otherwise have to do.
+A borrower needs $200 quickly. Compare a pawn loan with an unsecured loan of the same size.
+
+- Pawn loan: secured by jewelry appraised at $600
+- Unsecured loan: backed only by the borrower's promise
+
+**Loan-to-value on the pawn loan**
+
+$$
+\frac{\$200}{\$600} = 33\%
+$$
+
+**If the borrower never repays**
+
+- Pawn lender: keeps the jewelry and resells it. Even a forced sale at 50% of appraisal ($300) covers the $200 loan, so the lender loses nothing.
+- Unsecured lender: recovers $0 and loses the full $200.
+
+$$
+\text{Worst-case loss: pawn } = \$0 \quad\text{vs.}\quad \text{unsecured } = \$200
+$$
+
+The jewelry caps the lender's risk, so no credit check is needed. Collateral does the work a credit check would otherwise do.
 
 # Quiz
 

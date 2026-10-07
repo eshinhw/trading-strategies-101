@@ -26,7 +26,39 @@ Nothing about a trade itself reveals its purpose: buying euros with dollars coul
 
 ## Example
 
-A U.S. company expects to be paid 2 million euros in three months. If it does nothing, it ends up with more or fewer dollars depending on where EUR/USD is when the payment arrives. If it instead agrees today to sell those euros at a fixed rate, it has hedged. A trader who sells euros forward with no euro receivable at all is taking the exact same trade but creating risk instead of removing it.
+A U.S. company expects to be paid €2,000,000 in three months. EUR/USD spot is 1.1000, and the three-month forward rate is 1.1055.
+
+**Doing nothing (unhedged)**
+
+$$
+\text{EUR/USD at 1.05: } 2{,}000{,}000 \times 1.05 = \$2{,}100{,}000
+$$
+
+$$
+\text{EUR/USD at 1.15: } 2{,}000{,}000 \times 1.15 = \$2{,}300{,}000
+$$
+
+The company receives $200,000 more or less depending on where the rate lands.
+
+**Hedging: sell the euros forward today**
+
+$$
+2{,}000{,}000 \times 1.1055 = \boxed{\$2{,}211{,}000 \text{ in every case}}
+$$
+
+**A trader sells €2,000,000 forward at 1.1055 with no euro receivable**
+
+The trade is identical, but there is nothing to offset it.
+
+$$
+\text{EUR/USD at 1.05: } (1.1055 - 1.05) \times 2{,}000{,}000 = +\$111{,}000
+$$
+
+$$
+\text{EUR/USD at 1.15: } (1.1055 - 1.15) \times 2{,}000{,}000 = -\$89{,}000
+$$
+
+The same trade removes $200,000 of risk for the company and creates $200,000 of risk for the trader. The purpose is what separates a hedge from a bet.
 
 # Quiz
 

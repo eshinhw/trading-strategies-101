@@ -22,7 +22,39 @@ To compare a muni fairly against a taxable bond, investors compute a taxable-equ
 
 ## Example
 
-A municipal bond yielding 3% might look unremarkable next to a taxable corporate bond yielding 4.5% — until a high-tax-bracket investor computes the muni's taxable-equivalent yield and finds it's actually higher than 4.5% after accounting for the tax saved, making the lower-yielding muni the better after-tax choice for that specific investor, even though a lower-tax-bracket investor might reasonably prefer the corporate bond instead.
+A municipal bond yields 3.0% and a taxable corporate bond yields 4.5%.
+
+**Taxable-equivalent yield of the muni for a high-bracket investor (37% tax rate)**
+
+$$
+\frac{3.0\%}{1 - 0.37} = \boxed{4.76\%}
+$$
+
+$$
+4.76\% > 4.5\% \quad\Rightarrow\quad \text{the muni is better for this investor}
+$$
+
+**After-tax comparison on $100,000**
+
+$$
+\text{Muni: } \$100{,}000 \times 3.0\% = \$3{,}000
+$$
+
+$$
+\text{Corporate: } \$100{,}000 \times 4.5\% \times (1 - 0.37) = \$2{,}835
+$$
+
+**A lower-bracket investor (12% tax rate)**
+
+$$
+\frac{3.0\%}{1 - 0.12} = 3.41\% \quad\text{vs.}\quad 4.5\% \quad\Rightarrow\quad \text{the corporate bond is better}
+$$
+
+$$
+\text{Corporate after tax: } \$100{,}000 \times 4.5\% \times 0.88 = \$3{,}960 \quad\text{vs. muni } \$3{,}000
+$$
+
+The muni's lower stated yield is more than made up for by the tax saved, but only for an investor with a high enough tax rate. The break-even rate is 1 − 3.0/4.5 = 33%.
 
 # Quiz
 

@@ -22,7 +22,36 @@ This strategy's central risk is straightforward: the spread can stay away from, 
 
 ## Example
 
-A trader believes 10-year breakeven inflation, currently at 2.7%, is too high relative to their own inflation forecast and goes long the 10-year nominal Treasury and short the matched-maturity TIPS, financing both legs via repo, positioned to profit as the spread narrows toward their estimate of fair value — a trade on the relationship between the two securities, not on interest rates outright.
+A trader thinks 10-year breakeven inflation is too high.
+
+- Current breakeven: 2.7%
+- The trader's fair-value estimate: 2.3%
+- Trade: long $100 million of 10-year nominal Treasuries, short $100 million of matched-maturity TIPS, both financed in the repo market
+- Duration of both bonds: about 8
+
+**Profit if the spread narrows to 2.3%**
+
+$$
+2.7\% - 2.3\% = 0.4\% \quad\Rightarrow\quad 8 \times 0.4\% \times \$100\text{M} = \boxed{+\$3{,}200{,}000}
+$$
+
+**If the spread widens 0.4% instead**
+
+$$
+-\$3{,}200{,}000
+$$
+
+**Not a bet on interest rates: all yields rise 1%**
+
+$$
+\text{Long nominal: } -8 \times 1\% \times \$100\text{M} = -\$8\text{M} \qquad \text{Short TIPS: } +8 \times 1\% \times \$100\text{M} = +\$8\text{M}
+$$
+
+$$
+-\$8\text{M} + \$8\text{M} = \$0
+$$
+
+The trade makes money only if the gap between the two bonds changes, and the overall level of rates cancels out. The trader expresses the "breakeven too high" view by owning the nominal bond and shorting the TIPS.
 
 # Quiz
 

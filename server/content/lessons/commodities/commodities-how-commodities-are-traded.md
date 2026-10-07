@@ -22,7 +22,33 @@ Beyond trading futures directly, investors can get commodity exposure through co
 
 ## Example
 
-A jewelry manufacturer that needs gold every month to keep production running doesn't want to deal with vaulting bars of physical metal, so it instead buys and rolls gold futures contracts to lock in a price, closing each one out for cash well before delivery and buying the actual metal separately from its usual bullion supplier. A retail investor with no use for physical gold at all can get similar price exposure even more simply, by buying shares of a gold ETF instead of opening a futures account at all.
+A jewelry manufacturer needs 1,000 ounces of gold each month. Gold trades at $1,950 an ounce, and a gold futures contract covers 100 ounces.
+
+**Hedging with futures**
+
+- Contracts bought: 1,000 ÷ 100 = 10
+- Notional value: 1,000 × $1,950 = $1,950,000
+- Initial margin at 5%: $97,500
+
+By month-end gold has risen to $2,000. The manufacturer closes the futures for cash before delivery and buys the metal from its usual bullion supplier.
+
+$$
+\text{Futures gain} = (\$2{,}000 - \$1{,}950) \times 1{,}000 = +\$50{,}000
+$$
+
+$$
+\text{Metal costs } 1{,}000 \times \$2{,}000 = \$2{,}000{,}000 \quad\Rightarrow\quad \$2{,}000{,}000 - \$50{,}000 = \boxed{\$1{,}950 \text{ per ounce}}
+$$
+
+The manufacturer pays the $1,950 it locked in, with no bars vaulted.
+
+**A retail investor without a futures account**
+
+$10,000 in a gold ETF captures the same price move:
+
+$$
+\$10{,}000 \times \frac{\$2{,}000 - \$1{,}950}{\$1{,}950} = \$256 \text{ gain}
+$$
 
 # Quiz
 

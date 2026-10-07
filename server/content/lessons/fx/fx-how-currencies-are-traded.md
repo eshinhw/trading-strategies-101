@@ -22,7 +22,36 @@ A lot is the standard trade size in FX: a standard lot is typically 100,000 unit
 
 ## Example
 
-A multinational corporate treasurer needing to convert a large batch of foreign sales revenue back into dollars doesn't place that order on a centralized exchange the way a stock trader would — instead, the company's bank quotes a price directly, over the counter, and because the FX market is open somewhere in the world nearly around the clock, that conversion can be timed to whichever trading session offers the tightest pricing, rather than waiting for a single exchange's opening bell.
+A company needs to convert €5,000,000 of sales revenue into dollars. It does not use an exchange. Its bank quotes a price over the counter.
+
+**Quote in a busy session: EUR/USD 1.0998 / 1.1002**
+
+- The spread is 1.1002 − 1.0998 = 0.0004, which is 4 pips (1 pip = 0.0001).
+- The company sells euros, so it receives the lower price, the bid.
+
+$$
+5{,}000{,}000 \times 1.0998 = \$5{,}499{,}000
+$$
+
+**Quote in a thin session: EUR/USD 1.0990 / 1.1010 (20 pips wide)**
+
+$$
+5{,}000{,}000 \times 1.0990 = \$5{,}495{,}000
+$$
+
+$$
+\$5{,}499{,}000 - \$5{,}495{,}000 = \boxed{\$4{,}000 \text{ saved by timing the trade}}
+$$
+
+**Size in lots**
+
+A standard lot is 100,000 units of the base currency:
+
+$$
+\frac{5{,}000{,}000}{100{,}000} = 50 \text{ lots} \qquad \text{1 pip on a standard lot} = 100{,}000 \times 0.0001 = \$10
+$$
+
+The market is open somewhere nearly around the clock, so the company can convert when pricing is tightest.
 
 # Quiz
 

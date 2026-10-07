@@ -22,7 +22,36 @@ How a given cryptocurrency or activity is classified and regulated varies by jur
 
 ## Example
 
-A systematic trading strategy built purely on historical price patterns can perform very differently once regulatory news, an exchange outage, or a smart-contract exploit disrupts the market in a way a traditional equity strategy would rarely have to account for — which is exactly why risk controls built for crypto strategies typically need to be more conservative than the backtested price data alone would suggest.
+A systematic strategy is sized from backtested price data. Compare an equity strategy with a crypto one for a $100,000 account (illustrative).
+
+- Equity daily volatility: 1%
+- Crypto daily volatility: 4%
+
+**One-day 95% loss on a full $100,000 position (1.65 standard deviations)**
+
+$$
+\text{Equity: } 1.65 \times 1\% \times \$100{,}000 = \$1{,}650
+$$
+
+$$
+\text{Crypto: } 1.65 \times 4\% \times \$100{,}000 = \$6{,}600
+$$
+
+**Position that gives the same risk as the equity strategy**
+
+$$
+\frac{\$1{,}650}{1.65 \times 4\%} = \$25{,}000
+$$
+
+**Risks the price history does not show**
+
+A smart-contract exploit or exchange outage can gap the price 25% before the strategy can react.
+
+$$
+\$25{,}000 \times 25\% = \$6{,}250 \text{ loss in one gap}
+$$
+
+Because of those extra risks, crypto controls are usually more conservative than the backtest alone says, for example cutting the position to $12,500, which limits that gap loss to $3,125.
 
 # Quiz
 

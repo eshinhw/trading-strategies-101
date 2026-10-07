@@ -22,7 +22,34 @@ Every strategy in this course works entirely within published tax law and treaty
 
 ## Example
 
-A trading desk noticing that two economically similar exposures, one direct and one structured through a derivative, face different tax treatment might build a position that captures the more favorable treatment while largely hedging away the underlying market risk — isolating the tax-treatment gap itself as the trade's actual driver of return.
+A desk sees two economically similar exposures taxed differently (illustrative).
+
+- Direct holding: $2 million of bonds paying 5%, which is $100,000 of interest taxed at 37%
+- Derivative version: a structure that pays the same $100,000 as a capital gain taxed at 20%
+
+**After-tax result**
+
+$$
+\text{Direct: } \$100{,}000 \times (1 - 0.37) = \$63{,}000
+$$
+
+$$
+\text{Derivative: } \$100{,}000 \times (1 - 0.20) = \$80{,}000
+$$
+
+$$
+\$80{,}000 - \$63{,}000 = \boxed{\$17{,}000 \text{ extra a year}}
+$$
+
+**Hedging the market risk**
+
+The desk hedges the bonds' price risk with an offsetting position, so the trade does not depend on rates moving. What is left is the $17,000 tax-treatment gap.
+
+$$
+\frac{\$17{,}000}{\$2{,}000{,}000} = 0.85\% \text{ of the exposure}
+$$
+
+The trade's profit comes from the gap between the two tax treatments and not from a market view. If the tax rules change, the gap can close, which is the main risk.
 
 # Quiz
 

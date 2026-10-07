@@ -22,7 +22,33 @@ Whenever two parties face different tax treatment on the same or economically eq
 
 ## Example
 
-A pension fund and a highly taxed individual investor both want exposure to the same bond's interest payments. Because the pension fund owes little or no tax on that interest while the individual would owe a meaningful rate, there's a real, legal incentive to structure ownership so the pension fund, not the individual, ends up holding the interest-bearing position directly.
+A pension fund and a highly taxed individual each hold $1 million. There are two assets.
+
+- Bond: pays 5% interest, which is $50,000 a year, taxed as ordinary income
+- Stock: gains 5%, which is $50,000, taxed at the capital-gains rate
+
+**Tax rates**
+
+- Pension fund: 0% on everything
+- Individual: 37% on interest, 20% on capital gains
+
+**Arrangement 1: the individual holds the bond, the pension fund holds the stock**
+
+$$
+\text{Individual's tax} = \$50{,}000 \times 37\% = \$18{,}500
+$$
+
+**Arrangement 2: the pension fund holds the bond, the individual holds the stock**
+
+$$
+\text{Individual's tax} = \$50{,}000 \times 20\% = \$10{,}000
+$$
+
+$$
+\$18{,}500 - \$10{,}000 = \boxed{\$8{,}500 \text{ saved each year}}
+$$
+
+The pre-tax return is identical. The pension fund pays no tax either way, so it is the natural holder of the interest-bearing position, and the individual keeps the lower-taxed asset.
 
 # Quiz
 

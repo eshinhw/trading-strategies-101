@@ -22,7 +22,39 @@ This persistent gap between implied and realized volatility is exactly what a fa
 
 ## Example
 
-A trader who systematically sells index options, collecting premium month after month, is functioning much like an insurance company that sells policies against events that rarely happen: most months the options expire with little drama and the premium is pure profit, but the strategy's entire viability depends on setting aside enough of that collected premium to absorb the occasional month when realized volatility spikes far beyond what was priced in and a large payout comes due.
+A trader systematically sells one-month index put options on a $100 million portfolio of exposure (illustrative).
+
+- Implied volatility averages 18%, and realized volatility averages 14%
+- Premium collected: $1.5 million a month
+- Typical monthly payout: $0.5 million
+
+**An ordinary month**
+
+$$
+\$1{,}500{,}000 - \$500{,}000 = +\$1{,}000{,}000
+$$
+
+**A crash month, when realized volatility spikes far above what was priced in**
+
+- Payout: $25 million
+
+$$
+\$1{,}500{,}000 - \$25{,}000{,}000 = -\$23{,}500{,}000
+$$
+
+**How many ordinary months does one crash month cost?**
+
+$$
+\frac{\$23{,}500{,}000}{\$1{,}000{,}000} = 23.5 \text{ months of profit}
+$$
+
+**Over five years (60 months) with one crash month**
+
+$$
+59 \times \$1{,}000{,}000 - \$23{,}500{,}000 = \boxed{+\$35{,}500{,}000}
+$$
+
+The strategy is profitable, as the 4-point gap between implied and realized volatility suggests. Selling insurance only works if most of the collected premium is set aside: without reserves, the crash month's $25 million bill could arrive before the profits have been banked.
 
 # Quiz
 

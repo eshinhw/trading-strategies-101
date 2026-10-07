@@ -22,7 +22,40 @@ Public companies report their financial results, typically every quarter, disclo
 
 ## Example
 
-Consider a mature utility company that generates steady, predictable cash flow every quarter: rather than plowing all of it back into new growth projects, it distributes a portion directly to shareholders as a dividend, rewarding investors who bought the stock for steady income. Contrast that with a pharmaceutical company awaiting the results of a late-stage drug trial — its stock can swing sharply within minutes of the readout being announced, since that single piece of news instantly changes what the market thinks the company's future earnings, and therefore its stock, are worth.
+**A mature utility pays a dividend**
+
+- Earnings per share: $4.00
+- Payout ratio: 60%
+- Stock price: $60
+- Investor owns 1,000 shares
+
+$$
+\$4.00 \times 60\% = \$2.40 \text{ a share} \quad\Rightarrow\quad 1{,}000 \times \$2.40 = \boxed{\$2{,}400 \text{ a year}} \quad (\$600 \text{ each quarter})
+$$
+
+$$
+\text{Dividend yield} = \frac{\$2.40}{\$60} = 4.0\%
+$$
+
+The company returns $2.40 of each $4.00 it earns and reinvests the rest.
+
+**A drug company before a trial readout**
+
+The stock trades at $80 and the market is unsure about the results.
+
+$$
+\text{Success: } \$80 \times 1.40 = \$112 \qquad \text{Failure: } \$80 \times 0.55 = \$44
+$$
+
+Within minutes of the news the stock moves by $32 or $36 a share, because the result changes what the business is expected to earn.
+
+**A 2-for-1 stock split: a corporate action that changes nothing about value**
+
+$$
+100 \text{ shares} \times \$100 = \$10{,}000 \quad\Rightarrow\quad 200 \text{ shares} \times \$50 = \$10{,}000
+$$
+
+The share count doubles and the price halves, so the holding is worth the same.
 
 # Quiz
 

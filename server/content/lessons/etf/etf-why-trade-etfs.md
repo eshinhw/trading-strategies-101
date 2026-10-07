@@ -22,7 +22,31 @@ The in-kind creation and redemption mechanism, trading baskets of securities rat
 
 ## Example
 
-A pension fund that wants to add exposure to emerging-market stocks doesn't need to open brokerage accounts in a dozen different countries and hand-pick individual companies — it can buy shares of a single emerging-markets ETF and get diversified, professionally selected exposure to that entire asset class in one trade. And because that ETF relies on in-kind creation and redemption rather than selling holdings for cash, the fund is less likely to receive a surprise year-end capital gains distribution the way it might from a similarly invested mutual fund, letting more of its return compound untaxed until it actually sells.
+An investor wants $200,000 of emerging-market stock exposure.
+
+**Diversification in one trade**
+
+- Directly: accounts in a dozen countries and hand-picked companies in each
+- With an ETF: one purchase of an emerging-markets ETF holding hundreds of companies
+
+**Tax efficiency (illustrative)**
+
+A mutual fund must sell holdings to meet redemptions, so it passes gains on to its holders. An ETF uses in-kind creation and redemption and usually passes none on.
+
+- Capital gain distributed by the mutual fund: 4% of its value
+- Tax rate: 15%
+
+$$
+\$200{,}000 \times 4\% = \$8{,}000 \text{ distributed gain}
+$$
+
+$$
+\$8{,}000 \times 15\% = \boxed{\$1{,}200 \text{ tax due this year}}
+$$
+
+The same exposure through an ETF would normally leave that $1,200 invested and compounding until the investor sells. Repeated each year, the deferral keeps more of the return working.
+
+ETFs give broad exposure in one trade and, usually, a smaller tax bill along the way.
 
 # Quiz
 

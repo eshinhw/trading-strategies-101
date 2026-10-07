@@ -22,7 +22,31 @@ Because APs can profit from any gap between an ETF's market price and the actual
 
 ## Example
 
-Suppose an ETF's shares start trading noticeably above the combined value of the stocks it actually holds, because a wave of buying demand has pushed the ETF's price up faster than its underlying basket. An authorized participant can step in, buy up the cheaper underlying stocks, hand them to the ETF issuer in exchange for newly created ETF shares, and sell those new shares into the market at the higher price — pocketing the spread while also increasing the ETF's share count, which pushes its price back down toward the value of its actual holdings.
+An ETF's shares trade above the value of the stocks it holds, and an authorized participant steps in.
+
+- Value of the underlying basket (NAV): $100.00 per ETF share
+- ETF market price: $100.40, a premium of 0.4%
+- One creation unit: 50,000 ETF shares
+
+**Step 1: buy the basket of underlying stocks**
+
+$$
+50{,}000 \times \$100.00 = \$5{,}000{,}000
+$$
+
+**Step 2: hand the basket to the ETF issuer and receive 50,000 new ETF shares**
+
+**Step 3: sell the new shares in the market**
+
+$$
+50{,}000 \times \$100.40 = \$5{,}020{,}000
+$$
+
+$$
+\$5{,}020{,}000 - \$5{,}000{,}000 = \boxed{\$20{,}000 \text{ profit before costs}}
+$$
+
+The new shares increase supply, which pushes the ETF's price down toward $100.00. The participant keeps repeating the trade until the profit disappears, which is what keeps the ETF's price close to its holdings. If the ETF traded below NAV, the process works in reverse by redeeming shares.
 
 # Quiz
 

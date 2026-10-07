@@ -22,7 +22,31 @@ The VIX index is a calculated number, not a tradable security — there's no way
 
 ## Example
 
-A portfolio manager checking the market open each morning often glances at the VIX level the same way a driver glances at a dashboard warning light: a VIX sitting quietly at a low level signals a market that's calm and complacent, while a VIX jumping sharply higher signals that other market participants are suddenly paying up for downside protection — a useful gut-check on overall market stress well before it shows up in the manager's own portfolio.
+The VIX is the market's expected volatility over the next 30 days, quoted as an annual percentage. A manager has $10 million of stocks.
+
+**A calm morning: VIX at 14**
+
+$$
+\frac{14\%}{\sqrt{12}} = 4.0\% \text{ expected one-month move (one standard deviation)}
+$$
+
+$$
+\$10{,}000{,}000 \times 4.0\% = \pm\$400{,}000
+$$
+
+**A warning-light morning: VIX at 28**
+
+$$
+\frac{28\%}{\sqrt{12}} = 8.1\% \quad\Rightarrow\quad \$10{,}000{,}000 \times 8.1\% = \pm\$808{,}000
+$$
+
+**Daily terms**
+
+$$
+\text{VIX 14: } \frac{14\%}{\sqrt{252}} = 0.88\% \text{ a day} \qquad \text{VIX 28: } \frac{28\%}{\sqrt{252}} = 1.76\% \text{ a day}
+$$
+
+A jump from 14 to 28 means other market participants are paying twice as much for protection, so the market expects roughly twice the movement. Seeing that move before it shows up in the portfolio is the "fear gauge" use of the index.
 
 # Quiz
 

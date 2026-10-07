@@ -22,7 +22,38 @@ A spread's historical range is a useful reference point, but it isn't a hard bou
 
 ## Example
 
-A trader who believes electricity prices will rise faster than natural gas prices doesn't need a view on where either price ends up in isolation — they can position directly on the gap between the two widening, profiting even if both prices happen to fall, as long as the electricity price falls by less (or rises by more) than the gas price does.
+A trader believes electricity will rise faster than natural gas. Instead of betting on either price, the trader trades the gap (the spark spread).
+
+- Electricity: $45 per MWh, long 72,000 MWh
+- Gas: $3.00 per MMBtu, short 540,000 MMBtu (7.5 MMBtu per MWh)
+- Spread: $45 − 7.5 × $3.00 = $22.50 per MWh
+
+**Both prices fall, but electricity falls less**
+
+- Electricity: $45 to $42 (−$3)
+- Gas: $3.00 to $2.50, so the gas cost per MWh falls from $22.50 to 7.5 × $2.50 = $18.75 (−$3.75)
+
+$$
+\text{New spread} = \$42 - \$18.75 = \$23.25 \quad (+\$0.75)
+$$
+
+$$
+\text{Power leg: } -\$3 \times 72{,}000 = -\$216{,}000 \qquad \text{Gas leg: } +\$3.75 \times 72{,}000 = +\$270{,}000
+$$
+
+$$
+-\$216{,}000 + \$270{,}000 = \boxed{+\$54{,}000}
+$$
+
+The trader profits even though both prices fell, because electricity fell by less than gas did.
+
+**Other kinds of gap that can be traded**
+
+- Breakeven inflation: the nominal yield minus the inflation-linked yield (for example 4.5% − 2.0% = 2.5%)
+- A spark spread: an output price minus an input cost
+- A basis: a commodity's futures price minus its spot price
+
+A spread's historical range is a reference, not a boundary. A structural change can push it outside that range and keep it there.
 
 # Quiz
 

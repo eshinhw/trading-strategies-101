@@ -22,7 +22,41 @@ A macro thesis can play out over very different time frames — some macro trend
 
 ## Example
 
-An investor who believes persistent inflation will erode fixed-income returns could short government bonds outright, buy inflation-linked bonds instead of nominal ones, or buy commodities that historically track inflation — three different instruments, three different risk profiles, all expressing the same underlying view.
+An investor believes persistent inflation will erode fixed-income returns. Each trade below is $10 million, and the view is that inflation expectations (breakevens) rise 0.5 percentage points (illustrative).
+
+**1. Short government bonds outright (duration 8)**
+
+Yields rise 0.5%:
+
+$$
+\$10{,}000{,}000 \times 8 \times 0.5\% = +\$400{,}000
+$$
+
+- Also profits if real yields rise for other reasons.
+- Loses if yields fall in a growth scare.
+
+**2. Buy inflation-linked bonds instead of nominal ones**
+
+A long TIPS and short nominal pair gains when breakevens rise:
+
+$$
+\$10{,}000{,}000 \times 8 \times 0.5\% = +\$400{,}000
+$$
+
+- Isolates the inflation view and has little exposure to the overall level of rates.
+- Loses only if breakevens fall.
+
+**3. Buy commodities that track inflation**
+
+If the index gains 6% on the inflation surprise:
+
+$$
+\$10{,}000{,}000 \times 6\% = +\$600{,}000
+$$
+
+- Larger swings, and it is exposed to growth, weather and supply shocks as well.
+
+Three instruments express one view, each with a different profit and a different set of other risks.
 
 # Quiz
 

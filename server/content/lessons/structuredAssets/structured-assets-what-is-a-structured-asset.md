@@ -22,7 +22,35 @@ Mortgage-backed securities, collateralized loan obligations, collateralized debt
 
 ## Example
 
-Consider an auto lender that has originated ten thousand car loans: each loan is too small and too specific to sell on its own, but the lender can pool all ten thousand into a trust and have that trust issue bonds backed by the pool's combined payments. Investors who buy those bonds never touch an individual auto loan; they're buying a claim on the cash flowing from the whole pool. The lender, meanwhile, gets cash back today instead of waiting years to collect each loan, freeing up capital to originate new loans.
+An auto lender has originated 10,000 car loans.
+
+- Average loan: $20,000 at 7% for 60 months
+- Pool: 10,000 × $20,000 = $200 million
+
+**Payments the pool generates**
+
+$$
+\text{Monthly payment per loan} = \$20{,}000 \times \frac{0.07/12}{1 - (1 + 0.07/12)^{-60}} = \$396.02
+$$
+
+$$
+10{,}000 \times \$396.02 = \$3{,}960{,}240 \text{ a month into the trust}
+$$
+
+**Securitization**
+
+The lender sells the pool to a trust, and the trust issues bonds backed by those payments.
+
+- Cash received by the lender today: about $200 million
+- Without securitization, the lender would wait up to five years to collect it
+
+**What the lender does with the cash**
+
+$$
+\$200\text{M} \div \$20{,}000 = 10{,}000 \text{ new loans}
+$$
+
+Investors in the bonds never touch an individual car loan. They own a claim on the cash flowing from the whole pool, and the lender can keep making loans.
 
 # Quiz
 

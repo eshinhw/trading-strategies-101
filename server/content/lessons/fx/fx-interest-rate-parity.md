@@ -22,7 +22,36 @@ If uncovered interest rate parity held perfectly and consistently, there would b
 
 ## Example
 
-A carry trader borrowing in a currency with a low interest rate and investing the proceeds in a currency with a higher interest rate is explicitly betting against uncovered interest rate parity — wagering that the higher-yielding currency won't depreciate by enough to wipe out the rate advantage — while a corporate treasurer hedging that same currency exposure with a forward contract instead locks in the return covered interest rate parity says should be arbitrage-free, accepting a known, hedged outcome rather than the carry trader's open bet.
+The dollar earns 5% a year and the euro earns 3%. EUR/USD spot is 1.10.
+
+**Carry trade (unhedged): borrow €1,000,000 at 3%, convert to dollars and invest at 5%**
+
+$$
+€1{,}000{,}000 \times 1.10 = \$1{,}100{,}000 \quad\Rightarrow\quad \$1{,}100{,}000 \times 1.05 = \$1{,}155{,}000
+$$
+
+Repay in one year: €1,030,000.
+
+$$
+\text{Breakeven EUR/USD} = \frac{\$1{,}155{,}000}{€1{,}030{,}000} = 1.1214
+$$
+
+- EUR/USD unchanged at 1.10: repay $1,133,000, so profit **+$22,000**
+- EUR/USD rises to 1.15: repay $1,184,500, so loss **−$29,500**
+
+The trader earns the 2% rate gap only if the euro does not rise more than 1.9% (to 1.1214).
+
+**The same trade hedged with a one-year forward**
+
+$$
+F = 1.10 \times \frac{1.05}{1.03} = 1.1214
+$$
+
+$$
+\frac{\$1{,}155{,}000}{1.1214} = €1{,}030{,}000 \quad\Rightarrow\quad \text{profit} = \boxed{\$0}
+$$
+
+Hedging locks in a return of zero, which is what covered interest rate parity says it must be. The carry trader accepts an open bet that the euro will not rise enough to erase the rate advantage.
 
 # Quiz
 

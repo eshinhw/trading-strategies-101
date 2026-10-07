@@ -22,7 +22,32 @@ Weather outcomes are largely uncorrelated with broader financial markets, which 
 
 ## Example
 
-A natural gas utility expecting a mild winter to hurt heating-related demand and revenue might buy a weather derivative that pays out if the winter's cumulative heating degree days come in below a set threshold — directly offsetting the revenue shortfall a warmer-than-normal winter would otherwise cause, regardless of what's happening in financial markets at the same time.
+A natural gas utility earns less when the winter is warm, because customers heat less. Heating degree days (HDD) measure how cold it is.
+
+- Normal winter: 5,000 HDD
+- Revenue lost for each HDD below 4,800: about $5,000
+- The utility buys a weather derivative with a strike of 4,800 HDD, paying $5,000 per HDD below the strike
+- Premium: $150,000
+
+**A mild winter: 4,500 HDD**
+
+$$
+\text{Derivative payout} = (4{,}800 - 4{,}500) \times \$5{,}000 = \$1{,}500{,}000
+$$
+
+$$
+\text{Lost revenue} = 300 \times \$5{,}000 = -\$1{,}500{,}000
+$$
+
+$$
+\$1{,}500{,}000 - \$1{,}500{,}000 - \$150{,}000 = \boxed{-\$150{,}000 \text{ (the premium only)}}
+$$
+
+**A cold winter: 5,100 HDD**
+
+The derivative pays $0, and the utility keeps its normal revenue, so the premium of $150,000 is the whole cost.
+
+The payout does not depend on the stock market, so it offsets the shortfall from the weather alone.
 
 # Quiz
 

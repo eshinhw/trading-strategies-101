@@ -22,7 +22,34 @@ The real cost of owning an ETF is the expense ratio paid each year plus the spre
 
 ## Example
 
-Two ETFs track the same index. Fund A charges 0.03% a year, and Fund B charges 0.20%. On a 10,000 dollar investment, Fund B costs about 17 dollars a year more in fees, or roughly 85 dollars more over five years, ignoring compounding. If Fund B is also much more thinly traded, with a wider spread, an investor who buys and sells it frequently pays even more, so Fund A is the cheaper choice on both counts unless Fund B offers something different, such as exposure to a different index.
+Two ETFs track the same index, and an investor puts in $10,000.
+
+- Fund A: expense ratio 0.03%, spread cost 0.01% per trade
+- Fund B: expense ratio 0.20%, spread cost 0.10% per trade (thinly traded)
+
+**Annual fees**
+
+$$
+\text{Fund A: } \$10{,}000 \times 0.03\% = \$3 \qquad \text{Fund B: } \$10{,}000 \times 0.20\% = \$20
+$$
+
+$$
+\$20 - \$3 = \boxed{\$17 \text{ more a year}} \quad\Rightarrow\quad 5 \times \$17 = \$85 \text{ over five years (ignoring compounding)}
+$$
+
+**Spread cost for an investor who trades often (4 round trips a year, which is 8 trades)**
+
+$$
+\text{Fund A: } 8 \times \$10{,}000 \times 0.01\% = \$8 \qquad \text{Fund B: } 8 \times \$10{,}000 \times 0.10\% = \$80
+$$
+
+**Total first-year cost for that investor**
+
+$$
+\text{Fund A: } \$3 + \$8 = \$11 \qquad \text{Fund B: } \$20 + \$80 = \$100
+$$
+
+Fund B costs about nine times as much, so Fund A is cheaper on both counts unless Fund B offers something different, such as exposure to another index.
 
 # Quiz
 

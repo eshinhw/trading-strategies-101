@@ -22,7 +22,39 @@ Shares let the ownership of a very large company be divided into millions of sma
 
 ## Example
 
-A company needs 200 million dollars to build new plants. Rather than borrow the whole amount and commit to years of fixed payments, it sells 10 million new shares at 20 dollars each in an IPO. The buyers now own part of the company and share in whatever it earns, while the company has its money with no loan to repay. Later, those buyers can sell their shares to other investors at whatever price the market sets, without the company being involved.
+A company needs $200 million to build new plants and already has 40 million shares outstanding.
+
+**Selling shares in an IPO**
+
+- New shares: 10 million at $20 each
+
+$$
+10{,}000{,}000 \times \$20 = \boxed{\$200{,}000{,}000 \text{ raised}}
+$$
+
+**Ownership after the IPO**
+
+$$
+\frac{10}{40 + 10} = 20\% \text{ owned by the new shareholders}
+$$
+
+**Compared with borrowing the $200 million at 6%**
+
+$$
+\$200{,}000{,}000 \times 6\% = \$12{,}000{,}000 \text{ of interest every year}, \text{ plus repaying the principal}
+$$
+
+With shares, the company has no loan to repay and no fixed interest. In exchange, it shares future profits with the new owners.
+
+**Later trading**
+
+A buyer can sell 1,000 shares to another investor at the price the market sets, for example $24:
+
+$$
+1{,}000 \times (\$24 - \$20) = +\$4{,}000
+$$
+
+The company is not involved in that sale and receives nothing from it.
 
 # Quiz
 

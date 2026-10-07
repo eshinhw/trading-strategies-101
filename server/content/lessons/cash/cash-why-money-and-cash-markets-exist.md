@@ -22,7 +22,29 @@ When an organization lends or invests spare cash, its first priorities are not l
 
 ## Example
 
-A manufacturer receives 10 million dollars from a large customer in March but doesn't need to pay its suppliers until June. Rather than leave the money idle, it buys short-term Treasury bills that mature just before the payments are due, earning a small return with almost no risk. At the same time, a bank that needs extra funds overnight borrows cash from lenders in the money market, and both sides get what they need.
+A manufacturer receives $10 million from a customer in March, but its suppliers are not paid until June.
+
+- Cash received: $10,000,000
+- Time until payment: 3 months
+- 3-month Treasury bill yield: 4.8%
+
+**Return from buying a T-bill that matures just before the payments**
+
+$$
+\$10{,}000{,}000 \times 4.8\% \times \frac{3}{12} = \boxed{\$120{,}000}
+$$
+
+Idle in an account paying nothing, the cash would earn $0. The T-bill carries almost no risk and returns the money in time to pay suppliers.
+
+**The other side of the market**
+
+A bank needs $50 million for one night and borrows from cash lenders at 5.25% a year:
+
+$$
+\$50{,}000{,}000 \times 5.25\% \times \frac{1}{360} = \$7{,}292 \text{ for the night}
+$$
+
+The manufacturer has cash it does not need yet, and the bank needs cash for a short time. Money markets connect them.
 
 # Quiz
 

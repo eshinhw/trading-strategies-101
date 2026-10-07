@@ -22,7 +22,40 @@ The biggest driver of prepayment speed is the gap between a pool's existing mort
 
 ## Example
 
-An investor buying into a pool of mortgages originated when rates were 6% is really betting on how long that 6% income stream will last. If market rates later drop to 4%, homeowners across the pool refinance in large numbers, the investor's principal comes back far earlier than planned, and that returned cash can only be reinvested at the new, lower 4% rate — the opposite of what the investor wanted. That's exactly why MBS pricing has to account for how prepayment speed itself reacts to rates, not just for the pool's stated coupon and maturity.
+An investor buys a $100 million pool of mortgages that were originated when rates were 6%.
+
+- Coupon: 6%, so annual interest is $6 million
+- Expected life: about 10 years
+
+**Rates fall to 4%, and homeowners refinance**
+
+- Share of the pool repaid in one year: 40%, which is $40 million
+
+$$
+\$40{,}000{,}000 \text{ comes back early at full face value}
+$$
+
+**Reinvesting at the new rate**
+
+$$
+\text{Income lost each year} = \$40{,}000{,}000 \times (6\% - 4\%) = \boxed{\$800{,}000}
+$$
+
+**The effect on price**
+
+A non-callable 10-year 6% bond is worth more when yields fall to 4%:
+
+$$
+\text{Price per } \$100 \text{ at a 4\% yield} = \$116.35
+$$
+
+A mortgage pool's price is capped near par because homeowners can repay at 100. Say it rises only to about 103.
+
+$$
+\text{Gain: } 116.35 - 100 = 16.35 \text{ points} \quad\text{vs.}\quad 103 - 100 = 3 \text{ points}
+$$
+
+The investor gets little of the price gain when rates fall, and still absorbs the full loss when rates rise and prepayments slow. That is why MBS pricing has to model how prepayment speed reacts to rates, not just the coupon and maturity.
 
 # Quiz
 

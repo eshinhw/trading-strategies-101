@@ -26,7 +26,32 @@ A long straddle has a large positive vega, making it a bet that volatility, or t
 
 ## Example
 
-A trader buys a call with a vega of 0.20 two days before earnings, when implied volatility is 50%. After the report the stock rises, but implied volatility falls to 35%, a drop of 15 points. The vega effect is about 0.20 × (−15) = −3.00 per share, or 300 dollars per contract, which can easily outweigh the gain from the stock's move.
+A trader buys a call two days before earnings, with a vega of 0.20 and implied volatility at 50%.
+
+**After the report**
+
+- The stock rises $3, and the call's delta is about 0.55.
+- Implied volatility falls from 50% to 35%, a drop of 15 points.
+
+**Effect of the stock move**
+
+$$
+0.55 \times \$3 = +\$1.65 \text{ per share}
+$$
+
+**Effect of the volatility drop**
+
+$$
+0.20 \times (-15) = -\$3.00 \text{ per share}
+$$
+
+**Net result**
+
+$$
++\$1.65 - \$3.00 = -\$1.35 \text{ per share} = \boxed{-\$135 \text{ per contract}}
+$$
+
+The stock moved the right way, but the call still lost money. Before earnings, option prices include an expectation of a big move, and once the report is out, that premium collapses.
 
 # Quiz
 

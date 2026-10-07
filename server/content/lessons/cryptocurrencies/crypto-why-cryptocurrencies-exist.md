@@ -22,7 +22,39 @@ People buy cryptocurrencies for several reasons: speculation on rising prices, a
 
 ## Example
 
-A worker sends money to family abroad. The traditional route goes through banks, takes days, and charges fees at each step, while sending a cryptocurrency can take minutes and doesn't involve a bank. But the sender may have to convert in and out of local currency, and the coin's price could change sharply in between, which shows both what the technology was built to improve and the new risks it introduces.
+A worker sends $500 to family abroad (illustrative costs).
+
+**Bank wire**
+
+- Sending fee: $25
+- Receiving bank fee: $15
+- Exchange-rate margin: 3% × $500 = $15
+- Time: about 3 days
+
+$$
+\$25 + \$15 + \$15 = \$55 \quad\Rightarrow\quad \frac{\$55}{\$500} = 11\%
+$$
+
+**Cryptocurrency**
+
+- Network fee: $2
+- Converting in and out of local currency: 1% each way, so 2% × $500 = $10
+- Time: about 1 hour
+
+$$
+\$2 + \$10 = \$12 \quad\Rightarrow\quad \frac{\$12}{\$500} = 2.4\%
+$$
+
+**The new risk: the coin's price in the hour between**
+
+$$
+3\% \text{ price drop} \times \$500 = \$15 \text{ lost}
+$$
+
+- Crypto is cheaper and faster than the bank in this case, and it saves up to $43.
+- A 3% drop in the hour erases a third of that saving. A rise would add to it.
+
+The technology removes the middlemen's fees, but the sender must convert in and out and carry the coin's price risk while the money is in transit.
 
 # Quiz
 

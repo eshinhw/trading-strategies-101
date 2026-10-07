@@ -22,7 +22,30 @@ Property is expensive to buy and sell, with transaction costs, legal fees, and t
 
 ## Example
 
-An investor holding only stocks and bonds is worried about rising prices and wants more stable income. The investor puts part of the portfolio into rental property through a real estate investment trust, which holds properties and pays out most of its rental income. The investor now receives regular payments that can grow as rents rise, in addition to the returns from stocks and bonds, and accepts that the holding can lose value and is less easy to sell quickly.
+An investor has a $500,000 portfolio of stocks and bonds and wants steadier income and some protection against rising prices. The investor puts $100,000 into a REIT.
+
+- REIT distribution: 5% a year, which is $5,000
+- Rents rise 3% a year, so the distribution grows with them
+- For comparison, $100,000 in a bond paying a fixed 4% coupon, which is $4,000 a year and does not grow
+
+**Income after 10 years**
+
+$$
+\text{REIT: } \$5{,}000 \times 1.03^{10} = \boxed{\$6{,}720 \text{ a year}}
+$$
+
+$$
+\text{Bond: } \$4{,}000 \text{ a year (unchanged)}
+$$
+
+The REIT started $1,000 ahead and the gap widens to $2,720 a year, as rents rise with prices.
+
+**The costs of the choice**
+
+- The value of the REIT can fall. A 20% drop would cost $20,000 on the $100,000.
+- Direct property takes months to sell. Selling REIT shares takes a day, but the price can differ from the underlying property values.
+
+Real estate adds income that grows with inflation and diversifies stocks and bonds, and the price of that is price risk and, for direct holdings, a slow sale.
 
 # Quiz
 

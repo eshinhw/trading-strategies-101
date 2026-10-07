@@ -22,7 +22,32 @@ Central banks also move markets simply by signaling their likely future path thr
 
 ## Example
 
-When a central bank signals it will likely cut rates sooner than markets had priced in, government bond yields typically fall immediately, the currency often weakens, and equities frequently rally — all three markets repricing off the same single piece of forward guidance, before a single rate has actually changed.
+The market had priced one 25 basis point rate cut over the next six months. The central bank signals that it will cut sooner and by more. No rate has changed yet (illustrative moves).
+
+**Government bonds**
+
+- Two-year yield: 4.00% to 3.70%, a fall of 30 basis points
+- Two-year note duration: about 1.9
+
+$$
+1.9 \times 0.30\% = +0.57\% \text{ price gain} \quad\Rightarrow\quad \$10{,}000{,}000 \times 0.57\% = +\$57{,}000
+$$
+
+**Currency**
+
+- Lower expected rates make holding the currency less attractive.
+- Currency vs. USD: 1.2500 to 1.2375, a fall of 1.0%
+
+**Equities**
+
+- Lower rates reduce borrowing costs and discount rates.
+- Index: 5,000 to 5,100, a rise of 2.0%
+
+$$
+\text{Bonds up } 0.57\%, \quad \text{currency down } 1.0\%, \quad \text{equities up } 2.0\%
+$$
+
+Three markets repriced from one piece of forward guidance, before the central bank changed a single rate.
 
 # Quiz
 

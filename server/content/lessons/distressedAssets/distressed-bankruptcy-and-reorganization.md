@@ -22,7 +22,31 @@ Once a plan is confirmed and implemented, the company emerges from bankruptcy, t
 
 ## Example
 
-A company with a viable core business but too much debt might file for reorganization, use the automatic stay to pause creditor lawsuits while it negotiates, and ultimately emerge with half its previous debt load converted into equity now held by its former bondholders — the same company, operating the same business, but with a fundamentally different capital structure.
+A manufacturer has a sound business but too much debt, and it files for reorganization.
+
+**Before**
+
+- Operating earnings (EBITDA): $40 million
+- Debt: $400 million, which is 10 times EBITDA
+- Interest at 8%: $32 million
+
+$$
+\text{Interest coverage} = \frac{\$40\text{M}}{\$32\text{M}} = 1.25 \text{ times}
+$$
+
+The automatic stay pauses creditor lawsuits while the company negotiates a plan.
+
+**After: half the debt converted to equity held by the former bondholders**
+
+- Debt: $200 million, which is 5 times EBITDA
+- Interest at 8%: $16 million
+- New equity issued to former bondholders: for the other $200 million of claims
+
+$$
+\text{Interest coverage} = \frac{\$40\text{M}}{\$16\text{M}} = \boxed{2.5 \text{ times}}
+$$
+
+The same company runs the same business, but interest falls by $16 million a year and former lenders now own the company.
 
 # Quiz
 

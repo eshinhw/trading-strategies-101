@@ -22,7 +22,35 @@ Every ETF charges an expense ratio, an annual fee expressed as a percentage of a
 
 ## Example
 
-An investor comparing two ETFs that both track the same broad stock index will often find their long-run performance nearly identical before costs — so the expense ratio becomes the real differentiator, since a fund charging even a few tenths of a percent more each year quietly compounds into a meaningfully larger gap in what the investor keeps after a decade or two of holding it. Checking the bid-ask spread before placing a large order matters too: an ETF built on thinly traded holdings can have a much wider spread than one built on heavily traded large-cap stocks, even when both ETFs see similar trading volume in their own shares.
+An investor compares two ETFs that track the same broad index, with $50,000 invested for 20 years and a 7% gross return.
+
+- ETF A: expense ratio 0.04%
+- ETF B: expense ratio 0.35%
+
+**Net return and ending value**
+
+$$
+\text{A: } \$50{,}000 \times (1.0696)^{20} = \$192{,}043
+$$
+
+$$
+\text{B: } \$50{,}000 \times (1.0665)^{20} = \$181{,}212
+$$
+
+$$
+\$192{,}043 - \$181{,}212 = \boxed{\$10{,}831 \text{ difference}}
+$$
+
+A difference of 0.31% a year becomes a gap of about 22% of the starting amount.
+
+**Checking the bid-ask spread before a large order**
+
+A $100,000 order in an ETF priced at $50 (2,000 shares):
+
+- ETF A, built on heavily traded large-cap stocks: spread $0.01, so crossing it costs 2,000 × $0.01 = $20
+- ETF B, built on thinly traded holdings: spread $0.10, so crossing it costs 2,000 × $0.10 = $200
+
+Long-run performance is nearly identical before costs, so costs are the real difference.
 
 # Quiz
 

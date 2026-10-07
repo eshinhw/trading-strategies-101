@@ -22,7 +22,34 @@ Because breakeven inflation is a yield gap between two related but separate mark
 
 ## Example
 
-If a 10-year nominal government bond yields 4.5% and a comparable 10-year inflation-linked bond yields 2%, the 10-year breakeven inflation rate is roughly 2.5% — the market's rough, implied estimate of average annual inflation over the next decade, extracted directly from the pricing gap between the two instruments rather than from any survey or forecast.
+Two 10-year government bonds are trading.
+
+- Nominal bond yield: 4.5%
+- Inflation-linked bond yield (the real yield): 2.0%
+
+**Breakeven inflation**
+
+$$
+4.5\% - 2.0\% = \boxed{2.5\% \text{ a year}}
+$$
+
+This is the market's implied estimate of average annual inflation over the next decade, read from the price gap between the two bonds and not from any survey or forecast.
+
+**What $100,000 grows to over 10 years**
+
+$$
+\text{Nominal: } \$100{,}000 \times 1.045^{10} = \$155{,}297
+$$
+
+$$
+\text{Inflation-linked, inflation averages 3.0\%: } \$100{,}000 \times 1.050^{10} = \$162{,}889 \quad (+\$7{,}592)
+$$
+
+$$
+\text{Inflation-linked, inflation averages 2.0\%: } \$100{,}000 \times 1.040^{10} = \$148{,}024 \quad (-\$7{,}273)
+$$
+
+The inflation-linked bond wins if inflation comes in above 2.5% and loses if it comes in below. 2.5% is the breakeven.
 
 # Quiz
 

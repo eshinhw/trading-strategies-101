@@ -22,7 +22,29 @@ The Strategies module ahead covers several real cash-based practices drawn direc
 
 ## Example
 
-A small, legitimately cash-heavy business like a laundromat or car wash has to keep meticulous records and file currency transaction reports for large cash deposits, not because the owner is suspected of anything, but because that same cash-intensive profile is exactly what a money launderer would look for to blend illicit funds in with real revenue — the compliance burden exists to make that blending harder to pull off undetected.
+A car wash is a legitimate cash-heavy business, and banks must report large cash deposits.
+
+- Reporting threshold: cash deposits over $10,000 in a day
+- Weekend takings: $12,500
+
+**Deposit and report**
+
+$$
+\$12{,}500 > \$10{,}000 \quad\Rightarrow\quad \text{bank files a currency transaction report}
+$$
+
+The report is routine and does not mean the owner is suspected of anything.
+
+**Splitting the deposit to avoid the report**
+
+- Deposit 1: $9,000 on Monday morning
+- Deposit 2: $3,500 on Monday afternoon
+
+$$
+\$9{,}000 + \$3{,}500 = \$12{,}500 \text{ in one day, so the report is still required}
+$$
+
+Deliberately splitting deposits to stay under $10,000 is called structuring, and it is a crime in itself even when the money is clean. Cash-heavy businesses are watched closely because that profile is what launderers look for.
 
 # Quiz
 

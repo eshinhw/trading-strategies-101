@@ -22,7 +22,37 @@ Because the equity tranche is first in line to absorb losses, it demands, and re
 
 ## Example
 
-Picture a CLO backed by a pool of leveraged corporate loans, split into a senior tranche, a mezzanine tranche, and a small equity tranche at the bottom. An insurance company buying the senior tranche cares mainly about the near-certainty of getting paid, and accepts a modest coupon for that safety; a hedge fund buying the equity tranche is underwriting the pool's first losses in exchange for a coupon several times larger. Both investors are exposed to the very same underlying loans — what differs is only where each one sits in the waterfall.
+A CLO holds a pool of $100 million of leveraged loans that pay 8% interest, which is $8 million a year.
+
+- Senior tranche: $70 million, coupon 5.5%
+- Mezzanine tranche: $20 million, coupon 8%
+- Equity tranche: $10 million, receives whatever is left
+
+**Paying interest in order of priority**
+
+$$
+\text{Senior: } \$70\text{M} \times 5.5\% = \$3.85\text{M}
+$$
+
+$$
+\text{Mezzanine: } \$20\text{M} \times 8\% = \$1.60\text{M}
+$$
+
+$$
+\text{Equity: } \$8.00\text{M} - \$3.85\text{M} - \$1.60\text{M} = \$2.55\text{M} \quad\Rightarrow\quad \frac{\$2.55\text{M}}{\$10\text{M}} = \boxed{25.5\%}
+$$
+
+The insurance company holding the senior tranche earns 5.5%. The hedge fund holding the equity tranche earns 25.5%.
+
+**Losses reverse the order**
+
+Loan losses of $12 million (12% of the pool):
+
+- Equity: absorbs the first $10 million, so it is wiped out
+- Mezzanine: absorbs the remaining $2 million, a loss of 10% of its $20 million
+- Senior: $0 lost
+
+Both investors are exposed to the same loans. The only difference is where each one sits in the waterfall.
 
 # Quiz
 

@@ -22,7 +22,38 @@ Before REITs existed, meaningful real estate exposure generally required enough 
 
 ## Example
 
-An investor who wants exposure to a portfolio of shopping malls or warehouses, but has neither the millions of dollars nor the appetite to manage tenants directly, can simply buy shares of a publicly traded REIT that already owns and operates a large collection of those properties. Each quarter the REIT collects rent across its whole portfolio, and because it must pass along the large majority of that income to keep its tax status, the investor sees a steady dividend show up in their brokerage account, much like owning a diversified slice of commercial real estate without ever touching a lease.
+An investor wants exposure to warehouses but does not have $5 million or the appetite to manage tenants.
+
+**Owning one warehouse directly**
+
+- Cost: $5,000,000
+- Tenants, repairs and leases: managed by the investor
+
+**Buying shares of a REIT that owns many**
+
+- Investment: $20,000 at $40 a share, which is 500 shares
+- REIT's taxable income: $3.00 per share a year
+- Required distribution: at least 90% of taxable income
+
+$$
+\$3.00 \times 90\% = \$2.70 \text{ per share a year}
+$$
+
+$$
+500 \times \$2.70 = \boxed{\$1{,}350 \text{ a year}} \quad (\$337.50 \text{ each quarter})
+$$
+
+$$
+\text{Dividend yield} = \frac{\$2.70}{\$40} = 6.75\%
+$$
+
+**Comparison**
+
+- The investor needs $20,000, not $5,000,000.
+- The REIT collects the rent from its whole portfolio, and the investor sees a steady dividend in a brokerage account.
+- In exchange for paying out 90% or more of its income, the REIT generally pays no corporate tax on it.
+
+The investor owns a slice of a diversified portfolio of properties without touching a lease.
 
 # Quiz
 

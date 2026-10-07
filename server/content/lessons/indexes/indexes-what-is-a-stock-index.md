@@ -22,7 +22,36 @@ A less common alternative is an equal-weighted index, which gives every constitu
 
 ## Example
 
-An investor who wants exposure to "the market" without picking individual winners buys a fund tracking a broad, market-cap-weighted index like the S&P 500, effectively betting on the combined fortunes of hundreds of large companies weighted by their actual economic size. If that same investor instead wanted a bet less dominated by a handful of giant companies, they might choose an equal-weighted version of the same universe, trading the concentration of the standard index for broader, more even exposure across every constituent.
+A tiny index covers four companies, weighted two ways.
+
+- A: market cap $2,000 billion, return +10%
+- B: market cap $1,000 billion, return 0%
+- C: market cap $500 billion, return −10%
+- D: market cap $500 billion, return +20%
+- Total market cap: $4,000 billion
+
+**Market-cap weights**
+
+$$
+A = \frac{2{,}000}{4{,}000} = 50\% \qquad B = 25\% \qquad C = 12.5\% \qquad D = 12.5\%
+$$
+
+**Market-cap-weighted index return**
+
+$$
+0.50 \times 10\% + 0.25 \times 0\% + 0.125 \times (-10\%) + 0.125 \times 20\% = \boxed{6.25\%}
+$$
+
+**Equal-weighted index return (25% each)**
+
+$$
+\frac{10\% + 0\% - 10\% + 20\%}{4} = \boxed{5.00\%}
+$$
+
+- In the standard index, the largest company (A) drives half of the result.
+- The equal-weighted version spreads exposure evenly. Here D's 20% counts for as much as A's 10%.
+
+Neither is more correct. The investor chooses between bets weighted by economic size and a broader spread.
 
 # Quiz
 

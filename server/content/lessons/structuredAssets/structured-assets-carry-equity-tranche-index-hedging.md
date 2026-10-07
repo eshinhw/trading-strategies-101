@@ -20,9 +20,33 @@ Much of the equity tranche's day-to-day price movement comes from the same broad
 
 Once the broad index exposure is hedged away, what remains is a more isolated bet: collecting the tranche's rich carry in exchange for bearing correlation risk — the pool's tendency toward clustered, correlated defaults rather than broad, market-wide spread moves — a subtler and harder-to-hedge risk than simple market direction.
 
-## A Worked Example
+## Example
 
-A trader sells protection on $10 million notional of the CDX equity tranche (0-3%), collecting a running coupon of 500 basis points a year — $500,000. To hedge away broad index risk, the trader buys protection on the plain index, sized to the tranche's index delta at roughly $3 million notional, paying a running coupon of about 60 basis points, or $18,000 a year. The net carry remaining, about $482,000 a year, is compensation specifically for correlation risk, not for the market's overall direction, which the index leg has already neutralized.
+A trader sells protection on the CDX equity tranche (0-3%).
+
+- Notional: $10 million
+- Running coupon: 500 basis points a year
+
+$$
+\$10{,}000{,}000 \times 5.00\% = \$500{,}000 \text{ collected a year}
+$$
+
+**Hedging the broad index risk**
+
+The trader buys protection on the plain index, sized to the tranche's index delta of about $3 million, at a running coupon of 60 basis points.
+
+$$
+\$3{,}000{,}000 \times 0.60\% = \$18{,}000 \text{ paid a year}
+$$
+
+**Net carry**
+
+$$
+\$500{,}000 - \$18{,}000 = \boxed{\$482{,}000 \text{ a year}}
+$$
+
+- Return on the $10 million notional: 4.82%
+- What it pays for: correlation risk specifically, not the market's direction, which the index leg has already neutralized.
 
 # Quiz
 

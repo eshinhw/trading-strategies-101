@@ -20,9 +20,39 @@ Because an MBS's effective cash flows depend on a borrower's prepayment option, 
 
 Much MBS trading happens not in specific, identified pools but in the TBA (to-be-announced) market, where the specific pool of mortgages backing the trade isn't specified until just before settlement. That standardization makes the broader MBS market far more liquid, similar in spirit to how standardized futures contracts enable a liquidity a private forward agreement can't match.
 
-## A Worked Example
+## Example
 
-A pass-through backed by 4%-coupon mortgages trades at a discount price of 98 (98 cents on the dollar), with the market pricing in an 8% annual prepayment speed (CPR). A trader believes refinancing activity will actually run faster, at a 12% CPR, and buys the pass-through at that discount. Because it was bought below par, every dollar of principal that comes back faster than the market expected is effectively principal bought at a discount and returned at full face value sooner — the faster prepayment shows up as extra realized yield on top of the quoted 4% coupon, precisely because the trader's prepayment view diverged from what was priced in.
+A pass-through backed by 4%-coupon mortgages trades at a discount.
+
+- Price: 98 (98 cents on the dollar), so $1 million face costs $980,000
+- Market's assumed prepayment speed: 8% CPR, an average life of about 6.5 years
+- The trader's view: prepayments will run at 12% CPR, an average life of about 5.0 years
+
+**Where the discount comes from**
+
+$$
+\$1{,}000{,}000 - \$980{,}000 = \$20{,}000 \text{ of discount}
+$$
+
+Every dollar of principal that returns is paid at 100, so the $20,000 is earned as principal comes back.
+
+**Approximate yield (coupon yield plus discount spread over the average life)**
+
+$$
+\text{Coupon yield: } \frac{4.00}{98} = 4.08\%
+$$
+
+$$
+\text{At 8\% CPR: } 4.08\% + \frac{2/98}{6.5} = 4.08\% + 0.31\% = 4.39\%
+$$
+
+$$
+\text{At 12\% CPR: } 4.08\% + \frac{2/98}{5.0} = 4.08\% + 0.41\% = \boxed{4.49\%}
+$$
+
+If the trader is right, the yield is about 10 basis points higher than the market priced in.
+
+Principal bought at a discount and returned sooner at full face value boosts the realized yield. The same view would hurt a bond bought at a premium, because faster prepayments would shorten the life of income already paid for.
 
 # Quiz
 

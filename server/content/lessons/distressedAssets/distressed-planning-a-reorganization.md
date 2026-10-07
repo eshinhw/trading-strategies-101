@@ -22,7 +22,35 @@ More than one creditor group can sometimes propose a competing plan of reorganiz
 
 ## Example
 
-A distressed investor holding a large position across several classes of a company's debt works with restructuring advisors to draft an alternative reorganization plan, offering better recovery terms to junior creditors than the company's own initial proposal while also committing to provide the company's exit financing — a package designed to win the necessary creditor votes over the competing, less favorable plan.
+A distressed company proposes a plan, and an investor drafts a competing one.
+
+- Junior creditor class: $80 million
+- Company's plan: junior creditors get 10 cents on the dollar
+- Investor's alternative plan: 25 cents on the dollar, plus the investor provides $50 million of exit financing at 12%
+
+**What juniors get under each plan**
+
+$$
+\$80\text{M} \times 10\% = \$8\text{M} \qquad\text{vs.}\qquad \$80\text{M} \times 25\% = \$20\text{M}
+$$
+
+**Votes needed**
+
+A class accepts a plan with two-thirds of the amount voting yes:
+
+$$
+\frac{2}{3} \times \$80\text{M} = \$53.3\text{M}
+$$
+
+The investor holds $30 million of the class (37.5%), and the other juniors, who gain $12 million more than under the company's plan, are likely to supply the rest.
+
+**What the investor earns on the exit financing**
+
+$$
+\$50\text{M} \times 12\% = \$6\text{M a year}
+$$
+
+The plan pairs better recovery for junior creditors with funding the company needs to leave bankruptcy, which is how it wins the vote over the company's own plan.
 
 # Quiz
 

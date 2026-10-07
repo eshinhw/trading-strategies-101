@@ -22,7 +22,31 @@ Because recovery is so sensitive to seniority, a distressed-debt investor needs 
 
 ## Example
 
-If a distressed company's total value covers its secured debt in full but only half of its unsecured debt, secured bondholders might recover 100 cents on the dollar while unsecured bondholders recover roughly 50 cents — and equity holders, sitting below both, recover nothing at all, despite technically still owning the company on paper until the reorganization is finalized.
+A distressed company's claims, and the value available to cover them.
+
+- Secured debt: $100 million
+- Unsecured debt: $200 million
+- Equity: whatever is left
+- Total company value in restructuring: $200 million
+
+**Paying claims in order of priority**
+
+$$
+\text{Secured: } \$100\text{M} \text{ available, } \$100\text{M} \text{ owed} \;\Rightarrow\; \frac{100}{100} = 100 \text{ cents}
+$$
+
+$$
+\text{Unsecured: } \$200\text{M} - \$100\text{M} = \$100\text{M} \text{ left, } \$200\text{M} \text{ owed} \;\Rightarrow\; \frac{100}{200} = 50 \text{ cents}
+$$
+
+$$
+\text{Equity: } \$100\text{M} - \$100\text{M} = \$0 \;\Rightarrow\; 0 \text{ cents}
+$$
+
+- Equity holders still own the company on paper until the reorganization is final.
+- Equity is paid last, and nothing is left after the two debt classes, so it recovers nothing.
+
+Where a claim sits in the structure, not how much the company is worth overall, decides what it gets.
 
 # Quiz
 

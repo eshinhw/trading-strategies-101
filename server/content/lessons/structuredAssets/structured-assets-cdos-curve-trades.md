@@ -20,9 +20,50 @@ A typical curve trade goes long protection on one maturity and sells protection 
 
 A credit curve's shape often reflects the market's view of near-term versus longer-term default risk. An unusually steep curve can signal near-term stability with longer-run concerns, while an inverted or flat curve can signal acute near-term stress that's expected to either resolve, or is already priced in across every maturity.
 
-## A Worked Example
+## Example
 
-The 5-year tranche on a given structure trades at a 400 basis point spread, and the 10-year trades at 550 basis points — a 150bps gap. A trader believes that gap will widen and puts on a steepener: selling protection on $10 million of the 5-year tranche and buying protection on a duration-matched notional of the 10-year tranche, sized so the position's sensitivity to a parallel shift in both spreads roughly cancels out. If the gap later widens to 200bps, the position profits from that additional 50bps of steepening, regardless of whether the overall level of spreads rose or fell in the meantime.
+Two tranche maturities on the same structure.
+
+- 5-year tranche spread: 400 basis points
+- 10-year tranche spread: 550 basis points
+- Gap: 550 − 400 = 150 basis points
+
+The trader expects the gap to widen and puts on a steepener.
+
+**Sizing the position**
+
+- Sell protection on $10 million of the 5-year tranche (spread duration about 4.5)
+- Buy protection on the 10-year tranche (spread duration about 8), sized so both legs have the same sensitivity
+
+$$
+\$10\text{M} \times 4.5 \times 0.01\% = \$4{,}500 \text{ per basis point}
+$$
+
+$$
+\text{10-year notional} = \frac{\$4{,}500}{8 \times 0.01\%} = \$5.6\text{M} \quad\Rightarrow\quad \$5.6\text{M} \times 8 \times 0.01\% = \$4{,}500 \text{ per basis point}
+$$
+
+**Spreads rise 100 basis points in parallel (the gap stays at 150)**
+
+$$
+\text{5-year (sold protection): } -100 \times \$4{,}500 = -\$450{,}000
+$$
+
+$$
+\text{10-year (bought protection): } +100 \times \$4{,}500 = +\$450{,}000
+$$
+
+$$
+-\$450{,}000 + \$450{,}000 = \$0
+$$
+
+**The gap widens to 200 basis points (the 10-year spread rises 50 basis points, the 5-year is unchanged)**
+
+$$
+50 \times \$4{,}500 = \boxed{+\$225{,}000}
+$$
+
+The trade profits from the gap widening, not from the overall level of spreads.
 
 # Quiz
 

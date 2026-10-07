@@ -22,7 +22,34 @@ The shape itself tells a story: a flat line means 'this outcome doesn't depend o
 
 ## Example
 
-Risk desks at banks and hedge funds build a payoff diagram like this for every position before it's approved, precisely so a risk manager who has never seen the trade can glance at the shape and immediately spot an uncapped loss or a lopsided bet — the diagram is a real underwriting tool, not just a teaching aid.
+Two positions on a stock at 100, each read from its payoff at expiration (per share).
+
+**Long call: strike 100, premium paid 5.00**
+
+- Stock at 90: −5.00
+- Stock at 100: −5.00
+- Stock at 105: 0.00
+- Stock at 110: +5.00
+- Stock at 120: +15.00
+
+$$
+\text{Maximum loss} = 5.00 \text{ per share} = \$500 \qquad \text{Breakeven} = 100 + 5 = 105
+$$
+
+The diagram is flat on the left (capped loss) and rises on the right (no cap on profit).
+
+**Short call: strike 100, premium received 5.00**
+
+- Stock at 100: +5.00
+- Stock at 105: 0.00
+- Stock at 120: −15.00
+- Stock at 150: −45.00
+
+$$
+\text{Maximum profit} = 5.00 \text{ per share} = \$500 \qquad \text{Maximum loss} = \text{unlimited}
+$$
+
+A risk manager who has never seen the trade can read the shape and spot the danger. A line falling without limit on the right means uncapped loss.
 
 # Quiz
 

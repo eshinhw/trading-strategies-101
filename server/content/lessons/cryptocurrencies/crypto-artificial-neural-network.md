@@ -22,7 +22,30 @@ Because a large network has many adjustable weights, it can fit training data ex
 
 ## Example
 
-A crypto trading desk might feed an ANN dozens of engineered features — recent returns across several timeframes, volume trends, order-book imbalance — and train it to output a short-term directional signal. The desk validates the model on data from a period the network never saw during training, and only scales up real capital behind the signal once that out-of-sample performance holds up, rather than trusting the impressive-looking training-period results alone.
+A crypto desk trains a neural network on 40 engineered features (returns over several timeframes, volume trends, order-book imbalance) to predict whether the next hour is up or down. Numbers are illustrative.
+
+- Training period hit rate: 68%
+- Out-of-sample hit rate (a period the network never saw): 52%
+- Average win or loss per trade: 1%
+- Trading cost per round trip: 0.10%
+
+**The training result looks excellent but does not count**
+
+A 68% hit rate on data the model learned from mostly shows it memorized the training period.
+
+**Expected value per trade out of sample**
+
+$$
+0.52 \times 1\% - 0.48 \times 1\% = +0.04\%
+$$
+
+**After costs**
+
+$$
+0.04\% - 0.10\% = \boxed{-0.06\% \text{ per trade}}
+$$
+
+The model loses money once costs are included, so the desk does not scale up. Only a model that still shows an edge after costs on unseen data gets real capital, usually added in stages.
 
 # Quiz
 

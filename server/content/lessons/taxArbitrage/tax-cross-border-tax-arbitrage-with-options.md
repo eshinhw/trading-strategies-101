@@ -22,7 +22,36 @@ Because a derivative-based structure can look, from a market-exposure standpoint
 
 ## Example
 
-An investor who wants exposure to a foreign stock's dividends, but would face a high direct withholding rate as a shareholder, instead enters into a total return swap that pays them an amount linked to the stock's price and dividend, structured so the payment isn't subject to the same withholding — capturing very similar market exposure to direct ownership while facing a different, more favorable tax result on the dividend-linked portion.
+An investor wants exposure to a foreign stock and its dividends (illustrative figures).
+
+- Position: 10,000 shares at $50, which is $500,000
+- Dividend yield: 4%, so $20,000 a year
+- Default withholding rate for a direct shareholder: 30%
+
+**Owning the shares directly**
+
+$$
+\$20{,}000 \times 30\% = \$6{,}000 \text{ withheld} \quad\Rightarrow\quad \$20{,}000 - \$6{,}000 = \$14{,}000 \text{ received}
+$$
+
+**Using a total return swap**
+
+The swap pays the investor the stock's price change plus an amount linked to the dividend. It is structured so the payment is not subject to the same withholding.
+
+$$
+\$20{,}000 \times (1 - 0\%) = \boxed{\$20{,}000 \text{ received}}
+$$
+
+$$
+\$20{,}000 - \$14{,}000 = +\$6{,}000 \text{ better after tax}
+$$
+
+**What stays the same**
+
+- Market exposure: very similar to owning the shares, since the swap pays the price change too
+- What differs: the tax treatment of the dividend-linked portion
+
+Tax rules differ by country and change over time, and many now tax dividend-linked swap payments. The trade needs current legal review before it is used.
 
 # Quiz
 

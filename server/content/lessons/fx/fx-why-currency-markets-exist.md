@@ -22,7 +22,30 @@ The market brings together very different participants with very different motiv
 
 ## Example
 
-A German carmaker sells vehicles in the United States and is paid in dollars, but it pays its factory workers and suppliers in euros. Every month it has to convert dollars into euros, and the number of euros it receives depends entirely on the exchange rate that day. Nothing about this is speculation, it's simply the cost of doing business across borders, and countless routine transactions like it are the foundation of the FX market.
+A German carmaker sells 1,000 cars a month in the United States at $50,000 each. It pays its workers and suppliers €42,000,000 a month.
+
+- Revenue: 1,000 × $50,000 = $50,000,000 a month
+- Costs: €42,000,000 a month
+
+**At EUR/USD 1.10**
+
+$$
+\frac{\$50{,}000{,}000}{1.10} = €45{,}454{,}545 \quad\Rightarrow\quad €45{,}454{,}545 - €42{,}000{,}000 = +€3{,}454{,}545
+$$
+
+**If the euro strengthens to 1.20**
+
+$$
+\frac{\$50{,}000{,}000}{1.20} = €41{,}666{,}667 \quad\Rightarrow\quad €41{,}666{,}667 - €42{,}000{,}000 = \boxed{-€333{,}333}
+$$
+
+**If the euro weakens to 1.00**
+
+$$
+\frac{\$50{,}000{,}000}{1.00} = €50{,}000{,}000 \quad\Rightarrow\quad +€8{,}000{,}000
+$$
+
+A move of less than 10 cents turns a €3.5 million monthly profit into a loss, and nothing about the cars changed. This conversion is ordinary business, not speculation, and routine transactions like it make up much of the FX market.
 
 # Quiz
 

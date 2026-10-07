@@ -22,7 +22,35 @@ A stock index, like the S&P 500, tracks a defined basket of stocks, often select
 
 ## Example
 
-A portfolio manager building a technology-focused fund doesn't just buy the single largest tech company by market cap and call it done — they weigh exposure across large-cap software firms, mid-cap semiconductor makers, and smaller, newer companies, because a portfolio concentrated only in the very largest names behaves differently than one spread across the full size spectrum. Comparing that fund's return against a broad benchmark like the S&P 500 is then how the manager judges whether their sector bets actually added value beyond just being invested in stocks generally.
+**Market capitalization**
+
+$$
+\text{Market cap} = \text{price} \times \text{shares outstanding}
+$$
+
+- Large-cap software firm: $120 × 2.5 billion = $300 billion
+- Mid-cap semiconductor maker: $40 × 200 million = $8 billion
+- Small, newer company: $12 × 100 million = $1.2 billion
+
+**A technology fund of $100 million**
+
+The manager spreads it across the size range instead of buying only the largest name.
+
+- Large-cap software: 50%, which returns +12%
+- Mid-cap semiconductors: 30%, which returns +18%
+- Smaller companies: 20%, which returns +25%
+
+$$
+0.50 \times 12\% + 0.30 \times 18\% + 0.20 \times 25\% = \boxed{16.4\%}
+$$
+
+**Comparison with a broad benchmark (S&P 500 returns 14%)**
+
+$$
+16.4\% - 14.0\% = +2.4 \text{ percentage points} \quad\Rightarrow\quad \$100\text{M} \times 2.4\% = +\$2.4\text{M}
+$$
+
+The 2.4 points show whether the manager's sector and size bets added value beyond just being invested in stocks.
 
 # Quiz
 

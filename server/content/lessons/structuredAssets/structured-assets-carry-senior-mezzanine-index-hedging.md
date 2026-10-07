@@ -20,9 +20,37 @@ As with the equity tranche trade, the position is hedged against the broad index
 
 Because senior and mezzanine tranches are only touched by losses once more junior tranches are wiped out, being long one of these tranches, after the index hedge, is a bet that defaults will be relatively idiosyncratic and spread out, rather than a correlated wave that burns through the entire capital structure at once — the opposite correlation exposure from the equity tranche trade.
 
-## A Worked Example
+## Example
 
-A trader sells protection on $10 million notional of the mezzanine tranche (7-15%), collecting a running coupon of 150 basis points a year — $150,000. Hedging with the plain index, sized to the mezzanine tranche's smaller index delta at roughly $1.5 million notional, costs about 60 basis points, or $9,000 a year. The remaining net carry, about $141,000 a year, compensates for the risk that losses climb far enough up the capital structure to reach this tranche — a much less likely, but still real, event.
+A trader sells protection on the mezzanine tranche (7-15%), further up the capital structure.
+
+- Notional: $10 million
+- Running coupon: 150 basis points a year
+
+$$
+\$10{,}000{,}000 \times 1.50\% = \$150{,}000 \text{ collected a year}
+$$
+
+**Hedging with the plain index**
+
+The mezzanine tranche has a smaller index delta, about $1.5 million, at about 60 basis points.
+
+$$
+\$1{,}500{,}000 \times 0.60\% = \$9{,}000 \text{ paid a year}
+$$
+
+**Net carry**
+
+$$
+\$150{,}000 - \$9{,}000 = \boxed{\$141{,}000 \text{ a year}}
+$$
+
+**Comparison with the equity tranche trade (same $10 million)**
+
+- Equity tranche: $500,000 coupon, $482,000 net carry, hit by the first losses
+- Mezzanine tranche: $150,000 coupon, $141,000 net carry, hit only when losses climb above 7%
+
+The net carry pays for the risk that losses climb far enough up the structure to reach this tranche, which is much less likely than for the equity tranche but still real.
 
 # Quiz
 

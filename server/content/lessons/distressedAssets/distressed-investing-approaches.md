@@ -22,7 +22,34 @@ In practice, distressed investors sit along a spectrum between fully passive and
 
 ## Example
 
-A fund that buys a small position in dozens of different distressed issuers is almost certainly taking a passive approach with each one — diversifying across many recovery bets rather than trying to influence any single company's outcome. A fund that instead concentrates a large position in one issuer's senior debt, then joins its creditors' committee, is taking a distinctly active approach to that specific situation.
+Two funds, each with $100 million, in distressed debt.
+
+**Fund A: passive and diversified**
+
+- 40 positions of $2.5 million each
+- Largest stake in any class: well under 5%
+
+$$
+\frac{\$2.5\text{M}}{\$100\text{M}} = 2.5\% \text{ of the fund per position}
+$$
+
+Fund A holds too little in any one case to change its outcome, so it relies on diversification.
+
+**Fund B: active and concentrated**
+
+- $60 million of one issuer's senior debt, in a $150 million class
+
+$$
+\frac{\$60\text{M}}{\$150\text{M}} = 40\% \text{ of the class}
+$$
+
+A bankruptcy class accepts a plan only with two-thirds of the amount voting yes. Holding more than one-third blocks it:
+
+$$
+40\% > 33.3\% \quad\Rightarrow\quad \text{Fund B can block any plan it dislikes}
+$$
+
+With that stake, and a seat on the creditors' committee, Fund B can influence the plan. Fund A takes whatever outcome each of its 40 cases produces.
 
 # Quiz
 

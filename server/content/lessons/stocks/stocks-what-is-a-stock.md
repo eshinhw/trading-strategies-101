@@ -22,7 +22,37 @@ A stock's price is simply whatever the market is currently willing to pay for on
 
 ## Example
 
-When a fast-growing private company decides to go public, it's converting itself from a business owned by a handful of founders and early investors into one that anyone can own a piece of by buying shares on an exchange. A retail investor who buys shares right after that IPO isn't lending the company money that has to be paid back — they now own a small, permanent slice of the business itself, sharing in its future profits and its future losses alike, with no one obligated to ever hand that money back.
+A fast-growing private company goes public.
+
+- Shares owned by founders and early investors before the IPO: 20 million
+- New shares sold in the IPO: 5 million at $30 each
+
+**Money raised and ownership**
+
+$$
+5{,}000{,}000 \times \$30 = \$150{,}000{,}000
+$$
+
+$$
+\text{Founders and early investors: } \frac{20}{25} = 80\% \qquad \text{New public shareholders: } \frac{5}{25} = 20\%
+$$
+
+**A retail investor buys 100 shares for $3,000**
+
+- Share of the company: 100 ÷ 25,000,000 = 0.0004%
+- If the company earns $2.00 per share, the investor's share of profits is 100 × $2.00 = $200
+
+**Ownership shares in the good and the bad**
+
+$$
+\text{Stock rises to \$45: } 100 \times (\$45 - \$30) = +\$1{,}500
+$$
+
+$$
+\text{Stock falls to \$18: } 100 \times (\$18 - \$30) = -\$1{,}200
+$$
+
+The investor is not lending money, so the company owes no repayment and no fixed interest. The investor owns a permanent slice, sharing in profits and losses alike. A bondholder, by contrast, would be owed a fixed payment.
 
 # Quiz
 

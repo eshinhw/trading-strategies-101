@@ -22,7 +22,27 @@ Because ownership of a cryptocurrency is proven by a private key, whoever contro
 
 ## Example
 
-A trader who leaves funds on a centralized exchange for convenience is exposed to that exchange's own risk — if it's hacked or becomes insolvent, customer funds can be lost even though the underlying blockchain itself was never compromised. That's exactly the distinction the industry phrase "not your keys, not your coins" is pointing at.
+A trader leaves 2 bitcoin on a centralized exchange for convenience. Bitcoin trades at $60,000.
+
+- Holding: 2 × $60,000 = $120,000
+
+The exchange is hacked and becomes insolvent. The bitcoin blockchain itself is untouched, and the price is unchanged at $60,000. In the bankruptcy, customers recover 40 cents on the dollar (illustrative).
+
+$$
+\$120{,}000 \times 40\% = \$48{,}000 \text{ recovered}
+$$
+
+$$
+\$120{,}000 - \$48{,}000 = \boxed{\$72{,}000 \text{ lost}}
+$$
+
+The loss came from where the coins were held, not from the price or the blockchain.
+
+**Self-custody**
+
+If the trader had moved the 2 bitcoin to a wallet whose private keys only they control, the exchange's failure would not have touched them. The trade-off is that a lost key means the $120,000 is lost for good, with no company to appeal to.
+
+That is the meaning of "not your keys, not your coins."
 
 # Quiz
 

@@ -22,7 +22,29 @@ A money market fund pools investor cash into a diversified basket of instruments
 
 ## Example
 
-A corporate treasurer managing several months of operating cash rarely leaves it all in a checking account or puts it all in a single instrument. Instead, they typically ladder it across T-bills and CDs with staggered maturities, so something is always coming due to meet upcoming obligations, while the rest keeps earning a bit more yield than sitting idle.
+A corporate treasurer holds $12 million of operating cash and ladders it into four equal pieces, so something matures every month.
+
+- $3 million in a 1-month T-bill at 4.0%
+- $3 million in a 2-month T-bill at 4.1%
+- $3 million in a 3-month CD at 4.3%
+- $3 million in a 4-month CD at 4.5%
+
+**Interest earned over the four months**
+
+$$
+\$3{,}000{,}000 \times \left(4.0\%\tfrac{1}{12} + 4.1\%\tfrac{2}{12} + 4.3\%\tfrac{3}{12} + 4.5\%\tfrac{4}{12}\right) = \boxed{\$107{,}750}
+$$
+
+**Same cash in a checking account at 0.5%**
+
+$$
+\$3{,}000{,}000 \times 0.5\% \times \frac{1+2+3+4}{12} = \$12{,}500
+$$
+
+- Extra income from the ladder: $107,750 − $12,500 = $95,250
+- Liquidity: $3 million matures every month to meet obligations, and any not needed is rolled into a new 4-month instrument
+
+The ladder keeps the cash both available and earning more than it would sit idle.
 
 # Quiz
 

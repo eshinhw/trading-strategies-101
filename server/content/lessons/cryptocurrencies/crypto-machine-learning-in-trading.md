@@ -22,7 +22,33 @@ Overfitting happens when a model learns noise specific to its training data rath
 
 ## Example
 
-A quant researcher testing a new crypto trading model will typically hold out the most recent chunk of data entirely, train and tune the model only on older data, and then check performance on that untouched recent period exactly once — treating it as a final exam rather than something to keep re-testing against, since repeatedly tuning against the same "held-out" data quietly turns it into training data in disguise.
+A researcher has 1,000 days of crypto data and tests whether a model can call the next day's direction.
+
+- Training and tuning: the older 800 days
+- Held-out test: the most recent 200 days, used once
+
+**How noisy a 200-day test is**
+
+Even a model with no skill gets 50% on average, but the result varies by chance:
+
+$$
+\sigma = \sqrt{\frac{0.5 \times 0.5}{200}} = 3.5\%
+$$
+
+**What happens if the test is reused to tune the model**
+
+- A model with no skill is tried with 20 different settings, each scored on the same 200 days.
+- The best of 20 random results is about 1.9σ above average.
+
+$$
+50\% + 1.9 \times 3.5\% \approx \boxed{56.6\%}
+$$
+
+A 56.6% hit rate looks like a real edge, but the model has none. The best of many tries was picked, so the test data has become training data in disguise.
+
+**The correct use**
+
+Tune on the older data, then score the untouched 200 days once. A result of about 50% ± 3.5% is what no skill looks like, and that is the honest answer.
 
 # Quiz
 

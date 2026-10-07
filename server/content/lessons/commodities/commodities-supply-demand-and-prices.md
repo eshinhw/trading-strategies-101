@@ -22,7 +22,40 @@ Reported inventory levels — how much of a commodity is currently sitting in st
 
 ## Example
 
-A run of dry weather across a major corn-growing region during the critical summer growing weeks can shrink the expected harvest before a single bushel is even cut, and traders often bid corn futures higher immediately on the forecast alone, well before any actual shortage shows up at a grain elevator. Weekly government inventory reports work the same way in energy markets — a surprisingly large build in crude oil stockpiles tends to push prices down the same day, as traders read it as a sign that supply is outrunning demand.
+Illustrative numbers for two supply shocks.
+
+**Dry weather in the corn belt**
+
+- Expected harvest before the dry spell: 15.0 billion bushels
+- Revised forecast: 13.5 billion bushels
+- Corn futures: $6.00, one contract is 5,000 bushels
+
+$$
+\frac{15.0 - 13.5}{15.0} = 10\% \text{ smaller expected harvest}
+$$
+
+Traders bid futures up before any shortage reaches the elevator. If prices rise 10%:
+
+$$
+\$6.00 \times 10\% = \$0.60 \quad\Rightarrow\quad \$0.60 \times 5{,}000 = \$3{,}000 \text{ per contract}
+$$
+
+**A crude oil inventory report**
+
+- Analysts expected a build of 2 million barrels
+- The report shows a build of 7 million barrels
+
+$$
+7 - 2 = 5 \text{ million barrels more supply than expected}
+$$
+
+If crude falls from $80.00 to $78.50 that day:
+
+$$
+\frac{\$1.50}{\$80.00} = 1.9\% \text{ drop} \quad\Rightarrow\quad \$1.50 \times 1{,}000 = \$1{,}500 \text{ loss on one long contract}
+$$
+
+Prices respond to the surprise relative to expectations, not to the report's absolute level.
 
 # Quiz
 

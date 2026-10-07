@@ -22,7 +22,26 @@ Money laundering is a serious felony in most jurisdictions, carrying substantial
 
 ## Example
 
-A bank's anti-money-laundering compliance team uses automated monitoring software to flag accounts showing structuring-like patterns — say, repeated cash deposits just under the $10,000 reporting threshold — and then has an investigator review the account's overall activity before deciding whether it rises to the level of a Suspicious Activity Report. This detection process, not any operational description of laundering itself, is the actual focus of anti-money-laundering work.
+A bank's monitoring software reviews an account that normally receives about $3,000 of cash deposits a month.
+
+- Reporting threshold: $10,000
+- Pattern flagged: 6 cash deposits of $9,500 in one week
+
+**Total deposited**
+
+$$
+6 \times \$9{,}500 = \$57{,}000
+$$
+
+**Against the account's normal activity**
+
+$$
+\frac{\$57{,}000}{\$3{,}000} = 19 \text{ times the monthly norm in a single week}
+$$
+
+Every deposit is just under $10,000, a pattern called structuring, so the system raises an alert. An investigator then reviews the account's overall activity and decides whether to file a Suspicious Activity Report.
+
+The alert does not prove laundering. It identifies activity that needs a human review, which is the focus of anti-money-laundering work.
 
 # Quiz
 

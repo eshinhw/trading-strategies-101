@@ -22,7 +22,37 @@ Even a well-chosen weather hedge rarely offsets the underlying business risk per
 
 ## Example
 
-A regional heating-oil distributor analyzes several years of sales data and finds a reliable, quantified relationship between local heating degree days and its own revenue. It then buys a weather derivative referencing the nearest weather station with a strong historical correlation to its own sales territory, sized specifically to offset the revenue impact of a below-average heating season, rather than buying a generic, unsized weather hedge and hoping it roughly covers the exposure.
+A regional heating-oil distributor analyzes five years of sales against heating degree days (HDD) at the nearest weather station.
+
+- Normal winter: 5,000 HDD
+- The data show revenue moves by $8,000 for each HDD, with a strong fit (R² about 0.85)
+- Worst-case winter: 4,500 HDD
+
+**Revenue at risk**
+
+$$
+(5{,}000 - 4{,}500) \times \$8{,}000 = \$4{,}000{,}000
+$$
+
+**A sized hedge, not a generic one**
+
+The distributor buys a derivative on that station with a strike of 4,900 HDD, paying $8,000 per HDD below the strike.
+
+$$
+\text{Payout at 4,500 HDD} = (4{,}900 - 4{,}500) \times \$8{,}000 = \$3{,}200{,}000
+$$
+
+$$
+\text{Revenue shortfall still carried} = \$4{,}000{,}000 - \$3{,}200{,}000 = \$800{,}000
+$$
+
+The $800,000 is the first 100 HDD below normal, which the distributor chooses to keep to lower the premium.
+
+**What a generic hedge would risk**
+
+Without the regression, the distributor might buy a hedge of $4,000 per HDD. At 4,500 HDD that pays $1.6 million, covering only 40% of the $4 million loss.
+
+Measuring the relationship first lets the hedge match the exposure.
 
 # Quiz
 

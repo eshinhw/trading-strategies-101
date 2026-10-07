@@ -22,7 +22,34 @@ The loan-to-value (LTV) ratio, the loan amount divided by the property's value, 
 
 ## Example
 
-A homebuyer who puts 10% down on a house is using far more leverage than one who puts 50% down on an identical house, so if local prices then fall 15%, the 10%-down buyer's entire stake is wiped out and then some, while the 50%-down buyer still has a comfortable equity cushion left over. The same math is exactly why highly leveraged property investors got hit so much harder than cash buyers whenever a housing market has turned down sharply — the leverage that juiced their gains on the way up amplified their losses just as directly on the way down.
+Two buyers purchase identical $500,000 houses.
+
+- Buyer A: puts 10% down, which is $50,000, and borrows $450,000
+- Buyer B: puts 50% down, which is $250,000, and borrows $250,000
+
+**Prices fall 15%: the house is worth $425,000**
+
+$$
+\text{Loss} = \$500{,}000 \times 15\% = \$75{,}000
+$$
+
+$$
+\text{Buyer A: } \$50{,}000 - \$75{,}000 = \boxed{-\$25{,}000} \quad (-150\% \text{ of the cash invested})
+$$
+
+$$
+\text{Buyer B: } \$250{,}000 - \$75{,}000 = \$175{,}000 \quad (-30\% \text{ of the cash invested})
+$$
+
+Buyer A's equity is wiped out and then some. Buyer B still has a large cushion.
+
+**Prices rise 15% instead**
+
+$$
+\text{Buyer A: } \frac{\$75{,}000}{\$50{,}000} = +150\% \qquad \text{Buyer B: } \frac{\$75{,}000}{\$250{,}000} = +30\%
+$$
+
+The same price move changes Buyer A's result five times as much, in both directions, because the 10% down payment is one fifth of the 50% one. Leverage amplifies gains and losses on the investor's own capital alike (before financing costs).
 
 # Quiz
 

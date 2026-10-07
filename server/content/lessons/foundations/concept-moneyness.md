@@ -22,7 +22,27 @@ As a rule of thumb, ITM options are more expensive (they have real, immediate va
 
 ## Example
 
-Traders shorthand this constantly on a trading desk: a market maker scanning an options chain on an earnings day will describe strikes as 'deep ITM,' 'ATM,' or 'way OTM' without doing any math — moneyness is the mental sorting tool that lets them instantly tell which of dozens of strikes are worth quoting tightly and which are near-worthless lottery tickets.
+A stock trades at $100. Each strike is described by where it sits relative to the stock price, and its intrinsic value follows from that.
+
+- $80 strike: call is deep in-the-money, intrinsic value $20. Put is deep out-of-the-money, $0.
+- $95 strike: call is in-the-money, intrinsic value $5. Put is out-of-the-money, $0.
+- $100 strike: both are at-the-money, intrinsic value $0.
+- $105 strike: call is out-of-the-money, $0. Put is in-the-money, $5.
+- $120 strike: call is deep out-of-the-money, $0. Put is deep in-the-money, $20.
+
+**How the rule works**
+
+$$
+\text{Call intrinsic value} = \max(\$100 - K,\ 0) \qquad \text{Put intrinsic value} = \max(K - \$100,\ 0)
+$$
+
+**Strike as a share of the stock price**
+
+$$
+\frac{\$80}{\$100} = 80\% \qquad \frac{\$95}{\$100} = 95\% \qquad \frac{\$105}{\$100} = 105\% \qquad \frac{\$120}{\$100} = 120\%
+$$
+
+A market maker scanning a chain sorts dozens of strikes the same way: the deep ITM ones carry real value, and the way-OTM ones are close to lottery tickets.
 
 # Quiz
 

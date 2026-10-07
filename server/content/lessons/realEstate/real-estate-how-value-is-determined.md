@@ -22,7 +22,42 @@ In practice, a thorough valuation often blends more than one approach, since eac
 
 ## Example
 
-An appraiser valuing a small office building will typically start with the income approach, capitalizing its net rental income at a market cap rate, then sanity-check that number against what a few similar office buildings nearby have actually sold for recently. If the two approaches land far apart, that gap itself is a signal worth investigating — maybe the building's leases are priced well above or below what the current market would actually support.
+An appraiser values a small office building of 28,000 square feet.
+
+**Income approach: net rental income divided by the market cap rate**
+
+- Net operating income (NOI): $600,000
+- Market cap rate for similar offices: 6.5%
+
+$$
+\frac{\$600{,}000}{6.5\%} = \$9{,}230{,}769
+$$
+
+**Comparable sales: what nearby buildings sold for**
+
+- Three similar buildings sold for $320 to $350 per square foot, an average of $335
+
+$$
+28{,}000 \times \$335 = \$9{,}380{,}000
+$$
+
+**Sanity check**
+
+$$
+\frac{\$9{,}380{,}000 - \$9{,}230{,}769}{\$9{,}230{,}769} = \boxed{1.6\% \text{ apart}}
+$$
+
+The two approaches agree, so the value estimate is around $9.2 to $9.4 million.
+
+**If the two approaches land far apart**
+
+Suppose the building's leases are below market and NOI is only $480,000.
+
+$$
+\frac{\$480{,}000}{6.5\%} = \$7{,}384{,}615 \quad\Rightarrow\quad \frac{\$9{,}380{,}000 - \$7{,}384{,}615}{\$9{,}380{,}000} = 21\% \text{ gap}
+$$
+
+A gap that size is a signal to investigate. Here it points to leases priced well below what the market would support.
 
 # Quiz
 

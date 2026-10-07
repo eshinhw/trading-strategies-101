@@ -22,7 +22,33 @@ Usury caps exist specifically to prevent this kind of exploitative lending. Regu
 
 ## Example
 
-Consider two borrowers who each need $500 quickly. One gets a small-dollar loan from a credit union, with a capped annual rate, clear disclosed terms, and legal recourse if either side breaches the agreement. The other borrows the same amount from an unlicensed lender at a rate that compounds far beyond any legal cap, with no written contract and no protection if the terms are changed unilaterally — the entire purpose of usury law and its regulated alternatives is making the first path available so the second is never the only option.
+Two borrowers each need $500 for 13 weeks (one quarter).
+
+**Credit union loan (regulated)**
+
+- Annual rate: 18%, capped by law
+- Terms and recourse disclosed in writing
+
+$$
+\$500 \times 18\% \times \frac{13}{52} = \$22.50 \text{ interest}
+$$
+
+**Unlicensed lender**
+
+- Rate: 10% per week, no written contract
+
+$$
+\$500 \times 10\% \times 13 = \$650 \text{ interest}
+$$
+
+$$
+10\% \times 52 \text{ weeks} = 520\% \text{ a year}
+$$
+
+- Credit union total repaid: $522.50
+- Unlicensed lender total repaid: $1,150, and the terms can change at any time
+
+The unlicensed loan costs more than 28 times as much in interest ($650 vs. $22.50), and the borrower has no legal protection. Usury caps and regulated small-dollar loans exist so that the second option is never the only one.
 
 # Quiz
 

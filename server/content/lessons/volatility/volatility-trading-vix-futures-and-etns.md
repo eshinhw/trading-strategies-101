@@ -22,7 +22,38 @@ Because the VIX futures curve typically sits in contango, a fund that continuous
 
 ## Example
 
-A trader anticipating a rocky week around a major economic data release might buy a VIX-linked ETN as a short-term hedge, planning to sell it within days if the anticipated turbulence doesn't fully materialize — the kind of tactical, days-not-years holding period these products are actually built for, since the same contango-driven roll cost that could work in the trader's favor during a sudden spike quietly erodes the position's value the longer it's held afterward.
+A trader buys $100,000 of a VIX-linked ETN to hedge a rocky week around a data release (illustrative).
+
+- Spot VIX: 15
+- Next-month VIX future: 17 (the curve is in contango)
+
+**The roll cost of the contango**
+
+The ETN holds futures that converge toward spot as they near expiry. If spot VIX stays at 15:
+
+$$
+\frac{17 - 15}{17} = 11.8\% \text{ lost over the month}
+$$
+
+Assume the ETN loses about 8% a month in a calm market.
+
+**Held for 3 days, with a VIX spike on the data release (futures +10%)**
+
+$$
+\$100{,}000 \times 10\% = +\$10{,}000 \quad\Rightarrow\quad \text{less about } \$800 \text{ of decay for 3 days}
+$$
+
+**Held for 6 months in calm markets (VIX unchanged)**
+
+$$
+\$100{,}000 \times (1 - 0.08)^6 = \boxed{\$60{,}636}
+$$
+
+$$
+-\$39{,}364 \text{ with nothing having gone wrong}
+$$
+
+The decay helps the trader who is short during the same period and hurts the one who is long. These products are designed for days of holding, not months or years.
 
 # Quiz
 

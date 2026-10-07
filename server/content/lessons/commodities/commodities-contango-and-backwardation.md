@@ -22,7 +22,34 @@ This tug-of-war between storage cost and convenience yield is specific to physic
 
 ## Example
 
-An oil refiner that keeps a few weeks of crude sitting in tanks pays for that tank space and the insurance on it, and normally expects a later-dated contract to cost a bit more to compensate — a market in contango. But if a pipeline outage suddenly makes crude hard to get right now, that same refiner will pay up for oil in hand today rather than a promise of oil next month, since running dry shuts down the plant; that scramble for immediate supply is convenience yield showing up as backwardation.
+An oil refiner keeps 1,000,000 barrels of crude in its tanks. Crude trades at $80 a barrel.
+
+**Normal market: carrying costs, per barrel per month**
+
+- Tank space: $0.30
+- Insurance: $0.05
+- Financing (5% a year on $80): $80 × 5% ÷ 12 = $0.33
+
+$$
+\$0.30 + \$0.05 + \$0.33 = \$0.68
+$$
+
+$$
+\text{1-month futures} = \$80.00 + \$0.68 = \boxed{\$80.68} \quad\text{(contango)}
+$$
+
+Holding the oil costs the refiner $0.68 × 1,000,000 = $680,000 a month, and the later contract is priced higher to cover it.
+
+**A pipeline outage makes crude scarce**
+
+- Spot price jumps to $84
+- 1-month futures: $82
+
+$$
+\text{Spot} - \text{futures} = \$84 - \$82 = +\$2 \quad\text{(backwardation)}
+$$
+
+The refiner will pay $4 a barrel above its old price to have oil in hand, because running dry shuts down the plant. That premium for immediate supply is the convenience yield, and it pushes the curve into backwardation.
 
 # Quiz
 

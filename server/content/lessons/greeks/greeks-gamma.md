@@ -36,7 +36,30 @@ Positive gamma isn't free. A position that benefits from big moves usually pays 
 
 ## Example
 
-A trader is long an at-the-money call with a delta of 0.50 and a gamma of 0.05. The stock rises 2 dollars, so the delta increases by about 0.05 × 2 = 0.10, to 0.60, and the call now gains faster per dollar than it did at the start. If the stock had fallen 2 dollars instead, delta would have dropped to about 0.40, which limits the loss per dollar. The trader keeps benefiting from the curvature in both directions.
+A trader is long an at-the-money call with a delta of 0.50 and a gamma of 0.05.
+
+**The stock rises $2**
+
+$$
+\text{New delta} = 0.50 + 0.05 \times 2 = \boxed{0.60}
+$$
+
+The call now gains $0.60 for each further $1 rise, up from $0.50.
+
+**The stock falls $2 instead**
+
+$$
+\text{New delta} = 0.50 - 0.05 \times 2 = 0.40
+$$
+
+The call now loses only $0.40 for each further $1 fall.
+
+**Per contract (100 shares)**
+
+- Delta 0.60 means the position gains about $60 per $1 further up.
+- Delta 0.40 means the position loses about $40 per $1 further down.
+
+A long option gains faster as it moves in its favor and loses more slowly as it moves against, so the trader benefits from the curvature in both directions. A short option position has the opposite, which is why its risk grows.
 
 # Quiz
 

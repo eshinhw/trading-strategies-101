@@ -22,7 +22,32 @@ Despite fitting no single asset class, this course's four strategies share under
 
 ## Example
 
-A power plant operator doesn't wake up wanting to speculate on natural gas prices — they want to lock in their generation margin against the risk that gas costs rise faster than the price they can sell electricity for. The spark-spread instrument covered later in this course exists specifically to serve that real operational need, and only secondarily became something traders also use to express a pure view on that same margin.
+A gas-fired power plant runs 100 MW around the clock for a month (illustrative).
+
+- Output: 100 MW × 24 hours × 30 days = 72,000 MWh
+- Heat rate: 7.5 MMBtu of gas per MWh
+- Electricity price: $45 per MWh
+- Natural gas price: $3.00 per MMBtu
+
+**Spark spread (the plant's margin per MWh)**
+
+$$
+\$45 - 7.5 \times \$3.00 = \$45 - \$22.50 = \$22.50 \text{ per MWh}
+$$
+
+$$
+72{,}000 \times \$22.50 = \boxed{\$1{,}620{,}000 \text{ monthly margin}}
+$$
+
+**If gas rises to $4.50 and electricity stays at $45**
+
+$$
+\$45 - 7.5 \times \$4.50 = \$11.25 \quad\Rightarrow\quad 72{,}000 \times \$11.25 = \$810{,}000
+$$
+
+The margin is cut in half, a loss of $810,000, from a move in gas the operator cannot control.
+
+The operator does not want to speculate on gas. It wants to lock in the $22.50. The spark-spread instrument was created for that operational need, and only afterward did traders also start using it to take a view on the margin.
 
 # Quiz
 

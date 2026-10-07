@@ -20,9 +20,36 @@ After hedging with a nearby tranche, what's left is a more precise bet on the co
 
 A tranche-versus-tranche hedge is harder to execute than an index hedge, since specific tranches of a given structure are less liquid than the plain index, and the hedge ratio between two tranches of the same structure requires a more detailed model of how losses propagate through the capital structure than a simple index hedge does.
 
-## A Worked Example
+## Example
 
-A trader sells protection on $10 million notional of the mezzanine tranche (7-15%), collecting $150,000 a year in running coupon. Instead of hedging with the broad index, the trader buys protection on $800,000 notional of the equity tranche (0-3%) from the same underlying structure, paying 500 basis points running, about $40,000 a year. The resulting net carry, roughly $110,000 a year, is a more tightly targeted bet on the mezzanine tranche's specific subordination, since both legs are drawn from the identical pool of names rather than the broader, more diluted index.
+A trader sells protection on the mezzanine tranche (7-15%).
+
+- Notional: $10 million
+- Running coupon collected: $150,000 a year
+
+**Hedging with another tranche from the same structure**
+
+Instead of the broad index, the trader buys protection on the equity tranche (0-3%) of the same pool.
+
+- Notional: $800,000
+- Running coupon paid: 500 basis points
+
+$$
+\$800{,}000 \times 5.00\% = \$40{,}000 \text{ paid a year}
+$$
+
+**Net carry**
+
+$$
+\$150{,}000 - \$40{,}000 = \boxed{\$110{,}000 \text{ a year}}
+$$
+
+**Compared with hedging using the index**
+
+- With the index (see the previous lesson): $150,000 − $9,000 = $141,000 net carry
+- With the equity tranche: $110,000 net carry
+
+The net carry is lower because the hedge costs more, but both legs are drawn from the identical pool of names. That makes the remaining position a tighter bet on the mezzanine tranche's own subordination, rather than on the broader, more diluted index.
 
 # Quiz
 

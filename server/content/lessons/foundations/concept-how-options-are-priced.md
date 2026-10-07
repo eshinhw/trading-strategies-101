@@ -34,7 +34,35 @@ A pricing model such as Black-Scholes turns those inputs into a theoretical opti
 
 ## Example
 
-A stock trades at 105 and a call with a strike of 100 is priced at 7.50. The intrinsic value is 105 − 100 = 5, so the remaining 2.50 is time value. If the stock stays at 105 until expiration, the time value will fade to zero and the call will be worth only 5, so the buyer loses 2.50 even though the stock hasn't moved. This is why buying options means paying for time, and why the Greeks in the next module break down how each input affects the price.
+A stock trades at 105, and a call with a strike of 100 is priced at 7.50.
+
+**Intrinsic value and time value**
+
+$$
+\text{Intrinsic value} = 105 - 100 = 5
+$$
+
+$$
+\text{Time value} = 7.50 - 5 = \boxed{2.50}
+$$
+
+**If the stock stays at 105 until expiration**
+
+The time value fades to zero, so the call is worth only its intrinsic value of 5.
+
+$$
+(5 - 7.50) \times 100 = -\$250 \text{ per contract}
+$$
+
+The buyer loses 2.50 per share, which is 33% of the 7.50 paid, even though the stock never moved.
+
+**Breakeven at expiration**
+
+$$
+100 + 7.50 = 107.50
+$$
+
+The stock must rise above 107.50 for the buyer to profit, not just above the 100 strike. This is why buying options means paying for time.
 
 # Quiz
 

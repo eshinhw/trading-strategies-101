@@ -22,7 +22,31 @@ Pawnbroking mainly serves borrowers without easy access to traditional credit â€
 
 ## Example
 
-A borrower brings in a watch appraised at $500 and receives a $150 loan, roughly a 30% loan-to-value ratio typical of pawn lending, with 90 days to repay plus interest and reclaim the watch. If they don't return within that window, the pawnbroker keeps the watch and resells it â€” the transaction is fully settled either way, with no further claim on the borrower.
+A borrower brings in a watch to a pawnbroker.
+
+- Appraised value: $500
+- Loan: $150
+- Interest: 3% a month, for a 90-day term
+
+**Loan-to-value**
+
+$$
+\frac{\$150}{\$500} = 30\%
+$$
+
+**If the borrower repays in 90 days**
+
+$$
+\$150 + \$150 \times 3\% \times 3 = \$163.50 \text{ and the watch is returned}
+$$
+
+**If the borrower does not return**
+
+- The pawnbroker keeps the watch and resells it, for example at $400.
+- The pawnbroker is covered: $400 resale value exceeds the $150 lent.
+- The borrower owes nothing more, so the transaction is settled either way.
+
+A low loan-to-value of 30% leaves the lender a wide cushion, and that is why no credit check is needed.
 
 # Quiz
 

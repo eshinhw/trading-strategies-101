@@ -26,7 +26,34 @@ Agreements giving someone the right to buy or sell at a set price have existed f
 
 ## Example
 
-A fund manager holds a large position in a stock and worries about an earnings report next week. Selling the stock would lock in a result and may cause a tax bill, while doing nothing leaves the fund fully exposed. Instead, the manager buys put options that pay off if the stock falls sharply. If the report disappoints, the puts offset much of the loss, and if the stock rises, the manager keeps the gains and has only lost the cost of the puts.
+A fund manager holds 100,000 shares at $50, which is $5,000,000, and worries about an earnings report next week.
+
+- Protection: buy 1,000 put contracts (100,000 shares) with a strike of 48 at 1.50
+- Cost: 100,000 × $1.50 = $150,000, which is 3% of the position
+
+**If the report disappoints and the stock falls 20% to $40**
+
+$$
+\text{Stock: } -\$10 \times 100{,}000 = -\$1{,}000{,}000
+$$
+
+$$
+\text{Puts: } (\$48 - \$40) \times 100{,}000 = +\$800{,}000
+$$
+
+$$
+-\$1{,}000{,}000 + \$800{,}000 - \$150{,}000 = \boxed{-\$350{,}000 \text{ instead of } -\$1{,}000{,}000}
+$$
+
+**If the stock rises 20% to $60**
+
+$$
++\$1{,}000{,}000 - \$150{,}000 = +\$850{,}000
+$$
+
+**Compared with selling the stock**
+
+Selling would lock in the result and could trigger a tax bill, and doing nothing would leave the full $1,000,000 loss exposed. The puts limit the loss to $350,000 while keeping the upside, for a known cost of $150,000.
 
 # Quiz
 

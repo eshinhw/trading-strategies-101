@@ -22,7 +22,30 @@ One habit worth building now: always ask 'who benefits if the stock goes up, and
 
 ## Example
 
-A right without an obligation shows up outside the options market too — when a homebuyer pays a deposit for the exclusive right to buy a house at an agreed price within 60 days, they've effectively bought a call option on that house: if the market moves further in their favor they can still buy at the locked-in price, and if it doesn't, they can walk away and lose only the deposit.
+A homebuyer pays a $10,000 deposit for the exclusive right to buy a house at $500,000 within 60 days. That deposit works as the premium of a call option.
+
+- Right to buy at: $500,000
+- Cost of the right: $10,000
+
+**If the house is worth $540,000 in 60 days**
+
+$$
+\$540{,}000 - \$500{,}000 - \$10{,}000 = \boxed{+\$30{,}000}
+$$
+
+The buyer uses the right and buys at the locked-in price.
+
+**If the house is worth $470,000 in 60 days**
+
+The buyer walks away and loses only the deposit:
+
+$$
+-\$10{,}000
+$$
+
+For comparison, a buyer who had committed to purchase at $500,000 with no right to walk away would lose $30,000 in this case.
+
+An option is a right without an obligation. The buyer pays a small, known amount for the choice, and the most that can be lost is that amount.
 
 # Quiz
 

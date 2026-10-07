@@ -22,7 +22,32 @@ Liquidity in the affected markets often thins out in the seconds just before and
 
 ## Example
 
-Ahead of a closely watched jobs report, a trader might reduce position size to limit event risk, then, once the number is released well outside the range economists had expected, quickly take a position in interest-rate futures and currency markets to capture the sharp repricing that follows — a trade built entirely around the surprise itself, closed out again within minutes to hours rather than held as a longer-term position.
+A trader plans around a jobs report.
+
+- Economists expect: +180,000 jobs, with forecasts ranging from 150,000 to 210,000
+- Treasury note futures price: 110.00 (each 1.00 point is worth $1,000 per contract)
+
+**Before the release: cut event risk**
+
+The trader reduces from 200 contracts to 100.
+
+**The report shows +290,000, far outside the range**
+
+$$
+290{,}000 - 180{,}000 = 110{,}000 \text{ above the consensus}
+$$
+
+The number points to higher rates, so prices fall. The trader quickly sells 100 contracts.
+
+**The market reprices: futures fall from 110.00 to 109.25**
+
+$$
+(110.00 - 109.25) \times \$1{,}000 \times 100 = \boxed{+\$75{,}000}
+$$
+
+The trader closes the position within minutes to hours, since the profit came from the surprise itself and not from a longer trend.
+
+If the number had come in at the consensus of 180,000, there would have been no surprise and no trade.
 
 # Quiz
 

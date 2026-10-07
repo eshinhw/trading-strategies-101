@@ -22,7 +22,31 @@ This differs from the loan-to-own approach covered next, which deliberately conc
 
 ## Example
 
-A fund maintains standing relationships with banks, mutual funds, and insurers that periodically need to offload distressed positions for reasons unrelated to the credit itself, buying small-to-moderate stakes across dozens of issuers whenever a motivated seller needs liquidity — building recovery-value exposure at scale rather than making any single concentrated bet.
+A fund buys distressed debt from banks, mutual funds and insurers that need to sell for reasons unrelated to the credit (illustrative numbers).
+
+- Positions: 40 issuers at $2.5 million cost each, which is $100 million in total
+- Purchase price: 40 cents on the dollar
+- Recovery outcomes for each issuer: 20 cents (30% chance), 45 cents (40%), 70 cents (30%)
+
+**Expected recovery per position**
+
+$$
+0.3 \times 20 + 0.4 \times 45 + 0.3 \times 70 = 45 \text{ cents} \quad\Rightarrow\quad \frac{45 - 40}{40} = +12.5\%
+$$
+
+**Risk of one position**
+
+$$
+\text{Standard deviation} = \sqrt{0.3 \times 25^2 + 0.4 \times 0^2 + 0.3 \times 25^2} = 19.4 \text{ cents} = 48\% \text{ of the price}
+$$
+
+**Risk across 40 independent positions**
+
+$$
+\frac{48\%}{\sqrt{40}} = \boxed{7.7\%}
+$$
+
+One position can lose half its value, but across 40 the result is close to the +12.5% expected return. Standing relationships with banks, funds and insurers keep a steady flow of motivated sellers, so the fund can build this breadth without relying on any single bet. (Real positions are not fully independent, so the true risk is higher.)
 
 # Quiz
 

@@ -26,7 +26,35 @@ Choosing a strategy comes down to a few questions: what is the view on direction
 
 ## Example
 
-Three investors hold the same view of a stock trading at 100 but have different goals. One already owns it and buys a put to protect against a drop, one owns it and sells a call to earn income while expecting it to stay flat, and one doesn't own it but expects a rise and buys a call to profit with limited risk. They use the same type of instrument for three different purposes.
+Three investors hold the same view of a stock trading at 100, each for 100 shares and each with a different goal.
+
+**1. Hedge: owns the stock and buys a 95 put for 2.00**
+
+$$
+\text{Cost: } 2.00 \times 100 = \$200
+$$
+
+If the stock falls to 80:
+
+$$
+\text{Stock: } -20 \times 100 = -\$2{,}000 \qquad \text{Put: } (95 - 80) \times 100 - \$200 = +\$1{,}300
+$$
+
+$$
+-\$2{,}000 + \$1{,}300 = \boxed{-\$700 \text{ instead of } -\$2{,}000}
+$$
+
+**2. Income: owns the stock and sells a 105 call for 1.50**
+
+- Premium received: $150, kept in full if the stock stays below 105
+- If the stock rises to 110: stock gains $1,000, the call loses (110 − 105) × 100 = $500, premium +$150, net +$650 instead of +$1,000
+
+**3. Speculation: does not own the stock and buys a 105 call for 2.50**
+
+- Cost and maximum loss: $250
+- If the stock rises to 115: (115 − 105) × 100 − $250 = +$750
+
+The same type of contract is used to protect, to earn income and to speculate, each with a different payoff.
 
 # Quiz
 

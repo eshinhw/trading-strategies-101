@@ -22,7 +22,36 @@ Because the endpoint is owning and controlling the actual operating company, loa
 
 ## Example
 
-A fund buys a controlling share of a struggling manufacturer's senior secured debt at a steep discount, specifically because it believes the underlying manufacturing business is fundamentally sound and only over-leveraged. As the company reorganizes, that debt converts into a majority equity stake, and the fund exits its debt position having effectively bought control of a viable business at a distressed-debt price rather than a full acquisition price.
+A manufacturer is sound but over-leveraged, and the fund wants to end up owning it.
+
+- Operating earnings (EBITDA): $50 million
+- Fair value at 6 times EBITDA: $300 million
+- Senior secured debt: $250 million
+- The fund buys $150 million face (60% of the debt) at 55 cents on the dollar
+
+**Cost of the fund's position**
+
+$$
+\$150\text{M} \times 0.55 = \$82.5\text{M}
+$$
+
+**After reorganization, the senior lenders receive $100 million of new debt and 100% of the equity**
+
+$$
+\text{Equity value} = \$300\text{M} - \$100\text{M} = \$200\text{M}
+$$
+
+**The fund's 60% share**
+
+$$
+\text{New debt: } 60\% \times \$100\text{M} = \$60\text{M} \qquad \text{Equity: } 60\% \times \$200\text{M} = \$120\text{M}
+$$
+
+$$
+\$60\text{M} + \$120\text{M} = \$180\text{M} \quad\Rightarrow\quad \$180\text{M} - \$82.5\text{M} = \boxed{+\$97.5\text{M}}
+$$
+
+The fund ends with a majority of the equity in a viable business. It paid $82.5 million, not the $300 million a full acquisition would have cost.
 
 # Quiz
 

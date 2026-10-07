@@ -22,7 +22,37 @@ Real estate is also commonly split by property use: residential (homes, apartmen
 
 ## Example
 
-Consider an investor who buys a small apartment building: each month the rent checks come in, cover the mortgage, taxes, and repairs, and whatever's left over is the income return, landing in the investor's pocket whether or not the building's market value has moved at all. Years later, when the investor sells the building for more than they paid, that gain is the appreciation return — a second, separate payoff that had nothing to do with the monthly rent checks along the way.
+An investor buys a small apartment building.
+
+- Price: $1,800,000 (60% mortgage of $1,080,000 at 6% interest-only, and $720,000 of the investor's cash)
+- Rent: 10 apartments × $1,500 × 12 = $180,000 a year
+- Taxes, insurance and repairs: $54,000 a year
+
+**Income return: what is left after costs and the mortgage**
+
+$$
+\$180{,}000 - \$54{,}000 = \$126{,}000 \quad\Rightarrow\quad \$126{,}000 - \$1{,}080{,}000 \times 6\% = \boxed{\$61{,}200 \text{ a year}}
+$$
+
+$$
+\frac{\$61{,}200}{\$720{,}000} = 8.5\% \text{ a year on the cash invested}
+$$
+
+This arrives whether or not the building's value has moved.
+
+**Appreciation return: selling after 5 years for $2,100,000**
+
+$$
+\$2{,}100{,}000 - \$1{,}800{,}000 = \$300{,}000 \quad (16.7\% \text{ of the price})
+$$
+
+**Total over 5 years**
+
+$$
+5 \times \$61{,}200 + \$300{,}000 = \$606{,}000 \quad\Rightarrow\quad \frac{\$606{,}000}{\$720{,}000} = 84\% \text{ on the cash invested}
+$$
+
+Rent is the income return. The gain at sale is a second payoff, separate from the monthly rent checks.
 
 # Quiz
 

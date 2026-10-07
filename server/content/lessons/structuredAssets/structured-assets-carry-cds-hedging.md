@@ -20,9 +20,41 @@ Hedging away single-name spread risk this way leaves a position that's now prima
 
 Because each name's delta to the tranche changes as spreads move and as the pool ages, a CDS-hedged tranche position requires continuous rebalancing to stay properly hedged, unlike a simpler, more static index or tranche hedge — making this the most operationally intensive of the carry-hedging variants.
 
-## A Worked Example
+## Example
 
-A trader sells protection on $10 million notional of the mezzanine tranche, collecting $150,000 a year in coupon. To hedge single-name risk, they buy CDS protection on the pool's five highest-delta names, sized according to each name's computed delta to the tranche, totaling $2 million of combined notional at an average spread of 80 basis points — about $16,000 a year. The remaining $134,000 of net carry is compensation for correlation risk alone, with both broad market and single-name spread risk stripped out — though as spreads move, those five deltas, and the hedge notionals sized to them, need to be recalculated and rebalanced.
+A trader sells protection on the mezzanine tranche of a credit structure.
+
+- Notional: $10 million
+- Running coupon collected: $150,000 a year
+
+**Hedging single-name risk**
+
+The trader buys CDS protection on the pool's five highest-delta names, sized to each name's delta to the tranche.
+
+- Combined notional: $2 million
+- Average spread paid: 80 basis points
+
+$$
+\$2{,}000{,}000 \times 0.80\% = \$16{,}000 \text{ a year}
+$$
+
+**Net carry**
+
+$$
+\$150{,}000 - \$16{,}000 = \boxed{\$134{,}000 \text{ a year}}
+$$
+
+The $134,000 compensates for correlation risk alone. Broad market and single-name spread risk have been stripped out.
+
+**Why the hedge needs upkeep**
+
+The deltas change as spreads move. If spreads widen and the five names' deltas rise, the hedge notional might need to grow from $2.0 million to $2.6 million:
+
+$$
+\$2{,}600{,}000 \times 0.80\% = \$20{,}800 \quad\Rightarrow\quad \$150{,}000 - \$20{,}800 = \$129{,}200
+$$
+
+The five hedge positions must be recalculated and rebalanced over time, and that cost is part of the trade.
 
 # Quiz
 

@@ -26,7 +26,37 @@ Sellers of options, such as covered call writers or iron condor sellers, collect
 
 ## Example
 
-A trader buys a call for 4.00 with a theta of −0.06. If the stock stays exactly where it is, the call loses about 0.06 a day, so after a week it is worth about 3.58, a loss of 42 dollars per contract with no change in the stock price. A seller of the same call would have gained that 42 dollars, which shows why timing matters as much as direction for an option buyer.
+A trader buys a call for 4.00 with a theta of −0.06 a day. The stock stays exactly where it is.
+
+**Value after one week (7 days)**
+
+$$
+4.00 - 7 \times 0.06 = \boxed{3.58}
+$$
+
+**Loss on the position**
+
+$$
+(3.58 - 4.00) \times 100 = -\$42 \text{ per contract}
+$$
+
+That is 10.5% of the $400 paid, with no change in the stock price.
+
+**The seller of the same call**
+
+$$
++\$42 \text{ per contract}
+$$
+
+**What the buyer needs to break even on the week**
+
+With a delta of about 0.50, the stock must rise about:
+
+$$
+\frac{0.42}{0.50} = \$0.84
+$$
+
+Timing matters as much as direction for a buyer. The stock has to move enough, and soon enough, to outweigh the daily decay.
 
 # Quiz
 

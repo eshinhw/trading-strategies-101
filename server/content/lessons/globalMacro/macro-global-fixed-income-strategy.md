@@ -22,7 +22,36 @@ Unlike a single country's own Treasury market, comparing government bonds across
 
 ## Example
 
-A trader who expects one country's central bank to cut rates well before another's might go long that country's government bonds and short the other's, deliberately choosing to leave the resulting currency exposure unhedged because the same rate-differential view that's driving the bond trade would also be expected to move the currency pair in a complementary direction.
+A trader expects Country A's central bank to cut rates well before Country B's.
+
+- Long $10 million of Country A 10-year bonds, yield 4.0%, duration 8
+- Short $10 million of Country B 10-year bonds
+- The view: A's yield falls 50 basis points, and B's yield does not move
+
+**Bond leg**
+
+$$
+8 \times 0.50\% = +4.0\% \quad\Rightarrow\quad \$10{,}000{,}000 \times 4.0\% = +\$400{,}000
+$$
+
+**The currency decision**
+
+Holding A's bonds also means holding A's currency. The trader leaves it unhedged because the same rate-differential view is expected to move the currency in a way that reinforces the trade.
+
+- Currency moves as expected (+2%): unhedged total is $400,000 + $200,000 = **+$600,000**
+- If the trader had hedged, the total would stay at +$400,000 (ignoring hedging costs)
+
+**If the currency moves against the trade instead (−2%)**
+
+$$
+\text{Unhedged: } \$400{,}000 - \$200{,}000 = +\$200{,}000
+$$
+
+$$
+\text{Hedged: } +\$400{,}000
+$$
+
+Leaving the currency unhedged is a deliberate bet that it will help. If the trader has no view that it will, hedging keeps the result to the bond view alone.
 
 # Quiz
 

@@ -22,7 +22,39 @@ Because an index is a clearly defined, rule-based basket, products can be built 
 
 ## Example
 
-An actively managed fund returns 8% in a year when the S&P 500 returns 12%. Without the index, 8% might look like a good result, but the comparison shows the manager lagged the market by 4 percentage points. An investor who had put the same money into a low-cost index fund tracking the S&P 500 would have earned close to 12% before fees, which is why indexes are used both to measure performance and to build products that simply deliver it.
+An actively managed fund returns 8% in a year when the S&P 500 returns 12%.
+
+**Without the index**
+
+8% looks like a good result.
+
+**With the index as a benchmark**
+
+$$
+12\% - 8\% = \boxed{4 \text{ percentage points behind}}
+$$
+
+**On a $100,000 investment**
+
+$$
+\text{Active fund: } \$100{,}000 \times 1.08 = \$108{,}000
+$$
+
+$$
+\text{Index fund: } \$100{,}000 \times 1.12 = \$112{,}000 \quad\Rightarrow\quad \$4{,}000 \text{ more}
+$$
+
+**If the gap repeated every year for 10 years**
+
+$$
+\$100{,}000 \times 1.08^{10} = \$215{,}892 \qquad \$100{,}000 \times 1.12^{10} = \$310{,}585
+$$
+
+$$
+\$310{,}585 - \$215{,}892 = \$94{,}693 \text{ difference}
+$$
+
+The index lets investors judge a manager against the market, and it makes possible a low-cost fund that simply delivers the market's return.
 
 # Quiz
 

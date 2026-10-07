@@ -22,7 +22,35 @@ By connecting lenders to a much larger pool of investors, securitization can mak
 
 ## Example
 
-A bank makes 1,000 mortgages worth 300 million dollars in total. It pools them and sells securities backed by the borrowers' monthly payments, raising roughly 300 million dollars from investors. The bank uses that cash to make new mortgages and earns fees for arranging the deal, while the investors now own claims on the mortgage payments, and the bank no longer has the loans, or most of the risk, on its books.
+A bank makes 1,000 mortgages averaging $300,000.
+
+$$
+1{,}000 \times \$300{,}000 = \$300{,}000{,}000
+$$
+
+**Securitizing the pool**
+
+- The bank pools the mortgages and sells securities backed by the borrowers' monthly payments.
+- It raises roughly $300 million from investors.
+- It earns an arrangement fee of 0.5%.
+
+$$
+\$300{,}000{,}000 \times 0.5\% = \$1{,}500{,}000
+$$
+
+**Recycling the capital**
+
+The bank uses the $300 million to make 1,000 new mortgages. Repeated three times:
+
+$$
+3 \times \$300\text{M} = \boxed{\$900\text{M of lending}} \quad\text{vs.}\quad \$300\text{M without securitization}
+$$
+
+Fees across the three rounds come to $4.5 million, and none of the capital is stuck waiting up to 30 years for repayment.
+
+**What the bank gives up**
+
+It no longer holds the loans, so it also no longer carries most of their risk. Investors who buy the securities carry it instead, and each can choose how much by buying a senior or a junior slice.
 
 # Quiz
 

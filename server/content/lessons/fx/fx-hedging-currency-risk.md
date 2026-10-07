@@ -22,7 +22,32 @@ A hedge doesn't have to cover the whole exposure. Companies often hedge only par
 
 ## Example
 
-A U.S. exporter expects 1,000,000 euros in three months, when spot EUR/USD is 1.10. It sells the euros forward at 1.1050, locking in 1,105,000 dollars. If EUR/USD later falls to 1.05, an unhedged exporter would have received only 1,050,000 dollars, so the hedge saved 55,000. If it rises to 1.15, the unhedged exporter would have received 1,150,000, and the hedged one gave up 45,000 of potential gain in exchange for certainty.
+A U.S. exporter expects €1,000,000 in three months. EUR/USD spot is 1.1000.
+
+- Forward rate to sell euros in three months: 1.1055
+- Locked-in dollars: 1,000,000 × 1.1055 = $1,105,500
+
+**EUR/USD falls to 1.0500**
+
+$$
+\text{Unhedged: } 1{,}000{,}000 \times 1.0500 = \$1{,}050{,}000
+$$
+
+$$
+\$1{,}105{,}500 - \$1{,}050{,}000 = \boxed{+\$55{,}500 \text{ saved by the hedge}}
+$$
+
+**EUR/USD rises to 1.1500**
+
+$$
+\text{Unhedged: } 1{,}000{,}000 \times 1.1500 = \$1{,}150{,}000
+$$
+
+$$
+\$1{,}105{,}500 - \$1{,}150{,}000 = -\$44{,}500 \text{ given up}
+$$
+
+The exporter receives $1,105,500 in every case. It gives up the chance of the extra $44,500 in exchange for certainty about what it will receive.
 
 # Quiz
 

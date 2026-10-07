@@ -22,7 +22,34 @@ Historical and implied volatility can, and often do, diverge — implied volatil
 
 ## Example
 
-An options market maker quoting a stock ahead of a major public announcement doesn't know whether the stock will end up 2% higher or 15% lower — but by comparing the price the options market is currently charging (implied volatility) against how much the stock has actually swung around similar events in the past (historical volatility), the market maker can judge whether current option prices look rich, cheap, or roughly fair relative to the stock's own track record.
+An options market maker quotes a $100 stock ahead of a major announcement.
+
+- Implied volatility (what the options market charges now): 40%
+- Historical volatility around similar past events: 28%
+
+**Expected one-month move (one standard deviation)**
+
+$$
+\frac{40\%}{\sqrt{12}} = 11.5\% \qquad\text{vs.}\qquad \frac{28\%}{\sqrt{12}} = 8.1\%
+$$
+
+**Price of a one-month at-the-money call (approximation: 0.4 × stock × volatility × √time)**
+
+$$
+\text{At 40\%: } 0.4 \times \$100 \times 0.40 \times \sqrt{1/12} = \$4.61
+$$
+
+$$
+\text{At 28\%: } 0.4 \times \$100 \times 0.28 \times \sqrt{1/12} = \$3.22
+$$
+
+**How rich the options look**
+
+$$
+\frac{\$4.61 - \$3.22}{\$3.22} = \boxed{43\% \text{ richer than the stock's own track record}}
+$$
+
+The market maker does not know whether the stock will end up 2% higher or 15% lower. Comparing implied with historical volatility shows whether the options look rich, cheap or fair against what the stock has actually done around similar events.
 
 # Quiz
 

@@ -22,7 +22,34 @@ The Options Payoff Simulator in the Practice section lets you build a position o
 
 ## Example
 
-This is exactly how professional options traders read an unfamiliar position on a risk report: rather than memorizing the P&L shape of every possible combination, they mentally decompose it into legs they already know — the same way a musician recognizes a complicated chord as two simpler chords played together.
+A bull call spread on a stock trading at 100 is built from two legs.
+
+- Leg 1: buy a 100-strike call for 5.00
+- Leg 2: sell a 110-strike call for 2.00
+
+**Net cost**
+
+$$
+5.00 - 2.00 = 3.00 \text{ debit, which is } \$300 \text{ per contract}
+$$
+
+**Each leg and the total, at expiration (per share)**
+
+- Stock at 90: long call −5.00, short call +2.00, total **−3.00**
+- Stock at 105: long call (105 − 100) − 5 = 0.00, short call +2.00, total **+2.00**
+- Stock at 115: long call (115 − 100) − 5 = +10.00, short call 2 − (115 − 110) = −3.00, total **+7.00**
+
+**Key numbers**
+
+$$
+\text{Maximum loss} = \$300 \qquad \text{Maximum profit} = (110 - 100 - 3.00) \times 100 = \$700
+$$
+
+$$
+\text{Breakeven} = 100 + 3.00 = 103
+$$
+
+Reading the position as legs you already know (a long call and a short call) gives the whole payoff without memorizing the strategy's shape.
 
 # Quiz
 

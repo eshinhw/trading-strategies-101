@@ -22,7 +22,30 @@ ETFs combine three things investors want at once: the diversification of a fund,
 
 ## Example
 
-A new investor who wants exposure to hundreds of large companies at once, but doesn't have the money or time to buy shares of each one individually, can instead buy a single share of a broad-market ETF and instantly own a proportional slice of every company inside it. Because that ETF share trades on an exchange all day long, the investor can buy it in the morning and sell it that same afternoon if they choose to, something a traditional mutual fund's once-a-day pricing would never allow.
+An investor wants exposure to the 500 companies in a broad stock index without buying each one. One share of a broad-market ETF trades at $500.
+
+**One share gives a slice of every holding (illustrative weights)**
+
+- Company A at 7.0% weight: $500 × 7.0% = $35.00
+- Company B at 6.5% weight: $500 × 6.5% = $32.50
+- Company C at 3.0% weight: $500 × 3.0% = $15.00
+- The other 497 companies share the remaining $417.50
+
+$$
+\$35.00 + \$32.50 + \$15.00 + \$417.50 = \$500
+$$
+
+**Trading during the day**
+
+The investor buys 10 shares at 10:00 a.m. and sells them at 3:00 p.m.
+
+$$
+10 \times (\$502.00 - \$500.00) = +\$20
+$$
+
+A traditional mutual fund prices once a day, after the market closes, so the same-day round trip would not be possible.
+
+The ETF combines the diversification of a fund (500 companies in one purchase of $5,000) with the intraday trading of a stock.
 
 # Quiz
 

@@ -22,7 +22,36 @@ Pairs are commonly grouped by how heavily they trade: major pairs involve the U.
 
 ## Example
 
-A U.S. tourist arriving in Japan and exchanging dollars for yen at the airport is executing, in miniature, exactly what a currency pair describes: they're simultaneously selling their base currency (USD) and buying the quote currency (JPY) at whatever the USD/JPY rate happens to be that day, and the number of yen they walk away with depends entirely on where that pair is trading at the moment of the exchange.
+A U.S. tourist lands in Japan and exchanges $1,000 for yen at the airport.
+
+- Currency pair: USD/JPY, where USD is the base and JPY is the quote
+- USD/JPY rate that day: 150.00 (1 dollar buys 150 yen)
+
+**What the exchange does**
+
+The tourist sells the base currency (USD) and buys the quote currency (JPY):
+
+$$
+\$1{,}000 \times 150.00 = ¥150{,}000
+$$
+
+**The same $1,000 at other rates**
+
+$$
+\text{USD/JPY at 140.00: } \$1{,}000 \times 140.00 = ¥140{,}000 \quad (-6.7\%)
+$$
+
+$$
+\text{USD/JPY at 155.00: } \$1{,}000 \times 155.00 = ¥155{,}000 \quad (+3.3\%)
+$$
+
+**Airport rate with a spread (147.00 instead of 150.00)**
+
+$$
+\$1{,}000 \times 147.00 = ¥147{,}000 \quad\Rightarrow\quad \frac{150 - 147}{150} = 2\% \text{ cost}
+$$
+
+Every FX trade works like this: the amount you end up with depends on where the pair trades. A rising USD/JPY means the dollar buys more yen.
 
 # Quiz
 

@@ -22,7 +22,31 @@ A third explanation is more technical: standard risk measures like beta or histo
 
 ## Example
 
-A researcher studying decades of returns on portfolios sorted by a distress-risk score consistently finds that the most distressed group underperforms the least distressed group on average, even after adjusting for standard risk factors — a result robust enough across markets and time periods that it's treated as a genuine, well-established empirical puzzle rather than a fluke of one particular dataset.
+A researcher sorts companies into ten groups by distress score every year for 30 years (illustrative figures).
+
+- Least distressed group: 11% a year, volatility 18%
+- Most distressed group: 3% a year, volatility 45%
+- Risk-free rate: 3%
+
+**Return per unit of risk (Sharpe ratio)**
+
+$$
+\text{Least distressed: } \frac{11\% - 3\%}{18\%} = 0.44
+$$
+
+$$
+\text{Most distressed: } \frac{3\% - 3\%}{45\%} = 0.00
+$$
+
+**What $1 grows to over 30 years**
+
+$$
+\$1 \times 1.11^{30} = \$22.89 \qquad\text{vs.}\qquad \$1 \times 1.03^{30} = \$2.43
+$$
+
+The riskiest group earned 8 percentage points less each year, even though it carried 2.5 times the volatility. Standard theory says higher risk should earn higher return.
+
+The result holds after adjusting for standard risk factors and appears across markets and periods, so it is treated as an established puzzle, not a fluke of one dataset.
 
 # Quiz
 

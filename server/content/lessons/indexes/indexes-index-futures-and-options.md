@@ -22,7 +22,33 @@ Index derivatives are also a common way to speculate directly on the broad marke
 
 ## Example
 
-Ahead of a heavy week of earnings reports and economic data, a portfolio manager who believes their individual stock picks are strong but is nervous about the broad market pulling everything down sells index futures against the portfolio's value. If the market does drop, gains on the futures position offset the paper losses across the stock portfolio, letting the manager ride out the volatility without having to unwind carefully built individual positions.
+A manager holds a $50 million stock portfolio (beta close to 1) and is nervous about the market ahead of a heavy week of data. E-mini S&P 500 futures are at 4,500 (multiplier $50).
+
+**Contract size and number of contracts to sell**
+
+$$
+4{,}500 \times \$50 = \$225{,}000 \text{ per contract}
+$$
+
+$$
+\frac{\$50{,}000{,}000}{\$225{,}000} = 222 \text{ contracts}
+$$
+
+**The market falls 5% and the manager's picks beat it by 1%, so the portfolio falls 4%**
+
+$$
+\text{Portfolio: } -4\% \times \$50{,}000{,}000 = -\$2{,}000{,}000
+$$
+
+$$
+\text{Futures: } 222 \times 4{,}500 \times 5\% \times \$50 = +\$2{,}497{,}500
+$$
+
+$$
+-\$2{,}000{,}000 + \$2{,}497{,}500 = \boxed{+\$497{,}500}
+$$
+
+The hedge removed the market's fall and left the stock-picking edge (the 1% out-performance). The futures are cash-settled, so the manager never had to sell any of the individual holdings.
 
 # Quiz
 

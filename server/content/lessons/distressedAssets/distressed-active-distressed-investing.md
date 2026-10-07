@@ -22,7 +22,31 @@ Active involvement isn't free: it requires legal and advisory resources, time, a
 
 ## Example
 
-An investor accumulates a large position in a distressed company's unsecured bonds, then joins the official creditors' committee. Through that seat, they push back on a proposed plan that would have paid unsecured creditors mostly in low-value warrants, negotiating instead for a larger equity stake — an outcome a purely passive bondholder in the same class would have simply had to accept.
+A distressed company has $200 million of unsecured bonds. An investor builds a position and joins the creditors' committee.
+
+- Position: $20 million face value, which is 10% of the class
+- Purchase price: 40 cents on the dollar, so the cost is $8 million
+- Value of the reorganized company's equity: $300 million
+
+**The company's proposed plan**
+
+Unsecured creditors would get warrants worth about 20 cents on the dollar:
+
+$$
+\$20{,}000{,}000 \times 20\% = \$4{,}000{,}000 \quad\Rightarrow\quad \$4\text{M} - \$8\text{M} = -\$4\text{M (a 50\% loss)}
+$$
+
+**The plan the investor pushes for: 35% of the equity for the class**
+
+$$
+35\% \times \$300{,}000{,}000 = \$105{,}000{,}000 \text{ for the whole class} \quad (52.5 \text{ cents on the dollar})
+$$
+
+$$
+10\% \times \$105{,}000{,}000 = \$10{,}500{,}000 \quad\Rightarrow\quad \$10.5\text{M} - \$8\text{M} = \boxed{+\$2.5\text{M (a 31\% gain)}}
+$$
+
+A passive bondholder in the same class would have had to accept the warrants. The seat on the committee turned a loss into a gain.
 
 # Quiz
 

@@ -22,7 +22,40 @@ A trader with no physical generation assets at all can take the same spread posi
 
 ## Example
 
-A gas-fired power plant with a known heat rate locks in its spark spread by simultaneously selling electricity futures and buying natural gas futures in the ratio its own efficiency implies, fixing its generation margin regardless of which direction electricity and gas prices individually move afterward — protecting the plant's economics from the market's volatility in either underlying price.
+A gas-fired plant locks in its margin for next month (illustrative).
+
+- Output: 72,000 MWh
+- Heat rate: 7.5 MMBtu per MWh
+- Gas needed: 72,000 × 7.5 = 540,000 MMBtu
+
+**The hedge**
+
+- Sell 72,000 MWh of electricity futures at $45: $3,240,000
+- Buy 540,000 MMBtu of gas futures at $3.00: $1,620,000
+
+$$
+\$3{,}240{,}000 - \$1{,}620{,}000 = \$1{,}620{,}000 \text{ locked-in margin}
+$$
+
+**Prices move: electricity falls to $38 and gas falls to $2.50**
+
+$$
+\text{Plant margin in the market: } 72{,}000 \times (\$38 - 7.5 \times \$2.50) = 72{,}000 \times \$19.25 = \$1{,}386{,}000
+$$
+
+$$
+\text{Power futures gain: } (\$45 - \$38) \times 72{,}000 = +\$504{,}000
+$$
+
+$$
+\text{Gas futures loss: } (\$2.50 - \$3.00) \times 540{,}000 = -\$270{,}000
+$$
+
+$$
+\$1{,}386{,}000 + \$504{,}000 - \$270{,}000 = \boxed{\$1{,}620{,}000}
+$$
+
+The plant ends with the margin it locked in, in whichever direction electricity and gas moved. The gas-to-power ratio comes from the plant's own efficiency.
 
 # Quiz
 

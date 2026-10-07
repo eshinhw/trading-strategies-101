@@ -22,7 +22,43 @@ Selling short flips that around: borrowing shares you don't own, selling them im
 
 ## Example
 
-Picture a trader who believes a heavily hyped stock has run up further than its actual business justifies. Instead of buying, they borrow shares from their broker and sell them immediately at today's price, planning to buy them back later once the price comes back down and return the borrowed shares to close out the trade. If they're right, they pocket the difference; but if the stock keeps climbing instead, they have to buy back at a higher and higher price with no ceiling in sight, which is exactly why short selling carries a kind of risk that a simple long position never does.
+A trader believes a heavily hyped stock at $50 has run up too far. Instead of buying, the trader sells short 100 shares.
+
+- Borrow 100 shares from the broker and sell them: 100 × $50 = $5,000 received
+- Plan: buy them back later at a lower price and return them
+
+**The stock falls to $40**
+
+$$
+\$5{,}000 - 100 \times \$40 = \boxed{+\$1{,}000}
+$$
+
+**The stock rises to $70**
+
+$$
+\$5{,}000 - 100 \times \$70 = -\$2{,}000
+$$
+
+**The stock rises to $100**
+
+$$
+\$5{,}000 - 100 \times \$100 = -\$5{,}000
+$$
+
+**A long position in the same stock (buy 100 shares at $50)**
+
+$$
+\text{Maximum loss} = \$5{,}000 \text{ (the stock goes to } \$0\text{)}
+$$
+
+$$
+\text{Maximum gain on a short} = \$5{,}000 \text{ (the stock goes to } \$0\text{)}
+$$
+
+- A long position cannot lose more than the $5,000 paid.
+- A short position gains at most $5,000, but its loss has no limit, since the stock can keep rising.
+
+That is the kind of risk short selling carries that a simple long position does not.
 
 # Quiz
 

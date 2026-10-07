@@ -22,7 +22,30 @@ Unlike an ordinary discount bond bought simply because it's cheap, distressed de
 
 ## Example
 
-A company's bonds might trade at 90 cents on the dollar when investors see only modest risk, but fall to 30 cents once a poor earnings report and a looming debt maturity raise real doubt about repayment. A distressed-debt investor evaluating that bond isn't just asking "is 30 cents cheap?" — they're asking what the bond is actually likely to recover if the company defaults, which could be well above or well below that price.
+A company's bond falls after a poor earnings report and a looming debt maturity.
+
+- Price when the risk looked modest: 90 cents on the dollar
+- Price after the report: 30 cents
+
+$$
+\frac{30 - 90}{90} = -67\%
+$$
+
+A 30-cent price is cheap only if the bond is likely to recover more than 30 cents. The investor estimates the recovery if the company defaults (illustrative):
+
+- 10 cents (40% chance): the assets sell for little
+- 30 cents (40% chance): a typical restructuring
+- 60 cents (20% chance): the business is worth more than expected
+
+**Expected recovery**
+
+$$
+0.4 \times 10 + 0.4 \times 30 + 0.2 \times 60 = \boxed{28 \text{ cents}}
+$$
+
+28 cents is below the 30-cent price, so the bond is not cheap on this analysis. A different analysis that finds more value in the assets could reach 42 cents, which would make 30 cents cheap.
+
+The price alone says nothing. The decision depends on the recovery the investor believes in.
 
 # Quiz
 

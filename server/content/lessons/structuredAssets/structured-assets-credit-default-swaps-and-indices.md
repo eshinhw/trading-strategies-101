@@ -22,7 +22,37 @@ Beyond the plain index, tranches can also be written on the index itself — for
 
 ## Example
 
-Suppose a bank holds a large position in a company's bonds and wants to reduce its exposure to that company's credit without selling the bonds outright, perhaps because selling would signal distress or disrupt a lending relationship. Buying CDS protection on that reference entity lets the bank keep the bonds on its books while paying a periodic premium to transfer the default risk elsewhere. A macro fund that instead wants broad, quick exposure to overall corporate credit conditions, rather than a view on any single issuer, can buy or sell protection on a credit index like CDX in one trade rather than assembling the same exposure across a hundred separate single-name CDS.
+**A bank hedges one company's credit (single-name CDS)**
+
+The bank holds $50 million of a company's bonds and does not want to sell them, perhaps because selling would signal distress.
+
+- CDS spread: 120 basis points
+- Recovery assumed in a default: 40%
+
+$$
+\$50{,}000{,}000 \times 1.20\% = \$600{,}000 \text{ a year premium}
+$$
+
+$$
+\text{If the company defaults, the CDS pays } \$50\text{M} \times (1 - 40\%) = \boxed{\$30{,}000{,}000}
+$$
+
+The bonds stay on the bank's books, and the default risk has moved elsewhere for $600,000 a year.
+
+**A macro fund takes a view on corporate credit as a whole (CDX index)**
+
+- Index notional: $100 million, covering 125 companies
+- Coupon: 100 basis points
+
+$$
+\$100{,}000{,}000 \times 1.00\% = \$1{,}000{,}000 \text{ a year}
+$$
+
+$$
+\frac{\$100\text{M}}{125} = \$0.8\text{M of exposure to each name}
+$$
+
+One trade gives exposure to all 125 names. Building the same position with single-name CDS would take 125 separate trades.
 
 # Quiz
 

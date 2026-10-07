@@ -22,7 +22,33 @@ A hedge only works to the extent that the instrument's payout matches the actual
 
 ## Example
 
-A ski resort earns less when winters are mild. It buys a weather derivative that pays out if a temperature index shows a warmer winter than a set level, so a bad season is partly offset by the payout. The counterparty might be an investor or insurer who accepts the risk in return for a premium, and who values it because weather is largely unrelated to what happens in the stock market.
+A ski resort earns less when winters are mild. Each warm day (average temperature above freezing) in December to February costs it about $100,000 of revenue.
+
+- Normal winter: 20 warm days
+- Weather derivative: pays $100,000 for each warm day above 20, up to 20 extra days (a cap of $2,000,000)
+- Premium: $120,000
+
+**A mild winter: 32 warm days**
+
+$$
+\text{Lost revenue} = (32 - 20) \times \$100{,}000 = -\$1{,}200{,}000
+$$
+
+$$
+\text{Payout} = (32 - 20) \times \$100{,}000 = +\$1{,}200{,}000
+$$
+
+$$
+-\$1{,}200{,}000 + \$1{,}200{,}000 - \$120{,}000 = \boxed{-\$120{,}000}
+$$
+
+**A normal winter: 20 warm days**
+
+The derivative pays $0, and the resort's only cost is the $120,000 premium, which paid for protection against a bad season.
+
+**The other side of the trade**
+
+An investor or insurer collects the $120,000 premium and takes on the risk. In a normal or cold winter it keeps the whole premium, and in a mild winter it pays up to $2,000,000. Weather has almost no link to stock prices, so this risk diversifies a portfolio, and that is why the other side is willing to take it.
 
 # Quiz
 

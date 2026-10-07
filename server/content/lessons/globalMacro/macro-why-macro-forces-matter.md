@@ -22,7 +22,32 @@ Macro views can be wrong, and even correct views can be early, since markets som
 
 ## Example
 
-An investor believes a central bank will raise interest rates faster than markets expect. That view could be expressed by selling government bonds, buying the country's currency, or buying bank stocks that tend to benefit from higher rates. Which one is best depends on how much of the view is already reflected in each price and how much risk the investor wants, a choice covered in a later lesson on turning a view into a trade.
+An investor believes a central bank will raise rates faster than markets expect, and compares three ways to express it (illustrative, $10 million each).
+
+**1. Sell government bonds (duration 8, yields rise 0.5%)**
+
+$$
+\$10{,}000{,}000 \times 8 \times 0.5\% = +\$400{,}000
+$$
+
+**2. Buy the country's currency (rises 2%)**
+
+$$
+\$10{,}000{,}000 \times 2\% = +\$200{,}000
+$$
+
+**3. Buy bank stocks (gain 3% as lending margins widen)**
+
+$$
+\$10{,}000{,}000 \times 3\% = +\$300{,}000
+$$
+
+**What if the market had already priced most of the move?**
+
+- Bonds: if yields had already risen 0.4% of the 0.5%, only 0.1% is left, so the gain is $80,000.
+- The currency and bank stocks may not have priced it at all.
+
+One view moves every asset class, and the best vehicle depends on what each price already reflects and how much risk the investor wants. A later lesson covers turning a view into a trade.
 
 # Quiz
 

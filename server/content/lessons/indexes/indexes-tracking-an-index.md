@@ -22,7 +22,39 @@ This is exactly the mechanism behind most index-tracking ETFs, already covered i
 
 ## Example
 
-An index-fund manager spends the days around each quarterly reconstitution buying the shares of newly added companies and selling the shares of names being dropped, timing the trades to land as close as possible to the moment the index itself officially changes. Getting that timing wrong, or settling for a sampled basket that only approximates the full index, is exactly what shows up later as tracking error between the fund's return and the index's.
+An index fund with $1 billion tracks an index that returns 10.00% for the year.
+
+**Where the fund falls short (illustrative)**
+
+- Expense ratio: 0.03%
+- Trading around reconstitution, buying late or paying to trade: 0.03% (worked out below)
+- Holding a sampled basket that only approximates the index: 0.05%
+
+$$
+\text{Tracking difference} = -(0.03\% + 0.03\% + 0.05\%) = -0.11\%
+$$
+
+$$
+\text{Fund return} = 10.00\% - 0.11\% = 9.89\%
+$$
+
+**In dollars**
+
+$$
+\$1{,}000{,}000{,}000 \times 0.11\% = \$1{,}100{,}000
+$$
+
+**Reconstitution trading**
+
+The index replaces 2% of its value each quarter. At 4 times a year:
+
+$$
+\$1{,}000{,}000{,}000 \times 2\% = \$20{,}000{,}000 \text{ traded each quarter}
+$$
+
+If trades land 0.35% off the index's own timing on that amount, the cost is $70,000 a quarter, or $280,000 a year, which is about 0.03% of the fund, the figure used above.
+
+Tracking error is how much the difference between fund and index varies over time. A fund that times its trades well and holds the full index stays close to the index.
 
 # Quiz
 

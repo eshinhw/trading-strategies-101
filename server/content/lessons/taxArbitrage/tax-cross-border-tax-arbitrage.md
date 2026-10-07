@@ -22,7 +22,33 @@ Many countries have introduced substance requirements and general anti-abuse rul
 
 ## Example
 
-An investor based in a country with no treaty, facing a 30% default withholding rate on a foreign dividend, might instead hold that investment through an entity established in a jurisdiction with a genuine business presence and a treaty reducing the rate to 10%, legally capturing the 20-percentage-point difference — provided the holding structure has real substance and meets the treaty's actual eligibility requirements, not just a mailing address.
+An investor in a country with no tax treaty receives a $1,000,000 dividend from a foreign company.
+
+- Default withholding rate: 30%
+- Treaty rate in a jurisdiction with a treaty: 10%
+
+**Investing directly**
+
+$$
+\$1{,}000{,}000 \times 30\% = \$300{,}000 \text{ withheld}
+$$
+
+**Holding the investment through an entity in the treaty jurisdiction**
+
+$$
+\$1{,}000{,}000 \times 10\% = \$100{,}000 \text{ withheld}
+$$
+
+$$
+\$300{,}000 - \$100{,}000 = \boxed{\$200{,}000 \text{ saved}} \quad (20 \text{ percentage points})
+$$
+
+**What has to be true for the saving to hold up**
+
+- The entity needs real substance: offices, staff and actual business activity.
+- It must meet the treaty's eligibility requirements.
+
+A mailing address is not enough. If the treaty benefit is denied, the full $300,000 is withheld, and penalties may follow. The saving is available only if the structure is genuine.
 
 # Quiz
 

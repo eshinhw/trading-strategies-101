@@ -22,7 +22,32 @@ Conversion ratio and conversion price are fixed at issuance, but the conversion 
 
 ## Example
 
-Suppose an investor buys a $1,000 convertible bond with a conversion ratio of 25, giving it a conversion price of $40 a share. If the company's stock is trading at $30, converting would only be worth $750, so the bond trades mainly on its bond-like merits; but if the stock later climbs to $55, those same 25 shares are worth $1,375, well above face value, and the investor now has a real reason to convert instead of just collecting coupons. That single ratio, fixed on day one, is what ties the bond's ultimate value to wherever the stock ends up.
+An investor buys a convertible bond.
+
+- Face value: $1,000
+- Conversion ratio: 25 shares per bond
+
+**Conversion price**
+
+$$
+\frac{\$1{,}000}{25} = \boxed{\$40 \text{ per share}}
+$$
+
+**Conversion value at different stock prices**
+
+$$
+\text{Stock at } \$30: \quad 25 \times \$30 = \$750
+$$
+
+$$
+\text{Stock at } \$55: \quad 25 \times \$55 = \$1{,}375
+$$
+
+- At $30, converting would give $750, less than the $1,000 face value, so the bond trades on its bond-like merits and the investor keeps collecting coupons.
+- At $55, converting gives $1,375, which is $375 more than face value, so converting makes sense.
+- At $40, conversion value equals face value ($1,000), the breakeven stock price.
+
+The ratio is fixed on day one, so the bond's equity value rises by $25 for every $1 the stock moves.
 
 # Quiz
 

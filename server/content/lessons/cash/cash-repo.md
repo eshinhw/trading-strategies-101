@@ -22,7 +22,29 @@ Repo is one of the largest, most important short-term funding markets in the fin
 
 ## Example
 
-A bond dealer holding a large Treasury inventory overnight doesn't want that capital tied up, so it repos the securities out for cash to fund its position, agreeing to buy them back the next morning at a marginally higher price. On the other side, a money market fund with idle cash parks it in a reverse repo overnight, earning a safe, near-riskless return backed by the same Treasuries — each side getting exactly what it needed for one night.
+A bond dealer holds $100 million of Treasuries overnight and wants cash without selling them.
+
+- Repo: the dealer sells the securities for $100,000,000 cash and agrees to buy them back tomorrow
+- Overnight repo rate: 5.3% a year (360-day basis)
+
+**Interest on the overnight loan**
+
+$$
+\$100{,}000{,}000 \times 5.3\% \times \frac{1}{360} = \boxed{\$14{,}722}
+$$
+
+**Buy-back price tomorrow**
+
+$$
+\$100{,}000{,}000 + \$14{,}722 = \$100{,}014{,}722
+$$
+
+**The other side**
+
+A money market fund lends the $100 million overnight (a reverse repo) and earns the $14,722, backed by the same Treasuries.
+
+- The dealer funds its position for one night and keeps its securities.
+- The fund earns a near-riskless return on cash that would otherwise sit idle.
 
 # Quiz
 

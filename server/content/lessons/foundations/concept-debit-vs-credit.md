@@ -22,7 +22,33 @@ Neither is inherently 'better' — a debit trade risks a known, limited amount f
 
 ## Example
 
-This split matches how brokers actually size margin requirements: a net debit trade only ties up the cash you already paid, while a net credit trade requires posting margin against the risk you've taken on — which is why two trades that look similar on a payoff chart can tie up very different amounts of capital in a real account.
+Two trades on a $100 stock, one debit and one credit (margin is illustrative and varies by broker).
+
+**Net debit: buy 1 call, strike 100, premium $5.00**
+
+$$
+\$5.00 \times 100 = \$500 \text{ paid}
+$$
+
+- Cash tied up: $500
+- Maximum loss: $500, which is exactly what was paid
+
+**Net credit: sell a straddle (a 100 call at $4.50 and a 100 put at $4.50)**
+
+$$
+(\$4.50 + \$4.50) \times 100 = \$900 \text{ received}
+$$
+
+- Cash received: $900
+- Margin the broker requires: about $2,000 (assumed 20% of the stock's $10,000 value)
+- Maximum loss: unlimited, since the stock can rise without limit
+
+**Comparison**
+
+- The debit trade costs $500 and risks only $500.
+- The credit trade pays $900 but ties up about $2,000 and carries unlimited risk.
+
+Whether cash comes in or goes out says nothing about risk. Margin follows the risk, not the cash flow.
 
 # Quiz
 

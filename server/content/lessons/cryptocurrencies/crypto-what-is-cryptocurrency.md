@@ -22,7 +22,30 @@ A base-layer coin like Bitcoin exists purely to be transferred, while a platform
 
 ## Example
 
-When someone sends cryptocurrency to another wallet, there's no bank in the middle approving the transfer. The transaction is broadcast to the network, validated by other participants following the protocol's consensus rules, and permanently recorded on the shared ledger — the same basic process whether the transfer is worth ten dollars or ten million.
+Two transfers of bitcoin, one for $10 and one for $10,000,000. Neither involves a bank.
+
+- Network fee: about $5 in both cases (fees depend on the data size, not the amount)
+- Confirmations required: 6, at about 10 minutes each
+
+**Steps, identical for both transfers**
+
+1. The sender broadcasts the transaction to the network.
+2. Other participants check it against the protocol's rules (a valid signature and enough balance).
+3. It is recorded on the shared ledger, and each new block on top makes it harder to reverse.
+
+**Time to final confirmation**
+
+$$
+6 \times 10 \text{ minutes} = 60 \text{ minutes}
+$$
+
+**Fee as a share of the amount sent**
+
+$$
+\frac{\$5}{\$10} = 50\% \qquad\qquad \frac{\$5}{\$10{,}000{,}000} = 0.00005\%
+$$
+
+No bank approves either transfer, and the process is the same whether the amount is small or large. The fee does not scale with the amount, so tiny transfers are expensive and large ones are cheap.
 
 # Quiz
 

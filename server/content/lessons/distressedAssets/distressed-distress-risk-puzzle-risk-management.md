@@ -22,7 +22,35 @@ A manager evaluating their own performance needs to separate genuine skill in se
 
 ## Example
 
-A distressed fund manager who knows the distress risk puzzle well won't simply buy every cheap distressed bond available; instead, they specifically look for situations with a catalyst — an identifiable path to a favorable reorganization, or a position large enough to actively shape one — treating generic, unselected distress exposure as something to avoid rather than something to harvest passively.
+A distressed fund screens its universe (illustrative numbers).
+
+- Distressed bonds available: 200
+- Bonds with an identifiable catalyst (a path to a favorable reorganization, or a stake big enough to shape it): 12
+- Fund size: $100 million
+
+**Share of the universe the manager will own**
+
+$$
+\frac{12}{200} = 6\%
+$$
+
+**Position size per name**
+
+$$
+\frac{\$100\text{M}}{12} = \$8.3\text{M}
+$$
+
+An $8.3 million position in a $55 million class is a 15% stake, large enough to take part in how the case is resolved.
+
+**What the manager avoids**
+
+Buying all 200 bonds equally would give the average return of distress, which research shows is low for the risk taken:
+
+$$
+\text{generic basket: } \sim 3\% \text{ a year at 30\% volatility} \qquad \text{catalyst-selected: } \sim 12\% \text{ target}
+$$
+
+The manager does not harvest distress as a factor. Each position is picked for a specific route to recovery.
 
 # Quiz
 

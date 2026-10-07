@@ -22,7 +22,30 @@ Because treaty benefits depend on where an investor is resident, and not on any 
 
 ## Example
 
-A dividend paid by a company in one country to an investor resident in a country with no tax treaty with it might be subject to a 30% default withholding rate, while an investor resident in a country that does have a treaty with a negotiated reduced rate might see only 15% withheld on that exact same dividend — a purely residency-driven difference in after-tax outcome.
+A company pays a $10,000 dividend to each of two investors.
+
+- Investor A lives in a country with no tax treaty with the company's country
+- Investor B lives in a country with a treaty that reduces the rate
+
+**Investor A: default rate of 30%**
+
+$$
+\$10{,}000 \times 30\% = \$3{,}000 \text{ withheld} \quad\Rightarrow\quad \$7{,}000 \text{ received}
+$$
+
+**Investor B: treaty rate of 15%**
+
+$$
+\$10{,}000 \times 15\% = \$1{,}500 \text{ withheld} \quad\Rightarrow\quad \$8{,}500 \text{ received}
+$$
+
+**The difference**
+
+$$
+\$8{,}500 - \$7{,}000 = \boxed{\$1{,}500} \quad (15 \text{ percentage points of the dividend})
+$$
+
+The two investors own the identical share and receive the identical dividend. The only difference is where each one lives. Treaties exist to reduce this kind of double taxation, and the investor's residency decides which rate applies.
 
 # Quiz
 

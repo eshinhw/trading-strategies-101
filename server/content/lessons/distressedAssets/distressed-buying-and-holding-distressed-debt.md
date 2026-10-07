@@ -22,7 +22,32 @@ Bankruptcy and reorganization processes can take anywhere from months to several
 
 ## Example
 
-A fund buys the bonds of a retailer that just filed for reorganization, at 35 cents on the dollar, based on an estimate that the eventual recovery — mostly in the form of equity in the reorganized company — will be worth closer to 55 cents. The fund takes no role in the case itself, simply holding the position for the roughly 18 months the process takes to conclude.
+A fund buys $10 million face value of a retailer's bonds just after it files for reorganization.
+
+- Purchase price: 35 cents on the dollar, so the cost is $3.5 million
+- Expected recovery: about 55 cents, mostly as equity in the reorganized company
+- Time to resolve: about 18 months
+- The fund takes no part in the case
+
+**Expected gain**
+
+$$
+\frac{55 - 35}{35} = \boxed{57\%} \quad (\$5.5\text{M} - \$3.5\text{M} = \$2.0\text{M})
+$$
+
+**Annualized over 18 months**
+
+$$
+\left(\frac{55}{35}\right)^{12/18} - 1 = 35\% \text{ a year}
+$$
+
+**If recovery is only 20 cents instead**
+
+$$
+\frac{20 - 35}{35} = -43\% \quad (-\$1.5\text{M})
+$$
+
+The return depends on the recovery estimate being right. The fund waits for the case to finish and receives whatever recovery the plan provides, mostly equity here.
 
 # Quiz
 

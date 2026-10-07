@@ -22,7 +22,36 @@ If the stock instead rises substantially, the investor isn't stuck earning only 
 
 ## Example
 
-A retirement-focused investor who wants some exposure to a fast-growing company's stock, but can't stomach the idea of a 50% drawdown, might choose that company's convertible bond over its common stock: if the stock craters, the bond floor cushions the loss and coupons keep arriving, and if the stock instead doubles, the investor still participates through conversion. The company on the other side of that trade likes the arrangement too — it raises capital more cheaply than a plain bond, and if the stock does well enough to trigger conversion, the debt disappears from its balance sheet at the same moment its equity story is working out.
+An investor considers $100,000 in a company's stock at $40, or its convertible bond (ratio 25, coupon 3%, bond floor $900).
+
+- Convertible price: $1,100 per bond, so 100 bonds cost $110,000
+- Annual coupon: 100 × $30 = $3,000
+
+**If the stock craters 50% to $20**
+
+$$
+\text{Stock: } -50\% \times \$100{,}000 = -\$50{,}000
+$$
+
+$$
+\text{Convertible: } 100 \times \$900 + \$3{,}000 - \$110{,}000 = -\$17{,}000 \quad (-15\%)
+$$
+
+**If the stock doubles to $80**
+
+$$
+\text{Stock: } +\$100{,}000 \quad (+100\%)
+$$
+
+$$
+\text{Convertible: } 100 \times 25 \times \$80 + \$3{,}000 - \$110{,}000 = +\$93{,}000 \quad (+85\%)
+$$
+
+The investor gives up some upside, 85% instead of 100%, in return for a loss of 15% instead of 50%.
+
+**The company's side**
+
+Raising $100 million at 3% instead of a 7% plain bond saves $4 million a year. If the stock climbs past $40 and the bonds convert, the debt leaves the balance sheet.
 
 # Quiz
 

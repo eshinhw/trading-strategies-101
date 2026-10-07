@@ -22,7 +22,31 @@ Too little liquidity risks a forced, poorly timed asset sale or an outright defa
 
 ## Example
 
-A company's treasury team builds a rolling 13-week cash-flow forecast, updated weekly, to see exactly how much cash is truly needed to cover the next quarter's obligations. Whatever sits comfortably above that forecasted need gets swept into short-term instruments overnight or laddered into slightly longer maturities — cash that would otherwise have earned nothing sitting in an operating account.
+A company's treasury team builds a 13-week cash-flow forecast to decide how much cash it really needs.
+
+- Cash on hand: $8,000,000
+- Forecast net outflows over 13 weeks: $5,200,000
+- Safety buffer: 10% of forecast outflows
+
+**Cash that must stay liquid**
+
+$$
+\$5{,}200{,}000 \times 1.10 = \$5{,}720{,}000
+$$
+
+**Cash available to invest**
+
+$$
+\$8{,}000{,}000 - \$5{,}720{,}000 = \$2{,}280{,}000
+$$
+
+**Return from sweeping it into short-term instruments at 4.5% for 13 weeks**
+
+$$
+\$2{,}280{,}000 \times 4.5\% \times \frac{13}{52} = \boxed{\$25{,}650}
+$$
+
+Left in a non-interest operating account, the same cash would earn $0. The forecast is updated weekly, so the buffer and the amount invested are reset each week.
 
 # Quiz
 

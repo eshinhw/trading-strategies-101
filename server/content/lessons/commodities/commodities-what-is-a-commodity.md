@@ -22,7 +22,33 @@ Because commodities are fungible, an exchange can define one standardized contra
 
 ## Example
 
-A grain elevator buys wheat from hundreds of different farms across a growing region, and once it's dumped into the same storage bin, nobody tracks which bushel came from which farm — a buyer downstream just orders a given grade of wheat and gets whatever the elevator has on hand. That's fungibility doing real work: it's the reason a wheat futures contract can be written against "wheat of a certain grade" in general, rather than against one specific farmer's harvest.
+A grain elevator buys #2 grade wheat from three farms at $6.00 a bushel and pours it into one storage bin.
+
+- Farm A: 40,000 bushels, paid $240,000
+- Farm B: 25,000 bushels, paid $150,000
+- Farm C: 35,000 bushels, paid $210,000
+
+**In the bin**
+
+$$
+40{,}000 + 25{,}000 + 35{,}000 = 100{,}000 \text{ bushels}
+$$
+
+$$
+\$240{,}000 + \$150{,}000 + \$210{,}000 = \$600{,}000
+$$
+
+Nobody tracks which bushel came from which farm. A downstream buyer orders 100,000 bushels of #2 wheat and receives whatever the elevator has.
+
+**The same idea in futures**
+
+A futures contract covers 5,000 bushels of the specified grade:
+
+$$
+\frac{100{,}000}{5{,}000} = 20 \text{ contracts}
+$$
+
+Because a bushel from any farm is interchangeable with any other, a contract can be written on "wheat of a certain grade" and settled with any qualifying wheat.
 
 # Quiz
 

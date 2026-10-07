@@ -22,7 +22,31 @@ Beyond the interest rate level itself, central bank policy decisions and signals
 
 ## Example
 
-An exporter watching their home country's central bank signal that interest rates are likely to rise sees two forces pulling in different directions: higher rates tend to attract foreign capital and strengthen the home currency, which is good news for the value of money already earned abroad, but a stronger currency also makes that exporter's goods more expensive for foreign buyers going forward — the same fundamental forces this lesson covers, working through to a real business's bottom line from both directions at once.
+A U.S. central bank signals that interest rates will rise. Higher rates attract foreign capital, and the dollar strengthens 5% (EUR/USD falls from 1.10 to 1.045). The same move hits two businesses in opposite ways.
+
+**A U.S. exporter: sells 22,000 units at €100 each in Europe (€2,200,000)**
+
+$$
+\text{Revenue before: } €2{,}200{,}000 \times 1.10 = \$2{,}420{,}000
+$$
+
+$$
+\text{Revenue after: } €2{,}200{,}000 \times 1.045 = \$2{,}299{,}000 \quad\Rightarrow\quad \boxed{-\$121{,}000}
+$$
+
+If it raises the euro price to keep $110 a unit, the price becomes $110 ÷ 1.045 = €105.26, a 5.3% rise, and sales may fall further.
+
+**A U.S. importer: buys €1,000,000 of parts from Europe**
+
+$$
+\text{Cost before: } €1{,}000{,}000 \times 1.10 = \$1{,}100{,}000
+$$
+
+$$
+\text{Cost after: } €1{,}000{,}000 \times 1.045 = \$1{,}045{,}000 \quad\Rightarrow\quad \boxed{+\$55{,}000 \text{ saved}}
+$$
+
+The same forces, higher rates drawing in capital and a stronger currency, reach each business's bottom line from opposite sides.
 
 # Quiz
 

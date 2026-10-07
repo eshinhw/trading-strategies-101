@@ -22,7 +22,32 @@ Once the model classifies a stream of text as leaning bullish or bearish, that c
 
 ## Example
 
-A sentiment model trained on a labeled dataset of past crypto-related social-media posts (each tagged in advance as bullish or bearish by a human reviewer) can then classify new, unlabeled posts as they arrive in real time. A trading system tracking the resulting rolling sentiment score might scale back exposure when sentiment deteriorates sharply, treating a wave of bearish chatter as an early signal worth reacting to, independent of what the price chart alone shows.
+A sentiment model is trained on 10,000 human-labeled crypto posts.
+
+- Bullish posts: 6,000, so P(bullish) = 0.6
+- Bearish posts: 4,000, so P(bearish) = 0.4
+- The word "hack" appears in 10% of bearish posts and 1% of bullish posts
+
+**Classifying a new post that contains "hack"**
+
+$$
+P(\text{bearish} \mid \text{hack}) = \frac{0.4 \times 0.10}{0.4 \times 0.10 + 0.6 \times 0.01} = \frac{0.040}{0.046} = \boxed{87\%}
+$$
+
+The model labels the post bearish. A real model combines many words in the same way.
+
+**Using it as a signal**
+
+- Rolling sentiment score: the share of bullish posts among the last 1,000
+- Rule: if the score falls below 45%, cut exposure in half
+
+On Monday the score is 62% (hold $100,000). By Wednesday it has fallen to 38%.
+
+$$
+\$100{,}000 \times 50\% = \$50{,}000 \text{ exposure after the cut}
+$$
+
+The system reduced exposure on the deterioration in sentiment, whatever the price chart showed at that moment.
 
 # Quiz
 

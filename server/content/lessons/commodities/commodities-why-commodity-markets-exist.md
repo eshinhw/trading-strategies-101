@@ -22,7 +22,35 @@ Hedgers alone don't always match up, since a farmer who wants to sell wheat forw
 
 ## Example
 
-An airline whose largest cost is fuel buys oil-related futures to lock in much of its fuel cost for the next year. A wheat farmer sells wheat futures to lock in the price of the coming harvest. Neither is guessing at the price, they're removing it from the equation, and the speculators who take the other side of those trades are paid for bearing the risk the hedgers wanted to avoid.
+**An airline hedges fuel**
+
+- Annual fuel use: 120 million gallons
+- Hedged: 75%, which is 90 million gallons, at $2.50 a gallon with oil-related futures
+- Locked-in cost on the hedged part: 90 million × $2.50 = $225 million
+
+If fuel rises to $3.00:
+
+$$
+\text{Extra cost on all fuel} = 120 \times (\$3.00 - \$2.50) = \$60 \text{ million}
+$$
+
+$$
+\text{Futures gain} = 90 \times (\$3.00 - \$2.50) = +\$45 \text{ million}
+$$
+
+$$
+\$60 \text{ million} - \$45 \text{ million} = \boxed{\$15 \text{ million net cost}}
+$$
+
+**A farmer hedges the harvest**
+
+- Sells 100,000 bushels of wheat futures at $6.00, locking in $600,000
+
+**The speculator on the other side**
+
+A speculator buys those futures. If wheat rises to $7.00, the speculator gains (7.00 − 6.00) × 100,000 = $100,000, and if it falls to $5.00 the speculator loses $100,000.
+
+The airline and farmer remove price from their budgets. The speculator is paid, with the chance of profit, for carrying the risk they wanted to avoid.
 
 # Quiz
 

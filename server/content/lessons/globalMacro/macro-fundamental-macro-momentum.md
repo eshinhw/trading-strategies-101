@@ -22,7 +22,38 @@ A systematic version of this strategy typically ranks countries or asset classes
 
 ## Example
 
-A fundamental macro momentum strategy might notice that a country's growth data has been beating expectations for several consecutive quarters while its central bank has been consistently signaling tighter policy — two independent, fundamentally grounded confirmations of the same strengthening trend — and take a position favoring that country's currency and equities over a peer economy showing the opposite pattern.
+A strategy compares Country A with Country B (illustrative data).
+
+**Signal 1: growth keeps beating expectations (actual minus forecast, GDP growth)**
+
+- Country A, last four quarters: +0.4, +0.5, +0.3, +0.6 percentage points, an average of +0.45
+- Country B, last four quarters: −0.3, −0.4, −0.2, −0.5 percentage points, an average of −0.35
+
+**Signal 2: the central bank signals tighter policy**
+
+- Country A: policy rate 2.0% to 2.5% to 3.0%, with more hikes signaled
+- Country B: policy rate unchanged at 2.0%, with cuts signaled
+
+Two independent signals point the same way, so the strategy goes long Country A's currency and equities and short Country B's.
+
+**The trade: $10 million long and $10 million short**
+
+- Country A: equities +4%, currency +2%
+- Country B: equities −2%, currency −1%
+
+$$
+\text{Long A: } \$10\text{M} \times (4\% + 2\%) = +\$600{,}000
+$$
+
+$$
+\text{Short B: } \$10\text{M} \times (2\% + 1\%) = +\$300{,}000
+$$
+
+$$
+\$600{,}000 + \$300{,}000 = \boxed{+\$900{,}000} \quad (4.5\% \text{ of the } \$20\text{M gross})
+$$
+
+The strategy bets that a trend confirmed by growth and policy keeps going. It does not predict a reversal.
 
 # Quiz
 

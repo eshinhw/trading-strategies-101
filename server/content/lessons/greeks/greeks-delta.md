@@ -36,7 +36,35 @@ Position delta adds across legs. A covered call combines 100 shares, which have 
 
 ## Example
 
-A trader holds 5 call contracts, each with a delta of 0.50. The position delta is 0.50 × 100 × 5 = 250, so it behaves like 250 shares. If the stock rises by 1 dollar, the position should gain roughly 250 dollars, and if the stock falls by 1 dollar, it should lose about the same. To neutralize that exposure the trader could sell 250 shares of the stock.
+A trader holds 5 call contracts, each with a delta of 0.50 (one contract controls 100 shares).
+
+**Position delta**
+
+$$
+0.50 \times 100 \times 5 = \boxed{250 \text{ shares}}
+$$
+
+The position behaves like owning 250 shares.
+
+**Profit and loss for a $1 move in the stock**
+
+$$
+\text{Stock +\$1: } +250 \times \$1 = +\$250
+$$
+
+$$
+\text{Stock −\$1: } -250 \times \$1 = -\$250
+$$
+
+**Neutralizing the exposure**
+
+Selling 250 shares of the stock cancels the position's delta:
+
+$$
+250 - 250 = 0
+$$
+
+Delta is only accurate for small moves, since it changes as the stock moves (that is gamma, covered in the next lesson).
 
 # Quiz
 

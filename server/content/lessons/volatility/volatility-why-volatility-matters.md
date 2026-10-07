@@ -22,7 +22,40 @@ Because volatility matters so much and behaves in recognizable ways, markets dev
 
 ## Example
 
-A portfolio manager with a large stock portfolio is worried about a sudden sell-off. Stocks and volatility usually move in opposite directions, so holding a small amount of exposure that gains when volatility spikes can cushion the portfolio when stocks fall sharply. The cost is that the position usually loses money in calm markets, so the manager treats it like insurance: a modest ongoing cost in return for protection when it is most needed.
+A manager holds a $10 million stock portfolio and is worried about a sell-off. The manager puts $200,000 (2% of the portfolio) into a position that gains when volatility rises.
+
+**A 20% sell-off, with volatility spiking**
+
+$$
+\text{Stocks: } -20\% \times \$10{,}000{,}000 = -\$2{,}000{,}000
+$$
+
+$$
+\text{Volatility position: } +300\% \times \$200{,}000 = +\$600{,}000
+$$
+
+$$
+-\$2{,}000{,}000 + \$600{,}000 = \boxed{-\$1{,}400{,}000} \quad\text{(a loss reduced by 30\%)}
+$$
+
+**A calm year**
+
+The position loses about half its value:
+
+$$
+-50\% \times \$200{,}000 = -\$100{,}000
+$$
+
+$$
+\frac{\$100{,}000}{\$10{,}000{,}000} = 1\% \text{ drag on the portfolio each year}
+$$
+
+**The trade-off**
+
+- Cost in calm markets: about 1% of the portfolio a year
+- Payoff in a crash: a $600,000 offset, which is three times what the position cost
+
+The manager treats it like insurance, with a modest ongoing cost in return for protection when it is most needed.
 
 # Quiz
 

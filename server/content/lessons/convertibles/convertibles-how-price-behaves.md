@@ -22,7 +22,34 @@ Plotting a convertible's price against the underlying stock's price traces out a
 
 ## Example
 
-Think of a convertible desk tracking the same bond over a year in which the underlying stock first drops 30% and then rallies 80%. During the drop, the convertible's price barely moves, since it's anchored to its bond floor and investors are still confident in the coupon and principal; during the rally, once the stock pushes well past the conversion price, the convertible's price starts moving almost dollar-for-dollar with the stock. Somewhere in between, when the stock is hovering near the conversion price, the desk sees the convertible command its richest premium, since neither the bond floor nor the stock value alone fully explains what buyers are willing to pay for keeping both outcomes open.
+The same convertible is tracked as the stock falls and then rallies (illustrative prices).
+
+- Conversion ratio: 25, conversion price $40
+- Bond floor (its value as a plain bond): $900
+
+**1. Stock starts at $40**
+
+- Conversion value: 25 × $40 = $1,000
+- Convertible price: about $1,100
+- Premium over the higher of floor and conversion value: $1,100 − $1,000 = $100 (the richest)
+
+**2. Stock falls 30% to $28**
+
+- Conversion value: 25 × $28 = $700, so the bond floor of $900 sets the price
+- Convertible price: about $920
+- Premium: $920 − $900 = $20
+
+**3. Stock then rallies 80% to $50.40**
+
+- Conversion value: 25 × $50.40 = $1,260
+- Convertible price: about $1,285
+- Premium: $1,285 − $1,260 = $25
+
+$$
+\text{Stock: } \$40 \to \$28 \; (-30\%) \qquad \text{Convertible: } \$1{,}100 \to \$920 \; (-16\%)
+$$
+
+The convertible falls less than the stock because of the floor, then tracks the stock almost dollar for dollar once it is well above $40.
 
 # Quiz
 

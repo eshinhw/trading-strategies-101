@@ -22,7 +22,35 @@ An inflation swap lets one party pay a fixed rate in exchange for receiving a fl
 
 ## Example
 
-A pension fund worried that persistent inflation will erode the real value of its future payout obligations might allocate part of its portfolio to TIPS for a direct hedge, add a smaller commodities position for additional inflation sensitivity, and use inflation swaps to fine-tune the overall inflation exposure without having to rebuild its entire bond portfolio from scratch.
+A pension fund has liabilities linked to inflation with a present value of $200 million. Each 1% rise in inflation raises them by 1%:
+
+$$
+\$200\text{M} \times 1\% = \$2.0\text{M more owed per 1\% of extra inflation}
+$$
+
+**The hedge, split across three instruments**
+
+- TIPS: $100 million. The principal rises with inflation, a direct hedge.
+- Commodities: $20 million, with an assumed sensitivity of 2 to inflation (historically linked).
+- Inflation swaps: $60 million notional, receiving inflation, to fine-tune the total.
+
+$$
+\text{TIPS: } \$100\text{M} \times 1\% = +\$1.0\text{M}
+$$
+
+$$
+\text{Commodities: } \$20\text{M} \times 2 \times 1\% = +\$0.4\text{M}
+$$
+
+$$
+\text{Swaps: } \$60\text{M} \times 1\% = +\$0.6\text{M}
+$$
+
+$$
+\$1.0\text{M} + \$0.4\text{M} + \$0.6\text{M} = \boxed{+\$2.0\text{M}} \quad\text{(matches the } \$2.0\text{M added to liabilities)}
+$$
+
+Each tool does a different job. TIPS are the direct hedge, commodities add historical inflation sensitivity, and the swaps adjust the total precisely without rebuilding the bond portfolio.
 
 # Quiz
 

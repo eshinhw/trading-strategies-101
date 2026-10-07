@@ -38,7 +38,33 @@ The Greeks describe how the price responds to small changes, based on today's co
 
 ## Example
 
-A trader looks at a risk report showing a position with a delta of 50, a theta of −30, and a vega of 120. Reading that fluently means the position behaves like 50 shares of the stock, loses about 30 dollars a day from time decay, and gains about 120 dollars if implied volatility rises one point. With just those numbers, the trader knows how the position will respond to a move up, a quiet week, or a jump in volatility.
+A risk report shows a position with these Greeks.
+
+- Delta: 50
+- Theta: −30 (dollars a day)
+- Vega: 120 (dollars per 1 point of implied volatility)
+
+**Reading each number**
+
+- Delta of 50: the position behaves like 50 shares.
+- Theta of −30: it loses about $30 a day from time decay.
+- Vega of 120: it gains about $120 if implied volatility rises one point.
+
+**What each scenario does to the position**
+
+$$
+\text{Stock rises } \$2: \quad 50 \times \$2 = +\$100
+$$
+
+$$
+\text{A quiet week (7 days): } 7 \times (-\$30) = -\$210
+$$
+
+$$
+\text{Implied volatility jumps 3 points: } 3 \times \$120 = +\$360
+$$
+
+With just those three numbers, the trader knows how the position responds to a move up, a quiet week, or a jump in volatility. Each Greek isolates one source of risk.
 
 # Quiz
 

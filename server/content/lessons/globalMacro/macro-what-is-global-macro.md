@@ -22,7 +22,33 @@ Some macro investors form views through discretionary judgment, weighing data an
 
 ## Example
 
-A macro investor who believes a country's central bank is about to raise interest rates faster than the market expects doesn't have just one way to express that view: they could short that country's government bonds, go long its currency, or short its rate-sensitive equity sectors — the view comes first, and the instrument is chosen afterward based on which offers the best risk/reward.
+A macro investor believes a country's central bank will raise rates by 100 basis points, while the market expects only 50. Each position below is $10 million (illustrative moves).
+
+**1. Short the country's government bonds (duration 8)**
+
+Yields rise 25 basis points:
+
+$$
+\$10{,}000{,}000 \times 8 \times 0.25\% = +\$200{,}000
+$$
+
+**2. Buy the country's currency**
+
+Higher rates attract capital, and the currency gains 1.5%:
+
+$$
+\$10{,}000{,}000 \times 1.5\% = +\$150{,}000
+$$
+
+**3. Short rate-sensitive equities (for example utilities)**
+
+The sector falls 3%:
+
+$$
+\$10{,}000{,}000 \times 3\% = +\$300{,}000
+$$
+
+The view comes first and the instrument second. The investor chooses the one with the best reward for the risk, which may be the largest payoff, the cleanest link to the view, or the lowest cost to hold. The sizes of the moves above vary a lot from case to case, so the best choice depends on how much of the view each price already reflects.
 
 # Quiz
 
@@ -54,7 +80,7 @@ A macro investor who believes a country's central bank is about to raise interes
    - Systematic approaches never use any economic data at all
    > Both start from the same top-down premise but differ in how they translate a macro view into an actual position — judgment versus rules.
 
-5. In the example, why might an investor choose to short a country's currency rather than its bonds to express a rate-hike view?
+5. In the example, why might an investor choose to buy a country's currency rather than short its bonds to express a rate-hike view?
    - [x] Because the instrument is chosen based on which offers the best risk/reward for the same underlying view
    - Currencies and bonds always move in identical ways, so the choice is arbitrary
    - Shorting currencies is the only legal way to express a macro view

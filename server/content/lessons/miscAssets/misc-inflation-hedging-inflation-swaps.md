@@ -22,7 +22,35 @@ Because the swap market has its own set of natural users, corporations and pensi
 
 ## Example
 
-A pension fund with inflation-linked pension liabilities might prefer an inflation swap over buying inflation-linked bonds directly, since the swap lets it match the exact maturity profile of its liabilities without needing to find bonds of precisely the right maturities in the market — using the swap market's flexibility to solve a hedging need the bond market alone couldn't match as precisely.
+A pension fund owes an inflation-linked payment of $30 million in 17 years. Inflation-linked bonds exist only at maturities of 10, 20 and 30 years.
+
+**With bonds**
+
+The closest is a 20-year bond. It matures 3 years after the liability, so the hedge ends at the wrong time and the fund is left with a mismatch.
+
+**With a 17-year zero-coupon inflation swap**
+
+- Notional: $20 million
+- The fund pays a fixed rate of 2.40% a year, compounded for 17 years
+- It receives the actual inflation, compounded for 17 years
+
+$$
+\text{Fixed leg: } \$20\text{M} \times (1.024^{17} - 1) = \$20\text{M} \times 0.4966 = \$9.93\text{M}
+$$
+
+**If inflation averages 3.4% a year**
+
+$$
+\text{Floating leg: } \$20\text{M} \times (1.034^{17} - 1) = \$20\text{M} \times 0.7654 = \$15.31\text{M}
+$$
+
+$$
+\$15.31\text{M} - \$9.93\text{M} = \boxed{+\$5.38\text{M received}}
+$$
+
+That payment offsets the extra amount the fund owes because inflation was higher than the 2.40% priced in.
+
+The swap can be set to exactly 17 years and to the size needed, so the swap market solves a hedging need the bond market alone could not match as precisely.
 
 # Quiz
 
