@@ -19,7 +19,7 @@ that chapter). Every lesson pairs a plain-English explanation with a short,
 server-graded knowledge check; Options additionally gets a live, interactive
 payoff sandbox per lesson. Every course's modules, Options included, are open
 from the start — nothing gates one module behind another — with only each
-course's final exam gated behind actually completing every lesson.
+course's final quiz gated behind actually completing every lesson.
 
 Beyond the courses: a **Books** and a **Papers** page (citations plus original
 summaries, not reproduced text) for further reading, and a handful of
@@ -38,7 +38,7 @@ through a pre-picked one.
   - Curriculum structure (modules, prerequisites, lesson ordering) lives in
     `src/data/curriculum/modules.ts` — plain data, not database rows, so
     editing or adding a course doesn't require a migration.
-  - Accounts and per-lesson/per-exam progress are the only things actually
+  - Accounts and per-lesson/per-final-quiz progress are the only things actually
     persisted, in SQLite via Prisma (`prisma/schema.prisma`). Auth is
     email+password (bcrypt) with a JWT in an httpOnly cookie.
   - Options' knowledge-check questions are generated from strategy metadata
@@ -72,8 +72,8 @@ sandbox) and server (as the source of truth for grading).
 `server/src/data/curriculum/modules.ts` supports gating a module behind others
 via `prerequisiteModuleSlugs` (a DAG, not just a linear list), but every
 module across every course currently declares an empty array, so every
-module is browsable immediately. A course's final exam is the only thing
-gated, via a separate check (`isCourseFullyComplete` in `src/lib/exam.ts`)
+module is browsable immediately. A course's final quiz is the only thing
+gated, via a separate check (`isCourseFullyComplete` in `src/lib/finalQuiz.ts`)
 that requires every lesson in every module to be completed, independent of
 the (currently unused) module DAG. Module/lesson completion status is never
 stored directly — it's always derived on the fly from the learner's

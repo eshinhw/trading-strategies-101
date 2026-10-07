@@ -22,7 +22,7 @@ const OptionPayoutSimulatorPage = lazy(() =>
 );
 const BooksPage = lazy(() => import("./pages/BooksPage").then((m) => ({ default: m.BooksPage })));
 const PapersPage = lazy(() => import("./pages/PapersPage").then((m) => ({ default: m.PapersPage })));
-const ExamPage = lazy(() => import("./pages/ExamPage").then((m) => ({ default: m.ExamPage })));
+const FinalQuizPage = lazy(() => import("./pages/FinalQuizPage").then((m) => ({ default: m.FinalQuizPage })));
 const ModulePage = lazy(() => import("./pages/ModulePage").then((m) => ({ default: m.ModulePage })));
 const LessonPage = lazy(() => import("./pages/LessonPage").then((m) => ({ default: m.LessonPage })));
 const ConstructionPage = lazy(() =>
@@ -42,7 +42,7 @@ function App() {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/courses" element={<CoursesPage />} />
                 <Route path="/courses/:slug" element={<CoursePage />} />
-                <Route path="/courses/:slug/exam" element={<ExamPage />} />
+                <Route path="/courses/:slug/final-quiz" element={<FinalQuizPage />} />
                 <Route path="/practice" element={<PracticePage />} />
                 <Route path="/practice/options-payoff-simulator" element={<OptionPayoutSimulatorPage />} />
                 <Route path="/practice/greeks-explorer" element={<GreeksExplorerPage />} />

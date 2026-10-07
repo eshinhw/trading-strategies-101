@@ -1,8 +1,8 @@
 import type { Module } from "./types.js";
 
 // Ordered for display. Every module's prerequisiteModuleSlugs is empty — no
-// course gates its modules on one another; only a course's final exam is
-// gated, via isCourseFullyComplete in lib/exam.ts, independent of this file.
+// course gates its modules on one another; only a course's final quiz is
+// gated, via isCourseFullyComplete in lib/finalQuiz.ts, independent of this file.
 export const modules: Module[] = [
   {
     slug: "foundations",

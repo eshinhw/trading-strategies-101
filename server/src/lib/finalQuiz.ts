@@ -1,7 +1,7 @@
 import { resolveLesson, modulesForCourse, quizForLesson } from "../data/curriculum/index.js";
 import { PASS_THRESHOLD } from "./grading.js";
 
-const EXAMINABLE_COURSES = new Set([
+const FINAL_QUIZ_COURSES = new Set([
   "options",
   "forwards",
   "futures",
@@ -25,9 +25,9 @@ const EXAMINABLE_COURSES = new Set([
 
 // Every module contributes at least this many lessons — Options has exactly
 // 12 modules, so 1 lesson/module lands here and this constant preserves its
-// exam exactly as it was. A course with fewer modules (Futures/ETFs have
+// final quiz exactly as it was. A course with fewer modules (Futures/ETFs have
 // just 1) instead pulls proportionally more lessons from each of its
-// modules, so a single-module course still gets a real, multi-lesson exam
+// modules, so a single-module course still gets a real, multi-lesson final quiz
 // instead of one lesson repeated.
 const TARGET_SAMPLED_LESSONS = 12;
 
@@ -46,7 +46,7 @@ function shuffle<T>(items: T[]): T[] {
   return copy;
 }
 
-export interface ExamQuestion {
+export interface FinalQuizQuestion {
   id: string;
   moduleSlug: string;
   moduleTitle: string;
@@ -57,18 +57,18 @@ export interface ExamQuestion {
   choices: string[];
 }
 
-export function isExaminableCourse(courseSlug: string): boolean {
-  return EXAMINABLE_COURSES.has(courseSlug);
+export function hasFinalQuiz(courseSlug: string): boolean {
+  return FINAL_QUIZ_COURSES.has(courseSlug);
 }
 
-/** Fresh random sample each call — retaking the exam won't just be memorization. */
-export function generateExamQuestions(courseSlug: string): ExamQuestion[] {
-  if (!isExaminableCourse(courseSlug)) return [];
+/** Fresh random sample each call — retaking the final quiz won't just be memorization. */
+export function generateFinalQuizQuestions(courseSlug: string): FinalQuizQuestion[] {
+  if (!hasFinalQuiz(courseSlug)) return [];
 
   const modules = modulesForCourse(courseSlug);
   if (modules.length === 0) return [];
 
-  // Every module contributes at least this many lessons, so the exam always
+  // Every module contributes at least this many lessons, so the final quiz always
   // covers the whole course regardless of how many (or few) modules it has.
   const lessonsPerModule = Math.max(1, Math.ceil(TARGET_SAMPLED_LESSONS / modules.length));
 
@@ -79,7 +79,7 @@ export function generateExamQuestions(courseSlug: string): ExamQuestion[] {
     }
   }
 
-  const questions: ExamQuestion[] = [];
+  const questions: FinalQuizQuestion[] = [];
 
   sampledLessons.forEach(({ moduleSlug, moduleTitle, lessonSlug }, i) => {
     const resolved = resolveLesson(lessonSlug);
@@ -104,7 +104,7 @@ export function generateExamQuestions(courseSlug: string): ExamQuestion[] {
   return shuffle(questions);
 }
 
-export interface ExamAnswerSubmission {
+export interface FinalQuizAnswerSubmission {
   id: string;
   lessonSlug: string;
   moduleTitle: string;
@@ -114,7 +114,7 @@ export interface ExamAnswerSubmission {
   choiceIndex?: number;
 }
 
-export interface ExamQuestionResult {
+export interface FinalQuizQuestionResult {
   id: string;
   moduleTitle: string;
   lessonSlug: string;
@@ -125,13 +125,13 @@ export interface ExamQuestionResult {
   explanation?: string;
 }
 
-export interface ExamGradeResult {
+export interface FinalQuizGradeResult {
   score: number;
   passed: boolean;
-  results: ExamQuestionResult[];
+  results: FinalQuizQuestionResult[];
 }
 
-function gradeOne(a: ExamAnswerSubmission): ExamQuestionResult {
+function gradeOne(a: FinalQuizAnswerSubmission): FinalQuizQuestionResult {
   const base = {
     id: a.id,
     moduleTitle: a.moduleTitle,
@@ -150,14 +150,14 @@ function gradeOne(a: ExamAnswerSubmission): ExamQuestionResult {
   };
 }
 
-export function gradeExamSubmission(answers: ExamAnswerSubmission[]): ExamGradeResult {
+export function gradeFinalQuizSubmission(answers: FinalQuizAnswerSubmission[]): FinalQuizGradeResult {
   const results = answers.map(gradeOne);
   const score = results.length ? results.filter((r) => r.correct).length / results.length : 0;
   return { score, passed: score >= PASS_THRESHOLD, results };
 }
 
-/** Whether every module in the course has been fully completed — the exam's unlock condition. */
+/** Whether every module in the course has been fully completed — the final quiz's unlock condition. */
 export function isCourseFullyComplete(courseSlug: string, completedLessonSlugs: Set<string>): boolean {
-  if (!isExaminableCourse(courseSlug)) return false;
+  if (!hasFinalQuiz(courseSlug)) return false;
   return modulesForCourse(courseSlug).every((m) => m.lessonSlugs.every((slug) => completedLessonSlugs.has(slug)));
 }

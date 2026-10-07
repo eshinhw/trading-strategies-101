@@ -1,10 +1,10 @@
-export interface ExamStatus {
+export interface FinalQuizStatus {
   unlocked: boolean;
   signedIn: boolean;
   progress: { passed: boolean; bestScore: number | null; attempts: number } | null;
 }
 
-export interface ExamQuestion {
+export interface FinalQuizQuestion {
   id: string;
   moduleSlug: string;
   moduleTitle: string;
@@ -15,7 +15,7 @@ export interface ExamQuestion {
   choices: string[];
 }
 
-export interface ExamAnswerSubmission {
+export interface FinalQuizAnswerSubmission {
   id: string;
   lessonSlug: string;
   moduleTitle: string;
@@ -25,7 +25,7 @@ export interface ExamAnswerSubmission {
   choiceIndex?: number;
 }
 
-export interface ExamQuestionResult {
+export interface FinalQuizQuestionResult {
   id: string;
   moduleTitle: string;
   lessonSlug: string;
@@ -36,10 +36,10 @@ export interface ExamQuestionResult {
   explanation?: string;
 }
 
-export interface ExamGradeResponse {
+export interface FinalQuizGradeResponse {
   score: number;
   passed: boolean;
-  results: ExamQuestionResult[];
+  results: FinalQuizQuestionResult[];
   courseNewlyCompleted: boolean;
   bestScore: number;
 }

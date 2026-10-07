@@ -4,8 +4,8 @@ import { prisma } from "../lib/prisma.js";
 import { attachUser, requireAuth } from "../lib/auth.js";
 import { completedLessonSlugs } from "../lib/progress.js";
 import { allLessonSlugs, modulesForCourse } from "../data/curriculum/index.js";
-import { isExaminableCourse, isCourseFullyComplete, generateExamQuestions, gradeExamSubmission } from "../lib/exam.js";
-import type { ExamAnswerSubmission } from "../lib/exam.js";
+import { hasFinalQuiz, isCourseFullyComplete, generateFinalQuizQuestions, gradeFinalQuizSubmission } from "../lib/finalQuiz.js";
+import type { FinalQuizAnswerSubmission } from "../lib/finalQuiz.js";
 
 const router = Router();
 router.use(attachUser);
@@ -34,9 +34,9 @@ router.get("/:slug", (req, res) => {
   res.json(course);
 });
 
-router.get("/:slug/exam-status", async (req, res) => {
+router.get("/:slug/final-quiz-status", async (req, res) => {
   const courseSlug = slugParam(req.params.slug);
-  if (!isExaminableCourse(courseSlug)) {
+  if (!hasFinalQuiz(courseSlug)) {
     return res.status(404).json({ error: "This course doesn't have a quiz yet" });
   }
 
@@ -54,9 +54,9 @@ router.get("/:slug/exam-status", async (req, res) => {
   res.json({ unlocked, signedIn: Boolean(req.userId), progress });
 });
 
-router.get("/:slug/exam", async (req, res) => {
+router.get("/:slug/final-quiz", async (req, res) => {
   const courseSlug = slugParam(req.params.slug);
-  if (!isExaminableCourse(courseSlug)) {
+  if (!hasFinalQuiz(courseSlug)) {
     return res.status(404).json({ error: "This course doesn't have a quiz yet" });
   }
 
@@ -65,12 +65,12 @@ router.get("/:slug/exam", async (req, res) => {
     return res.status(403).json({ error: "Complete every module in this course before taking the quiz." });
   }
 
-  res.json({ questions: generateExamQuestions(courseSlug) });
+  res.json({ questions: generateFinalQuizQuestions(courseSlug) });
 });
 
-router.post("/:slug/exam/submit", requireAuth, async (req, res) => {
+router.post("/:slug/final-quiz/submit", requireAuth, async (req, res) => {
   const courseSlug = slugParam(req.params.slug);
-  if (!isExaminableCourse(courseSlug)) {
+  if (!hasFinalQuiz(courseSlug)) {
     return res.status(404).json({ error: "This course doesn't have a quiz yet" });
   }
 
@@ -79,8 +79,8 @@ router.post("/:slug/exam/submit", requireAuth, async (req, res) => {
     return res.status(403).json({ error: "Complete every module in this course before taking the quiz." });
   }
 
-  const answers = (req.body?.answers ?? []) as ExamAnswerSubmission[];
-  const grade = gradeExamSubmission(answers);
+  const answers = (req.body?.answers ?? []) as FinalQuizAnswerSubmission[];
+  const grade = gradeFinalQuizSubmission(answers);
 
   const existing = await prisma.courseProgress.findUnique({
     where: { userId_courseSlug: { userId: req.userId!, courseSlug } },

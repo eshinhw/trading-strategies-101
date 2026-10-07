@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchCourse, fetchCourses, fetchModules, fetchExamStatus } from "../api";
+import { fetchCourse, fetchCourses, fetchModules, fetchFinalQuizStatus } from "../api";
 import type { Course } from "../types/course";
 import type { ModulesResponse } from "../types/curriculum";
-import type { ExamStatus } from "../types/exam";
+import type { FinalQuizStatus } from "../types/finalQuiz";
 import { LessonListItem } from "../components/LessonListItem";
 import { COURSE_FAMILIES, CourseIcon, courseAccent } from "../lib/courseVisuals";
 
@@ -330,7 +330,7 @@ function AvailableCourse({ course, data, accent }: { course: Course; data: Modul
               </div>
             );
           })}
-          {!filtering && <ExamSection slug={course.slug} accent={accent} />}
+          {!filtering && <FinalQuizSection slug={course.slug} accent={accent} />}
         </div>
       </main>
 
@@ -683,17 +683,17 @@ function ModuleSection({
   );
 }
 
-function ExamSection({ slug, accent }: { slug: string; accent: string }) {
-  const [status, setStatus] = useState<ExamStatus | null>(null);
+function FinalQuizSection({ slug, accent }: { slug: string; accent: string }) {
+  const [status, setStatus] = useState<FinalQuizStatus | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchExamStatus(slug)
+    fetchFinalQuizStatus(slug)
       .then(setStatus)
       .catch((e) => setError(e.message));
   }, [slug]);
 
-  if (error || !status) return null; // no exam for this course, or still loading — stay quiet either way
+  if (error || !status) return null; // no final quiz for this course, or still loading — stay quiet either way
 
   const passed = status.progress?.passed ?? false;
 
@@ -745,7 +745,7 @@ function ExamSection({ slug, accent }: { slug: string; accent: string }) {
           </div>
           {status.unlocked && (
             <Link
-              to={`/courses/${slug}/exam`}
+              to={`/courses/${slug}/final-quiz`}
               className="shrink-0 rounded-lg bg-[#7c6cff] px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-[#6552f0]"
             >
               {passed ? "Retake quiz" : "Take the quiz"}

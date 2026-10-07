@@ -6,7 +6,7 @@ import type {
   GradeResponse,
 } from "./types/curriculum";
 import type { Course } from "./types/course";
-import type { ExamStatus, ExamQuestion, ExamAnswerSubmission, ExamGradeResponse } from "./types/exam";
+import type { FinalQuizStatus, FinalQuizQuestion, FinalQuizAnswerSubmission, FinalQuizGradeResponse } from "./types/finalQuiz";
 import type { BooksResponse } from "./types/book";
 import type { PapersResponse } from "./types/paper";
 import type { ConstructionExerciseSummary, ConstructionExerciseDetail, ConstructionGradeResult } from "./types/construction";
@@ -55,18 +55,18 @@ export function fetchCourse(slug: string): Promise<Course> {
   return request(`/api/courses/${slug}`);
 }
 
-// --- exam ---
+// --- final quiz ---
 
-export function fetchExamStatus(courseSlug: string): Promise<ExamStatus> {
-  return request(`/api/courses/${courseSlug}/exam-status`);
+export function fetchFinalQuizStatus(courseSlug: string): Promise<FinalQuizStatus> {
+  return request(`/api/courses/${courseSlug}/final-quiz-status`);
 }
 
-export function fetchExam(courseSlug: string): Promise<ExamQuestion[]> {
-  return request<{ questions: ExamQuestion[] }>(`/api/courses/${courseSlug}/exam`).then((d) => d.questions);
+export function fetchFinalQuiz(courseSlug: string): Promise<FinalQuizQuestion[]> {
+  return request<{ questions: FinalQuizQuestion[] }>(`/api/courses/${courseSlug}/final-quiz`).then((d) => d.questions);
 }
 
-export function submitExam(courseSlug: string, answers: ExamAnswerSubmission[]): Promise<ExamGradeResponse> {
-  return request(`/api/courses/${courseSlug}/exam/submit`, {
+export function submitFinalQuiz(courseSlug: string, answers: FinalQuizAnswerSubmission[]): Promise<FinalQuizGradeResponse> {
+  return request(`/api/courses/${courseSlug}/final-quiz/submit`, {
     method: "POST",
     body: JSON.stringify({ answers }),
   });

@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchCourse, fetchExam, fetchExamStatus, submitExam } from "../api";
+import { fetchCourse, fetchFinalQuiz, fetchFinalQuizStatus, submitFinalQuiz } from "../api";
 import type { Course } from "../types/course";
-import type { ExamQuestion, ExamAnswerSubmission, ExamGradeResponse, ExamStatus } from "../types/exam";
+import type { FinalQuizQuestion, FinalQuizAnswerSubmission, FinalQuizGradeResponse, FinalQuizStatus } from "../types/finalQuiz";
 import { QuizChoiceOption } from "../components/QuizChoiceOption";
 import { InlineText } from "../components/InlineText";
 import { courseAccent } from "../lib/courseVisuals";
@@ -14,7 +14,7 @@ function isAnswered(a: number | undefined): boolean {
 const PASS_PERCENT = 70;
 
 // Shared banner for the quiz and its report, tinted with the course's accent colour.
-function ExamHeader({
+function FinalQuizHeader({
   slug,
   course,
   accent,
@@ -76,8 +76,8 @@ type Stage = "intro" | "taking" | "review";
 
 // An attempt in progress survives a refresh (or an accidental back-navigation) for as long as the tab lives:
 // the question set is random per fetch, so the questions themselves are stored with the answers.
-interface SavedExam {
-  questions: ExamQuestion[];
+interface SavedFinalQuiz {
+  questions: FinalQuizQuestion[];
   answers: Record<string, number>;
   flags: string[];
   index: number;
@@ -85,19 +85,19 @@ interface SavedExam {
   /** when the attempt began, so the report can say how long it took */
   startedAt?: number;
 }
-const storageKey = (slug: string) => `exam:${slug}`;
+const storageKey = (slug: string) => `final_quiz:${slug}`;
 
-function loadSaved(slug: string): SavedExam | null {
+function loadSaved(slug: string): SavedFinalQuiz | null {
   try {
     const raw = sessionStorage.getItem(storageKey(slug));
     if (!raw) return null;
-    const saved = JSON.parse(raw) as SavedExam;
+    const saved = JSON.parse(raw) as SavedFinalQuiz;
     return Array.isArray(saved.questions) && saved.questions.length > 0 ? saved : null;
   } catch {
     return null;
   }
 }
-function persist(slug: string, saved: SavedExam | null) {
+function persist(slug: string, saved: SavedFinalQuiz | null) {
   try {
     if (saved) sessionStorage.setItem(storageKey(slug), JSON.stringify(saved));
     else sessionStorage.removeItem(storageKey(slug));
@@ -114,17 +114,17 @@ function FlagIcon({ filled }: { filled: boolean }) {
   );
 }
 
-export function ExamPage() {
+export function FinalQuizPage() {
   const { slug } = useParams<{ slug: string }>();
   const [course, setCourse] = useState<Course | null>(null);
-  const [status, setStatus] = useState<ExamStatus | null>(null);
-  const [questions, setQuestions] = useState<ExamQuestion[] | null>(null);
+  const [status, setStatus] = useState<FinalQuizStatus | null>(null);
+  const [questions, setQuestions] = useState<FinalQuizQuestion[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [stage, setStage] = useState<Stage>("intro");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [flags, setFlags] = useState<Set<string>>(new Set());
-  const [result, setResult] = useState<ExamGradeResponse | null>(null);
+  const [result, setResult] = useState<FinalQuizGradeResponse | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [startedAt, setStartedAt] = useState<number | null>(null);
   // What the attempt looked like when it was submitted, for the report: the choice made on each question, how
@@ -137,7 +137,7 @@ export function ExamPage() {
 
   const accent = slug ? courseAccent(slug) : "#7c6cff";
 
-  function loadFreshExam(skipIntro = false) {
+  function loadFreshFinalQuiz(skipIntro = false) {
     if (!slug) return;
     persist(slug, null);
     setQuestions(null);
@@ -149,7 +149,7 @@ export function ExamPage() {
     setSummary(null);
     setStartedAt(skipIntro ? Date.now() : null);
     setStage(skipIntro ? "taking" : "intro");
-    fetchExam(slug)
+    fetchFinalQuiz(slug)
       .then(setQuestions)
       .catch((e) => setError(e.message));
   }
@@ -167,7 +167,7 @@ export function ExamPage() {
       setResult(null);
       setError(null);
     } else {
-      loadFreshExam(false);
+      loadFreshFinalQuiz(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
@@ -177,7 +177,7 @@ export function ExamPage() {
     fetchCourse(slug)
       .then(setCourse)
       .catch(() => {});
-    fetchExamStatus(slug)
+    fetchFinalQuizStatus(slug)
       .then(setStatus)
       .catch(() => {});
   }, [slug]);
@@ -223,7 +223,7 @@ export function ExamPage() {
     if (!questions || !slug) return;
     setSubmitting(true);
     setError(null);
-    const submission: ExamAnswerSubmission[] = questions.map((q) => ({
+    const submission: FinalQuizAnswerSubmission[] = questions.map((q) => ({
       id: q.id,
       lessonSlug: q.lessonSlug,
       moduleTitle: q.moduleTitle,
@@ -234,7 +234,7 @@ export function ExamPage() {
     }));
 
     try {
-      const res = await submitExam(slug, submission);
+      const res = await submitFinalQuiz(slug, submission);
       persist(slug, null);
       setSummary({
         yourAnswers: Object.fromEntries(questions.map((q) => [q.id, q.choices[answers[q.id]] ?? ""])),
@@ -282,13 +282,13 @@ export function ExamPage() {
   if (result) {
     return (
       <div style={{ "--accent": accent } as CSSProperties}>
-        <ExamReport
+        <FinalQuizReport
           result={result}
           slug={slug!}
           course={course}
           accent={accent}
           summary={summary}
-          onRetake={() => loadFreshExam(true)}
+          onRetake={() => loadFreshFinalQuiz(true)}
         />
       </div>
     );
@@ -304,11 +304,11 @@ export function ExamPage() {
 
     return (
       <div style={{ "--accent": accent } as CSSProperties}>
-        <ExamHeader slug={slug!} course={course} accent={accent} eyebrow="Final quiz" title={title}>
+        <FinalQuizHeader slug={slug!} course={course} accent={accent} eyebrow="Final quiz" title={title}>
           <p className="mt-3 max-w-2xl leading-relaxed text-[#9aa3b2]">
             The capstone for this course: one no-hints test across every module.
           </p>
-        </ExamHeader>
+        </FinalQuizHeader>
 
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-8 md:grid-cols-[1fr_1fr]">
           <section className="rounded-2xl border border-[#2a3040] bg-[#141821] p-6">
@@ -379,7 +379,7 @@ export function ExamPage() {
 
   return (
     <div style={{ "--accent": accent } as CSSProperties}>
-      <ExamHeader slug={slug!} course={course} accent={accent} eyebrow="Final quiz" title={title}>
+      <FinalQuizHeader slug={slug!} course={course} accent={accent} eyebrow="Final quiz" title={title}>
         <p className="mt-3 max-w-2xl leading-relaxed text-[#9aa3b2]">
           Nothing is graded until you submit, so go back and change anything before then. Your answers are kept if you
           refresh this page.
@@ -389,7 +389,7 @@ export function ExamPage() {
           <Chip>{PASS_PERCENT}% to pass</Chip>
           <Chip>Answers revealed at the end</Chip>
         </div>
-      </ExamHeader>
+      </FinalQuizHeader>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-6 py-8 lg:grid-cols-[1fr_220px]">
         {stage === "review" ? (
@@ -669,7 +669,7 @@ function ScoreRing({ score, passed }: { score: number; passed: boolean }) {
   );
 }
 
-function ExamReport({
+function FinalQuizReport({
   result,
   slug,
   course,
@@ -677,7 +677,7 @@ function ExamReport({
   summary,
   onRetake,
 }: {
-  result: ExamGradeResponse;
+  result: FinalQuizGradeResponse;
   slug: string;
   course: Course | null;
   accent: string;
@@ -718,7 +718,7 @@ function ExamReport({
 
   return (
     <>
-      <ExamHeader
+      <FinalQuizHeader
         slug={slug}
         course={course}
         accent={accent}
