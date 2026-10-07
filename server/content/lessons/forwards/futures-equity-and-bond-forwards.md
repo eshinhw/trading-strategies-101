@@ -91,7 +91,7 @@ The dividend lowers the forward price by about $0.505 per share. An owner of the
    - The forward price becomes exactly equal to the dividend amount
    > Because the forward holder misses out on the $0.50 dividend, that expected payment is subtracted from what pure financing cost alone would otherwise imply for the forward price.
 
-6. A stock trades at $50 and pays a $0.50 dividend in three months. At a 4% financing rate, about what is the six-month forward price?
+6. [calc] A stock trades at $50 and pays a $0.50 dividend in three months. At a 4% financing rate, about what is the six-month forward price?
    - $51.01
    - [x] $50.51
    - $50.00

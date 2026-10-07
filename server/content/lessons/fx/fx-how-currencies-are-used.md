@@ -96,3 +96,10 @@ The same trade removes $200,000 of risk for the company and creates $200,000 of 
    - [x] Economically the same trade, but it creates new currency risk rather than offsetting existing risk
    - A trade with no risk at all
    > The trade can be identical, and what changes is the surrounding position: a hedger offsets an existing exposure while a speculator creates a new one.
+
+6. {#calc1} [calc] A company expects €1,500,000 and sells it forward at 1.1055. At maturity the spot rate is 1.1500. What is the company's cost or benefit compared with not hedging?
+   - It gains $66,750
+   - It gives up $44,500
+   - [x] It gives up $66,750
+   - It gains $44,500
+   > Hedged: 1,500,000 × 1.1055 = $1,658,250. Unhedged: 1,500,000 × 1.15 = $1,725,000. The hedge gives up $66,750 of upside in exchange for certainty.

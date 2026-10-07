@@ -92,3 +92,10 @@ The technology removes the middlemen's fees, but the sender must convert in and 
    - It cannot be sent across borders
    - The coin's price never changes
    > The technology can speed up transfers, but price volatility and conversion costs add new risks.
+
+6. {#calc1} [calc] A worker sends $400 home. The bank route costs $44 in total. The crypto route has a $2 network fee plus a 1% conversion cost each way. How much cheaper is crypto, before price risk?
+   - [x] $34
+   - $42
+   - $10
+   - $44
+   > The conversion cost is 2% × $400 = $8, so crypto costs $2 + $8 = $10 against $44 for the bank, which is $34 cheaper.

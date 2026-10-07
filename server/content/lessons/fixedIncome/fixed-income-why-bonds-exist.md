@@ -86,14 +86,14 @@ The same company is used as the running example through the rest of the Fixed In
    - Because the government requires it
    > Standardization lets bonds trade among investors, so a lender isn't locked in until the final repayment.
 
-6. The packaging manufacturer issues 50,000 bonds with a face value of $1,000 each. How much does it raise?
+6. [calc] The packaging manufacturer issues 50,000 bonds with a face value of $1,000 each. How much does it raise?
    - $5 million
    - $20 million
    - [x] $50 million
    - $500 million
    > 50,000 bonds × $1,000 of face value each is $50 million, which is $30 million more than the bank was willing to lend.
 
-7. The bonds pay a 5% fixed coupon. How much interest does the manufacturer pay each year, before tax?
+7. [calc] The bonds pay a 5% fixed coupon. How much interest does the manufacturer pay each year, before tax?
    - $250,000
    - [x] $2,500,000
    - $5,000,000

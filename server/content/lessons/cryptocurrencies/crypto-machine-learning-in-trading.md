@@ -86,3 +86,10 @@ Tune on the older data, then score the untouched 200 days once. A result of abou
    - There is no real reason — testing it multiple times would work identically
    - Held-out data becomes corrupted after a single use
    > If a researcher keeps adjusting the model based on held-out results, that data stops being a fair, independent test and starts influencing training — exactly the trap this practice avoids.
+
+6. {#calc1} [calc] A model with no real skill is tested on 400 days. Accuracy by chance has a standard deviation of √(0.5 × 0.5 / 400). What is it?
+   - [x] 2.5%
+   - 5%
+   - 0.25%
+   - 12.5%
+   > √(0.25 / 400) = √0.000625 = 0.025, or 2.5%. A result within a couple of those of 50% is what no skill looks like.

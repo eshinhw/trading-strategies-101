@@ -90,3 +90,10 @@ The investor is not lending money, so the company owes no repayment and no fixed
    - Priority over shareholders in a liquidation
    - A fixed coupon payment schedule
    > Voting rights on major corporate matters are a feature of equity ownership, not debt — a bondholder is owed fixed payments but generally has no vote in how the company is run.
+
+6. {#calc1} [calc] A company with 16 million shares sells 4 million new shares at $25 in an IPO. How much does it raise, and what share of the company do the new buyers own?
+   - [x] $100 million, and 20%
+   - $100 million, and 25%
+   - $400 million, and 20%
+   - $100 million, and 80%
+   > 4,000,000 × $25 = $100M raised. The new buyers own 4 / (16 + 4) = 20%.

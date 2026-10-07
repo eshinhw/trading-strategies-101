@@ -31,3 +31,10 @@ slug: long-call-synthetic-straddle
    - The position is assigned shares, because the calls finish in the money when the stock declines sharply
    - [x] The short stock gains while the calls expire worthless, so it still profits
    > A large drop is profitable thanks to the short stock.
+
+5. {#calc1} [calc] A trader builds a Long Call Synthetic Straddle: is short the stock, sold at $100 and buys two $100 calls, with a net option premium of $8 paid. What is the lower break-even stock price at expiration, per share?
+   - $100
+   - $108
+   - $8
+   - [x] $92
+   > For this position (S0 = 100, K = 100, net debit = 8), the lower break-even stock price is $92 per share. Formula: S*_up = 2K - S0 + D; S*_down = S0 - D.

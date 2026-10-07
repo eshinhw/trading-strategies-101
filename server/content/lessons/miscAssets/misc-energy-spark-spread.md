@@ -93,3 +93,10 @@ The plant ends with the margin it locked in, in whichever direction electricity 
    - Buys only natural gas futures with no corresponding electricity position
    - Takes no position in futures markets at all
    > The combined futures position, sized to the plant's specific heat rate, is exactly what locks in the margin regardless of how either underlying price moves afterward.
+
+6. {#calc1} [calc] A plant locks in power at $55 per MWh and gas at $4 per MMBtu with a heat rate of 7, for 20,000 MWh. What margin does it lock in?
+   - $1,100,000
+   - $560,000
+   - $27
+   - [x] $540,000
+   > The spread is $55 − 7 × $4 = $27 per MWh, and $27 × 20,000 MWh = $540,000.

@@ -60,7 +60,7 @@ Fund B costs about nine times as much, so Fund A is cheaper on both counts unles
    - It's paid to the exchange
    > The fee is taken from the fund's assets throughout the year, so the investor sees it as slightly lower returns rather than a bill.
 
-2. About how much does a 0.10% expense ratio cost per year on a 10,000 dollar investment?
+2. [calc] About how much does a 0.10% expense ratio cost per year on a 10,000 dollar investment?
    - 1 dollar
    - 100 dollars
    - [x] 10 dollars
@@ -87,3 +87,10 @@ Fund B costs about nine times as much, so Fund A is cheaper on both counts unles
    - Never, since the spread always dominates
    - Only for leveraged ETFs
    > The spread is paid per trade while the expense ratio accrues every year, so its effect grows the longer an ETF is held.
+
+6. {#calc1} [calc] Fund A charges 0.04% and Fund B charges 0.25%. On $40,000 held for 10 years (ignore compounding), how much more does Fund B cost in fees?
+   - $84
+   - $100
+   - $8,400
+   - [x] $840
+   > The fee gap is 0.21% a year, which is $40,000 × 0.21% = $84 a year, and $84 × 10 years = $840.

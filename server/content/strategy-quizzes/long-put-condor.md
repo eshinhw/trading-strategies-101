@@ -31,3 +31,10 @@ slug: long-put-condor
    - [x] The trader loses the debit paid, and no more
    - The trader is assigned shares at the upper short strike, because the options finish in the money
    > Risk is limited to the debit.
+
+5. {#calc1} [calc] A trader builds a Long Put Condor: buys one $85 put, sells one $95 put, sells one $105 put, and buys one $115 put, for a net debit of $3 per share. What is the maximum profit at expiration, per share?
+   - [x] $7
+   - $3
+   - $30
+   - $88
+   > For this position (K1 = 85, K2 = 95, K3 = 105, K4 = 115, net debit = 3), the maximum profit is $7 per share. Formula: P_max = κ - D, equidistant strikes with gap κ.

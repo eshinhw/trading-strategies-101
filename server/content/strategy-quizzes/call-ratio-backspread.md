@@ -31,3 +31,10 @@ slug: call-ratio-backspread
    - Below the short strike only
    - Evenly across all prices, because the long and short calls offset each other at every possible stock price
    > A flat stock near the strikes produces a limited loss, while a big rally is rewarded.
+
+5. {#calc1} [calc] A trader builds a Call Ratio Backspread: sells one $100 call and buys two $105 calls, for a net debit of $1 per share. What is the maximum loss at expiration, per share?
+   - [x] $6
+   - $5
+   - $1
+   - $111
+   > For this position (K1 = 100, K2 = 105, NS = 1, NL = 2, net debit = 1), the maximum loss is $6 per share. Formula: L_max = NS×(K2 - K1) - netCF.

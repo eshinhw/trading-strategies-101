@@ -91,3 +91,10 @@ A spread's historical range is a reference, not a boundary. A structural change 
    - Only if both prices fall by an identical amount
    - Only if gas prices rise while electricity prices stay completely flat
    > Because the trade is on the relationship between the two prices, what matters is the relative move between them, not their absolute direction individually.
+
+6. {#calc1} [calc] Power is $60 per MWh, gas is $5 per MMBtu and the heat rate is 7.5. What is the spark spread?
+   - $52.50 per MWh
+   - $37.50 per MWh
+   - [x] $22.50 per MWh
+   - $55.00 per MWh
+   > The gas cost per MWh is 7.5 × $5 = $37.50, so the spread is $60 − $37.50 = $22.50.

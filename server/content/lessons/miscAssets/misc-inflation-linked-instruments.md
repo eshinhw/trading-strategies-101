@@ -87,3 +87,10 @@ The inflation-linked bond wins if inflation comes in above 2.5% and loses if it 
    - It is set annually by the government with no market input
    - By adding the two yields together and dividing by three
    > The straightforward yield-gap calculation (4.5% − 2% = 2.5%) is exactly how breakeven inflation is read directly off market pricing.
+
+6. {#calc1} [calc] A 10-year nominal bond yields 4.8% and a comparable inflation-linked bond yields 2.1%. What is breakeven inflation?
+   - 6.9%
+   - 2.1%
+   - 1.35%
+   - [x] 2.7%
+   > Breakeven inflation is the yield gap: 4.8% − 2.1% = 2.7% a year.

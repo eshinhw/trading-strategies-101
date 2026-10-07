@@ -90,3 +90,10 @@ Measuring the relationship first lets the hedge match the exposure.
    - Ignores its own sales data entirely
    - Relies solely on a competitor's hedging strategy
    > Grounding the hedge in the distributor's own quantified historical relationship is exactly what lets it size and structure the hedge precisely, consistent with this lesson's broader point.
+
+6. {#calc1} [calc] A distributor loses $6,000 of revenue for each heating degree day below the normal 5,000. It holds a hedge paying $6,000 per day below 4,950. The winter has 4,600 days. How much of the revenue loss is left uncovered?
+   - [x] $300,000
+   - $2,400,000
+   - $2,100,000
+   - $0
+   > The revenue loss is 400 × $6,000 = $2,400,000. The hedge pays 350 × $6,000 = $2,100,000, leaving $300,000 uncovered.

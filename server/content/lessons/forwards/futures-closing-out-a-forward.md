@@ -92,7 +92,7 @@ $$
    - Nothing is paid, and both contracts continue
    > A mutual termination settles the contract at its current mark-to-market value, so the side it is worth money to is paid that amount and the contract ends.
 
-7. The mill sells 10,000 bushels forward to a second bank at $7.00 instead of terminating. What is its locked-in result at maturity?
+7. [calc] The mill sells 10,000 bushels forward to a second bank at $7.00 instead of terminating. What is its locked-in result at maturity?
    - Zero, since the two contracts cancel completely
    - A gain or loss that depends on the wheat price
    - [x] A fixed $5,000 gain, with counterparty risk to both banks

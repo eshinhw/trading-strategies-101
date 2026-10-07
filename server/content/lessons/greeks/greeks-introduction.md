@@ -102,3 +102,10 @@ With just those three numbers, the trader knows how the position responds to a m
    - It loses 30 dollars a year
    - It is unaffected by time
    > A negative theta means the position loses value as time passes.
+
+6. {#calc1} [calc] A position has a delta of 80, theta of −45 a day and vega of 150 per volatility point. The stock rises $3, four quiet days pass and volatility rises 2 points. What is the total change?
+   - +$600
+   - [x] +$360
+   - +$240
+   - −$180
+   > Delta adds 80 × $3 = $240, theta costs 4 × $45 = $180, and vega adds 2 × $150 = $300. The total is $240 − $180 + $300 = +$360.

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { fetchBankCourses, fetchBankQuestions, fetchBankQuestionsByIds } from "../api";
-import type { BankCourse, BankQuestion } from "../types/practice";
+import type { BankCourse, BankQuestion, QuestionKind } from "../types/practice";
 import { QuizChoiceOption } from "../components/QuizChoiceOption";
 import { QuizFeedback } from "../components/QuizFeedback";
 import { AnswerProgressBar } from "../components/AnswerProgressBar";
@@ -17,6 +17,26 @@ type Phase = "setup" | "session" | "summary";
 const LENGTHS = [10, 20, 30] as const;
 const STATS_KEY = "quizbank:stats";
 
+// Two kinds of question share the bank: concept checks test an idea directly, calculations are short business
+// scenarios where you work out a number before choosing it. A session draws from one kind or both.
+type KindFilter = QuestionKind | "all";
+const KIND_KEY = "quizbank:kind";
+const KIND_CHOICES: { id: KindFilter; label: string; blurb: string }[] = [
+  { id: "concept", label: "Concept checks", blurb: "True/false and multiple choice that test an idea directly." },
+  { id: "calc", label: "Calculations", blurb: "A short business scenario. Work out the number, then pick it." },
+  { id: "all", label: "Mixed", blurb: "Both kinds, about one calculation for every two concept checks." },
+];
+const KIND_NAME: Record<QuestionKind, string> = { concept: "Concept check", calc: "Calculation" };
+const isKind = (v: unknown): v is KindFilter => v === "all" || v === "concept" || v === "calc";
+function loadKind(): KindFilter {
+  try {
+    const raw = localStorage.getItem(KIND_KEY);
+    return isKind(raw) ? raw : "all";
+  } catch {
+    return "all";
+  }
+}
+
 interface CourseTally {
   answered: number;
   correct: number;
@@ -27,8 +47,16 @@ interface BankStats {
   bestStreak: number;
   sessions: number;
   byCourse: Record<string, CourseTally>;
+  byKind: Record<QuestionKind, CourseTally>;
 }
-const EMPTY_STATS: BankStats = { answered: 0, correct: 0, bestStreak: 0, sessions: 0, byCourse: {} };
+const EMPTY_STATS: BankStats = {
+  answered: 0,
+  correct: 0,
+  bestStreak: 0,
+  sessions: 0,
+  byCourse: {},
+  byKind: { concept: { answered: 0, correct: 0 }, calc: { answered: 0, correct: 0 } },
+};
 
 function loadStats(): BankStats {
   try {
@@ -39,12 +67,17 @@ function loadStats(): BankStats {
     for (const [slug, t] of Object.entries(parsed.byCourse ?? {})) {
       byCourse[slug] = { answered: Number(t?.answered) || 0, correct: Number(t?.correct) || 0 };
     }
+    const kindTally = (k: QuestionKind): CourseTally => ({
+      answered: Number(parsed.byKind?.[k]?.answered) || 0,
+      correct: Number(parsed.byKind?.[k]?.correct) || 0,
+    });
     return {
       answered: Number(parsed.answered) || 0,
       correct: Number(parsed.correct) || 0,
       bestStreak: Number(parsed.bestStreak) || 0,
       sessions: Number(parsed.sessions) || 0,
       byCourse,
+      byKind: { concept: kindTally("concept"), calc: kindTally("calc") },
     };
   } catch {
     return EMPTY_STATS;
@@ -133,6 +166,10 @@ export function QuizBankPage() {
   // Optional: narrow the chosen courses to specific modules (empty means every module).
   const [selectedModules, setSelectedModules] = useState<Set<string>>(new Set());
   const [count, setCount] = useState<number>(10);
+  const [kind, setKindState] = useState<KindFilter>(() => {
+    const fromUrl = searchParams.get("kind");
+    return isKind(fromUrl) ? fromUrl : loadKind();
+  });
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
 
@@ -169,15 +206,49 @@ export function QuizBankPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // How many questions of the chosen kind a course or module holds.
+  const kindCount = (x: { questionCount: number; conceptCount: number; calcCount: number }) =>
+    kind === "all" ? x.questionCount : kind === "calc" ? x.calcCount : x.conceptCount;
+
+  // Totals per kind across the whole bank, for the type picker.
+  const totals = useMemo(() => {
+    const t = { concept: 0, calc: 0, all: 0 };
+    for (const c of bankCourses ?? []) {
+      t.concept += c.conceptCount;
+      t.calc += c.calcCount;
+      t.all += c.questionCount;
+    }
+    return t;
+  }, [bankCourses]);
+
   const available = useMemo(() => {
     if (!bankCourses) return 0;
     const inScope = bankCourses.filter((c) => selected.size === 0 || selected.has(c.slug));
-    if (selectedModules.size === 0) return inScope.reduce((n, c) => n + c.questionCount, 0);
+    if (selectedModules.size === 0) return inScope.reduce((n, c) => n + kindCount(c), 0);
     return inScope.reduce(
-      (n, c) => n + c.modules.filter((m) => selectedModules.has(m.slug)).reduce((k, m) => k + m.questionCount, 0),
+      (n, c) => n + c.modules.filter((m) => selectedModules.has(m.slug)).reduce((k, m) => k + kindCount(m), 0),
       0,
     );
-  }, [bankCourses, selected, selectedModules]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bankCourses, selected, selectedModules, kind]);
+
+  // Switching kind drops any chosen course or module that has none of that kind, so the selection never points at nothing.
+  function setKind(next: KindFilter) {
+    setKindState(next);
+    try {
+      localStorage.setItem(KIND_KEY, next);
+    } catch {
+      // storage unavailable — the choice just won't persist
+    }
+    if (!bankCourses) return;
+    const has = (x: { questionCount: number; conceptCount: number; calcCount: number }) =>
+      next === "all" ? x.questionCount > 0 : next === "calc" ? x.calcCount > 0 : x.conceptCount > 0;
+    setSelected((prev) => new Set([...prev].filter((slug) => has(bankCourses.find((c) => c.slug === slug) ?? { questionCount: 0, conceptCount: 0, calcCount: 0 }))));
+    setSelectedModules((prev) => {
+      const ok = new Set(bankCourses.flatMap((c) => c.modules.filter(has).map((m) => m.slug)));
+      return new Set([...prev].filter((slug) => ok.has(slug)));
+    });
+  }
 
   function toggleCourse(slug: string) {
     setSelected((prev) => {
@@ -220,7 +291,7 @@ export function QuizBankPage() {
     setStarting(true);
     setStartError(null);
     try {
-      const qs = await fetchBankQuestions([...selected], count, [...selectedModules]);
+      const qs = await fetchBankQuestions([...selected], count, [...selectedModules], kind);
       if (qs.length === 0) setStartError("There are no questions for that selection yet.");
       else beginSession(qs, count);
     } catch (e) {
@@ -256,7 +327,7 @@ export function QuizBankPage() {
     setStarting(true);
     setStartError(null);
     try {
-      const qs = await fetchBankQuestions([courseSlug], 10, [moduleSlug]);
+      const qs = await fetchBankQuestions([courseSlug], 10, [moduleSlug], kind);
       if (qs.length === 0) setStartError("There are no questions for that module.");
       else beginSession(qs, 10);
     } catch (e) {
@@ -295,6 +366,10 @@ export function QuizBankPage() {
         answered: prev.answered + 1,
         correct: prev.correct + (correct ? 1 : 0),
         bestStreak: Math.max(prev.bestStreak, nextStreak),
+        byKind: {
+          ...prev.byKind,
+          [q.kind]: { answered: prev.byKind[q.kind].answered + 1, correct: prev.byKind[q.kind].correct + (correct ? 1 : 0) },
+        },
         byCourse: {
           ...prev.byCourse,
           [q.courseSlug]: { answered: tally.answered + 1, correct: tally.correct + (correct ? 1 : 0) },
@@ -358,7 +433,7 @@ export function QuizBankPage() {
       <div style={{ "--accent": accent } as CSSProperties}>
         <BankHeader eyebrow="Practice" title="Quiz Bank">
           <p className="mt-3 max-w-2xl leading-relaxed text-[#9aa3b2]">
-            Mixed questions from every lesson's knowledge check. Nothing here affects your course progress.
+            Concept checks and calculation problems from every lesson. Nothing here affects your course progress.
           </p>
           {stats.answered > 0 && (
             <div className="mt-5 flex flex-wrap gap-6">
@@ -397,6 +472,47 @@ export function QuizBankPage() {
                 </button>
               </div>
             )}
+            <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Question type</h2>
+            <div role="radiogroup" aria-label="Question type" className="mt-3 mb-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {KIND_CHOICES.map((k) => {
+                const on = kind === k.id;
+                const total = totals[k.id];
+                const t = k.id === "all" ? null : stats.byKind[k.id];
+                const pct = t && t.answered >= 3 ? Math.round((t.correct / t.answered) * 100) : null;
+                return (
+                  <button
+                    key={k.id}
+                    role="radio"
+                    aria-checked={on}
+                    onClick={() => setKind(k.id)}
+                    disabled={!bankCourses || total === 0}
+                    className={`flex flex-col rounded-2xl border p-4 text-left transition hover:-translate-y-px disabled:cursor-not-allowed disabled:opacity-50 ${
+                      on ? "border-[#7c6cff]/70 bg-[#7c6cff]/12 shadow-[0_0_0_1px_#7c6cff40]" : "border-[#2a3040] bg-[#141821] hover:border-[#3a4150]"
+                    }`}
+                  >
+                    <span className="flex items-center justify-between gap-2">
+                      <span className="flex items-center gap-2 font-semibold text-[#e6e8ec]">
+                        <span
+                          aria-hidden="true"
+                          className={`flex h-4 w-4 items-center justify-center rounded-full border ${on ? "border-[#7c6cff]" : "border-[#4a5263]"}`}
+                        >
+                          {on && <span className="h-2 w-2 rounded-full bg-[#a99dff]" />}
+                        </span>
+                        {k.label}
+                      </span>
+                      {bankCourses && <span className="text-xs tabular-nums text-[#898781]">{total.toLocaleString()}</span>}
+                    </span>
+                    <span className="mt-1.5 text-xs leading-relaxed text-[#9aa3b2]">{k.blurb}</span>
+                    {pct !== null && (
+                      <span className={`mt-2 text-[11px] font-medium ${pct >= 70 ? "text-emerald-400" : "text-amber-400"}`}>
+                        Your accuracy: {pct}%
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
             <div className="flex items-center justify-between gap-3">
               <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Pick your courses</h2>
               <button
@@ -430,22 +546,25 @@ export function QuizBankPage() {
                           {family.name}
                         </div>
                         <button
-                          onClick={() => toggleFamily(members.map((m) => m.slug))}
+                          onClick={() => toggleFamily(members.filter((m) => kindCount(m) > 0).map((m) => m.slug))}
                           className="text-xs text-[#898781] transition hover:text-[#e6e8ec]"
                         >
-                          {members.every((m) => selected.has(m.slug)) ? "Clear" : "Select all"}
+                          {members.filter((m) => kindCount(m) > 0).every((m) => selected.has(m.slug)) ? "Clear" : "Select all"}
                         </button>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {members.map((c) => {
                           const on = selected.has(c.slug);
                           const color = courseAccent(c.slug);
+                          const none = kindCount(c) === 0;
                           return (
                             <button
                               key={c.slug}
                               onClick={() => toggleCourse(c.slug)}
                               aria-pressed={on}
-                              className="flex items-center gap-2 rounded-xl border px-3 py-2 text-sm transition hover:-translate-y-px"
+                              disabled={none}
+                              title={none ? `No ${kind === "calc" ? "calculation" : "concept"} questions in ${c.title} yet` : undefined}
+                              className="flex items-center gap-2 rounded-xl border px-3 py-2 text-sm transition hover:-translate-y-px disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0"
                               style={{
                                 borderColor: on ? `${color}99` : "#2a3040",
                                 background: on ? `${color}22` : "#141821",
@@ -453,7 +572,7 @@ export function QuizBankPage() {
                               }}
                             >
                               {c.title}
-                              <span className="text-xs text-[#898781]">{c.questionCount}</span>
+                              <span className="text-xs text-[#898781]">{kindCount(c)}</span>
                               {(() => {
                                 const t = stats.byCourse[c.slug];
                                 if (!t || t.answered < 3) return null;
@@ -498,7 +617,7 @@ export function QuizBankPage() {
                       <div key={c.slug}>
                         {selected.size > 1 && <div className="mb-1.5 text-xs text-[#9aa3b2]">{c.title}</div>}
                         <div className="flex flex-wrap gap-1.5">
-                          {c.modules.map((m) => {
+                          {c.modules.filter((m) => kindCount(m) > 0).map((m) => {
                             const on = selectedModules.has(m.slug);
                             const color = courseAccent(c.slug);
                             return (
@@ -514,7 +633,7 @@ export function QuizBankPage() {
                                 }}
                               >
                                 {m.title}
-                                <span className="text-[#898781]">{m.questionCount}</span>
+                                <span className="text-[#898781]">{kindCount(m)}</span>
                               </button>
                             );
                           })}
@@ -532,7 +651,8 @@ export function QuizBankPage() {
               <p className="mt-3 text-sm text-[#9aa3b2]">
                 {selected.size === 0 ? "Every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`}
                 {selectedModules.size > 0 ? `, ${selectedModules.size} module${selectedModules.size === 1 ? "" : "s"}` : ""} ·{" "}
-                <span className="text-[#e6e8ec]">{available}</span> questions available
+                <span className="text-[#e6e8ec]">{available}</span>{" "}
+                {kind === "calc" ? "calculation questions" : kind === "concept" ? "concept checks" : "questions"} available
               </p>
 
               <div className="mt-4 text-xs text-[#898781]">Length</div>
@@ -575,7 +695,8 @@ export function QuizBankPage() {
         <div className="fixed inset-x-0 bottom-0 z-30 border-t border-[#2a3040] bg-[#0b0d12]/95 px-4 py-3 backdrop-blur lg:hidden">
           <div className="mx-auto flex max-w-7xl items-center gap-3">
             <div className="min-w-0 flex-1 text-xs text-[#9aa3b2]">
-              <span className="font-semibold text-[#e6e8ec]">{count}</span> questions ·{" "}
+              <span className="font-semibold text-[#e6e8ec]">{count}</span>{" "}
+              {kind === "calc" ? "calculations" : kind === "concept" ? "concept checks" : "questions"} ·{" "}
               {selected.size === 0 ? "every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`}
               {selectedModules.size > 0 ? `, ${selectedModules.size} module${selectedModules.size === 1 ? "" : "s"}` : ""}
             </div>
@@ -658,6 +779,15 @@ export function QuizBankPage() {
                 <span className="rounded-full border border-[#2a3040] bg-[#0e1117]/70 px-2.5 py-0.5 text-xs text-[#9aa3b2]">
                   {q.moduleTitle}
                 </span>
+                <span
+                  className={`ml-auto rounded-full border px-2.5 py-0.5 text-xs font-medium ${
+                    q.kind === "calc"
+                      ? "border-sky-400/40 bg-sky-400/10 text-sky-300"
+                      : "border-[#2a3040] bg-transparent text-[#9aa3b2]"
+                  }`}
+                >
+                  {KIND_NAME[q.kind]}
+                </span>
               </div>
 
               <p className="mb-4 mt-3 text-lg font-medium leading-relaxed text-[#e6e8ec]">
@@ -700,7 +830,11 @@ export function QuizBankPage() {
                   </div>
                 </>
               )}
-              {!answered && <p className="mt-4 text-xs text-[#898781]">Pick an answer, or press A–D.</p>}
+              {!answered && (
+                <p className="mt-4 text-xs text-[#898781]">
+                  {q.kind === "calc" ? "Work it out first, then pick an answer (or press A–D)." : "Pick an answer, or press A–D."}
+                </p>
+              )}
             </div>
           </section>
         </div>
@@ -721,6 +855,13 @@ export function QuizBankPage() {
     if (r.correct) entry.correct += 1;
     byCourse.set(r.q.courseSlug, entry);
   }
+  // When a session mixed both kinds, show how each kind went.
+  const kindResults = (["concept", "calc"] as const)
+    .map((k) => {
+      const of = results.filter((r) => r.q.kind === k);
+      return { kind: k, total: of.length, correct: of.filter((r) => r.correct).length };
+    })
+    .filter((k) => k.total > 0);
   // Modules with at least one miss, most missed first, for the "practise again" row.
   const focusMap = new Map<string, { slug: string; title: string; courseSlug: string; missed: number }>();
   for (const m of missed) {
@@ -790,6 +931,30 @@ export function QuizBankPage() {
             </div>
           </div>
         </div>
+
+        {kindResults.length > 1 && (
+          <section className="mt-8">
+            <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">By question type</h2>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {kindResults.map((k) => {
+                const pct = (k.correct / k.total) * 100;
+                return (
+                  <div key={k.kind} className="rounded-xl border border-[#2a3040] bg-[#141821] p-3.5">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="text-sm font-medium text-[#e6e8ec]">{k.kind === "calc" ? "Calculations" : "Concept checks"}</span>
+                      <span className={`shrink-0 text-xs ${pct >= 70 ? "text-emerald-400" : "text-amber-400"}`}>
+                        {k.correct}/{k.total}
+                      </span>
+                    </div>
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#1b2029]">
+                      <div className="h-full rounded-full" style={{ width: `${pct}%`, background: pct >= 70 ? "#34d399" : "#fbbf24" }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {byCourse.size > 1 && (
           <section className="mt-8">

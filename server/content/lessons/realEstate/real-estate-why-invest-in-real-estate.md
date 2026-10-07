@@ -83,3 +83,10 @@ Real estate adds income that grows with inflation and diversifies stocks and bon
    - By holding cash
    - It is not possible
    > A REIT lets an investor own a share of a property portfolio and receive its distributed income.
+
+6. {#calc1} [calc] A REIT pays $6,000 a year and the payout grows 3% a year as rents rise. About how much is the annual payout after 5 years?
+   - About $6,900
+   - About $6,180
+   - [x] About $6,956
+   - About $7,200
+   > $6,000 × 1.03^5 ≈ $6,956.

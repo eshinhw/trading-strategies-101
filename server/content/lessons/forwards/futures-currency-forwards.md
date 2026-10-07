@@ -86,14 +86,14 @@ Either way the importer pays $440,000, which is the number it budgeted.
    - Interest rates have no effect on the forward rate
    > With U.S. rates higher than euro rates, the euro (the lower-rate currency) trades at a forward premium to the dollar, meaning more dollars per euro forward than spot.
 
-6. Spot is $1.08 per euro, the U.S. six-month rate is 5.5% and the euro rate is 1.8%. About what is the six-month forward rate?
+6. [calc] Spot is $1.08 per euro, the U.S. six-month rate is 5.5% and the euro rate is 1.8%. About what is the six-month forward rate?
    - $1.08
    - $1.04
    - [x] $1.10
    - $1.16
    > Covered interest parity gives $1.08 × (1 + 0.0275) / (1 + 0.009), about $1.0998, a forward premium because dollar rates are higher.
 
-7. A U.S. importer locks in $1.10 on a €400,000 invoice, and the spot rate at maturity is $1.05. What is the result of the hedge?
+7. [calc] A U.S. importer locks in $1.10 on a €400,000 invoice, and the spot rate at maturity is $1.05. What is the result of the hedge?
    - It saves $20,000 compared with not hedging
    - [x] It costs $20,000 more than not hedging, but the cost is fixed at $440,000
    - It loses the whole $440,000

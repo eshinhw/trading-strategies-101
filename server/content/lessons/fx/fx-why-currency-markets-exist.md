@@ -83,3 +83,10 @@ A move of less than 10 cents turns a €3.5 million monthly profit into a loss, 
    - Exchange rates have no effect on companies
    - The company must hold dollars forever
    > Ordinary cross-border business requires currency conversion, which both drives the FX market and exposes the company to changes in the exchange rate.
+
+6. {#calc1} [calc] A carmaker earns $20,000,000 and has €17,000,000 of costs. At EUR/USD 1.10, what is the monthly profit in euros, rounded to the nearest €0.1 million?
+   - About €3.0 million
+   - [x] About €1.2 million
+   - About −€1.0 million
+   - About €1.7 million
+   > Revenue is $20,000,000 / 1.10 ≈ €18.2 million, and costs are €17.0 million, so the profit is about €1.2 million.

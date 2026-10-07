@@ -31,3 +31,10 @@ slug: long-call-butterfly
    - [x] The trader loses only the net debit paid
    - The trader is assigned shares at the middle strike, because the short calls finish in the money
    > Risk is limited to the debit.
+
+5. {#calc1} [calc] A trader builds a Long Call Butterfly: buys one $110 call, sells two $100 calls, and buys one $90 call, for a net debit of $3 per share. What is the lower break-even stock price at expiration, per share?
+   - $107
+   - [x] $93
+   - $20
+   - $7
+   > For this position (K3 = 90, K2 = 100, K1 = 110, net debit = 3), the lower break-even stock price is $93 per share. Formula: S*_down = K3 + D; S*_up = K1 - D.

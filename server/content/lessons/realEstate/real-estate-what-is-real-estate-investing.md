@@ -90,3 +90,10 @@ Rent is the income return. The gain at sale is a second payoff, separate from th
    - Appreciation is legally required to be zero for all properties
    - Income and appreciation cannot both occur for the same property
    > A typical property collects rent throughout the holding period while its market value also moves, so realized returns usually reflect both sources together.
+
+6. {#calc1} [calc] An investor buys a building for $2 million, earns $140,000 a year of net income for 3 years, then sells for $2.3 million. What is the total return on the price?
+   - 15%
+   - 21%
+   - [x] 36%
+   - 51%
+   > Income is 3 × $140,000 = $420,000 and the sale gain is $300,000, which is $720,000 on $2,000,000 = 36%.

@@ -11,7 +11,7 @@ import type { BooksResponse } from "./types/book";
 import type { PapersResponse } from "./types/paper";
 import type { ConstructionExerciseSummary, ConstructionExerciseDetail, ConstructionGradeResult } from "./types/construction";
 import type { Strategy } from "./types/strategy";
-import type { BankCourse, BankQuestion } from "./types/practice";
+import type { BankCourse, BankQuestion, QuestionKind } from "./types/practice";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(path, {
@@ -136,10 +136,16 @@ export function fetchBankCourses(): Promise<BankCourse[]> {
   return request<{ courses: BankCourse[] }>("/api/practice/quiz-bank/courses").then((d) => d.courses);
 }
 
-export function fetchBankQuestions(courses: string[], count: number, modules: string[] = []): Promise<BankQuestion[]> {
+export function fetchBankQuestions(
+  courses: string[],
+  count: number,
+  modules: string[] = [],
+  kind: QuestionKind | "all" = "all",
+): Promise<BankQuestion[]> {
   const params = new URLSearchParams({ count: String(count) });
   if (courses.length > 0) params.set("courses", courses.join(","));
   if (modules.length > 0) params.set("modules", modules.join(","));
+  if (kind !== "all") params.set("kind", kind);
   return request<{ questions: BankQuestion[] }>(`/api/practice/quiz-bank/questions?${params}`).then((d) => d.questions);
 }
 

@@ -87,3 +87,10 @@ With that stake, and a seat on the creditors' committee, Fund B can influence th
    - The fund is committing fraud by holding many small positions
    - There is no difference between this fund's approach and the concentrated, committee-joining fund's approach
    > Spreading small positions across many issuers is inherently passive, since no single position carries enough weight to meaningfully shape an outcome.
+
+6. {#calc1} [calc] A fund holds $45 million of a $120 million bond class, and a plan needs two-thirds of the class to pass. What share of the class does it hold, and can it block a plan?
+   - 37.5%, and no, since it is under half
+   - 45%, and yes, since it is over one-third
+   - 37.5%, and no, since it is under two-thirds
+   - [x] 37.5%, and yes, since that is more than one-third
+   > $45M / $120M = 37.5%. Holding more than one-third means two-thirds can never be reached without the fund, so it can block.

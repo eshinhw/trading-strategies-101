@@ -88,3 +88,10 @@ The plan pairs better recovery for junior creditors with funding the company nee
    - An immediate liquidation of the entire company
    - The example describes no specific elements of the alternative plan
    > Combining improved terms with a financing commitment is exactly the kind of package a plan-shaping investor uses to make their proposal more attractive than the alternative.
+
+6. {#calc1} [calc] A junior class of $50 million would recover 8 cents under the company's plan and 22 cents under an investor's alternative plan. How much more does the class receive under the alternative plan?
+   - $11 million
+   - $4 million
+   - [x] $7 million
+   - $14 million
+   > The difference is 22 − 8 = 14 cents on the dollar, and 14% × $50M = $7M.

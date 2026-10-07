@@ -92,3 +92,10 @@ The same type of contract is used to protect, to earn income and to speculate, e
    - The color of the chart
    - Which broker is used
    > Direction, magnitude, timing, and risk tolerance determine which strategy fits.
+
+6. {#calc1} [calc] An investor owns 100 shares at $100 and buys a 95 put for $2.00. The stock falls to $80. What is the net loss, counting the put's cost?
+   - [x] $700
+   - $2,000
+   - $1,500
+   - $1,300
+   > The stock loses $2,000. The put pays (95 − 80) × 100 = $1,500 and cost $200, so the net loss is $2,000 − $1,500 + $200 = $700.

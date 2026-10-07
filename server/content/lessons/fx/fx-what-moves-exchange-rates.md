@@ -84,3 +84,10 @@ The same forces, higher rates drawing in capital and a stronger currency, reach 
    - Safe haven currencies do not exist in practice
    - They become completely illiquid during uncertain periods
    > During global uncertainty, investors often seek currencies perceived as safe havens, a flow that can happen independent of that country's own individual economic conditions.
+
+6. {#calc1} [calc] A U.S. importer buys €1,000,000 of parts. EUR/USD falls from 1.10 to 1.045. How much does the importer save in dollars?
+   - $110,000
+   - $45,000
+   - [x] $55,000
+   - $5,500
+   > Cost before: 1,000,000 × 1.10 = $1,100,000. After: 1,000,000 × 1.045 = $1,045,000. The saving is $55,000.

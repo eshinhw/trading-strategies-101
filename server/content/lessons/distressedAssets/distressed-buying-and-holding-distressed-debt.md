@@ -85,3 +85,10 @@ The return depends on the recovery estimate being right. The fund waits for the 
    - Immediate resale at the original purchase price
    - The example describes no expected form of recovery
    > The fund's recovery estimate is built around receiving equity in the reorganized company, consistent with how debt-for-equity conversions commonly work in reorganization.
+
+6. {#calc1} [calc] A fund buys bonds at 30 cents on the dollar and the reorganization eventually returns 48 cents. What is the total return on the purchase?
+   - 18%
+   - [x] 60%
+   - 160%
+   - 37.5%
+   > The gain is 48 − 30 = 18 cents on a 30-cent purchase, which is 18 / 30 = 60%.

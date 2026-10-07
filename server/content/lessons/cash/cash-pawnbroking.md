@@ -84,3 +84,10 @@ A low loan-to-value of 30% leaves the lender a wide cushion, and that is why no 
    - Large corporations financing inventory purchases
    - Pawn loans are exclusively used by licensed banks
    > Pawnbroking fills a gap for borrowers underserved by mainstream banking, offering fast, no-credit-check access to small amounts of cash.
+
+6. {#calc1} [calc] A pawnbroker lends $300 at 4% a month (simple interest) for 3 months. How much must the borrower repay to get the item back?
+   - $312
+   - [x] $336
+   - $348
+   - $300
+   > Interest is $300 × 4% × 3 = $36, so the repayment is $300 + $36 = $336.

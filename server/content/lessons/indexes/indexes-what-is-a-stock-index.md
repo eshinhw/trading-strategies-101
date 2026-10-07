@@ -89,3 +89,10 @@ Neither is more correct. The investor chooses between bets weighted by economic 
    - All weighting methods always produce identical index values
    - Weighting only matters for bond indices, never stock indices
    > Because different weighting schemes give different stocks different amounts of influence, the same set of constituent price moves can produce meaningfully different index results depending on the method used.
+
+6. {#calc1} [calc] Two stocks have market caps of $300 billion (return +10%) and $100 billion (return −10%). What is the return of a market-cap-weighted index of the two?
+   - 0%
+   - [x] +5%
+   - +7.5%
+   - +2.5%
+   > The weights are 75% and 25%, so the return is 0.75 × 10% + 0.25 × (−10%) = +5%. An equal-weighted index would return 0%.

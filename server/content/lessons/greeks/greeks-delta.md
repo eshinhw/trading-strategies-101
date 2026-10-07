@@ -82,21 +82,21 @@ Delta is only accurate for small moves, since it changes as the stock moves (tha
    - −0.50
    > An at-the-money call has roughly even odds of finishing in the money, and a delta near 0.50.
 
-3. A call has a delta of 0.60. About how much should it gain if the stock rises 1 dollar?
+3. [calc] A call has a delta of 0.60. About how much should it gain if the stock rises 1 dollar?
    - 0.06
    - [x] About 0.60 per share
    - 6.00 per share
    - Nothing
    > Delta is the change in the option's price for a 1 dollar change in the stock.
 
-4. How many shares does one call contract with a delta of 0.40 behave like?
+4. [calc] How many shares does one call contract with a delta of 0.40 behave like?
    - 4 shares
    - [x] About 40 shares
    - 400 shares
    - 100 shares
    > Position delta is 0.40 × 100 = 40 shares.
 
-5. A covered call combines 100 shares and a short call with a delta of 0.40. What is the net delta?
+5. [calc] A covered call combines 100 shares and a short call with a delta of 0.40. What is the net delta?
    - 140
    - 100
    - [x] 60

@@ -31,3 +31,10 @@ slug: short-call-synthetic-straddle
    - The calls become more valuable, since a falling stock raises the value of calls that have been sold short
    - The position earns the maximum profit
    > The risk is concentrated on the downside, where only the premium cushions the stock loss.
+
+5. {#calc1} [calc] A trader builds a Short Call Synthetic Straddle: owns the stock, bought at $100 and sells two $100 calls, with a net option premium of $8 received. What is the maximum profit at expiration, per share?
+   - [x] $8
+   - $92
+   - $100
+   - $108
+   > For this position (S0 = 100, K = 100, net credit = 8), the maximum profit is $8 per share. Formula: P_max = K - S0 + C.

@@ -83,7 +83,7 @@ Buying at the ask and selling straight back at the bid loses $200.
    - Only through banks' branches
    > Most bonds trade in negotiated, dealer-based markets rather than on an exchange.
 
-2. A bond is quoted at 98.50 and has a face value of 1,000 dollars. What is the clean price?
+2. [calc] A bond is quoted at 98.50 and has a face value of 1,000 dollars. What is the clean price?
    - 98.50 dollars
    - 1,098.50 dollars
    - [x] 985 dollars
@@ -104,14 +104,14 @@ Buying at the ask and selling straight back at the bid loses $200.
    - Dirty price is the face value
    > The dirty price is the quoted clean price plus the interest accrued since the last coupon, which is the amount actually paid.
 
-5. A bond pays a 30 dollar coupon each period, and 60 of 180 days have passed. What is the accrued interest?
+5. [calc] A bond pays a 30 dollar coupon each period, and 60 of 180 days have passed. What is the accrued interest?
    - 30 dollars
    - 60 dollars
    - [x] 10 dollars
    - 5 dollars
    > Accrued interest = 30 × 60 / 180 = 10 dollars.
 
-6. A bond with a $1,000 face value and a 5% coupon (paid twice a year) is quoted at 98.50, and it is 60 days into a 180-day coupon period. What is the dirty price per bond?
+6. [calc] A bond with a $1,000 face value and a 5% coupon (paid twice a year) is quoted at 98.50, and it is 60 days into a 180-day coupon period. What is the dirty price per bond?
    - $985.00
    - $991.67
    - [x] $993.33

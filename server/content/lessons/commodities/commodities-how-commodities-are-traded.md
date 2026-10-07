@@ -86,3 +86,10 @@ $$
    - There is no additional risk from using a company's stock
    - Stock-based commodity exposure eliminates all price risk
    > A commodity producer's stock is an indirect, imperfect substitute — its price reflects the company's overall business risk, not just the commodity's price alone.
+
+6. {#calc1} [calc] A jewelry maker needs 500 ounces of gold, buys futures at $2,000, and gold is $2,080 when it closes the futures and buys the metal. What is its effective cost per ounce?
+   - $2,080
+   - $1,920
+   - $2,040
+   - [x] $2,000
+   > The metal costs $2,080 an ounce, but the futures gain is $80 an ounce, so the net cost is $2,080 − $80 = $2,000.

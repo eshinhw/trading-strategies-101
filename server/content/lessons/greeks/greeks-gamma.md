@@ -70,7 +70,7 @@ A long option gains faster as it moves in its favor and loses more slowly as it 
    - The interest rate sensitivity
    > Gamma is the rate of change of delta.
 
-2. A call has a delta of 0.50 and a gamma of 0.04. The stock rises 1 dollar. What is the new delta, roughly?
+2. [calc] A call has a delta of 0.50 and a gamma of 0.04. The stock rises 1 dollar. What is the new delta, roughly?
    - 0.46
    - 0.50
    - [x] 0.54

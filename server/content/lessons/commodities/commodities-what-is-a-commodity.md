@@ -86,3 +86,10 @@ Because a bushel from any farm is interchangeable with any other, a contract can
    - There is no meaningful difference between the two
    - Smartphones are fungible in the exact same way crude oil is
    > A smartphone is sold on brand, features, and differentiation, the opposite of a fungible, interchangeable raw good like crude oil.
+
+6. {#calc1} [calc] A grain elevator sells 80,000 bushels of one grade of wheat against futures contracts of 5,000 bushels each. How many contracts does that equal?
+   - 8
+   - 160
+   - [x] 16
+   - 400
+   > 80,000 / 5,000 = 16 contracts. Because every bushel of the grade is interchangeable, a contract can be settled with wheat from any farm.

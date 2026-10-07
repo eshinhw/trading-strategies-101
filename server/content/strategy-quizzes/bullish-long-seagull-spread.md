@@ -31,3 +31,10 @@ slug: bullish-long-seagull-spread
    - [x] The loss is capped near the put spread width instead of growing as much as a plain long combo's downside would
    - The trader keeps the credit, because the long put cancels any loss that the short put would have created
    > The long put limits the loss.
+
+5. {#calc1} [calc] A trader builds a Bullish Long Seagull Spread: buys one $90 put, sells one $100 put, and buys one $110 call, for no net premium. What is the break-even stock price at expiration, per share?
+   - $20
+   - $10
+   - [x] $100
+   - $101
+   > For this position (K1 = 90, K2 = 100, K3 = 110), the break-even stock price is $100 per share. Formula: S* = K3 + netCF (netCF>0) or K2 + netCF (netCF<0).

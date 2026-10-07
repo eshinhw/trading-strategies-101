@@ -31,3 +31,10 @@ slug: long-iron-condor
    - The trader keeps the full credit, because the long wing cancels any loss that the short option creates
    - [x] The loss is capped at the wing width minus the credit received
    > The long options define the maximum loss.
+
+5. {#calc1} [calc] A trader builds a Long Iron Condor: buys one $85 put, sells one $95 put, sells one $105 call, and buys one $115 call, for a net credit of $4 per share. What is the maximum loss at expiration, per share?
+   - [x] $6
+   - $4
+   - $30
+   - $91
+   > For this position (K1 = 85, K2 = 95, K3 = 105, K4 = 115, net credit = 4), the maximum loss is $6 per share. Formula: L_max = κ - C, equidistant strikes with gap κ.

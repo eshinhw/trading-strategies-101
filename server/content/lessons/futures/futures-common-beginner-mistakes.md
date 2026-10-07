@@ -80,7 +80,7 @@ Margin only says what the broker requires. The position size should come from ho
    - Illiquid contracts cannot legally be traded
    > Thin liquidity shows up directly as a wider bid-ask spread and worse fills, an often-underestimated real cost of trading an obscure or low-volume contract.
 
-5. A $10,000 account holds five crude oil contracts (5,000 barrels) sized only to available margin. What mistake does a $2 adverse move expose?
+5. [calc] A $10,000 account holds five crude oil contracts (5,000 barrels) sized only to available margin. What mistake does a $2 adverse move expose?
    - [x] It would cost $10,000 — the entire account — combining ignored notional exposure with over-risking a single position
    - It would cost only $50, a negligible amount
    - There is no risk since margin was sufficient to open the position

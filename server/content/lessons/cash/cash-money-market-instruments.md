@@ -82,3 +82,10 @@ The ladder keeps the cash both available and earning more than it would sit idle
    - It guarantees a higher return than any single instrument
    - There is no benefit to staggering maturities
    > Laddering balances liquidity and yield: near-term needs are covered as instruments mature on schedule, while the rest of the cash isn't sitting completely idle.
+
+6. {#calc1} [calc] A $100,000 Treasury bill maturing in 3 months is bought for $98,800. What is its annualized simple yield?
+   - About 1.21%
+   - About 4.80%
+   - About 1.20%
+   - [x] About 4.86%
+   > The gain is $1,200 on $98,800, which is 1.215% for a quarter. Multiplying by 4 gives about 4.86% a year.

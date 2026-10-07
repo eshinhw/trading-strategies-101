@@ -90,7 +90,7 @@ The win is four times the $5,000 risk budget. Losses stay small, so a few big wi
    - Futures have no daily price limits
    > Standardized, liquid futures contracts let a trend follower take long or short exposure to dozens of markets — commodities, currencies, rates, indexes — with relatively modest capital, which is much harder to do with individual stocks.
 
-6. A trader risks $5,000 on a trade with a $2,000-per-contract stop-loss distance. How many contracts do they buy?
+6. [calc] A trader risks $5,000 on a trade with a $2,000-per-contract stop-loss distance. How many contracts do they buy?
    - 1 contract
    - [x] About 2 contracts ($5,000 ÷ $2,000)
    - 10 contracts

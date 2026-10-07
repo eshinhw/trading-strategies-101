@@ -82,7 +82,7 @@ The dollar has the higher rate, so it trades at a forward discount and the euro 
    - A tax charged by the central bank
    > A dealer buys at the bid and sells at the ask, so the spread between them is how the dealer earns a return and what a trader pays to enter and exit.
 
-2. EUR/USD is 1.20 and GBP/USD is 1.50. What is the cross rate EUR/GBP?
+2. [calc] EUR/USD is 1.20 and GBP/USD is 1.50. What is the cross rate EUR/GBP?
    - 1.80
    - 0.60
    - [x] 0.80, because EUR/GBP = 1.20 / 1.50

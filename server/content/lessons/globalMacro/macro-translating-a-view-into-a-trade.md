@@ -94,3 +94,10 @@ Three instruments express one view, each with a different profit and a different
    - The example describes no specific instruments at all
    - Exactly five instruments are described
    > The example deliberately shows three distinct instruments, each capturing the same inflation thesis with a different risk profile.
+
+6. {#calc1} [calc] An investor shorts $10 million of government bonds (duration 8) on an inflation view, and yields rise 0.25 percentage points. What is the profit?
+   - $20,000
+   - $2,000,000
+   - [x] $200,000
+   - $250,000
+   > The bonds fall about 8 × 0.25% = 2.0%, so the short earns 2.0% × $10M = $200,000.

@@ -91,3 +91,10 @@ Selling would lock in the result and could trigger a tax bill, and doing nothing
    - They have no expiration
    - They are exempt from market moves
    > Because of their asymmetry and variety of combinations, options can produce payoffs a plain stock position can't.
+
+6. {#calc1} [calc] A manager holds 50,000 shares at $40 and buys puts on all of them with a strike of 38 for $1.20 each. The stock falls to $30. What is the net loss?
+   - $500,000
+   - $100,000
+   - [x] $160,000
+   - $60,000
+   > The stock loses 50,000 × $10 = $500,000. The puts pay (38 − 30) × 50,000 = $400,000 and cost $60,000, so the net loss is $500,000 − $400,000 + $60,000 = $160,000.

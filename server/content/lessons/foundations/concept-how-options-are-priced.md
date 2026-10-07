@@ -94,7 +94,7 @@ The stock must rise above 107.50 for the buyer to profit, not just above the 100
    - It becomes zero
    > Higher volatility raises time value for both calls and puts.
 
-5. In the example, a call with strike 100 is priced at 7.50 with the stock at 105. How much is time value?
+5. [calc] In the example, a call with strike 100 is priced at 7.50 with the stock at 105. How much is time value?
    - 5.00
    - 7.50
    - [x] 2.50

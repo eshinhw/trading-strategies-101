@@ -88,3 +88,10 @@ The airline and farmer remove price from their budgets. The speculator is paid, 
    - [x] To lock in much of its fuel cost for the year, removing price risk from its budget
    - To avoid ever buying fuel
    > Fuel is a large cost for an airline, so locking in its price makes the company's costs more predictable.
+
+6. {#calc1} [calc] An airline burns 60 million gallons of fuel a year and hedges half at $2.50. Fuel rises to $3.10. What is its extra cost after the hedge gain?
+   - [x] $18 million
+   - $36 million
+   - $30 million
+   - $9 million
+   > The extra cost on all fuel is 60M × $0.60 = $36M. The hedge on 30M gallons gains 30M × $0.60 = $18M, so the net extra cost is $18M.

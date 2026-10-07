@@ -140,7 +140,7 @@ Desks repeat that trade until the quote falls back to about $6.50, which is why 
    - It makes commodity forwards impossible to trade
    > Reverse cash-and-carry arbitrage — the correction for an underpriced forward — depends on being able to short the physical asset; when that's impractical, as it often is for commodities, forward prices can drift further from the pure cost-of-carry value, which is part of why convenience yield matters so much for commodities specifically.
 
-11. The mill's merchant prices a six-month wheat forward from a spot price of $6.30, a 4% financing rate and $0.07 of storage per bushel. What is the fair forward price?
+11. [calc] The mill's merchant prices a six-month wheat forward from a spot price of $6.30, a 4% financing rate and $0.07 of storage per bushel. What is the fair forward price?
    - $6.30
    - [x] $6.50
    - $6.37

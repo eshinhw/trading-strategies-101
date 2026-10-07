@@ -79,3 +79,10 @@ The alert does not prove laundering. It identifies activity that needs a human r
    - A small administrative fee with no further penalty
    - Automatic dissolution of the institution in every case
    > Regulators have levied enormous fines against banks found to have systemically inadequate controls, reflecting how seriously anti-money-laundering compliance is enforced.
+
+6. {#calc1} [calc] A customer who normally deposits about $3,000 of cash a month makes four $9,500 cash deposits in one week. About how many times the monthly norm is that week's total?
+   - About 3.2 times
+   - [x] About 12.7 times
+   - About 9.5 times
+   - About 38 times
+   > The week's total is 4 × $9,500 = $38,000, and $38,000 / $3,000 ≈ 12.7. Deposits just under $10,000 repeated like this are a classic structuring alert.

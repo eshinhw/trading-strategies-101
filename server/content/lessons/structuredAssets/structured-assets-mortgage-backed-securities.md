@@ -93,3 +93,10 @@ The investor gets little of the price gain when rates fall, and still absorbs th
    - Because corporate bonds also allow unlimited early prepayment
    - Because MBS principal is never actually repaid
    > The borrower's prepayment option is what makes MBS cash flow timing uncertain in a way a typical corporate bond, without an equivalent early-repayment option, is not.
+
+6. {#calc1} [calc] A $50 million mortgage pool pays 6%. After rates fall, 30% is repaid early and reinvested at 4%. How much annual income is lost?
+   - $900,000
+   - [x] $300,000
+   - $600,000
+   - $3,000,000
+   > The prepaid amount is $15M, and the rate falls from 6% to 4%, so the lost income is $15M × 2% = $300,000 a year.

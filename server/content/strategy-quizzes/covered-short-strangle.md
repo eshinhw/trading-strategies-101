@@ -31,3 +31,10 @@ slug: covered-short-strangle
    - The shares are called away at the call strike, since the stock finished between the two strikes at expiration
    - The investor loses the premium, because options that expire worthless take the credit back from the seller
    > If neither strike is reached, the premium is kept.
+
+5. {#calc1} [calc] A trader builds a Covered Short Strangle: owns the stock, bought at $100, sells one $105 call, and sells one $95 put, with a net option premium of $5 received. What is the maximum profit at expiration, per share?
+   - $5
+   - $95
+   - $100
+   - [x] $10
+   > For this position (S0 = 100, K = 105, Kp = 95, net credit = 5), the maximum profit is $10 per share. Formula: P_max = K - S0 + C.

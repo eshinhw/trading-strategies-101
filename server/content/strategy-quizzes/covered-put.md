@@ -31,3 +31,10 @@ slug: covered-put
    - [x] The put is assigned and the investor buys shares at 95, so the gain is capped even though the stock fell further
    - The investor loses the premium, because the put was exercised in the investor's favor at 95
    > The short put obligation caps the profit at the strike, plus the premium.
+
+5. {#calc1} [calc] A trader builds a Covered Put: is short the stock, sold at $100 and sells one $95 put, with a net option premium of $3 received. What is the break-even stock price at expiration, per share?
+   - [x] $103
+   - $100
+   - $8
+   - $3
+   > For this position (S0 = 100, K = 95, net credit = 3), the break-even stock price is $103 per share. Formula: S* = S0 + C.

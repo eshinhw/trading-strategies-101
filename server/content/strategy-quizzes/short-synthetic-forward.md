@@ -31,3 +31,10 @@ slug: short-synthetic-forward
    - [x] It loses roughly dollar for dollar, like a short stock position, because the short call moves against you
    - Nothing happens, because the long put and the short call cancel out each other's changes in value
    > The short call has unlimited loss potential as the stock rises.
+
+5. {#calc1} [calc] A trader builds a Short Synthetic Forward: buys one $100 put and sells one $100 call, for no net premium. What is the break-even stock price at expiration, per share?
+   - $0
+   - $101
+   - [x] $100
+   - $99
+   > For this position (K = 100), the break-even stock price is $100 per share. Formula: S* = K + netCF.

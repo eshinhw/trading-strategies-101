@@ -31,3 +31,10 @@ slug: long-straddle
    - The straddle is assigned shares, because the options finish at the money on the expiration date
    - Only the put loses value, because the call gains from the small rise that happens after earnings
    > Without a large move, neither leg gains enough to offset the cost.
+
+5. {#calc1} [calc] A trader builds a Long Straddle: buys one $100 call and buys one $100 put, for a net debit of $6 per share. What is the maximum loss at expiration, per share?
+   - $0
+   - $94
+   - $106
+   - [x] $6
+   > For this position (K = 100, net debit = 6), the maximum loss is $6 per share. Formula: L_max = D.

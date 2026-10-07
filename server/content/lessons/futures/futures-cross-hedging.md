@@ -85,7 +85,7 @@ The hedge covers almost all of the increase. It isn't exact, because the 0.85 ra
    - They cannot hedge at all
    > Jet fuel prices tend to move closely with other refined petroleum products like heating oil and crude oil, making them a workable, if imperfect, cross-hedge.
 
-6. A regression gives a hedge ratio of 0.85 for a 100,000-gallon jet-fuel exposure hedged with heating oil futures. How many gallon-equivalents of heating oil futures exposure should be used?
+6. [calc] A regression gives a hedge ratio of 0.85 for a 100,000-gallon jet-fuel exposure hedged with heating oil futures. How many gallon-equivalents of heating oil futures exposure should be used?
    - 100,000 gallons, a full one-to-one hedge
    - [x] 85,000 gallons (0.85 × 100,000)
    - 15,000 gallons

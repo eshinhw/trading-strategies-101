@@ -31,3 +31,10 @@ slug: bearish-short-seagull-spread
    - The loss is capped at a small debit, because the short call is covered by the long put at the same strike
    - [x] The loss grows without bound, just as if the call had been sold alone
    > The short call is the risk in this structure.
+
+5. {#calc1} [calc] A trader builds a Bearish Short Seagull Spread: sells one $90 put, buys one $100 put, and sells one $110 call, for no net premium. What is the maximum profit at expiration, per share?
+   - $20
+   - [x] $10
+   - $100
+   - $11
+   > For this position (K1 = 90, K2 = 100, K3 = 110), the maximum profit is $10 per share. Formula: P_max = K2 - K1 + netCF.

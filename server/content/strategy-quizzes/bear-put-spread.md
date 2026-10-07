@@ -31,3 +31,10 @@ slug: bear-put-spread
    - [x] Only the debit paid
    - Nothing at all, because the short put premium is larger than the premium paid for the long put
    > Maximum loss is the net debit, which happens when both puts expire worthless.
+
+5. {#calc1} [calc] A trader builds a Bear Put Spread: buys one $100 put and sells one $90 put, for a net debit of $3 per share. What is the maximum loss at expiration, per share?
+   - $7
+   - [x] $3
+   - $10
+   - $97
+   > For this position (K1 = 100, K2 = 90, net debit = 3), the maximum loss is $3 per share. Formula: L_max = D.

@@ -31,3 +31,10 @@ slug: long-iron-butterfly
    - [x] The loss is capped at the wing width minus the credit, instead of growing without bound
    - The loss equals the entire credit plus the stock move
    > The long call limits the risk that a plain short straddle carries.
+
+5. {#calc1} [calc] A trader builds a "Long" Iron Butterfly: buys one $90 put, sells one $100 put, sells one $100 call, and buys one $110 call, for a net credit of $6 per share. What is the maximum loss at expiration, per share?
+   - $6
+   - [x] $4
+   - $20
+   - $94
+   > For this position (K1 = 90, K2 = 100, K3 = 110, net credit = 6), the maximum loss is $4 per share. Formula: L_max = κ - C, where κ = K2-K1 = K3-K2.

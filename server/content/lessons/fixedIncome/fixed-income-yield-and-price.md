@@ -95,14 +95,14 @@ The coupon and the company's ability to pay are unchanged. Only the market rate 
    - All existing bonds are recalled by their issuers
    > When new bonds offer lower coupons, existing bonds with higher, fixed coupons become relatively more attractive, pushing their prices up — the mirror image of the rate-rise case.
 
-6. The manufacturer's 5% bond has 9 years left, and market yields rise to 6%. Which price is closest to what the bond is worth?
+6. [calc] The manufacturer's 5% bond has 9 years left, and market yields rise to 6%. Which price is closest to what the bond is worth?
    - $1,068.77
    - $1,000.00
    - [x] $931.23
    - $850.00
    > A buyer wants a 6% yield, so the price must fall below face value until the fixed $25 coupons plus the pull back to $1,000 give 6%. $931.23 is the discounted value of those payments.
 
-7. At that $931.23 price, what is the bond's current yield (annual coupon divided by price)?
+7. [calc] At that $931.23 price, what is the bond's current yield (annual coupon divided by price)?
    - 5.00%
    - [x] 5.37%
    - 6.00%

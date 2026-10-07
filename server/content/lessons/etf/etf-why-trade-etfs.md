@@ -84,3 +84,10 @@ ETFs give broad exposure in one trade and, usually, a smaller tax bill along the
    - Building a custom basket is always cheaper than buying an ETF
    - ETFs cannot replicate any specific sector or theme
    > An ETF does the work of assembling and maintaining a specific basket, which is often far more convenient than a trader replicating that exposure manually.
+
+6. {#calc1} [calc] A mutual fund distributes a 5% capital gain on a $120,000 holding, taxed at 20%. How much tax is due that year?
+   - $6,000
+   - [x] $1,200
+   - $24,000
+   - $120
+   > The distribution is $120,000 × 5% = $6,000, and tax at 20% is $1,200. An ETF would normally pass on no such gain.

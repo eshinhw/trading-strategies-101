@@ -85,3 +85,10 @@ The operator does not want to speculate on gas. It wants to lock in the $22.50. 
    - To let the operator speculate on unrelated currency markets
    - The example describes no original purpose for the instrument
    > The instrument's origin is a genuine operational hedging need, consistent with this lesson's broader point about how niche instruments typically come to exist.
+
+6. {#calc1} [calc] A 50 MW plant runs around the clock for a 30-day month (36,000 MWh). Power sells for $50 per MWh and gas costs $4 per MMBtu at a heat rate of 8 MMBtu per MWh. What is the monthly margin?
+   - $1,800,000
+   - $1,152,000
+   - [x] $648,000
+   - $18,000
+   > The spark spread is $50 − 8 × $4 = $18 per MWh, and $18 × 36,000 MWh = $648,000.

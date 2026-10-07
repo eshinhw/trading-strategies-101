@@ -31,3 +31,10 @@ slug: short-call
    - The trader loses the premium, since the option expired out of the money for the seller
    - The trader owes the buyer the difference between the stock price and the strike price
    > If the option expires out of the money, the seller keeps the credit received.
+
+5. {#calc1} [calc] A trader builds a Short Call: sells one $100 call, for a net credit of $4 per share. What is the maximum profit at expiration, per share?
+   - [x] $4
+   - $104
+   - $5
+   - $3
+   > For this position (K = 100, net credit = 4), the maximum profit is $4 per share. Formula: P_max = C.

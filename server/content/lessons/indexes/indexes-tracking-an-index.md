@@ -92,3 +92,10 @@ Tracking error is how much the difference between fund and index varies over tim
    - ETFs never track an index — only mutual funds do
    - Index funds and ETFs use entirely different, unrelated mechanisms
    > Index-tracking ETFs use exactly the replication/sampling choice described here, built and maintained through the creation/redemption process covered in the ETF course.
+
+6. {#calc1} [calc] A $500 million index fund returns 7.92% while its index returns 8.00%. What does the tracking difference cost the fund's investors in dollars?
+   - $40,000
+   - $4,000,000
+   - [x] $400,000
+   - $39,600,000
+   > The shortfall is 0.08% of $500,000,000 = $400,000.

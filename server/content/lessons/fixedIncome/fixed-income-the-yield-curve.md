@@ -82,7 +82,7 @@ $$
    - The curve's shape only matters for corporate bonds, never government bonds
    > A steep curve favors different strategies (like rolling down the curve) than a flat or inverted one, making the curve's shape directly relevant to strategy selection, not just economic forecasting.
 
-6. The manufacturer can borrow $50 million for 2 years at 4.1% or for 10 years at 5.0%. How much more does the 10-year option cost each year?
+6. [calc] The manufacturer can borrow $50 million for 2 years at 4.1% or for 10 years at 5.0%. How much more does the 10-year option cost each year?
    - $45,000
    - [x] $450,000
    - $900,000

@@ -88,3 +88,10 @@ The 2.4 points show whether the manager's sector and size bets added value beyon
    - A guarantee of a minimum return
    - Indices have no practical use in investing
    > Indices are widely used as benchmarks — a reference point for judging whether an individual stock, sector, or strategy over- or under-performed the broader market.
+
+6. {#calc1} [calc] A company has 1.2 billion shares outstanding at $85. What is its market capitalization?
+   - $10.2 billion
+   - $1.02 trillion
+   - [x] $102 billion
+   - $85 billion
+   > Market cap is price times shares: $85 × 1.2 billion = $102 billion.

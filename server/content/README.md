@@ -54,7 +54,29 @@ $$
    - Choice
    - [x] Choice
    > Explanation.
+
+3. {#calc1} [calc] A business scenario with numbers where the learner has to work out the answer. What is the result?
+   - A plausible wrong number
+   - [x] The correct number
+   - Another plausible wrong number
+   > Show the working in the explanation.
 ```
+
+## Question kinds (Quiz Bank)
+
+Every question is either a **concept check** (the default: true/false or multiple choice that tests an idea
+directly) or a **calculation** (a short business scenario where the learner computes a number and then picks it
+from the choices). Put `[calc]` right after the number, and the optional `{#id}`, to mark a calculation; `[concept]`
+is accepted too but is the default. The Quiz Bank lets learners practise either kind or both, and lessons show
+both kinds in their knowledge check.
+
+Writing a good calculation question:
+
+- Give 2 or more numbers in the scenario so there is something to compute, and make every choice a number
+  (money, a percentage, a count) rather than a sentence.
+- Make the wrong choices the answers a learner gets from the usual mistakes (forgetting to halve, mixing up a
+  rate and a dollar amount, using the wrong leg).
+- Put the working in the explanation, so a wrong answer teaches the method.
 
 ## Rules
 

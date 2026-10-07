@@ -89,3 +89,10 @@ Raising $100 million at 3% instead of a 7% plain bond saves $4 million a year. I
    - Convertibles offer no benefit to either issuers or investors
    - Convertibles are identical to plain bonds in every respect
    > The combination of bond-like protection and stock-like upside, traded off against coupon income and contingent dilution, is the core convertible bargain — and exactly what later strategies in this course exploit.
+
+6. {#calc1} [calc] An investor buys 50 convertible bonds at $1,050 each, each convertible into 25 shares. The stock rises to $60 and the investor converts. What is the gain, ignoring coupons?
+   - [x] $22,500
+   - $75,000
+   - $15,000
+   - $7,500
+   > The shares are worth 50 × 25 × $60 = $75,000, and the cost was 50 × $1,050 = $52,500, so the gain is $22,500.

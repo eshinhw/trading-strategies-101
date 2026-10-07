@@ -31,3 +31,10 @@ slug: long-combo
    - A trader who wants to profit from a quiet market and expects the stock to stay near today's price
    - A trader who needs a guaranteed gain and is unwilling to accept any risk of losing money on the position
    > It is a bullish, leveraged, near-zero-cost way to express a view.
+
+5. {#calc1} [calc] A trader builds a Long Combo: buys one $105 call and sells one $95 put, for no net premium. What is the maximum loss at expiration, per share?
+   - [x] $95
+   - $10
+   - $96
+   - $94
+   > For this position (K2 = 95, K1 = 105), the maximum loss is $95 per share. Formula: L_max = K2 + netCF.

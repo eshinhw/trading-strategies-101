@@ -95,14 +95,14 @@ The bond is cheaper because bondholders take less risk. They are paid before sha
    - Because bonds are legally required to be held by all investors
    > Bonds trade unlimited upside for a steadier, more predictable payment stream — a useful complement to the more volatile, open-ended payoff of stocks.
 
-6. Each bond has a $1,000 face value and a 5% coupon paid twice a year. How much does one bondholder receive at each coupon date?
+6. [calc] Each bond has a $1,000 face value and a 5% coupon paid twice a year. How much does one bondholder receive at each coupon date?
    - $5
    - [x] $25
    - $50
    - $1,000
    > 5% of $1,000 is $50 a year, paid in two equal parts, so each payment is $25.
 
-7. Over the full 10 years, how much interest does the company pay in total on its $50 million of bonds?
+7. [calc] Over the full 10 years, how much interest does the company pay in total on its $50 million of bonds?
    - $2.5 million
    - $12.5 million
    - [x] $25 million

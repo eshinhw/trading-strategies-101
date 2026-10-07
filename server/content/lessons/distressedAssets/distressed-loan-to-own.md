@@ -89,3 +89,10 @@ The fund ends with a majority of the equity in a viable business. It paid $82.5 
    - A guaranteed cash payment with no equity involved
    - Immediate liquidation of the manufacturer's assets
    > The debt-to-equity conversion is what completes the loan-to-own thesis, turning a discounted debt purchase into effective control of the business.
+
+6. {#calc1} [calc] A fund buys $100 million face of a $200 million senior class at 55 cents. In the reorganization the class receives $40 million of new debt plus equity worth $120 million. What is the fund's profit?
+   - [x] $25 million
+   - $80 million
+   - $55 million
+   - $45 million
+   > The fund owns half the class, so it receives half of $160M = $80M. It paid $100M × 0.55 = $55M, so the profit is $25M.

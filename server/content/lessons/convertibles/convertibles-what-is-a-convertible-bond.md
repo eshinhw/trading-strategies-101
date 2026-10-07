@@ -87,3 +87,10 @@ Investors accept the lower coupon because they also receive the right to convert
    - An option on interest rates alone
    - No option is bundled into a convertible bond
    > The right to convert into shares at a fixed ratio is economically equivalent to holding a call option on the issuer's stock, embedded directly in the bond.
+
+6. {#calc1} [calc] A company raises $60 million with a 2% convertible bond instead of a 6% straight bond. How much interest does it save each year?
+   - $1.2 million
+   - $3.6 million
+   - [x] $2.4 million
+   - $4.8 million
+   > The coupon saving is (6% − 2%) × $60,000,000 = $2,400,000 a year.

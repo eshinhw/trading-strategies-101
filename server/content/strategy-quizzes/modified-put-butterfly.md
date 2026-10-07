@@ -31,3 +31,10 @@ slug: modified-put-butterfly
    - Only if the stock collapses far below every strike, since the long puts then finish with their full value
    - Only if the stock finishes above the highest strike, where all of the puts expire worthless for the trader
    > A large move either way limits the gain or turns it into a loss.
+
+5. {#calc1} [calc] A trader builds a Modified Put Butterfly: buys one $85 put, sells two $100 puts, and buys one $105 put, for a net credit of $1 per share. What is the maximum profit at expiration, per share?
+   - [x] $6
+   - $9
+   - $1
+   - $20
+   > For this position (K1 = 85, K2 = 100, K3 = 105, net credit = 1), the maximum profit is $6 per share. Formula: P_max = K3 - K2 - H.

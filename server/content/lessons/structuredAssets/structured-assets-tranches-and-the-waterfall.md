@@ -90,3 +90,10 @@ Both investors are exposed to the same loans. The only difference is where each 
    - The equity tranche is guaranteed by the government
    - Coupon size has no relationship to a tranche's risk
    > Since the equity tranche is first to absorb losses and can be wiped out well before senior tranches are touched, it's compensated with a materially higher coupon to reflect that greater risk.
+
+6. {#calc1} [calc] A $200 million pool earns 7% ($14M). It funds a $140 million senior tranche at 5% and a $40 million mezzanine tranche at 8%, with a $20 million equity tranche. What is the equity tranche's return?
+   - [x] 19%
+   - 7%
+   - 3.8%
+   - 38%
+   > Senior pays $7.0M and mezzanine pays $3.2M, leaving $14.0M − $10.2M = $3.8M for the equity, and $3.8M / $20M = 19%.

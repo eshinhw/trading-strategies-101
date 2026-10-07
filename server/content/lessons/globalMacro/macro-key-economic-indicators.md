@@ -82,3 +82,10 @@ The desk accepts a smaller expected payoff in exchange for half the exposure to 
    - Reducing position size before data releases is legally required
    - Position sizing has no connection to scheduled data releases
    > The risk of a sharp, fast move around a major data surprise is exactly why desks often manage exposure more conservatively heading into it.
+
+6. {#calc1} [calc] A desk holds $30 million of 10-year notes with a duration of 8. What does a 1 basis point change in yield move the position by, and what does a 10 basis point surprise cost?
+   - [x] $24,000 per basis point, and $240,000 for 10
+   - $2,400 per basis point, and $24,000 for 10
+   - $24,000 per basis point, and $2,400,000 for 10
+   - $240,000 per basis point, and $2,400,000 for 10
+   > The value of a basis point is $30,000,000 × 8 × 0.01% = $24,000, and 10 basis points is 10 × $24,000 = $240,000.

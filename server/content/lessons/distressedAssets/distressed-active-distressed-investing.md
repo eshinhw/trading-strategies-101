@@ -84,3 +84,10 @@ A passive bondholder in the same class would have had to accept the warrants. Th
    - Immediate liquidation of the entire company
    - The example shows no difference in outcome between active and passive investors
    > The committee seat gave the investor real influence to negotiate a materially better outcome than simply accepting whatever plan was initially proposed.
+
+6. {#calc1} [calc] An investor owns 12% of a $150 million unsecured bond class, bought at 40 cents. The negotiated plan pays the class 45 cents. What is the investor's profit?
+   - [x] $0.9 million
+   - $9.0 million
+   - $0.45 million
+   - $8.1 million
+   > Face value held is 12% × $150M = $18M. Cost is $18M × 0.40 = $7.2M, and recovery is $18M × 0.45 = $8.1M, so the profit is $0.9M.

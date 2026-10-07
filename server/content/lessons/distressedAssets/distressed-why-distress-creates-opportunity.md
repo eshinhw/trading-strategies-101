@@ -83,3 +83,10 @@ The forced selling creates the discount, but the gain depends on the quality of 
    - Distressed debt cannot lose value
    - Courts guarantee full repayment
    > A discount may reflect real risk, so the investor must analyze the likely recovery.
+
+6. {#calc1} [calc] An investor buys a $1,000 face-value bond for $350 and the eventual recovery is $520. What is the return?
+   - 52%
+   - [x] About 48.6%
+   - About 17%
+   - About 148.6%
+   > The gain is $520 − $350 = $170, and $170 / $350 ≈ 48.6%.

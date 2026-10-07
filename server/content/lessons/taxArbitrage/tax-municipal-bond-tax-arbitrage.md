@@ -92,3 +92,10 @@ The trader captures the spread while the mispricing lasts. The risk is that it w
    - Avoids taking any position at all
    - Converts the municipal bonds into equity shares
    > The trade combines a muni purchase with taxable financing, exactly the financed-version structure described earlier in the lesson.
+
+6. {#calc1} [calc] A muni yields 3.4% and an investor in the 32% bracket would require what taxable-equivalent yield to match it?
+   - 4.6%
+   - 2.3%
+   - 3.4%
+   - [x] 5.0%
+   > The taxable-equivalent yield is 3.4% / (1 − 0.32) = 5.0%. If a comparable taxable bond yields less than that, the muni looks cheap.

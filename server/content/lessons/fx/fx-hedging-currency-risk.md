@@ -85,3 +85,10 @@ The exporter receives $1,105,500 in every case. It gives up the chance of the ex
    - [x] The exporter still gets the locked-in rate, giving up the potential extra gain in return for certainty
    - The exporter owes the bank double
    > A forward removes both downside and upside, which is why some companies hedge only part of an exposure or use options to keep some benefit.
+
+6. {#calc1} [calc] A U.S. exporter will receive €500,000 and sells it forward at 1.1000. At maturity EUR/USD is 1.0600. How much does the hedge save compared with not hedging?
+   - [x] $20,000
+   - $30,000
+   - $550,000
+   - $2,000
+   > Hedged proceeds are 500,000 × 1.10 = $550,000, against 500,000 × 1.06 = $530,000 unhedged, a saving of $20,000.

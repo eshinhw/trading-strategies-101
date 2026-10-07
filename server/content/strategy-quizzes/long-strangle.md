@@ -31,3 +31,10 @@ slug: long-strangle
    - The put gains enough to offset the loss
    - The strangle is assigned shares, because the call finishes in the money by the date of expiration
    > A small move is not enough to move either out-of-the-money option into profit.
+
+5. {#calc1} [calc] A trader builds a Long Strangle: buys one $105 call and buys one $95 put, for a net debit of $4 per share. What is the lower break-even stock price at expiration, per share?
+   - [x] $91
+   - $109
+   - $10
+   - $4
+   > For this position (K1 = 105, K2 = 95, net debit = 4), the lower break-even stock price is $91 per share. Formula: S*_up = K1 + D; S*_down = K2 - D.

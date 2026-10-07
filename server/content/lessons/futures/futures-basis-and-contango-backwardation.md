@@ -81,7 +81,7 @@ The roll cost has nothing to do with whether the trader's view on crude's direct
    - Because trading volume disappears near expiration
    > At expiration, the futures price and spot price must reflect the same asset at the same moment, so any remaining basis converges to (near) zero as that date arrives.
 
-5. Crude oil spot is $78 and the three-month future is $80. What is the basis, and what market condition does it describe?
+5. [calc] Crude oil spot is $78 and the three-month future is $80. What is the basis, and what market condition does it describe?
    - [x] −$2 basis, contango
    - +$2 basis, backwardation
    - $0 basis, no relationship between spot and futures

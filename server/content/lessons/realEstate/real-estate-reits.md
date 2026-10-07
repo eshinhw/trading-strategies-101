@@ -91,3 +91,10 @@ The investor owns a slice of a diversified portfolio of properties without touch
    - REITs are only available to institutional investors, not individuals
    - REITs require a larger minimum investment than buying property directly
    > Before REITs, meaningful real estate exposure typically required substantial capital or private connections — a publicly traded REIT share lowers that bar dramatically.
+
+6. {#calc1} [calc] A REIT earns taxable income of $4.00 a share and must distribute at least 90%. What annual dividend must an investor with 800 shares receive?
+   - At least $3,200
+   - At least $320
+   - At least $288
+   - [x] At least $2,880
+   > The required distribution is $4.00 × 90% = $3.60 a share, and $3.60 × 800 = $2,880.

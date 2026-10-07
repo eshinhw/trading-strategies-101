@@ -31,3 +31,10 @@ slug: bull-put-spread
    - [x] Both puts expire worthless and the trader keeps the full credit
    - The trader keeps only half of the credit, because the long put also has to be paid for
    > The maximum profit is the credit, earned when the stock stays above the short strike.
+
+5. {#calc1} [calc] A trader builds a Bull Put Spread: buys one $90 put and sells one $95 put, for a net credit of $2 per share. What is the break-even stock price at expiration, per share?
+   - $5
+   - $3
+   - $2
+   - [x] $93
+   > For this position (K1 = 90, K2 = 95, net credit = 2), the break-even stock price is $93 per share. Formula: S* = K2 - C.

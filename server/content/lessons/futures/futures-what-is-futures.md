@@ -94,7 +94,7 @@ A wheat futures contract works the same way, with a different underlying and mul
    - Options and futures never share any long/short structure
    > An option's buyer has optionality — they can let it expire worthless — while both sides of a futures contract carry a real, symmetric obligation, which is exactly why futures need daily margining.
 
-7. Two traders take opposite sides of an E-mini S&P 500 contract ($50 multiplier) at 4,500.00, which settles the next day at 4,510.00. What happens?
+7. [calc] Two traders take opposite sides of an E-mini S&P 500 contract ($50 multiplier) at 4,500.00, which settles the next day at 4,510.00. What happens?
    - [x] The long is credited $500 and the short is debited $500
    - Both traders are credited $500
    - Neither trader's account changes until expiration

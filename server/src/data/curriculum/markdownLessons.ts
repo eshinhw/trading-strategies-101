@@ -158,12 +158,13 @@ function parseQuiz(lines: string[], startLine: number, file: string): ConceptQui
     const trimmed = raw.trim();
     if (trimmed === "") return;
 
-    const start = /^(\d+)\.\s+(?:\{#([\w-]+)\}\s+)?(.*)$/.exec(raw);
+    const start = /^(\d+)\.\s+(?:\{#([\w-]+)\}\s+)?(?:\[(calc|concept)\]\s+)?(.*)$/.exec(raw);
     if (start) {
       finish();
       current = {
         id: start[2] ?? `q${start[1]}`,
-        prompt: start[3].trim(),
+        kind: start[3] === "calc" ? "calc" : "concept",
+        prompt: start[4].trim(),
         choices: [],
         correctIndex: -1,
         explanation: "",

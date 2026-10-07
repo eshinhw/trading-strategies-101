@@ -81,7 +81,7 @@ If the reference rate fell to 4.25%, the company would pay the FRA about $183,60
    - Because FRAs always involve physical delivery of a commodity instead
    > The notional is purely a reference amount for calculating the interest-rate-difference settlement — no actual loan or deposit of that principal ever takes place between the two parties.
 
-6. A company buys a 3×9 FRA on $50 million at 5.00%, and the reference rate is 5.75% when the period starts. What does the FRA pay it, to the nearest thousand?
+6. [calc] A company buys a 3×9 FRA on $50 million at 5.00%, and the reference rate is 5.75% when the period starts. What does the FRA pay it, to the nearest thousand?
    - $37,500
    - $187,500
    - [x] $182,000

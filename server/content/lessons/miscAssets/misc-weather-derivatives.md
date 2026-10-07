@@ -85,3 +85,10 @@ The payout does not depend on the stock market, so it offsets the shortfall from
    - It has no payout structure related to winter temperatures at all
    - It requires the utility to pay an additional penalty for the mild winter
    > The derivative is structured specifically to offset the exact revenue risk a mild winter creates for a heating-demand-dependent utility.
+
+6. {#calc1} [calc] A weather derivative pays $4,000 per heating degree day below 4,600. The winter has 4,350. What is the payout?
+   - $250,000
+   - [x] $1,000,000
+   - $4,000,000
+   - $100,000
+   > The shortfall is 4,600 − 4,350 = 250 degree days, and 250 × $4,000 = $1,000,000.

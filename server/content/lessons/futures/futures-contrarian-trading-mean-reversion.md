@@ -86,7 +86,7 @@ The rule wins when prices snap back and loses when a real trend starts, so the e
    - Interest rates will rise
    > The core contrarian bet is that an extreme, fast move is more likely to partially reverse than to keep extending in the same direction.
 
-6. Gold's 20-day average is $1,950 with a $15 standard deviation. What's the two-standard-deviation lower band that would trigger a mean-reversion buy signal?
+6. [calc] Gold's 20-day average is $1,950 with a $15 standard deviation. What's the two-standard-deviation lower band that would trigger a mean-reversion buy signal?
    - $1,935
    - [x] $1,920
    - $1,905

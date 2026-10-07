@@ -73,7 +73,7 @@ Rho depends mainly on how long the option has left. It matters for long-dated op
    - Only for stock splits
    > Interest accumulates over longer periods, so long-dated options are more sensitive to rate changes.
 
-5. A one-year call has a rho of 0.25. Rates rise 1 percentage point. About how much does one contract gain, all else equal?
+5. [calc] A one-year call has a rho of 0.25. Rates rise 1 percentage point. About how much does one contract gain, all else equal?
    - 0.25 dollars
    - 2.50 dollars
    - [x] About 25 dollars

@@ -84,3 +84,10 @@ The same company runs the same business, but interest falls by $16 million a yea
    - Nothing changes at all about the company
    - The company's operations are sold off to a competitor
    > Reorganization is fundamentally a restructuring of who owns and is owed what, not necessarily a change in what the business actually does.
+
+6. {#calc1} [calc] A company has $300 million of debt at 8% and EBITDA of $45 million. Half the debt is converted to equity. What is interest coverage (EBITDA / interest) afterwards?
+   - 1.9 times
+   - 7.5 times
+   - 3.0 times
+   - [x] 3.75 times
+   > The remaining debt is $150M, so interest is $150M × 8% = $12M and coverage is $45M / $12M = 3.75 times (it was about 1.9 times before).

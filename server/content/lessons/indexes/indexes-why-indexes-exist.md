@@ -72,7 +72,7 @@ The index lets investors judge a manager against the market, and it makes possib
    - It only includes one stock
    > Consistent, rule-based calculation is what makes an index a reliable yardstick over long periods.
 
-3. A fund returns 8% while the relevant index returns 12%. What does the index comparison show?
+3. [calc] A fund returns 8% while the relevant index returns 12%. What does the index comparison show?
    - The fund beat the market by 4 points
    - The fund and the index performed the same
    - [x] The fund lagged the market by 4 percentage points
@@ -92,3 +92,10 @@ The index lets investors judge a manager against the market, and it makes possib
    - [x] Beating a market benchmark is hard, and index products deliver its return at low cost
    - Indexes cannot lose value
    > Because most managers have trouble consistently beating a benchmark, many investors prefer a low-cost product that simply delivers the index's return.
+
+6. {#calc1} [calc] An investor puts $50,000 in an active fund returning 6% a year, and another $50,000 in an index fund returning 9% a year. After 10 years (annual compounding), about how much larger is the index fund balance?
+   - [x] About $28,800
+   - About $15,000
+   - About $2,900
+   - About $118,400
+   > The index fund grows to $50,000 × 1.09^10 ≈ $118,368 and the active fund to $50,000 × 1.06^10 ≈ $89,542, a gap of about $28,800.

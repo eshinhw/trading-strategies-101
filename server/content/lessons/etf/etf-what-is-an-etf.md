@@ -83,3 +83,10 @@ The ETF combines the diversification of a fund (500 companies in one purchase of
    - Only physical gold
    - ETFs never actually hold any underlying assets
    > An ETF's underlying basket can be built from stocks, bonds, commodities, or a combination, depending on what the fund is designed to track.
+
+6. {#calc1} [calc] An ETF share trades at $400 and a company makes up 3.5% of the fund. How many dollars of that company does one share represent?
+   - $3.50
+   - [x] $14
+   - $140
+   - $0.035
+   > 3.5% of $400 = $14.

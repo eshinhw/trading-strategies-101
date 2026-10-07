@@ -87,3 +87,10 @@ The refiner will pay $4 a barrel above its old price to have oil in hand, becaus
    - The futures contract stops trading entirely
    - Storage costs and convenience yield can never offset each other
    > When the benefit of holding the physical commodity now outweighs the cost of storing it for later delivery, the curve tends toward backwardation rather than contango.
+
+6. {#calc1} [calc] Crude is $82 a barrel. Storing, insuring and financing a barrel costs $0.75 a month. What does the cost of carry imply for the 3-month futures price?
+   - $82.75
+   - $86.50
+   - [x] $84.25
+   - $79.75
+   > The carry for 3 months is 3 × $0.75 = $2.25, so the fair futures price is $82 + $2.25 = $84.25, a market in contango.

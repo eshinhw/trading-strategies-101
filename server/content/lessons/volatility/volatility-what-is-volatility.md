@@ -87,3 +87,10 @@ The market maker does not know whether the stock will end up 2% higher or 15% lo
    - It only matters for calculating dividends
    - The gap is always exactly zero, so it's not a useful signal
    > Strategies that bet on the relationship between what the market expects (implied) and what actually happens (realized) are built directly on this distinction.
+
+6. {#calc1} [calc] A stock trades at $80 and its implied volatility is 36% a year. What is the expected one-month move (one standard deviation)?
+   - About $28.80
+   - About $2.40
+   - [x] About $8.31
+   - About $4.16
+   > The monthly volatility is 36% / √12 ≈ 10.4%, and 10.4% × $80 ≈ $8.31.

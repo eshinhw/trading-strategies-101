@@ -88,3 +88,10 @@ Each tool does a different job. TIPS are the direct hedge, commodities add histo
    - The three instruments described are functionally identical
    - Pension funds are prohibited from using more than one inflation hedge
    > TIPS provide a direct hedge, commodities add historical inflation sensitivity, and swaps allow precise fine-tuning — three complementary tools rather than redundant ones.
+
+6. {#calc1} [calc] A pension fund's inflation-linked liabilities are worth $150 million. By how much do they rise if inflation is 1.5 percentage points higher than expected?
+   - [x] $2.25 million
+   - $1.5 million
+   - $22.5 million
+   - $0.225 million
+   > Each 1% of extra inflation adds 1% to the liabilities, so 1.5% × $150M = $2.25M.

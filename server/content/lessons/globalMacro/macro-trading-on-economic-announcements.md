@@ -85,3 +85,10 @@ If the number had come in at the consensus of 180,000, there would have been no 
    - Exactly one calendar quarter
    - The position is never closed once opened
    > The strategy is built around capturing the sharp, immediate repricing following a surprise, not around holding a longer-term thesis.
+
+6. {#calc1} [calc] A trader sells 80 Treasury note futures at 110.00 (each full point is worth $1,000 per contract), and the price falls to 109.50. What is the profit?
+   - $80,000
+   - $4,000
+   - [x] $40,000
+   - $50,000
+   > The price fell 0.50 points, which is $500 per contract, and 80 × $500 = $40,000.

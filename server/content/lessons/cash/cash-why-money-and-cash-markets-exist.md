@@ -82,3 +82,10 @@ The manufacturer has cash it does not need yet, and the bank needs cash for a sh
    - To avoid paying suppliers
    - To buy a factory
    > Bills that mature before the payments are due keep the money safe and accessible while earning a little.
+
+6. {#calc1} [calc] A manufacturer has $8 million idle for 90 days and buys a Treasury bill yielding 5% a year (360-day basis). About how much does it earn?
+   - About $400,000
+   - About $25,000
+   - [x] About $100,000
+   - About $10,000
+   > Interest is $8,000,000 × 5% × 90/360 = $100,000.

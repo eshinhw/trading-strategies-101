@@ -86,3 +86,10 @@ The unlicensed loan costs more than 28 times as much in interest ($650 vs. $22.5
    - Only large commercial banks with no small-loan options
    - Pawnbroking is illegal and therefore not a real alternative
    > These regulated channels exist precisely to serve the same underserved borrowers loan sharks target, through legal, enforceable, and far less predatory terms.
+
+6. {#calc1} [calc] An unlicensed lender charges 10% a week (simple interest) on a $400 loan. How much interest has built up after 8 weeks?
+   - [x] $320
+   - $32
+   - $3,200
+   - $40
+   > Simple interest is $400 × 10% × 8 weeks = $320, which is 80% of the loan in two months and 520% a year.

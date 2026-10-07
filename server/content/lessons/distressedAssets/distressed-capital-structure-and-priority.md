@@ -84,3 +84,10 @@ Where a claim sits in the structure, not how much the company is worth overall, 
    - Equity and secured debt rank identically in a capital structure
    - There is no realistic scenario where equity holders recover nothing
    > With the company's value covering only secured debt in full and unsecured debt partially, there's nothing left for equity, which sits at the very bottom of the stack.
+
+6. {#calc1} [calc] A company in restructuring is worth $180 million. It owes $90 million of secured debt and $200 million of unsecured debt. How many cents on the dollar do unsecured holders recover?
+   - 90 cents
+   - [x] 45 cents
+   - 100 cents
+   - 22.5 cents
+   > Secured debt is paid first, leaving $180M − $90M = $90M for $200M of unsecured claims, which is 45 cents on the dollar.

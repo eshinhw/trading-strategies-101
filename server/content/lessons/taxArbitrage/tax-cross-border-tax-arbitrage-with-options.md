@@ -98,3 +98,10 @@ The benefit exists only while there is a gap in the rules, and many jurisdiction
    - Direct legal ownership of the foreign shares themselves
    - A guaranteed, risk-free profit unrelated to the stock's performance
    > The swap is structured precisely to replicate the economic exposure of ownership while achieving the more favorable tax treatment this lesson describes.
+
+6. {#calc1} [calc] An investor receives $30,000 of dividends on $600,000 of shares. Owning directly, 25% is withheld. A swap passes the dividend through without withholding but costs 0.4% of $600,000 a year. How much better off is the swap?
+   - $7,500
+   - [x] $5,100
+   - $2,400
+   - $30,000
+   > Directly the investor keeps $22,500. With the swap, $30,000 − $2,400 = $27,600, so it is $5,100 better, as long as the swap payments are not withheld.

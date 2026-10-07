@@ -87,3 +87,10 @@ A risk manager who has never seen the trade can read the shape and spot the dang
    - The chart is missing data
    - The stock is exactly at the strike price
    > A flat line means profit or loss stays the same no matter how the stock price moves within that zone — you're not exposed there.
+
+6. {#calc1} [calc] A trader buys a 100-strike call for 5.00. What is the breakeven stock price at expiration, and what is the most that can be lost per share?
+   - Breakeven is 100, and the most that can be lost is 5
+   - Breakeven is 95, and the most that can be lost is 100
+   - [x] Breakeven is 105, and the most that can be lost is 5
+   - Breakeven is 105, and the loss is unlimited
+   > The stock has to rise above the strike by the premium paid: 100 + 5 = 105. Below 100 the call expires worthless and the loss is the 5 paid.

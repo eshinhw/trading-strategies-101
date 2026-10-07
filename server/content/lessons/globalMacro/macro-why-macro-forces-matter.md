@@ -85,3 +85,10 @@ One view moves every asset class, and the best vehicle depends on what each pric
    - [x] The view can be early, and markets can move against a position for a long time before the economy catches up
    - Markets always follow the economy at once
    > Timing risk and leverage mean even a right view can produce losses along the way.
+
+6. {#calc1} [calc] A view that rates rise is expressed by shorting $10 million of bonds (duration 8). Yields rise 0.5 points, but 0.4 points were already priced in earlier. How much is gained from the remaining move?
+   - $400,000
+   - $320,000
+   - [x] $80,000
+   - $40,000
+   > Only 0.5 − 0.4 = 0.1 percentage point is left, and 8 × 0.1% × $10M = $80,000.

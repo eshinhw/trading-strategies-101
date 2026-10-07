@@ -87,3 +87,10 @@ The convertible falls less than the stock because of the floor, then tracks the 
    - Exposure only to downside risk, with no upside potential
    - The exact same risk profile as owning the stock outright
    > The combination of a bond floor on the downside and stock-like upside participation is the defining appeal of holding a convertible.
+
+6. {#calc1} [calc] A convertible has a conversion ratio of 20 and a bond floor of $850. The stock falls to $30. What is the conversion value, and what sets the convertible's price?
+   - [x] Conversion value is $600, so the $850 bond floor sets the price
+   - Conversion value is $600, so $600 sets the price
+   - Conversion value is $1,500, so it sets the price
+   - Conversion value is $50, so the bond floor does not matter
+   > Conversion value is 20 × $30 = $600, which is below the $850 floor, so the bond floor is what the price is anchored to.

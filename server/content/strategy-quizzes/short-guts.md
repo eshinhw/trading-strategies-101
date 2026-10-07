@@ -31,3 +31,10 @@ slug: short-guts
    - The trader earns unlimited profit, because the short options gain value as the stock moves further away
    - The loss is limited to a small premium
    > A short guts position has unlimited risk if the stock moves far.
+
+5. {#calc1} [calc] A trader builds a Short Guts: sells one $95 call and sells one $105 put, for a net credit of $14 per share. What is the lower break-even stock price at expiration, per share?
+   - $109
+   - $14
+   - [x] $91
+   - $10
+   > For this position (K1 = 95, K2 = 105, net credit = 14), the lower break-even stock price is $91 per share. Formula: S*_up = K1 + C; S*_down = K2 - C.

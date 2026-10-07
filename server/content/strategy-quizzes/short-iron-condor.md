@@ -31,3 +31,10 @@ slug: short-iron-condor
    - The trader loses an unlimited amount, because the sold wings are exposed to a very large move upward
    - The trader keeps a credit
    > Without a breakout, the options expire worthless.
+
+5. {#calc1} [calc] A trader builds a Short Iron Condor: sells one $85 put, buys one $95 put, buys one $105 call, and sells one $115 call, for a net debit of $4 per share. What is the lower break-even stock price at expiration, per share?
+   - $109
+   - [x] $91
+   - $30
+   - $6
+   > For this position (K1 = 85, K2 = 95, K3 = 105, K4 = 115, net debit = 4), the lower break-even stock price is $91 per share. Formula: S*_up = K3 + D; S*_down = K2 - D.

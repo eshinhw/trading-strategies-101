@@ -1,5 +1,6 @@
 import { courses } from "../data/courses/index.js";
 import { modulesForCourse, resolveLesson, quizForLesson } from "../data/curriculum/index.js";
+import type { QuestionKind } from "../data/curriculum/types.js";
 
 // The QuizBank is open practice over the lessons' own knowledge-check questions: nothing is graded or saved here,
 // so (like a lesson page) the answer and explanation travel with each question for instant feedback.
@@ -12,22 +13,30 @@ export interface BankQuestion {
   moduleTitle: string;
   lessonSlug: string;
   lessonTitle: string;
+  kind: QuestionKind;
   prompt: string;
   choices: string[];
   correctIndex: number;
   explanation: string;
 }
 
+/** Which kind of question a session draws from. */
+export type KindFilter = QuestionKind | "all";
+
 export interface BankModule {
   slug: string;
   title: string;
   questionCount: number;
+  conceptCount: number;
+  calcCount: number;
 }
 
 export interface BankCourse {
   slug: string;
   title: string;
   questionCount: number;
+  conceptCount: number;
+  calcCount: number;
   /** in curriculum order, so a learner can narrow a session to part of a course */
   modules: BankModule[];
 }
@@ -40,6 +49,8 @@ function shuffle<T>(items: T[]): T[] {
   }
   return copy;
 }
+
+const matchesKind = (q: BankQuestion, kind: KindFilter) => kind === "all" || q.kind === kind;
 
 function poolForCourse(courseSlug: string): BankQuestion[] {
   const course = courses.find((c) => c.slug === courseSlug);
@@ -59,6 +70,7 @@ function poolForCourse(courseSlug: string): BankQuestion[] {
           moduleTitle: module.title,
           lessonSlug,
           lessonTitle,
+          kind: q.kind,
           prompt: q.prompt,
           choices: q.choices,
           correctIndex: q.correctIndex,
@@ -70,21 +82,34 @@ function poolForCourse(courseSlug: string): BankQuestion[] {
   return out;
 }
 
-/** Every course that has at least one question, with how many, and how they split across its modules. */
+/** Every course that has at least one question, with how many of each kind, and how they split across its modules. */
 export function bankCourses(): BankCourse[] {
   return courses
     .map((c) => {
       const pool = poolForCourse(c.slug);
+      const countOf = (list: BankQuestion[], kind: QuestionKind) => list.filter((q) => q.kind === kind).length;
       const modules = modulesForCourse(c.slug)
         .slice()
         .sort((a, b) => a.order - b.order)
-        .map((m) => ({
-          slug: m.slug,
-          title: m.title,
-          questionCount: pool.filter((q) => q.moduleSlug === m.slug).length,
-        }))
+        .map((m) => {
+          const inModule = pool.filter((q) => q.moduleSlug === m.slug);
+          return {
+            slug: m.slug,
+            title: m.title,
+            questionCount: inModule.length,
+            conceptCount: countOf(inModule, "concept"),
+            calcCount: countOf(inModule, "calc"),
+          };
+        })
         .filter((m) => m.questionCount > 0);
-      return { slug: c.slug, title: c.title, questionCount: pool.length, modules };
+      return {
+        slug: c.slug,
+        title: c.title,
+        questionCount: pool.length,
+        conceptCount: countOf(pool, "concept"),
+        calcCount: countOf(pool, "calc"),
+        modules,
+      };
     })
     .filter((c) => c.questionCount > 0);
 }
@@ -101,11 +126,40 @@ export function bankQuestionsByIds(ids: string[], count: number): BankQuestion[]
  * A random set of questions from the given courses (all courses if none are named). Courses are sampled evenly, so
  * a big course (Options) doesn't drown out a small one, and questions are spread across lessons: at most two per
  * lesson until the pool runs short, so a session doesn't camp on one topic.
+ *
+ * With kind "all" the session is about one calculation for every two concept checks (as far as each kind has
+ * enough questions), so calculations don't vanish into the much larger concept pool.
  */
-export function sampleBankQuestions(courseSlugs: string[], count: number, moduleSlugs: string[] = []): BankQuestion[] {
+export function sampleBankQuestions(
+  courseSlugs: string[],
+  count: number,
+  moduleSlugs: string[] = [],
+  kind: KindFilter = "all",
+): BankQuestion[] {
+  if (kind !== "all") return sampleOneKind(courseSlugs, count, moduleSlugs, kind, new Set());
+
+  const calc = sampleOneKind(courseSlugs, Math.round(count / 3), moduleSlugs, "calc", new Set());
+  const taken = new Set(calc.map((q) => q.id));
+  const concept = sampleOneKind(courseSlugs, count - calc.length, moduleSlugs, "concept", taken);
+  concept.forEach((q) => taken.add(q.id));
+  const picked = [...calc, ...concept];
+  if (picked.length < count) picked.push(...sampleOneKind(courseSlugs, count - picked.length, moduleSlugs, "all", taken));
+  return shuffle(picked);
+}
+
+function sampleOneKind(
+  courseSlugs: string[],
+  count: number,
+  moduleSlugs: string[],
+  kind: KindFilter,
+  exclude: Set<string>,
+): BankQuestion[] {
+  if (count <= 0) return [];
   const slugs = courseSlugs.length > 0 ? courseSlugs : courses.map((c) => c.slug);
   const onlyModules = new Set(moduleSlugs);
-  const pool = slugs.flatMap(poolForCourse).filter((q) => onlyModules.size === 0 || onlyModules.has(q.moduleSlug));
+  const pool = slugs
+    .flatMap(poolForCourse)
+    .filter((q) => (onlyModules.size === 0 || onlyModules.has(q.moduleSlug)) && matchesKind(q, kind) && !exclude.has(q.id));
 
   // Sample evenly across modules when the learner narrowed to modules, otherwise across courses.
   const groups = new Map<string, BankQuestion[]>();

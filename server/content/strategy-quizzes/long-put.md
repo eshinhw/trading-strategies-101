@@ -31,3 +31,10 @@ slug: long-put
    - The trader keeps the premium, since an out-of-the-money option always favors its buyer
    - [x] The put expires worthless and the trader loses only the premium paid
    > Out-of-the-money options expire worthless, and the buyer's loss is the premium.
+
+5. {#calc1} [calc] A trader builds a Long Put: buys one $100 put, for a net debit of $4 per share. What is the break-even stock price at expiration, per share?
+   - $4
+   - [x] $96
+   - $97
+   - $95
+   > For this position (K = 100, net debit = 4), the break-even stock price is $96 per share. Formula: S* = K - D.

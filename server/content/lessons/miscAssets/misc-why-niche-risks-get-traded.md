@@ -86,3 +86,10 @@ An investor or insurer collects the $120,000 premium and takes on the risk. In a
    - The risk of a bank failing
    - The risk of printing money
    > Basis risk is the gap between the hedge's payout and the exposure being hedged.
+
+6. {#calc1} [calc] A ski resort loses $80,000 for each warm day above 18, and a derivative pays $80,000 per warm day above 18. There are 30 warm days and the premium was $90,000. What is the resort's net result from the lost revenue, payout and premium?
+   - $0
+   - −$960,000
+   - +$870,000
+   - [x] −$90,000
+   > The lost revenue is 12 × $80,000 = $960,000 and the payout is also $960,000, so only the $90,000 premium is left as a cost.

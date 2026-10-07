@@ -92,7 +92,7 @@ The fund's benefit payments also have a duration of about 8, so the bonds and th
    - By matching the coupon rates of the two instruments exactly
    > Sizing a hedge by dollar duration, not just maturity, is what actually matches the rate sensitivity of the hedge to the position being protected.
 
-6. A pension fund holds $20 million of the manufacturer's bonds, which have a modified duration of about 7.8. By roughly how much does the position change if rates rise 1 percentage point?
+6. [calc] A pension fund holds $20 million of the manufacturer's bonds, which have a modified duration of about 7.8. By roughly how much does the position change if rates rise 1 percentage point?
    - Gains about $1.56 million
    - [x] Loses about $1.56 million
    - Loses about $156,000

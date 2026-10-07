@@ -68,14 +68,14 @@ The two payoffs always add up to zero. Each side's gain or loss grows by $10,000
    - Forwards and options have identical payoff structures
    > Because there's no premium paid upfront to cap losses, both sides of a forward face symmetric, uncapped payoff risk — a direct consequence of the obligation both sides carry.
 
-4. A mill is long a wheat forward (10,000 bushels, $6.50 delivery price). Spot at maturity is $7.20. What is the mill's payoff?
+4. [calc] A mill is long a wheat forward (10,000 bushels, $6.50 delivery price). Spot at maturity is $7.20. What is the mill's payoff?
    - [x] $7,000 gain
    - $7,000 loss
    - $65,000 gain
    - $0
    > ($7.20 − $6.50) × 10,000 = $7,000 — a gain, since the mill locked in a price below the eventual market price.
 
-5. Using the same wheat forward, if spot at maturity instead falls to $5.80, what is the mill's (long) payoff?
+5. [calc] Using the same wheat forward, if spot at maturity instead falls to $5.80, what is the mill's (long) payoff?
    - [x] −$7,000 (a loss)
    - +$7,000 (a gain)
    - $0

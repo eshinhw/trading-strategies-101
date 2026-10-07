@@ -31,3 +31,10 @@ slug: short-put-synthetic-straddle
    - The position earns the maximum profit
    - [x] The short stock loss is not offset by much, similar to the upside risk of a plain short straddle
    > The risk is concentrated on the upside, where only the premium cushions the short stock loss.
+
+5. {#calc1} [calc] A trader builds a Short Put Synthetic Straddle: is short the stock, sold at $100 and sells two $100 puts, with a net option premium of $8 received. What is the upper break-even stock price at expiration, per share?
+   - [x] $108
+   - $100
+   - $92
+   - $8
+   > For this position (S0 = 100, K = 100, net credit = 8), the upper break-even stock price is $108 per share. Formula: S*_up = S0 + C; S*_down = 2K - S0 - C.

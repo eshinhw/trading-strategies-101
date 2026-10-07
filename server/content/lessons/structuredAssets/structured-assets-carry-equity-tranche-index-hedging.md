@@ -91,3 +91,10 @@ $$
    - It is pure, riskless profit with nothing being compensated
    - The risk that the index itself defaults
    > Once the index hedge strips out systematic, broad market exposure, the remaining carry is compensation for correlation risk — the tranche-specific risk that survives the hedge.
+
+7. {#calc1} [calc] A trader sells protection on a $5 million equity tranche at 500 basis points and buys protection on $1.2 million of the index at 60 basis points. What is the net annual carry?
+   - $250,000
+   - $7,200
+   - $257,200
+   - [x] $242,800
+   > The coupon is $5M × 5% = $250,000 and the index hedge costs $1.2M × 0.60% = $7,200, so the net carry is $242,800.

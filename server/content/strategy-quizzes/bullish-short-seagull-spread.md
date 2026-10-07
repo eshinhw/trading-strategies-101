@@ -31,3 +31,10 @@ slug: bullish-short-seagull-spread
    - The trader loses only a small debit, because the short put is covered by the long call at the same strike
    - [x] The trader is assigned the put and effectively buys the stock at the put strike, as if the put had been sold alone
    > The short put is the risk in this structure.
+
+5. {#calc1} [calc] A trader builds a Bullish Short Seagull Spread: sells one $90 put, buys one $100 call, and sells one $110 call, for no net premium. What is the maximum loss at expiration, per share?
+   - $20
+   - $10
+   - [x] $90
+   - $91
+   > For this position (K1 = 90, K2 = 100, K3 = 110), the maximum loss is $90 per share. Formula: L_max = K1 + netCF.

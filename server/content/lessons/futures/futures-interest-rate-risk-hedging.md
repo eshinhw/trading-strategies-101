@@ -82,7 +82,7 @@ The $2,000 left over is rounding. Picking a round 100 contracts with no duration
    - Hedging always doubles the original risk
    > As with any futures hedge, the hedged position and the futures' own underlying benchmark aren't identical, so their prices can diverge — a source of basis risk that keeps even a well-sized hedge from being perfect.
 
-6. A $10 million portfolio with 7-year duration is hedged with Treasury futures (9-year duration, $100,000 notional each). About how many contracts should be shorted?
+6. [calc] A $10 million portfolio with 7-year duration is hedged with Treasury futures (9-year duration, $100,000 notional each). About how many contracts should be shorted?
    - 9 contracts
    - 70 contracts
    - [x] About 78 contracts

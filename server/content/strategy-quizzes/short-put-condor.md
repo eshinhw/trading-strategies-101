@@ -31,3 +31,10 @@ slug: short-put-condor
    - The trader is assigned shares at the upper short strike, because the options finish in the money
    - [x] The trader keeps close to the full credit
    > A breakout is the outcome the position is built for.
+
+5. {#calc1} [calc] A trader builds a Short Put Condor: sells one $85 put, buys one $95 put, buys one $105 put, and sells one $115 put, for a net credit of $3 per share. What is the upper break-even stock price at expiration, per share?
+   - $88
+   - [x] $112
+   - $30
+   - $7
+   > For this position (K1 = 85, K2 = 95, K3 = 105, K4 = 115, net credit = 3), the upper break-even stock price is $112 per share. Formula: S*_up = K4 - C; S*_down = K1 + C.

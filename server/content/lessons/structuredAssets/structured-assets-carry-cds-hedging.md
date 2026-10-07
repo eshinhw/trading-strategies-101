@@ -99,3 +99,10 @@ The five hedge positions must be recalculated and rebalanced over time, and that
    - They automatically hedge every other name in the pool as well
    - They expire and cannot be renewed
    > Because single-name deltas change as spreads move and the pool ages, a CDS-hedged position requires ongoing rebalancing to stay properly sized — the operational cost of this more precise hedge.
+
+7. {#calc1} [calc] A trader sells protection on a $20 million mezzanine tranche at a 2% coupon and buys CDS on $3 million at 70 basis points. What is the net annual carry?
+   - $400,000
+   - $21,000
+   - [x] $379,000
+   - $421,000
+   > The tranche coupon is $20M × 2% = $400,000 and the hedge costs $3M × 0.70% = $21,000, so the net carry is $379,000.

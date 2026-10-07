@@ -61,7 +61,7 @@ The option must gain $0.20 in value, or about $0.40 of stock movement for a typi
    - It pays dividends
    > A clearinghouse guarantees each listed contract, which lets options be traded freely.
 
-2. A listed option is quoted at 3.00. How much does one contract cost before commission?
+2. [calc] A listed option is quoted at 3.00. How much does one contract cost before commission?
    - 3 dollars
    - 30 dollars
    - [x] 300 dollars
@@ -82,7 +82,7 @@ The option must gain $0.20 in value, or about $0.40 of stock movement for a typi
    - The contract is cancelled
    > Assignment obliges the seller to fulfill the contract at the strike price.
 
-5. A call has a bid of 3.90 and an ask of 4.10. What is the cost of buying and immediately selling one contract?
+5. [calc] A call has a bid of 3.90 and an ask of 4.10. What is the cost of buying and immediately selling one contract?
    - 0 dollars
    - 4 dollars
    - [x] About 20 dollars, from the gap between ask and bid

@@ -83,3 +83,10 @@ The model loses money once costs are included, so the desk does not scale up. On
    - Training-period performance is always a perfectly reliable predictor of future results
    - There is no meaningful difference between training and out-of-sample data
    > Confirming performance on data the model never trained on is the actual check against overfitting, which training-period results alone can't provide.
+
+6. {#calc1} [calc] A neural network's out-of-sample hit rate is 54% with an average win or loss of 1% per trade, and each round trip costs 0.10%. What is the expected result per trade after costs?
+   - [x] −0.02%
+   - +0.08%
+   - +0.54%
+   - −0.10%
+   > Before costs the edge is (0.54 − 0.46) × 1% = +0.08%. Subtracting the 0.10% cost leaves −0.02% per trade, so the model loses money.

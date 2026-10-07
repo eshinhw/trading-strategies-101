@@ -31,3 +31,10 @@ slug: short-strangle
    - The trader loses the premium, because options that expire worthless take the credit back from the seller
    - The trader earns unlimited profit, because the position gains more the longer the stock stays in range
    > If neither option is in the money, the full credit is kept.
+
+5. {#calc1} [calc] A trader builds a Short Strangle: sells one $105 call and sells one $95 put, for a net credit of $4 per share. What is the lower break-even stock price at expiration, per share?
+   - $109
+   - [x] $91
+   - $10
+   - $4
+   > For this position (K1 = 105, K2 = 95, net credit = 4), the lower break-even stock price is $91 per share. Formula: S*_up = K1 + C; S*_down = K2 - C.

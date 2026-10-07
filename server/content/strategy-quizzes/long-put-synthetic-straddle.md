@@ -31,3 +31,10 @@ slug: long-put-synthetic-straddle
    - [x] The shares gain while the puts expire worthless, so it still profits
    - The position is assigned shares, because the puts finish in the money when the stock rises sharply
    > A large rally is profitable thanks to the long stock.
+
+5. {#calc1} [calc] A trader builds a Long Put Synthetic Straddle: owns the stock, bought at $100 and buys two $100 puts, with a net option premium of $8 paid. What is the lower break-even stock price at expiration, per share?
+   - $100
+   - [x] $92
+   - $108
+   - $8
+   > For this position (S0 = 100, K = 100, net debit = 8), the lower break-even stock price is $92 per share. Formula: S*_up = S0 + D; S*_down = 2K - S0 - D.

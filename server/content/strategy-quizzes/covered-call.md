@@ -38,3 +38,10 @@ slug: covered-call
    - It increases the loss, because the call premium has to be paid back if the stock falls
    - It has no effect on the result, since the premium is only kept if the call is exercised
    > The premium offsets a small decline, but the shares can still lose much more than the credit.
+
+6. {#calc1} [calc] A trader builds a Covered Call: owns the stock, bought at $100 and sells one $105 call, with a net option premium of $3 received. What is the break-even stock price at expiration, per share?
+   - $100
+   - $8
+   - $3
+   - [x] $97
+   > For this position (S0 = 100, K = 105, net credit = 3), the break-even stock price is $97 per share. Formula: S* = S0 - C.

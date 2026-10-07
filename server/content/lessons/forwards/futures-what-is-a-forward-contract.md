@@ -199,7 +199,7 @@ This is an important structural difference between forward and futures. An excha
    - Settlement always happens automatically without any agreement
      > A forward can be settled either through actual physical delivery of the underlying asset against payment, or through a cash payment reflecting the difference between the agreed and actual market price.
 
-7. A forward on 10,000 bushels of wheat at $6.50/bushel is cash-settled when the market price is $7.00/bushel. What does the merchant pay the mill?
+7. [calc] A forward on 10,000 bushels of wheat at $6.50/bushel is cash-settled when the market price is $7.00/bushel. What does the merchant pay the mill?
    - $65,000
    - $70,000
    - [x] $5,000

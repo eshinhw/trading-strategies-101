@@ -93,3 +93,10 @@ The share count doubles and the price halves, so the holding is worth the same.
    - They are only relevant to company employees
    - Earnings reports are published just once every ten years
    > Quarterly earnings reports deliver fresh, concrete information about a company's actual performance, which is exactly the kind of news that moves the market's view of what the stock is worth.
+
+6. {#calc1} [calc] An investor holds 90 shares at $150. The company does a 3-for-1 split. What is the holding afterwards?
+   - [x] 270 shares at $50, still worth $13,500
+   - 270 shares at $150, worth $40,500
+   - 30 shares at $450, worth $13,500
+   - 270 shares at $50, worth $4,500
+   > Shares triple (90 × 3 = 270) and the price falls to a third ($50). The value is unchanged: 270 × $50 = $13,500.

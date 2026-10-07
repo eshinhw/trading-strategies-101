@@ -65,7 +65,7 @@ The ratio is fixed on day one, so the bond's equity value rises by $25 for every
    - It is set randomly by the issuer each year
    > Conversion price is face value divided by conversion ratio — for a $1,000 bond with a conversion ratio of 20, that's $50 per share.
 
-3. A convertible has a conversion ratio of 20 and the stock trades at $60. What is the conversion value?
+3. [calc] A convertible has a conversion ratio of 20 and the stock trades at $60. What is the conversion value?
    - [x] $1,200
    - $1,000
    - $60

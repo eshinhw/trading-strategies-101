@@ -88,7 +88,7 @@ Timing matters as much as direction for a buyer. The stock has to move enough, a
    - No one
    > A seller's position has positive theta, but also carries negative gamma risk.
 
-5. A call has a theta of −0.06. About how much does one contract lose per day, all else equal?
+5. [calc] A call has a theta of −0.06. About how much does one contract lose per day, all else equal?
    - 0.06 dollars
    - [x] About 6 dollars
    - 60 dollars

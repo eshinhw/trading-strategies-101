@@ -80,3 +80,10 @@ The jewelry caps the lender's risk, so no credit check is needed. Collateral doe
    - Pawnbrokers are legally forbidden from checking credit
    - Credit checks are unnecessary for every type of loan
    > Because the item itself secures the loan, the pawnbroker doesn't need to evaluate the borrower's creditworthiness the way an unsecured lender would.
+
+6. {#calc1} [calc] A borrower pledges a watch appraised at $800 and receives a $240 loan. What is the loan-to-value ratio?
+   - 3.3%
+   - [x] 30%
+   - 70%
+   - 240%
+   > Loan-to-value is the loan divided by the collateral's value: $240 / $800 = 30%, so the lender has a wide cushion if the borrower doesn't repay.

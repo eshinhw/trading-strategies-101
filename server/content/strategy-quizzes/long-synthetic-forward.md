@@ -31,3 +31,10 @@ slug: long-synthetic-forward
    - It gains value, because the short put expires worthless when the stock drops below the strike
    - Nothing happens, because the long call and the short put cancel out each other's changes in value
    > The short put creates stock-like downside exposure.
+
+5. {#calc1} [calc] A trader builds a Long Synthetic Forward: buys one $100 call and sells one $100 put, for no net premium. What is the break-even stock price at expiration, per share?
+   - $0
+   - [x] $100
+   - $101
+   - $99
+   > For this position (K = 100), the break-even stock price is $100 per share. Formula: S* = K - netCF.

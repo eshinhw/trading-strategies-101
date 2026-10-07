@@ -31,3 +31,10 @@ slug: long-guts
    - It has unlimited risk, so only experienced traders with large accounts are allowed to place the trade
    - It only works on index options, because single stocks do not offer strikes on both sides of the price
    > A straddle or strangle is usually cheaper for the same view.
+
+5. {#calc1} [calc] A trader builds a Long Guts: buys one $95 call and buys one $105 put, for a net debit of $14 per share. What is the lower break-even stock price at expiration, per share?
+   - $109
+   - $14
+   - $10
+   - [x] $91
+   > For this position (K1 = 95, K2 = 105, net debit = 14), the lower break-even stock price is $91 per share. Formula: S*_up = K1 + D; S*_down = K2 - D.

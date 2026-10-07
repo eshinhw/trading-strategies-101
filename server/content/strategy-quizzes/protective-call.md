@@ -31,3 +31,10 @@ slug: protective-call
    - [x] The loss is capped near the strike plus the premium instead of growing with the stock
    - The call expires worthless and the trader keeps the premium, with no loss on the short shares at all
    > The call gains as the stock rises and offsets losses on the short stock above the strike.
+
+5. {#calc1} [calc] A trader builds a Protective Call: is short the stock, sold at $100 and buys one $105 call, with a net option premium of $3 paid. What is the break-even stock price at expiration, per share?
+   - $100
+   - $8
+   - $3
+   - [x] $97
+   > For this position (S0 = 100, K = 105, net debit = 3), the break-even stock price is $97 per share. Formula: S* = S0 - D.

@@ -88,3 +88,10 @@ The manager does not harvest distress as a factor. Each position is picked for a
    - Ever purchasing distressed debt under any circumstances
    - Using active strategies to influence a reorganization
    > The manager's discipline is exactly about avoiding generic, unselected distress exposure in favor of situations with a genuine catalyst or edge.
+
+6. {#calc1} [calc] A $60 million fund buys 8 equal positions, each in a different $50 million bond class. What does one position cost, and what share of its class is that?
+   - $7.5 million, which is 7.5% of the class
+   - $6 million, which is 12% of the class
+   - $7.5 million, which is 60% of the class
+   - [x] $7.5 million, which is 15% of the class
+   > $60M / 8 = $7.5M per name, and $7.5M / $50M = 15% of the class, which is large enough to take part in how the case is resolved.

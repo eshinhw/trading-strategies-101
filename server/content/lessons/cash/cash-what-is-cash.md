@@ -88,3 +88,10 @@ That $840,000 is the price of safety, and in the downturn it is what kept Compan
    - It guaranteed the company's stock price would rise
    - Downturns have no effect on companies holding cash
    > The reserve that looked like a wasted opportunity in good times became exactly what let the company avoid being forced into bad decisions when revenue fell.
+
+6. {#calc1} [calc] A company holds $10 million in cash earning 4%. A safe alternative investment earns 9%. What is the annual opportunity cost of holding the cash?
+   - $400,000
+   - $900,000
+   - $100,000
+   - [x] $500,000
+   > The extra return forgone is (9% − 4%) × $10,000,000 = $500,000 a year. That is the price of liquidity and safety.

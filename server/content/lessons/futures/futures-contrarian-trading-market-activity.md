@@ -83,7 +83,7 @@ The signal is a probability, not a guarantee, so the trade needs a stop in advan
    - It cannot be applied to futures markets, only stocks
    > Volume and open interest add context about the sustainability and conviction behind a move, but are typically used alongside price signals rather than as a standalone trading rule.
 
-6. Natural gas rallies on falling volume and falling open interest, then a contrarian trader shorts at $3.00 and covers at $2.70. What's the gain on 10,000 MMBtu?
+6. [calc] Natural gas rallies on falling volume and falling open interest, then a contrarian trader shorts at $3.00 and covers at $2.70. What's the gain on 10,000 MMBtu?
    - $300
    - [x] $3,000
    - $30,000

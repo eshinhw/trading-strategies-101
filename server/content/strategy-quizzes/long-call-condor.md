@@ -31,3 +31,10 @@ slug: long-call-condor
    - The trader is assigned shares at the lower short strike, because the options finish in the money
    - [x] The trader captures the maximum profit
    > Both short calls expire in the profitable zone.
+
+5. {#calc1} [calc] A trader builds a Long Call Condor: buys one $85 call, sells one $95 call, sells one $105 call, and buys one $115 call, for a net debit of $3 per share. What is the lower break-even stock price at expiration, per share?
+   - $112
+   - $30
+   - [x] $88
+   - $7
+   > For this position (K1 = 85, K2 = 95, K3 = 105, K4 = 115, net debit = 3), the lower break-even stock price is $88 per share. Formula: S*_up = K4 - D; S*_down = K1 + D.

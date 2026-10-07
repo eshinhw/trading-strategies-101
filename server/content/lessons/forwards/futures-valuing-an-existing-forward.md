@@ -78,7 +78,7 @@ At signing, the delivery price equalled the forward price, so the same formula g
    - A future never accumulates value between settlements
    > The same underlying idea — value building up as the market forward price moves away from the locked-in price — is what a future actually pays out daily via mark-to-market, whereas a forward simply accumulates it unrealized until the end.
 
-6. The mill holds a long forward at $6.50 on 10,000 bushels with three months left, and a new three-month forward is quoted at $7.00. At a 4% financing rate, what is the mill's contract worth?
+6. [calc] The mill holds a long forward at $6.50 on 10,000 bushels with three months left, and a new three-month forward is quoted at $7.00. At a 4% financing rate, what is the mill's contract worth?
    - Nothing, since the forward has no upfront cost
    - $5,000 exactly
    - [x] About $4,950

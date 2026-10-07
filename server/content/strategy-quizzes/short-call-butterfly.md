@@ -31,3 +31,10 @@ slug: short-call-butterfly
    - The trader is assigned shares at the middle strike, because the short wings finish deep in the money
    - [x] The trader has the worst, though still capped, result
    > The credit is kept in full only when the stock ends far from the middle.
+
+5. {#calc1} [calc] A trader builds a Short Call Butterfly: sells one $90 call, buys two $100 calls, and sells one $110 call, for a net credit of $3 per share. What is the maximum loss at expiration, per share?
+   - $3
+   - $20
+   - $93
+   - [x] $7
+   > For this position (K1 = 90, K2 = 100, K3 = 110, net credit = 3), the maximum loss is $7 per share. Formula: L_max = κ - C, where κ = K3-K2 = K2-K1.

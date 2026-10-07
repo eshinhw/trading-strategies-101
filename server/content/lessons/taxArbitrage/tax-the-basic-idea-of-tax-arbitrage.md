@@ -87,3 +87,10 @@ The trade's profit comes from the gap between the two tax treatments and not fro
    - Tax law never changes once a strategy is established
    - Only market risk, never regulatory risk, affects these strategies
    > Regulatory response to aggressive use of a given structure is a real, practical risk distinct from the market risk these trades are otherwise designed to minimize.
+
+6. {#calc1} [calc] A desk can receive $80,000 of income as interest taxed at 37% or as a capital gain taxed at 20%. How much more does it keep as a capital gain?
+   - $16,000
+   - $29,600
+   - [x] $13,600
+   - $1,360
+   > Interest leaves $80,000 × 0.63 = $50,400 and the capital gain leaves $80,000 × 0.80 = $64,000, a difference of $13,600.

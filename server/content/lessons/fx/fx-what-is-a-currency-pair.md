@@ -89,3 +89,10 @@ Every FX trade works like this: the amount you end up with depends on where the 
    - Any pair with a price below 1.00
    - A pair that cannot legally be traded
    > Minor pairs sit between majors and exotics — two significant, liquid currencies paired together, just without the U.S. dollar on either side.
+
+6. {#calc1} [calc] USD/JPY is 150.00. How many yen does a tourist get for $1,000, and for $1,000 if the rate is 155.00?
+   - ¥150,000 and ¥145,000
+   - [x] ¥150,000 and ¥155,000
+   - ¥15,000 and ¥15,500
+   - ¥6.67 and ¥6.45
+   > In USD/JPY the dollar is the base, so yen received = dollars × rate: 1,000 × 150 = ¥150,000, and 1,000 × 155 = ¥155,000.

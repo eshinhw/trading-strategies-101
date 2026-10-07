@@ -31,3 +31,10 @@ slug: collar
    - The investor loses money, because the put costs more than any gain that the shares have produced so far
    - The put pays out a large gain, because the stock moved far enough away from the strike of the put option
    > The sold call limits the upside, in exchange for the cheap protection.
+
+5. {#calc1} [calc] A trader builds a Collar: owns the stock, bought at $100, buys one $95 put, and sells one $105 call, for no net premium. What is the maximum loss at expiration, per share?
+   - $10
+   - $100
+   - $6
+   - [x] $5
+   > For this position (S0 = 100, K1 = 95, K2 = 105), the maximum loss is $5 per share. Formula: L_max = S0 - K1 - netCF.

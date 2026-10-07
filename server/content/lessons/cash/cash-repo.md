@@ -82,3 +82,10 @@ A money market fund lends the $100 million overnight (a reverse repo) and earns 
    - To permanently exit its Treasury position
    - Repo has no funding benefit for a securities dealer
    > Repo lets the dealer keep the securities economically (via the repurchase agreement) while freeing up cash, rather than funding the position entirely out of its own capital.
+
+6. {#calc1} [calc] A dealer repos $50 million of Treasuries overnight at 4.8% a year on a 360-day basis. How much interest does it pay for the night?
+   - About $2,400,000
+   - About $240,000
+   - About $13,333
+   - [x] About $6,667
+   > Interest is $50,000,000 × 4.8% × 1/360 ≈ $6,667.

@@ -88,3 +88,10 @@ Long-run performance is nearly identical before costs, so costs are the real dif
    - Expense ratios only apply to actively managed mutual funds, never ETFs
    - Lower expense ratios always guarantee higher returns
    > Since expense ratios directly reduce returns over time, comparing them across similar index-tracking ETFs is a straightforward way to judge relative cost.
+
+6. {#calc1} [calc] An ETF quotes $25.00 bid and $25.04 ask. How much does it cost to buy 4,000 shares and sell them straight back?
+   - [x] $160
+   - $40
+   - $100,160
+   - $0.04
+   > Buying at the ask and selling at the bid loses the spread: $0.04 × 4,000 shares = $160.

@@ -31,3 +31,10 @@ slug: modified-call-butterfly
    - [x] Skewed toward the moderate-rally side of the middle strike
    - Exactly at the current price only
    > The uneven spacing leans the profit zone toward the bullish side.
+
+5. {#calc1} [calc] A trader builds a Modified Call Butterfly: buys one $105 call, sells two $100 calls, and buys one $85 call, for a net debit of $3 per share. What is the break-even stock price at expiration, per share?
+   - $20
+   - $12
+   - $3
+   - [x] $88
+   > For this position (K3 = 85, K2 = 100, K1 = 105, net debit = 3), the break-even stock price is $88 per share. Formula: S* = K3 + D.

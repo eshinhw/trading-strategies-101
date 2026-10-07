@@ -96,3 +96,10 @@ That is the kind of risk short selling carries that a simple long position does 
    - Short sellers are protected by a guaranteed maximum loss limit
    - A stock's price can never rise once it has been sold short
    > A long position's downside is capped at the purchase price, since a stock can't fall below zero, but a short position's losses grow without limit as the price keeps rising, since there's no ceiling on how high it can go.
+
+6. {#calc1} [calc] A trader shorts 200 shares at $40 and buys them back at $46. What is the result?
+   - [x] A $1,200 loss
+   - A $1,200 gain
+   - A $6 loss
+   - An $800 loss
+   > The loss is ($46 − $40) × 200 shares = $1,200, since the trader sold at $40 and had to buy back higher.

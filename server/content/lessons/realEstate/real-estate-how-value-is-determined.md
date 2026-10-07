@@ -95,3 +95,10 @@ A gap that size is a signal to investigate. Here it points to leases priced well
    - Only one approach is ever valid, and using more than one is a mistake
    - Blending approaches always produces exactly the same result as using just one
    > Since each approach has weaknesses in certain situations, combining them gives a more complete, cross-checked view of a property's value.
+
+6. {#calc1} [calc] An office building earns net operating income of $450,000 and the market cap rate is 7.5%. What is its value under the income approach?
+   - $337,500
+   - $3,375,000
+   - $60,000,000
+   - [x] $6,000,000
+   > Value is income divided by the cap rate: $450,000 / 0.075 = $6,000,000.

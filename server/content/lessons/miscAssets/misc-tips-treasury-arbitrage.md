@@ -89,3 +89,10 @@ The trade makes money only if the gap between the two bonds changes, and the ove
    - Short both the nominal Treasury and the TIPS
    - The example describes no specific position
    > Believing breakeven inflation is too high means betting the spread narrows, expressed by being long the nominal bond and short the TIPS.
+
+6. {#calc1} [calc] A trader is long $50 million of nominal Treasuries and short $50 million of TIPS, both with a duration of 7. Breakeven inflation falls 0.30 percentage points. What is the profit?
+   - $0.105 million
+   - [x] $1.05 million
+   - $10.5 million
+   - $0.15 million
+   > The profit is about 7 × 0.30% × $50M = $1.05M. The level of interest rates cancels between the two legs.

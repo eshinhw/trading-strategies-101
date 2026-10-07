@@ -83,7 +83,7 @@ The stock moved the right way, but the call still lost money. Before earnings, o
    - A rise in the stock price
    > After a known event, implied volatility often drops, and the vega loss can outweigh gains from the stock's move.
 
-5. A call has a vega of 0.20. Implied volatility falls 15 points. About how much does the call lose per share?
+5. [calc] A call has a vega of 0.20. Implied volatility falls 15 points. About how much does the call lose per share?
    - 0.20
    - 1.50
    - [x] 3.00

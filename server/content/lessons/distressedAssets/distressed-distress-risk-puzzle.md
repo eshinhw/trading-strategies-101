@@ -84,3 +84,10 @@ The result holds after adjusting for standard risk factors and appears across ma
    - The finding has never been replicated by any other researcher
    - The puzzle was based entirely on a single company's outcome
    > Robustness across different markets, time periods, and risk adjustments is exactly what elevates this from a one-off observation to a recognized empirical puzzle.
+
+6. {#calc1} [calc] The least distressed stocks earn 9% a year with 15% volatility, and the risk-free rate is 3%. What is their Sharpe ratio?
+   - 0.6
+   - 0.09
+   - 2.5
+   - [x] 0.4
+   > The Sharpe ratio is (9% − 3%) / 15% = 0.4 excess return per unit of risk.

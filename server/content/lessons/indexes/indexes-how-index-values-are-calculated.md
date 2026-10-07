@@ -95,3 +95,10 @@ Neither the split nor the swap moves the index. Only real changes in prices do.
    - The index would automatically double in value
    - The split company would be instantly removed from the index
    > Without adjusting the divisor, the split's mechanical price halving would show up as a real-looking decline in the index, even though nothing about the company's actual value changed.
+
+6. {#calc1} [calc] A price-weighted index holds stocks priced $240, $120 and $60 with a divisor of 3. The $240 stock splits 3-for-1. What new divisor keeps the index level unchanged?
+   - 3.0
+   - 2.0
+   - About 0.857
+   - [x] About 1.857
+   > The index is (240 + 120 + 60) / 3 = 140. After the split the prices sum to 80 + 120 + 60 = 260, so the divisor must be 260 / 140 ≈ 1.857.

@@ -31,3 +31,10 @@ slug: bear-call-spread
    - The trader earns unlimited profit, because the long call keeps gaining as the stock moves
    - [x] Both calls expire worthless and the trader keeps the full credit
    > The maximum profit is the credit, earned when the stock stays below the short strike.
+
+5. {#calc1} [calc] A trader builds a Bear Call Spread: buys one $105 call and sells one $100 call, for a net credit of $3 per share. What is the maximum profit at expiration, per share?
+   - $2
+   - $5
+   - $103
+   - [x] $3
+   > For this position (K2 = 100, K1 = 105, net credit = 3), the maximum profit is $3 per share. Formula: P_max = C.

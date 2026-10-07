@@ -88,3 +88,10 @@ Investors in the bonds never touch an individual car loan. They own a claim on t
    - Pooling eliminates all risk from the underlying loans
    - Individual loans cannot legally be sold at all
    > A single mortgage or auto loan is too small and idiosyncratic to trade efficiently — pooling many of them together, and standardizing the resulting securities, is what makes them tradable at scale.
+
+6. {#calc1} [calc] A lender pools 2,000 car loans of $15,000 each at 6% for 48 months. Each loan pays about $352.28 a month. About how much does the pool receive each month, and how big is it?
+   - About $352,000 a month, from a $30 million pool
+   - About $704,500 a month, from a $15 million pool
+   - [x] About $704,500 a month, from a $30 million pool
+   - About $7,045,000 a month, from a $30 million pool
+   > The pool is 2,000 × $15,000 = $30M, and the monthly payments are 2,000 × $352.28 ≈ $704,500.

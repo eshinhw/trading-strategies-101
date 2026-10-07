@@ -31,3 +31,10 @@ slug: short-straddle
    - The loss is limited to the premium collected, because the position is protected by the opposite option
    - The trader profits from the short put
    > A short straddle has no protection against large moves.
+
+5. {#calc1} [calc] A trader builds a Short Straddle: sells one $100 call and sells one $100 put, for a net credit of $6 per share. What is the maximum profit at expiration, per share?
+   - $0
+   - $94
+   - [x] $6
+   - $106
+   > For this position (K = 100, net credit = 6), the maximum profit is $6 per share. Formula: P_max = C.

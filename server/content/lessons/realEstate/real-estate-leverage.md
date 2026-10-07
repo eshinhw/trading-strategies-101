@@ -60,7 +60,7 @@ The same price move changes Buyer A's result five times as much, in both directi
    - There is no difference in how the two are typically financed
    > Debt financing via a mortgage is the standard way most real estate is purchased, in contrast to the full-price-upfront norm for buying stock.
 
-2. A property bought with 20% down appreciates 10%. Roughly what return does that represent on the investor's actual cash invested?
+2. [calc] A property bought with 20% down appreciates 10%. Roughly what return does that represent on the investor's actual cash invested?
    - [x] Roughly 50%, before financing costs
    - Exactly 10%, the same as the property's own appreciation
    - Roughly 2%

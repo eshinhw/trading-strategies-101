@@ -94,7 +94,7 @@ The farmer nets about $300,000 either way, apart from a small basis gap between 
    - The exchange sets a new strike price every day
    > Exchange-traded futures are marked to market daily — the account is credited or debited each day for gains and losses, unlike a simple one-time-settlement forward agreement.
 
-6. A farmer sells 50,000 bushels of wheat futures at $6.00/bushel. At harvest, the cash price is $5.50/bushel. What's the total from selling the physical wheat plus the futures gain?
+6. [calc] A farmer sells 50,000 bushels of wheat futures at $6.00/bushel. At harvest, the cash price is $5.50/bushel. What's the total from selling the physical wheat plus the futures gain?
    - $275,000, since the futures position had no effect
    - [x] $300,000 — the $25,000 futures gain offsets the lower cash-market proceeds
    - $325,000, an unexpected extra profit

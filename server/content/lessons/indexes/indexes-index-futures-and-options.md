@@ -86,3 +86,10 @@ The hedge removed the market's fall and left the stock-picking edge (the 1% out-
    - Index futures require physical delivery of every constituent
    - There is no advantage to using index futures over trading individual stocks
    > A single index futures trade can adjust broad market exposure far more efficiently than executing many individual stock trades to achieve the same net effect.
+
+6. {#calc1} [calc] A manager wants to hedge a $30 million portfolio (beta 1) with E-mini S&P 500 futures at 4,000 (multiplier $50). How many contracts should be sold?
+   - 120
+   - 600
+   - 1,500
+   - [x] 150
+   > Each contract covers 4,000 × $50 = $200,000, and $30,000,000 / $200,000 = 150 contracts.

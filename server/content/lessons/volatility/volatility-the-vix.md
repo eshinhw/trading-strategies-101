@@ -84,3 +84,10 @@ A jump from 14 to 28 means other market participants are paying twice as much fo
    - It becomes completely unpredictable
    - It stops being calculated entirely
    > With low demand for downside protection during calm markets, the option prices feeding into the VIX stay subdued, keeping the index itself low.
+
+6. {#calc1} [calc] The VIX is 20 and the S&P 500 is at 4,500. About how many index points is the expected one-month move (one standard deviation)?
+   - About 900 points
+   - [x] About 260 points
+   - About 225 points
+   - About 1,300 points
+   > The monthly move is 20% / √12 ≈ 5.8%, and 5.8% × 4,500 ≈ 260 points.

@@ -86,3 +86,10 @@ The pre-tax return is identical. The pension fund pays no tax either way, so it 
    - There is no tax difference between the two investors in this example
    - The individual investor always pays less tax than the pension fund
    > The tax-treatment gap between the two investors is exactly what creates a legal incentive to direct the interest income toward the more favorably taxed party.
+
+6. {#calc1} [calc] A $200,000 bond pays 5% interest. How much tax does an individual in the 35% bracket owe on the interest, and a tax-exempt pension fund?
+   - $3,500 and $3,500
+   - $10,000 and $0
+   - [x] $3,500 and $0
+   - $350 and $0
+   > The interest is $200,000 × 5% = $10,000. At 35% the individual owes $3,500, while the tax-exempt pension fund owes nothing.

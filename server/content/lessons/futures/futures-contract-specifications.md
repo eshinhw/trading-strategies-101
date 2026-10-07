@@ -84,7 +84,7 @@ A long position gains $125 per contract and a short position loses $125. Anyone 
    - To avoid paying any margin at all
    > Rolling lets a trader keep continuous exposure to the underlying without going through delivery, by closing the expiring contract and opening an equivalent position further out.
 
-6. The E-mini S&P 500 has a $50 multiplier and a 0.25-point tick. If the price moves from 4,500.00 to 4,502.50, what's the dollar gain on one contract?
+6. [calc] The E-mini S&P 500 has a $50 multiplier and a 0.25-point tick. If the price moves from 4,500.00 to 4,502.50, what's the dollar gain on one contract?
    - $12.50
    - $50
    - [x] $125

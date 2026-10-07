@@ -90,3 +90,10 @@ One trade gives exposure to all 125 names. Building the same position with singl
    - Single-name CDS cannot legally be traded
    - Credit indices only exist for government bonds
    > Trading the index in one transaction is far more efficient than assembling the same basket of exposure through many separate, less liquid single-name CDS trades.
+
+6. {#calc1} [calc] A bank holds $20 million of bonds and buys CDS protection. The company defaults and bonds recover 40%. How much does the CDS pay?
+   - $20 million
+   - [x] $12 million
+   - $8 million
+   - $40 million
+   > The CDS pays the loss: $20M × (1 − 40%) = $12M.

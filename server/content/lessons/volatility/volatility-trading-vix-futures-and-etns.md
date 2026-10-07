@@ -91,3 +91,10 @@ The decay helps the trader who is short during the same period and hurts the one
    - They always deliver higher returns the longer they're held
    - There is no reason to avoid holding them long-term
    > The contango-driven decay described above compounds over time, which is why these products are typically used for short-term tactical trades rather than buy-and-hold positions.
+
+6. {#calc1} [calc] A VIX ETN position of $50,000 loses 7% a month to roll cost with VIX unchanged. About how much is it worth after 4 months?
+   - [x] About $37,400
+   - About $36,000
+   - About $50,000
+   - About $14,000
+   > $50,000 × 0.93^4 ≈ $37,400.

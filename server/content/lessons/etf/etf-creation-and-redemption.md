@@ -84,3 +84,10 @@ The new shares increase supply, which pushes the ETF's price down toward $100.00
    - A type of underlying bond
    - The ETF issuer's corporate headquarters
    > A creation unit is the large block size in which shares are actually created or redeemed — not a single-share transaction.
+
+6. {#calc1} [calc] An ETF's NAV is $50.00 but it trades at $50.30. An authorized participant creates a 100,000-share unit. What is the profit before costs?
+   - $3,000
+   - $300,000
+   - [x] $30,000
+   - $0
+   > The participant buys the basket at $50.00 and sells the new shares at $50.30, a gain of $0.30 × 100,000 = $30,000.

@@ -209,9 +209,9 @@ function QuizBankStat({ value, label }: { value: string; label: string }) {
 }
 
 const QUIZ_BANK_POINTS = [
-  "Pick any mix of courses, or a single module",
-  "Instant explanations and a streak counter",
-  "Retry the questions you missed",
+  "Concept checks, calculations, or both",
+  "Any mix of courses, or a single module",
+  "Instant explanations, a streak counter, and a retry of what you missed",
 ];
 
 function Section({ title, description, children }: { title: string; description: string; children: ReactNode }) {
@@ -353,8 +353,10 @@ export function PracticePage() {
   const [bank, setBank] = useState<BankCourse[] | null>(null);
   const accent = ACCENT.derivatives;
   const totalQuestions = bank ? bank.reduce((n, c) => n + c.questionCount, 0) : null;
-  const totalModules = bank ? bank.reduce((n, c) => n + c.modules.length, 0) : null;
-  const animatedTotal = useCountUp(totalQuestions);
+  const totalConcept = bank ? bank.reduce((n, c) => n + c.conceptCount, 0) : null;
+  const totalCalc = bank ? bank.reduce((n, c) => n + c.calcCount, 0) : null;
+  const animatedConcept = useCountUp(totalConcept);
+  const animatedCalc = useCountUp(totalCalc);
   const countBySlug = new Map((bank ?? []).map((c) => [c.slug, c.questionCount]));
 
   useEffect(() => {
@@ -405,9 +407,9 @@ export function PracticePage() {
                   [0, 1, 2].map((i) => <div key={i} className="h-[58px] animate-pulse rounded-xl border border-[#2a3040] bg-[#0e1117]/70" />)
                 ) : totalQuestions ? (
                   <>
-                    <QuizBankStat value={animatedTotal.toLocaleString()} label="practice questions" />
+                    <QuizBankStat value={animatedConcept.toLocaleString()} label="concept checks" />
+                    <QuizBankStat value={animatedCalc.toLocaleString()} label="calculations" />
                     <QuizBankStat value={String(bank.length)} label="courses" />
-                    <QuizBankStat value={String(totalModules)} label="modules to target" />
                   </>
                 ) : null}
               </div>

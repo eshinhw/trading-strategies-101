@@ -90,7 +90,7 @@ The desk gives up some expected payoff to cut the loss from a gap by $8,000, how
    - Using stop-loss orders on every position
    > Because margin is only a fraction of notional value, an account can be allowed to hold far more exposure than it could actually survive a loss on — that gap is over-leverage.
 
-5. A trader with a $50,000 account risks 1% ($500) per trade. Trading one crude oil contract (1,000 barrels), what stop-loss distance caps risk at exactly $500?
+5. [calc] A trader with a $50,000 account risks 1% ($500) per trade. Trading one crude oil contract (1,000 barrels), what stop-loss distance caps risk at exactly $500?
    - [x] $0.50 per barrel
    - $5.00 per barrel
    - $50 per barrel

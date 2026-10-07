@@ -31,3 +31,10 @@ slug: put-ratio-backspread
    - Evenly across all prices, because the long and short puts offset each other at every possible stock price
    - [x] In a modest range just below the short strike, where the long puts haven't yet paid off
    > A flat stock near the strikes produces a limited loss, while a big decline is rewarded.
+
+5. {#calc1} [calc] A trader builds a Put Ratio Backspread: sells one $100 put and buys two $95 puts, for a net debit of $1 per share. What is the maximum profit at expiration, per share?
+   - $6
+   - $5
+   - $1
+   - [x] $89
+   > For this position (K1 = 100, K2 = 95, NS = 1, NL = 2, net debit = 1), the maximum profit is $89 per share. Formula: P_max = NL×K2 - NS×K1 + netCF.

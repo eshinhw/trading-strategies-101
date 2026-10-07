@@ -82,3 +82,10 @@ Deliberately splitting deposits to stay under $10,000 is called structuring, and
    - Reporting requirements only apply to businesses that accept no cash
    - There is no legitimate reason for this requirement
    > The compliance burden isn't a presumption of guilt — it exists because a genuine cash business looks identical, on the surface, to one being used to launder money, so the reporting requirement applies broadly.
+
+6. {#calc1} [calc] A car wash splits a $14,000 cash deposit into two $7,000 deposits on the same day. The reporting threshold is $10,000 in a day. What is the position?
+   - Neither deposit reaches $10,000, so no report is needed
+   - [x] The deposits add up to $14,000, which is over the threshold, so a report is required (and splitting to avoid it is itself a crime)
+   - Only the second deposit is reported
+   - A report is needed only if the owner is suspected of something
+   > Deposits made on the same day are added together: $7,000 + $7,000 = $14,000 > $10,000. Deliberately splitting a deposit to stay under the threshold is called structuring.

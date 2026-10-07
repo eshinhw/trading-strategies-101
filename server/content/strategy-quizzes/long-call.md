@@ -31,3 +31,10 @@ slug: long-call
    - The trader owes the seller the difference between the strike price and the stock price
    - The trader keeps the premium because the call is out of the money
    > The most a call buyer can lose is the premium paid; the obligation to deliver belongs to the seller.
+
+5. {#calc1} [calc] A trader builds a Long Call: buys one $100 call, for a net debit of $4 per share. What is the maximum loss at expiration, per share?
+   - $104
+   - [x] $4
+   - $5
+   - $3
+   > For this position (K = 100, net debit = 4), the maximum loss is $4 per share. Formula: L_max = D.

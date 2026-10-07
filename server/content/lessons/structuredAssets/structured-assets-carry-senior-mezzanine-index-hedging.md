@@ -89,7 +89,7 @@ The net carry pays for the risk that losses climb far enough up the structure to
    - Neither trade involves any correlation exposure
    > The two trades sit at opposite ends of the capital structure — different coupon size, different loss protection, and opposite exposure to correlated versus idiosyncratic default risk.
 
-6. A trader collects $150,000/year selling protection on a mezzanine tranche and pays $9,000/year hedging with the index. What is the approximate net carry remaining?
+6. [calc] A trader collects $150,000/year selling protection on a mezzanine tranche and pays $9,000/year hedging with the index. What is the approximate net carry remaining?
    - [x] $141,000
    - $159,000
    - $9,000

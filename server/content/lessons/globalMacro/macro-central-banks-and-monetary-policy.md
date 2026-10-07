@@ -85,3 +85,10 @@ Three markets repriced from one piece of forward guidance, before the central ba
    - Only the bond market reacts; currencies and equities are unaffected
    - Equities always fall in this scenario, with no effect on bonds or currency
    > The example illustrates exactly how policy signals ripple across asset classes simultaneously, even before any actual rate change occurs.
+
+6. {#calc1} [calc] A 2-year note has a duration of 1.9. The central bank signals earlier cuts and the 2-year yield falls 0.30 percentage points. What is the gain on a $10 million position?
+   - About $570,000
+   - [x] About $57,000
+   - About $30,000
+   - About $5,700
+   > The price change is about 1.9 × 0.30% = 0.57%, and 0.57% × $10,000,000 = $57,000.

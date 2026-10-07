@@ -87,3 +87,10 @@ Reading the position as legs you already know (a long call and a short call) giv
    - The historical price of the underlying stock
    - The tax treatment of each strategy
    > Watching the combined line break down into its legs reinforces the core mental model: complex strategies are just sums of simpler positions.
+
+6. {#calc1} [calc] A trader buys a 100 call for $5.00 and sells a 110 call for $2.00. What is the maximum profit per contract?
+   - $300
+   - $1,000
+   - [x] $700
+   - $500
+   > The net cost is $3.00, and the most the spread can earn is the strike gap of $10 minus that cost: ($10 − $3) × 100 = $700.

@@ -31,3 +31,10 @@ slug: protective-put
    - Sell more shares to cover the put, because the put must be funded if the stock moves up sharply
    - Nothing, because the put forces the shares to be sold at 95 when the option expires at the end
    > A protective put keeps unlimited upside; the premium is the only cost.
+
+5. {#calc1} [calc] A trader builds a Protective Put: owns the stock, bought at $100 and buys one $95 put, with a net option premium of $3 paid. What is the maximum loss at expiration, per share?
+   - $3
+   - [x] $8
+   - $100
+   - $103
+   > For this position (S0 = 100, K = 95, net debit = 3), the maximum loss is $8 per share. Formula: L_max = S0 - K + D.

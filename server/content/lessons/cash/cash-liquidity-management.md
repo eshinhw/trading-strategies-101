@@ -84,3 +84,10 @@ Left in a non-interest operating account, the same cash would earn $0. The forec
    - Holding the maximum possible amount of cash at all times
    - There is no tradeoff involved in liquidity management
    > Neither extreme is efficient — the goal is a right-sized cash buffer that covers real needs without unnecessarily sacrificing return.
+
+6. {#calc1} [calc] A company holds $6 million of cash. Its 13-week forecast shows net outflows of $4 million, and it keeps a 10% buffer on top. How much can it invest in short-term instruments?
+   - [x] $1.6 million
+   - $2.0 million
+   - $0.4 million
+   - $2.4 million
+   > Cash to keep liquid is $4M × 1.10 = $4.4M, so the amount available to invest is $6M − $4.4M = $1.6M.

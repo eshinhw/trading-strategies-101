@@ -87,7 +87,7 @@ Netting collapses the exposure to the one amount that would actually change hand
    - It only applies to contracts with the exact same maturity date
    > Netting collapses gross exposure across many contracts into one net figure, dramatically reducing the credit exposure that would otherwise apply if every contract were assessed individually.
 
-5. Two banks have forwards worth $8 million in Bank A's favor and $3 million in Bank B's favor. Under a netting agreement, what is the actual net exposure?
+5. [calc] Two banks have forwards worth $8 million in Bank A's favor and $3 million in Bank B's favor. Under a netting agreement, what is the actual net exposure?
    - [x] $5 million
    - $11 million
    - $8 million
@@ -101,14 +101,14 @@ Netting collapses the exposure to the one amount that would actually change hand
    - Because assessing creditworthiness eliminates the need for any collateral
    > Without a clearinghouse standing between the two sides, each party has to independently evaluate whether the other is actually likely to perform on the contract.
 
-7. Wheat rises to $8.00 and the grain merchant defaults on the mill's 10,000-bushel forward at $6.50. What does the mill lose?
+7. [calc] Wheat rises to $8.00 and the grain merchant defaults on the mill's 10,000-bushel forward at $6.50. What does the mill lose?
    - Nothing, since forwards are guaranteed
    - $65,000
    - [x] About $15,000, the gain it would have had from the contract
    - $80,000
    > The mill has to replace the wheat at $8.00, so it loses the ($8.00 - $6.50) × 10,000 = $15,000 value that the forward was holding for it.
 
-8. If instead wheat falls to $5.00 and the merchant defaults, what is the mill's credit exposure?
+8. [calc] If instead wheat falls to $5.00 and the merchant defaults, what is the mill's credit exposure?
    - $15,000
    - $65,000
    - [x] None, since the contract is worth less than zero to the mill

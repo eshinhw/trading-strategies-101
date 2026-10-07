@@ -31,3 +31,10 @@ slug: bearish-long-seagull-spread
    - [x] The loss is capped near the call spread width instead of growing without bound
    - The trader keeps the credit, because the long call cancels any loss that the short call would have created
    > The long call limits the loss.
+
+5. {#calc1} [calc] A trader builds a Bearish Long Seagull Spread: buys one $90 put, sells one $100 call, and buys one $110 call, for no net premium. What is the maximum loss at expiration, per share?
+   - $20
+   - [x] $10
+   - $90
+   - $11
+   > For this position (K1 = 90, K2 = 100, K3 = 110), the maximum loss is $10 per share. Formula: L_max = K3 - K2 - netCF.

@@ -91,3 +91,10 @@ Leaving the currency open is a deliberate bet that it will help. A trader with n
    - The trader has no view on the currency at all
    - Currency exposure has no relationship to the underlying rate view
    > When the currency move is expected to reinforce rather than contradict the underlying macro thesis, leaving it unhedged can be a deliberate part of the trade rather than an oversight. A rate cut alone would normally weaken the currency, so the trader needs a separate reason to expect it to help.
+
+6. {#calc1} [calc] A trader is long $10 million of 10-year bonds with a duration of 8, and the yield falls 0.40 percentage points. The currency, left unhedged, falls 1.5%. What is the net result?
+   - +$320,000
+   - [x] +$170,000
+   - −$150,000
+   - +$470,000
+   > The bond gain is 8 × 0.40% × $10M = $320,000, and the currency loss is 1.5% × $10M = $150,000, so the net is +$170,000.

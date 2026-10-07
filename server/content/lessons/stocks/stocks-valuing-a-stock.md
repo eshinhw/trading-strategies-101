@@ -77,7 +77,7 @@ Both measures say the stock is expensive, by 33% against its peers and 19% again
    - Price is an analyst's estimate
    > The market price can differ from an analyst's estimate of value, and that gap is the basis of value investing.
 
-2. A stock trades at 50 dollars and earned 2.50 dollars per share. What is its P/E ratio?
+2. [calc] A stock trades at 50 dollars and earned 2.50 dollars per share. What is its P/E ratio?
    - 5
    - 12.5
    - [x] 20
@@ -91,7 +91,7 @@ Both measures say the stock is expensive, by 33% against its peers and 19% again
    - Sectors set their own prices
    > Industries have different growth and risk, so a P/E that is high for one sector can be normal for another.
 
-4. Using the Gordon growth model, what is the value if next year's dividend is 2 dollars, the required return is 8%, and growth is 4%?
+4. [calc] Using the Gordon growth model, what is the value if next year's dividend is 2 dollars, the required return is 8%, and growth is 4%?
    - 25 dollars
    - 100 dollars
    - [x] 50 dollars

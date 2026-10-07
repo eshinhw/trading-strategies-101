@@ -31,3 +31,10 @@ slug: covered-short-straddle
    - The investor keeps the full premium and has no loss, because the call premium offsets the entire drop in the shares
    - The call is exercised and the shares are sold at 100, so the investor locks in the full premium on the way out
    > The premium reduces the effective purchase price, but the investor now owns twice the stock.
+
+5. {#calc1} [calc] A trader builds a Covered Short Straddle: owns the stock, bought at $100, sells one $100 call, and sells one $100 put, with a net option premium of $6 received. What is the maximum loss at expiration, per share?
+   - [x] $194
+   - $100
+   - $97
+   - $6
+   > For this position (S0 = 100, K = 100, net credit = 6), the maximum loss is $194 per share. Formula: L_max = S0 + K - C.

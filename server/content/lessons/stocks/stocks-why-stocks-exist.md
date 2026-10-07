@@ -86,7 +86,7 @@ The company is not involved in that sale and receives nothing from it.
    - The shareholder must repay creditors from personal assets
    > Limited liability caps a shareholder's loss at their investment, which makes it easier for many people to take part in funding a business.
 
-5. In the example, a company sells 10 million new shares at 20 dollars each. How much does it raise?
+5. [calc] In the example, a company sells 10 million new shares at 20 dollars each. How much does it raise?
    - 20 million dollars
    - 100 million dollars
    - [x] 200 million dollars

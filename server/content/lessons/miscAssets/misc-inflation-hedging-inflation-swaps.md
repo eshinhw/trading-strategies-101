@@ -88,3 +88,10 @@ The swap can be set to exactly 17 years and to the size needed, so the swap mark
    - Swaps guarantee a higher return than bonds in every scenario
    - The example gives no reason for the fund's preference
    > The swap's structural flexibility is exactly what lets the fund tailor its hedge more precisely to its specific liability profile than the bond market could offer.
+
+6. {#calc1} [calc] A 10-year zero-coupon inflation swap on $10 million has a fixed rate of 2.5%. Inflation averages 3.0% a year. About how much does the receiver of inflation collect?
+   - [x] About $638,000
+   - About $500,000
+   - About $5,000,000
+   - About $64,000
+   > The floating leg is $10M × (1.03^10 − 1) ≈ $3.44M and the fixed leg is $10M × (1.025^10 − 1) ≈ $2.80M, so the receiver collects about $638,000.

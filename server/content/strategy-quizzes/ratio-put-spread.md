@@ -31,3 +31,10 @@ slug: ratio-put-spread
    - The loss is capped at a small amount
    - [x] The extra uncovered short put produces a large loss
    > A big drop is the scenario the position is exposed to.
+
+5. {#calc1} [calc] A trader builds a Ratio Put Spread: sells two $100 puts and buys one $105 put, for a net credit of $2 per share. What is the maximum profit at expiration, per share?
+   - $5
+   - $2
+   - [x] $7
+   - $93
+   > For this position (K2 = 105, K1 = 100, NL = 1, NS = 2, net credit = 2), the maximum profit is $7 per share. Formula: P_max = NL×(K2 - K1) + netCF.

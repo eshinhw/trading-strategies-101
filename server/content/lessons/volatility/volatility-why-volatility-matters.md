@@ -93,3 +93,10 @@ The manager treats it like insurance, with a modest ongoing cost in return for p
    - To guarantee a profit every month
    - To avoid ever owning stocks
    > Because volatility tends to rise when stocks fall, exposure to it can offset portfolio losses, with an ongoing cost like an insurance premium.
+
+6. {#calc1} [calc] A manager spends $150,000 on a volatility hedge that gains 400% in a sell-off, while a $5 million portfolio falls 15%. What is the net loss?
+   - $750,000
+   - $600,000
+   - [x] $150,000
+   - $300,000
+   > The portfolio loses $750,000. The hedge gains 400% × $150,000 = $600,000, so the net loss is $150,000.

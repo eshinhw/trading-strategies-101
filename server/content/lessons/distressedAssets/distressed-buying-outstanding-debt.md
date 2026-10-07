@@ -84,3 +84,10 @@ One position can lose half its value, but across 40 the result is close to the +
    - Banks and insurers are legally required to sell only to this specific fund
    - The fund uses these relationships exclusively to sell its own holdings
    > Cultivating relationships with structurally motivated sellers is exactly what lets the fund source distressed debt on a repeatable, diversified basis.
+
+6. {#calc1} [calc] A fund buys 40 distressed positions at 40 cents, $2 million of cost each. Expected recovery is 46 cents. What is the total expected profit?
+   - $0.3 million
+   - $4.8 million
+   - $24 million
+   - [x] $12 million
+   > Each position has $5M of face value ($2M / 0.40). Recovery is $5M × 0.46 = $2.3M, a $0.3M profit, and 40 × $0.3M = $12M.

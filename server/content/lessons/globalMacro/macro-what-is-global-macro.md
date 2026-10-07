@@ -86,3 +86,10 @@ The view comes first and the instrument second. The investor chooses the one wit
    - Shorting currencies is the only legal way to express a macro view
    - Bonds cannot be used to express an interest-rate view
    > Macro investing separates the view from the instrument — the same thesis can be expressed multiple ways, and the choice comes down to which vehicle offers the cleanest expression.
+
+6. {#calc1} [calc] An investor expects a hike larger than the market prices and holds $10 million of each position: short bonds (duration 8, yields +0.25%), long the currency (+1.5%). What is the total gain?
+   - $200,000
+   - $150,000
+   - $550,000
+   - [x] $350,000
+   > The bond short earns 8 × 0.25% × $10M = $200,000, and the currency earns 1.5% × $10M = $150,000, so the total is $350,000.

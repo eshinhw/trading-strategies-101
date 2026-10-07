@@ -31,3 +31,10 @@ slug: short-call-condor
    - The trader loses an unlimited amount
    - The trader is assigned shares at the lower short strike, because the outer options finish in the money
    > The credit is kept in full only if the stock ends outside the range.
+
+5. {#calc1} [calc] A trader builds a Short Call Condor: sells one $85 call, buys one $95 call, buys one $105 call, and sells one $115 call, for a net credit of $3 per share. What is the maximum loss at expiration, per share?
+   - $3
+   - $30
+   - $88
+   - [x] $7
+   > For this position (K1 = 85, K2 = 95, K3 = 105, K4 = 115, net credit = 3), the maximum loss is $7 per share. Formula: L_max = κ - C, equidistant strikes with gap κ.

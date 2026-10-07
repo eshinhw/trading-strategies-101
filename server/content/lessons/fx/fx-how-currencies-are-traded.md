@@ -89,3 +89,10 @@ The market is open somewhere nearly around the clock, so the company can convert
    - FX trading never involves any notion of position size
    - Leverage eliminates all risk from a position
    > Because standard lot sizes represent large notional amounts, leverage allows traders to control that exposure without posting the full notional value in capital.
+
+6. {#calc1} [calc] EUR/USD is quoted 1.0996 / 1.1004. A company sells €2,000,000. How many dollars does it receive?
+   - $2,200,800
+   - $2,200,000
+   - [x] $2,199,200
+   - $2,199,000
+   > Selling euros uses the bid, the lower price: 2,000,000 × 1.0996 = $2,199,200.

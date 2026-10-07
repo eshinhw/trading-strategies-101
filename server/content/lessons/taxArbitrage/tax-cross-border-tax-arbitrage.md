@@ -86,3 +86,10 @@ A mailing address is not enough. If the treaty benefit is denied, the full $300,
    - The investor must be a citizen of the treaty jurisdiction
    - The structure has no requirements at all once established
    > Genuine substance is exactly what anti-abuse rules require for a treaty-shopping structure to reliably deliver its intended tax benefit.
+
+6. {#calc1} [calc] A dividend of $800,000 faces a 30% default withholding rate, but a treaty lowers the rate to 15% for a genuine holding company. How much is saved?
+   - $240,000
+   - [x] $120,000
+   - $600,000
+   - $12,000
+   > The saving is (30% − 15%) × $800,000 = $120,000, provided the structure has real substance.

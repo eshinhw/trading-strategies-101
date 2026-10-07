@@ -31,3 +31,10 @@ slug: short-combo
    - [x] A bearish trader who wants low-cost, stock-like downside exposure and accepts a flat zone near today's price
    - A trader who needs a guaranteed gain and is unwilling to accept any risk of losing money on the position
    > It is a bearish, leveraged, near-zero-cost way to express a view.
+
+5. {#calc1} [calc] A trader builds a Short Combo: buys one $95 put and sells one $105 call, for no net premium. What is the maximum profit at expiration, per share?
+   - [x] $95
+   - $10
+   - $96
+   - $94
+   > For this position (K1 = 95, K2 = 105), the maximum profit is $95 per share. Formula: P_max = K1 + netCF.

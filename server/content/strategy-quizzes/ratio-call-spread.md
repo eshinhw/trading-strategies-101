@@ -31,3 +31,10 @@ slug: ratio-call-spread
    - The trader keeps the credit, because the short calls expire worthless whenever the stock rises sharply higher
    - The loss is capped at a small amount
    > A big rally is the scenario the position is exposed to.
+
+5. {#calc1} [calc] A trader builds a Ratio Call Spread: sells two $100 calls and buys one $95 call, for a net credit of $2 per share. What is the break-even stock price at expiration, per share?
+   - $7
+   - $5
+   - $2
+   - [x] $107
+   > For this position (K2 = 95, K1 = 100, NL = 1, NS = 2, net credit = 2), the break-even stock price is $107 per share. Formula: S*_down = K2 - netCF/NL; S*_up = (NS×K1 - NL×K2 + netCF)/(NS-NL).

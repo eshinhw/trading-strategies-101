@@ -108,3 +108,10 @@ The trade profits from the gap widening, not from the overall level of spreads.
    - The position only profits if both spreads fall to zero
    - There is no profit, since curve trades never respond to spread changes
    > Because the position is sized to cancel out a parallel shift in the curve, its P&L comes from the change in the gap itself — here, the additional 50bps of steepening — not from the overall spread level.
+
+7. {#calc1} [calc] A duration-matched steepener has a sensitivity of $5,000 per basis point on each leg. The curve gap widens from 120 to 160 basis points. What is the profit?
+   - $40,000
+   - $800,000
+   - $160,000
+   - [x] $200,000
+   > The gap widened by 40 basis points, and 40 × $5,000 = $200,000. A parallel move in the level of spreads would not change the result.

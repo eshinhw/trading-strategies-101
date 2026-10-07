@@ -92,3 +92,10 @@ The strategy is profitable, as the 4-point gap between implied and realized vola
    - The only risk is that implied volatility might fall to zero
    - The strategy is risk-free by construction
    > Collecting the premium works most of the time, but a sudden spike in realized volatility beyond what was implied can produce a sharp loss — the core risk these strategies have to manage.
+
+6. {#calc1} [calc] An option seller collects $2 million a month and pays out $0.8 million in a normal month. In a crash month the payout is $30 million. About how many normal months of profit does one crash month wipe out?
+   - About 15 months
+   - [x] About 23 months
+   - About 35 months
+   - About 12 months
+   > A normal month earns $1.2M, and the crash month loses $2M − $30M = $28M, which is $28M / $1.2M ≈ 23 months.

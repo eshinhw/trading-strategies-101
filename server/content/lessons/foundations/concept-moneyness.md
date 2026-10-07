@@ -80,3 +80,10 @@ A market maker scanning a chain sorts dozens of strikes the same way: the deep I
    - OTM options guarantee a profit for the buyer
    - Moneyness has no real effect on an option's price
    > OTM options are cheaper to buy (no intrinsic value yet) and, for a seller, less likely to move in-the-money and get exercised — which is why they show up on both sides of so many strategies.
+
+6. {#calc1} [calc] A stock trades at $100. What is the intrinsic value of a $95-strike call and of a $105-strike call?
+   - $0 and $5
+   - [x] $5 and $0
+   - $5 and $5
+   - $95 and $105
+   > A call's intrinsic value is the stock price minus the strike, floored at zero: $100 − $95 = $5, and $100 − $105 is below zero, so $0.

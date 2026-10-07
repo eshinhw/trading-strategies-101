@@ -93,3 +93,10 @@ Prices respond to the surprise relative to expectations, not to the report's abs
    - Seasonal patterns only apply to agricultural commodities
    - Natural gas demand is constant year-round with no variation
    > Heating and cooling needs create recurring, predictable seasonal swings in energy demand that show up as a repeating pattern few other asset classes share.
+
+6. {#calc1} [calc] Corn futures are $6.00 a bushel. A drought cuts the expected harvest by 8%, and futures rise by the same percentage. What is the gain on one 5,000-bushel long contract?
+   - [x] $2,400
+   - $480
+   - $24,000
+   - $2,880
+   > A rise of 8% × $6.00 = $0.48 a bushel, and $0.48 × 5,000 bushels = $2,400.

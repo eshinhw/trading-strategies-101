@@ -92,3 +92,10 @@ The muni's lower stated yield is more than made up for by the tax saved, but onl
    - High-tax-bracket investors are legally required to buy municipal bonds
    - There is no scenario where a muni's lower stated yield could be the better choice
    > Once the tax advantage is properly accounted for, the muni's after-tax return can exceed the taxable bond's, especially for investors facing a high tax rate.
+
+6. {#calc1} [calc] A muni yields 3.2%. An investor in the 35% bracket compares it with a 4.4% taxable bond. What is the muni's taxable-equivalent yield, and which is better?
+   - [x] 4.92%, so the muni is better
+   - 4.92%, so the taxable bond is better
+   - 2.08%, so the muni is better
+   - 3.2%, so the taxable bond is better
+   > 3.2% / (1 − 0.35) ≈ 4.92%, which is above the 4.4% taxable yield.

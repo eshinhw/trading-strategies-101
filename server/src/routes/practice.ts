@@ -42,7 +42,13 @@ router.get("/quiz-bank/questions", (req, res) => {
   const unknownModules = requestedModules.filter((s) => !knownModules.has(s));
   if (unknownModules.length > 0) return res.status(400).json({ error: `Unknown module: ${unknownModules.join(", ")}` });
 
-  res.json({ questions: sampleBankQuestions(requested, wanted, requestedModules) });
+  // ?kind=concept|calc limits the session to one kind of question (default: both)
+  const kindParam = typeof req.query.kind === "string" ? req.query.kind : "all";
+  if (kindParam !== "all" && kindParam !== "concept" && kindParam !== "calc") {
+    return res.status(400).json({ error: `Unknown kind: ${kindParam}` });
+  }
+
+  res.json({ questions: sampleBankQuestions(requested, wanted, requestedModules, kindParam) });
 });
 
 export default router;

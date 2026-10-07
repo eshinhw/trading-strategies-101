@@ -85,3 +85,10 @@ The system reduced exposure on the deterioration in sentiment, whatever the pric
    - It automatically doubles exposure regardless of sentiment
    - It shuts down entirely and stops trading forever
    > The system treats deteriorating sentiment as an actionable signal, adjusting exposure ahead of what price data alone might show.
+
+6. {#calc1} [calc] In training data, 70% of posts are bullish and 30% bearish. The word "hack" appears in 20% of bearish posts and 2% of bullish posts. A new post contains "hack". What is the probability it is bearish?
+   - [x] About 81%
+   - 30%
+   - 20%
+   - About 94%
+   > P(bearish | hack) = 0.3 × 0.20 / (0.3 × 0.20 + 0.7 × 0.02) = 0.060 / 0.074 ≈ 81%.

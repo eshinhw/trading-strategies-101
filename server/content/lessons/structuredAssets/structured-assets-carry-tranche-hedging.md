@@ -88,7 +88,7 @@ The net carry is lower because the hedge costs more, but both legs are drawn fro
    - Because regulators require it for all trades
    > The tradeoff is precision: a tranche-versus-tranche hedge targets structure-specific risk more accurately, at the cost of liquidity and modeling complexity.
 
-6. A trader collects $150,000/year on a mezzanine tranche and pays $40,000/year hedging with the equity tranche of the same structure. What is the approximate net carry?
+6. [calc] A trader collects $150,000/year on a mezzanine tranche and pays $40,000/year hedging with the equity tranche of the same structure. What is the approximate net carry?
    - [x] $110,000
    - $190,000
    - $40,000

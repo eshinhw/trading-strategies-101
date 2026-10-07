@@ -31,3 +31,10 @@ slug: long-put-butterfly
    - The trader earns the maximum profit, because both of the wings gain value when the stock moves away
    - The trader is assigned shares at the middle strike, because the short puts finish in the money
    > Risk is limited to the debit.
+
+5. {#calc1} [calc] A trader builds a Long Put Butterfly: buys one $90 put, sells two $100 puts, and buys one $110 put, for a net debit of $3 per share. What is the upper break-even stock price at expiration, per share?
+   - [x] $107
+   - $93
+   - $20
+   - $7
+   > For this position (K1 = 90, K2 = 100, K3 = 110, net debit = 3), the upper break-even stock price is $107 per share. Formula: S*_up = K3 - D; S*_down = K1 + D.

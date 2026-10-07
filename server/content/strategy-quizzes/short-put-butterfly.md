@@ -31,3 +31,10 @@ slug: short-put-butterfly
    - [x] The trader keeps close to the full credit
    - The trader is assigned shares at the middle strike, because the short wings finish in the money
    > A large move is the outcome the position is built for.
+
+5. {#calc1} [calc] A trader builds a Short Put Butterfly: sells one $110 put, buys two $100 puts, and sells one $90 put, for a net credit of $3 per share. What is the maximum profit at expiration, per share?
+   - $7
+   - $20
+   - [x] $3
+   - $93
+   > For this position (K1 = 110, K2 = 100, K3 = 90, net credit = 3), the maximum profit is $3 per share. Formula: P_max = C.

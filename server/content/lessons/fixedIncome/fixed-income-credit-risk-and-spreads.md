@@ -77,7 +77,7 @@ Nothing has defaulted and every coupon is paid. The market has repriced the risk
    - It is rated below BBB- (Baa3)
    > Bonds rated BBB- or Baa3 and above are investment grade, and below that they are high yield.
 
-3. Treasury yield is 4.0% and a corporate bond of the same maturity yields 5.5%. What is the credit spread?
+3. [calc] Treasury yield is 4.0% and a corporate bond of the same maturity yields 5.5%. What is the credit spread?
    - 4.0%, or 400 basis points
    - [x] 1.5%, or 150 basis points
    - 5.5%, or 550 basis points
@@ -91,21 +91,21 @@ Nothing has defaulted and every coupon is paid. The market has repriced the risk
    - They become negative
    > In stress, investors want more return to hold risky bonds, so spreads widen and prices fall.
 
-5. A bond with a duration of 5 sees its yield rise by 1.00% from a wider spread. About how much does its price fall?
+5. [calc] A bond with a duration of 5 sees its yield rise by 1.00% from a wider spread. About how much does its price fall?
    - 1%
    - 0.2%
    - 50%
    - [x] 5%
    > A bond's price change is roughly its duration times the change in yield, so 5 × 1.00% = 5%.
 
-6. The manufacturer's bond yields 5.0% when the 10-year Treasury yields 3.5%. What is its credit spread?
+6. [calc] The manufacturer's bond yields 5.0% when the 10-year Treasury yields 3.5%. What is its credit spread?
    - 1.5 basis points
    - 15 basis points
    - [x] 150 basis points
    - 350 basis points
    > The spread is 5.0% - 3.5% = 1.5%, which is 150 basis points.
 
-7. After a downgrade the spread widens to 250 basis points and Treasury yields are unchanged. What is the bond's new yield?
+7. [calc] After a downgrade the spread widens to 250 basis points and Treasury yields are unchanged. What is the bond's new yield?
    - 5.0%
    - 5.5%
    - [x] 6.0%

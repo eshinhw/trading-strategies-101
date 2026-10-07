@@ -31,3 +31,10 @@ slug: short-iron-butterfly
    - The trader loses an unlimited amount, because the sold wings are exposed to a very large move in either direction
    - [x] The trader loses the debit paid
    > Without a large move, the options lose their value.
+
+5. {#calc1} [calc] A trader builds a "Short" Iron Butterfly: sells one $90 put, buys one $100 put, buys one $100 call, and sells one $110 call, for a net debit of $6 per share. What is the lower break-even stock price at expiration, per share?
+   - $106
+   - $20
+   - $6
+   - [x] $94
+   > For this position (K1 = 90, K2 = 100, K3 = 110, net debit = 6), the lower break-even stock price is $94 per share. Formula: S*_up = K2 + D; S*_down = K2 - D.

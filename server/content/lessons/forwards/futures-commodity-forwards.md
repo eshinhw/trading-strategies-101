@@ -103,7 +103,7 @@ The cross-hedge removes 75% of the increase, which is better than leaving all of
    - Cross-hedging eliminates all basis risk entirely
    > A deliberate cross-hedge accepts some basis risk in exchange for being able to hedge exposure that would otherwise have no direct hedging instrument available.
 
-7. A bakery buys a terminal wheat forward at $6.50 and plans around a $0.10 local basis, so $6.60. At maturity the terminal price is $7.00 and the local basis is $0.25. What is its effective cost per bushel?
+7. [calc] A bakery buys a terminal wheat forward at $6.50 and plans around a $0.10 local basis, so $6.60. At maturity the terminal price is $7.00 and the local basis is $0.25. What is its effective cost per bushel?
    - $6.50
    - $6.60
    - [x] $6.75

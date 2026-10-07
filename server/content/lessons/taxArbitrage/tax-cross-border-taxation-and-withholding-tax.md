@@ -83,3 +83,10 @@ The two investors own the identical share and receive the identical dividend. Th
    - Withholding rates are set randomly with no connection to residency or treaties
    - The company paying the dividend charges each investor a different price
    > The residency-driven treaty difference is exactly what produces the two different withholding outcomes on the same underlying payment.
+
+6. {#calc1} [calc] Two investors each receive a $20,000 dividend. One is taxed at the 30% default rate and the other at a 15% treaty rate. How much more does the second investor receive?
+   - $6,000
+   - [x] $3,000
+   - $4,000
+   - $300
+   > The first keeps $20,000 × 0.70 = $14,000 and the second keeps $20,000 × 0.85 = $17,000, a difference of $3,000.

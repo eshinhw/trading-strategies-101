@@ -88,3 +88,10 @@ It no longer holds the loans, so it also no longer carries most of their risk. I
    - It makes loans cheaper for everyone with no risk
    - It requires lenders to hold all of the risk
    > When risk is passed on, the incentive to screen borrowers carefully can weaken, as seen in the 2007 to 2009 crisis.
+
+6. {#calc1} [calc] A bank securitizes $240 million of mortgages and recycles the cash into new loans three times in total, earning a 0.4% fee each time. What is the total lending and the total fee income?
+   - $240 million of lending and $0.96 million of fees
+   - $720 million of lending and $0.96 million of fees
+   - [x] $720 million of lending and $2.88 million of fees
+   - $720 million of lending and $28.8 million of fees
+   > Three rounds of $240M is $720M, and a 0.4% fee on each is 3 × $0.96M = $2.88M.

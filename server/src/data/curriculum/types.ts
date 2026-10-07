@@ -1,7 +1,14 @@
 import type { Outlook } from "../../types.js";
 
+/**
+ * "concept" questions test an idea directly (true/false, multiple choice). "calc" questions are a short business
+ * scenario with numbers where the learner has to work out the answer before choosing it. Both are multiple choice.
+ */
+export type QuestionKind = "concept" | "calc";
+
 export interface ConceptQuizQuestion {
   id: string;
+  kind: QuestionKind;
   prompt: string;
   choices: string[];
   correctIndex: number;

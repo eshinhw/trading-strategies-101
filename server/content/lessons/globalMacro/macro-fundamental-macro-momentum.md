@@ -91,3 +91,10 @@ The strategy bets that a trend confirmed by growth and policy keeps going. It do
    - A rumor with no supporting economic data
    - The example describes no specific confirming signals
    > The two independent, fundamentally grounded signals — growth data and policy direction — are exactly what this strategy requires before trading a trend.
+
+6. {#calc1} [calc] A strategy is long $10 million of Country A (equities +4%, currency +2%) and short $10 million of Country B (equities −2%, currency −1%). What is the total profit?
+   - $600,000
+   - $300,000
+   - $1,500,000
+   - [x] $900,000
+   > Long A earns 6% × $10M = $600,000. The short in B earns 3% × $10M = $300,000. The total is $900,000.

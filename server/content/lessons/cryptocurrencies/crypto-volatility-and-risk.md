@@ -89,3 +89,10 @@ Because of those extra risks, crypto controls are usually more conservative than
    - Crypto strategies never actually require any risk controls
    - Historical price data captures every possible risk a crypto strategy could face
    > The additional risks covered in this lesson — security, custody, regulatory — don't show up cleanly in historical price data, so relying on backtests alone can understate real risk.
+
+6. {#calc1} [calc] Crypto moves about 5% a day and equities about 1%. A strategy holds $100,000 of equities. What crypto position carries the same one-day risk?
+   - $50,000
+   - $5,000
+   - [x] $20,000
+   - $100,000
+   > Equal risk means position × volatility is equal: $100,000 × 1% = $1,000, and $1,000 / 5% = $20,000.

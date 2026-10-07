@@ -90,7 +90,7 @@ The profit comes from the spread narrowing from $2.00 to $0.50. A $1 narrowing i
    - Only available on stock index futures
    > Since both legs are on the same underlying and tend to move together with the broad commodity price, much of that outright price risk cancels out, leaving a narrower bet on the shape of the futures curve.
 
-6. A trader buys November crude at $76 and sells December crude at $78. November later rises to $77.50 while December stays at $78.00. What's the profit per barrel?
+6. [calc] A trader buys November crude at $76 and sells December crude at $78. November later rises to $77.50 while December stays at $78.00. What's the profit per barrel?
    - $0.50
    - [x] $1.50
    - $2.00

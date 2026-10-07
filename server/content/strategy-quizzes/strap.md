@@ -31,3 +31,10 @@ slug: strap
    - Zero, because the single put protects the position against any loss that the calls could suffer
    - Only the cost of the put
    > All options expire worthless at the strike, so the whole premium is lost.
+
+5. {#calc1} [calc] A trader builds a Strap: buys two $100 calls and buys one $100 put, for a net debit of $9 per share. What is the maximum loss at expiration, per share?
+   - $0
+   - $91
+   - $104.50
+   - [x] $9
+   > For this position (K = 100, net debit = 9), the maximum loss is $9 per share. Formula: L_max = D.

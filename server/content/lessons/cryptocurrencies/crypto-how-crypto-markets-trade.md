@@ -80,3 +80,10 @@ That is the meaning of "not your keys, not your coins."
    - A technical requirement that all keys be publicly shared
    - A phrase with no real connection to custody or security
    > The phrase captures exactly the custody tradeoff covered in this lesson: control follows the private key, not the label on an account statement.
+
+6. {#calc1} [calc] A trader leaves 3 bitcoin at $50,000 each on an exchange that fails, and customers recover 35 cents on the dollar. What is the loss?
+   - [x] $97,500
+   - $52,500
+   - $150,000
+   - $65,000
+   > The holding was 3 × $50,000 = $150,000. Recovering 35% returns $52,500, so the loss is $150,000 − $52,500 = $97,500.

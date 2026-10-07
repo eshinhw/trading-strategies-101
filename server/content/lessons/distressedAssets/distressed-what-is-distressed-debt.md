@@ -83,3 +83,10 @@ The price alone says nothing. The decision depends on the recovery the investor 
    - Because the price of a distressed bond never reflects any real information
    - There is no reason to evaluate the bond further once its price drops
    > The price alone doesn't tell you what the claim is worth — that requires a genuine estimate of eventual recovery, which is the actual analytical work of distressed investing.
+
+6. {#calc1} [calc] A bond's price falls from 85 cents on the dollar to 35 cents after a poor earnings report. By what percentage did it fall?
+   - [x] About 58.8%
+   - 50%
+   - About 142.9%
+   - About 41.2%
+   > The drop is 50 cents on 85, and 50 / 85 ≈ 58.8%.

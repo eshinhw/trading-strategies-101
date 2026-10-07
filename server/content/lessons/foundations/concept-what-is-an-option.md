@@ -83,3 +83,10 @@ An option is a right without an obligation. The buyer pays a small, known amount
    - [x] Four: long call, short call, long put, short put
    - It varies strategy by strategy — there's no fixed set
    > Long a call, short a call, long a put, short a put — often combined with a stock position. Every multi-leg strategy is built from these four.
+
+6. {#calc1} [calc] A buyer pays a $5,000 deposit for the right to buy a house at $400,000 within 60 days. The house is worth $430,000 when the right is used. What is the gain?
+   - $30,000
+   - $5,000
+   - $35,000
+   - [x] $25,000
+   > The gain is the $30,000 gap between $430,000 and $400,000 less the $5,000 deposit, which is $25,000.

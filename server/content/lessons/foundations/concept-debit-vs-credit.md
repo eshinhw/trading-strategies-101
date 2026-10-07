@@ -86,3 +86,10 @@ Whether cash comes in or goes out says nothing about risk. Margin follows the ri
    - [x] Match the structure to your market view and risk tolerance — neither is inherently better
    - It doesn't matter; debit and credit trades are functionally identical
    > The lesson's takeaway is explicit: you're choosing between a known, limited cost for a shot at uncapped upside, or a known, limited credit for taking on risk. Fit the choice to your view and risk tolerance.
+
+6. {#calc1} [calc] An investor buys one call for $4.00 a share. How much cash is paid and what is the most that can be lost?
+   - $400 paid, and the maximum loss is unlimited
+   - $4 paid, and the maximum loss is $4
+   - [x] $400 paid, and the maximum loss is $400
+   - $400 received, and the maximum loss is $400
+   > One contract controls 100 shares, so the debit is $4.00 × 100 = $400, and a bought option can lose at most what was paid.

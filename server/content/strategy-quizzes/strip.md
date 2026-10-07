@@ -31,3 +31,10 @@ slug: strip
    - Zero, because the single call protects the position against any loss that the puts could suffer
    - Only the cost of the call
    > All options expire worthless at the strike, so the whole premium is lost.
+
+5. {#calc1} [calc] A trader builds a Strip: buys one $100 call and buys two $100 puts, for a net debit of $9 per share. What is the upper break-even stock price at expiration, per share?
+   - $95.50
+   - $9
+   - $0
+   - [x] $109
+   > For this position (K = 100, net debit = 9), the upper break-even stock price is $109 per share. Formula: S*_up = K + D; S*_down = K - D/2.

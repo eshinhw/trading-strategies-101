@@ -31,3 +31,10 @@ slug: short-put
    - The trader loses the premium that was collected, because the put was not exercised by the buyer
    - The trader owes the buyer the difference between the strike and the stock price at expiration
    > If the stock stays above the strike, the option is out of the money and the seller keeps the credit.
+
+5. {#calc1} [calc] A trader builds a Short Put: sells one $100 put, for a net credit of $4 per share. What is the maximum loss at expiration, per share?
+   - $4
+   - [x] $96
+   - $97
+   - $95
+   > For this position (K = 100, net credit = 4), the maximum loss is $96 per share. Formula: L_max = K - C.

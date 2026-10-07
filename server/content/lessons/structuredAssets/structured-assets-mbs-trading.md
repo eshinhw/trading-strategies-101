@@ -97,3 +97,10 @@ Principal bought at a discount and returned sooner at full face value boosts the
    - The trader's prepayment view has no effect on realized yield
    - CPR assumptions only matter for premium pass-throughs, never discount ones
    > Since the pass-through was purchased below par, principal returned faster than the market priced in effectively converts that discount into extra realized yield — the core mechanic behind trading a prepayment view.
+
+7. {#calc1} [calc] A trader buys $2 million face of a pass-through at 97. If all of the principal comes back at par, how much discount does the trader earn?
+   - $6,000
+   - $600,000
+   - [x] $60,000
+   - $2,000,000
+   > The purchase price is $2,000,000 × 0.97 = $1,940,000, and getting $2,000,000 back is a gain of $60,000.

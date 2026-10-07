@@ -89,7 +89,7 @@ Gains and losses are paid in cash every day, so a desk sizes positions by how mu
    - Because leverage only ever increases a trader's profits, never their losses
    > Since margin is a small fraction of notional value, the same dollar move in the underlying is a much larger percentage move on the margin posted — leverage that cuts both ways.
 
-6. A trader posts $6,000 initial margin on a crude oil contract (1,000 barrels). Crude falls $2/barrel, a $2,000 loss. If maintenance margin is $5,000, what happens?
+6. [calc] A trader posts $6,000 initial margin on a crude oil contract (1,000 barrels). Crude falls $2/barrel, a $2,000 loss. If maintenance margin is $5,000, what happens?
    - Nothing — the account still has a positive balance
    - [x] A margin call, since $6,000 − $2,000 = $4,000 is below the $5,000 maintenance threshold
    - The position automatically doubles in size

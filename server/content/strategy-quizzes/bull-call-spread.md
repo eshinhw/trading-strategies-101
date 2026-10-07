@@ -31,3 +31,10 @@ slug: bull-call-spread
    - A loss equal to the spread width
    - [x] The full spread width minus the debit paid, and no more
    > Profit is capped at the difference between the strikes minus what was paid.
+
+5. {#calc1} [calc] A trader builds a Bull Call Spread: buys one $95 call and sells one $105 call, for a net debit of $3 per share. What is the maximum loss at expiration, per share?
+   - $7
+   - [x] $3
+   - $10
+   - $98
+   > For this position (K1 = 95, K2 = 105, net debit = 3), the maximum loss is $3 per share. Formula: L_max = D.

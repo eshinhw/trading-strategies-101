@@ -83,3 +83,10 @@ No bank approves either transfer, and the process is the same whether the amount
    - All cryptocurrency transfers require government pre-approval instead
    - Wallets are physically connected to a single bank's servers
    > The network's consensus process replaces the role a bank or clearinghouse would normally play in validating and recording a transfer.
+
+6. {#calc1} [calc] A bitcoin transfer carries a flat network fee of $4. What is the fee as a share of a $200 transfer?
+   - 0.2%
+   - 4%
+   - 20%
+   - [x] 2%
+   > $4 / $200 = 2%. The fee does not scale with the amount, so it is a small share of a large transfer and a big share of a small one.

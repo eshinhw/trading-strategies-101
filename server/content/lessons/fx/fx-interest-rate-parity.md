@@ -89,3 +89,10 @@ Hedging locks in a return of zero, which is what covered interest rate parity sa
    - The carry trade has no relationship to interest rate parity at all
    - Higher-rate currencies always appreciate, guaranteeing carry trade profits
    > Because the depreciation predicted by uncovered interest rate parity doesn't show up reliably in practice, that persistent gap is exactly what carry trade strategies are built to capture.
+
+6. {#calc1} [calc] EUR/USD spot is 1.10, the one-year dollar rate is 5% and the euro rate is 3%. What is the one-year forward rate?
+   - About 1.0786
+   - [x] About 1.1214
+   - About 1.1330
+   - About 1.1000
+   > F = 1.10 × (1.05 / 1.03) ≈ 1.1214. The higher-rate currency (the dollar) trades at a forward discount, so the euro is at a premium.
