@@ -38,3 +38,38 @@ slug: short-iron-condor
    - $2,400
    - [x] $2,000
    > The maximum loss is $4 per share. One contract covers 100 shares, so 5 contracts give $4 × 100 × 5 = $2,000.
+
+6. {#bk6} [calc] A trader builds a Short Iron Condor: sells one $85 put, buys one $95 put, buys one $105 call, and sells one $115 call, for a net debit of $4 per share. The stock is at $73 at expiration. What is the profit or loss per share, counting the premium?
+   - −$6
+   - [x] +$6
+   - +$10
+   - +$14
+   > At $73 the legs are worth +$10 per share before the premium, and the net premium adds −$4, for +$6 per share (given K1 = 85, K2 = 95, K3 = 105, K4 = 115, net debit = 4).
+
+7. {#bk7} [calc] A trader builds a Short Iron Condor: sells one $85 put, buys one $95 put, buys one $105 call, and sells one $115 call, for a net debit of $4 per share. The stock is at $82 at expiration. What is the profit or loss per share, counting the premium?
+   - −$6
+   - +$10
+   - +$14
+   - [x] +$6
+   > At $82 the legs are worth +$10 per share before the premium, and the net premium adds −$4, for +$6 per share (given K1 = 85, K2 = 95, K3 = 105, K4 = 115, net debit = 4).
+
+8. {#bk8} [calc] A trader builds a Short Iron Condor: sells one $85 put, buys one $95 put, buys one $105 call, and sells one $115 call, for a net debit of $4 per share. At expiration the stock is at $85. What is the total profit or loss on 7 contracts (100 shares each), in dollars?
+   - +$42
+   - +$600
+   - [x] +$4,200
+   - −$4,200
+   > Per share the position makes +$6 at $85. For 7 contracts: +$6 × 100 × 7 = +$4,200.
+
+9. {#bk9} [calc] A trader builds a Short Iron Condor: sells one $85 put, buys one $95 put, buys one $105 call, and sells one $115 call, for a net debit of $4 per share. How much cash is paid up front in total if the trader opens 10 contracts (100 shares each)?
+   - [x] $4,000
+   - $40
+   - $400
+   - $4,400
+   > The net debit is $4 per share. For 10 contracts: $4 × 100 × 10 = $4,000.
+
+10. {#bk10} [calc] A trader builds a Short Iron Condor: sells one $85 put, buys one $95 put, buys one $105 call, and sells one $115 call, for a net debit of $4 per share. What is the ratio of maximum profit to maximum loss?
+   - [x] 1.5 to 1
+   - 0.67 to 1
+   - 6 to 1
+   - 4 to 1
+   > Maximum profit is $6 and maximum loss is $4 per share, so the ratio is $6 / $4 = 1.5 to 1.

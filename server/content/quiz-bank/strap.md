@@ -38,3 +38,31 @@ slug: strap
    - $900
    - $5,400
    > The maximum loss is $9 per share. One contract covers 100 shares, so 5 contracts give $9 × 100 × 5 = $4,500.
+
+6. {#bk6} [calc] A trader builds a Strap: buys two $100 calls and buys one $100 put, for a net debit of $9 per share. The stock is at $88 at expiration. What is the profit or loss per share, counting the premium?
+   - −$3
+   - +$12
+   - [x] +$3
+   - +$21
+   > At $88 the legs are worth +$12 per share before the premium, and the net premium adds −$9, for +$3 per share (given K = 100, net debit = 9).
+
+7. {#bk7} [calc] A trader builds a Strap: buys two $100 calls and buys one $100 put, for a net debit of $9 per share. The stock is at $97 at expiration. What is the profit or loss per share, counting the premium?
+   - [x] −$6
+   - +$6
+   - +$3
+   - +$12
+   > At $97 the legs are worth +$3 per share before the premium, and the net premium adds −$9, for −$6 per share (given K = 100, net debit = 9).
+
+8. {#bk8} [calc] A trader builds a Strap: buys two $100 calls and buys one $100 put, for a net debit of $9 per share. At expiration the stock is at $100. What is the total profit or loss on 5 contracts (100 shares each), in dollars?
+   - −$45
+   - [x] −$4,500
+   - −$900
+   - +$4,500
+   > Per share the position makes −$9 at $100. For 5 contracts: −$9 × 100 × 5 = −$4,500.
+
+9. {#bk9} [calc] A trader builds a Strap: buys two $100 calls and buys one $100 put, for a net debit of $9 per share. How much cash is paid up front in total if the trader opens 8 contracts (100 shares each)?
+   - $72
+   - $900
+   - $8,100
+   - [x] $7,200
+   > The net debit is $9 per share. For 8 contracts: $9 × 100 × 8 = $7,200.

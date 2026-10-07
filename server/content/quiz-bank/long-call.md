@@ -31,3 +31,31 @@ slug: long-call
    - [x] $3,200
    - $3,600
    > The maximum loss is $4 per share. One contract covers 100 shares, so 8 contracts give $4 × 100 × 8 = $3,200.
+
+5. {#bk5} [calc] A trader builds a Long Call: buys one $100 call, for a net debit of $4 per share. The stock is at $88 at expiration. What is the profit or loss per share, counting the premium?
+   - [x] −$4
+   - +$4
+   - −$3
+   - −$5
+   > At $88 the legs are worth $0 per share before the premium, and the net premium adds −$4, for −$4 per share (given K = 100, net debit = 4).
+
+6. {#bk6} [calc] A trader builds a Long Call: buys one $100 call, for a net debit of $4 per share. The stock is at $97 at expiration. What is the profit or loss per share, counting the premium?
+   - +$4
+   - −$3
+   - [x] −$4
+   - −$5
+   > At $97 the legs are worth $0 per share before the premium, and the net premium adds −$4, for −$4 per share (given K = 100, net debit = 4).
+
+7. {#bk7} [calc] A trader builds a Long Call: buys one $100 call, for a net debit of $4 per share. At expiration the stock is at $100. What is the total profit or loss on 3 contracts (100 shares each), in dollars?
+   - [x] −$1,200
+   - −$12
+   - −$400
+   - +$1,200
+   > Per share the position makes −$4 at $100. For 3 contracts: −$4 × 100 × 3 = −$1,200.
+
+8. {#bk8} [calc] A trader builds a Long Call: buys one $100 call, for a net debit of $4 per share. How much cash is paid up front in total if the trader opens 4 contracts (100 shares each)?
+   - $16
+   - [x] $1,600
+   - $400
+   - $2,000
+   > The net debit is $4 per share. For 4 contracts: $4 × 100 × 4 = $1,600.

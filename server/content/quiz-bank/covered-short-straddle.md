@@ -38,3 +38,31 @@ slug: covered-short-straddle
    - $5,400
    - [x] $4,800
    > The maximum profit is $6 per share. One contract covers 100 shares, so 8 contracts give $6 × 100 × 8 = $4,800.
+
+6. {#bk6} [calc] A trader builds a Covered Short Straddle: owns the stock, bought at $100, sells one $100 call, and sells one $100 put, with a net option premium of $6 received. The stock is at $100 at expiration. What is the profit or loss per share, counting the premium?
+   - −$6
+   - [x] +$6
+   - +$18
+   - +$7
+   > At $100 the legs are worth $0 per share before the premium, and the net premium adds +$6, for +$6 per share (given S0 = 100, K = 100, net credit = 6).
+
+7. {#bk7} [calc] A trader builds a Covered Short Straddle: owns the stock, bought at $100, sells one $100 call, and sells one $100 put, with a net option premium of $6 received. The stock is at $101 at expiration. What is the profit or loss per share, counting the premium?
+   - −$6
+   - +$18
+   - +$7
+   - [x] +$6
+   > At $101 the legs are worth $0 per share before the premium, and the net premium adds +$6, for +$6 per share (given S0 = 100, K = 100, net credit = 6).
+
+8. {#bk8} [calc] A trader builds a Covered Short Straddle: owns the stock, bought at $100, sells one $100 call, and sells one $100 put, with a net option premium of $6 received. At expiration the stock is at $103. What is the total profit or loss on 3 contracts (100 shares each), in dollars?
+   - +$18
+   - +$600
+   - [x] +$1,800
+   - −$1,800
+   > Per share the position makes +$6 at $103. For 3 contracts: +$6 × 100 × 3 = +$1,800.
+
+9. {#bk9} [calc] A trader builds a Covered Short Straddle: owns the stock, bought at $100, sells one $100 call, and sells one $100 put, with a net option premium of $6 received. What is the ratio of maximum profit to maximum loss?
+   - [x] 0.03 to 1
+   - 32.33 to 1
+   - 6 to 1
+   - 194 to 1
+   > Maximum profit is $6 and maximum loss is $194 per share, so the ratio is $6 / $194 = 0.03 to 1.

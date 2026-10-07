@@ -38,3 +38,31 @@ slug: long-straddle
    - $600
    - $3,000
    > The maximum loss is $6 per share. One contract covers 100 shares, so 4 contracts give $6 × 100 × 4 = $2,400.
+
+6. {#bk6} [calc] A trader builds a Long Straddle: buys one $100 call and buys one $100 put, for a net debit of $6 per share. The stock is at $88 at expiration. What is the profit or loss per share, counting the premium?
+   - −$6
+   - +$12
+   - +$18
+   - [x] +$6
+   > At $88 the legs are worth +$12 per share before the premium, and the net premium adds −$6, for +$6 per share (given K = 100, net debit = 6).
+
+7. {#bk7} [calc] A trader builds a Long Straddle: buys one $100 call and buys one $100 put, for a net debit of $6 per share. The stock is at $97 at expiration. What is the profit or loss per share, counting the premium?
+   - +$3
+   - [x] −$3
+   - +$9
+   - −$2
+   > At $97 the legs are worth +$3 per share before the premium, and the net premium adds −$6, for −$3 per share (given K = 100, net debit = 6).
+
+8. {#bk8} [calc] A trader builds a Long Straddle: buys one $100 call and buys one $100 put, for a net debit of $6 per share. At expiration the stock is at $100. What is the total profit or loss on 7 contracts (100 shares each), in dollars?
+   - [x] −$4,200
+   - −$42
+   - −$600
+   - +$4,200
+   > Per share the position makes −$6 at $100. For 7 contracts: −$6 × 100 × 7 = −$4,200.
+
+9. {#bk9} [calc] A trader builds a Long Straddle: buys one $100 call and buys one $100 put, for a net debit of $6 per share. How much cash is paid up front in total if the trader opens 2 contracts (100 shares each)?
+   - $12
+   - $600
+   - [x] $1,200
+   - $1,800
+   > The net debit is $6 per share. For 2 contracts: $6 × 100 × 2 = $1,200.

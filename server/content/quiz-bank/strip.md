@@ -38,3 +38,31 @@ slug: strip
    - $900
    - $8,100
    > The maximum loss is $9 per share. One contract covers 100 shares, so 8 contracts give $9 × 100 × 8 = $7,200.
+
+6. {#bk6} [calc] A trader builds a Strip: buys one $100 call and buys two $100 puts, for a net debit of $9 per share. The stock is at $88 at expiration. What is the profit or loss per share, counting the premium?
+   - −$15
+   - +$24
+   - +$33
+   - [x] +$15
+   > At $88 the legs are worth +$24 per share before the premium, and the net premium adds −$9, for +$15 per share (given K = 100, net debit = 9).
+
+7. {#bk7} [calc] A trader builds a Strip: buys one $100 call and buys two $100 puts, for a net debit of $9 per share. The stock is at $97 at expiration. What is the profit or loss per share, counting the premium?
+   - +$3
+   - [x] −$3
+   - +$6
+   - +$15
+   > At $97 the legs are worth +$6 per share before the premium, and the net premium adds −$9, for −$3 per share (given K = 100, net debit = 9).
+
+8. {#bk8} [calc] A trader builds a Strip: buys one $100 call and buys two $100 puts, for a net debit of $9 per share. At expiration the stock is at $100. What is the total profit or loss on 2 contracts (100 shares each), in dollars?
+   - [x] −$1,800
+   - −$18
+   - −$900
+   - +$1,800
+   > Per share the position makes −$9 at $100. For 2 contracts: −$9 × 100 × 2 = −$1,800.
+
+9. {#bk9} [calc] A trader builds a Strip: buys one $100 call and buys two $100 puts, for a net debit of $9 per share. How much cash is paid up front in total if the trader opens 2 contracts (100 shares each)?
+   - $18
+   - $900
+   - [x] $1,800
+   - $2,700
+   > The net debit is $9 per share. For 2 contracts: $9 × 100 × 2 = $1,800.

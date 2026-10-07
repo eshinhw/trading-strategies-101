@@ -24,3 +24,10 @@ slug: futures-currency-forwards
    - 1.3500
    - 1.4715
    > Forward = spot × e^((quote rate − base rate)×T) = 1.3500 × e^(-0.010×1) = 1.3366.
+
+4. {#bk4} [calc] A US importer must pay €2 million in 6 months and buys euros forward at 1.1200 when spot is 1.1000. What does the importer pay in dollars, and how does that compare with paying at today's spot?
+   - $2,200,000, the same as spot
+   - $2,240,000, which is $40,000 less than the spot cost
+   - $2,000,000, which is $200,000 less
+   - [x] $2,240,000, which is $40,000 more than the spot cost
+   > Forward cost = €2,000,000 × 1.1200 = $2,240,000. Spot cost = €2,000,000 × 1.1000 = $2,200,000. The difference is $40,000.

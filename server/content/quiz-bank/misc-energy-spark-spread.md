@@ -31,3 +31,10 @@ slug: misc-energy-spark-spread
    - [x] $5,600
    - $28
    > Margin = $14 × 400 = $5,600 before fixed costs.
+
+5. {#bk5} [calc] A gas plant's heat rate is 7.5 MMBtu per MWh. Gas costs $3.20 per MMBtu and power sells for $41. What is the spark spread?
+   - [x] $17/MWh
+   - $37.80/MWh
+   - $24/MWh
+   - $41/MWh
+   > Spark spread = $41 − 7.5 × $3.20 = $41 − $24 = $17 per MWh.

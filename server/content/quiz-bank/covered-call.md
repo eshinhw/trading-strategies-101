@@ -38,3 +38,31 @@ slug: covered-call
    - $4,000
    - [x] $3,200
    > The maximum profit is $8 per share. One contract covers 100 shares, so 4 contracts give $8 × 100 × 4 = $3,200.
+
+6. {#bk6} [calc] A trader builds a Covered Call: owns the stock, bought at $100, and sells one $105 call, with a net option premium of $3 received. The stock is at $103 at expiration. What is the profit or loss per share, counting the premium?
+   - −$6
+   - [x] +$6
+   - +$3
+   - +$12
+   > At $103 the legs are worth +$3 per share before the premium, and the net premium adds +$3, for +$6 per share (given S0 = 100, K = 105, net credit = 3).
+
+7. {#bk7} [calc] A trader builds a Covered Call: owns the stock, bought at $100, and sells one $105 call, with a net option premium of $3 received. The stock is at $104 at expiration. What is the profit or loss per share, counting the premium?
+   - −$7
+   - +$4
+   - +$13
+   - [x] +$7
+   > At $104 the legs are worth +$4 per share before the premium, and the net premium adds +$3, for +$7 per share (given S0 = 100, K = 105, net credit = 3).
+
+8. {#bk8} [calc] A trader builds a Covered Call: owns the stock, bought at $100, and sells one $105 call, with a net option premium of $3 received. At expiration the stock is at $105. What is the total profit or loss on 5 contracts (100 shares each), in dollars?
+   - +$40
+   - +$800
+   - [x] +$4,000
+   - −$4,000
+   > Per share the position makes +$8 at $105. For 5 contracts: +$8 × 100 × 5 = +$4,000.
+
+9. {#bk9} [calc] A trader builds a Covered Call: owns the stock, bought at $100, and sells one $105 call, with a net option premium of $3 received. What is the ratio of maximum profit to maximum loss?
+   - [x] 0.08 to 1
+   - 12.13 to 1
+   - 8 to 1
+   - 97 to 1
+   > Maximum profit is $8 and maximum loss is $97 per share, so the ratio is $8 / $97 = 0.08 to 1.

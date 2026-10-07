@@ -9,6 +9,17 @@ export interface BankModule {
   calcCount: number;
 }
 
+/** A strategy lesson that can be drilled on its own in the Quiz Bank. */
+export interface BankStrategy {
+  slug: string;
+  title: string;
+  moduleSlug: string;
+  moduleTitle: string;
+  questionCount: number;
+  conceptCount: number;
+  calcCount: number;
+}
+
 export interface BankCourse {
   slug: string;
   title: string;
@@ -16,6 +27,7 @@ export interface BankCourse {
   conceptCount: number;
   calcCount: number;
   modules: BankModule[];
+  strategies: BankStrategy[];
 }
 
 export interface BankQuestion {

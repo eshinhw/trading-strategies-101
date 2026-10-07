@@ -24,3 +24,10 @@ slug: cash-money-market-instruments
    - 0.40%
    - 6.51%
    > Return over 45 days = (100 − 99.60) / 99.60 = 0.402%. Annualized: × 365/45 = 3.26%.
+
+4. {#bk4} [calc] A money market fund holds $50 million earning 4.8% a year. What is the interest for 90 days (365-day basis)?
+   - $600,000
+   - $2,400,000
+   - [x] $591,781
+   - $197,260
+   > Interest = $50 million × 4.8% × 90 / 365 = $591,781.

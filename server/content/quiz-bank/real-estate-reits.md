@@ -24,3 +24,10 @@ slug: real-estate-reits
    - 18.2%
    - [x] 5.5%
    > Dividend yield = $2.20 / $40 = 5.5%.
+
+4. {#bk4} [calc] A REIT trades at $30 per share and generates funds from operations of $2.40 per share. What is its price-to-FFO multiple?
+   - [x] 12.5
+   - 0.08
+   - 7.2
+   - 72
+   > $30 / $2.40 = 12.5.

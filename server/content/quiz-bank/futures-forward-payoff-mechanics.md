@@ -17,3 +17,10 @@ slug: futures-forward-payoff-mechanics
    - $7
    - $78,000
    > The long gains the amount spot finishes above the delivery price: ($78 − $85) × 1,000 = −$7,000.
+
+3. {#bk3} [calc] A seller agrees to sell 8,000 bushels forward at $7.10. At delivery the spot price is $6.75. What is the seller's profit?
+   - −$2,800
+   - $56,800
+   - [x] $2,800
+   - $280
+   > The seller receives $7.10 for grain worth $6.75: ($7.10 − $6.75) × 8,000 = $2,800.

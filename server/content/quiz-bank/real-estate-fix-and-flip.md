@@ -17,3 +17,10 @@ slug: real-estate-fix-and-flip
    - $260,000
    - $130,000
    > Maximum offer = 70% × $300,000 − $40,000 = $210,000 − $40,000 = $170,000.
+
+3. {#bk3} [calc] A flipper's total cost is $250,000 and the sale after 6 months leaves a $50,000 profit. What is the simple annualized return?
+   - 20%
+   - 10%
+   - [x] 40%
+   - 80%
+   > Profit / cost = 50,000 / 250,000 = 20% in 6 months, or 40% on a simple annualized basis.

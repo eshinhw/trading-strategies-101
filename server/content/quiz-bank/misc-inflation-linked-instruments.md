@@ -17,3 +17,10 @@ slug: misc-inflation-linked-instruments
    - [x] The TIPS, by about 0.3%
    - They would perform equally
    > The breakeven is 4.0% − 1.8% = 2.2%. Inflation of 2.5% is 0.3% higher than that, so the TIPS beats the nominal bond by about 0.3% a year.
+
+3. {#bk3} [calc] A TIPS with $1,000 principal sees inflation of 2.5% over a year. What is the adjusted principal?
+   - [x] $1,025
+   - $1,002.50
+   - $975
+   - $1,250
+   > $1,000 × 1.025 = $1,025.

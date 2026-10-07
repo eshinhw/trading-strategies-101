@@ -17,3 +17,10 @@ slug: tax-the-basic-idea-of-tax-arbitrage
    - [x] $500,000
    - $250,000
    > Tax saving = $2,000,000 × 25% = $500,000.
+
+3. {#bk3} [calc] A company can shift $2 million of profit from a country taxing at 30% to one taxing at 12%. What tax does that save?
+   - [x] $360,000
+   - $600,000
+   - $240,000
+   - $840,000
+   > Saving = (30% − 12%) × $2 million = $360,000.

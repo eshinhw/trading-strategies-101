@@ -141,11 +141,13 @@ export function fetchBankQuestions(
   count: number,
   modules: string[] = [],
   kind: QuestionKind | "all" = "all",
+  strategies: string[] = [],
 ): Promise<BankQuestion[]> {
   const params = new URLSearchParams({ count: String(count) });
   if (courses.length > 0) params.set("courses", courses.join(","));
   if (modules.length > 0) params.set("modules", modules.join(","));
   if (kind !== "all") params.set("kind", kind);
+  if (strategies.length > 0) params.set("strategies", strategies.join(","));
   return request<{ questions: BankQuestion[] }>(`/api/practice/quiz-bank/questions?${params}`).then((d) => d.questions);
 }
 

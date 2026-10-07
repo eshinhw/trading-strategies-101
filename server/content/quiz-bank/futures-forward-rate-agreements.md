@@ -24,3 +24,10 @@ slug: futures-forward-rate-agreements
    - −$36,276
    - $75,000
    > $10,000,000 × (6.75% − 6%) × 0.5 = $37,500, divided by 1 + 6.75% × 0.5 = $36,276.
+
+4. {#bk4} [calc] A company buys a 3-month FRA on $20 million at 4.00%. At settlement the 3-month reference rate is 4.60%. What is the payment to the company, discounted to the start of the period?
+   - $30,000
+   - $120,000
+   - $118,636
+   - [x] $29,659
+   > $20 million × (4.60% − 4.00%) × 0.25 = $30,000, divided by 1 + 4.60% × 0.25 = 1.0115, which is $29,659.

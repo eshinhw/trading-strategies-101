@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { fetchBankCourses, fetchBankQuestions, fetchBankQuestionsByIds } from "../api";
-import type { BankCourse, BankQuestion, QuestionKind } from "../types/practice";
+import type { BankCourse, BankQuestion, BankStrategy, QuestionKind } from "../types/practice";
 import { QuizChoiceOption } from "../components/QuizChoiceOption";
 import { QuizFeedback } from "../components/QuizFeedback";
 import { AnswerProgressBar } from "../components/AnswerProgressBar";
@@ -155,6 +155,146 @@ function BankHeader({ eyebrow, title, children }: { eyebrow: string; title: stri
   );
 }
 
+type CountLike = { questionCount: number; conceptCount: number; calcCount: number };
+
+// Pick individual strategy lessons, grouped by course and module, with a search box for the long Options list.
+function StrategyPicker({
+  courses,
+  kind,
+  kindCount,
+  selected,
+  query,
+  onQuery,
+  open,
+  onToggleOpen,
+  onToggle,
+  onClear,
+}: {
+  courses: BankCourse[];
+  kind: KindFilter;
+  kindCount: (x: CountLike) => number;
+  selected: Set<string>;
+  query: string;
+  onQuery: (q: string) => void;
+  open: Set<string>;
+  onToggleOpen: (courseSlug: string) => void;
+  onToggle: (slugs: string[]) => void;
+  onClear: () => void;
+}) {
+  const q = query.trim().toLowerCase();
+  const order = COURSE_FAMILIES.flatMap((f) => f.slugs);
+  const ordered = order
+    .map((slug) => courses.find((c) => c.slug === slug))
+    .filter((c): c is BankCourse => Boolean(c && c.strategies.length > 0));
+  const total = ordered.reduce((n, c) => n + c.strategies.length, 0);
+
+  const groups = ordered
+    .map((c) => {
+      const matches = c.strategies.filter(
+        (st) => kindCount(st) > 0 && (!q || `${st.title} ${st.moduleTitle} ${c.title}`.toLowerCase().includes(q)),
+      );
+      const byModule = new Map<string, BankStrategy[]>();
+      for (const st of matches) byModule.set(st.moduleTitle, [...(byModule.get(st.moduleTitle) ?? []), st]);
+      return { course: c, matches, byModule };
+    })
+    .filter((g) => g.matches.length > 0);
+
+  return (
+    <div>
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Pick your strategies</h2>
+        {selected.size > 0 && (
+          <button onClick={onClear} className="text-xs text-[#a99dff] hover:underline">
+            Clear {selected.size} selected
+          </button>
+        )}
+      </div>
+      <input
+        type="search"
+        value={query}
+        onChange={(e) => onQuery(e.target.value)}
+        placeholder={`Search ${total} strategies…`}
+        aria-label="Search strategies"
+        className="mt-3 w-full rounded-xl border border-[#2a3040] bg-[#141821] px-4 py-2.5 text-sm text-[#e6e8ec] placeholder:text-[#6b7383] focus:border-[#7c6cff]/70 focus:outline-none"
+      />
+
+      <div className="mt-4 flex flex-col gap-2">
+        {groups.length === 0 && <p className="py-6 text-sm text-[#898781]">No strategies match “{query}”.</p>}
+        {groups.map(({ course: c, matches, byModule }) => {
+          const color = courseAccent(c.slug);
+          const isOpen = q.length > 0 || open.has(c.slug);
+          const chosen = c.strategies.filter((st) => selected.has(st.slug)).length;
+          const panelId = `strategies-${c.slug}`;
+          return (
+            <div key={c.slug} className="rounded-2xl border border-[#2a3040] bg-[#141821]/70">
+              <button
+                onClick={() => onToggleOpen(c.slug)}
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                className="flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left transition hover:bg-[#1a1f2b]"
+              >
+                <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: color }} />
+                <span className="font-medium text-[#e6e8ec]">{c.title}</span>
+                <span className="text-xs text-[#898781]">
+                  {matches.length} strateg{matches.length === 1 ? "y" : "ies"}
+                </span>
+                {chosen > 0 && (
+                  <span className="rounded-full bg-[#7c6cff]/20 px-2 py-px text-[11px] font-semibold text-[#c9c2ff]">{chosen} selected</span>
+                )}
+                <span aria-hidden="true" className={`ml-auto text-[#898781] transition-transform ${isOpen ? "rotate-90" : ""}`}>
+                  ›
+                </span>
+              </button>
+              {isOpen && (
+                <div id={panelId} className="flex flex-col gap-4 border-t border-[#2a3040] px-4 py-4">
+                  {[...byModule.entries()].map(([moduleTitle, list]) => {
+                    const allOn = list.every((st) => selected.has(st.slug));
+                    return (
+                      <div key={moduleTitle}>
+                        <div className="mb-1.5 flex items-center justify-between gap-3">
+                          <div className="text-xs font-medium text-[#9aa3b2]">{moduleTitle}</div>
+                          <button onClick={() => onToggle(list.map((st) => st.slug))} className="text-xs text-[#898781] transition hover:text-[#e6e8ec]">
+                            {allOn ? "Clear" : "Select all"}
+                          </button>
+                        </div>
+                        <div className="flex flex-wrap gap-1.5">
+                          {list.map((st) => {
+                            const on = selected.has(st.slug);
+                            return (
+                              <button
+                                key={st.slug}
+                                onClick={() => onToggle([st.slug])}
+                                aria-pressed={on}
+                                title={`${st.conceptCount} concept checks, ${st.calcCount} calculations`}
+                                className="flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs transition hover:-translate-y-px"
+                                style={{
+                                  borderColor: on ? `${color}99` : "#2a3040",
+                                  background: on ? `${color}22` : "transparent",
+                                  color: on ? "#e6e8ec" : "#c3c9d4",
+                                }}
+                              >
+                                {st.title}
+                                <span className="text-[#898781]">{kindCount(st)}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <p className="mt-3 text-xs text-[#6b7383]">
+        The number on each strategy is how many {kind === "calc" ? "calculations" : kind === "concept" ? "concept checks" : "questions"} it has.
+      </p>
+    </div>
+  );
+}
+
 export function QuizBankPage() {
   const [searchParams] = useSearchParams();
   const [phase, setPhase] = useState<Phase>("setup");
@@ -165,6 +305,11 @@ export function QuizBankPage() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Optional: narrow the chosen courses to specific modules (empty means every module).
   const [selectedModules, setSelectedModules] = useState<Set<string>>(new Set());
+  // Practise by whole courses (optionally narrowed to modules), or by individual strategy lessons.
+  const [scope, setScope] = useState<"courses" | "strategies">(() => (searchParams.get("strategies") ? "strategies" : "courses"));
+  const [selectedStrategies, setSelectedStrategies] = useState<Set<string>>(new Set());
+  const [strategyQuery, setStrategyQuery] = useState("");
+  const [openCourses, setOpenCourses] = useState<Set<string>>(new Set());
   const [count, setCount] = useState<number>(10);
   const [kind, setKindState] = useState<KindFilter>(() => {
     const fromUrl = searchParams.get("kind");
@@ -200,6 +345,16 @@ export function QuizBankPage() {
         const allWanted = [...new Set([...wanted, ...courseOfModules])];
         if (allWanted.length > 0) setSelected(new Set(allWanted));
         if (wantedModules.length > 0) setSelectedModules(new Set(wantedModules));
+        // ?strategies=covered-call,collar opens the strategy picker with those chosen
+        const wantedStrategies = (searchParams.get("strategies") ?? "")
+          .split(",")
+          .map((x) => x.trim())
+          .filter((x) => courses.some((c) => c.strategies.some((st) => st.slug === x)));
+        if (wantedStrategies.length > 0) {
+          setScope("strategies");
+          setSelectedStrategies(new Set(wantedStrategies));
+          setOpenCourses(new Set(courses.filter((c) => c.strategies.some((st) => wantedStrategies.includes(st.slug))).map((c) => c.slug)));
+        }
       })
       .catch((e) => setLoadError(e.message));
     // the query string only seeds the initial selection
@@ -223,6 +378,12 @@ export function QuizBankPage() {
 
   const available = useMemo(() => {
     if (!bankCourses) return 0;
+    if (scope === "strategies") {
+      return bankCourses.reduce(
+        (n, c) => n + c.strategies.filter((st) => selectedStrategies.has(st.slug)).reduce((k, st) => k + kindCount(st), 0),
+        0,
+      );
+    }
     const inScope = bankCourses.filter((c) => selected.size === 0 || selected.has(c.slug));
     if (selectedModules.size === 0) return inScope.reduce((n, c) => n + kindCount(c), 0);
     return inScope.reduce(
@@ -230,7 +391,7 @@ export function QuizBankPage() {
       0,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bankCourses, selected, selectedModules, kind]);
+  }, [bankCourses, selected, selectedModules, selectedStrategies, scope, kind]);
 
   // Switching kind drops any chosen course or module that has none of that kind, so the selection never points at nothing.
   function setKind(next: KindFilter) {
@@ -247,6 +408,31 @@ export function QuizBankPage() {
     setSelectedModules((prev) => {
       const ok = new Set(bankCourses.flatMap((c) => c.modules.filter(has).map((m) => m.slug)));
       return new Set([...prev].filter((slug) => ok.has(slug)));
+    });
+    setSelectedStrategies((prev) => {
+      const ok = new Set(bankCourses.flatMap((c) => c.strategies.filter(has).map((st) => st.slug)));
+      return new Set([...prev].filter((slug) => ok.has(slug)));
+    });
+  }
+
+  function toggleStrategies(slugs: string[]) {
+    setSelectedStrategies((prev) => {
+      const next = new Set(prev);
+      const allOn = slugs.every((x) => next.has(x));
+      for (const x of slugs) {
+        if (allOn) next.delete(x);
+        else next.add(x);
+      }
+      return next;
+    });
+  }
+
+  function toggleOpenCourse(slug: string) {
+    setOpenCourses((prev) => {
+      const next = new Set(prev);
+      if (next.has(slug)) next.delete(slug);
+      else next.add(slug);
+      return next;
     });
   }
 
@@ -291,7 +477,10 @@ export function QuizBankPage() {
     setStarting(true);
     setStartError(null);
     try {
-      const qs = await fetchBankQuestions([...selected], count, [...selectedModules], kind);
+      const qs =
+        scope === "strategies"
+          ? await fetchBankQuestions([], count, [], kind, [...selectedStrategies])
+          : await fetchBankQuestions([...selected], count, [...selectedModules], kind);
       if (qs.length === 0) setStartError("There are no questions for that selection yet.");
       else beginSession(qs, count);
     } catch (e) {
@@ -428,6 +617,13 @@ export function QuizBankPage() {
 
   // ---------- setup ----------
   if (phase === "setup") {
+    const scopeLabel =
+      scope === "strategies"
+        ? selectedStrategies.size === 0
+          ? "No strategies picked"
+          : `${selectedStrategies.size} strateg${selectedStrategies.size === 1 ? "y" : "ies"}`
+        : (selected.size === 0 ? "Every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`) +
+          (selectedModules.size > 0 ? `, ${selectedModules.size} module${selectedModules.size === 1 ? "" : "s"}` : "");
     const accuracy = stats.answered > 0 ? Math.round((stats.correct / stats.answered) * 100) : null;
     return (
       <div style={{ "--accent": accent } as CSSProperties}>
@@ -513,6 +709,59 @@ export function QuizBankPage() {
               })}
             </div>
 
+            <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Practice by</h2>
+            <div role="radiogroup" aria-label="Practice by" className="mt-3 mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {(
+                [
+                  { id: "courses", label: "Course", blurb: "Mix questions from whole courses, or narrow to a module." },
+                  { id: "strategies", label: "Strategy", blurb: "Drill the specific strategies you want to learn or review." },
+                ] as const
+              ).map((o) => {
+                const on = scope === o.id;
+                return (
+                  <button
+                    key={o.id}
+                    role="radio"
+                    aria-checked={on}
+                    onClick={() => setScope(o.id)}
+                    disabled={!bankCourses}
+                    className={`flex flex-col rounded-2xl border p-4 text-left transition hover:-translate-y-px disabled:cursor-not-allowed disabled:opacity-50 ${
+                      on ? "border-[#7c6cff]/70 bg-[#7c6cff]/12 shadow-[0_0_0_1px_#7c6cff40]" : "border-[#2a3040] bg-[#141821] hover:border-[#3a4150]"
+                    }`}
+                  >
+                    <span className="flex items-center gap-2 font-semibold text-[#e6e8ec]">
+                      <span
+                        aria-hidden="true"
+                        className={`flex h-4 w-4 items-center justify-center rounded-full border ${on ? "border-[#7c6cff]" : "border-[#4a5263]"}`}
+                      >
+                        {on && <span className="h-2 w-2 rounded-full bg-[#a99dff]" />}
+                      </span>
+                      {o.label}
+                    </span>
+                    <span className="mt-1.5 text-xs leading-relaxed text-[#9aa3b2]">{o.blurb}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {scope === "strategies" && bankCourses && (
+              <StrategyPicker
+                courses={bankCourses}
+                kind={kind}
+                kindCount={kindCount}
+                selected={selectedStrategies}
+                query={strategyQuery}
+                onQuery={setStrategyQuery}
+                open={openCourses}
+                onToggleOpen={toggleOpenCourse}
+                onToggle={toggleStrategies}
+                onClear={() => setSelectedStrategies(new Set())}
+              />
+            )}
+            {scope === "strategies" && !bankCourses && !loadError && <p className="text-[#898781]">Loading strategies…</p>}
+            {scope === "strategies" && loadError && <p className="text-red-400">{loadError}</p>}
+            {scope === "courses" && (
+              <>
             <div className="flex items-center justify-between gap-3">
               <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Pick your courses</h2>
               <button
@@ -643,14 +892,15 @@ export function QuizBankPage() {
                 </div>
               </div>
             )}
+              </>
+            )}
           </section>
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-2xl border border-[#2a3040] bg-gradient-to-b from-[#181c28] to-[#12151d] p-5">
               <h2 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#898781]">Session</h2>
               <p className="mt-3 text-sm text-[#9aa3b2]">
-                {selected.size === 0 ? "Every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`}
-                {selectedModules.size > 0 ? `, ${selectedModules.size} module${selectedModules.size === 1 ? "" : "s"}` : ""} ·{" "}
+                {scopeLabel} ·{" "}
                 <span className="text-[#e6e8ec]">{available}</span>{" "}
                 {kind === "calc" ? "calculation questions" : kind === "concept" ? "concept checks" : "questions"} available
               </p>
@@ -683,8 +933,12 @@ export function QuizBankPage() {
                 {starting ? "Loading…" : "Start the session →"}
               </button>
               {startError && <p className="mt-3 text-sm text-red-400">{startError}</p>}
+              {scope === "strategies" && selectedStrategies.size === 0 && bankCourses && (
+                <p className="mt-3 text-xs text-[#898781]">Pick at least one strategy to start.</p>
+              )}
               <p className="mt-3 text-xs leading-relaxed text-[#898781]">
-                Press A–D to answer, Enter for the next question. Drawn evenly across your courses.
+                Press A–D to answer, Enter for the next question.{" "}
+                {scope === "strategies" ? "Drawn evenly across your strategies." : "Drawn evenly across your courses."}
               </p>
             </div>
           </aside>
@@ -697,8 +951,7 @@ export function QuizBankPage() {
             <div className="min-w-0 flex-1 text-xs text-[#9aa3b2]">
               <span className="font-semibold text-[#e6e8ec]">{count}</span>{" "}
               {kind === "calc" ? "calculations" : kind === "concept" ? "concept checks" : "questions"} ·{" "}
-              {selected.size === 0 ? "every course" : `${selected.size} course${selected.size === 1 ? "" : "s"}`}
-              {selectedModules.size > 0 ? `, ${selectedModules.size} module${selectedModules.size === 1 ? "" : "s"}` : ""}
+              {scopeLabel.toLowerCase()}
             </div>
             <button
               onClick={start}
@@ -777,7 +1030,7 @@ export function QuizBankPage() {
                   {q.courseTitle}
                 </span>
                 <span className="rounded-full border border-[#2a3040] bg-[#0e1117]/70 px-2.5 py-0.5 text-xs text-[#9aa3b2]">
-                  {q.moduleTitle}
+                  {scope === "strategies" ? q.lessonTitle : q.moduleTitle}
                 </span>
                 <span
                   className={`ml-auto rounded-full border px-2.5 py-0.5 text-xs font-medium ${

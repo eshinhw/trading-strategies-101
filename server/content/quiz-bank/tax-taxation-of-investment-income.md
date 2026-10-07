@@ -24,3 +24,10 @@ slug: tax-taxation-of-investment-income
    - $2,800
    - [x] $3,200
    > The gain is $4,000. Tax is 20% × $4,000 = $800. After-tax gain = $3,200.
+
+4. {#bk4} [calc] An investor receives $5,000 of interest taxed as ordinary income at 32%. How much do they keep after tax?
+   - [x] $3,400
+   - $1,600
+   - $4,680
+   - $5,000
+   > Tax = 32% × $5,000 = $1,600. After tax = $3,400.

@@ -38,3 +38,31 @@ slug: short-guts
    - [x] $3,200
    - $3,600
    > The maximum profit is $4 per share. One contract covers 100 shares, so 8 contracts give $4 × 100 × 8 = $3,200.
+
+6. {#bk6} [calc] A trader builds a Short Guts: sells one $95 call and sells one $105 put, for a net credit of $14 per share. The stock is at $83 at expiration. What is the profit or loss per share, counting the premium?
+   - [x] −$8
+   - +$8
+   - −$22
+   - +$20
+   > At $83 the legs are worth −$22 per share before the premium, and the net premium adds +$14, for −$8 per share (given K1 = 95, K2 = 105, net credit = 14).
+
+7. {#bk7} [calc] A trader builds a Short Guts: sells one $95 call and sells one $105 put, for a net credit of $14 per share. The stock is at $92 at expiration. What is the profit or loss per share, counting the premium?
+   - −$1
+   - −$13
+   - [x] +$1
+   - +$29
+   > At $92 the legs are worth −$13 per share before the premium, and the net premium adds +$14, for +$1 per share (given K1 = 95, K2 = 105, net credit = 14).
+
+8. {#bk8} [calc] A trader builds a Short Guts: sells one $95 call and sells one $105 put, for a net credit of $14 per share. At expiration the stock is at $95. What is the total profit or loss on 7 contracts (100 shares each), in dollars?
+   - +$28
+   - +$400
+   - −$2,800
+   - [x] +$2,800
+   > Per share the position makes +$4 at $95. For 7 contracts: +$4 × 100 × 7 = +$2,800.
+
+9. {#bk9} [calc] A trader builds a Short Guts: sells one $95 call and sells one $105 put, for a net credit of $14 per share. How much cash is received up front in total if the trader opens 2 contracts (100 shares each)?
+   - $28
+   - [x] $2,800
+   - $1,400
+   - $4,200
+   > The net credit is $14 per share. For 2 contracts: $14 × 100 × 2 = $2,800.

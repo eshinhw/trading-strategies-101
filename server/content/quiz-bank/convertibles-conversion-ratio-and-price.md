@@ -38,3 +38,17 @@ slug: convertibles-conversion-ratio-and-price
    - 160
    - [x] 16
    > Conversion ratio = $1,000 / $62.50 = 16 shares.
+
+6. {#bk6} [calc] A convertible bond has a conversion ratio of 25 and the stock trades at $44. What is the conversion value?
+   - $1,000
+   - [x] $1,100
+   - $44
+   - $625
+   > Conversion value = ratio × stock price = 25 × $44 = $1,100.
+
+7. {#bk7} [calc] A convertible's conversion price is $40 and the stock trades at $32. How far must the stock rise to reach the conversion price?
+   - 20%
+   - 8%
+   - 80%
+   - [x] 25%
+   > ($40 − $32) / $32 = 25%.

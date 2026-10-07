@@ -17,3 +17,10 @@ slug: fixed-income-barbells
    - 6.6 years
    - 2.5 years
    > Portfolio duration is the weighted average: 0.3 × 3 + 0.7 × 15 = 11.4 years.
+
+3. {#bk3} [calc] A barbell puts 50% in a 2-year bond yielding 3.5% and 50% in a 10-year bond yielding 4.5%. What is the portfolio yield?
+   - 3.5%
+   - 4.5%
+   - 8.0%
+   - [x] 4.0%
+   > Yield = 0.5 × 3.5% + 0.5 × 4.5% = 4.0%.

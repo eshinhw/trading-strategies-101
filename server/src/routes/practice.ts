@@ -48,7 +48,16 @@ router.get("/quiz-bank/questions", (req, res) => {
     return res.status(400).json({ error: `Unknown kind: ${kindParam}` });
   }
 
-  res.json({ questions: sampleBankQuestions(requested, wanted, requestedModules, kindParam) });
+  // ?strategies=a,b narrows the session to those strategy lessons (a lesson slug each)
+  const knownStrategies = new Set(bankCourses().flatMap((c) => c.strategies.map((x) => x.slug)));
+  const requestedStrategies = (typeof req.query.strategies === "string" ? req.query.strategies : "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const unknownStrategies = requestedStrategies.filter((s) => !knownStrategies.has(s));
+  if (unknownStrategies.length > 0) return res.status(400).json({ error: `Unknown strategy: ${unknownStrategies.join(", ")}` });
+
+  res.json({ questions: sampleBankQuestions(requested, wanted, requestedModules, kindParam, requestedStrategies) });
 });
 
 export default router;

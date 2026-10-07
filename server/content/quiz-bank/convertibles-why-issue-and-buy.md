@@ -24,3 +24,10 @@ slug: convertibles-why-issue-and-buy
    - $1,000
    - [x] $1,170
    > Conversion value = 20 × $58.50 = $1,170, a gain of $170 on the $1,000 paid.
+
+4. {#bk4} [calc] A company issues $200 million of 1.5% convertibles instead of 5.5% straight debt. How much interest does it save in the first year?
+   - [x] $8 million
+   - $3 million
+   - $11 million
+   - $4 million
+   > The rate difference is 4%, and 4% × $200 million = $8 million.

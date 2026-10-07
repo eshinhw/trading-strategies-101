@@ -10,3 +10,10 @@ slug: volatility-vix-futures-basis-trading
    - 0.50 points
    - 3.00 points
    > The basis is futures minus spot: 19.00 − 17.50 = 1.50 points (contango).
+
+2. {#bk2} [calc] A trader shorts one VIX future (multiplier $1,000 per point) at 20.5 while spot VIX is 17.0. At expiry the future converges to a spot of 17.0. What is the profit?
+   - $350
+   - $20,500
+   - $17,000
+   - [x] $3,500
+   > The future falls from 20.5 to 17.0, a 3.5-point drop. A short earns 3.5 × $1,000 = $3,500.

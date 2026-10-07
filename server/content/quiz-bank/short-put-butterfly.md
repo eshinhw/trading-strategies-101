@@ -45,3 +45,38 @@ slug: short-put-butterfly
    - [x] $2,100
    - $2,800
    > The maximum loss is $7 per share. One contract covers 100 shares, so 3 contracts give $7 × 100 × 3 = $2,100.
+
+7. {#bk7} [calc] A trader builds a Short Put Butterfly: sells one $110 put, buys two $100 puts, and sells one $90 put, for a net credit of $3 per share. The stock is at $100 at expiration. What is the profit or loss per share, counting the premium?
+   - [x] −$7
+   - +$7
+   - −$10
+   - −$1
+   > At $100 the legs are worth −$10 per share before the premium, and the net premium adds +$3, for −$7 per share (given K1 = 110, K2 = 100, K3 = 90, net credit = 3).
+
+8. {#bk8} [calc] A trader builds a Short Put Butterfly: sells one $110 put, buys two $100 puts, and sells one $90 put, for a net credit of $3 per share. The stock is at $101 at expiration. What is the profit or loss per share, counting the premium?
+   - +$6
+   - [x] −$6
+   - −$9
+   - −$5
+   > At $101 the legs are worth −$9 per share before the premium, and the net premium adds +$3, for −$6 per share (given K1 = 110, K2 = 100, K3 = 90, net credit = 3).
+
+9. {#bk9} [calc] A trader builds a Short Put Butterfly: sells one $110 put, buys two $100 puts, and sells one $90 put, for a net credit of $3 per share. At expiration the stock is at $110. What is the total profit or loss on 5 contracts (100 shares each), in dollars?
+   - +$15
+   - +$300
+   - −$1,500
+   - [x] +$1,500
+   > Per share the position makes +$3 at $110. For 5 contracts: +$3 × 100 × 5 = +$1,500.
+
+10. {#bk10} [calc] A trader builds a Short Put Butterfly: sells one $110 put, buys two $100 puts, and sells one $90 put, for a net credit of $3 per share. How much cash is received up front in total if the trader opens 8 contracts (100 shares each)?
+   - $24
+   - $300
+   - [x] $2,400
+   - $2,700
+   > The net credit is $3 per share. For 8 contracts: $3 × 100 × 8 = $2,400.
+
+11. {#bk11} [calc] A trader builds a Short Put Butterfly: sells one $110 put, buys two $100 puts, and sells one $90 put, for a net credit of $3 per share. What is the ratio of maximum profit to maximum loss?
+   - [x] 0.43 to 1
+   - 2.33 to 1
+   - 3 to 1
+   - 7 to 1
+   > Maximum profit is $3 and maximum loss is $7 per share, so the ratio is $3 / $7 = 0.43 to 1.

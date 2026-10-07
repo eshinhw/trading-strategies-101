@@ -38,3 +38,31 @@ slug: short-straddle
    - $600
    - $2,400
    > The maximum profit is $6 per share. One contract covers 100 shares, so 3 contracts give $6 × 100 × 3 = $1,800.
+
+6. {#bk6} [calc] A trader builds a Short Straddle: sells one $100 call and sells one $100 put, for a net credit of $6 per share. The stock is at $88 at expiration. What is the profit or loss per share, counting the premium?
+   - +$6
+   - −$12
+   - [x] −$6
+   - −$5
+   > At $88 the legs are worth −$12 per share before the premium, and the net premium adds +$6, for −$6 per share (given K = 100, net credit = 6).
+
+7. {#bk7} [calc] A trader builds a Short Straddle: sells one $100 call and sells one $100 put, for a net credit of $6 per share. The stock is at $97 at expiration. What is the profit or loss per share, counting the premium?
+   - [x] +$3
+   - −$3
+   - +$15
+   - +$4
+   > At $97 the legs are worth −$3 per share before the premium, and the net premium adds +$6, for +$3 per share (given K = 100, net credit = 6).
+
+8. {#bk8} [calc] A trader builds a Short Straddle: sells one $100 call and sells one $100 put, for a net credit of $6 per share. At expiration the stock is at $100. What is the total profit or loss on 7 contracts (100 shares each), in dollars?
+   - +$42
+   - [x] +$4,200
+   - +$600
+   - −$4,200
+   > Per share the position makes +$6 at $100. For 7 contracts: +$6 × 100 × 7 = +$4,200.
+
+9. {#bk9} [calc] A trader builds a Short Straddle: sells one $100 call and sells one $100 put, for a net credit of $6 per share. How much cash is received up front in total if the trader opens 5 contracts (100 shares each)?
+   - $30
+   - $600
+   - $3,600
+   - [x] $3,000
+   > The net credit is $6 per share. For 5 contracts: $6 × 100 × 5 = $3,000.

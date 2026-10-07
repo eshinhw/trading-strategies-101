@@ -38,3 +38,38 @@ slug: long-put-condor
    - $1,800
    - [x] $1,500
    > The maximum loss is $3 per share. One contract covers 100 shares, so 5 contracts give $3 × 100 × 5 = $1,500.
+
+6. {#bk6} [calc] A trader builds a Long Put Condor: buys one $85 put, sells one $95 put, sells one $105 put, and buys one $115 put, for a net debit of $3 per share. The stock is at $73 at expiration. What is the profit or loss per share, counting the premium?
+   - +$3
+   - [x] −$3
+   - −$2
+   - −$4
+   > At $73 the legs are worth $0 per share before the premium, and the net premium adds −$3, for −$3 per share (given K1 = 85, K2 = 95, K3 = 105, K4 = 115, net debit = 3).
+
+7. {#bk7} [calc] A trader builds a Long Put Condor: buys one $85 put, sells one $95 put, sells one $105 put, and buys one $115 put, for a net debit of $3 per share. The stock is at $82 at expiration. What is the profit or loss per share, counting the premium?
+   - +$3
+   - −$2
+   - −$4
+   - [x] −$3
+   > At $82 the legs are worth $0 per share before the premium, and the net premium adds −$3, for −$3 per share (given K1 = 85, K2 = 95, K3 = 105, K4 = 115, net debit = 3).
+
+8. {#bk8} [calc] A trader builds a Long Put Condor: buys one $85 put, sells one $95 put, sells one $105 put, and buys one $115 put, for a net debit of $3 per share. At expiration the stock is at $85. What is the total profit or loss on 2 contracts (100 shares each), in dollars?
+   - −$6
+   - −$300
+   - [x] −$600
+   - +$600
+   > Per share the position makes −$3 at $85. For 2 contracts: −$3 × 100 × 2 = −$600.
+
+9. {#bk9} [calc] A trader builds a Long Put Condor: buys one $85 put, sells one $95 put, sells one $105 put, and buys one $115 put, for a net debit of $3 per share. How much cash is paid up front in total if the trader opens 5 contracts (100 shares each)?
+   - [x] $1,500
+   - $15
+   - $300
+   - $1,800
+   > The net debit is $3 per share. For 5 contracts: $3 × 100 × 5 = $1,500.
+
+10. {#bk10} [calc] A trader builds a Long Put Condor: buys one $85 put, sells one $95 put, sells one $105 put, and buys one $115 put, for a net debit of $3 per share. What is the ratio of maximum profit to maximum loss?
+   - 0.43 to 1
+   - 7 to 1
+   - 3 to 1
+   - [x] 2.33 to 1
+   > Maximum profit is $7 and maximum loss is $3 per share, so the ratio is $7 / $3 = 2.33 to 1.

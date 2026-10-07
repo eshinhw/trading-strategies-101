@@ -24,3 +24,10 @@ slug: misc-weather-derivatives
    - $300
    - [x] $5,000
    > Uncapped, the payout would be 300 × $25 = $7,500. The cap limits it to $5,000.
+
+4. {#bk4} [calc] A weather option pays $20 per cooling degree day above 800 and the season records 960 CDDs. What is the payout?
+   - [x] $3,200
+   - $19,200
+   - $16,000
+   - $160
+   > Payout = (960 − 800) × $20 = $3,200.

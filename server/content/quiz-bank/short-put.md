@@ -38,3 +38,38 @@ slug: short-put
    - [x] $76,800
    - $86,400
    > The maximum loss is $96 per share. One contract covers 100 shares, so 8 contracts give $96 × 100 × 8 = $76,800.
+
+6. {#bk6} [calc] A trader builds a Short Put: sells one $100 put, for a net credit of $4 per share. The stock is at $100 at expiration. What is the profit or loss per share, counting the premium?
+   - [x] +$4
+   - −$4
+   - +$12
+   - +$5
+   > At $100 the legs are worth $0 per share before the premium, and the net premium adds +$4, for +$4 per share (given K = 100, net credit = 4).
+
+7. {#bk7} [calc] A trader builds a Short Put: sells one $100 put, for a net credit of $4 per share. The stock is at $101 at expiration. What is the profit or loss per share, counting the premium?
+   - −$4
+   - +$12
+   - [x] +$4
+   - +$5
+   > At $101 the legs are worth $0 per share before the premium, and the net premium adds +$4, for +$4 per share (given K = 100, net credit = 4).
+
+8. {#bk8} [calc] A trader builds a Short Put: sells one $100 put, for a net credit of $4 per share. At expiration the stock is at $103. What is the total profit or loss on 3 contracts (100 shares each), in dollars?
+   - +$12
+   - +$400
+   - −$1,200
+   - [x] +$1,200
+   > Per share the position makes +$4 at $103. For 3 contracts: +$4 × 100 × 3 = +$1,200.
+
+9. {#bk9} [calc] A trader builds a Short Put: sells one $100 put, for a net credit of $4 per share. How much cash is received up front in total if the trader opens 2 contracts (100 shares each)?
+   - $8
+   - [x] $800
+   - $400
+   - $1,200
+   > The net credit is $4 per share. For 2 contracts: $4 × 100 × 2 = $800.
+
+10. {#bk10} [calc] A trader builds a Short Put: sells one $100 put, for a net credit of $4 per share. What is the ratio of maximum profit to maximum loss?
+   - 24 to 1
+   - 4 to 1
+   - [x] 0.04 to 1
+   - 96 to 1
+   > Maximum profit is $4 and maximum loss is $96 per share, so the ratio is $4 / $96 = 0.04 to 1.

@@ -38,3 +38,38 @@ slug: ratio-put-spread
    - $7,700
    - [x] $7,000
    > The maximum profit is $7 per share. One contract covers 100 shares, so 10 contracts give $7 × 100 × 10 = $7,000.
+
+6. {#bk6} [calc] A trader builds a Ratio Put Spread: sells two $100 puts and buys one $105 put, for a net credit of $2 per share. The stock is at $100 at expiration. What is the profit or loss per share, counting the premium?
+   - −$7
+   - [x] +$7
+   - +$5
+   - +$11
+   > At $100 the legs are worth +$5 per share before the premium, and the net premium adds +$2, for +$7 per share (given K2 = 105, K1 = 100, NL = 1, NS = 2, net credit = 2).
+
+7. {#bk7} [calc] A trader builds a Ratio Put Spread: sells two $100 puts and buys one $105 put, for a net credit of $2 per share. The stock is at $103 at expiration. What is the profit or loss per share, counting the premium?
+   - −$4
+   - +$2
+   - +$8
+   - [x] +$4
+   > At $103 the legs are worth +$2 per share before the premium, and the net premium adds +$2, for +$4 per share (given K2 = 105, K1 = 100, NL = 1, NS = 2, net credit = 2).
+
+8. {#bk8} [calc] A trader builds a Ratio Put Spread: sells two $100 puts and buys one $105 put, for a net credit of $2 per share. At expiration the stock is at $104. What is the total profit or loss on 2 contracts (100 shares each), in dollars?
+   - +$6
+   - +$300
+   - [x] +$600
+   - −$600
+   > Per share the position makes +$3 at $104. For 2 contracts: +$3 × 100 × 2 = +$600.
+
+9. {#bk9} [calc] A trader builds a Ratio Put Spread: sells two $100 puts and buys one $105 put, for a net credit of $2 per share. How much cash is received up front in total if the trader opens 10 contracts (100 shares each)?
+   - [x] $2,000
+   - $20
+   - $200
+   - $2,200
+   > The net credit is $2 per share. For 10 contracts: $2 × 100 × 10 = $2,000.
+
+10. {#bk10} [calc] A trader builds a Ratio Put Spread: sells two $100 puts and buys one $105 put, for a net credit of $2 per share. What is the ratio of maximum profit to maximum loss?
+   - 13.29 to 1
+   - 7 to 1
+   - [x] 0.08 to 1
+   - 93 to 1
+   > Maximum profit is $7 and maximum loss is $93 per share, so the ratio is $7 / $93 = 0.08 to 1.

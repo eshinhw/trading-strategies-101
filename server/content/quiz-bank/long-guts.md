@@ -38,3 +38,31 @@ slug: long-guts
    - $400
    - $2,000
    > The maximum loss is $4 per share. One contract covers 100 shares, so 4 contracts give $4 × 100 × 4 = $1,600.
+
+6. {#bk6} [calc] A trader builds a Long Guts: buys one $95 call and buys one $105 put, for a net debit of $14 per share. The stock is at $100 at expiration. What is the profit or loss per share, counting the premium?
+   - +$4
+   - +$10
+   - [x] −$4
+   - +$24
+   > At $100 the legs are worth +$10 per share before the premium, and the net premium adds −$14, for −$4 per share (given K1 = 95, K2 = 105, net debit = 14).
+
+7. {#bk7} [calc] A trader builds a Long Guts: buys one $95 call and buys one $105 put, for a net debit of $14 per share. The stock is at $101 at expiration. What is the profit or loss per share, counting the premium?
+   - [x] −$4
+   - +$4
+   - +$10
+   - +$24
+   > At $101 the legs are worth +$10 per share before the premium, and the net premium adds −$14, for −$4 per share (given K1 = 95, K2 = 105, net debit = 14).
+
+8. {#bk8} [calc] A trader builds a Long Guts: buys one $95 call and buys one $105 put, for a net debit of $14 per share. At expiration the stock is at $105. What is the total profit or loss on 2 contracts (100 shares each), in dollars?
+   - −$8
+   - [x] −$800
+   - −$400
+   - +$800
+   > Per share the position makes −$4 at $105. For 2 contracts: −$4 × 100 × 2 = −$800.
+
+9. {#bk9} [calc] A trader builds a Long Guts: buys one $95 call and buys one $105 put, for a net debit of $14 per share. How much cash is paid up front in total if the trader opens 8 contracts (100 shares each)?
+   - $112
+   - $1,400
+   - $12,600
+   - [x] $11,200
+   > The net debit is $14 per share. For 8 contracts: $14 × 100 × 8 = $11,200.

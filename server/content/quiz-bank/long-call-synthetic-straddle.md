@@ -31,3 +31,24 @@ slug: long-call-synthetic-straddle
    - $3,200
    - [x] $2,400
    > The maximum loss is $8 per share. One contract covers 100 shares, so 3 contracts give $8 × 100 × 3 = $2,400.
+
+5. {#bk5} [calc] A trader builds a Long Call Synthetic Straddle: is short the stock, sold at $100, and buys two $100 calls, with a net option premium of $8 paid. The stock is at $100 at expiration. What is the profit or loss per share, counting the premium?
+   - +$8
+   - [x] −$8
+   - −$7
+   - −$9
+   > At $100 the legs are worth $0 per share before the premium, and the net premium adds −$8, for −$8 per share (given S0 = 100, K = 100, net debit = 8).
+
+6. {#bk6} [calc] A trader builds a Long Call Synthetic Straddle: is short the stock, sold at $100, and buys two $100 calls, with a net option premium of $8 paid. The stock is at $101 at expiration. What is the profit or loss per share, counting the premium?
+   - +$7
+   - +$1
+   - +$9
+   - [x] −$7
+   > At $101 the legs are worth +$1 per share before the premium, and the net premium adds −$8, for −$7 per share (given S0 = 100, K = 100, net debit = 8).
+
+7. {#bk7} [calc] A trader builds a Long Call Synthetic Straddle: is short the stock, sold at $100, and buys two $100 calls, with a net option premium of $8 paid. At expiration the stock is at $103. What is the total profit or loss on 7 contracts (100 shares each), in dollars?
+   - −$35
+   - [x] −$3,500
+   - −$500
+   - +$3,500
+   > Per share the position makes −$5 at $103. For 7 contracts: −$5 × 100 × 7 = −$3,500.

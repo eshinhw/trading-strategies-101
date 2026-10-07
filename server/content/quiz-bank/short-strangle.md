@@ -38,3 +38,31 @@ slug: short-strangle
    - $400
    - $2,000
    > The maximum profit is $4 per share. One contract covers 100 shares, so 4 contracts give $4 × 100 × 4 = $1,600.
+
+6. {#bk6} [calc] A trader builds a Short Strangle: sells one $105 call and sells one $95 put, for a net credit of $4 per share. The stock is at $100 at expiration. What is the profit or loss per share, counting the premium?
+   - −$4
+   - +$12
+   - [x] +$4
+   - +$5
+   > At $100 the legs are worth $0 per share before the premium, and the net premium adds +$4, for +$4 per share (given K1 = 105, K2 = 95, net credit = 4).
+
+7. {#bk7} [calc] A trader builds a Short Strangle: sells one $105 call and sells one $95 put, for a net credit of $4 per share. The stock is at $101 at expiration. What is the profit or loss per share, counting the premium?
+   - [x] +$4
+   - −$4
+   - +$12
+   - +$5
+   > At $101 the legs are worth $0 per share before the premium, and the net premium adds +$4, for +$4 per share (given K1 = 105, K2 = 95, net credit = 4).
+
+8. {#bk8} [calc] A trader builds a Short Strangle: sells one $105 call and sells one $95 put, for a net credit of $4 per share. At expiration the stock is at $105. What is the total profit or loss on 5 contracts (100 shares each), in dollars?
+   - +$20
+   - [x] +$2,000
+   - +$400
+   - −$2,000
+   > Per share the position makes +$4 at $105. For 5 contracts: +$4 × 100 × 5 = +$2,000.
+
+9. {#bk9} [calc] A trader builds a Short Strangle: sells one $105 call and sells one $95 put, for a net credit of $4 per share. How much cash is received up front in total if the trader opens 6 contracts (100 shares each)?
+   - $24
+   - $400
+   - $2,800
+   - [x] $2,400
+   > The net credit is $4 per share. For 6 contracts: $4 × 100 × 6 = $2,400.

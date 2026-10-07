@@ -17,3 +17,10 @@ slug: etf-sector-momentum-rotation
    - 3%
    - [x] 2%
    > Equal weights give 0.5 × 3% + 0.5 × 1% = 2%.
+
+3. {#bk3} [calc] A rotation strategy holds the top 2 of 6 sector ETFs by 3-month return, equally weighted. The last 3-month returns were Tech +9%, Energy +6%, Utilities +2%, and Health −1% (the others were lower). Next month Tech returns +1% and Energy returns −3%. What is the portfolio return?
+   - +1%
+   - [x] −1%
+   - −2%
+   - +2%
+   > The top two are Tech and Energy. Equal weights give 0.5 × 1% + 0.5 × (−3%) = −1%.

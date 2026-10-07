@@ -17,3 +17,10 @@ slug: fixed-income-fifty-fifty-butterfly
    - $0.50 million
    - $0.54 million
    > Half of the body's $460 DV01 is $230. The 10-year wing needs $230 / $850 = $0.27 million of face value.
+
+3. {#bk3} [calc] A fifty-fifty butterfly is short $10 million of 5-year notes (DV01 $4,600 per basis point). The 5-year yield rises 5 basis points while the wings are unchanged. What is the gain on the short body?
+   - $4,600
+   - $230,000
+   - $920
+   - [x] $23,000
+   > A short position gains when yields rise: $4,600 × 5 = $23,000.
