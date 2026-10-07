@@ -38,3 +38,24 @@ slug: futures-margin-and-mark-to-market
    - $6,100
    - $8,900
    > The loss is (3.6 − 3.46) × 10,000 = $1,400, leaving $6,100, below the $6,500 maintenance level. The call restores the account to the $7,500 initial margin, which is $1,400.
+
+6. {#bk6} [calc] A trader is long 2 E-mini contracts (multiplier $50). The settlement price goes from 4,500 to 4,484. How much variation margin is debited?
+   - $800
+   - $16
+   - $160
+   - [x] $1,600
+   > The fall is 16 points. 16 × $50 × 2 = $1,600.
+
+7. {#bk7} [calc] A long gold future (100 ounces) starts with $9,000 of margin. Daily settlements move the price by +$8, −$15 and −$12. What is the account balance after three days?
+   - $9,000
+   - [x] $7,100
+   - $8,100
+   - $5,100
+   > The net move is 8 − 15 − 12 = −$19 per ounce. −$19 × 100 = −$1,900. $9,000 − $1,900 = $7,100.
+
+8. {#bk8} [calc] A trader's margin account has $12,000 initial and $10,800 maintenance margin. A $1,500 loss leaves $10,500. What deposit restores the account to the initial margin?
+   - [x] $1,500
+   - $300
+   - $10,800
+   - $12,000
+   > The account is below maintenance at $10,500, so the margin call restores it to the initial margin: $12,000 − $10,500 = $1,500.

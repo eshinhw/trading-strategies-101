@@ -31,3 +31,31 @@ slug: futures-forward-rate-agreements
    - $118,636
    - [x] $29,659
    > $20 million × (4.60% − 4.00%) × 0.25 = $30,000, divided by 1 + 4.60% × 0.25 = 1.0115, which is $29,659.
+
+5. {#bk5} [calc] A borrower buys a 6-month FRA on $10 million at 4.00%. At settlement the reference rate is 3.20%. How much does the FRA buyer pay, discounted to the start of the period?
+   - $40,000
+   - [x] $39,370
+   - $80,000
+   - $40,640
+   > $10,000,000 × (4.00% − 3.20%) × 0.5 = $40,000, divided by 1 + 3.20% × 0.5 = 1.016, which is $39,370.
+
+6. {#bk6} [calc] A company locks in 5.00% with an FRA and borrows at a margin of 0.50% above the reference rate. What is its effective borrowing rate?
+   - 5.00%
+   - 0.50%
+   - 10.50%
+   - [x] 5.50%
+   > The FRA fixes the reference rate at 5.00%. The margin adds 0.50%, for 5.50% whatever the reference rate does.
+
+7. {#bk7} [calc] A 3×9 FRA starts in 3 months and ends in 9 months, on a notional of $25 million. How much is one basis point worth over the period?
+   - $2,500
+   - [x] $1,250
+   - $625
+   - $250
+   > The period is 6 months. One basis point is $25,000,000 × 0.0001 × 0.5 = $1,250.
+
+8. {#bk8} [calc] A 6×9 FRA covers a 3-month period on a $40 million notional. The reference rate ends 35 basis points above the FRA rate. What is the gain for the FRA buyer, before discounting?
+   - [x] $35,000
+   - $140,000
+   - $350,000
+   - $8,750
+   > $40,000,000 × 0.35% × 0.25 = $35,000.
