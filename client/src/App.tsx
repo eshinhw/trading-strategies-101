@@ -36,7 +36,7 @@ function App() {
       <BrowserRouter>
         <div className="flex min-h-screen flex-col bg-[#0b0d12]">
           <Nav />
-          <div className="flex-1">
+          <div id="main" tabIndex={-1} className="flex-1 outline-none">
             <Suspense fallback={null}>
               <Routes>
                 <Route path="/" element={<LandingPage />} />
