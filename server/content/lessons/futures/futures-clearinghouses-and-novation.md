@@ -22,7 +22,29 @@ Beyond individual members' margin, clearinghouses maintain a mutualized guarante
 
 ## Example
 
-Two traders who have never met — one buying, one selling a crude oil futures contract through an exchange — don't need to check each other's credit before trading, because the moment their trade is matched, the clearinghouse steps in as the legal counterparty to both. Say the seller had posted the standard $6,000 initial margin against the position and then defaulted after a sharp adverse move. The clearinghouse, not the buyer, absorbs that gap — drawing first on the defaulting member's own $6,000 of posted margin, and if the loss runs deeper than that, on the mutualized guarantee fund behind it — so the buyer's contract is honored in full regardless of what happened on the other side of the trade.
+A buyer and a seller trade one crude oil futures contract (1,000 barrels) at $80 through an exchange. They have never met.
+
+- The moment the trade matches, the clearinghouse becomes the seller to the buyer and the buyer to the seller.
+- The seller posted $6,000 of initial margin.
+- Crude then jumps to $89 in one sharp move, and the seller defaults.
+
+**What the buyer is owed**
+
+$$
+(\$89 - \$80) \times 1{,}000 = \$9{,}000
+$$
+
+**How the clearinghouse covers the loss**
+
+$$
+\text{1. Seller's margin} = \$6{,}000
+$$
+
+$$
+\text{2. Guarantee fund} = \$9{,}000 - \$6{,}000 = \boxed{\$3{,}000}
+$$
+
+The buyer receives the full $9,000, so the seller's default costs the buyer nothing. The buyer never needed to check the seller's credit.
 
 # Quiz
 

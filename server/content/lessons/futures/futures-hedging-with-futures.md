@@ -22,7 +22,40 @@ Hedging with futures doesn't eliminate risk — it trades price risk for basis r
 
 ## Example
 
-A farmer expects to harvest 50,000 bushels of wheat in six months and sells wheat futures today at $6.00 per bushel, locking in $300,000 of notional value. At harvest, the cash price has fallen to $5.50 per bushel. Selling the physical wheat now brings in only 50,000 × $5.50 = $275,000, but the short futures position has gained ($6.00 − $5.50) × 50,000 = $25,000, since the trader locked in the higher price and can buy back the futures cheaper than they sold it. Adding the two together, $275,000 + $25,000 = $300,000, the farmer nets almost exactly the $300,000 they locked in — the futures gain offset the cash-market loss, aside from any small basis gap between the futures and cash markets.
+A farmer expects to harvest 50,000 bushels of wheat in six months and sells wheat futures today.
+
+- Futures price: $6.00 per bushel
+- Locked-in value: 50,000 × $6.00 = $300,000
+
+**Wheat falls to $5.50 at harvest**
+
+$$
+\text{Cash sale} = 50{,}000 \times \$5.50 = \$275{,}000
+$$
+
+$$
+\text{Short futures gain} = (\$6.00 - \$5.50) \times 50{,}000 = +\$25{,}000
+$$
+
+$$
+\$275{,}000 + \$25{,}000 = \boxed{\$300{,}000}
+$$
+
+**Wheat rises to $6.50 at harvest**
+
+$$
+\text{Cash sale} = 50{,}000 \times \$6.50 = \$325{,}000
+$$
+
+$$
+\text{Short futures loss} = (\$6.00 - \$6.50) \times 50{,}000 = -\$25{,}000
+$$
+
+$$
+\$325{,}000 - \$25{,}000 = \boxed{\$300{,}000}
+$$
+
+The farmer nets about $300,000 either way, apart from a small basis gap between the cash and futures prices. The hedge also gives up the extra $25,000 when wheat rises.
 
 # Quiz
 

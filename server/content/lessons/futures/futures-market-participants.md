@@ -26,7 +26,37 @@ Hedgers create the underlying demand to transfer risk; speculators supply the ca
 
 ## Example
 
-A retail trader placing a single crude oil futures order rarely thinks about who's actually on the other side of the trade — but every one of this lesson's four roles is usually there, working quietly in the background. A soybean processor (hedger) wanting to lock in a purchase price buys futures; a trend-following fund (speculator) happens to be selling that same contract on a bearish view, supplying the size the processor needs. A market maker keeps a tight bid-ask quote so both sides can transact instantly instead of waiting for a perfect match, while an arbitrage desk keeps that day's price from drifting too far from what soybean's spot price and cost of carry actually justify. Four different motives, one functioning, liquid market — whether or not any single trader in it ever stops to think about who's on the other side.
+One soybean futures trade, with all four roles at work (each contract is 5,000 bushels, price $14.00).
+
+**Hedger: a soybean processor buys 10 contracts**
+
+$$
+10 \times 5{,}000 \times \$14.00 = \$700{,}000 \text{ of soybeans priced in advance}
+$$
+
+**Speculator: a trend-following fund sells the same 10 contracts**
+
+It takes the other side on a bearish view. It makes money if soybeans fall, and loses $50,000 for every $1.00 they rise.
+
+**Market maker: quotes both sides**
+
+- Bid $13.9975, ask $14.00
+- Spread: $0.0025 × 5,000 = $12.50 per contract
+- On 10 contracts: $125 earned for providing the quote
+
+**Arbitrageur: keeps futures near fair value**
+
+- Spot soybeans: $13.80
+- Three months of storage and financing: $0.20
+- Fair futures price: $13.80 + $0.20 = $14.00
+
+If futures traded at $14.15, the desk would sell futures and buy soybeans:
+
+$$
+(\$14.15 - \$14.00) \times 5{,}000 = \$750 \text{ per contract}
+$$
+
+The processor gets its price, the fund gets its bet, and neither has to wait to find the other.
 
 # Quiz
 

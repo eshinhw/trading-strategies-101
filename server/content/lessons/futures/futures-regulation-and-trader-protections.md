@@ -26,7 +26,29 @@ None of this regulatory structure eliminates market risk itself — a well-regul
 
 ## Example
 
-A new customer opening a futures account has to review and acknowledge a risk disclosure document describing leverage and loss potential in plain terms, and the broker records the customer's financial situation before approving the account at all — two protections working together before a single trade is ever placed. But once that account is open and trading, those protections cover a narrower slice of risk than a new trader might expect: a trader who loses money on a well-executed but ultimately wrong directional bet has no regulatory recourse, since that loss is exactly the ordinary market risk the disclosure document warned about. Regulatory protection becomes relevant in a different scenario instead — if a broker were found to have misused customer funds, or a clearinghouse's guarantee were ever actually tested by a member default, this is the structure built to respond.
+A trader opens a futures account with $20,000. Before trading, the broker gives a risk disclosure and records the trader's finances.
+
+**Case 1: a losing trade**
+
+The trader buys 1 crude oil contract (1,000 barrels) and crude falls $8:
+
+$$
+\$8 \times 1{,}000 = \$8{,}000 \text{ loss} \quad\Rightarrow\quad \$20{,}000 - \$8{,}000 = \$12{,}000 \text{ left}
+$$
+
+Not protected. This is ordinary market risk, which the disclosure warned about, and there is no recourse.
+
+**Case 2: another clearing member defaults**
+
+The trader's position has a $5,000 gain, and the member on the other side defaults.
+
+Protected. The clearinghouse's margin and guarantee fund honor the $5,000.
+
+**Case 3: the broker misuses customer funds**
+
+Protected, through the structure built for this. Customer money must be kept separate from the broker's own, and the regulator oversees brokers and can pursue the misuse.
+
+Regulation protects against fraud, counterparty default and unsuitable sales. It does not protect against losing money on a trade.
 
 # Quiz
 

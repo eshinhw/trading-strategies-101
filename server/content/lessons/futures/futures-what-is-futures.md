@@ -30,7 +30,25 @@ A long futures position gains when the price rises and loses when it falls; a sh
 
 ## Example
 
-Two strangers on opposite sides of the country — a wheat farmer and a commodities trading desk — can go long or short a wheat futures contract on the same exchange without ever exchanging names or credit histories, something a private forward would never allow; the exchange does that matching instantly, for anyone. The same anonymous mechanics played out for two traders on opposite sides of an E-mini S&P 500 contract at 4,500.00 ($50 multiplier). Neither had to know the other existed, but when the index settled the next day at 4,510.00, a 10-point gain, the exchange credited the long trader 10 × $50 = $500 and debited the short trader that identical $500 — one side's gain is exactly the other's loss, the same mirror-image relationship whether the underlying is a stock index or a truckload of wheat.
+Two traders who have never met take opposite sides of an E-mini S&P 500 futures contract through an exchange.
+
+- Entry price: 4,500.00
+- Multiplier: $50 per point
+- Notional value: 4,500 × $50 = $225,000
+
+The index settles the next day at 4,510.00, a 10-point gain.
+
+$$
+\text{Long trader} = (4{,}510 - 4{,}500) \times \$50 = +\$500
+$$
+
+$$
+\text{Short trader} = (4{,}500 - 4{,}510) \times \$50 = -\$500
+$$
+
+The exchange credits one account and debits the other by the same $500. One side's gain is exactly the other's loss, and neither needed to know the other's name or check their credit.
+
+A wheat futures contract works the same way, with a different underlying and multiplier.
 
 # Quiz
 

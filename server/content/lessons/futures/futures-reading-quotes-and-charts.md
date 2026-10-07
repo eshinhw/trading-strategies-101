@@ -22,7 +22,35 @@ A futures price chart typically pairs candlesticks or a line showing price over 
 
 ## Example
 
-A new futures trader pulling up a 10-year Treasury note quote for the first time and seeing a price like 112'16 needs to recognize the tick mark before doing any math — reading it as a plain decimal, 112.16 instead of 112 and 16/32nds, would badly misstate what the contract is actually worth. A quote line for a completely different product reads just as precisely once you know the code: ESZ6 4,512.25, +8.50 (+0.19%), Vol 1,245,000, OI 2.1M decodes to the December 2026 E-mini S&P contract, last traded at 4,512.25, up 8.50 points on the day, with 1.245 million contracts traded so far and 2.1 million currently open across every expiration of the product — the same handful of columns, whether the underlying is an equity index or a government bond.
+**A Treasury note quote: 112'16**
+
+The number after the tick mark is 32nds of a point, not a decimal.
+
+$$
+112\text{'}16 = 112 + \frac{16}{32} = 112.50
+$$
+
+On a $100,000 contract:
+
+- Correct value: 112.50% × $100,000 = $112,500
+- Misread as 112.16: $112,160
+- Error: $340 per contract
+
+**An equity index quote: ESZ6 4,512.25, +8.50 (+0.19%), Vol 1,245,000, OI 2.1M**
+
+- ES: E-mini S&P 500; Z: December; 6: 2026
+- Last price: 4,512.25
+- Change: +8.50 points, so the previous close was 4,503.75 and 8.50 ÷ 4,503.75 = 0.19%
+- Volume: 1,245,000 contracts traded today
+- Open interest: 2.1 million contracts currently open
+
+$$
+\text{Contract value} = 4{,}512.25 \times \$50 = \$225{,}612.50
+$$
+
+$$
+\text{Day's move} = 8.50 \times \$50 = \$425 \text{ per contract}
+$$
 
 # Quiz
 

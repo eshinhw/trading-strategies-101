@@ -22,7 +22,35 @@ Volume counts the number of contracts traded during a given period (a day, an ho
 
 ## Example
 
-A trader deciding whether to use a market or a limit order on a thinly-traded agricultural contract checks the bid-ask spread first, since a wide spread on a low-open-interest contract is a warning sign that a market order could fill at a materially worse price than expected — often reason enough to use a limit order instead, even at the cost of the order possibly not filling right away. Open interest is exactly the number that flags a thin market in the first place: a contract might show 50,000 contracts of volume today, but if open interest only rose from 200,000 to 202,000, that gap says most of the day's trading was existing positions being closed and reopened, with only a net 2,000 contracts of genuinely new exposure — a market that looks busy on volume alone but isn't necessarily deep.
+**Choosing between a market and a limit order**
+
+Two corn contracts (5,000 bushels each), one liquid and one thin:
+
+- Liquid: bid $6.2000, ask $6.2025, so the spread is $0.0025 × 5,000 = $12.50
+- Thin: bid $6.10, ask $6.30, so the spread is $0.20 × 5,000 = $1,000
+
+A market buy in the thin contract fills at the ask, $6.30. The midpoint is $6.20.
+
+$$
+(\$6.30 - \$6.20) \times 5{,}000 = \$500 \text{ paid above the midpoint}
+$$
+
+A limit buy at $6.20 avoids that cost, though it may not fill right away.
+
+**Volume versus open interest**
+
+- Today's volume: 50,000 contracts
+- Open interest: 200,000 to 202,000
+
+$$
+202{,}000 - 200{,}000 = 2{,}000 \text{ contracts of net new exposure}
+$$
+
+$$
+\frac{2{,}000}{50{,}000} = 4\% \text{ of volume}
+$$
+
+The market looks busy, but most of the day's trading was existing positions changing hands.
 
 # Quiz
 

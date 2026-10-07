@@ -30,7 +30,35 @@ Because margin is only a fraction of a contract's notional value, it's possible 
 
 ## Example
 
-A desk holding a large futures position ahead of a major central bank rate announcement — a known high-impact event — will typically trim the position or widen its stop beforehand, accepting a smaller expected payoff in exchange for less exposure to the sharp, gap-prone move such announcements often trigger, no matter how strongly the desk believes in its underlying rate thesis. A retail trader applies the same discipline at a smaller scale with a hard number instead of a headline: with a $50,000 account and a rule of risking no more than 1% ($500) on any single trade, a $0.50-per-barrel stop-loss on one crude oil contract (1,000 barrels) caps that trade's risk at exactly $500. The stop distance comes from the risk budget, not from how bullish or bearish the trader feels about oil that day — which is the whole point of having a risk plan separate from a trading thesis.
+**Position size from a risk budget**
+
+A trader has a $50,000 account and risks no more than 1% on any trade.
+
+$$
+1\% \times \$50{,}000 = \$500 \text{ maximum risk}
+$$
+
+For 1 crude oil contract (1,000 barrels), the stop distance that fits the budget is:
+
+$$
+\frac{\$500}{1{,}000 \text{ barrels}} = \boxed{\$0.50 \text{ per barrel}}
+$$
+
+If the setup needs a $2.00 stop instead:
+
+- Risk on 1 contract: 1,000 × $2.00 = $2,000, which is 4% of the account and too large
+- Risk on 1 micro contract (100 barrels): 100 × $2.00 = $200, which is 0.4% and fits
+
+The stop comes from the risk budget, not from how bullish the trader feels.
+
+**Event risk: a central bank announcement**
+
+A desk holds 10 crude contracts and expects a possible $2 gap on the news.
+
+- Before trimming: 10 × 1,000 × $2 = $20,000 at risk
+- After trimming to 6 contracts: 6 × 1,000 × $2 = $12,000 at risk
+
+The desk gives up some expected payoff to cut the loss from a gap by $8,000, however strongly it believes its rate view.
 
 # Quiz
 

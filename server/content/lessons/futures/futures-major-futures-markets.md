@@ -30,7 +30,27 @@ Bitcoin and Ether futures, now listed on regulated exchanges alongside tradition
 
 ## Example
 
-An asset manager running a diversified commodity strategy might hold long positions across crude oil, gold, corn, and copper futures all at once, each a small slice of a much larger portfolio — one reason futures, rather than the physical goods themselves, are the standard way to get broad commodity exposure. But those slices aren't sized the same way, because the markets aren't the same size: a single E-mini S&P 500 contract at 4,500 ($50 multiplier) controls $225,000 of notional equity exposure, while a single crude oil contract (1,000 barrels) at $80 controls only $80,000. A manager sizing a position in each market has to work out that real dollar exposure contract by contract, rather than assuming one contract means the same thing everywhere.
+One contract means a very different amount of exposure in each market.
+
+- E-mini S&P 500: 4,500 × $50 = $225,000
+- Gold: $1,950 × 100 ounces = $195,000
+- Copper: $4.00 × 25,000 pounds = $100,000
+- Crude oil: $80 × 1,000 barrels = $80,000
+- Corn: $6.00 × 5,000 bushels = $30,000
+
+**Same dollar exposure in two markets**
+
+To hold $225,000 of exposure:
+
+$$
+\text{E-mini: } \frac{\$225{,}000}{\$225{,}000} = 1 \text{ contract}
+$$
+
+$$
+\text{Corn: } \frac{\$225{,}000}{\$30{,}000} = 7.5 \text{ contracts}
+$$
+
+An E-mini contract controls 7.5 times as much as a corn contract. A manager spreading money across these markets sizes each position by its dollar exposure, never by the number of contracts.
 
 # Quiz
 

@@ -22,7 +22,35 @@ Because initial margin is only a small fraction of a contract's notional value, 
 
 ## Example
 
-A trader at a commodities desk buys one crude oil futures contract (1,000 barrels) at $80 per barrel — an $80,000 notional position — posting just $6,000 of initial margin (7.5% of notional) against a $5,000 maintenance threshold, exactly the kind of leveraged position a desk takes on every day. Overnight, crude unexpectedly falls to $78 a barrel. The next morning, before the trader has even had a chance to react, the exchange debits the account $2,000 (1,000 barrels × $2) for that loss — dropping the balance from $6,000 to $4,000, below the $5,000 maintenance threshold, and triggering a margin call for $2,000 to restore it. That's the daily mark-to-market machine in action: gains and losses hit the account in cash every single day, whether or not the trader is watching, which is exactly why an experienced desk sizes its futures positions around how much adverse overnight movement its margin capital can actually absorb — not just the position's total notional value.
+A trader buys one crude oil futures contract (1,000 barrels) at $80.
+
+- Notional value: 1,000 × $80 = $80,000
+- Initial margin: $6,000, which is 7.5% of notional
+- Maintenance margin: $5,000
+
+**Overnight, crude falls to $78**
+
+$$
+\text{Loss} = (\$80 - \$78) \times 1{,}000 = \$2{,}000
+$$
+
+$$
+\text{Account} = \$6{,}000 - \$2{,}000 = \$4{,}000 \quad (\text{below the } \$5{,}000 \text{ maintenance level})
+$$
+
+**Margin call**
+
+$$
+\$6{,}000 - \$4{,}000 = \boxed{\$2{,}000 \text{ to deposit}}
+$$
+
+**How much room was there?**
+
+- Cushion above maintenance: $6,000 − $5,000 = $1,000, which is a $1 move in crude
+- Any fall of more than $1 a barrel triggers a call
+- Leverage: $80,000 ÷ $6,000 = 13.3 times
+
+Gains and losses are paid in cash every day, so a desk sizes positions by how much overnight movement its margin can absorb.
 
 # Quiz
 

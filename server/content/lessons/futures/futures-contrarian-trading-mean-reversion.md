@@ -22,7 +22,32 @@ Because of that loss profile, disciplined risk controls — a hard stop-loss, or
 
 ## Example
 
-Gold's 20-day average price is $1,950 per ounce with a standard deviation of $15, putting the two-standard-deviation lower band at $1,950 − (2 × $15) = $1,920. Gold drops to $1,915, more than two standard deviations below average, triggering a buy signal. A trader buys 10 contracts (100 ounces each, so 1,000 ounces total). Over the following week, gold reverts to $1,945, and the position gains $30 per ounce × 1,000 ounces = $30,000 — the snapback the mean-reversion rule was betting on.
+Gold's recent prices set the trading bands.
+
+- 20-day average: $1,950 per ounce
+- Standard deviation: $15
+
+**Lower band (two standard deviations below average)**
+
+$$
+\$1{,}950 - 2 \times \$15 = \$1{,}920
+$$
+
+Gold drops to $1,915, below the band, so the trader buys 10 contracts of 100 ounces each, which is 1,000 ounces.
+
+**Gold reverts to $1,945**
+
+$$
+(\$1{,}945 - \$1{,}915) \times 1{,}000 = \boxed{\$30{,}000}
+$$
+
+**Gold keeps falling to $1,890 instead**
+
+$$
+(\$1{,}890 - \$1{,}915) \times 1{,}000 = -\$25{,}000
+$$
+
+The rule wins when prices snap back and loses when a real trend starts, so the exit for a wrong trade is set before entering.
 
 # Quiz
 

@@ -22,7 +22,31 @@ None of hedging, speculation, or price discovery works well in a thin market. Sp
 
 ## Example
 
-A wheat farmer wanting to lock in a sale price sells wheat futures short; a trading firm with no interest in ever owning wheat takes the other side, betting prices will fall. Their trade sets the day's futures price at $6.20 a bushel. A neighboring farmer, who has never placed a futures trade in their life, checks that same number that afternoon before deciding how much wheat to plant next season, and the local grain elevator prices what it pays walk-in farmers off that same $6.20, plus or minus a local adjustment — because it's the most current, most liquid public estimate of wheat's value anywhere. One trade between a farmer and a speculator, and three of the market's core jobs (hedging, speculation, and price discovery) are all doing real work behind a single number on the elevator's price board.
+A wheat farmer sells 2 wheat futures contracts (5,000 bushels each) to lock in a price. A trading firm that expects prices to rise takes the other side. Their trade sets the day's price at $6.20 a bushel.
+
+**Hedging: the farmer locks in a price**
+
+$$
+10{,}000 \times \$6.20 = \$62{,}000
+$$
+
+**Speculation: the trading firm bets on a rise**
+
+It is long 10,000 bushels. It gains $1,000 for each $0.10 wheat rises above $6.20, and loses the same if it falls.
+
+**Price discovery: everyone else uses the $6.20**
+
+A neighboring farmer who has never traded futures checks the price before deciding how much wheat to plant. The local grain elevator pays walk-in farmers the futures price less a local adjustment, for example $0.30:
+
+$$
+\$6.20 - \$0.30 = \$5.90 \text{ per bushel}
+$$
+
+$$
+10{,}000 \times \$5.90 = \$59{,}000 \text{ for a 10,000-bushel crop}
+$$
+
+One trade between a farmer and a trading firm gives the elevator, and everyone else, the most current public estimate of wheat's value.
 
 # Quiz
 

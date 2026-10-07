@@ -22,7 +22,28 @@ As with other futures hedges, an interest-rate hedge isn't perfect: the specific
 
 ## Example
 
-A manager holds a $10 million bond portfolio with a duration of 7 years and wants to hedge it with Treasury futures, where the futures contract's underlying has a duration of 9 years and each contract has a notional value of $100,000. A duration-matched hedge shorts (portfolio value × portfolio duration) ÷ (futures notional × futures duration) contracts: ($10,000,000 × 7) ÷ ($100,000 × 9) = $70,000,000 ÷ $900,000 ≈ 78 contracts. Shorting roughly 78 contracts, rather than a round number picked without the duration adjustment, is what actually matches the futures position's rate sensitivity to the portfolio's own.
+A manager holds a bond portfolio and hedges it with Treasury futures.
+
+- Portfolio value: $10,000,000, duration 7 years
+- Futures contract: notional $100,000, duration 9 years
+
+**Contracts to short**
+
+$$
+\frac{\$10{,}000{,}000 \times 7}{\$100{,}000 \times 9} = \frac{\$70{,}000{,}000}{\$900{,}000} = 77.8 \approx \boxed{78 \text{ contracts}}
+$$
+
+**Check: rates rise 1 percentage point**
+
+$$
+\text{Portfolio} = -7\% \times \$10{,}000{,}000 = -\$700{,}000
+$$
+
+$$
+\text{Short futures} = 78 \times \$100{,}000 \times 9 \times 1\% = +\$702{,}000
+$$
+
+The $2,000 left over is rounding. Picking a round 100 contracts with no duration adjustment would hedge $900,000 per 1% move, which is over-hedged by about 29%.
 
 # Quiz
 

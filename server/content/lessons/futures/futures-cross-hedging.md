@@ -22,7 +22,31 @@ To size a cross-hedge, traders often compute a hedge ratio, commonly estimated b
 
 ## Example
 
-A regional jet-fuel buyer needs to hedge 100,000 gallons of future purchases. Regressing historical jet-fuel price changes against heating oil futures price changes gives a hedge ratio of 0.85 — jet fuel has typically moved about 85 cents for every dollar move in heating oil. The buyer needs 0.85 × 100,000 = 85,000 gallon-equivalents of heating oil futures exposure. If one heating oil futures contract covers 42,000 gallons, that works out to 85,000 ÷ 42,000 ≈ 2 contracts, rather than a naive 100,000 ÷ 42,000 ≈ 2.4 contracts a one-to-one hedge would suggest.
+A jet-fuel buyer needs to hedge 100,000 gallons of future purchases, but no jet-fuel futures contract is available. It hedges with heating oil futures instead.
+
+- Hedge ratio from past data: 0.85 (jet fuel moves about $0.85 for every $1.00 in heating oil)
+- Heating oil contract size: 42,000 gallons
+
+**Gallons of heating oil exposure needed**
+
+$$
+0.85 \times 100{,}000 = 85{,}000 \text{ gallons}
+$$
+
+**Contracts needed**
+
+$$
+\frac{85{,}000}{42{,}000} \approx \boxed{2 \text{ contracts}}
+$$
+
+A one-to-one hedge would use 100,000 ÷ 42,000 = 2.4 contracts, which over-hedges by about 18%.
+
+**Check: heating oil rises $0.10 a gallon**
+
+- Extra jet-fuel cost: 100,000 × $0.085 = $8,500
+- Hedge gain: 2 × 42,000 × $0.10 = $8,400
+
+The hedge covers almost all of the increase. It isn't exact, because the 0.85 ratio is an average from past data.
 
 # Quiz
 

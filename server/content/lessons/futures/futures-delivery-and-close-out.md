@@ -22,7 +22,32 @@ A trader who wants continuous exposure without ever taking delivery closes out t
 
 ## Example
 
-A retail trader who went long a natural gas futures contract purely as a short-term price bet has no storage tanks, pipeline access, or any real use for physical natural gas — so as expiration nears, they simply close the position out with an offsetting trade, leaving delivery to the utilities and energy companies that actually need the gas. A trader rolling a crude oil position runs through that same close-out step, just with an extra wrinkle: long one September contract (1,000 barrels) at $75, they sell it at $76 as expiration nears, banking a $1-per-barrel, $1,000 gain. To keep the exposure going, they simultaneously buy a December contract at $77 — $1 more expensive, since the market's in contango — a $1,000 roll cost on top of whatever September earned. Repeated month after month through a persistent contango market, that recurring roll cost is exactly what quietly erodes the return of holding continuous futures exposure, regardless of what crude's outright price does.
+A trader is long 1 crude oil contract (1,000 barrels) and rolls it before expiration.
+
+- Bought September at $75
+- Market is in contango: September trades at $76, December at $77
+
+**Close the September contract**
+
+$$
+(\$76 - \$75) \times 1{,}000 = +\$1{,}000
+$$
+
+**Open the December contract**
+
+December costs $1 more than September:
+
+$$
+(\$77 - \$76) \times 1{,}000 = \boxed{\$1{,}000 \text{ roll cost}}
+$$
+
+**If the same $1 gap appears at every quarterly roll**
+
+$$
+4 \times \$1{,}000 = \$4{,}000 \text{ a year} = \frac{\$4{,}000}{\$76{,}000} = 5.3\% \text{ of the position}
+$$
+
+A trader who only wants price exposure never takes delivery. Closing out before expiration avoids storing 1,000 barrels, but each roll in contango quietly erodes the return.
 
 # Quiz
 

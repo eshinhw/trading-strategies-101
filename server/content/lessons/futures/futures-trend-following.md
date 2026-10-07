@@ -22,7 +22,36 @@ Trend-following programs typically trade across many uncorrelated futures market
 
 ## Example
 
-A trader with a $500,000 account risks 1% of capital, $5,000, on each new trend trade. Crude oil crosses above its 200-day moving average at $75 per barrel, triggering a long entry, with a stop-loss set at $73 — a $2-per-barrel risk. Since one contract covers 1,000 barrels, that's $2,000 of risk per contract, so the trader buys $5,000 ÷ $2,000 ≈ 2 contracts. The trend continues and crude eventually reaches $85: the position gains $10 per barrel × 1,000 barrels × 2 contracts = $20,000 — four times the $5,000 originally risked, from a single trade that worked.
+A trader with a $500,000 account risks 1% on each new trend trade.
+
+$$
+1\% \times \$500{,}000 = \$5{,}000 \text{ risk budget}
+$$
+
+Crude oil crosses above its 200-day moving average at $75, so the trader buys, with a stop-loss at $73.
+
+**Position size**
+
+- Risk per barrel: $75 − $73 = $2
+- Risk per contract: $2 × 1,000 barrels = $2,000
+
+$$
+\frac{\$5{,}000}{\$2{,}000} = 2.5 \quad\Rightarrow\quad \boxed{2 \text{ contracts}} \text{ (rounded down)}
+$$
+
+**If the trade is stopped out at $73**
+
+$$
+2 \times \$2{,}000 = -\$4{,}000 \text{ (0.8\% of the account)}
+$$
+
+**If the trend runs to $85**
+
+$$
+(\$85 - \$75) \times 1{,}000 \times 2 = \boxed{+\$20{,}000}
+$$
+
+The win is four times the $5,000 risk budget. Losses stay small, so a few big winners can pay for many stopped-out trades.
 
 # Quiz
 

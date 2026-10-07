@@ -24,7 +24,34 @@ A classic use case: heading into a season where a supply crunch is expected, suc
 
 ## Example
 
-December crude oil trades at $78 and November crude trades at $76 — a $2 contango spread. A trader expecting the near-term squeeze to tighten buys November and sells December. Over the following weeks, November rises to $77.50 (a $1.50 gain on the long leg) while December stays flat at $78.00 (no gain or loss on the short leg), narrowing the spread from $2.00 down to $0.50. The trade nets $1.50 per barrel — $1,500 on a single 1,000-barrel contract — purely from the spread narrowing, regardless of what crude's outright price did in the meantime.
+A trader expects the near-term squeeze to ease, so the gap between the two months should narrow.
+
+- November crude: $76
+- December crude: $78
+- Spread (December − November): $2.00
+- Trade: buy November, sell December (1 contract each, 1,000 barrels)
+
+**Case 1: November rises to $77.50, December stays at $78.00**
+
+$$
+\text{Long November} = (\$77.50 - \$76.00) \times 1{,}000 = +\$1{,}500
+$$
+
+$$
+\text{Short December} = (\$78.00 - \$78.00) \times 1{,}000 = \$0
+$$
+
+$$
+\text{Spread} = \$78.00 - \$77.50 = \$0.50 \quad\Rightarrow\quad \text{profit} = \boxed{\$1{,}500}
+$$
+
+**Case 2: both months rise $5 (November $81, December $83)**
+
+$$
++\$5{,}000 - \$5{,}000 = \$0 \text{ (the spread is still } \$2.00 \text{)}
+$$
+
+The profit comes from the spread narrowing from $2.00 to $0.50. A $1 narrowing is worth $1,000, whatever crude does outright.
 
 # Quiz
 

@@ -26,7 +26,29 @@ Putting on a position sized to what feels exciting, rather than to a predetermin
 
 ## Example
 
-An experienced desk's onboarding checklist for a new trader covers exactly the five mistakes in this lesson explicitly — confirm margin isn't a down payment, know the contract's tick value before sizing a trade, know its first notice date, check its typical bid-ask spread and open interest, and cap risk per trade as a fixed share of capital — precisely because they're common enough to be worth spelling out up front. A trader who skipped that checklist shows exactly why it exists: with a $10,000 account, they put on five crude oil contracts (5,000 barrels) purely because the margin requirement allowed it, without separately checking that a routine $2 adverse move would cost $10,000 — the entire account — a mistake combining ignored notional exposure with over-risking a single position that a two-minute, pre-trade dollar-risk calculation would have caught.
+A trader with a $10,000 account buys 5 crude oil contracts (1,000 barrels each) at $80 because the broker's intraday margin is only $1,500 per contract.
+
+**What the position really is**
+
+- Margin used: 5 × $1,500 = $7,500, which looks affordable
+- Barrels controlled: 5 × 1,000 = 5,000
+- Notional value: 5,000 × $80 = $400,000, which is 40 times the account
+
+**What a routine $2 move does**
+
+$$
+5{,}000 \times \$2 = \boxed{\$10{,}000}
+$$
+
+That is the whole account, from an ordinary price move.
+
+**The pre-trade check**
+
+- Risk limit: 2% of $10,000 = $200 per trade
+- Risk on 1 crude contract with a $2 stop: 1,000 × $2 = $2,000, which is ten times the limit
+- Risk on 1 micro contract (100 barrels): 100 × $2 = $200, which fits
+
+Margin only says what the broker requires. The position size should come from how much the trader can afford to lose.
 
 # Quiz
 

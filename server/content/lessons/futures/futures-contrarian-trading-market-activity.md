@@ -22,7 +22,29 @@ This approach requires more data than a pure price-based contrarian rule, since 
 
 ## Example
 
-Natural gas rallies from $2.50 to $3.00 over two weeks. But during that same stretch, daily volume falls from 200,000 contracts to 90,000, and open interest falls from 850,000 contracts to 720,000 — a rally on thinning participation, consistent with short-covering rather than fresh buying. A contrarian trader shorts one contract (10,000 MMBtu) at $3.00. Gas subsequently falls back to $2.70 as the short-covering runs out, and the position gains $0.30 per MMBtu × 10,000 = $3,000.
+Natural gas rallies over two weeks, but fewer traders are taking part.
+
+- Price: $2.50 to $3.00 (+20%)
+- Daily volume: 200,000 to 90,000 contracts (−55%)
+- Open interest: 850,000 to 720,000 contracts (−15%)
+
+A rally with falling volume and falling open interest points to short-covering, not fresh buying, so a contrarian trader sells.
+
+**Trade: short 1 contract (10,000 MMBtu) at $3.00**
+
+Gas falls back to $2.70 as the short-covering runs out:
+
+$$
+(\$3.00 - \$2.70) \times 10{,}000 = \boxed{\$3{,}000}
+$$
+
+If gas had kept rising to $3.30 instead, the same position would lose:
+
+$$
+(\$3.30 - \$3.00) \times 10{,}000 = \$3{,}000
+$$
+
+The signal is a probability, not a guarantee, so the trade needs a stop in advance.
 
 # Quiz
 

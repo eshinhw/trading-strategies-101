@@ -22,7 +22,34 @@ The cost-of-carry model covered in the Forward Pricing lesson explains a large p
 
 ## Example
 
-Crude oil's spot price sits at $78 while the three-month futures price trades at $80 — a $2 negative basis, meaning the market is in contango, consistent with the ordinary cost of storing and financing oil for three months. A trader who holds a long futures position through a market like that, and keeps rolling it forward the way covered in an earlier lesson, ends up buying each new contract at a small premium to the one just closed — a real, recurring cost that has nothing to do with whether their view on crude's price direction was right. Flip the numbers — a $75 three-month future against the same $78 spot, a $3 positive basis — and the market is in backwardation instead, usually a sign that current supply is tight enough that buyers are willing to pay up for oil now rather than wait three months for it.
+Crude oil today, with two possible three-month futures prices.
+
+- Spot price: $78
+- Three-month futures in contango: $80
+- Three-month futures in backwardation: $75
+
+**Basis = spot − futures**
+
+$$
+\text{Contango: } \$78 - \$80 = -\$2
+$$
+
+$$
+\text{Backwardation: } \$78 - \$75 = +\$3
+$$
+
+**Rolling a long position (1 contract, 1,000 barrels)**
+
+In contango, the trader closes the expiring contract and buys the next one $2 higher:
+
+$$
+\$2 \times 1{,}000 = \$2{,}000 \text{ cost per roll}
+$$
+
+- If the same $2 gap appears at each of four quarterly rolls, that is $8,000 a year, or 10.3% of the $78,000 position.
+- In backwardation the roll works the other way: buying the next contract $3 lower earns $3 × 1,000 = $3,000.
+
+The roll cost has nothing to do with whether the trader's view on crude's direction was right.
 
 # Quiz
 

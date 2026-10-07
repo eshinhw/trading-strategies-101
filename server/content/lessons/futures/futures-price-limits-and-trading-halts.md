@@ -22,7 +22,32 @@ Related but distinct from a price limit, a circuit breaker triggers a temporary 
 
 ## Example
 
-When a surprise government crop report signals a much smaller soybean harvest than traders expected, a soybean futures contract trading at $14.00 a bushel with a $0.70 daily limit can rocket straight up to $14.70 — its limit-up price — within minutes of the report, leaving traders who want to buy more locked out until the next session. Equity index futures handle an extreme move differently: in a fast, broad selloff, a circuit breaker can kick in instead, pausing trading entirely for a few minutes rather than pinning the price at a hard ceiling, giving panicked markets a moment to reset before trading resumes.
+**A soybean limit move**
+
+A surprise crop report cuts the expected harvest. Soybeans trade at $14.00 with a daily limit of $0.70, and each contract is 5,000 bushels.
+
+- Limit-up: $14.00 + $0.70 = $14.70
+- Limit-down: $14.00 − $0.70 = $13.30
+
+$$
+\$0.70 \times 5{,}000 = \$3{,}500 \text{ maximum daily move per contract}
+$$
+
+A long position gains up to $3,500 and a short loses up to $3,500. At $14.70 buyers cannot trade higher until the next session.
+
+**An equity index circuit breaker**
+
+E-mini S&P 500 futures are at 4,500. Exchanges pause trading after a sharp fall instead of pinning the price (the exact thresholds are set by the exchange). As an example, take a 7% fall:
+
+$$
+4{,}500 \times (1 - 0.07) = 4{,}185 \text{ index points}
+$$
+
+$$
+315 \text{ points} \times \$50 = \$15{,}750 \text{ per contract}
+$$
+
+Reaching that level pauses trading for a few minutes, giving the market time to reset before it resumes.
 
 # Quiz
 

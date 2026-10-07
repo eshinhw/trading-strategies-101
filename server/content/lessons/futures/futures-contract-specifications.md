@@ -22,7 +22,30 @@ Each futures contract trades under a ticker combined with an expiration month co
 
 ## Example
 
-A grain elevator that hedges corn purchases every harvest season doesn't negotiate a private contract's size, grade, and delivery terms from scratch each time — it simply trades the exchange's standardized corn futures contract, getting a hedge on or off within seconds instead of spending days lining up a custom deal. That same standardization is what lets a trader in a completely different market, say the E-mini S&P 500, know exactly what a price move is worth without ever calling anyone to check: the contract's $50-per-point multiplier and 0.25-point minimum tick mean every tick is worth 0.25 × $50 = $12.50. If the index moves from 4,500.00 up to 4,502.50 — a 2.50-point, or 10-tick, move — the gain on one contract is 2.50 × $50 = $125, the same number every trader watching that contract would compute, because the specification behind it is identical for everyone.
+An E-mini S&P 500 contract has a standard specification, the same for every trader.
+
+- Multiplier: $50 per index point
+- Minimum tick: 0.25 points
+
+**Value of one tick**
+
+$$
+0.25 \times \$50 = \$12.50
+$$
+
+**The index moves from 4,500.00 to 4,502.50**
+
+- Move: 4,502.50 − 4,500.00 = 2.50 points, which is 10 ticks
+
+$$
+\text{Ticks: } 10 \times \$12.50 = \$125
+$$
+
+$$
+\text{Points: } 2.50 \times \$50 = \$125
+$$
+
+A long position gains $125 per contract and a short position loses $125. Anyone trading the contract gets the same figures, because the contract terms are identical for everyone.
 
 # Quiz
 
