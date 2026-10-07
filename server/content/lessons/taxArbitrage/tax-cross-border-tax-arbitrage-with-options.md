@@ -27,6 +27,7 @@ An investor wants exposure to a foreign stock and its dividends (illustrative fi
 - Position: 10,000 shares at $50, which is $500,000
 - Dividend yield: 4%, so $20,000 a year
 - Default withholding rate for a direct shareholder: 30%
+- Cost of the total return swap (dealer financing spread): 0.5% a year
 
 **Owning the shares directly**
 
@@ -36,22 +37,30 @@ $$
 
 **Using a total return swap**
 
-The swap pays the investor the stock's price change plus an amount linked to the dividend. It is structured so the payment is not subject to the same withholding.
+The swap pays the investor the stock's price change plus an amount linked to the dividend. The result depends on how the investor's tax rules treat that dividend-linked payment.
 
 $$
-\$20{,}000 \times (1 - 0\%) = \boxed{\$20{,}000 \text{ received}}
+\text{Swap cost} = \$500{,}000 \times 0.5\% = \$2{,}500 \text{ a year}
 $$
 
+**Case 1: the rules do not withhold on the swap payment**
+
 $$
-\$20{,}000 - \$14{,}000 = +\$6{,}000 \text{ better after tax}
+\$20{,}000 - \$2{,}500 = \$17{,}500 \quad\Rightarrow\quad \$17{,}500 - \$14{,}000 = \boxed{+\$3{,}500 \text{ better than owning directly}}
 $$
 
-**What stays the same**
+**Case 2: the rules treat the swap payment like a dividend (the same 30%)**
+
+$$
+\$20{,}000 \times (1 - 30\%) - \$2{,}500 = \$11{,}500 \quad\Rightarrow\quad \$11{,}500 - \$14{,}000 = -\$2{,}500
+$$
+
+**What stays the same in both cases**
 
 - Market exposure: very similar to owning the shares, since the swap pays the price change too
 - What differs: the tax treatment of the dividend-linked portion
 
-Tax rules differ by country and change over time, and many now tax dividend-linked swap payments. The trade needs current legal review before it is used.
+The benefit exists only while there is a gap in the rules, and many jurisdictions have tightened them to close it. When the gap closes, the investor is left paying for the swap with nothing gained. The trade needs current legal review before it is used.
 
 # Quiz
 

@@ -14,7 +14,7 @@ Beyond comparing two countries' overall yield levels, a trader can compare the s
 
 ## The Currency-Hedging Decision
 
-Investing in a foreign government bond means taking on currency exposure alongside the bond's own interest-rate exposure, unless that currency risk is explicitly hedged. A trader has to decide whether the currency move is itself part of the intended macro view, worth keeping unhedged, or an unwanted side effect of the bond trade, worth hedging away.
+Investing in a foreign government bond means taking on currency exposure alongside the bond's own interest-rate exposure, unless that currency risk is explicitly hedged. A trader has to decide whether the currency move is itself part of the intended macro view, worth keeping unhedged, or an unwanted side effect of the bond trade, worth hedging away. The two often pull against each other: lower expected policy rates tend to weaken a country's currency, so a long position in the bonds of a country expected to cut can gain on the bonds and lose on the currency. Keeping the currency unhedged makes sense only when the trader expects it to help, for example when a falling risk premium is drawing capital into the country, which lowers its yields and lifts its currency at the same time.
 
 ## Credit Quality Across Sovereigns
 
@@ -22,11 +22,11 @@ Unlike a single country's own Treasury market, comparing government bonds across
 
 ## Example
 
-A trader expects Country A's central bank to cut rates well before Country B's.
+A trader expects Country A's inflation to keep falling and its central bank to cut rates well before Country B's. The trader also expects that a falling risk premium will draw foreign capital into Country A, which lifts its currency.
 
 - Long $10 million of Country A 10-year bonds, yield 4.0%, duration 8
 - Short $10 million of Country B 10-year bonds
-- The view: A's yield falls 50 basis points, and B's yield does not move
+- The view: A's yield falls 50 basis points, B's yield does not move
 
 **Bond leg**
 
@@ -36,12 +36,14 @@ $$
 
 **The currency decision**
 
-Holding A's bonds also means holding A's currency. The trader leaves it unhedged because the same rate-differential view is expected to move the currency in a way that reinforces the trade.
+Holding A's bonds also means holding A's currency. The trader leaves it unhedged because the view includes capital flowing into A, so the currency is expected to rise with the bonds and add to the trade.
 
-- Currency moves as expected (+2%): unhedged total is $400,000 + $200,000 = **+$600,000**
-- If the trader had hedged, the total would stay at +$400,000 (ignoring hedging costs)
+- Currency rises 2% as expected: unhedged total is $400,000 + $200,000 = **+$600,000**
+- Had the trader hedged, the total would stay at +$400,000 (ignoring hedging costs)
 
-**If the currency moves against the trade instead (−2%)**
+**If the currency falls 2% instead**
+
+This is the more common effect of rate cuts alone.
 
 $$
 \text{Unhedged: } \$400{,}000 - \$200{,}000 = +\$200{,}000
@@ -51,7 +53,7 @@ $$
 \text{Hedged: } +\$400{,}000
 $$
 
-Leaving the currency unhedged is a deliberate bet that it will help. If the trader has no view that it will, hedging keeps the result to the bond view alone.
+Leaving the currency open is a deliberate bet that it will help. A trader with no such view would hedge it and keep only the bond view.
 
 # Quiz
 
@@ -84,8 +86,8 @@ Leaving the currency unhedged is a deliberate bet that it will help. If the trad
    > Comparing sovereign bonds means accounting for credit and political risk differences, not just chasing the highest posted yield.
 
 5. In the example, why does the trader leave the currency exposure unhedged?
-   - [x] The same rate-differential view driving the bond trade would also be expected to move the currency in a complementary direction
+   - [x] The trader expects the currency to move in the same direction as the bonds, so leaving it open adds to the trade
    - Hedging currency exposure is always illegal in fixed-income trading
    - The trader has no view on the currency at all
    - Currency exposure has no relationship to the underlying rate view
-   > When the currency move is expected to reinforce rather than contradict the underlying macro thesis, leaving it unhedged can be a deliberate part of the trade rather than an oversight.
+   > When the currency move is expected to reinforce rather than contradict the underlying macro thesis, leaving it unhedged can be a deliberate part of the trade rather than an oversight. A rate cut alone would normally weaken the currency, so the trader needs a separate reason to expect it to help.
