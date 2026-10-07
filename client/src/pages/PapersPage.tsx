@@ -32,7 +32,7 @@ export function PapersPage() {
       eyebrow="Research library"
       title="Papers"
       itemNoun="papers"
-      description="The foundational research behind the strategies in this curriculum — citations and our own summary of what each paper actually shows, not the papers themselves."
+      description="The research behind the strategies in this curriculum: citations, plus our own summary of what each paper shows."
       searchPlaceholder="Search by title, author or topic…"
       loadingLabel="Loading papers…"
       emptyLabel="No papers match your search."
@@ -73,7 +73,7 @@ const SORTERS = [
 ];
 
 const LINK_LABEL: Record<Paper["link"]["kind"], string> = {
-  ssrn: "Download on SSRN",
+  ssrn: "Read free on SSRN",
   publisher: "View at publisher (DOI)",
 };
 
@@ -120,17 +120,6 @@ function CopyCitation({ paper }: { paper: Paper }) {
     >
       {state === "copied" ? "✓ Copied" : state === "failed" ? "Couldn't copy" : "Copy citation"}
     </button>
-  );
-}
-
-// Whether the paper is free to read (SSRN) or sits behind its publisher.
-function AccessTag({ paper }: { paper: Paper }) {
-  return paper.link.kind === "ssrn" ? (
-    <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-400">
-      Free on SSRN
-    </span>
-  ) : (
-    <span className="rounded-full border border-[#2a3040] px-2 py-0.5 text-[11px] text-[#898781]">Publisher</span>
   );
 }
 
@@ -194,7 +183,6 @@ function PaperTimeline({
                       <span className={`rounded-full border px-2 py-0.5 text-[11px] font-medium ${LEVEL_CLASSES[paper.level]}`}>
                         {LEVEL_LABEL[paper.level]}
                       </span>
-                      <AccessTag paper={paper} />
                     </div>
                     <h3 className="mt-3 font-semibold leading-snug text-[#e6e8ec]">{paper.title}</h3>
                     <div className="mt-0.5 text-sm text-[#898781]">
@@ -275,7 +263,7 @@ function ResearchMap({ items, matching, categories, accentOf, activeTopic, onSel
               <button
                 onClick={() => onSelectTopic(c.slug)}
                 aria-pressed={active}
-                className={`hidden w-44 shrink-0 truncate py-2.5 text-left text-xs transition sm:block ${
+                className={`hidden w-56 shrink-0 truncate py-2.5 text-left text-xs transition sm:block ${
                   active ? "font-semibold text-[#e6e8ec]" : "text-[#9aa3b2] hover:text-[#e6e8ec]"
                 }`}
                 title={`Filter to ${c.title}`}
@@ -283,8 +271,18 @@ function ResearchMap({ items, matching, categories, accentOf, activeTopic, onSel
                 <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full align-middle" style={{ background: accent }} />
                 {c.title}
               </button>
-              <div className="relative h-9 flex-1">
+              <div className="relative h-8 flex-1">
                 <div className="absolute inset-x-0 top-1/2 h-px bg-[#2a3040]/70" aria-hidden="true" />
+                {hovered && hovered.category === c.slug && (
+                  <span
+                    className={`pointer-events-none absolute bottom-full z-20 mb-1 max-w-[320px] truncate rounded-lg border border-[#2a3040] bg-[#0e1117] px-2.5 py-1.5 text-xs text-[#e6e8ec] shadow-lg shadow-black/40 ${
+                      pct(hovered.year) > 70 ? "-translate-x-full" : pct(hovered.year) > 15 ? "-translate-x-1/2" : ""
+                    }`}
+                    style={{ left: `${pct(hovered.year)}%` }}
+                  >
+                    <span className="font-semibold">{hovered.year}</span> · {hovered.title}
+                  </span>
+                )}
                 {lane.map((paper) => {
                   // Papers from the same year in the same lane would sit on top of each other, so fan them out.
                   const sameYear = lane.filter((p) => p.year === paper.year);
@@ -315,7 +313,7 @@ function ResearchMap({ items, matching, categories, accentOf, activeTopic, onSel
           );
         })}
         <div className="flex items-center gap-3">
-          <span className="hidden w-44 shrink-0 sm:block" />
+          <span className="hidden w-56 shrink-0 sm:block" />
           <div className="relative h-5 flex-1 border-t border-[#2a3040]">
             {ticks.map((y) => (
               <span
@@ -380,7 +378,6 @@ function PaperCard({ paper, accent, bookmark }: { paper: Paper; accent: string; 
           {paper.year}
         </span>
         <span className="flex items-center gap-1.5">
-          <AccessTag paper={paper} />
           <span className={`shrink-0 rounded-full border px-2 py-0.5 text-xs font-medium ${LEVEL_CLASSES[paper.level]}`}>
             {LEVEL_LABEL[paper.level]}
           </span>
