@@ -22,20 +22,28 @@ Even setting aside what it might predict about the economy, the yield curve's sh
 
 ## Example
 
-The packaging manufacturer's treasurer is deciding how to fund the $50 million plant. The Treasury yield curve is upward-sloping, and the company's bonds trade at a 150 basis point (1.50%) spread over Treasuries at every maturity:
+The manufacturer's treasurer is choosing between 2-year and 10-year debt for a $50 million plant. The company's bonds trade 150 basis points (1.50%) over Treasuries at every maturity.
 
 - 2-year: Treasury 2.6%, company bond 4.1%
 - 10-year: Treasury 3.5%, company bond 5.0%
 
-Borrowing for 10 years costs 0.9 percentage points more than borrowing for 2:
+**Cost of choosing 10 years over 2 (normal, upward-sloping curve)**
 
 $$
 (5.0\% - 4.1\%) \times \$50{,}000{,}000 = \boxed{\$450{,}000 \text{ a year}}
 $$
 
-That is the price of certainty. The 2-year debt is cheaper now, but the company would need to refinance in two years at whatever rates are then, while the 10-year bond fixes its cost for the whole life of the plant.
+**If the curve were inverted (2-year Treasury 4.4%, 10-year 3.5%)**
 
-If the curve were inverted instead, with the 2-year Treasury at 4.4% and the 10-year at 3.5%, the company would pay 5.9% for 2 years and 5.0% for 10 years. The longer debt would be $450,000 a year cheaper and also give more certainty, so locking in the 10-year rate would look much more attractive.
+- 2-year: 4.4% + 1.5% = 5.9%
+- 10-year: 3.5% + 1.5% = 5.0%
+
+$$
+(5.9\% - 5.0\%) \times \$50{,}000{,}000 = \$450{,}000 \text{ a year cheaper for 10 years}
+$$
+
+- Normal curve: the extra $450,000 a year buys certainty for 10 years, while 2-year debt must be refinanced later.
+- Inverted curve: the 10-year bond is cheaper and gives more certainty, so locking it in is attractive.
 
 # Quiz
 

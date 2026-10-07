@@ -26,7 +26,33 @@ A bond forward's fair price nets out the bond's coupon income the same way an eq
 
 ## Example
 
-A pension fund wanting exposure to a stock index for the next quarter, without actually buying and later selling every underlying stock, can simply enter an equity forward instead — locking in a price today and settling in cash off the index's level at maturity, sidestepping the operational cost of trading dozens of individual shares directly. The same dividend adjustment applies whether the forward is on a broad index or a single stock: an investor entering a six-month forward to buy 10,000 shares of a company expected to pay $0.50 per share in dividends before delivery sees a forward price sitting below pure financing cost by roughly that $0.50-per-share amount, since whoever holds the forward, not the actual stock, misses out on those dividend payments along the way.
+A fund wants to buy 10,000 shares in six months through a forward.
+
+- Spot price: $50.00 per share
+- Financing rate: 4% a year, continuously compounded
+- Expected dividend: $0.50 per share, paid in three months
+
+**Forward price without the dividend**
+
+$$
+F_0 = \$50 \times e^{0.04 \times 0.5} = \$51.01
+$$
+
+**Forward price with the dividend**
+
+The forward buyer misses the dividend, so its present value comes off the spot price first:
+
+$$
+F_0 = (\$50 - \$0.50\,e^{-0.04 \times 0.25})\,e^{0.04 \times 0.5} = \boxed{\$50.505}
+$$
+
+**Cost to the fund**
+
+$$
+10{,}000 \times \$50.505 = \$505{,}050 \text{ in six months}
+$$
+
+The dividend lowers the forward price by about $0.505 per share. An owner of the actual shares would receive 10,000 × $0.50 = $5,000 of dividends, and the lower price compensates the forward buyer for missing them.
 
 # Quiz
 
@@ -64,3 +90,17 @@ A pension fund wanting exposure to a stock index for the next quarter, without a
    - Dividends have no effect on the forward price
    - The forward price becomes exactly equal to the dividend amount
    > Because the forward holder misses out on the $0.50 dividend, that expected payment is subtracted from what pure financing cost alone would otherwise imply for the forward price.
+
+6. A stock trades at $50 and pays a $0.50 dividend in three months. At a 4% financing rate, about what is the six-month forward price?
+   - $51.01
+   - [x] $50.51
+   - $50.00
+   - $49.50
+   > Growing $50 at 4% for six months gives $51.01, and the dividend the forward holder misses lowers that by about $0.505, to $50.505.
+
+7. Why is the forward price lower than $51.01 when there is a dividend?
+   - Forwards are always cheaper than the stock
+   - The financing rate is lower for forwards
+   - [x] The forward buyer doesn't receive the dividend, so the fair price is reduced by its value
+   - Dividends are paid to the seller at delivery
+   > Whoever holds the actual shares collects the dividend, so the forward buyer pays less to be compensated for missing it.

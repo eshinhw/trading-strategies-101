@@ -22,7 +22,23 @@ Following reforms introduced after the 2008 financial crisis, many jurisdictions
 
 ## Example
 
-A corporate treasury entering its first-ever forward with a new bank counterparty typically has to negotiate an ISDA master agreement before any trading can begin at all — a process that can take weeks — which is exactly why companies tend to concentrate their forward trading with a handful of banks they've already been through that process with, rather than shopping every trade to a new counterparty. Two banks that trade FX forwards with each other regularly show what that investment buys: after signing a single ISDA Master Agreement once, along with a CSA covering collateral terms, every subsequent trade between them, potentially hundreds over the following years, needs only a short trade confirmation citing that master agreement, not a fresh legal negotiation each time.
+Two banks expect to trade about 120 FX forwards with each other over the next two years.
+
+- Negotiating an ISDA master agreement: about 3 weeks, once
+- Negotiating each trade as a fresh contract: about 3 weeks each
+- With the master in place: each trade needs a one-page confirmation
+
+**Time spent on legal terms**
+
+$$
+\text{Without a master} = 120 \times 3 \text{ weeks} = 360 \text{ weeks}
+$$
+
+$$
+\text{With a master} = 3 \text{ weeks} + 120 \text{ confirmations} = \boxed{3 \text{ weeks of negotiation}}
+$$
+
+Each confirmation lists the asset, notional, forward price, delivery date and settlement method, and refers back to the master for everything else. This is why companies concentrate their forward trading with a few banks they have already signed with.
 
 # Quiz
 

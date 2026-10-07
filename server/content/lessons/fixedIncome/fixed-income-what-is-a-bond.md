@@ -22,29 +22,41 @@ Bonds are held for the combination of predictable income and, relative to stocks
 
 ## Example
 
-The packaging manufacturer from the previous lesson issues its 50,000 bonds. Each one is a promise with these terms:
+The packaging manufacturer issues its 50,000 bonds. Each bond has the same terms.
 
 - Face value: $1,000
 - Coupon rate: 5% a year, paid in two equal payments
 - Maturity: 10 years
 
-Each bondholder receives the coupon every six months:
+**Coupon per bond, every six months**
 
 $$
-\$1{,}000 \times \frac{5\%}{2} = \$25 \text{ per bond}
+\$1{,}000 \times \frac{5\%}{2} = \$25
 $$
 
-Across all 50,000 bonds, the company pays $1.25 million every six months:
+**Coupon across all bonds, every six months**
 
 $$
 50{,}000 \times \$25 = \$1{,}250{,}000
 $$
 
-There are 20 payments over 10 years, so the total interest is $25 million. At maturity the company also repays the $50 million face value, so it pays back $75 million in all for the $50 million it borrowed.
+**Total over the bond's life**
 
-Those payments are fixed. If the company has a poor year and profits halve, it still owes $2.5 million in interest. If it has a great year, bondholders still receive only $2.5 million.
+- Interest: 20 payments × $1.25 million = $25 million
+- Principal repaid at maturity: $50 million
+- Total repaid: $25 million + $50 million = $75 million
 
-Compare that with raising the $50 million by selling shares. If shareholders expect a 9% return, that is $4.5 million a year in expected return, with no maturity date and a permanent claim on the company's profits. The bond's fixed 5% is cheaper because the bondholders take less risk and rank ahead of shareholders if the company fails.
+**Fixed whatever the business does**
+
+- A poor year with profits halved: the company still pays $2.5 million of interest.
+- A great year: bondholders still receive only $2.5 million.
+
+**Compared with selling shares**
+
+- Bond cost: 5% × $50 million = $2.5 million a year, ending at maturity.
+- Equity cost, if shareholders expect 9%: 9% × $50 million = $4.5 million a year, with no end date.
+
+The bond is cheaper because bondholders take less risk. They are paid before shareholders if the company fails.
 
 # Quiz
 

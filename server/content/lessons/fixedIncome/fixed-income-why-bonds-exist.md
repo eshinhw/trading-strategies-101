@@ -22,22 +22,26 @@ Compared with a bank loan, a bond can raise much larger amounts and lock in a ra
 
 ## Example
 
-A packaging manufacturer wants to build a $50 million plant. Its bank will lend only $20 million, for five years, at a rate that resets every year, so the company issues bonds instead:
+A packaging manufacturer needs $50 million for a new plant. Its bank will lend only $20 million, for five years, at a rate that resets every year. Instead the company issues bonds.
 
 - Amount raised: $50 million
 - Pieces: 50,000 bonds with a face value of $1,000 each
 - Coupon: 5% a year, fixed
 - Maturity: 10 years
 
-Thousands of investors each buy a few bonds, and any of them can sell to someone else later. The company has raised $30 million more than the bank would lend, for twice as long, at a rate that can't reset higher.
+**Compared with the bank loan**
 
-The interest it pays each year is:
+- Raised: $50 million instead of $20 million, so $30 million more
+- Term: 10 years instead of 5, so twice as long
+- Rate: fixed at 5%, so it can't reset higher
+
+**Annual interest**
 
 $$
 50{,}000 \times \$1{,}000 \times 5\% = \$2{,}500{,}000
 $$
 
-If the company's tax rate is 25% and the interest is deductible, the cost after tax is:
+**After tax, at a 25% rate (interest is deductible)**
 
 $$
 \$2{,}500{,}000 \times (1 - 0.25) = \boxed{\$1{,}875{,}000 \text{ a year}}

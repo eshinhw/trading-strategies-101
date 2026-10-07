@@ -30,7 +30,33 @@ Beyond pure price-risk hedging, forwards let two commercial counterparties build
 
 ## Example
 
-A multinational manufacturer's treasury department might run several of these applications at once in different corners of the business — FX forwards hedging supplier payments and customer receivables, a commodity forward locking in a key input's price, an FRA locking in the rate on planned borrowing — all four using the exact same underlying tool, just pointed at a different source of price uncertainty. An airline expecting to pay a foreign aircraft-leasing company 5 million euros in six months is running one specific version of that playbook: it buys euros forward today at $1.08 per euro, locking in a $5.4 million dollar cost no matter where the spot rate actually lands in six months — the same importer logic covered earlier in this lesson, just embedded in a real aircraft-lease contract instead of a generic invoice.
+An airline owes a foreign aircraft lessor €5 million in six months, and it hedges with an FX forward.
+
+- Amount owed: €5,000,000
+- Forward rate: $1.08 per euro
+- Locked-in cost: 5,000,000 × $1.08 = $5,400,000
+
+**Euro rises to $1.15**
+
+$$
+\text{Unhedged} = 5{,}000{,}000 \times \$1.15 = \$5{,}750{,}000
+$$
+
+$$
+\text{Forward saves} = \$5{,}750{,}000 - \$5{,}400{,}000 = \$350{,}000
+$$
+
+**Euro falls to $1.02**
+
+$$
+\text{Unhedged} = 5{,}000{,}000 \times \$1.02 = \$5{,}100{,}000
+$$
+
+$$
+\text{Forward costs} = \$5{,}400{,}000 - \$5{,}100{,}000 = \$300{,}000 \text{ extra}
+$$
+
+The airline pays $5.4 million in both cases. The forward removes the exchange-rate risk, and it also removes the chance of a cheaper euro.
 
 # Quiz
 

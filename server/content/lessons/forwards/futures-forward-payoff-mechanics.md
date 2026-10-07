@@ -18,9 +18,32 @@ Unlike an option, whose buyer's loss is capped at the premium paid no matter how
 
 ## Example
 
-A treasury desk marking its forward book to market every day isn't guessing at gains and losses — it's applying exactly this formula, spot minus delivery price for every long position and delivery price minus spot for every short, across every open contract. Take a mill that's long a forward on 10,000 bushels of wheat at a $6.50 delivery price. If wheat's spot price at maturity is $7.20, the mill's payoff is ($7.20 − $6.50) × 10,000 = $7,000 — a gain, since it locked in a price below where wheat ended up. The merchant on the short side of that same contract has the mirror-image payoff: ($6.50 − $7.20) × 10,000 = −$7,000, an equal and opposite loss.
+A flour mill is long a wheat forward, and the grain merchant is short.
 
-Now suppose wheat instead falls to $5.80 by maturity. The mill's payoff flips sign: ($5.80 − $6.50) × 10,000 = −$7,000, a loss, since it's now obligated to pay $6.50 for wheat worth only $5.80 on the open market. The merchant's short position gains the mirror-image $7,000 — the same formula, the same zero-sum relationship, just with the price move running in the opposite direction, which is also the same building block used in the next lesson to value an existing forward before it even reaches maturity.
+- Quantity: 10,000 bushels
+- Delivery price: $6.50 per bushel
+
+**Wheat rises to $7.20 at maturity**
+
+$$
+\text{Mill (long)} = (\$7.20 - \$6.50) \times 10{,}000 = +\$7{,}000
+$$
+
+$$
+\text{Merchant (short)} = (\$6.50 - \$7.20) \times 10{,}000 = -\$7{,}000
+$$
+
+**Wheat falls to $5.80 at maturity**
+
+$$
+\text{Mill (long)} = (\$5.80 - \$6.50) \times 10{,}000 = -\$7{,}000
+$$
+
+$$
+\text{Merchant (short)} = (\$6.50 - \$5.80) \times 10{,}000 = +\$7{,}000
+$$
+
+The two payoffs always add up to zero. Each side's gain or loss grows by $10,000 for every $1.00 move in wheat, with no cap in either direction.
 
 # Quiz
 

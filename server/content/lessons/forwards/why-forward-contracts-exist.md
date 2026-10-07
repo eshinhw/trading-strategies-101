@@ -22,7 +22,24 @@ Agreements to deliver something later at a price set today are among the oldest 
 
 ## Example
 
-A wheat farmer expects 5,000 bushels at harvest in six months, and a bakery expects to need the same amount. They agree today on a forward price of $6.00 per bushel. If wheat is trading at $7.00 at harvest, the farmer gives up $5,000 of potential extra revenue and the bakery saves $5,000. If it has fallen to $5.00, the bakery overpays by $5,000 and the farmer is protected by the same amount. Neither can know which will happen, and both have removed the risk that a bad price would damage their business.
+A wheat farmer and a bakery agree a price today for wheat delivered at harvest, six months from now.
+
+- Quantity: 5,000 bushels
+- Forward price: $6.00 per bushel
+- Locked-in value: 5,000 × $6.00 = $30,000
+
+At harvest, the outcome depends on the market price:
+
+- Wheat at $7.00: the bakery pays $30,000 instead of $35,000 and saves $5,000. The farmer receives $30,000 instead of $35,000 and gives up $5,000.
+- Wheat at $5.00: the bakery pays $30,000 instead of $25,000 and overpays $5,000. The farmer receives $30,000 instead of $25,000 and is protected by $5,000.
+
+Either way, the amount that moves between them is:
+
+$$
+|S_T - \$6.00| \times 5{,}000 = \$1.00 \times 5{,}000 = \$5{,}000
+$$
+
+Both sides pay or receive exactly $6.00 a bushel whatever wheat does, so neither one's business depends on the harvest price.
 
 # Quiz
 

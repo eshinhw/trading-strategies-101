@@ -26,7 +26,38 @@ Even a carefully built commodity forward hedge can leave real exposure behind if
 
 ## Example
 
-A regional bakery chain buys wheat forward from a local grain merchant to hedge its flour costs, specifying a particular protein-content grade and delivery straight to its own mill instead of a distant terminal. If the bakery's actual purchases ever need a slightly different grade, or arrive at a different facility than the forward specifies, the hedge won't offset its real costs quite perfectly — a basis-risk gap between the contract's exact terms and the bakery's actual exposure. An airline hedging jet fuel costs runs into an even sharper version of that same problem: it often can't find a forward written on jet fuel itself in the size or location it needs, so it hedges with a closely related product like heating oil or crude oil instead — a deliberate cross-hedge that accepts real basis risk in exchange for being able to hedge at all, rather than leaving the exposure completely open.
+**A bakery's basis risk**
+
+A bakery chain needs 10,000 bushels of wheat delivered to its mill in six months. The only forward it can buy is on standard-grade wheat at the terminal.
+
+- Forward price: $6.50
+- Local basis when it hedges: $0.10 above the terminal price
+- Planned cost: $6.50 + $0.10 = $6.60
+
+At maturity the terminal price is $7.00, but the local basis has widened to $0.25.
+
+$$
+\text{Forward gain} = (\$7.00 - \$6.50) \times 10{,}000 = \$5{,}000
+$$
+
+$$
+\text{Net cost} = 10{,}000 \times \$7.25 - \$5{,}000 = \$67{,}500 = \boxed{\$6.75 \text{ per bushel}}
+$$
+
+The hedge covered the $0.50 rise in the terminal price. The $0.15 the basis moved is not covered: $0.15 × 10,000 = $1,500.
+
+**An airline's cross-hedge**
+
+An airline will burn 1,000,000 gallons of jet fuel in three months. No jet fuel forward is available in that size, so it buys a heating oil forward on 1,000,000 gallons at $2.80.
+
+- Jet fuel rises $0.40, so the airline pays $400,000 more.
+- Heating oil rises $0.30, so the forward gains $300,000.
+
+$$
+\$400{,}000 - \$300{,}000 = \boxed{\$100{,}000 \text{ left unhedged}}
+$$
+
+The cross-hedge removes 75% of the increase, which is better than leaving all of it open.
 
 # Quiz
 
@@ -71,3 +102,17 @@ A regional bakery chain buys wheat forward from a local grain merchant to hedge 
    - Airlines are legally required to use crude oil rather than jet fuel contracts
    - Cross-hedging eliminates all basis risk entirely
    > A deliberate cross-hedge accepts some basis risk in exchange for being able to hedge exposure that would otherwise have no direct hedging instrument available.
+
+7. A bakery buys a terminal wheat forward at $6.50 and plans around a $0.10 local basis, so $6.60. At maturity the terminal price is $7.00 and the local basis is $0.25. What is its effective cost per bushel?
+   - $6.50
+   - $6.60
+   - [x] $6.75
+   - $7.25
+   > It pays $7.25 locally and collects a $0.50 gain from the forward, so the net cost is $6.75. That is $0.15 above the $6.60 plan because the basis widened.
+
+8. What does the $1,500 difference from the bakery's plan represent?
+   - The forward's financing cost
+   - [x] Basis risk: the local price moved differently from the contract's reference price
+   - Counterparty default by the grain merchant
+   - A tax on the forward's gain
+   > The forward hedges the terminal price, not the bakery's local delivery price, so a change in the gap between them is a risk the hedge leaves open.

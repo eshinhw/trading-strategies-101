@@ -22,7 +22,32 @@ FX forward rates are often quoted not as an outright rate but as "forward points
 
 ## Example
 
-A corporate treasurer comparing forward quotes from two different banks for the same currency pair and maturity date should expect them to land very close to each other, since both banks are pricing off the same observable interest-rate gap — a forward rate wildly out of line with that relationship would be exactly the kind of arbitrage opportunity the cost-of-carry framework says shouldn't persist. That interest-rate gap is what actually produces the quote the treasurer sees: with U.S. rates above euro rates, covered interest rate parity says the euro should trade at a forward premium — a spot rate of $1.08 per euro alongside a six-month forward of $1.10, say, with the $0.02 gap reflecting the rate differential itself, not a bank's forecast that the euro will actually be worth $1.10 in six months.
+A U.S. importer owes €400,000 on an invoice due in six months.
+
+- Spot rate: $1.08 per euro
+- Six-month U.S. interest rate: 5.5% a year
+- Six-month euro interest rate: 1.8% a year (illustrative)
+
+**Forward rate from interest rate parity**
+
+$$
+F = S \times \frac{1 + r_{\$}\,T}{1 + r_{€}\,T}
+$$
+
+$$
+F = \$1.08 \times \frac{1 + 0.055 \times 0.5}{1 + 0.018 \times 0.5} = \$1.0998 \approx \boxed{\$1.10}
+$$
+
+The $0.02 premium over spot reflects the interest gap. It is not a forecast that the euro will rise.
+
+**The hedge**
+
+The importer locks in $1.10, so the invoice costs €400,000 × $1.10 = $440,000.
+
+- Spot at $1.15: unhedged cost is $460,000, so the forward saves $20,000.
+- Spot at $1.05: unhedged cost is $420,000, so the forward costs $20,000 extra.
+
+Either way the importer pays $440,000, which is the number it budgeted.
 
 # Quiz
 
@@ -60,3 +85,17 @@ A corporate treasurer comparing forward quotes from two different banks for the 
    - The forward rate must be exactly $1.08
    - Interest rates have no effect on the forward rate
    > With U.S. rates higher than euro rates, the euro (the lower-rate currency) trades at a forward premium to the dollar, meaning more dollars per euro forward than spot.
+
+6. Spot is $1.08 per euro, the U.S. six-month rate is 5.5% and the euro rate is 1.8%. About what is the six-month forward rate?
+   - $1.08
+   - $1.04
+   - [x] $1.10
+   - $1.16
+   > Covered interest parity gives $1.08 × (1 + 0.0275) / (1 + 0.009), about $1.0998, a forward premium because dollar rates are higher.
+
+7. A U.S. importer locks in $1.10 on a €400,000 invoice, and the spot rate at maturity is $1.05. What is the result of the hedge?
+   - It saves $20,000 compared with not hedging
+   - [x] It costs $20,000 more than not hedging, but the cost is fixed at $440,000
+   - It loses the whole $440,000
+   - It breaks even exactly
+   > Unhedged the invoice would cost $420,000, so the hedge costs $20,000 extra, which is the price of certainty in the same way as the mill's forward.

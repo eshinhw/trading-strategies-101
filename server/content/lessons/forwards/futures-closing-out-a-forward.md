@@ -22,7 +22,31 @@ The cleanest option, when available, is simply agreeing directly with the origin
 
 ## Example
 
-A hedge fund that wants to unwind an FX forward well before maturity typically approaches its original bank counterparty first, since a mutual termination at fair value is usually cleaner and cheaper than leaving two offsetting contracts outstanding or hunting for a new counterparty willing to accept a novated position — a practical constraint that simply doesn't exist for an exchange-traded futures position. A company holding a long forward now worth $50,000, using the mid-life valuation approach from the Valuing an Existing Forward lesson, runs into exactly that choice: if its original bank agrees to a mutual termination, it just pays the company the $50,000 today and both sides walk away clean, versus entering a new, opposite forward with a different bank, which would leave both contracts open until each separately runs its course.
+The mill's forward is worth $4,950 to it, with three months left (10,000 bushels at $6.50, new forwards at $7.00). It has two ways out.
+
+**1. Mutual termination**
+
+The merchant pays the mill the contract's value, and the contract ends:
+
+$$
+\text{Cash received today} = \boxed{\$4{,}950}
+$$
+
+**2. A mirror-image forward**
+
+The mill sells 10,000 bushels forward to a second bank at $7.00. At maturity the two contracts net out:
+
+$$
+(S_T - \$6.50) + (\$7.00 - S_T) = \$0.50 \text{ per bushel}
+$$
+
+$$
+\$0.50 \times 10{,}000 = \boxed{\$5{,}000 \text{ at maturity}}
+$$
+
+- The result is fixed whatever wheat does, because the price moves cancel.
+- It is paid at maturity, not today, and $5,000 in three months is worth about $4,950 now.
+- Both contracts stay open, so the mill depends on two counterparties instead of none.
 
 # Quiz
 
@@ -60,3 +84,17 @@ A hedge fund that wants to unwind an FX forward well before maturity typically a
    - An offsetting forward with a new bank always eliminates all outstanding obligations
    - There is no practical difference between the two approaches
    > A single mutual termination settles the position cleanly in one step, while an offsetting forward with a new counterparty leaves two live contracts until each separately runs its course.
+
+6. The mill's forward is worth $4,950. What does a mutual termination with the merchant look like?
+   - The mill pays the merchant $4,950
+   - The mill pays the merchant $5,000 at maturity
+   - [x] The merchant pays the mill about $4,950 today and no contract remains
+   - Nothing is paid, and both contracts continue
+   > A mutual termination settles the contract at its current mark-to-market value, so the side it is worth money to is paid that amount and the contract ends.
+
+7. The mill sells 10,000 bushels forward to a second bank at $7.00 instead of terminating. What is its locked-in result at maturity?
+   - Zero, since the two contracts cancel completely
+   - A gain or loss that depends on the wheat price
+   - [x] A fixed $5,000 gain, with counterparty risk to both banks
+   - A fixed $4,950 gain paid today
+   > The original long and the new short move in opposite directions, leaving ($7.00 - $6.50) × 10,000 = $5,000 at maturity, but both contracts remain outstanding.

@@ -22,7 +22,27 @@ FRAs serve a similar purpose to the exchange-traded interest rate futures covere
 
 ## Example
 
-A corporate treasurer knows the company will issue a $50 million bond in three months but is worried benchmark rates could climb before pricing, raising the company's borrowing cost. Rather than wait and hope, the treasurer locks in today's 5% rate for that period with an FRA. If rates do climb to 5.75% by the time the bond actually prices, the FRA pays the company roughly the 0.75-percentage-point gap applied to the $50 million notional for that period — offsetting the higher coupon the bond ends up carrying and leaving the company's effective borrowing cost close to the 5% it locked in three months earlier.
+A company will borrow $50 million in three months for six months, and the treasurer buys a 3×9 FRA to lock in the rate.
+
+- Notional: $50 million (never exchanged)
+- FRA rate: 5.00%
+- Reference rate when the period starts: 5.75%
+
+**FRA payment to the company**
+
+The FRA settles at the start of the period, so the payment is discounted:
+
+$$
+\frac{\$50{,}000{,}000 \times (5.75\% - 5.00\%) \times 0.5}{1 + 5.75\% \times 0.5} = \frac{\$187{,}500}{1.02875} = \boxed{\$182{,}260}
+$$
+
+**Effect on borrowing cost**
+
+- Borrowing at 5.75% instead of 5.00% costs $50 million × 0.75% × 0.5 = $187,500 more in interest.
+- The $182,260 received, invested at 5.75% for six months, grows to $187,500.
+- The company's effective rate is the 5.00% it locked in.
+
+If the reference rate fell to 4.25%, the company would pay the FRA about $183,600 but save $187,500 of interest, so the effective rate would still be 5.00%.
 
 # Quiz
 
@@ -60,3 +80,17 @@ A corporate treasurer knows the company will issue a $50 million bond in three m
    - Because the notional amount is always zero
    - Because FRAs always involve physical delivery of a commodity instead
    > The notional is purely a reference amount for calculating the interest-rate-difference settlement — no actual loan or deposit of that principal ever takes place between the two parties.
+
+6. A company buys a 3×9 FRA on $50 million at 5.00%, and the reference rate is 5.75% when the period starts. What does the FRA pay it, to the nearest thousand?
+   - $37,500
+   - $187,500
+   - [x] $182,000
+   - $375,000
+   > The extra interest is $50 million × 0.75% × 0.5 = $187,500, and because the FRA settles upfront it is discounted by 1.02875 to about $182,260.
+
+7. If the reference rate falls to 4.25% instead, what happens to the company's effective borrowing rate?
+   - It falls to 4.25%
+   - It rises above 5.00%
+   - [x] It stays at about 5.00%, since the FRA payment it makes offsets the interest it saves
+   - It becomes 0%
+   > An FRA locks in the rate both ways: the company pays on the FRA when rates fall, and that payment cancels the lower interest it would otherwise have enjoyed.

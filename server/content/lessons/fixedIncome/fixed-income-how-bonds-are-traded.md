@@ -32,33 +32,47 @@ A dealer earns the difference between the price it pays and the price it sells a
 
 ## Example
 
-An investor buys 100 of the packaging manufacturer's bonds, which is $100,000 of face value, from a dealer. The bonds pay a 5% coupon, which is $25 per bond every six months. The dealer's quote is 98.50, so the clean price is $985 per bond.
+An investor buys 100 of the manufacturer's bonds from a dealer.
 
-It's 60 days into a 180-day coupon period, so the accrued interest is:
+- Face value: 100 × $1,000 = $100,000
+- Coupon: 5%, so $25 per bond every six months
+- Dealer quote: 98.50, so the clean price is $985 per bond
+- Days into the coupon period: 60 of 180
+
+**Accrued interest per bond**
 
 $$
-\$25 \times \frac{60}{180} = \$8.33 \text{ per bond}
+\$25 \times \frac{60}{180} = \$8.33
 $$
 
-The investor pays the dirty price:
+**Dirty price per bond**
 
 $$
-\$985.00 + \$8.33 = \$993.33 \text{ per bond}
+\$985.00 + \$8.33 = \$993.33
 $$
 
-For 100 bonds that is $98,500 of clean price plus $833.33 of accrued interest:
+**Total paid for 100 bonds**
 
 $$
 100 \times \$993.33 = \boxed{\$99{,}333}
 $$
 
-At the next coupon date the investor receives the full $2,500 for 100 bonds. Of that, $833.33 repays the interest paid to the previous owner, so the investor keeps $1,666.67 for the 120 days they held the bonds.
+- Clean price: $98,500
+- Accrued interest: $833.33
 
-The dealer's quote also has a cost built in. If the bid is 98.30 and the ask is 98.50, an investor who buys at the ask and sells straight back at the bid loses 0.20 points:
+**At the next coupon**
+
+- Coupon received: 100 × $25 = $2,500
+- Repays the previous owner: $833.33
+- Kept by the investor: $1,666.67 for the 120 days held
+
+**Dealer spread cost (bid 98.30, ask 98.50)**
 
 $$
 0.20\% \times \$100{,}000 = \$200
 $$
+
+Buying at the ask and selling straight back at the bid loses $200.
 
 # Quiz
 

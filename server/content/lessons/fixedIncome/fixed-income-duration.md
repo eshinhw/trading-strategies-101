@@ -22,25 +22,38 @@ Duration is the tool that lets a bond portfolio manager size a position, compare
 
 ## Example
 
-A pension fund buys $20 million face value of the packaging manufacturer's new bonds at par. The 10-year, 5% bond has a duration of about 7.8 (the modified duration, which is the figure used to estimate price changes).
+A pension fund buys $20 million face value of the manufacturer's new bonds at par.
 
-If rates rise by 1 percentage point, the duration estimate says:
+- Coupon: 5%, maturity: 10 years
+- Modified duration: about 7.8
+- Rates move by 1 percentage point
+
+**Rates rise 1%: duration estimate**
 
 $$
 -7.8\% \times \$20{,}000{,}000 \approx \boxed{-\$1{,}560{,}000}
 $$
 
-Repricing the bond at a 6% yield, as in the previous lesson, gives $925.61 per $1,000 of face value, so the exact change is:
+**Rates rise 1%: exact repricing**
+
+The bond's price at a 6% yield is $925.61.
 
 $$
 \left(\frac{\$925.61}{\$1{,}000} - 1\right) \times \$20{,}000{,}000 = -\$1{,}487{,}747
 $$
 
-If rates fall by 1 point instead, the estimate is a $1.56 million gain, and the exact figure is $1.64 million, since the price at a 4% yield is $1,081.76.
+**Rates fall 1%**
 
-Duration is a straight-line estimate of a curved relationship, so it slightly overstates the loss when rates rise and understates the gain when they fall. For a 1-point move the gap is small, which is why duration works as a quick rule of thumb.
+- Duration estimate: +$1,560,000
+- Exact, at a 4% yield ($1,081.76): +$1,635,143
 
-The fund's benefit payments also have a duration of about 8, so when rates move, the value of the bonds and the present value of what the fund owes move by roughly the same amount.
+**Why the estimate is slightly off**
+
+- Duration is a straight line, and the real price-yield relationship is curved.
+- It overstates the loss when rates rise and understates the gain when they fall.
+- For a 1-point move the gap is small, so duration works as a quick rule of thumb.
+
+The fund's benefit payments also have a duration of about 8, so the bonds and the amount owed move by roughly the same amount.
 
 # Quiz
 

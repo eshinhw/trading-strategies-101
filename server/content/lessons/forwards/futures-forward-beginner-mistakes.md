@@ -26,7 +26,27 @@ As covered in the closing-out lesson, exiting a forward before maturity generall
 
 ## Example
 
-A corporate treasury's internal controls typically require a second person to independently verify a forward's notional amount, settlement date, and counterparty before it's executed, precisely because these are cheap mistakes to catch beforehand and expensive ones to discover only after the contract is signed. A small importer that skipped that check found out why: it signed a forward to buy euros in six months but entered the notional for the wrong invoice, overshooting its actual payment by €500,000. Every other term of the contract was fine, but that single sizing slip left the company over-hedged, obligated to buy €500,000 more than it needed — exposed to exactly the currency risk it was trying to eliminate, just on the excess amount instead of the shortfall.
+A U.S. importer owes €1,000,000 in six months and signs a forward at $1.10. The notional is copied from a different invoice, so it is entered as €1,500,000.
+
+- Needed: €1,000,000
+- Hedged: €1,500,000
+- Over-hedged by: €500,000
+
+The €1,000,000 invoice is fixed at $1.10, so it costs $1,100,000 whatever the rate does. The extra €500,000 is an open currency position.
+
+**Euro rises to $1.20**
+
+$$
+(\$1.20 - \$1.10) \times 500{,}000 = +\$50{,}000
+$$
+
+**Euro falls to $1.00**
+
+$$
+(\$1.00 - \$1.10) \times 500{,}000 = -\$50{,}000
+$$
+
+Every $0.10 move in the euro now costs or earns $50,000 that has nothing to do with the importer's business. A second person checking the notional against the invoice would have caught it.
 
 # Quiz
 

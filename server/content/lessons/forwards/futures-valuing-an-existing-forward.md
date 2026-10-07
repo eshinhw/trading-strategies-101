@@ -22,7 +22,24 @@ This mid-life valuation is what a company needs to mark a forward position on it
 
 ## Example
 
-A company hedged a future jet-fuel purchase with a forward a year ago, locking in 100,000 barrels at $70 a barrel for delivery in three months, and its auditors now need to know what that unmatured contract is worth for the quarterly financial statements — not what it was worth at signing. Today's price for a brand-new, equivalent three-month forward on the same fuel has since risen to $76 a barrel, so the finance team marks the position at roughly ($76 − $70) × 100,000 = $600,000 in the company's favor. That same $600,000 figure is what a bank would use if the company wanted to unwind the position early instead of waiting three more months for it to mature.
+The mill's long forward from the earlier lessons now has three months left, and wheat has rallied.
+
+- Quantity: 10,000 bushels
+- Original delivery price: $6.50
+- Current price for a new three-month forward: $7.00
+- Financing rate: 4% a year
+
+**Value today**
+
+$$
+(\$7.00 - \$6.50) \times 10{,}000 \times e^{-0.04 \times 0.25} = \$5{,}000 \times 0.990 = \boxed{\$4{,}950}
+$$
+
+- The contract will pay $5,000 at maturity if the forward price holds.
+- Discounting three months at 4% gives $4,950 today.
+- The mill records a $4,950 asset, and the merchant records a $4,950 liability.
+
+At signing, the delivery price equalled the forward price, so the same formula gave $0. The value comes entirely from the price moving away from $6.50.
 
 # Quiz
 
@@ -60,3 +77,17 @@ A company hedged a future jet-fuel purchase with a forward a year ago, locking i
    - A forward never accumulates any value at all
    - A future never accumulates value between settlements
    > The same underlying idea — value building up as the market forward price moves away from the locked-in price — is what a future actually pays out daily via mark-to-market, whereas a forward simply accumulates it unrealized until the end.
+
+6. The mill holds a long forward at $6.50 on 10,000 bushels with three months left, and a new three-month forward is quoted at $7.00. At a 4% financing rate, what is the mill's contract worth?
+   - Nothing, since the forward has no upfront cost
+   - $5,000 exactly
+   - [x] About $4,950
+   - About -$4,950
+   > The contract will pay ($7.00 - $6.50) × 10,000 = $5,000 at maturity, and discounting that for three months at 4% gives about $4,950.
+
+7. What does the merchant on the other side of that forward record?
+   - A $4,950 asset
+   - [x] A $4,950 liability, since the contract is worth that much less to the short
+   - Nothing, since only the long values the contract
+   - A $5,000 receivable
+   > A forward is zero-sum, so whatever the long's contract is worth, it is worth the negative of that to the short.

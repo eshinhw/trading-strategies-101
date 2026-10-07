@@ -26,7 +26,36 @@ When two counterparties have many forward contracts outstanding with each other,
 
 ## Example
 
-A bank's credit risk desk continuously monitors its net exposure to every OTC counterparty it trades forwards with, calling for additional collateral under the CSA as positions move in its favor — that ongoing collateral exchange is what keeps a forward book's counterparty risk from silently building up past what the bank ever intended to carry. Netting agreements do the same job for the underlying exposure itself: if two banks have five forward contracts outstanding, three worth a combined $8 million in one bank's favor and two worth $3 million in the other's, an uncollateralized, unnetted default would expose the in-the-money bank to the full $8 million. With netting in place, that collapses to a single $5 million figure ($8 million − $3 million) — the actual amount that would change hands if every contract settled at once.
+**One contract: the mill and the merchant**
+
+The mill is long 10,000 bushels at $6.50. Its exposure to the merchant depends on where wheat goes.
+
+- Wheat rises to $8.00: the contract is worth ($8.00 − $6.50) × 10,000 = $15,000 to the mill.
+- If the merchant defaults, the mill buys wheat at $8.00 and pays $80,000 instead of $65,000, losing the $15,000 it was counting on.
+- Wheat falls to $5.00: the contract is worth −$15,000 to the mill, and a merchant default costs it nothing.
+
+$$
+\text{exposure} = \max(\text{contract value},\ 0)
+$$
+
+With a CSA collateral agreement and a zero threshold, the merchant would post about $15,000 as the contract rose, leaving almost nothing uncovered.
+
+**Many contracts: netting**
+
+Two banks have five forwards between them.
+
+- Three are worth $8 million in total to Bank A.
+- Two are worth $3 million in total to Bank B.
+
+$$
+\text{Without netting, Bank A's exposure} = \$8\text{ million}
+$$
+
+$$
+\text{With netting} = \$8\text{ million} - \$3\text{ million} = \boxed{\$5\text{ million}}
+$$
+
+Netting collapses the exposure to the one amount that would actually change hands.
 
 # Quiz
 
@@ -71,3 +100,17 @@ A bank's credit risk desk continuously monitors its net exposure to every OTC co
    - Because forwards always default within their first year
    - Because assessing creditworthiness eliminates the need for any collateral
    > Without a clearinghouse standing between the two sides, each party has to independently evaluate whether the other is actually likely to perform on the contract.
+
+7. Wheat rises to $8.00 and the grain merchant defaults on the mill's 10,000-bushel forward at $6.50. What does the mill lose?
+   - Nothing, since forwards are guaranteed
+   - $65,000
+   - [x] About $15,000, the gain it would have had from the contract
+   - $80,000
+   > The mill has to replace the wheat at $8.00, so it loses the ($8.00 - $6.50) × 10,000 = $15,000 value that the forward was holding for it.
+
+8. If instead wheat falls to $5.00 and the merchant defaults, what is the mill's credit exposure?
+   - $15,000
+   - $65,000
+   - [x] None, since the contract is worth less than zero to the mill
+   - $50,000
+   > Counterparty exposure exists only when the contract is worth something to you. When it has a negative value for the mill, a default by the merchant doesn't cost the mill anything.

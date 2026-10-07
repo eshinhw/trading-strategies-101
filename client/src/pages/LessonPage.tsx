@@ -545,19 +545,14 @@ function groupBodySegments(body: LessonBlock[]): BodySegment[] {
   return segments;
 }
 
-// Distinguishes these recurring section types at a glance in both the
-// section heading itself and the "on this page" outline — every lesson uses
-// this exact heading text (see conceptLessons/*.ts), so a lookup here covers
-// all of them without touching 100+ content files. "Example" is the
-// shared heading for a lesson's worked scenario.
-const HEADING_EMOJI: Record<string, string> = {
-  Example: "💡",
-  "A Worked Example": "📐",
-};
+// Lesson sections whose Markdown heading is one of these are shown as the "Practical Example" box, in both the
+// section heading and the "on this page" outline. Every lesson uses one of these exact heading texts, so a lookup
+// here covers all of them without touching 160+ content files.
+const EXAMPLE_HEADINGS = new Set(["Example", "A Worked Example"]);
+const EXAMPLE_LABEL = "📊 Practical Example";
 
-function headingWithEmoji(heading: string): string {
-  const emoji = HEADING_EMOJI[heading];
-  return emoji ? `${emoji} ${heading}` : heading;
+function displayHeading(heading: string): string {
+  return EXAMPLE_HEADINGS.has(heading) ? EXAMPLE_LABEL : heading;
 }
 
 function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { kind: "concept" }>; ctx: LessonContext }) {
@@ -567,7 +562,7 @@ function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { ki
     () =>
       segments
         .map((seg, i) =>
-          seg.kind === "paragraphs" && seg.heading ? { id: `section-${i}`, text: headingWithEmoji(seg.heading) } : null,
+          seg.kind === "paragraphs" && seg.heading ? { id: `section-${i}`, text: displayHeading(seg.heading) } : null,
         )
         .filter((item): item is { id: string; text: string } => item !== null)
         .concat(lesson.quiz.length > 0 ? [{ id: "knowledge-check", text: "Knowledge check" }] : []),
@@ -581,7 +576,7 @@ function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { ki
         <div className="mb-10 flex max-w-3xl flex-col gap-10">
           {segments.map((seg, i) => {
             if (seg.kind === "paragraphs") {
-              const isExample = seg.heading !== undefined && seg.heading in HEADING_EMOJI;
+              const isExample = seg.heading !== undefined && EXAMPLE_HEADINGS.has(seg.heading);
               return (
                 <div
                   key={i}
@@ -592,7 +587,7 @@ function ConceptLessonBody({ lesson, ctx }: { lesson: Extract<LessonDetail, { ki
                   {seg.heading && (
                     <h3 className="flex items-center gap-3 text-2xl font-semibold text-[#e6e8ec]">
                       {!isExample && <span className="h-6 w-1 shrink-0 rounded-full" style={{ background: accent }} />}
-                      {headingWithEmoji(seg.heading)}
+                      {displayHeading(seg.heading)}
                     </h3>
                   )}
                   {seg.items.map((item, j) => {

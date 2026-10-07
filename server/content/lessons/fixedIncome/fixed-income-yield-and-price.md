@@ -22,26 +22,41 @@ Current yield is a simpler, cruder measure: just the annual coupon divided by th
 
 ## Example
 
-A year after the packaging manufacturer issues its bonds, market rates for similar companies have risen from 5% to 6%. Each bond has 9 years left, and still pays $25 every six months and $1,000 at maturity.
+A year after issue, market rates for similar companies have risen from 5% to 6%.
 
-A buyer now wants a 6% yield, which is 3% every six months, over 18 periods:
+- Face value: $1,000
+- Coupon: $25 every six months
+- Time left: 9 years, which is 18 coupon periods
+- Required yield: 6%, which is 3% every six months
 
-$$
-P = \sum_{t=1}^{18} \frac{\$25}{1.03^t} + \frac{\$1{,}000}{1.03^{18}}
-= \$343.84 + \$587.39 = \boxed{\$931.23}
-$$
-
-The bond's price has fallen $68.77 below its $1,000 face value, even though the company has missed no payments and its coupon hasn't changed.
-
-The two yield measures now differ:
+**Price of one bond**
 
 $$
-\text{current yield} = \frac{\$50}{\$931.23} = 5.37\%
+P = \sum_{t=1}^{18} \frac{\$25}{1.03^t} + \frac{\$1{,}000}{1.03^{18}} = \$343.84 + \$587.39 = \boxed{\$931.23}
 $$
 
-The yield to maturity is the full 6.00%, since a buyer who holds to maturity also collects the $68.77 as the price climbs back to $1,000.
+**Price change**
 
-An investor holding 100 bonds, with a face value of $100,000, now holds bonds worth $93,123, a $6,877 drop in market value caused entirely by the change in rates.
+$$
+\$931.23 - \$1{,}000 = -\$68.77
+$$
+
+**Two yield measures**
+
+$$
+\text{Current yield} = \frac{\$50}{\$931.23} = 5.37\%
+$$
+
+- Yield to maturity: 6.00%
+- The gap is the $68.77 a buyer collects as the price climbs back to $1,000.
+
+**Effect on an investor holding 100 bonds ($100,000 face value)**
+
+$$
+100 \times \$931.23 = \$93{,}123 \quad\Rightarrow\quad -\$6{,}877
+$$
+
+The coupon and the company's ability to pay are unchanged. Only the market rate moved.
 
 # Quiz
 

@@ -28,27 +28,38 @@ Spreads change with the issuer's finances, the outlook for the economy, and how 
 
 ## Example
 
-The packaging manufacturer's bonds were issued when the 10-year Treasury yielded 3.5%, and the market priced the company at a 150 basis point spread:
+The manufacturer's bonds were issued with the 10-year Treasury at 3.5% and a 150 basis point spread.
 
 $$
 3.5\% + 1.50\% = 5.0\% \text{ (the bond's coupon and yield)}
 $$
 
-Five years later, the company is downgraded and its spread widens to 250 basis points. Treasury yields haven't changed, so the bond's yield rises by 1.00 percentage point:
+Five years later the company is downgraded and the spread widens to 250 basis points. Treasury yields are unchanged.
+
+**New yield**
 
 $$
 3.5\% + 2.50\% = 6.0\%
 $$
 
-The bond now has 5 years left and a duration of about 4.4, so the duration estimate of the price drop is 4.4 × 1.00% ≈ 4.4%. Repricing the remaining 10 coupons at a 6% yield gives an exact price of $957.35, a fall of 4.27%.
+**Price effect (5 years left, duration about 4.4)**
 
-A pension fund holding $20 million face value of these bonds loses about:
+- Duration estimate: 4.4 × 1.00% ≈ 4.4% drop
+- Exact price at a 6% yield: $957.35, a 4.27% drop
+
+**Loss on $20 million face value held by a pension fund**
 
 $$
 \$20{,}000{,}000 \times 4.27\% \approx \boxed{\$853{,}000}
 $$
 
-Nothing has defaulted and every coupon is still paid, but the market has repriced the risk. The downgrade also raises the company's costs the next time it borrows, since a 1.00 percentage point higher spread on $50 million is $500,000 more interest each year.
+**Cost to the company on its next $50 million borrowing**
+
+$$
+\$50{,}000{,}000 \times 1.00\% = \$500{,}000 \text{ more interest a year}
+$$
+
+Nothing has defaulted and every coupon is paid. The market has repriced the risk.
 
 # Quiz
 

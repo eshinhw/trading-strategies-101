@@ -40,7 +40,33 @@ Short selling means borrowing an asset from a current holder, through a broker, 
 
 ## Example
 
-A jewelry manufacturer wants to lock in the price of gold it will need in six months. With gold's spot price at $2,000 an ounce, and the cost of financing and securely storing that gold for six months working out to roughly $30 an ounce, the bank quotes a forward price of about $2,030. If the bank ever quoted something noticeably richer than that — say $2,080 — a trading desk could buy gold today at $2,000, pay the $30 to finance and store it, and sell it forward at $2,080, locking in a riskless $50-an-ounce cash-and-carry profit. That arbitrage pressure is exactly what keeps real-world forward quotes anchored close to the cost-of-carry formula instead of drifting away from it.
+A flour mill wants a six-month forward on 10,000 bushels of wheat, and its grain merchant prices it from the cost of carry.
+
+- Spot price: $6.30 per bushel
+- Financing rate: 4% a year, continuously compounded
+- Storage and insurance: $0.07 per bushel for six months, paid at delivery
+
+**Fair forward price**
+
+$$
+F_0 = S_0\,e^{rT} + \text{storage} = \$6.30 \times e^{0.04 \times 0.5} + \$0.07 = \boxed{\$6.50}
+$$
+
+The unrounded figure is $6.4973, so the contract's notional value is about $65,000.
+
+**What if the merchant quotes $6.70?**
+
+A trading desk locks in a profit with no price risk:
+
+1. Borrow $63,000 at 4% and buy 10,000 bushels at $6.30.
+2. Sell the wheat forward at $6.70 and pay the $700 storage bill.
+3. At delivery, collect $67,000 and repay the loan with interest.
+
+$$
+\$67{,}000 - \$63{,}000 \times e^{0.02} - \$700 = \boxed{\$2{,}027}
+$$
+
+Desks repeat that trade until the quote falls back to about $6.50, which is why the cost-of-carry price holds.
 
 # Quiz
 
@@ -113,3 +139,17 @@ A jewelry manufacturer wants to lock in the price of gold it will need in six mo
    - It only matters for pricing stock forwards, never commodities
    - It makes commodity forwards impossible to trade
    > Reverse cash-and-carry arbitrage — the correction for an underpriced forward — depends on being able to short the physical asset; when that's impractical, as it often is for commodities, forward prices can drift further from the pure cost-of-carry value, which is part of why convenience yield matters so much for commodities specifically.
+
+11. The mill's merchant prices a six-month wheat forward from a spot price of $6.30, a 4% financing rate and $0.07 of storage per bushel. What is the fair forward price?
+   - $6.30
+   - [x] $6.50
+   - $6.37
+   - $6.70
+   > Growing $6.30 at 4% for six months gives about $6.43, and adding $0.07 of storage gives about $6.50.
+
+12. A merchant quotes $6.70 when the fair price is about $6.50. What can a trading desk do?
+   - Buy the forward and wait for the price to fall
+   - [x] Borrow, buy and store the wheat, and sell it forward at $6.70 to lock in about $2,027 on 10,000 bushels
+   - Nothing, because forwards can't be arbitraged
+   - Sell the wheat short and buy it forward at $6.70
+   > When the forward is above fair value the desk runs a cash-and-carry arbitrage, earning the $0.20 per bushel gap that the carry costs don't explain.
