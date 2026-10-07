@@ -15,9 +15,9 @@ function passwordStrength(pw: string): { score: number; label: string; color: st
 }
 
 const BENEFITS = [
-  { title: "Pick up where you left off", body: "Your progress is saved lesson by lesson, with a Continue button on every course." },
-  { title: "Prove it with quizzes", body: "Each lesson ends in a knowledge check, and every course closes with a final quiz." },
-  { title: "Track the whole map", body: "See how far you are across every asset class you're working through." },
+  { title: "Pick up where you left off", body: "Progress saves lesson by lesson." },
+  { title: "Prove it with quizzes", body: "A knowledge check after every lesson, a final quiz for every course." },
+  { title: "Track the whole map", body: "See how far you are across every asset class." },
 ];
 
 function BrandPanel({ mode }: { mode: "login" | "signup" }) {
@@ -69,7 +69,6 @@ function BrandPanel({ mode }: { mode: "login" | "signup" }) {
         </ul>
       </div>
 
-      <p className="relative text-xs text-[#898781]">Browse and try any lesson before you sign up.</p>
     </aside>
   );
 }
@@ -112,6 +111,7 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [capsLock, setCapsLock] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -205,6 +205,8 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
                   autoComplete={isSignup ? "new-password" : "current-password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  onKeyUp={(e) => setCapsLock(e.getModifierState("CapsLock"))}
+                  onBlur={() => setCapsLock(false)}
                   className="input !py-2.5 !pr-11"
                 />
                 <button
@@ -217,6 +219,11 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
                   <EyeIcon off={showPassword} />
                 </button>
               </div>
+              {capsLock && (
+                <span className="mt-1.5 block text-xs text-amber-300" role="status">
+                  Caps Lock is on
+                </span>
+              )}
             </Field>
 
             {error && (
