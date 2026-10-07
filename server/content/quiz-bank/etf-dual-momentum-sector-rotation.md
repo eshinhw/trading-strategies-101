@@ -24,3 +24,38 @@ slug: etf-dual-momentum-sector-rotation
    - 16 percentage points
    - 3 percentage points
    > The rotation earned 12% against 4%, a difference of 8 percentage points.
+
+4. {#bk4} [calc] Twelve-month returns are Tech +11%, Financials +8% and Energy −3%. T-bills returned 4%. A dual-momentum rule holds the top sector only if it beats T-bills. What does it hold?
+   - Financials
+   - T-bills
+   - Energy
+   - [x] Tech
+   > Tech ranks first on relative momentum and its 11% beats T-bills at 4%, so the rule holds Tech.
+
+5. {#bk5} [calc] Every sector's trailing return is negative while T-bills earn 4% a year. A dual-momentum rule moves to T-bills. What does it earn per month (simple)?
+   - 4%
+   - [x] 0.33%
+   - 0.04%
+   - 3.3%
+   > 4% / 12 = 0.33% a month.
+
+6. {#bk6} [calc] A dual-momentum rule picks the top 3 sectors, which returned +5%, +2% and −1% against a hurdle of 0%. Failing sectors go to cash. What share of the portfolio is in cash?
+   - Two-thirds
+   - None
+   - All of it
+   - [x] One-third
+   > The sector with −1% fails the 0% hurdle, so its third of the portfolio sits in cash.
+
+7. {#bk7} What are the two tests in dual-momentum sector rotation?
+   - Value and size
+   - [x] Relative momentum, which sector leads, and absolute momentum, whether that sector's own return is positive
+   - Dividend yield and volatility
+   - Trading volume and bid-ask spread
+   > A sector must both lead its peers and clear an absolute hurdle before earning a position.
+
+8. {#bk8} What does the strategy hold when no sector passes the absolute-momentum test?
+   - [x] Cash or a defensive asset
+   - The best of the failing sectors
+   - Leveraged ETFs
+   - The same sector as last month
+   > In a broad decline, the strategy steps aside rather than forcing a position.

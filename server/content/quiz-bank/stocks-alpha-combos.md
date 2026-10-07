@@ -24,3 +24,24 @@ slug: stocks-alpha-combos
    - [x] 0.71
    - 0.25
    > For uncorrelated signals, information ratios combine as √(0.5² + 0.5²) = 0.71.
+
+4. {#bk4} [calc] Two alphas forecast +3% and +1% and have estimated quality weights of 75% and 25%. What is the combined forecast?
+   - +2%
+   - [x] +2.5%
+   - +4%
+   - +1.5%
+   > 0.75 × 3% + 0.25 × 1% = 2.25% + 0.25% = 2.5%.
+
+5. {#bk5} [calc] Two alphas each forecast +2%. They are perfectly correlated. What does combining them add compared with using one?
+   - Double the forecast, +4%
+   - Half the forecast, +1%
+   - A diversification benefit that cuts risk in half
+   - [x] Nothing, since the same signal is counted twice
+   > A perfectly correlated signal carries no new information, so the combined forecast is still +2%.
+
+6. {#bk6} What should a well-built combination of alphas weight each signal by?
+   - Only how large its forecast is
+   - [x] Its estimated reliability and how correlated it is with the other signals
+   - Only its name or origin
+   - Equal weights, whatever the signals
+   > A good combination considers each alpha's quality and independence, not just a simple average.

@@ -45,3 +45,52 @@ slug: stocks-valuing-a-stock
    - 3.00%
    - 12.5%
    > Earnings yield is earnings per share divided by price: $3.00 / $48 = 6.25%, the inverse of the 16× P/E.
+
+7. {#bk7} [calc] A stock has a P/E of 24 and earnings growth of 12% a year. What is its PEG ratio?
+   - 288
+   - 0.5
+   - 12
+   - [x] 2.0
+   > PEG = P/E / growth rate (in percent) = 24 / 12 = 2.0.
+
+8. {#bk8} [calc] A company just paid a $1.80 dividend. Dividends are expected to grow 5% a year forever and investors require a 9% return. Using the Gordon growth model with next year's dividend, what is the stock worth?
+   - $45.00
+   - $20.00
+   - [x] $47.25
+   - $36.00
+   > D1 = $1.80 × 1.05 = $1.89. Value = $1.89 / (0.09 − 0.05) = $47.25.
+
+9. {#bk9} [calc] A stock trades at $60 and next year's dividend is expected to be $2.40. Investors require a 10% return. What constant growth rate is implied by the Gordon growth model?
+   - [x] 6%
+   - 4%
+   - 14%
+   - 10%
+   > P = D1 / (r − g), so r − g = $2.40 / $60 = 4%, and g = 10% − 4% = 6%.
+
+10. {#bk10} [calc] A stock earns $3.50 per share and similar companies trade at 15 times earnings. The stock trades at $60. By how much is it overvalued relative to that multiple?
+   - $52.50
+   - $12.50
+   - $60
+   - [x] $7.50
+   > Fair price at 15× is $52.50. The price of $60 is $60 − $52.50 = $7.50 above it.
+
+11. {#bk11} [calc] An analyst values a stock at $52 while the market price is $45. By what percentage is the stock below the analyst's value?
+   - 15.6%
+   - [x] 13.5%
+   - 7%
+   - 86.5%
+   > ($52 − $45) / $52 = 13.5% below value. (Relative to the price, the upside is 15.6%.)
+
+12. {#bk12} If a stock's price is below an analyst's estimate of its value, what might that suggest?
+   - The stock is guaranteed to rise to that value
+   - The stock must be overvalued
+   - Price and value are always equal, so nothing
+   - [x] The stock may be undervalued, though the estimate itself could be wrong
+   > Price is what the market pays now, and value is an analyst's estimate of what the business is worth. The two are rarely identical, and a gap can mean a bargain or a flawed estimate.
+
+13. {#bk13} When does the Gordon growth formula, P = D1 / (r − g), work?
+   - Only when g is greater than r
+   - [x] Only when the required return r is greater than the dividend growth rate g
+   - Only for companies that pay no dividends
+   - Only when the stock's price is below its book value
+   > If g were equal to or above r the formula would give an infinite or negative value, so r must exceed g.

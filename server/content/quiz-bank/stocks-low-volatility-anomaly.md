@@ -24,3 +24,24 @@ slug: stocks-low-volatility-anomaly
    - 40%
    - 167%
    > Downside capture = fund return / market return = −12% / −20% = 60%.
+
+4. {#bk4} [calc] A low-volatility portfolio has a beta of 0.6 and the market returns −10%. What loss does the CAPM suggest for the portfolio?
+   - −10%
+   - −16%
+   - −4%
+   - [x] −6%
+   > Expected move = beta × market return = 0.6 × (−10%) = −6%.
+
+5. {#bk5} [calc] Stock A has a volatility of 15% and a return of 8%. Stock B has a volatility of 30% and a return of 8%. What is each stock's return per unit of risk?
+   - 0.27 for A and 0.53 for B
+   - [x] 0.53 for A and 0.27 for B
+   - 0.53 for both
+   - 1.9 for A and 3.75 for B
+   > Return / volatility: 8 / 15 = 0.53 and 8 / 30 = 0.27.
+
+6. {#bk6} Why is the low-volatility anomaly puzzling?
+   - Standard theory says low-volatility stocks should earn the most
+   - It shows that risk is always rewarded
+   - Low-volatility stocks always lose money
+   - [x] Standard theory says riskier stocks should earn higher returns, but low-volatility stocks have done as well or better
+   > Under CAPM, bearing more risk should be compensated. The anomaly runs against that.

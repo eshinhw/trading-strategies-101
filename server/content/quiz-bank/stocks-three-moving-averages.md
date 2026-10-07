@@ -24,3 +24,17 @@ slug: stocks-three-moving-averages
    - 0.75%
    - [x] 1.5%
    > Filtering out 10 trades saves 10 × 0.15% = 1.5%.
+
+4. {#bk4} [calc] A strategy needs 10, 50 and 200-day averages to be ordered 10 > 50 > 200. The three are 108, 112 and 105. Is the buy condition met?
+   - [x] No, because the 10-day average is below the 50-day
+   - Yes, because all three are above 100
+   - Yes, because the 200-day is the lowest
+   - No, because the 200-day is the highest
+   > The order must be 10 > 50 > 200. Here 108 is below 112, so the condition fails.
+
+5. {#bk5} What is the cost of requiring three moving averages to line up before trading?
+   - It trades far more often
+   - It enters trends earlier
+   - [x] Entries and exits come later, so the strategy gives up more of each trend
+   - It ignores the long average
+   > A stricter condition filters out false signals but waits for more confirmation.

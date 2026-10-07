@@ -24,3 +24,17 @@ slug: stocks-two-moving-averages
    - [x] +1.2%
    - −0.4%
    > Total = 4 × 6% − 6 × 2% = 24% − 12% = 12%. Average = 12% / 10 = +1.2% per trade.
+
+4. {#bk4} [calc] A crossover uses a fast average of 10 days and a slow average of 50 days. The fast average rises from 98 to 102 while the slow average is 100. When did the crossover buy signal occur?
+   - When the fast average moved below 100
+   - [x] When the fast average moved above 100
+   - When the slow average moved above 102
+   - At the start of the series
+   > A buy signal is given when the fast average crosses above the slow one. Here the slow average is 100, so the signal comes when the fast average rises above 100.
+
+5. {#bk5} What is the tradeoff between a short fast/slow pair, such as 10/50 days, and a longer pair?
+   - The shorter pair reacts more slowly and trades less
+   - The longer pair gives more trades
+   - There is no difference
+   - [x] The shorter pair reacts faster but generates more signals and whipsaws in choppy markets
+   > Faster windows catch trend changes sooner at the cost of more false signals.

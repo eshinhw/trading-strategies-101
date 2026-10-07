@@ -24,3 +24,24 @@ slug: stocks-multifactor-portfolio
    - 0.00
    - −0.33
    > Composite = (1 + 1 − 1) / 3 = +0.33.
+
+4. {#bk4} [calc] Two factor portfolios earn 6% and 4% a year. A multifactor portfolio holds 60% of the first and 40% of the second. What is its expected return?
+   - 5%
+   - 10%
+   - [x] 5.2%
+   - 4.8%
+   > 0.60 × 6% + 0.40 × 4% = 3.6% + 1.6% = 5.2%.
+
+5. {#bk5} [calc] A stock's z-scores are value +2.0, momentum −1.0 and quality +0.5. With equal weights, what is the composite score?
+   - [x] +0.5
+   - +1.5
+   - +2.0
+   - −0.5
+   > (2.0 − 1.0 + 0.5) / 3 = +0.5.
+
+6. {#bk6} Why should the factors in a multifactor portfolio be reasonably independent?
+   - So that all of them perform best at the same time
+   - So that the portfolio holds fewer stocks
+   - [x] So they are not just the same signal counted twice, and each adds its own diversification
+   - So that each factor has the same name
+   > If factors are highly correlated, combining them adds little beyond the single factor.

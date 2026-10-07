@@ -24,3 +24,24 @@ slug: stocks-market-making
    - [x] $19.98 bid and $20.02 ask
    - $20.00 bid and $20.02 ask
    > Shifting both sides down by $0.02 keeps the $0.04 spread: bid $19.98 and ask $20.02.
+
+4. {#bk4} [calc] A market maker quotes $50.00 bid and $50.04 ask and earns the spread on 5,000 shares bought and 5,000 shares sold in a day. What is the gross spread income?
+   - $4
+   - [x] $200
+   - $100
+   - $2,000
+   > 5,000 round trips × $0.04 = $200.
+
+5. {#bk5} [calc] A market maker has built up 2,000 extra shares of inventory. Shifting both quotes down by $0.02 encourages buying. If the price then falls $0.10 against the position, what is the inventory loss?
+   - $40
+   - $2,000
+   - $20
+   - [x] $200
+   > 2,000 shares × $0.10 = $200.
+
+6. {#bk6} What is adverse selection for a market maker?
+   - The market maker choosing which stocks to quote
+   - [x] The traders most eager to trade with you are often informed, so you lose when prices then move against you
+   - Quoting too narrow a spread to attract business
+   - The exchange selecting the market makers
+   > Informed traders tend to trade aggressively just before news, leaving the market maker on the wrong side.

@@ -45,3 +45,52 @@ slug: stocks-dividends-and-corporate-actions
    - $59.40
    - [x] $58.80
    > On the ex-dividend date the share price drops by about the dividend: $60.00 − $1.20 = $58.80.
+
+7. {#bk7} [calc] A company earns $3.00 per share and pays $1.20 per share in dividends. What is the payout ratio?
+   - 60%
+   - [x] 40%
+   - 2.5%
+   - 160%
+   > Payout ratio = dividends / earnings = $1.20 / $3.00 = 40%.
+
+8. {#bk8} [calc] A company earns $500 million with 100 million shares outstanding. It buys back and retires 10 million shares. If net income is unchanged, what is the new earnings per share?
+   - [x] $5.56
+   - $5.00
+   - $4.55
+   - $6.00
+   > Before: $500 million / 100 million = $5.00. After: $500 million / 90 million = $5.56.
+
+9. {#bk9} [calc] An investor owns 1,000 shares at $2.00 when the company does a 1-for-5 reverse split. How many shares and at what approximate price after the split?
+   - 5,000 shares at $0.40
+   - 200 shares at $2.00
+   - [x] 200 shares at $10.00
+   - 1,000 shares at $10.00
+   > A 1-for-5 reverse split divides the share count by 5 and multiplies the price by 5. Total value stays $2,000.
+
+10. {#bk10} [calc] An investor receives a $480 dividend and reinvests it all at $48 per share. How many shares are bought?
+   - [x] 10
+   - 100
+   - 48
+   - 0.1
+   > $480 / $48 = 10 shares.
+
+11. {#bk11} What happens to the total value a shareholder holds in a stock split?
+   - It doubles with a two-for-one split
+   - It falls, because the price per share falls
+   - [x] It does not change, because the share count rises while the price per share falls in proportion
+   - It rises, because the number of shares rises
+   > A split changes the number of shares and the price per share by the same ratio, so what a shareholder owns is worth the same.
+
+12. {#bk12} What does a share buyback do to each remaining shareholder's ownership?
+   - [x] It increases each remaining shareholder's proportional ownership, because shares are retired
+   - It reduces ownership, because the company issues new shares
+   - It leaves ownership unchanged and pays cash dividends
+   - It transfers shares to the company's board
+   > The company uses cash to retire shares, so the same company is divided into fewer shares.
+
+13. {#bk13} Why do many young, fast-growing companies pay no dividend?
+   - They are not allowed by law to pay dividends
+   - Dividends are only paid by bond issuers
+   - [x] They reinvest all their profits in growth
+   - They do not have shareholders
+   > A company can retain its profits to fund expansion instead of paying them out.

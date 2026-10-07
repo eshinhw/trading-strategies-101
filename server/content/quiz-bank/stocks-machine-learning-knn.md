@@ -24,3 +24,24 @@ slug: stocks-machine-learning-knn
    - No prediction, because the vote is split
    - [x] Up, by a vote of 3 to 2
    > Three of five neighbors were up, so the majority vote predicts up.
+
+4. {#bk4} [calc] A KNN model uses k = 4 neighbors whose next-week returns were +2%, +1%, −1% and +4%. What is the forecast?
+   - [x] +1.5%
+   - +6%
+   - +2%
+   - +4%
+   > The forecast is the neighbors' average: (2 + 1 − 1 + 4) / 4 = +1.5%.
+
+5. {#bk5} [calc] A KNN strategy compares today's feature vector (1.0, 2.0) to a past vector (4.0, 6.0). What is the Euclidean distance?
+   - 7
+   - 3
+   - [x] 5
+   - 25
+   > √((4 − 1)² + (6 − 2)²) = √(9 + 16) = √25 = 5.
+
+6. {#bk6} What is the cost of choosing a k that is too small in a KNN strategy?
+   - [x] The prediction becomes noisy and unstable
+   - The prediction becomes the long-run average
+   - The model needs no data
+   - The model always predicts zero
+   > Too few neighbors makes the forecast swing on a handful of past cases. Too many dilutes it toward the average.
