@@ -78,6 +78,13 @@ Writing a good calculation question:
   rate and a dollar amount, using the wrong leg).
 - Put the working in the explanation, so a wrong answer teaches the method.
 
+### Bank-only extra questions
+
+To add practice questions without lengthening a lesson's knowledge check, put them in
+`content/quiz-bank/<lesson-slug>.md` (the file name must equal the lesson's `slug`). The file has the same
+`---` / `slug:` front matter and `# Quiz` section as a strategy quiz, with ids of the form `{#bk1}`, `{#bk2}`.
+These questions appear in the Quiz Bank only; ids must not collide with the lesson's own quiz ids.
+
 ## Rules
 
 - Math: inline `$...$` needs no space just inside the dollar signs and the closing `$` can't be followed

@@ -1,6 +1,6 @@
 import { optionsStrategies } from "../options/index.js";
 import { courses } from "../courses/index.js";
-import { loadConceptLessonsFromMarkdown, loadStrategyQuizzes } from "./markdownLessons.js";
+import { loadBankExtras, loadConceptLessonsFromMarkdown, loadStrategyQuizzes } from "./markdownLessons.js";
 import { modules } from "./modules.js";
 import type { ConceptLesson, ConceptQuizQuestion, Module } from "./types.js";
 
@@ -19,6 +19,23 @@ export const strategyQuizzes = loadStrategyQuizzes();
   if (missing.length) throw new Error(`Missing strategy quiz file(s) in content/strategy-quizzes: ${missing.join(", ")}`);
   const unknown = [...strategyQuizzes.keys()].filter((slug) => !strategyBySlug.has(slug));
   if (unknown.length) throw new Error(`Strategy quiz file(s) with no matching strategy: ${unknown.join(", ")}`);
+}
+
+// Extra practice questions that live only in the Quiz Bank (content/quiz-bank/<lesson-slug>.md). Each file must belong
+// to a real lesson, and its question ids may not collide with the lesson's own, since the bank ids are lesson:question.
+const bankExtras = loadBankExtras();
+{
+  for (const [slug, extra] of bankExtras) {
+    if (!conceptBySlug.has(slug) && !strategyBySlug.has(slug)) throw new Error(`content/quiz-bank/${slug}.md has no matching lesson`);
+    const own = new Set((conceptBySlug.get(slug)?.quiz ?? strategyQuizzes.get(slug) ?? []).map((q) => q.id));
+    const clash = extra.find((q) => own.has(q.id));
+    if (clash) throw new Error(`content/quiz-bank/${slug}.md: question id "${clash.id}" is already used by the lesson's own quiz`);
+  }
+}
+
+/** Questions that appear only in the Quiz Bank for a lesson. */
+export function bankExtrasForLesson(slug: string): ConceptQuizQuestion[] {
+  return bankExtras.get(slug) ?? [];
 }
 
 /** The knowledge-check questions for any lesson, concept or strategy. */

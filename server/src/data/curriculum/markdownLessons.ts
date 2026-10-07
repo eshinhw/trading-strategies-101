@@ -9,6 +9,7 @@ import type { ConceptLesson, ConceptQuizQuestion, LessonBlock } from "./types.js
 
 const CONTENT_ROOT = fileURLToPath(new URL("../../../content/lessons", import.meta.url));
 const STRATEGY_QUIZ_ROOT = fileURLToPath(new URL("../../../content/strategy-quizzes", import.meta.url));
+const BANK_ROOT = fileURLToPath(new URL("../../../content/quiz-bank", import.meta.url));
 
 class LessonParseError extends Error {
   constructor(file: string, line: number, message: string) {
@@ -264,4 +265,20 @@ export function loadStrategyQuizzes(root = STRATEGY_QUIZ_ROOT): Map<string, Conc
     quizzes.set(slug, quiz);
   }
   return quizzes;
+}
+
+/**
+ * Extra Quiz Bank questions, one file per lesson at content/quiz-bank/<lesson-slug>.md. They use the same format as
+ * a lesson's own quiz, but they appear only in the Quiz Bank, so a lesson's knowledge check stays short while the
+ * bank can hold many more practice questions (mostly calculations) for the same lesson.
+ */
+export function loadBankExtras(root = BANK_ROOT): Map<string, ConceptQuizQuestion[]> {
+  const extras = new Map<string, ConceptQuizQuestion[]>();
+  if (!fs.existsSync(root)) return extras;
+  for (const f of fs.readdirSync(root).filter((name) => name.endsWith(".md")).sort()) {
+    const { slug, quiz } = parseStrategyQuizMarkdown(fs.readFileSync(path.join(root, f), "utf8"), `quiz-bank/${f}`);
+    if (slug !== f.replace(/\.md$/, "")) throw new Error(`quiz-bank/${f}: slug "${slug}" must match the file name`);
+    extras.set(slug, quiz);
+  }
+  return extras;
 }

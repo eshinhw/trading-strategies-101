@@ -1,8 +1,8 @@
 import { courses } from "../data/courses/index.js";
-import { modulesForCourse, resolveLesson, quizForLesson } from "../data/curriculum/index.js";
+import { bankExtrasForLesson, modulesForCourse, resolveLesson, quizForLesson } from "../data/curriculum/index.js";
 import type { QuestionKind } from "../data/curriculum/types.js";
 
-// The QuizBank is open practice over the lessons' own knowledge-check questions: nothing is graded or saved here,
+// The QuizBank is open practice over the lessons' own knowledge-check questions, plus bank-only extras (content/quiz-bank): nothing is graded or saved here,
 // so (like a lesson page) the answer and explanation travel with each question for instant feedback.
 
 export interface BankQuestion {
@@ -61,7 +61,7 @@ function poolForCourse(courseSlug: string): BankQuestion[] {
       const resolved = resolveLesson(lessonSlug);
       if (!resolved) continue;
       const lessonTitle = resolved.kind === "concept" ? resolved.lesson.title : resolved.strategy.name;
-      for (const q of quizForLesson(lessonSlug)) {
+      for (const q of [...quizForLesson(lessonSlug), ...bankExtrasForLesson(lessonSlug)]) {
         out.push({
           id: `${lessonSlug}:${q.id}`,
           courseSlug,
