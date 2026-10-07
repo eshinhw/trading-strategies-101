@@ -98,3 +98,10 @@ A spread's historical range is a reference, not a boundary. A structural change 
    - [x] $22.50 per MWh
    - $55.00 per MWh
    > The gas cost per MWh is 7.5 × $5 = $37.50, so the spread is $60 − $37.50 = $22.50.
+
+7. {#calc2} [calc] A spread has averaged $18 with a standard deviation of $3, and it is now $26. What is the z-score?
+   - [x] About 2.7
+   - About 8.0
+   - About 0.3
+   - About 1.5
+   > ($26 − $18) / $3 ≈ 2.7 standard deviations above average.

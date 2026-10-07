@@ -98,3 +98,10 @@ The decay helps the trader who is short during the same period and hurts the one
    - About $50,000
    - About $14,000
    > $50,000 × 0.93^4 ≈ $37,400.
+
+7. {#calc2} [calc] Spot VIX is 18 and the next VIX future is 19.5. If spot stays the same, about what percentage does a long future lose by expiration?
+   - About 8.3%
+   - About 1.5%
+   - [x] About 7.7%
+   - About 15%
+   > The future converges to spot, falling 1.5 points on 19.5, which is about 7.7%.

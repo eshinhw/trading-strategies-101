@@ -105,3 +105,10 @@ The benefit exists only while there is a gap in the rules, and many jurisdiction
    - $2,400
    - $30,000
    > Directly the investor keeps $22,500. With the swap, $30,000 − $2,400 = $27,600, so it is $5,100 better, as long as the swap payments are not withheld.
+
+7. {#calc2} [calc] A $1.2 million stock position pays $50,000 of dividends with 15% withheld directly. A swap passes the dividend through unwithheld at a cost of 0.3% of $1.2 million. How much better off is the swap?
+   - $7,500
+   - $3,600
+   - $11,100
+   - [x] $3,900
+   > Withholding would cost $50,000 × 15% = $7,500. The swap costs $3,600, so it is $7,500 − $3,600 = $3,900 better.

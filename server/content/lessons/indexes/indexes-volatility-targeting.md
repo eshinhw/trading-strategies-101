@@ -56,3 +56,17 @@ The strategy isn't without drawbacks: because it reduces exposure after volatili
    - It requires no historical data whatsoever
    - Realized volatility cannot be measured for any index
    > Since the strategy reacts to volatility that has already occurred, it can inadvertently sell into weakness and buy into strength, a pattern that can underperform a static approach when volatility and returns don't move in the way the strategy assumes.
+
+6. {#calc1} [calc] A strategy targets 10% volatility and the index's realized volatility is 16%. What share of the portfolio is held in the index, with the rest in Treasury bills?
+   - 160%
+   - 10%
+   - 37.5%
+   - [x] 62.5%
+   > The index weight is target / realized = 10 / 16 = 62.5%, and the remaining 37.5% sits in bills.
+
+7. {#calc2} [calc] A strategy targets 12% volatility and the index's realized volatility is 8%. How much index exposure does it hold per $1 million of capital?
+   - $0.67 million
+   - [x] $1.5 million
+   - $1.0 million
+   - $0.12 million
+   > The leverage is target / realized = 12 / 8 = 1.5, so $1.5 million of exposure.

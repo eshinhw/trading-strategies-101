@@ -31,3 +31,10 @@ slug: diagonal-put-spread
    - [x] The short put expires worthless, the premium was income, and the long put keeps most of its value
    - The short put is assigned and shares are bought, ending the position with a loss on the long put
    > The trader can then repeat the cycle by selling another short-dated put.
+
+5. {#calc1} [calc] A trader buys a 60-day 110 put for $8.50 and sells a 30-day 95 put for $1.50. What is the net debit per contract?
+   - $1,000
+   - [x] $700
+   - $7.00
+   - $850
+   > The debit is $8.50 − $1.50 = $7.00 a share, which is $700 per 100-share contract.

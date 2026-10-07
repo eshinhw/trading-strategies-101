@@ -58,3 +58,10 @@ Traders sometimes also use the middle-length average as an early-warning layer, 
    - Moving averages have no relationship to signal quality
    - Adding more averages always increases trading costs to infinity
    > Stricter alignment conditions reduce false signals but respond more slowly to real trend changes — a persistent tradeoff in designing trend-following rules with more confirming indicators.
+
+6. {#calc1} [calc] A rule needs the 10-day average above the 50-day, which is above the 200-day. The averages are 108, 104 and 106. Is the condition met?
+   - [x] No, the 50-day (104) is below the 200-day (106)
+   - Yes, since 108 is the highest
+   - Yes, since all three are above 100
+   - No, since the 10-day is above the 50-day
+   > The required order is 108 > 104 > 106, and 104 is not above 106, so the three averages are not aligned and there is no signal.

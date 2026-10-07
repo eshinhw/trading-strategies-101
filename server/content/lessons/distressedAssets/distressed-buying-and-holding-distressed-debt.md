@@ -92,3 +92,10 @@ The return depends on the recovery estimate being right. The fund waits for the 
    - 160%
    - 37.5%
    > The gain is 48 − 30 = 18 cents on a 30-cent purchase, which is 18 / 30 = 60%.
+
+7. {#calc2} [calc] A fund buys at 40 cents and receives 52 cents after 18 months. About what is the annualized return?
+   - About 30%
+   - About 20%
+   - About 13%
+   - [x] About 19.1%
+   > The total return is 52 / 40 = 1.30, and 1.30 raised to 12/18 is about 1.191, so about 19.1% a year.

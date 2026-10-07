@@ -56,3 +56,17 @@ The trade is a genuinely bullish, directional position — its profit or loss is
    - Exposure to a completely unrelated company's stock price
    - Exposure to interest rates only, with no relationship to the stock at all
    > Because the position's cost and value are tied to the relative implied volatilities of the put and call, a shift in skew (such as puts becoming even richer during a selloff) can affect the trade's P&L on top of the underlying's own price movement.
+
+6. {#calc1} [calc] A trader buys a 105 call for $2.10 and sells a 95 put for $2.40. What is the net premium per share, and what is the profit per contract if the stock ends at 108?
+   - A $0.30 debit, and $270
+   - A $0.30 credit, and $300
+   - [x] A $0.30 credit, and $330
+   - A $4.50 debit, and $330
+   > The put brings in $2.40 and the call costs $2.10, a $0.30 credit. At 108 the call is worth $3.00, so the profit is ($3.00 + $0.30) × 100 = $330.
+
+7. {#calc2} [calc] A long risk reversal buys a 105 call and sells a 95 put for a $0.30 net credit. Below which stock price at expiration does the trade start to lose money?
+   - [x] $94.70
+   - $95.30
+   - $105.30
+   - $95.00
+   > The short put begins to lose below its strike, but the credit cushions it by $0.30: 95 − 0.30 = $94.70.

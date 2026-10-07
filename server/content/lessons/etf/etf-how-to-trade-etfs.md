@@ -95,3 +95,10 @@ Long-run performance is nearly identical before costs, so costs are the real dif
    - $100,160
    - $0.04
    > Buying at the ask and selling at the bid loses the spread: $0.04 × 4,000 shares = $160.
+
+7. {#calc2} [calc] An ETF trades at $100.40 and its NAV is $100.00. What is the premium?
+   - 0.04%
+   - 4%
+   - [x] 0.4%
+   - $0.40
+   > The premium is ($100.40 − $100.00) / $100.00 = 0.4%.

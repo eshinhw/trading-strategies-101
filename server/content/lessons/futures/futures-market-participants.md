@@ -94,3 +94,10 @@ The processor gets its price, the fund gets its bet, and neither has to wait to 
    - Arbitrageur
    - Regulator
    > The fund has no soybean exposure to hedge — it's trading a directional view, making it the speculator supplying the other side of the processor's hedge.
+
+6. {#calc1} [calc] A speculator sells 10 soybean contracts of 5,000 bushels, and the price rises $0.80. What does the speculator lose?
+   - [x] $40,000
+   - $4,000
+   - $400,000
+   - $8,000
+   > 10 × 5,000 bushels × $0.80 = $40,000.

@@ -56,3 +56,10 @@ Property type diversification reduces sector-specific risk, but it doesn't elimi
    - Because diversification always increases risk
    - Because only one property type actually exists
    > In a genuine economy-wide downturn, most property types tend to weaken together to varying degrees, since they share exposure to the same macro forces — the diversification benefit is partial, not complete.
+
+6. {#calc1} [calc] A $10 million portfolio is 40% residential (5% net income yield), 30% industrial (6%) and 30% office (7%). What is the blended yield?
+   - 6.0%
+   - 5.5%
+   - [x] 5.9%
+   - 6.3%
+   > 0.4 × 5% + 0.3 × 6% + 0.3 × 7% = 2.0% + 1.8% + 2.1% = 5.9%.

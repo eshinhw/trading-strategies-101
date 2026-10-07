@@ -56,3 +56,10 @@ Because the opportunity is both small and fleeting, this strategy depends heavil
    - Only individual investors trading once per month
    - Central banks
    > Because the opportunity is small and fleeting, capturing it reliably requires speed and the ability to monitor many ETF pairs simultaneously — capabilities associated with high-frequency and algorithmic trading operations.
+
+6. {#calc1} [calc] Two ETFs track the same index. ETF A bids $450.10 and ETF B asks $450.00. A trader buys 20,000 shares of B and sells 20,000 of A, paying $0.02 a share in costs on each leg. What is the net profit?
+   - $2,000
+   - $800
+   - $2,800
+   - [x] $1,200
+   > The gap earns $0.10 × 20,000 = $2,000. Costs are $0.02 × 20,000 × 2 legs = $800, so the net is $1,200.

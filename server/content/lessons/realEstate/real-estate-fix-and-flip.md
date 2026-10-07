@@ -56,3 +56,10 @@ Success in fix-and-flip investing depends heavily on accurately estimating both 
    - Passive real estate investing requires more active renovation work
    - Fix-and-flip never involves any financing
    > The active renovation work, tight timeline, and execution risk make fix-and-flip a fundamentally more operationally intensive undertaking than passively holding property for rent or appreciation.
+
+6. {#calc1} [calc] An investor buys a house for $200,000, spends $45,000 on renovations, and sells it for $300,000 with selling costs of 7% of the sale price. What is the profit?
+   - $55,000
+   - $100,000
+   - $21,000
+   - [x] $34,000
+   > Selling costs are 7% × $300,000 = $21,000, so the proceeds are $279,000 against $245,000 invested: a $34,000 profit.

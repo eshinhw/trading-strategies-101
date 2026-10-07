@@ -56,3 +56,10 @@ Institutional portfolios commonly hold somewhere in the range of five to fifteen
    - Public real estate returns become negative
    - Private real estate stops generating any return
    > While short-term correlation to public markets differs between REITs and direct ownership, both are pricing the same underlying property cash flows, so their returns tend to converge over longer horizons.
+
+6. {#calc1} [calc] A $1 million portfolio holds 60% stocks (8% expected return), 30% bonds (4%) and 10% real estate (6%). What is its expected return?
+   - 6.0%
+   - [x] 6.6%
+   - 7.2%
+   - 6.3%
+   > 0.6 × 8% + 0.3 × 4% + 0.1 × 6% = 4.8% + 1.2% + 0.6% = 6.6%.

@@ -99,3 +99,10 @@ Tracking error is how much the difference between fund and index varies over tim
    - [x] $400,000
    - $39,600,000
    > The shortfall is 0.08% of $500,000,000 = $400,000.
+
+7. {#calc2} [calc] The monthly gap between a fund and its index has a standard deviation of 0.05%. What is the annualized tracking error?
+   - [x] About 0.17%
+   - About 0.60%
+   - About 0.05%
+   - About 0.01%
+   > Annualizing multiplies by √12: 0.05% × 3.46 ≈ 0.17%.

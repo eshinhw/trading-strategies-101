@@ -56,3 +56,10 @@ The value factor in credit has historically shown periods of both strong perform
    - Only when interest rates are exactly zero
    - Only on the last trading day of the year
    > During periods when credit conditions are worsening broadly or investors are fleeing to safety, cheap, riskier credits can continue underperforming regardless of their fundamentals, hurting the value factor.
+
+6. {#calc1} [calc] A bond's fair credit spread is 160 basis points but it trades at 210, and its duration is 5. If the spread converges to fair value, what is the approximate price gain?
+   - About 0.5%
+   - About 10.5%
+   - [x] About 2.5%
+   - About 8%
+   > The spread would tighten 50 basis points, and 5 × 0.50% = 2.5% gain.

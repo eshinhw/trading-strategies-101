@@ -91,3 +91,10 @@ Every $0.10 move in the euro now costs or earns $50,000 that has nothing to do w
    - Failing to check the counterparty's credit rating
    - Using a futures contract instead of a forward
    > A notional-sizing error, not a date or counterparty issue, is what left the company obligated to buy more euros than its actual payment required.
+
+7. {#calc1} [calc] A company needs €2 million but accidentally buys €3 million forward at $1.10. The euro falls to $1.05. What is the loss on the extra €1 million?
+   - $5,000
+   - $100,000
+   - [x] $50,000
+   - $150,000
+   > The extra €1M was bought at $1.10 and is worth $1.05, a loss of $0.05 × 1,000,000 = $50,000.

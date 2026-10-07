@@ -58,3 +58,10 @@ Like any trend-following rule, the two-moving-average crossover performs best in
    - It performs identically in every market condition
    - A market where trading is completely halted
    > Like other trend-following rules, the crossover strategy struggles in choppy markets, where the fast and slow averages can generate repeated false crossovers with no real trend behind them.
+
+6. {#calc1} [calc] A 20-day moving average is $102.40 and the 100-day moving average is $100.00. By what percentage is the fast average above the slow one, and what is the signal?
+   - 2.4%, so the rule is short
+   - [x] 2.4%, so the rule is long
+   - 2.34%, so the rule is flat
+   - 24%, so the rule is long
+   > (102.40 − 100.00) / 100.00 = 2.4%. The fast average is above the slow one, so the crossover rule holds a long position.

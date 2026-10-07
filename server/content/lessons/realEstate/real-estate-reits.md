@@ -98,3 +98,10 @@ The investor owns a slice of a diversified portfolio of properties without touch
    - At least $288
    - [x] At least $2,880
    > The required distribution is $4.00 × 90% = $3.60 a share, and $3.60 × 800 = $2,880.
+
+7. {#calc2} [calc] A REIT pays a $3.20 annual dividend and trades at $48. What is the dividend yield?
+   - About 15%
+   - [x] About 6.7%
+   - About 1.5%
+   - About 3.2%
+   > $3.20 / $48 ≈ 6.7%.

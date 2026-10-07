@@ -96,3 +96,10 @@ The market is open somewhere nearly around the clock, so the company can convert
    - [x] $2,199,200
    - $2,199,000
    > Selling euros uses the bid, the lower price: 2,000,000 × 1.0996 = $2,199,200.
+
+7. {#calc2} [calc] EUR/USD rises from 1.1000 to 1.1045 and a trader holds 3 standard lots (€100,000 each). A pip on a standard lot is $10. What is the gain?
+   - [x] $1,350
+   - $450
+   - $135
+   - $13,500
+   > The move is 45 pips, and 45 × $10 × 3 lots = $1,350.

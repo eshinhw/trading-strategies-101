@@ -91,3 +91,10 @@ The result holds after adjusting for standard risk factors and appears across ma
    - 2.5
    - [x] 0.4
    > The Sharpe ratio is (9% − 3%) / 15% = 0.4 excess return per unit of risk.
+
+7. {#calc2} [calc] $1 grows at 10% a year in one portfolio and 2% in another for 20 years. About how many times larger is the first?
+   - About 5 times
+   - [x] About 4.5 times
+   - About 8 times
+   - About 2 times
+   > 1.10²⁰ ≈ 6.73 and 1.02²⁰ ≈ 1.49, and 6.73 / 1.49 ≈ 4.5.

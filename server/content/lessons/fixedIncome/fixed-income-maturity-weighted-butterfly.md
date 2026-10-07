@@ -56,3 +56,10 @@ In practice, a maturity-weighted butterfly is often used as a quick, intuitive s
    - Only when regression data is completely unavailable
    - It is never used in practice
    > Its simplicity makes it a practical first-pass construction, which a trader might later refine with dollar-duration or regression-based weighting for a more significant or longer-held trade.
+
+6. {#calc1} [calc] A butterfly uses a 2-year wing, a 5-year body and a 10-year wing, weighting each wing inversely to its maturity distance from the body (3 years and 5 years). What weight does the 2-year wing get?
+   - 37.5%
+   - [x] 62.5%
+   - 60%
+   - 50%
+   > The closer wing gets more weight: 5 / (3 + 5) = 62.5% for the 2-year wing and 3 / 8 = 37.5% for the 10-year wing.

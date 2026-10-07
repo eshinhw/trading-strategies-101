@@ -100,3 +100,10 @@ Prices respond to the surprise relative to expectations, not to the report's abs
    - $24,000
    - $2,880
    > A rise of 8% × $6.00 = $0.48 a bushel, and $0.48 × 5,000 bushels = $2,400.
+
+7. {#calc2} [calc] A crude inventory report is bullish and the price rises $1.20. What is the gain on 5 long contracts of 1,000 barrels?
+   - $1,200
+   - $600
+   - [x] $6,000
+   - $12,000
+   > $1.20 × 1,000 barrels × 5 contracts = $6,000.

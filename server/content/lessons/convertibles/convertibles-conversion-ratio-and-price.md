@@ -85,3 +85,10 @@ The ratio is fixed on day one, so the bond's equity value rises by $25 for every
    - It only affects the bond's credit rating
    - It determines the bond's maturity date
    > As the stock rises further above the conversion price, conversion becomes increasingly attractive, pulling the convertible's behavior toward the stock's own.
+
+6. {#calc1} [calc] A $1,000 convertible converts into 16 shares. What is its conversion price?
+   - $16
+   - $1,016
+   - $6.25
+   - [x] $62.50
+   > The conversion price is face value divided by the ratio: $1,000 / 16 = $62.50 a share.

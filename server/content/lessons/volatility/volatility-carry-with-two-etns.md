@@ -56,3 +56,10 @@ The risk is the same one that applies to any short-volatility position: when mar
    - VIX futures were permanently discontinued in 2018
    - There has never been a significant loss event in short-volatility ETNs
    > The 2018 volatility spike event demonstrated how a short-volatility carry strategy that looks like steady income most of the time can suffer severe, rapid losses when volatility spikes sharply and the curve flips to backwardation.
+
+6. {#calc1} [calc] A trader shorts $80,000 of a long-volatility ETN that loses 5% a month to contango roll cost, with VIX unchanged. How much does the short earn in a month?
+   - [x] $4,000
+   - $400
+   - $1,600
+   - $40,000
+   > 5% × $80,000 = $4,000. The risk is a volatility spike, which would reverse the gain quickly.

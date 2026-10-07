@@ -56,3 +56,10 @@ Multi-asset trend following has historically shown a useful property during equi
    - Because it can only be used by institutional investors
    - Because it requires no capital to implement
    > Its ability to find and trade trends outside of equities, including during equity selloffs, gives it a return pattern that can complement rather than mirror a traditional stock-heavy portfolio, which is why it's often used as a diversifying allocation.
+
+6. {#calc1} [calc] A trend rule puts $10,000 in each of six ETFs and is long four of them, which return +3%, +1%, −2% and +4% for the month (the other two are in cash). What is the monthly profit?
+   - $300
+   - [x] $600
+   - $2,600
+   - $60
+   > The long returns add to 3 + 1 − 2 + 4 = 6%, and 6% × $10,000 = $600.

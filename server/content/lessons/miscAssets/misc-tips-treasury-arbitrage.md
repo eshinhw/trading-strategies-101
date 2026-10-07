@@ -96,3 +96,10 @@ The trade makes money only if the gap between the two bonds changes, and the ove
    - $10.5 million
    - $0.15 million
    > The profit is about 7 × 0.30% × $50M = $1.05M. The level of interest rates cancels between the two legs.
+
+7. {#calc2} [calc] A trader is long nominal Treasuries and short TIPS with $2,500 of sensitivity per basis point. Breakeven inflation falls from 2.5% to 2.1%. What is the profit?
+   - $10,000
+   - $1,000,000
+   - $400
+   - [x] $100,000
+   > The spread fell 40 basis points, and 40 × $2,500 = $100,000.

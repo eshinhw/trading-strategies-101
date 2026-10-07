@@ -56,3 +56,10 @@ Because it's concentrated in just one or a few sectors at a time rather than div
    - The risk of the ETF issuer changing its logo
    - There is no shared risk between the two approaches
    > Like single-stock momentum, sector rotation is vulnerable to abrupt shifts in relative leadership, which can occur suddenly around turning points in the economic cycle.
+
+6. {#calc1} [calc] A rotation holds the top two sector ETFs equally with $100,000. Next month the sectors return +2% and −1%. What is the profit?
+   - $1,000
+   - [x] $500
+   - $1,500
+   - $50
+   > Each ETF has $50,000: 2% × $50,000 = +$1,000 and −1% × $50,000 = −$500, so the profit is $500.

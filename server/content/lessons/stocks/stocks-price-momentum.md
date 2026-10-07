@@ -56,3 +56,17 @@ Momentum is typically rebalanced periodically — monthly is common — rerankin
    - Rebalancing has no effect on strategy performance
    - To avoid ever holding the same stock twice
    > Since momentum is about which stocks are currently leading or lagging, periodic reranking is needed to rotate out of fading leaders and into newly emerging ones.
+
+6. {#calc1} [calc] A momentum strategy is long $10 million of last year's winners, which gain 3.0% this month, and short $10 million of last year's losers, which gain 1.0%. What is the month's profit?
+   - $400,000
+   - $100,000
+   - $300,000
+   - [x] $200,000
+   > The long leg earns 3.0% × $10M = $300,000 and the short leg loses 1.0% × $10M = $100,000 because the losers rose, so the profit is $200,000.
+
+7. {#calc2} [calc] A stock is up 48% over 12 months, including a 6% gain in the latest month. A momentum signal that skips the latest month uses what return?
+   - 42%
+   - [x] About 39.6%
+   - 48%
+   - About 54%
+   > Removing the last month: 1.48 / 1.06 − 1 ≈ 39.6%. Skipping it avoids the short-term reversal that often follows a strong month.

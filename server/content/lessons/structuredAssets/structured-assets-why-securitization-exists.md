@@ -95,3 +95,10 @@ It no longer holds the loans, so it also no longer carries most of their risk. I
    - [x] $720 million of lending and $2.88 million of fees
    - $720 million of lending and $28.8 million of fees
    > Three rounds of $240M is $720M, and a 0.4% fee on each is 3 × $0.96M = $2.88M.
+
+7. {#calc2} [calc] A bank earns a 0.35% fee securitizing $180 million, repeated in 4 rounds. What are the total fees?
+   - [x] $2.52 million
+   - $630,000
+   - $25.2 million
+   - $0.63 million
+   > Each round earns 0.35% × $180M = $630,000, and 4 rounds earn $2.52 million.

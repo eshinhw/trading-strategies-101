@@ -31,3 +31,10 @@ slug: long-box
    - The stock's volatility, because the box pays more if implied volatility rises before the expiration date
    - [x] The total cost of the four legs against the fixed payout equal to the strike width
    > If the box costs less than the payout, the difference is a locked-in profit.
+
+5. {#calc1} [calc] A long box on the 95 and 105 strikes always pays $10 at expiration. If a trader pays $9.80 for it, what is the profit per contract held to expiration?
+   - $980
+   - $1,000
+   - $200
+   - [x] $20
+   > The box is worth 105 − 95 = $10, and the cost was $9.80, so the profit is $0.20 a share, or $20 per contract. It is a financing trade with almost no market risk.

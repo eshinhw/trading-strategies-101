@@ -58,3 +58,10 @@ The single-moving-average rule's main drawback shows up in sideways, choppy mark
    - A market that never moves at all
    - It performs identically in every market condition
    > Trend-following rules like this one are designed to capture sustained directional moves — they struggle in choppy markets but perform well when a real trend is underway.
+
+6. {#calc1} [calc] A stock closed at $48, $50, $52, $51 and $49 over the last five days, and today it closes at $51.50. Under a 5-day single-moving-average rule, what is the average and the signal?
+   - The average is $50.00, so price is above it and the rule exits
+   - The average is $51.50, so price is at it and the rule is flat
+   - The average is $49.00, so price is above it and the rule shorts
+   - [x] The average is $50.00, so price is above it and the rule is long
+   > (48 + 50 + 52 + 51 + 49) / 5 = $50.00. Price at $51.50 is above the average, so the rule holds a long position.

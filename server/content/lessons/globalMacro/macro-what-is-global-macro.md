@@ -93,3 +93,10 @@ The view comes first and the instrument second. The investor chooses the one wit
    - $550,000
    - [x] $350,000
    > The bond short earns 8 × 0.25% × $10M = $200,000, and the currency earns 1.5% × $10M = $150,000, so the total is $350,000.
+
+7. {#calc2} [calc] A macro investor holds $4 million long in a currency (+2.5%) and is short $4 million of bonds with a duration of 6 as yields rise 0.30 points. What is the total gain?
+   - $100,000
+   - [x] $172,000
+   - $72,000
+   - $244,000
+   > The currency earns 2.5% × $4M = $100,000, and the bond short earns 6 × 0.30% × $4M = $72,000. The total is $172,000.

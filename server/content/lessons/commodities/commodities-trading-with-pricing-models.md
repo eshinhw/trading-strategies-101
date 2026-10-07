@@ -56,3 +56,17 @@ The central risk is model risk itself: a fundamentals-based pricing model is onl
    - The model would immediately correct itself without any changes needed
    - This scenario has no effect on the strategy's performance
    > If the model is missing a real driver, it can produce a fair-value estimate that no longer reflects reality, causing the strategy to trade against a legitimate price move rather than a true mispricing.
+
+6. {#calc1} [calc] A fundamentals model values a commodity at $72 a barrel while the market is $66. A trader buys 10,000 barrels. What is the gain if the price converges to the model value?
+   - [x] $60,000
+   - $6,000
+   - $720,000
+   - $12,000
+   > The gap is $6 a barrel, and $6 × 10,000 barrels = $60,000. The trade loses if the model is wrong.
+
+7. {#calc2} [calc] A model says $70 and the market is $63. A trader buys 20,000 barrels and the price closes half the gap. What is the gain?
+   - $140,000
+   - $7,000
+   - [x] $70,000
+   - $35,000
+   > Half the $7 gap is $3.50 a barrel, and $3.50 × 20,000 = $70,000.

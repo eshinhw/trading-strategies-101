@@ -92,3 +92,10 @@ The system reduced exposure on the deterioration in sentiment, whatever the pric
    - 20%
    - About 94%
    > P(bearish | hack) = 0.3 × 0.20 / (0.3 × 0.20 + 0.7 × 0.02) = 0.060 / 0.074 ≈ 81%.
+
+7. {#calc2} [calc] A rule cuts a $100,000 position to 50% when the bullish share of the last 1,000 posts falls below 45%. 380 of the posts are bullish. What exposure does the rule hold?
+   - $100,000
+   - $38,000
+   - [x] $50,000
+   - $45,000
+   > 380 / 1,000 = 38%, which is below 45%, so exposure is cut to 50% of $100,000 = $50,000.

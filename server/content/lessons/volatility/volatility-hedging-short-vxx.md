@@ -56,3 +56,17 @@ Sizing the hedge is the central design challenge: too little VIX futures exposur
    - The hedge size has no effect on the trade's carry or risk
    - The hedge must always exactly equal the short VXX position's dollar value
    > More hedge protection reduces spike risk but also consumes more of the contango roll yield the trade earns during calm periods — sizing the hedge means balancing protection against reduced carry.
+
+6. {#calc1} [calc] A trader is short $100,000 of VXX, and a volatility spike lifts VXX 50%. The trader also owns VIX futures that pay 40% of the move on the VXX position. What is the net loss?
+   - $50,000
+   - [x] $30,000
+   - $20,000
+   - $10,000
+   > The short loses 50% × $100,000 = $50,000. The futures hedge pays 40% × $50,000 = $20,000, so the net loss is $30,000.
+
+7. {#calc2} [calc] A trader is short $200,000 of VXX, which moves 0.8 for each 1.0 of VIX futures. How much in VIX futures hedges it?
+   - $250,000
+   - $200,000
+   - $40,000
+   - [x] $160,000
+   > The hedge notional is $200,000 × 0.8 = $160,000.

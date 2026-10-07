@@ -82,3 +82,10 @@ The buyer receives the full $9,000, so the seller's default costs the buyer noth
    - It increases counterparty risk compared to a forward
    - It eliminates the need for a clearinghouse entirely
    > Novation is precisely what converts the bilateral counterparty risk of a forward into exposure to a single, well-margined, guarantee-fund-backed clearinghouse instead.
+
+6. {#calc1} [calc] A defaulting member owes a $12,000 loss and posted $7,500 of margin. How much does the guarantee fund have to cover?
+   - $7,500
+   - $12,000
+   - $19,500
+   - [x] $4,500
+   > The margin absorbs $7,500 first, leaving $12,000 − $7,500 = $4,500 for the guarantee fund.

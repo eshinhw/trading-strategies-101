@@ -58,3 +58,10 @@ This is a form of quality control on top of a directional signal — R-squared d
    - It always contradicts whatever the momentum signal indicates
    - It can only be computed once per year
    > R-squared is combined with, not substituted for, a directional signal — it helps concentrate capital in the trends most likely to persist rather than treating every qualifying trend as equally reliable.
+
+6. {#calc1} [calc] A sector ETF's price against time over 60 days has an R-squared of 0.81. What is the correlation between price and time, and how much of the price variation does the trend line explain?
+   - 0.81, and 90%
+   - 0.9, and 90%
+   - [x] 0.9, and 81%
+   - 0.66, and 81%
+   > The correlation is the square root of R-squared: √0.81 = 0.9. The line explains 81% of the variation, so this is a clean trend.

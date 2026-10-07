@@ -91,3 +91,10 @@ Left in a non-interest operating account, the same cash would earn $0. The forec
    - $0.4 million
    - $2.4 million
    > Cash to keep liquid is $4M × 1.10 = $4.4M, so the amount available to invest is $6M − $4.4M = $1.6M.
+
+7. {#calc2} [calc] A company's forecast shows net outflows of $0.6 million a week for 13 weeks, and it holds a 15% buffer. It has $10 million of cash. How much can it invest?
+   - About $2.2 million
+   - About $1.5 million
+   - [x] About $1.03 million
+   - About $8.97 million
+   > The needed cash is 13 × $0.6M = $7.8M, and with the buffer $7.8M × 1.15 = $8.97M. The rest, $10M − $8.97M ≈ $1.03M, can be invested.

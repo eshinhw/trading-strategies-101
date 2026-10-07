@@ -94,3 +94,10 @@ The refiner will pay $4 a barrel above its old price to have oil in hand, becaus
    - [x] $84.25
    - $79.75
    > The carry for 3 months is 3 × $0.75 = $2.25, so the fair futures price is $82 + $2.25 = $84.25, a market in contango.
+
+7. {#calc2} [calc] Spot crude is $82 and the 3-month future is $84.25. What is the cost of carry as an annual percentage (simple)?
+   - [x] About 11%
+   - About 2.7%
+   - About 2.74% a month
+   - About 5.5%
+   > The carry over 3 months is $2.25 / $82 ≈ 2.74%, and four quarters make about 11% a year.

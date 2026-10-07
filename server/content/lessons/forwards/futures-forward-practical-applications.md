@@ -101,3 +101,10 @@ The airline pays $5.4 million in both cases. The forward removes the exchange-ra
    - Because futures contracts cannot be used for commodities
    - Because regulators require commercial parties to use forwards instead of futures
    > A forward's customizability is exactly what a standardized, one-size-fits-all futures contract can't offer — which is why both instruments coexist for the same underlying commodities.
+
+7. {#calc1} [calc] An importer owes ¥60 million in three months and locks in ¥150 per dollar. At maturity the spot rate is ¥140 per dollar. How much does the forward save, in dollars?
+   - About $400,000
+   - [x] About $28,571
+   - About $10,000
+   - About $42,857
+   > Hedged cost is ¥60M / 150 = $400,000. Unhedged it would be ¥60M / 140 ≈ $428,571, so the forward saves about $28,571.

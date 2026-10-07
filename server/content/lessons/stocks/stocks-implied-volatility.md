@@ -56,3 +56,10 @@ Because IV also reflects the volatility risk premium — investors generally pay
    - Options markets are never liquid enough to compute implied volatility
    - It is illegal to trade based on implied volatility
    > Since IV also embeds a general premium investors pay for downside protection, a high or rising IV doesn't always mean informed directional information — other filters help separate the two.
+
+6. {#calc1} [calc] A stock's implied volatility is 36% while its realized volatility over the past month was 30%. By what percentage does implied volatility exceed realized?
+   - 6%
+   - [x] 20%
+   - 16.7%
+   - 120%
+   > (36 − 30) / 30 = 20%. Options are priced for more movement than the stock recently delivered.

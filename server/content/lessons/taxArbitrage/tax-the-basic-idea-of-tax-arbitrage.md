@@ -94,3 +94,10 @@ The trade's profit comes from the gap between the two tax treatments and not fro
    - [x] $13,600
    - $1,360
    > Interest leaves $80,000 × 0.63 = $50,400 and the capital gain leaves $80,000 × 0.80 = $64,000, a difference of $13,600.
+
+7. {#calc2} [calc] A taxable bond yields 5% for an investor in the 35% bracket, and a tax-exempt muni yields 3.4%. On $1 million, how much more does the muni earn after tax?
+   - [x] $1,500
+   - $15,000
+   - $17,000
+   - $150
+   > The taxable bond keeps 5% × 0.65 = 3.25%, and the muni keeps 3.4%, which is 0.15% more, or $1,500 on $1,000,000.

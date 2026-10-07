@@ -93,3 +93,10 @@ $$
    - $2,040
    - [x] $2,000
    > The metal costs $2,080 an ounce, but the futures gain is $80 an ounce, so the net cost is $2,080 − $80 = $2,000.
+
+7. {#calc2} [calc] A gold futures contract of $200,000 needs 5% margin. Gold rises 2.5%. What is the return on the margin posted?
+   - 2.5%
+   - [x] 50%
+   - 12.5%
+   - 5%
+   > The margin is $10,000 and the gain is 2.5% × $200,000 = $5,000, so the return on margin is 50%.

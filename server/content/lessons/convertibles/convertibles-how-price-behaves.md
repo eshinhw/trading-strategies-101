@@ -94,3 +94,17 @@ The convertible falls less than the stock because of the floor, then tracks the 
    - Conversion value is $1,500, so it sets the price
    - Conversion value is $50, so the bond floor does not matter
    > Conversion value is 20 × $30 = $600, which is below the $850 floor, so the bond floor is what the price is anchored to.
+
+7. {#calc2} [calc] A convertible trades at $1,150 and converts into 20 shares of a $48 stock. What is its conversion premium over parity?
+   - About 15%
+   - About 12%
+   - [x] About 19.8%
+   - About 30%
+   > Parity is 20 × $48 = $960. The premium is ($1,150 − $960) / $960 ≈ 19.8%.
+
+8. {#calc3} [calc] A convertible with a conversion ratio of 20 and a bond floor of $900 trades when the stock is $55. What is its conversion value, and does it exceed the floor?
+   - [x] $1,100, and yes
+   - $1,100, and no
+   - $900, and yes
+   - $55, and no
+   > Conversion value is 20 × $55 = $1,100, which is above the $900 floor, so the stock value is what the price now follows.

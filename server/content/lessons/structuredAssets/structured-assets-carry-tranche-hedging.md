@@ -94,3 +94,10 @@ The net carry is lower because the hedge costs more, but both legs are drawn fro
    - $40,000
    - $150,000
    > $150,000 collected minus $40,000 paid on the equity-tranche hedge leaves roughly $110,000 a year — a more tightly isolated bet on the mezzanine tranche's specific subordination.
+
+7. {#calc1} [calc] A trader earns 150 basis points on an $8 million mezzanine tranche and pays 500 basis points on $600,000 of equity-tranche protection. What is the net carry?
+   - $120,000
+   - $30,000
+   - [x] $90,000
+   - $150,000
+   > The mezzanine coupon is $8M × 1.50% = $120,000 and the hedge costs $600,000 × 5% = $30,000, so the net is $90,000.

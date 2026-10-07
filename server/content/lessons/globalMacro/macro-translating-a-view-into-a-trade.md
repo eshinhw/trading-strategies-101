@@ -101,3 +101,10 @@ Three instruments express one view, each with a different profit and a different
    - [x] $200,000
    - $250,000
    > The bonds fall about 8 × 0.25% = 2.0%, so the short earns 2.0% × $10M = $200,000.
+
+7. {#calc2} [calc] An investor takes a $5 million long TIPS and short nominal bond position (duration 7) expecting breakeven inflation to rise 0.4 points. What is the gain if it does?
+   - [x] $140,000
+   - $14,000
+   - $200,000
+   - $35,000
+   > The gain is 7 × 0.4% × $5,000,000 = $140,000.

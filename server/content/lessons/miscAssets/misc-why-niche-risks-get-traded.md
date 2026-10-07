@@ -93,3 +93,10 @@ An investor or insurer collects the $120,000 premium and takes on the risk. In a
    - +$870,000
    - [x] −$90,000
    > The lost revenue is 12 × $80,000 = $960,000 and the payout is also $960,000, so only the $90,000 premium is left as a cost.
+
+7. {#calc2} [calc] A weather seller collects a $120,000 premium on a contract with a $2 million cap. There is a 5% chance of a full payout and no payout otherwise. What is the expected profit?
+   - $120,000
+   - [x] $20,000
+   - $100,000
+   - $1,880,000
+   > The expected payout is 5% × $2,000,000 = $100,000, so the expected profit is $120,000 − $100,000 = $20,000.

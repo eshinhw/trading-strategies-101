@@ -56,3 +56,10 @@ Sizing the wings correctly is the key mechanical challenge: because dollar durat
    - Incorrect sizing has no effect on the trade's risk profile
    - The wings must always be sized as exactly equal dollar amounts
    > Simply putting equal dollar amounts in each wing isn't enough — the dollar-duration calculation, which accounts for both price and duration, must be used to properly offset the body, or the trade retains unintended exposure to a parallel rate move.
+
+6. {#calc1} [calc] A trader is short $10 million of a 5-year note (DV01 $450 per $1 million) and puts half of that risk in each wing. How much 10-year notional (DV01 $800 per $1 million) is needed?
+   - About $5.63 million
+   - [x] About $2.81 million
+   - About $11.84 million
+   - About $0.56 million
+   > The body's DV01 is 10 × $450 = $4,500, so each wing needs $2,250. For the 10-year that is $2,250 / $800 per million ≈ $2.81 million.

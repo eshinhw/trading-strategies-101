@@ -58,3 +58,17 @@ The central risk is that the relationship breaks down permanently rather than re
    - Both stocks becoming perfectly correlated
    - There is no real risk once a pair is correctly identified
    > If a merger, company-specific event, or structural shift permanently changes one company's business, the historical relationship may never revert — the spread can widen indefinitely instead of converging, losing money on both legs.
+
+6. {#calc1} [calc] A pair's spread averages $4.00 with a standard deviation of $0.50, and today it is $5.25. What is the z-score, and what does the strategy do?
+   - [x] 2.5, so it shorts the outperformer and buys the laggard
+   - 1.25, so it does nothing
+   - 2.5, so it buys the outperformer and shorts the laggard
+   - 0.25, so it does nothing
+   > The z-score is ($5.25 − $4.00) / $0.50 = 2.5. A spread this wide is expected to narrow, so the trader sells the stock that has run up and buys the one that has lagged.
+
+7. {#calc2} [calc] A dollar-neutral pair trade puts $40,000 on each side. Stock A trades at $80 and stock B at $50. How many shares of each does the trader trade?
+   - 500 shares of A and 500 shares of B
+   - 800 shares of A and 500 shares of B
+   - [x] 500 shares of A and 800 shares of B
+   - 40,000 shares of A and 40,000 shares of B
+   > $40,000 / $80 = 500 shares of A, and $40,000 / $50 = 800 shares of B, so each side is worth $40,000.

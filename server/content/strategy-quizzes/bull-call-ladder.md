@@ -31,3 +31,10 @@ slug: bull-call-ladder
    - The position is unaffected, because the extra short call is covered by the original long call
    - [x] The uncovered extra short call turns the position into a large loss
    > Above the highest strike the position has an uncovered short call.
+
+5. {#calc1} [calc] A bull call ladder buys a 100 call, sells a 105 call and sells a 110 call, for no net premium. What is the payoff per share if the stock ends at 118?
+   - [x] −$3
+   - +$3
+   - +$5
+   - −$5
+   > The long 100 call is worth 18, the short 105 call costs 13, and the short 110 call costs 8: 18 − 13 − 8 = −3. Above 115 the loss grows without limit.

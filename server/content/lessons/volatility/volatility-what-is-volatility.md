@@ -94,3 +94,10 @@ The market maker does not know whether the stock will end up 2% higher or 15% lo
    - [x] About $8.31
    - About $4.16
    > The monthly volatility is 36% / √12 ≈ 10.4%, and 10.4% × $80 ≈ $8.31.
+
+7. {#calc2} [calc] A stock's daily volatility is 1.2%. What is its approximate annualized volatility (252 trading days)?
+   - [x] About 19%
+   - About 1.2%
+   - About 302%
+   - About 75%
+   > Annualized volatility is 1.2% × √252 ≈ 19.05%.

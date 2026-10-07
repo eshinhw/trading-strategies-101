@@ -56,3 +56,17 @@ Because index futures are heavily traded and closely watched by many market part
    - Index futures are not available to retail traders under any regulation
    - Institutional desks receive a fixed government subsidy for this trade
    > Because index futures are heavily traded and closely monitored, the opportunity is usually thin and fleeting, favoring participants with the infrastructure to trade a full basket efficiently and quickly.
+
+6. {#calc1} [calc] An index is at 4,000, the financing rate is 4%, and dividends yield 1.5%. For a 6-month future, the fair price is 4,000 × (1 + (4% − 1.5%) × 0.5). If futures trade at 4,070 (multiplier $50), what is the arbitrage profit per contract?
+   - $3,500
+   - [x] $1,000
+   - $200
+   - $4,000
+   > Fair value is 4,000 × 1.0125 = 4,050. The future is 20 points rich, and 20 × $50 = $1,000 per contract.
+
+7. {#calc2} [calc] An index is at 5,000, the financing rate is 5%, dividends yield 2%, and the future expires in 3 months. What is the fair futures price?
+   - 5,062.5
+   - 5,000
+   - 5,175
+   - [x] 5,037.5
+   > The net carry is 5% − 2% = 3% a year, or 0.75% for 3 months: 5,000 × 1.0075 = 5,037.5.

@@ -97,3 +97,10 @@ Measuring the relationship first lets the hedge match the exposure.
    - $2,100,000
    - $0
    > The revenue loss is 400 × $6,000 = $2,400,000. The hedge pays 350 × $6,000 = $2,100,000, leaving $300,000 uncovered.
+
+7. {#calc2} [calc] A weather hedge pays $6,000 per heating degree day, with a cap of 250 days. What is the most it can pay?
+   - $250,000
+   - $6,000
+   - [x] $1.5 million
+   - $15 million
+   > The cap is 250 × $6,000 = $1,500,000.

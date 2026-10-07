@@ -87,3 +87,10 @@ That is the meaning of "not your keys, not your coins."
    - $150,000
    - $65,000
    > The holding was 3 × $50,000 = $150,000. Recovering 35% returns $52,500, so the loss is $150,000 − $52,500 = $97,500.
+
+7. {#calc2} [calc] A hack removes $40 million from an exchange holding $400 million of customer deposits, and the loss is shared evenly. How much does a customer with $25,000 lose?
+   - $250
+   - $25,000
+   - [x] $2,500
+   - $4,000
+   > The loss is 10% of deposits ($40M / $400M), so a $25,000 balance loses $2,500.

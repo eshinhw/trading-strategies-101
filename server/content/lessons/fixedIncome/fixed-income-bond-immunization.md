@@ -56,3 +56,10 @@ Immunization is especially relevant for institutions like pension funds and insu
    - The portfolio automatically converts to cash
    - The portfolio's value becomes impossible to determine
    > The point of matching duration to the horizon is that offsetting price and reinvestment effects leave the portfolio's value at the target date largely insulated from which direction rates moved.
+
+6. {#calc1} [calc] A liability is due in 8 years. A portfolio holds a bond with a duration of 3 and a bond with a duration of 11. What share in the short-duration bond makes the portfolio's duration 8?
+   - 50%
+   - 62.5%
+   - [x] 37.5%
+   - 27.3%
+   > Solve w × 3 + (1 − w) × 11 = 8, so w = (11 − 8) / (11 − 3) = 3/8 = 37.5% in the short bond and 62.5% in the long one.

@@ -56,3 +56,10 @@ The tradeoff is that regression-based weights depend on the historical period us
    - Regression weights are always accurate regardless of the period used
    - Tightening periods make regression analysis impossible to run
    > The regression describes the past relationship observed during a specific period — if future conditions differ meaningfully, that historical relationship may no longer hold.
+
+6. {#calc1} [calc] A regression shows the 2-year yield moves 0.8 basis points for every 1 basis point move in the 5-year yield. If the 5-year yield rises 10 basis points, what 2-year move does the regression predict?
+   - 10 basis points
+   - 12.5 basis points
+   - [x] 8 basis points
+   - 0.8 basis points
+   > The predicted move is the beta times the body's move: 0.8 × 10 = 8 basis points. Weighting by this relationship protects the trade from non-parallel moves.

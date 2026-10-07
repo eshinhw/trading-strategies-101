@@ -89,3 +89,10 @@ The desk accepts a smaller expected payoff in exchange for half the exposure to 
    - $24,000 per basis point, and $2,400,000 for 10
    - $240,000 per basis point, and $2,400,000 for 10
    > The value of a basis point is $30,000,000 × 8 × 0.01% = $24,000, and 10 basis points is 10 × $24,000 = $240,000.
+
+7. {#calc2} [calc] Payrolls are forecast at 150,000 and come in at 210,000. Past surprises have a standard deviation of 40,000. What is the surprise in standard deviations?
+   - 60
+   - 0.29
+   - [x] 1.5
+   - 4.0
+   > The surprise is 60,000, and 60,000 / 40,000 = 1.5 standard deviations.

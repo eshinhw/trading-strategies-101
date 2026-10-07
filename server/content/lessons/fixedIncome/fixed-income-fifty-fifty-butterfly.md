@@ -56,3 +56,10 @@ Despite this imprecision, the fifty-fifty approach remains popular for its simpl
    - It always produces better returns than a precisely weighted butterfly
    - It cannot be constructed using real bonds
    > Traders who want a quick, easy-to-communicate position often accept the small imprecision of a fixed 50/50 split rather than running a more involved weighting calculation.
+
+6. {#calc1} [calc] A butterfly is short $20 million of a 5-year note with a duration of 4.6. Each wing takes half of the body's dollar duration. How much of a 2-year note (duration 1.9) is bought?
+   - About $48.4 million
+   - [x] About $24.2 million
+   - About $9.2 million
+   - About $12.1 million
+   > The body's dollar duration is 20 × 4.6 = 92, so each wing gets 46. For the 2-year, 46 / 1.9 ≈ $24.2 million.

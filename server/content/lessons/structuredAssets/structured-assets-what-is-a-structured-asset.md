@@ -95,3 +95,10 @@ Investors in the bonds never touch an individual car loan. They own a claim on t
    - [x] About $704,500 a month, from a $30 million pool
    - About $7,045,000 a month, from a $30 million pool
    > The pool is 2,000 × $15,000 = $30M, and the monthly payments are 2,000 × $352.28 ≈ $704,500.
+
+7. {#calc2} [calc] A pool of 5,000 loans averages $22,000. 2% default with a 60% recovery. What is the pool's loss?
+   - [x] $880,000
+   - $2.2 million
+   - $1.32 million
+   - $110 million
+   > The pool is $110M, defaults are 2% × $110M = $2.2M, and a 60% recovery leaves a loss of 40% × $2.2M = $880,000.

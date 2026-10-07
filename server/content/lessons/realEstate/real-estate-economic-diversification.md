@@ -56,3 +56,10 @@ Economic diversification reduces exposure to any single industry's troubles, but
    - Because economic diversification actually increases risk
    - Because local economies never affect real estate values
    > Economic diversification reduces exposure to any single industry's troubles, but a broad national recession can still pressure most regions and industries simultaneously, so the protection is partial.
+
+6. {#calc1} [calc] A building earns $140,000 of net income and is valued at a 7% cap rate. A local employer closes and rents fall 25%. What is the building's value afterwards, assuming the same cap rate?
+   - $2.0 million
+   - $1.75 million
+   - [x] $1.5 million
+   - $1.05 million
+   > Net income falls to 0.75 × $140,000 = $105,000, and $105,000 / 7% = $1,500,000, down from $2,000,000.

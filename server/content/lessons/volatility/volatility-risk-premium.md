@@ -56,3 +56,10 @@ Because of this asymmetric risk profile, disciplined volatility-risk-premium str
    - Risk controls guarantee the strategy will never lose money
    - Diversification eliminates the volatility risk premium entirely
    > Given the asymmetric risk of occasional sharp losses, careful sizing and diversification help ensure the strategy can survive a bad outcome and continue collecting the premium over the long run.
+
+6. {#calc1} [calc] A trader sells volatility with a vega of $10,000 per volatility point when implied volatility is 20% and realized volatility ends at 15%. What is the gain?
+   - [x] $50,000
+   - $5,000
+   - $150,000
+   - $200,000
+   > The gap is 20 − 15 = 5 volatility points, and 5 × $10,000 = $50,000.

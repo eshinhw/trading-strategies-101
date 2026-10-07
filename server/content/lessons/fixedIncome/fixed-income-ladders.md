@@ -56,3 +56,10 @@ Ladders are popular with income-focused investors who want a predictable, ongoin
    - It is identical to a barbell portfolio
    - It holds no bonds with a maturity beyond one year
    > Where a bullet concentrates at a single maturity and a barbell splits between two extremes, a ladder is spread evenly across the full range, with holdings maturing at regular intervals.
+
+6. {#calc1} [calc] A ladder has five equal $2 million rungs. One rung matures and is reinvested at 5% in place of a 3.5% coupon. How much does the ladder's annual income rise?
+   - $100,000
+   - $3,000
+   - $70,000
+   - [x] $30,000
+   > The reinvested $2M earns 5% − 3.5% = 1.5% more, which is $2,000,000 × 1.5% = $30,000 a year.

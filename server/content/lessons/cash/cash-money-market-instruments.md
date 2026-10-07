@@ -89,3 +89,10 @@ The ladder keeps the cash both available and earning more than it would sit idle
    - About 1.20%
    - [x] About 4.86%
    > The gain is $1,200 on $98,800, which is 1.215% for a quarter. Multiplying by 4 gives about 4.86% a year.
+
+7. {#calc2} [calc] A $1,000,000 six-month Treasury bill is bought for $976,000. What is its annualized simple yield?
+   - About 2.46%
+   - [x] About 4.92%
+   - About 2.40%
+   - About 4.80%
+   > The gain is $24,000 on $976,000, which is 2.46% for six months, so about 4.92% a year.

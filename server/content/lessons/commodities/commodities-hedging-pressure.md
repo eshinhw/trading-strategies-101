@@ -56,3 +56,10 @@ The main risk is that this producer-driven imbalance can shift or reverse — if
    - Hedging pressure is fixed permanently and can never change for any commodity
    - The strategy requires taking on unlimited physical delivery risk
    > If the underlying market structure changes — for example, consumers rather than producers becoming the dominant hedgers — the theorized bias in futures pricing can reverse, working against a strategy built on the original assumption.
+
+6. {#calc1} [calc] Producers' selling pushes corn futures to $6.25 while the expected future spot price is $6.40. What is the expected gain per 5,000-bushel long contract?
+   - [x] $750
+   - $150
+   - $31,250
+   - $32,000
+   > The expected premium is $6.40 − $6.25 = $0.15 a bushel, and $0.15 × 5,000 = $750.

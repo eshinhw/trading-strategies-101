@@ -56,3 +56,10 @@ Because the resulting long and short positions are spread across many unrelated 
    - It only ever holds a single stock at a time
    - Market-neutrality is unrelated to how many clusters are used
    > Concentrating in one cluster leaves the portfolio exposed to that specific industry's overall direction, while spreading positions across many unrelated clusters balances that exposure out in aggregate.
+
+6. {#calc1} [calc] A strategy puts $3 million in each of three clusters, which return +1.2%, −0.4% and +0.7% in a month. What is the total profit?
+   - $15,000
+   - $135,000
+   - $4,500
+   - [x] $45,000
+   > The total return across clusters is +1.5% of $3M = $45,000. One weak cluster is offset by the others.

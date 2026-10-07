@@ -89,3 +89,10 @@ A money market fund lends the $100 million overnight (a reverse repo) and earns 
    - About $13,333
    - [x] About $6,667
    > Interest is $50,000,000 × 4.8% × 1/360 ≈ $6,667.
+
+7. {#calc2} [calc] A repo has a 2% haircut on $50 million of Treasuries. How much cash does the dealer receive?
+   - $50 million
+   - [x] $49 million
+   - $51 million
+   - $1 million
+   > The lender advances 98% of the collateral's value: $50M × 0.98 = $49M, which protects the lender if prices fall.

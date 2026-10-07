@@ -56,3 +56,17 @@ The tradeoff is reduced participation during choppy, range-bound periods: since 
    - It eliminates all trading costs entirely
    - It requires holding twice as many sector ETFs
    > Since the filter can flip on and off as price oscillates around the moving average, the strategy may miss some modest gains during choppy periods in exchange for the downside protection it provides during real downturns.
+
+6. {#calc1} [calc] The top-ranked sector ETF trades at $82, and its 200-day moving average is $85. How far is it from the average, and what does the filtered strategy hold?
+   - About 3.5% below, so it still buys the sector
+   - About 3.7% above, so it buys the sector
+   - [x] About 3.5% below, so it holds cash
+   - About 3.5% above, so it holds cash
+   > (82 − 85) / 85 ≈ −3.5%. The leading sector is itself below its trend line, so the filter keeps the money in cash.
+
+7. {#calc2} [calc] A sector ETF trades at $60 with a 200-day moving average of $55. How far above its average is it, and what does the filter allow?
+   - [x] About 9.1% above, so it allows the position
+   - About 9.1% above, so it blocks the position
+   - About 8.3% above, so it blocks the position
+   - About 9.1% below, so it allows the position
+   > (60 − 55) / 55 ≈ 9.1% above the average, so the sector is in an uptrend and the filter lets the rotation hold it.

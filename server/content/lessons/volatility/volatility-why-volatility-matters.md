@@ -100,3 +100,10 @@ The manager treats it like insurance, with a modest ongoing cost in return for p
    - [x] $150,000
    - $300,000
    > The portfolio loses $750,000. The hedge gains 400% × $150,000 = $600,000, so the net loss is $150,000.
+
+7. {#calc2} [calc] A portfolio has a daily volatility of 1%. What is its volatility over 21 trading days, assuming returns are independent?
+   - [x] About 4.6%
+   - 21%
+   - About 1%
+   - About 2.1%
+   > Volatility scales with the square root of time: 1% × √21 ≈ 4.6%.

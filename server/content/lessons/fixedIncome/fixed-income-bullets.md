@@ -56,3 +56,10 @@ The tradeoff is reduced diversification across the yield curve: because a bullet
    - Two separate spikes at the short and long ends
    - A smooth curve gradually declining to zero
    > The strategy is named for the shape of its maturity distribution: a tight cluster of holdings around one target date looks like a single spike, or bullet, rather than being spread out.
+
+6. {#calc1} [calc] A $10 million bullet portfolio has a duration of 4.2, and yields rise 0.5 percentage points. About how much does its value fall?
+   - About $42,000
+   - About $2,100,000
+   - [x] About $210,000
+   - About $500,000
+   > The price falls about 4.2 × 0.5% = 2.1%, and 2.1% × $10,000,000 = $210,000.

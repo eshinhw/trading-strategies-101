@@ -106,3 +106,10 @@ The five hedge positions must be recalculated and rebalanced over time, and that
    - [x] $379,000
    - $421,000
    > The tranche coupon is $20M × 2% = $400,000 and the hedge costs $3M × 0.70% = $21,000, so the net carry is $379,000.
+
+8. {#calc2} [calc] A trader holds a $20 million mezzanine tranche and hedges with single-name CDS equal to the tranche's 0.18 delta to the names. What CDS notional is needed?
+   - [x] $3.6 million
+   - $20 million
+   - $0.18 million
+   - $111 million
+   > The hedge notional is $20M × 0.18 = $3.6M.

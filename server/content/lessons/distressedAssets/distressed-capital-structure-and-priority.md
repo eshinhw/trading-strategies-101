@@ -91,3 +91,10 @@ Where a claim sits in the structure, not how much the company is worth overall, 
    - 100 cents
    - 22.5 cents
    > Secured debt is paid first, leaving $180M − $90M = $90M for $200M of unsecured claims, which is 45 cents on the dollar.
+
+7. {#calc2} [calc] A company is worth $120 million. It has $70 million of secured debt and $90 million of unsecured debt. How many cents on the dollar do unsecured holders recover?
+   - About 77.8 cents
+   - 100 cents
+   - About 33.3 cents
+   - [x] About 55.6 cents
+   > After secured debt, $120M − $70M = $50M remains for $90M of unsecured claims: 50 / 90 ≈ 55.6 cents.

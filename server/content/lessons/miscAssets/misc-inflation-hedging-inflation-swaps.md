@@ -95,3 +95,10 @@ The swap can be set to exactly 17 years and to the size needed, so the swap mark
    - About $5,000,000
    - About $64,000
    > The floating leg is $10M × (1.03^10 − 1) ≈ $3.44M and the fixed leg is $10M × (1.025^10 − 1) ≈ $2.80M, so the receiver collects about $638,000.
+
+7. {#calc2} [calc] A 5-year zero-coupon inflation swap on $20 million pays fixed at 2.4% a year. Inflation averages 2.9%. About how much does the receiver of inflation collect?
+   - About $100,000
+   - About $2.9 million
+   - [x] About $555,000
+   - About $5.5 million
+   > The floating leg is $20M × (1.029⁵ − 1) and the fixed leg is $20M × (1.024⁵ − 1). The difference is about $555,000.

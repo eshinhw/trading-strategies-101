@@ -96,3 +96,10 @@ Neither is more correct. The investor chooses between bets weighted by economic 
    - +7.5%
    - +2.5%
    > The weights are 75% and 25%, so the return is 0.75 × 10% + 0.25 × (−10%) = +5%. An equal-weighted index would return 0%.
+
+7. {#calc2} [calc] An equal-weighted index holds four stocks that return +10%, +2%, −4% and 0%. What is the index return?
+   - +8%
+   - +2.5%
+   - +1%
+   - [x] +2%
+   > The average is (10 + 2 − 4 + 0) / 4 = +2%.

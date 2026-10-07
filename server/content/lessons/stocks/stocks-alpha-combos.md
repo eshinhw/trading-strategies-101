@@ -56,3 +56,10 @@ A well-built alpha combo captures a form of diversification that goes beyond jus
    - The risk that trading commissions increase
    - There is no risk that diversifying alphas can help mitigate
    > Individual signals can lose their edge over time as more traders discover and exploit them — combining many relatively independent alphas means the failure of any single one has a much smaller impact on the overall combined forecast.
+
+6. {#calc1} [calc] A model weights alpha A at 60% and alpha B at 40%. The forecasts are +1.5% from A and −0.5% from B. What is the blended forecast?
+   - +0.5%
+   - [x] +0.7%
+   - +1.0%
+   - +0.9%
+   > 0.6 × 1.5% + 0.4 × (−0.5%) = 0.9% − 0.2% = +0.7%.

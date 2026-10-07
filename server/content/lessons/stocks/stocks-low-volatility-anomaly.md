@@ -56,3 +56,10 @@ Because it tends to hold up defensively in market downturns — low-volatility s
    - It has no relationship to overall market direction
    - It is only usable during downturns and unusable otherwise
    > Low-volatility stocks are, almost by definition, less sensitive to market swings, so the strategy tends to hold up defensively during selloffs while still capturing much of the market's upside over a full cycle.
+
+6. {#calc1} [calc] A portfolio weights stocks by inverse volatility. Stock A has 15% volatility and stock B has 30%. What weight does A get?
+   - 50%
+   - [x] About 66.7%
+   - About 33.3%
+   - About 75%
+   > The inverse volatilities are 1/15 and 1/30, so A's weight is (1/15) / (1/15 + 1/30) = 2/3 ≈ 66.7%.

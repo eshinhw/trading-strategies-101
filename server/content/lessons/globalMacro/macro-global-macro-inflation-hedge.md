@@ -95,3 +95,10 @@ Each tool does a different job. TIPS are the direct hedge, commodities add histo
    - $22.5 million
    - $0.225 million
    > Each 1% of extra inflation adds 1% to the liabilities, so 1.5% × $150M = $2.25M.
+
+7. {#calc2} [calc] A fund holds $10 million of TIPS with a 1.5% real coupon, and the inflation index rises 3%. What coupon does it receive?
+   - $150,000
+   - $300,000
+   - [x] $154,500
+   - $4,500
+   > The principal is adjusted to $10,300,000, and 1.5% of that is $154,500.

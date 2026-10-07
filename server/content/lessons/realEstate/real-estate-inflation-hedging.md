@@ -56,3 +56,10 @@ The inflation hedge isn't perfect, particularly over shorter horizons. Inflation
    - A period with no inflation at all
    - A scenario where interest rates fall sharply
    > When inflation is met with a sharp rise in interest rates, the resulting valuation compression can, at least temporarily, outweigh the benefit of rents rising with inflation.
+
+6. {#calc1} [calc] A lease rents for $2,000 a month and rents rise 4% a year with inflation. What is the monthly rent after 3 years, to the nearest $10?
+   - [x] $2,250
+   - $2,240
+   - $2,000
+   - $2,120
+   > $2,000 × 1.04³ ≈ $2,249.73, which rounds to $2,250. Adding 4% of $2,000 three times instead would give $2,240, which ignores compounding.

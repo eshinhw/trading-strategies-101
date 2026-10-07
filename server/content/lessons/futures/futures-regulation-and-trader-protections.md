@@ -86,3 +86,10 @@ Regulation protects against fraud, counterparty default and unsuitable sales. It
    - Because clearinghouses are government regulators
    - Because the clearinghouse guarantees a minimum profit on every trade
    > The clearinghouse's novation and margining structure, covered earlier in this course, is precisely what converts individual counterparty risk into exposure to a much safer, mutualized guarantee.
+
+6. {#calc1} [calc] A position limit is 6,000 contracts and a trader holds 4,500. How many more contracts can the trader add, and what share of the limit is already used?
+   - 1,500, and 25%
+   - 4,500, and 75%
+   - 6,000, and 100%
+   - [x] 1,500, and 75%
+   > 6,000 − 4,500 = 1,500 contracts of room, and 4,500 / 6,000 = 75% of the limit is used.

@@ -56,3 +56,17 @@ As with any mean-reversion approach, the central risk is that a "cheap" commodit
    - The commodity immediately becomes more expensive
    - Technology shifts have no effect on commodity prices
    > A structural change in demand undermines the assumption that historical price levels remain a meaningful reference point, which is exactly the scenario that breaks a naive mean-reversion value signal.
+
+6. {#calc1} [calc] A commodity trades at $50 and its five-year average is $65. By what percentage is it below its long-run level?
+   - About 30%
+   - [x] About 23.1%
+   - About 15%
+   - About 77%
+   > The gap is $15, and $15 / $65 ≈ 23.1% below the average, which a value strategy treats as cheap.
+
+7. {#calc2} [calc] A commodity is $52 against a five-year average of $65. If it reverts halfway to the average, what is the gain?
+   - 25%
+   - 20%
+   - 6.25%
+   - [x] 12.5%
+   > Halfway to $65 is $58.50, and ($58.50 − $52) / $52 = 12.5%.

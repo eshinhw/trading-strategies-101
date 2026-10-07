@@ -31,3 +31,10 @@ slug: calendar-put-spread
    - [x] Sell another short-dated put against the long one, repeating the income cycle, similar to a covered put
    - Convert the position into a straddle by selling a call, since the short put can no longer be replaced
    > The remaining long put can be used again to sell further near-term options.
+
+5. {#calc1} [calc] A trader sells a 30-day put for $1.90 and buys a 60-day put at the same strike for $3.30. What is the most that can be lost per contract?
+   - $520
+   - $190
+   - [x] $140
+   - $330
+   > The debit is $3.30 − $1.90 = $1.40 a share, or $140 per contract, and the debit is the maximum loss.

@@ -93,3 +93,10 @@ The hedge removed the market's fall and left the stock-picking edge (the 1% out-
    - 1,500
    - [x] 150
    > Each contract covers 4,000 × $50 = $200,000, and $30,000,000 / $200,000 = 150 contracts.
+
+7. {#calc2} [calc] A $9.6 million portfolio has a beta of 1.25. E-mini futures are at 4,800 (multiplier $50). How many contracts hedge it fully?
+   - 40
+   - [x] 50
+   - 60
+   - 42
+   > The beta-adjusted exposure is $9.6M × 1.25 = $12M, and each contract is 4,800 × $50 = $240,000, so 50 contracts.

@@ -58,3 +58,10 @@ As with support and resistance, the main challenge is that channel boundaries ar
    - Stop-losses are required by regulation for all channel trades
    - Channel boundaries are always perfectly objective and never subjective
    > Since channel boundaries are drawn somewhat subjectively and can break down unexpectedly, a purely range-trading approach without a breakout plan or stop-loss risks large losses if the range fails to hold.
+
+6. {#calc1} [calc] A channel runs from $54 at the bottom to $62 at the top and the stock trades at $55. How far up the channel is it?
+   - 10%
+   - 87.5%
+   - 1.8%
+   - [x] 12.5%
+   > The position is ($55 − $54) / ($62 − $54) = 1 / 8 = 12.5%, near the lower bound where a range trader would buy.

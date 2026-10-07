@@ -56,3 +56,10 @@ In practice, the basis doesn't always converge cleanly, and several frictions ca
    - The basis is fixed by regulation and never changes
    - CDS contracts cannot be traded once issued
    > Despite being theoretically low-risk, negative basis trades face real-world frictions — financing costs, delivery mechanics, counterparty exposure, and market technicals — that can keep the basis persistently wide.
+
+6. {#calc1} [calc] A company's bond has a credit spread of 190 basis points and its CDS costs 150 basis points. What is the basis (CDS minus bond spread), and what does a trader earn on $10 million if it closes?
+   - +40 basis points, and about $40,000 a year
+   - [x] −40 basis points, and about $40,000 a year
+   - −40 basis points, and about $400,000 a year
+   - −340 basis points, and about $340,000 a year
+   > The basis is 150 − 190 = −40 basis points. Buying the bond and the protection locks in about 0.40% on $10M = $40,000 a year.

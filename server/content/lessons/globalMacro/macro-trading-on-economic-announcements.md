@@ -92,3 +92,10 @@ If the number had come in at the consensus of 180,000, there would have been no 
    - [x] $40,000
    - $50,000
    > The price fell 0.50 points, which is $500 per contract, and 80 × $500 = $40,000.
+
+7. {#calc2} [calc] A trader pays $4.50 for a straddle on a $100 stock before an announcement, and the stock jumps to $108. What is the profit per share?
+   - [x] $3.50
+   - $8.00
+   - $4.50
+   - −$4.50
+   > The straddle pays $8 (the call at 108 vs 100), and it cost $4.50, so the profit is $3.50 a share.

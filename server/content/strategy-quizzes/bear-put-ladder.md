@@ -31,3 +31,10 @@ slug: bear-put-ladder
    - [x] The uncovered extra short put turns the position into a large loss
    - The position is unaffected, because the extra short put is covered by the original long put
    > Below the lowest strike the position has an uncovered short put.
+
+5. {#calc1} [calc] A bear put ladder buys a 100 put and sells a 95 put and a 90 put, for no net premium. What is the payoff per share if the stock ends at 80?
+   - [x] −$5
+   - +$5
+   - −$20
+   - $0
+   > The long 100 put pays 20, while the short 95 put costs 15 and the short 90 put costs 10: 20 − 15 − 10 = −5.

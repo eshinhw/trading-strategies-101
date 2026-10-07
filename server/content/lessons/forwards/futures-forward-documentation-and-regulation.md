@@ -76,3 +76,10 @@ Each confirmation lists the asset, notional, forward price, delivery date and se
    - Because trade confirmations are only valid with a single counterparty
    - Because forwards can only legally be traded with one bank per company
    > Once the upfront legal documentation is in place with a given bank, every subsequent trade is much faster to execute — a real incentive to keep trading with already-documented counterparties.
+
+6. {#calc1} [calc] Two banks have forwards worth $6 million in one bank's favor and $2 million in the other's, under an ISDA netting agreement and a CSA with a $1 million threshold. How much collateral is posted?
+   - $4 million
+   - $5 million
+   - $8 million
+   - [x] $3 million
+   > The net exposure is $6M − $2M = $4M, and collateral covers the amount above the $1M threshold, so $3M.

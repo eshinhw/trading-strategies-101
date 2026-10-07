@@ -94,3 +94,17 @@ Investors accept the lower coupon because they also receive the right to convert
    - [x] $2.4 million
    - $4.8 million
    > The coupon saving is (6% − 2%) × $60,000,000 = $2,400,000 a year.
+
+7. {#calc2} [calc] A company with 18 million shares issues $50 million of convertibles at a conversion price of $25. How many new shares could be created, and what share of the enlarged company would they be?
+   - [x] 2 million shares, which is 10%
+   - 2 million shares, which is 11%
+   - 1.25 million shares, which is 6.5%
+   - 2 million shares, which is 2%
+   > $50M / $25 = 2 million shares, and 2 / (18 + 2) = 10% of the company after conversion.
+
+8. {#calc3} [calc] A company issues $40 million of convertibles at 3.5% instead of a 7% straight bond. How much interest does it save in a year?
+   - $2.8 million
+   - $0.7 million
+   - [x] $1.4 million
+   - $4.2 million
+   > The coupon saving is (7% − 3.5%) × $40,000,000 = $1,400,000.

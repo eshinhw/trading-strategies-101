@@ -88,3 +88,10 @@ An E-mini contract controls 7.5 times as much as a corn contract. A manager spre
    - Because only crude oil futures are traded by real institutions
    - Because the E-mini S&P is always the riskier contract
    > $225,000 versus $80,000 of notional exposure per contract is a large difference — a trader has to account for each market's actual contract size, not assume one size fits all.
+
+6. {#calc1} [calc] Gold futures are $2,000 an ounce and each contract is 100 ounces. How many contracts give $600,000 of exposure?
+   - 30
+   - [x] 3
+   - 0.3
+   - 6
+   > Each contract is 100 × $2,000 = $200,000, and $600,000 / $200,000 = 3 contracts.

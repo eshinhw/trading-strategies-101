@@ -95,3 +95,10 @@ The manager does not harvest distress as a factor. Each position is picked for a
    - $7.5 million, which is 60% of the class
    - [x] $7.5 million, which is 15% of the class
    > $60M / 8 = $7.5M per name, and $7.5M / $50M = 15% of the class, which is large enough to take part in how the case is resolved.
+
+7. {#calc2} [calc] A screen finds 18 catalyst situations out of 300 distressed bonds, and a $90 million fund spreads equally across them. How much goes into each, and what share of the universe is that?
+   - $0.3 million each, from 6% of the universe
+   - [x] $5 million each, from 6% of the universe
+   - $5 million each, from 18% of the universe
+   - $30 million each, from 6% of the universe
+   > $90M / 18 = $5M per name, and 18 / 300 = 6% of the universe.

@@ -92,3 +92,10 @@ The payout does not depend on the stock market, so it offsets the shortfall from
    - $4,000,000
    - $100,000
    > The shortfall is 4,600 − 4,350 = 250 degree days, and 250 × $4,000 = $1,000,000.
+
+7. {#calc2} [calc] A cooling-degree-day contract pays $3,000 for each day above 900. The summer has 1,060. What is the payout?
+   - $3,180,000
+   - $160,000
+   - $300,000
+   - [x] $480,000
+   > The excess is 1,060 − 900 = 160 days, and 160 × $3,000 = $480,000.

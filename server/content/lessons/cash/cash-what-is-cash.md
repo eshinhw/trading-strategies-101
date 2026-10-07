@@ -95,3 +95,10 @@ That $840,000 is the price of safety, and in the downturn it is what kept Compan
    - $100,000
    - [x] $500,000
    > The extra return forgone is (9% − 4%) × $10,000,000 = $500,000 a year. That is the price of liquidity and safety.
+
+7. {#calc2} [calc] A treasury holds $5 million at 0%, $8 million in T-bills at 4.2% and $12 million in 2-year notes at 4.8%. What is the blended yield?
+   - About 3.00%
+   - [x] About 3.65%
+   - About 4.50%
+   - About 4.80%
+   > The income is $8M × 4.2% + $12M × 4.8% = $0.336M + $0.576M = $0.912M on $25M, which is about 3.65%.

@@ -56,3 +56,10 @@ The drift tends to be strongest in smaller, less-covered stocks, where fewer ana
    - Stocks that never report earnings
    - Only stocks with no dividend
    > Fewer analysts and less trading activity in smaller names slow down how quickly the market fully processes and prices in an earnings surprise, producing a stronger and longer-lasting drift.
+
+6. {#calc1} [calc] Analysts expected earnings of $1.20 a share, the company reported $1.38, and past surprises have a standard deviation of $0.09. What is the standardized unexpected earnings (SUE) score?
+   - 0.18
+   - 1.15
+   - 15.3
+   - [x] 2.0
+   > The surprise is $1.38 − $1.20 = $0.18, and $0.18 / $0.09 = 2.0.

@@ -56,3 +56,10 @@ Because it draws on a richer information set than trailing return alone, alpha r
    - It eliminates the need for any rebalancing
    - It only works during market holidays
    > By drawing on more than just trailing return, alpha rotation aims to anticipate or confirm sector leadership shifts using information that raw price momentum alone wouldn't capture.
+
+6. {#calc1} [calc] A sector scores +1.5 on momentum (weight 50%), −0.5 on valuation (weight 30%) and +0.4 on low volatility (weight 20%). What is its composite alpha score?
+   - +1.40
+   - +0.47
+   - +0.20
+   - [x] +0.68
+   > 0.5 × 1.5 + 0.3 × (−0.5) + 0.2 × 0.4 = 0.75 − 0.15 + 0.08 = +0.68.

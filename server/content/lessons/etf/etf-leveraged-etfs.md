@@ -58,3 +58,17 @@ This decay effect is itself something traders try to exploit directly: a strateg
    - Volatility decay cannot be traded directly under any strategy
    - By only ever trading unleveraged ETFs
    > A short position in both directions of a leveraged pair can, under the right conditions, profit from the structural drag of daily rebalancing itself, rather than from betting on the underlying index's direction — though a strong sustained trend in either direction still poses a real risk to this trade.
+
+6. {#calc1} [calc] An index rises 10% one day and falls 10% the next. A 2x daily-reset ETF starting at $10,000 follows it. What is the ETF worth after the two days?
+   - [x] $9,600
+   - $10,000
+   - $9,900
+   - $9,800
+   > Day 1: +20% gives $12,000. Day 2: −20% gives $9,600. The index itself ended at 1.10 × 0.90 = 0.99, down only 1%, which is volatility decay.
+
+7. {#calc2} [calc] A 3x daily-reset ETF holds $50,000 and the index falls 2% in a day. What is the ETF worth afterwards?
+   - $49,000
+   - $44,000
+   - [x] $47,000
+   - $48,000
+   > The ETF falls 3 × 2% = 6%, and $50,000 × 0.94 = $47,000.

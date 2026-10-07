@@ -56,3 +56,10 @@ Because it favors bonds that hold up better in stressed markets, lower duration 
    - It selects bonds entirely at random
    - It only ever holds bonds issued by a single company
    > Rather than simply buying the shortest, safest bonds, the strategy tilts toward lower risk while still trying to maintain a reasonable yield by selecting carefully within maturity/credit buckets.
+
+6. {#calc1} [calc] Bond A has a duration of 3 and yields 4.2%. Bond B has a duration of 9 and yields 5.4%. How much yield does each pay per year of duration?
+   - A pays 1.4% and B pays 1.4%
+   - A pays 0.6% and B pays 1.4%
+   - [x] A pays 1.4% and B pays 0.6%
+   - A pays 4.2% and B pays 5.4%
+   > A: 4.2% / 3 = 1.4% per year of duration. B: 5.4% / 9 = 0.6%. The lower-risk bond pays more per unit of rate risk.

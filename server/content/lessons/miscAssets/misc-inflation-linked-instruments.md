@@ -94,3 +94,10 @@ The inflation-linked bond wins if inflation comes in above 2.5% and loses if it 
    - 1.35%
    - [x] 2.7%
    > Breakeven inflation is the yield gap: 4.8% − 2.1% = 2.7% a year.
+
+7. {#calc2} [calc] An inflation-linked bond yields a real 1.8% and the market's breakeven inflation is 2.6%. What does a nominal bond of the same maturity yield?
+   - About 0.8%
+   - [x] About 4.4%
+   - About 4.7%
+   - About 2.6%
+   > The nominal yield is the real yield plus breakeven inflation: 1.8% + 2.6% = 4.4%.

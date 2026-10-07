@@ -91,3 +91,10 @@ The same company runs the same business, but interest falls by $16 million a yea
    - 3.0 times
    - [x] 3.75 times
    > The remaining debt is $150M, so interest is $150M × 8% = $12M and coverage is $45M / $12M = 3.75 times (it was about 1.9 times before).
+
+7. {#calc2} [calc] A company owes 8% a year on $100 million of debt, and the automatic stay pauses interest for 6 months. How much interest does the company avoid paying in that time?
+   - $8 million
+   - [x] $4 million
+   - $0.4 million
+   - $2 million
+   > $100,000,000 × 8% × 0.5 = $4,000,000.

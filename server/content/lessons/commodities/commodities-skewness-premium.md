@@ -56,3 +56,17 @@ This risk profile, collecting a steady premium most of the time in exchange for 
    - Diversification guarantees the strategy will never experience a loss
    - Diversification eliminates the skewness premium entirely
    > Since any single commodity can experience its rare spike event at any time, spreading exposure across several uncorrelated skewed commodities reduces the risk of a single event wiping out the accumulated premium.
+
+6. {#calc1} [calc] A trader sells a call on 5,000 bushels for $0.12 a bushel, collecting $600. A weather scare pushes the price $0.50 above the strike. What is the net loss?
+   - $2,500
+   - $600
+   - $3,100
+   - [x] $1,900
+   > The call is worth $0.50 × 5,000 = $2,500 to the buyer, and the seller keeps $600, so the net loss is $1,900.
+
+7. {#calc2} [calc] A trader sells a spike-prone call for $600. 95% of the time it expires worthless and 5% of the time it costs $5,000 to settle. What is the expected profit?
+   - $600
+   - [x] $350
+   - $570
+   - $220
+   > The expected payout is 5% × $5,000 = $250, so the expected profit is $600 − $250 = $350. Without the spike risk, the premium would be the whole $600.

@@ -56,3 +56,10 @@ The central risk is that this strategy assumes the yield curve's shape stays rou
    - By never collecting any coupon payments
    - By shorting the bond immediately after purchase
    > The strategy specifically involves selling before maturity to capture the roll-down price gain in addition to coupon income, rather than holding to maturity where no further roll-down benefit remains.
+
+6. {#calc1} [calc] A bond yielding 4.0% with a duration of 7.5 rolls down the curve, and its yield falls 0.20 percentage points over a year with the curve unchanged. About what is the total return, counting coupon income?
+   - About 1.5%
+   - [x] About 5.5%
+   - About 4.0%
+   - About 9.5%
+   > The price gain is about 7.5 × 0.20% = 1.5%, and the coupon income is about 4.0%, so the total is about 5.5%.

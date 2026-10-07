@@ -56,3 +56,10 @@ This risk profile, small, steady gains most of the time, occasional larger losse
    - A charity with no revenue model
    - A business with no exposure to any form of risk
    > Carry strategies typically earn small, steady gains most of the time, punctuated by occasional larger losses when the underlying risk materializes — a pattern that resembles selling insurance.
+
+6. {#calc1} [calc] A $20 million bond position yields 5.5% and is funded at 4.0%. If nothing else changes, what is the annual carry?
+   - $1,100,000
+   - $800,000
+   - [x] $300,000
+   - $30,000
+   > The carry is (5.5% − 4.0%) × $20,000,000 = $300,000 a year.

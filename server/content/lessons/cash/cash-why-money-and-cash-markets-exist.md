@@ -89,3 +89,10 @@ The manufacturer has cash it does not need yet, and the bank needs cash for a sh
    - [x] About $100,000
    - About $10,000
    > Interest is $8,000,000 × 5% × 90/360 = $100,000.
+
+7. {#calc2} [calc] A bank borrows $200 million overnight at 5.1% a year (360-day basis). What does the night cost?
+   - [x] About $28,333
+   - About $10,200,000
+   - About $283,333
+   - About $1,020
+   > $200,000,000 × 5.1% / 360 ≈ $28,333.

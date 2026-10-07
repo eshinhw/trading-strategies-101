@@ -56,3 +56,17 @@ This structure is what makes gamma-hedged volatility risk premium strategies a g
    - It guarantees the position will never lose money
    - It removes the need for any option premium to be collected
    > By continuously neutralizing delta, gamma hedging strips out much of the dependence on the stock's final price relative to the strike, leaving a position whose profitability depends mainly on implied versus realized volatility.
+
+6. {#calc1} [calc] A delta-hedged short option position has gamma of −2,000 shares per $1 and collects $7,000 a day in time decay. The stock moves $3 in a day. What is the day's profit or loss? (gamma P&L = ½ × gamma × move²)
+   - +$16,000
+   - −$9,000
+   - [x] −$2,000
+   - +$7,000
+   > The gamma loss is ½ × 2,000 × 3² = $9,000 against +$7,000 of decay, so the day is −$2,000. Large moves overwhelm the premium.
+
+7. {#calc2} [calc] Implied volatility is 25%. About what daily move (one standard deviation, 252 days) must a $100 stock make for a delta-hedged short option to break even?
+   - [x] About $1.57
+   - About $25
+   - About $0.25
+   - About $6.25
+   > The daily break-even move is 25% / √252 × $100 ≈ $1.57. Moves bigger than that make the short option lose money.

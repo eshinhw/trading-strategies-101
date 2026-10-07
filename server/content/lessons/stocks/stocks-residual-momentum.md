@@ -56,3 +56,10 @@ Because it removes common factor exposure, residual momentum portfolios tend to 
    - It eliminates all risk from the strategy entirely
    - It only works on bonds, not stocks
    > By removing common factor exposure, residual momentum has been found in some studies to reduce the severe drawdowns that raw-return momentum can suffer during sharp market reversals.
+
+6. {#calc1} [calc] A stock returned 12% over a period when the market returned 8%. Its beta is 1.2. What is its residual return?
+   - [x] +2.4%
+   - +4.0%
+   - +9.6%
+   - −2.4%
+   > The market explains 1.2 × 8% = 9.6%, so the residual is 12% − 9.6% = +2.4%.

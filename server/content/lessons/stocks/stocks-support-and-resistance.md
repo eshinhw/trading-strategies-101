@@ -58,3 +58,10 @@ The core risk with support and resistance is that these levels are somewhat subj
    - Support and resistance levels never change once identified
    - There is no risk once a support or resistance level is identified
    > Because support and resistance levels are drawn from historical price action rather than a fixed rule, they carry some subjectivity, and trading a stale or imprecise level — or being wrong about a breakout — is how the approach can lose.
+
+6. {#calc1} [calc] A trader buys at $49 near support at $48 with a stop at $47.50 and a target at $54 near resistance. What is the reward-to-risk ratio?
+   - [x] About 3.3 to 1
+   - About 0.3 to 1
+   - About 1.1 to 1
+   - About 10 to 1
+   > The risk is $49 − $47.50 = $1.50 and the reward is $54 − $49 = $5.00, so reward / risk = 5.00 / 1.50 ≈ 3.3.

@@ -56,3 +56,17 @@ Historically, backwardation has often been linked to genuine physical scarcity o
    - Backwardation has no relationship to real-world physical market conditions
    - A commodity being permanently out of production
    > Backwardation often reflects real supply/demand tightness or hedging pressure from producers, meaning a roll-yield strategy is partly a bet on underlying physical market conditions, not just a mechanical harvesting of curve shape.
+
+6. {#calc1} [calc] A commodity's spot price is $80 and the next futures contract is $78 (backwardation). Rolling a $2 million long position earns the gap. What is the roll yield on one roll?
+   - $5,000
+   - [x] $50,000
+   - $2,000
+   - $100,000
+   > The gain is (80 − 78) / 80 = 2.5%, and 2.5% × $2,000,000 = $50,000.
+
+7. {#calc2} [calc] In contango, a $5 million long position sells the expiring contract at $80 and buys the next at $81.60. What does the roll cost?
+   - $5,000
+   - $80,000
+   - $1,600
+   - [x] $100,000
+   > The roll costs (81.60 − 80) / 80 = 2% of the position, and 2% × $5,000,000 = $100,000.

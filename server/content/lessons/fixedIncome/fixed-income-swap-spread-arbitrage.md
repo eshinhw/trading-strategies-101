@@ -56,3 +56,10 @@ Like other spread-arbitrage trades, the position is not risk-free: dealer balanc
    - Because swaps cannot be traded by any market participant
    - There is no risk in this trade once it is constructed
    > Structural factors like balance-sheet constraints can keep spreads away from their historical range for a long time, meaning the anticipated reversion may be delayed or not happen as expected, exposing the trade to real losses in the meantime.
+
+6. {#calc1} [calc] The 10-year swap rate is 4.35% and the 10-year Treasury yields 4.10%. The spread normally sits near 15 basis points. If it reverts, what is the profit at $6,000 per basis point?
+   - [x] $60,000
+   - $150,000
+   - $25,000
+   - $90,000
+   > The spread is 4.35% − 4.10% = 25 basis points. A reversion to 15 is a 10 basis point move, and 10 × $6,000 = $60,000.

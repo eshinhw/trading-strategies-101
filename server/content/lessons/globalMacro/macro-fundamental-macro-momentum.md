@@ -98,3 +98,10 @@ The strategy bets that a trend confirmed by growth and policy keeps going. It do
    - $1,500,000
    - [x] $900,000
    > Long A earns 6% × $10M = $600,000. The short in B earns 3% × $10M = $300,000. The total is $900,000.
+
+7. {#calc2} [calc] A country's GDP surprises over four quarters are +0.3, +0.5, +0.2 and +0.4 points, and the strategy goes long when the average exceeds +0.25. What is the average, and what does the strategy do?
+   - +0.35, so it stays out
+   - [x] +0.35, so it goes long
+   - +1.4, so it goes long
+   - +0.25, so it stays out
+   > (0.3 + 0.5 + 0.2 + 0.4) / 4 = 0.35, which is above 0.25.

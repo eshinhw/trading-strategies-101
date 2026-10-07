@@ -31,3 +31,10 @@ slug: diagonal-call-spread
    - The short call is assigned and shares are delivered
    - [x] The short call expires worthless, the premium was income, and the long call keeps most of its value
    > The trader can then repeat the cycle by selling another short-dated call.
+
+5. {#calc1} [calc] A trader buys a 60-day 90 call for $9.00 and sells a 30-day 105 call for $1.20. What is the net debit per contract?
+   - $1,020
+   - [x] $780
+   - $7.80
+   - $1,080
+   > The debit is $9.00 − $1.20 = $7.80 a share, and $7.80 × 100 = $780 per contract.

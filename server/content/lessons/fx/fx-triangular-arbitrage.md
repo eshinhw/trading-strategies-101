@@ -56,3 +56,10 @@ Because the opportunity is fleeting and the profit margin thin, capturing triang
    - Slow, careful analysis over several days before executing any trade
    - No special infrastructure is required at all
    > Because the opportunity is fleeting and thin, capturing it reliably requires speed and infrastructure typically associated with automated trading systems and market makers with low-latency access.
+
+6. {#calc1} [calc] EUR/USD is 1.1000, GBP/USD is 1.2800, and EUR/GBP is quoted at 0.8600. A trader converts $1,000,000 to euros, then to pounds, then back to dollars. What is the profit?
+   - About $7,270
+   - About $0
+   - About $72
+   - [x] About $727
+   > $1,000,000 / 1.10 = €909,091. × 0.86 = £781,818. × 1.28 ≈ $1,000,727, a profit of about $727 before costs.

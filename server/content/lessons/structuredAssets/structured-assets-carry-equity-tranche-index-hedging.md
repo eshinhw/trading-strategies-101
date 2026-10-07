@@ -98,3 +98,10 @@ $$
    - $257,200
    - [x] $242,800
    > The coupon is $5M × 5% = $250,000 and the index hedge costs $1.2M × 0.60% = $7,200, so the net carry is $242,800.
+
+8. {#calc2} [calc] An equity tranche of $5 million has an index delta of 0.30. What notional of the index protects it?
+   - $5 million
+   - [x] $1.5 million
+   - $16.7 million
+   - $0.3 million
+   > $5,000,000 × 0.30 = $1,500,000.

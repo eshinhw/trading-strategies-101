@@ -96,3 +96,10 @@ Hedging locks in a return of zero, which is what covered interest rate parity sa
    - About 1.1330
    - About 1.1000
    > F = 1.10 × (1.05 / 1.03) ≈ 1.1214. The higher-rate currency (the dollar) trades at a forward discount, so the euro is at a premium.
+
+7. {#calc2} [calc] USD/JPY is 150.00, the three-month dollar rate is 5% and the yen rate is 0.5%. What is the three-month forward rate?
+   - About ¥151.69
+   - About ¥150.00
+   - About ¥157.50
+   - [x] About ¥148.33
+   > F = 150 × (1 + 0.005 × 0.25) / (1 + 0.05 × 0.25) ≈ 148.33. The dollar has the higher interest rate, so it trades at a forward discount: fewer yen per dollar for delivery in three months.

@@ -88,3 +88,10 @@ The market looks busy, but most of the day's trading was existing positions chan
    - The contract's price limit was hit
    - Open interest and volume must always be equal
    > Because open interest only rose by 2,000 despite 50,000 in volume, the bulk of the day's trading was existing positions changing hands, not new exposure being added to the market.
+
+6. {#calc1} [calc] A futures contract quotes 99.95 bid and 100.05 ask. Each point is worth $100 and a trader buys 50 contracts at the ask and sells them back at the bid. What does crossing the spread cost?
+   - $5,000
+   - $50
+   - $10
+   - [x] $500
+   > The spread is 0.10 points, and 0.10 × $100 × 50 contracts = $500.

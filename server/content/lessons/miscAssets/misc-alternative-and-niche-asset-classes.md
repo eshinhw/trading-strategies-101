@@ -92,3 +92,10 @@ The operator does not want to speculate on gas. It wants to lock in the $22.50. 
    - [x] $648,000
    - $18,000
    > The spark spread is $50 − 8 × $4 = $18 per MWh, and $18 × 36,000 MWh = $648,000.
+
+7. {#calc2} [calc] A plant has a heat rate of 7. Gas costs $3 per MMBtu and power sells for $40 per MWh. How much margin does it earn on 25,000 MWh?
+   - [x] $475,000
+   - $1,000,000
+   - $525,000
+   - $19
+   > The spread is $40 − 7 × $3 = $19 per MWh, and $19 × 25,000 = $475,000.

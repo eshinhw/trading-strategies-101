@@ -56,3 +56,10 @@ A barbell's main advantage over a comparable-duration bullet shows up when the y
    - Barbells cannot be constructed using government bonds
    - There is no cost — barbells are strictly superior to bullets
    > The short-maturity bonds in a barbell typically yield less than intermediate-maturity bonds would, so the convexity benefit of the barbell structure often comes at some cost in current yield.
+
+6. {#calc1} [calc] A barbell puts half its money in a 2-year bond (duration 1.9) and half in a 20-year bond (duration 13.1). What is the portfolio's duration, and how does it compare with a 10-year bullet of duration 7.5?
+   - [x] 7.5, the same duration as the bullet
+   - 15.0, twice the bullet
+   - 7.5, but only because the bullet is longer
+   - 7.0, slightly less than the bullet
+   > The weighted duration is 0.5 × 1.9 + 0.5 × 13.1 = 7.5. The barbell matches the bullet's average duration but spreads it across two very different maturities.

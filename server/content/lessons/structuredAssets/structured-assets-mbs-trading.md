@@ -104,3 +104,10 @@ Principal bought at a discount and returned sooner at full face value boosts the
    - [x] $60,000
    - $2,000,000
    > The purchase price is $2,000,000 × 0.97 = $1,940,000, and getting $2,000,000 back is a gain of $60,000.
+
+8. {#calc2} [calc] A trader pays 103 for $3 million face of a pass-through. Principal is repaid at 100 sooner than expected. How much premium is lost if all of it is repaid at par?
+   - [x] $90,000
+   - $3,000
+   - $9,000
+   - $3,000,000
+   > The premium is 3 points on $3,000,000 = $90,000, and it is lost as principal returns at par.

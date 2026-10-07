@@ -31,3 +31,10 @@ slug: bear-call-ladder
    - Having to hold the position to expiration, because the adjustment closes the trade for a fixed result
    - [x] Closing everything and starting fresh, while turning a losing bearish trade into one that benefits from further strength
    > It reshapes the existing position rather than replacing it.
+
+5. {#calc1} [calc] A bear call ladder sells a 100 call and buys a 105 call and a 110 call, for no net premium. What is the payoff per share if the stock ends at 118?
+   - −$3
+   - +$18
+   - [x] +$3
+   - $0
+   > The short 100 call costs 18, while the long 105 call pays 13 and the long 110 call pays 8: −18 + 13 + 8 = +3.

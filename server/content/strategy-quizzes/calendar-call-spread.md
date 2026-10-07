@@ -31,3 +31,10 @@ slug: calendar-call-spread
    - There is no risk at all if the stock stays still, since time decay always favors the position
    - [x] The maximum loss is the net debit paid to open it
    > Because the long option is further out in time, the loss cannot exceed what was paid.
+
+5. {#calc1} [calc] A trader sells a 30-day call for $2.10 and buys a 60-day call at the same strike for $3.60. What is the net debit, and the most that can be lost per contract?
+   - [x] $1.50 per share, so $150
+   - $5.70 per share, so $570
+   - $1.50 per share, so unlimited
+   - $2.10 per share, so $210
+   > The debit is $3.60 − $2.10 = $1.50 a share, which is $150 for a 100-share contract. That debit is the most the spread can lose.

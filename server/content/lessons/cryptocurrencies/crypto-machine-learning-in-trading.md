@@ -93,3 +93,10 @@ Tune on the older data, then score the untouched 200 days once. A result of abou
    - 0.25%
    - 12.5%
    > √(0.25 / 400) = √0.000625 = 0.025, or 2.5%. A result within a couple of those of 50% is what no skill looks like.
+
+7. {#calc2} [calc] A model with no skill is tried with 20 settings, and the best scores 56.6% against a 50% baseline. The standard deviation of accuracy by chance is 3.5%. What is the z-score of that best result?
+   - About 0.5
+   - About 6.6
+   - [x] About 1.9
+   - About 16.2
+   > (56.6 − 50) / 3.5 ≈ 1.9. A result like that is common when you pick the best of 20, so it is weak evidence of skill.

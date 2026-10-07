@@ -102,3 +102,10 @@ Neither the split nor the swap moves the index. Only real changes in prices do.
    - About 0.857
    - [x] About 1.857
    > The index is (240 + 120 + 60) / 3 = 140. After the split the prices sum to 80 + 120 + 60 = 260, so the divisor must be 260 / 140 ≈ 1.857.
+
+7. {#calc2} [calc] A market-cap-weighted index has three stocks with caps of $500 billion (+4%), $300 billion (−1%) and $200 billion (+2%). What is the index return?
+   - +1.7%
+   - [x] +2.1%
+   - +5.0%
+   - +1.0%
+   > The weights are 50%, 30% and 20%: 0.5 × 4% + 0.3 × (−1%) + 0.2 × 2% = 2.0% − 0.3% + 0.4% = +2.1%.

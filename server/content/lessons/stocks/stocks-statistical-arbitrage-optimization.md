@@ -56,3 +56,10 @@ This portfolio-construction-as-optimization approach is what elevates statistica
    - Because optimization has no effect on the resulting portfolio
    - Because only one possible portfolio can ever be built from a given set of forecasts
    > How forecasts, risk, and costs are weighed and constrained in the optimization meaningfully shapes the resulting portfolio, which is why it's treated as a distinct step and discipline from generating the forecasts themselves.
+
+6. {#calc1} [calc] A stat-arb book has $200 million of gross positions, an expected alpha of 5 basis points a day, and it trades 30% of the book daily at a cost of 1.5 basis points of traded value. What is the expected daily profit after costs?
+   - [x] $91,000
+   - $100,000
+   - $9,000
+   - $109,000
+   > Alpha is $200M × 0.05% = $100,000. Trading $60M at 0.015% costs $9,000, so the net is $91,000.

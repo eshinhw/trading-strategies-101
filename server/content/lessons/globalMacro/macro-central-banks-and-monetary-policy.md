@@ -92,3 +92,10 @@ Three markets repriced from one piece of forward guidance, before the central ba
    - About $30,000
    - About $5,700
    > The price change is about 1.9 × 0.30% = 0.57%, and 0.57% × $10,000,000 = $57,000.
+
+7. {#calc2} [calc] An equity index rises from 5,000 to 5,100 after a signal of earlier rate cuts. What is the gain on a $2 million index position?
+   - $100,000
+   - $4,000
+   - $20,000
+   - [x] $40,000
+   > The index rose 100 / 5,000 = 2%, and 2% × $2,000,000 = $40,000.

@@ -96,3 +96,10 @@ Raising $100 million at 3% instead of a 7% plain bond saves $4 million a year. I
    - $15,000
    - $7,500
    > The shares are worth 50 × 25 × $60 = $75,000, and the cost was 50 × $1,050 = $52,500, so the gain is $22,500.
+
+7. {#calc2} [calc] A convertible pays a 2.5% coupon on $1,000 and converts into 25 shares paying a $0.40 dividend each. How much more income does holding the bond give than the shares?
+   - $10 a year
+   - $25 a year
+   - [x] $15 a year
+   - $35 a year
+   > The coupon is $25 and the dividends on 25 shares are 25 × $0.40 = $10, so the bond pays $15 more.

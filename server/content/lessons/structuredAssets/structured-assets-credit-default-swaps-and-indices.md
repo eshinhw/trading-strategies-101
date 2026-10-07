@@ -97,3 +97,10 @@ One trade gives exposure to all 125 names. Building the same position with singl
    - $8 million
    - $40 million
    > The CDS pays the loss: $20M × (1 − 40%) = $12M.
+
+7. {#calc2} [calc] A credit index has 125 names and $125 million of notional. One name defaults with a 35% recovery. What does the index protection pay?
+   - $1 million
+   - $350,000
+   - $43.75 million
+   - [x] $650,000
+   > Each name is $1M of notional, and the loss is 65% of that: $650,000.

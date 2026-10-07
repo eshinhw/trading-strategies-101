@@ -99,3 +99,10 @@ The muni's lower stated yield is more than made up for by the tax saved, but onl
    - 2.08%, so the muni is better
    - 3.2%, so the taxable bond is better
    > 3.2% / (1 − 0.35) ≈ 4.92%, which is above the 4.4% taxable yield.
+
+7. {#calc2} [calc] A muni yields 3.0% and a taxable bond yields 4.5%. At what tax rate are the two equally good?
+   - 30%
+   - 40%
+   - [x] 33.3%
+   - 1.5%
+   > Set 4.5% × (1 − t) = 3.0%, so t = 1 − 3.0 / 4.5 = 33.3%. Above that rate, the muni wins.

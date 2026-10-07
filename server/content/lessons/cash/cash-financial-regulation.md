@@ -84,8 +84,15 @@ Deliberately splitting deposits to stay under $10,000 is called structuring, and
    > The compliance burden isn't a presumption of guilt — it exists because a genuine cash business looks identical, on the surface, to one being used to launder money, so the reporting requirement applies broadly.
 
 6. {#calc1} [calc] A car wash splits a $14,000 cash deposit into two $7,000 deposits on the same day. The reporting threshold is $10,000 in a day. What is the position?
-   - Neither deposit reaches $10,000, so no report is needed
-   - [x] The deposits add up to $14,000, which is over the threshold, so a report is required (and splitting to avoid it is itself a crime)
+   - Neither deposit reaches $10,000, so no report is due
+   - [x] The deposits total $14,000, over the threshold, so a report is required
    - Only the second deposit is reported
-   - A report is needed only if the owner is suspected of something
+   - A report is due only if the owner is under suspicion
    > Deposits made on the same day are added together: $7,000 + $7,000 = $14,000 > $10,000. Deliberately splitting a deposit to stay under the threshold is called structuring.
+
+7. {#calc2} [calc] A lender charges 4% a month (simple interest) on a $500 loan. What annual rate is that, and does it break a 36% annual cap?
+   - 48% a year, so it is within the cap
+   - 4% a year, so it is within the cap
+   - 16% a year, so it is within the cap
+   - [x] 48% a year, so it breaks the cap
+   > 4% × 12 months = 48% a year, which is above the 36% cap that usury rules set.

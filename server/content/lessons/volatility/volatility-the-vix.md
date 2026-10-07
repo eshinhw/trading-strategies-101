@@ -91,3 +91,10 @@ A jump from 14 to 28 means other market participants are paying twice as much fo
    - About 225 points
    - About 1,300 points
    > The monthly move is 20% / √12 ≈ 5.8%, and 5.8% × 4,500 ≈ 260 points.
+
+7. {#calc2} [calc] The VIX is 25 and the S&P 500 is at 5,000. About how many index points is the expected one-day move (one standard deviation)?
+   - About 250 points
+   - About 1.6 points
+   - About 125 points
+   - [x] About 79 points
+   > The daily volatility is 25% / √252 ≈ 1.575%, and 1.575% × 5,000 ≈ 79 points.

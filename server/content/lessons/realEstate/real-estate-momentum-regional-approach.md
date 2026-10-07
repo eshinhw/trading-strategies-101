@@ -56,3 +56,10 @@ Regional real estate momentum can reverse just as sharply as it built up, and hi
    - Regional momentum only works in the opposite direction of stock momentum
    - Stock momentum requires ranking regions, not stocks
    > Both strategies rank a set of assets — stocks in one case, regions in the other — by trailing performance and tilt toward the top performers; the underlying ranking logic carries over directly.
+
+6. {#calc1} [calc] Region returns over the past year are A +9%, B +4% and C −2%. A momentum investor puts $3 million in the top region, which returns +6% next year. What is the gain?
+   - $270,000
+   - $120,000
+   - $60,000
+   - [x] $180,000
+   > The top region is A, and 6% × $3,000,000 = $180,000.

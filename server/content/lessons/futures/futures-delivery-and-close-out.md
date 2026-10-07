@@ -92,3 +92,10 @@ A trader who only wants price exposure never takes delivery. Closing out before 
    - A guaranteed $1,000 profit
    - The exchange's transaction fee
    > Buying the further-dated December contract at a $1 premium to the September contract just sold is a contango-driven roll cost — $1,000 on a 1,000-barrel contract, separate from whatever gain or loss was realized on September itself.
+
+7. {#calc1} [calc] A trader rolls 5 crude oil contracts (1,000 barrels each) by selling March at $82 and buying June at $84. What is the roll cost?
+   - $2,000
+   - $5,000
+   - $20,000
+   - [x] $10,000
+   > The extra $2 a barrel on 5 × 1,000 barrels is $10,000.

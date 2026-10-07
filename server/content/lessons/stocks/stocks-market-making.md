@@ -58,3 +58,10 @@ The central risk in market-making is adverse selection: on average, the people m
    - Widening spreads has no relationship to risk
    - To guarantee a fixed daily profit regardless of market conditions
    > Charging more for the service of continuously being available to trade helps offset the higher risk of adverse selection when the chance of trading against better-informed counterparties increases.
+
+6. {#calc1} [calc] A market maker quotes $20.00 bid and $20.06 ask. In an hour it buys 3,000 shares and sells 2,500. How much spread does it earn on the matched shares, and what is its inventory?
+   - $180, and it is long 500 shares
+   - $150, and it is short 500 shares
+   - [x] $150, and it is long 500 shares
+   - $30, and it is flat
+   > The matched 2,500 shares each earn the $0.06 spread: 2,500 × $0.06 = $150. It bought 500 more than it sold, so it is long 500 shares and will lower its quotes to sell them.

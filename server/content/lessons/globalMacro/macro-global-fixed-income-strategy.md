@@ -98,3 +98,10 @@ Leaving the currency open is a deliberate bet that it will help. A trader with n
    - −$150,000
    - +$470,000
    > The bond gain is 8 × 0.40% × $10M = $320,000, and the currency loss is 1.5% × $10M = $150,000, so the net is +$170,000.
+
+7. {#calc2} [calc] A trader is long one country's bonds and short another's, with a 100 basis point yield gap and a sensitivity of $8,000 per basis point on the spread. The gap narrows by 30 basis points. What is the profit?
+   - $800,000
+   - $24,000
+   - $30,000
+   - [x] $240,000
+   > 30 basis points × $8,000 = $240,000.

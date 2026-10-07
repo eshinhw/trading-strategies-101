@@ -56,3 +56,10 @@ Because the return on a single deal is capped, the stock can only converge up to
    - Because it guarantees a fixed return with no risk at all
    - Because it can only be used by insurance companies
    > Like selling insurance, the strategy earns small, consistent premiums (the deal spread) most of the time, but faces occasional large losses when a "claim" (a broken deal) occurs — which is why diversifying across many deals matters.
+
+6. {#calc1} [calc] A merger target trades at $47.50. The deal pays $50 with a 90% chance, and the shares would fall to $38 if it fails. What is the expected profit per share?
+   - $2.50
+   - [x] $1.30
+   - $10.00
+   - $0.00
+   > The expected value is 0.90 × $50 + 0.10 × $38 = $48.80, so the expected profit is $48.80 − $47.50 = $1.30 per share. A small expected gain carries a large downside if the deal breaks.

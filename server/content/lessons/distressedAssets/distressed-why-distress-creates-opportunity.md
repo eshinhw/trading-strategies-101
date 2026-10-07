@@ -90,3 +90,10 @@ The forced selling creates the discount, but the gain depends on the quality of 
    - About 17%
    - About 148.6%
    > The gain is $520 − $350 = $170, and $170 / $350 ≈ 48.6%.
+
+7. {#calc2} [calc] Forced selling drives a bond to 35 cents on the dollar, while an investor estimates a 55-cent recovery. What is the upside to that estimate?
+   - About 36.4%
+   - About 20%
+   - About 157%
+   - [x] About 57.1%
+   > The gain is 20 cents on a 35-cent price, and 20 / 35 ≈ 57.1%.

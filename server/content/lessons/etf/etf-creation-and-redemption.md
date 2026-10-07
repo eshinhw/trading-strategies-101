@@ -91,3 +91,10 @@ The new shares increase supply, which pushes the ETF's price down toward $100.00
    - [x] $30,000
    - $0
    > The participant buys the basket at $50.00 and sells the new shares at $50.30, a gain of $0.30 × 100,000 = $30,000.
+
+7. {#calc2} [calc] An ETF trades at $49.70 against a NAV of $50.00. A participant buys 50,000 shares and redeems them for the basket. What is the profit before costs?
+   - [x] $15,000
+   - $1,500
+   - $150,000
+   - $0.30
+   > The basket is worth $50.00 per share and the shares cost $49.70, a gain of $0.30 × 50,000 = $15,000.

@@ -88,3 +88,10 @@ $$
    - March
    - September
    > Z is the standard futures month code for December, following the F-G-H-J-K-M-N-Q-U-V-X-Z sequence covering January through December.
+
+6. {#calc1} [calc] A Treasury bond future is quoted at 118'08 (118 and 8/32). What is the value of a $100,000 contract at that price?
+   - [x] $118,250
+   - $118,080
+   - $118,008
+   - $118,800
+   > 8/32 = 0.25, so the price is 118.25% of $100,000 = $118,250.

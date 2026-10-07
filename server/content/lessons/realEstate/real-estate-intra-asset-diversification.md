@@ -56,3 +56,10 @@ Spreading across many properties and vehicles removes idiosyncratic, property-sp
    - Because holding more properties always increases risk
    - Because real estate portfolios are required to lose value in a downturn
    > Systematic, economy-wide forces hit the entire real estate market simultaneously, so no amount of property count or vehicle diversification within the asset class can offset that shared exposure.
+
+6. {#calc1} [calc] A $500,000 real estate allocation is split equally across five properties. One property falls 20% in value. What is the portfolio loss, compared with putting all $500,000 in that one property?
+   - $100,000, against $20,000
+   - $20,000, against $20,000
+   - $4,000, against $20,000
+   - [x] $20,000, against $100,000
+   > One property is $100,000 and a 20% fall costs $20,000, which is 4% of the portfolio. Concentrated in that property, the loss would be 20% × $500,000 = $100,000.

@@ -56,3 +56,17 @@ Because it's diversified across many currency pairs rather than concentrated in 
    - They are completely unaffected by risk-off episodes
    - They become impossible to trade during risk-off periods
    > During broad market stress, investors often flee riskier, higher-yielding currencies in favor of safe havens, causing the whole group of high-yielders to depreciate together — directly hurting a basket-wide long position in them.
+
+6. {#calc1} [calc] A strategy is long $2 million in each of the highest-yielding currencies (average yield 6.0%) and short $2 million of the lowest (average yield 1.0%). What is the annual carry if rates and exchange rates are unchanged?
+   - [x] $100,000
+   - $140,000
+   - $20,000
+   - $200,000
+   > The carry is the yield gap of 5.0% on $2,000,000 = $100,000 a year.
+
+7. {#calc2} [calc] A high-minus-low carry strategy earns 5% a year with 8% volatility. What is its return per unit of risk (ignoring the risk-free rate)?
+   - 1.6
+   - 0.4
+   - [x] 0.625
+   - 0.05
+   > 5% / 8% = 0.625.

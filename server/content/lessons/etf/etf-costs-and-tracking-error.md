@@ -94,3 +94,10 @@ Fund B costs about nine times as much, so Fund A is cheaper on both counts unles
    - $8,400
    - [x] $840
    > The fee gap is 0.21% a year, which is $40,000 × 0.21% = $84 a year, and $84 × 10 years = $840.
+
+7. {#calc2} [calc] An index returns 9.85% and an ETF with a 0.20% expense ratio returns 9.62%. How much of the shortfall is unexplained by the fee?
+   - 0.23%
+   - [x] 0.03%
+   - 0.20%
+   - 0.17%
+   > The shortfall is 9.85% − 9.62% = 0.23%, and the fee explains 0.20%, leaving 0.03% from trading and sampling.

@@ -90,3 +90,10 @@ The model loses money once costs are included, so the desk does not scale up. On
    - +0.54%
    - −0.10%
    > Before costs the edge is (0.54 − 0.46) × 1% = +0.08%. Subtracting the 0.10% cost leaves −0.02% per trade, so the model loses money.
+
+7. {#calc2} [calc] A model's out-of-sample hit rate is 52%, with average wins of 1.2% and losses of 0.8%, and trading costs of 0.10% per trade. What is the expected net result per trade?
+   - +0.24%
+   - +0.52%
+   - [x] +0.14%
+   - −0.10%
+   > Before costs: 0.52 × 1.2% − 0.48 × 0.8% = 0.624% − 0.384% = +0.24%. After the 0.10% cost it is +0.14%.

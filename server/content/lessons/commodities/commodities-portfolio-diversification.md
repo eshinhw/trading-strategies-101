@@ -56,3 +56,10 @@ The tradeoffs include that commodities futures-based exposure carries the same r
    - Commodities being completely risk-free
    - Commodities always outperforming stocks and bonds in any given year
    > Given the potential roll-yield drag and historically disappointing long-run standalone returns for some periods, the strongest argument for commodities in a portfolio is their low correlation and diversification value, not necessarily strong returns on their own.
+
+6. {#calc1} [calc] A portfolio is 90% stocks and bonds with 12% volatility and 10% commodities with 20% volatility, and the correlation is 0.1. About what is the portfolio's volatility?
+   - [x] About 11.2%
+   - About 12.8%
+   - About 13.6%
+   - About 9.0%
+   > Variance = 0.9² × 0.12² + 0.1² × 0.20² + 2 × 0.9 × 0.1 × 0.1 × 0.12 × 0.20 ≈ 0.0125, and the square root is about 11.2%, lower than the 12% of the stock-and-bond portfolio alone.

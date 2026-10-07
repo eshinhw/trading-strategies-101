@@ -87,3 +87,10 @@ The jewelry caps the lender's risk, so no credit check is needed. Collateral doe
    - 70%
    - 240%
    > Loan-to-value is the loan divided by the collateral's value: $240 / $800 = 30%, so the lender has a wide cushion if the borrower doesn't repay.
+
+7. {#calc2} [calc] A pawnbroker lends at most 30% of an item's appraised value. A borrower needs $450. What is the lowest appraisal that qualifies?
+   - $135
+   - $450
+   - $1,350
+   - [x] $1,500
+   > The loan is 30% of the appraisal, so the appraisal must be at least $450 / 0.30 = $1,500.

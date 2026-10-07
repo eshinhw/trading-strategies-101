@@ -56,3 +56,17 @@ A trader buys convertibles that look cheap on an OAS basis and can short similar
    - The strategy never involves any hedge of any kind
    - By buying the issuer's stock alone, with no bond position
    > The strategy pairs long cheap-OAS convertibles against short rich-OAS ones, frequently combined with a stock hedge so the trade isolates the spread view rather than the embedded option's stock sensitivity.
+
+6. {#calc1} [calc] A convertible yields 320 basis points over Treasuries, and the embedded conversion option is worth 140 basis points of spread. What is the option-adjusted spread?
+   - 460 basis points
+   - 140 basis points
+   - [x] 180 basis points
+   - 320 basis points
+   > Strip out the option: 320 − 140 = 180 basis points of spread for credit and liquidity.
+
+7. {#calc2} [calc] A convertible has an option-adjusted spread of 180 basis points against 250 for similar bonds, and its spread sensitivity is $3,000 per basis point. What is the gain if it reprices to 250?
+   - [x] $210,000
+   - $540,000
+   - $750,000
+   - $70,000
+   > The gap is 70 basis points, and 70 × $3,000 = $210,000.

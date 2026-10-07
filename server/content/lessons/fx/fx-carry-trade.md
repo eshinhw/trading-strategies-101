@@ -56,3 +56,17 @@ Because of this crash risk, carry trades tend to perform best during calm, low-v
    - Carry trade performance has no relationship to market volatility
    - Only during periods of extremely high inflation
    > Carry trades tend to do well when markets are calm and risk appetite is stable, and tend to suffer during broad risk-off episodes when investors flee riskier, higher-yielding currencies en masse.
+
+6. {#calc1} [calc] A trader borrows yen at 0.5% and invests $1 million equivalent in Australian dollars at 4.5%. The Australian dollar falls 3% against the yen. What is the net result for the year?
+   - +$40,000
+   - [x] +$10,000
+   - −$30,000
+   - +$70,000
+   > The carry is 4.5% − 0.5% = 4.0%, which is $40,000. The currency loss is 3% = $30,000, so the net is +$10,000.
+
+7. {#calc2} [calc] A carry trade earns a 4.0% yield gap. How far can the high-yield currency fall over the year before the trade loses money?
+   - 8.0%
+   - 2.0%
+   - 0.4%
+   - [x] 4.0%
+   > The carry cushions an exchange-rate loss of up to the yield gap, so a 4.0% fall breaks even.

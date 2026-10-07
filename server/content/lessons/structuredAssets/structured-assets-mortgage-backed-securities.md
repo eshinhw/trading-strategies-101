@@ -100,3 +100,10 @@ The investor gets little of the price gain when rates fall, and still absorbs th
    - $600,000
    - $3,000,000
    > The prepaid amount is $15M, and the rate falls from 6% to 4%, so the lost income is $15M × 2% = $300,000 a year.
+
+7. {#calc2} [calc] An $80 million pool at 5.5% sees 25% prepaid, and the cash is reinvested at 4.0%. How much annual income is lost?
+   - $1.1 million
+   - $800,000
+   - $3 million
+   - [x] $300,000
+   > The prepaid amount is $20M, and 5.5% − 4.0% = 1.5%, so $20M × 1.5% = $300,000.

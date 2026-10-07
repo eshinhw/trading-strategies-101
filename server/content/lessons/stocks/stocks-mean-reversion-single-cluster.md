@@ -58,3 +58,10 @@ Choosing the right cluster matters enormously: the stocks need to be similar eno
    - Clusters must always contain exactly ten stocks by convention
    - The cluster should include stocks from as many different industries as possible
    > If the grouped stocks don't actually share meaningful business or economic drivers, there's no real reason to expect one to revert toward the others' average — the strategy depends on the cluster being genuinely related, not just superficially similar.
+
+6. {#calc1} [calc] A stock falls 8% while its peer cluster falls 2%. The gap between a stock and its cluster usually has a standard deviation of 3%. What is the stock's z-score against the cluster?
+   - −6.0
+   - −2.7
+   - [x] −2.0
+   - +2.0
+   > The deviation is −8% − (−2%) = −6%, and −6% / 3% = −2.0, which is far enough below the group to be a buy candidate.

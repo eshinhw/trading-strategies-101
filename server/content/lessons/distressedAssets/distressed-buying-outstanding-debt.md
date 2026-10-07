@@ -91,3 +91,10 @@ One position can lose half its value, but across 40 the result is close to the +
    - $24 million
    - [x] $12 million
    > Each position has $5M of face value ($2M / 0.40). Recovery is $5M × 0.46 = $2.3M, a $0.3M profit, and 40 × $0.3M = $12M.
+
+7. {#calc2} [calc] Each distressed position's outcome has a standard deviation equal to 50% of its cost. If 25 independent positions of equal size are held, what is the portfolio's standard deviation?
+   - 50%
+   - [x] 10%
+   - 25%
+   - 2%
+   > Diversifying over independent positions divides the risk by the square root of 25 = 5, so 50% / 5 = 10%.

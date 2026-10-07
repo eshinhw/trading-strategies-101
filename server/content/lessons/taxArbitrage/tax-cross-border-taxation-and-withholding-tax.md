@@ -90,3 +90,10 @@ The two investors own the identical share and receive the identical dividend. Th
    - $4,000
    - $300
    > The first keeps $20,000 × 0.70 = $14,000 and the second keeps $20,000 × 0.85 = $17,000, a difference of $3,000.
+
+7. {#calc2} [calc] A $40,000 dividend has 25% withheld at the source. How much does the investor receive?
+   - $10,000
+   - $37,500
+   - $15,000
+   - [x] $30,000
+   > 25% × $40,000 = $10,000 is withheld, leaving $30,000.

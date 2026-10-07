@@ -56,3 +56,10 @@ Value and momentum have historically shown low or even negative correlation to e
    - Combining them guarantees a higher return than either alone
    - Regulations require pairing every value strategy with a momentum strategy
    > Value and momentum tend to like different stocks at different times, so combining them can smooth out a portfolio's reliance on any single factor being in favor.
+
+6. {#calc1} [calc] A stock trades at $45 with earnings of $3 per share, and its peers trade at an average P/E of 18. How much cheaper is the stock than its peers on P/E?
+   - About 20%
+   - [x] About 16.7%
+   - About 3.0%
+   - About 40%
+   > The stock's P/E is $45 / $3 = 15. Against 18, it is (18 − 15) / 18 ≈ 16.7% cheaper.

@@ -95,3 +95,10 @@ The plan pairs better recovery for junior creditors with funding the company nee
    - [x] $7 million
    - $14 million
    > The difference is 22 − 8 = 14 cents on the dollar, and 14% × $50M = $7M.
+
+7. {#calc2} [calc] An investor provides $40 million of exit financing at 11%. How much interest does the company pay each year?
+   - [x] $4.4 million
+   - $0.44 million
+   - $44 million
+   - $29.1 million
+   > $40,000,000 × 11% = $4,400,000.

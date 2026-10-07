@@ -100,3 +100,10 @@ The plant ends with the margin it locked in, in whichever direction electricity 
    - $27
    - [x] $540,000
    > The spread is $55 − 7 × $4 = $27 per MWh, and $27 × 20,000 MWh = $540,000.
+
+7. {#calc2} [calc] A plant hedges 40,000 MWh of power at a heat rate of 7.2. How many MMBtu of gas does it buy?
+   - 40,000 MMBtu
+   - [x] 288,000 MMBtu
+   - 5,555 MMBtu
+   - 7.2 million MMBtu
+   > The gas needed is 40,000 MWh × 7.2 MMBtu per MWh = 288,000 MMBtu.

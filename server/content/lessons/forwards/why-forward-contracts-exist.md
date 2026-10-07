@@ -77,3 +77,10 @@ Both sides pay or receive exactly $6.00 a bushel whatever wheat does, so neither
    - They are the same instrument
    - Forwards were created to replace options
    > The forward is the simplest derivative, and later instruments were built to address its limits in counterparty risk, exit, and optionality.
+
+6. {#calc1} [calc] A farmer agrees a forward at $6.25 for 8,000 bushels, and the harvest-time price is $5.60. How much better off is the farmer than selling at the market price?
+   - [x] $5,200
+   - $50,000
+   - $44,800
+   - $520
+   > The forward fixes $6.25 × 8,000 = $50,000, against 8,000 × $5.60 = $44,800 in the market, so the farmer is $5,200 better off.

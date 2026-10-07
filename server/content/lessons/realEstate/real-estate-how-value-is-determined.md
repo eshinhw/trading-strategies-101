@@ -102,3 +102,10 @@ A gap that size is a signal to investigate. Here it points to leases priced well
    - $60,000,000
    - [x] $6,000,000
    > Value is income divided by the cap rate: $450,000 / 0.075 = $6,000,000.
+
+7. {#calc2} [calc] An 18,000-square-foot building is valued at $320 per square foot by comparables, and at $5.9 million by the income approach. How far apart are the two?
+   - About 10%
+   - [x] About 2.4%
+   - About 0.2%
+   - About 24%
+   > The comparables value it at 18,000 × $320 = $5.76M. The gap is ($5.9M − $5.76M) / $5.76M ≈ 2.4%.

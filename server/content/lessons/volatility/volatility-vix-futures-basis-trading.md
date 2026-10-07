@@ -56,3 +56,17 @@ The central risk is that VIX behavior in a real crisis doesn't follow the "norma
    - VIX futures cannot be traded during any market condition
    - The basis is always exactly zero and never changes
    > A basis trade built on typical, calm-period relationships can suffer outsized losses if a genuine volatility spike behaves unusually relative to historical patterns.
+
+6. {#calc1} [calc] The VIX is 16 and the one-month VIX future is 18.5. Each point is worth $1,000 per contract. If the future converges to the spot level and nothing else changes, what does a short of 10 contracts earn?
+   - [x] $25,000
+   - $2,500
+   - $185,000
+   - $160,000
+   > The basis is 18.5 − 16 = 2.5 points, and 2.5 × $1,000 × 10 contracts = $25,000.
+
+7. {#calc2} [calc] VIX is 30 and the one-month future is 26 (backwardation). Each point is worth $1,000. If the future converges to spot, what does a long of 5 contracts earn?
+   - $4,000
+   - $30,000
+   - [x] $20,000
+   - $26,000
+   > The future would rise 4 points, and 4 × $1,000 × 5 = $20,000.

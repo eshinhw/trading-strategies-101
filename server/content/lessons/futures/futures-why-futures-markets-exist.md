@@ -84,3 +84,10 @@ One trade between a farmer and a trading firm gives the elevator, and everyone e
    - Because futures prices are always higher than cash prices
    - Because the elevator is required to trade futures itself
    > The elevator leans on the futures market's public price precisely because it's the best available real-time estimate, produced by the combined activity of hedgers, speculators, and liquidity providers.
+
+6. {#calc1} [calc] Wheat futures are $6.20 and the local elevator pays the futures price less $0.30. How much does a farmer receive for 25,000 bushels?
+   - $155,000
+   - $7,500
+   - [x] $147,500
+   - $162,500
+   > The cash price is $6.20 − $0.30 = $5.90, and $5.90 × 25,000 = $147,500.

@@ -56,3 +56,10 @@ These trades are often motivated by a view on monetary policy and the economic c
    - Central banks directly set both the 2-year and 10-year yields to be identical at all times
    - Curve-spread trades are unrelated to monetary policy
    > Because short-term yields are more directly influenced by near-term policy expectations, shifts in the expected policy path tend to move the short end more than the long end, which curve-spread trades are designed to capture.
+
+6. {#calc1} [calc] A steepener is duration-matched at $8,000 per basis point per leg. The 2s10s spread widens from 80 to 110 basis points. What is the profit?
+   - $80,000
+   - $880,000
+   - $30,000
+   - [x] $240,000
+   > The spread widened 30 basis points, so the profit is 30 × $8,000 = $240,000, whatever happened to the overall level of rates.

@@ -56,3 +56,10 @@ The dual-momentum framework, popularized in the context of simple asset-class ro
    - Its guarantee of outperforming every other strategy in this course
    - Its requirement to hold every sector at all times
    > Dual momentum achieves meaningful downside protection using a lean framework built entirely from trailing-return comparisons, without needing a separate technical layer.
+
+6. {#calc1} [calc] Trailing sector returns are tech +0.6%, energy −2% and health −4%, and Treasury bills returned +1.0%. Dual momentum holds the top sector only if it beats bills. What does it hold?
+   - Tech, since it is the top sector
+   - Energy, since it fell least among the losers
+   - [x] Cash, since the best sector (tech, +0.6%) trails bills (+1.0%)
+   - Health, since it is the cheapest
+   > Relative momentum picks tech, but absolute momentum requires its return to beat the +1.0% from bills. +0.6% does not, so the money goes to cash.

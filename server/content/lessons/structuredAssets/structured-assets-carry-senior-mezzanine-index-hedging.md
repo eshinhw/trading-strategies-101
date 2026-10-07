@@ -95,3 +95,10 @@ The net carry pays for the risk that losses climb far enough up the structure to
    - $9,000
    - $150,000
    > $150,000 in coupon collected minus $9,000 paid on the index hedge leaves roughly $141,000 a year in net carry, compensating for the tranche-specific risk that survives the hedge.
+
+7. {#calc1} [calc] A trader sells protection on a $12 million mezzanine tranche at 160 basis points and hedges with $1.8 million of the index at 60 basis points. What is the net annual carry?
+   - $192,000
+   - $10,800
+   - [x] $181,200
+   - $202,800
+   > The coupon is $12M × 1.60% = $192,000 and the hedge costs $1.8M × 0.60% = $10,800, so the net is $181,200.

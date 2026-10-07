@@ -58,3 +58,17 @@ The strategy's central risk is the same as for any mean-reversion approach: not 
    - Mean-reversion strategies never use a lookback window
    - The lookback window is always exactly one trading day
    > Because mean-reversion targets short-term deviations rather than sustained directional moves, it uses a shorter moving-average window than a long-term trend-following approach would.
+
+6. {#calc1} [calc] An ETF's 20-day average price is $100 with a standard deviation of $2. It closes at $95.50. What is the z-score?
+   - −4.5
+   - −2.0
+   - [x] −2.25
+   - −0.045
+   > The z-score is ($95.50 − $100) / $2 = −2.25, which is far enough below its average to be a buy signal.
+
+7. {#calc2} [calc] An ETF is bought at $94 with a target at its average of $100 and a stop at $91. What is the reward-to-risk ratio?
+   - [x] 2 to 1
+   - 1 to 2
+   - 6 to 1
+   - 3 to 1
+   > The reward is $100 − $94 = $6 and the risk is $94 − $91 = $3, so reward / risk = 2.

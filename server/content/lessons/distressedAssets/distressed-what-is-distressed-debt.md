@@ -90,3 +90,10 @@ The price alone says nothing. The decision depends on the recovery the investor 
    - About 142.9%
    - About 41.2%
    > The drop is 50 cents on 85, and 50 / 85 ≈ 58.8%.
+
+7. {#calc2} [calc] A bond trades at 30 cents. An analyst sees a 40% chance of a 20-cent recovery and a 60% chance of a 58-cent recovery. What is the expected recovery?
+   - 39 cents
+   - 58 cents
+   - [x] 42.8 cents
+   - 30 cents
+   > 0.40 × 20 + 0.60 × 58 = 8 + 34.8 = 42.8 cents, above the 30-cent price.

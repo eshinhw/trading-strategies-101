@@ -56,3 +56,17 @@ Variance swaps are typically used by more sophisticated institutional participan
    - Because variance swaps only pay out on the exact settlement date
    - Large moves have no effect on a variance swap's payoff
    > Since variance is volatility squared, the swap's payoff scales quadratically with the size of underlying moves, giving large moves a disproportionately large effect compared to what a "volatility" swap (linear) would produce.
+
+6. {#calc1} [calc] A variance swap has a strike of 20 and a vega notional of $10,000. Realized volatility ends at 25. The payoff is vega notional × (realized² − strike²) / (2 × strike). What does the buyer receive?
+   - $50,000
+   - $45,000
+   - [x] $56,250
+   - $12,500
+   > The payoff is $10,000 × (625 − 400) / 40 = $56,250. It is larger than a simple $50,000 because the contract pays on variance.
+
+7. {#calc2} [calc] A variance swap has a strike of 22 and a vega notional of $10,000. Realized volatility is 18. Using vega notional × (strike² − realized²) / (2 × strike), what does the seller of variance earn?
+   - [x] About $36,364
+   - $40,000
+   - $20,000
+   - About $2,900
+   > The payoff is $10,000 × (484 − 324) / 44 ≈ $36,364.

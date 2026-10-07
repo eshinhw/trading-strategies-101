@@ -97,3 +97,10 @@ Rent is the income return. The gain at sale is a second payoff, separate from th
    - [x] 36%
    - 51%
    > Income is 3 × $140,000 = $420,000 and the sale gain is $300,000, which is $720,000 on $2,000,000 = 36%.
+
+7. {#calc2} [calc] A building costs $2.4 million and earns $168,000 of net operating income. What is its cap rate?
+   - [x] 7%
+   - 14.3%
+   - 1.7%
+   - 0.07%
+   > The cap rate is income divided by price: $168,000 / $2,400,000 = 7%.

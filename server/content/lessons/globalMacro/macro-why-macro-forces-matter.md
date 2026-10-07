@@ -92,3 +92,10 @@ One view moves every asset class, and the best vehicle depends on what each pric
    - [x] $80,000
    - $40,000
    > Only 0.5 − 0.4 = 0.1 percentage point is left, and 8 × 0.1% × $10M = $80,000.
+
+7. {#calc2} [calc] A bond yields 5% when inflation is 3%. What is the approximate real yield?
+   - [x] About 2%
+   - About 8%
+   - About 15%
+   - About 1.7%
+   > The real yield is roughly the nominal yield minus inflation: 5% − 3% = 2%.

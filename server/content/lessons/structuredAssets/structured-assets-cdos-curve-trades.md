@@ -115,3 +115,10 @@ The trade profits from the gap widening, not from the overall level of spreads.
    - $160,000
    - [x] $200,000
    > The gap widened by 40 basis points, and 40 × $5,000 = $200,000. A parallel move in the level of spreads would not change the result.
+
+8. {#calc2} [calc] A flattener is duration-matched at $4,000 per basis point. The curve gap narrows from 130 to 90 basis points. What is the profit?
+   - $40,000
+   - [x] $160,000
+   - $520,000
+   - $360,000
+   > The gap moved 40 basis points in the trade's favor, and 40 × $4,000 = $160,000.

@@ -93,3 +93,10 @@ A mailing address is not enough. If the treaty benefit is denied, the full $300,
    - $600,000
    - $12,000
    > The saving is (30% − 15%) × $800,000 = $120,000, provided the structure has real substance.
+
+7. {#calc2} [calc] A $2 million dividend faces a 25% default withholding rate, but a treaty rate of 5% applies to a qualifying entity. How much does the treaty save?
+   - $500,000
+   - $100,000
+   - $600,000
+   - [x] $400,000
+   > The saving is (25% − 5%) × $2,000,000 = $400,000.

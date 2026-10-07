@@ -91,3 +91,10 @@ A low loan-to-value of 30% leaves the lender a wide cushion, and that is why no 
    - $348
    - $300
    > Interest is $300 × 4% × 3 = $36, so the repayment is $300 + $36 = $336.
+
+7. {#calc2} [calc] A borrower defaults on a $270 pawn loan, and the pawnbroker resells the item, appraised at $900, for 70% of the appraisal. How much more than the loan does the pawnbroker receive?
+   - $630
+   - $270
+   - $900
+   - [x] $360
+   > The item sells for 0.70 × $900 = $630, which is $630 − $270 = $360 more than was lent.

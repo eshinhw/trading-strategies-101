@@ -96,3 +96,10 @@ The fund ends with a majority of the equity in a viable business. It paid $82.5 
    - $55 million
    - $45 million
    > The fund owns half the class, so it receives half of $160M = $80M. It paid $100M × 0.55 = $55M, so the profit is $25M.
+
+7. {#calc2} [calc] A fund buys $60 million face of a $100 million senior class at 50 cents. After reorganization the class receives all of an equity stake worth $90 million. What is the fund's profit?
+   - $54 million
+   - $30 million
+   - [x] $24 million
+   - $60 million
+   > The fund owns 60% of the class, so it gets 60% × $90M = $54M. It paid $60M × 0.50 = $30M, so the profit is $24M.

@@ -96,3 +96,10 @@ Because of those extra risks, crypto controls are usually more conservative than
    - [x] $20,000
    - $100,000
    > Equal risk means position × volatility is equal: $100,000 × 1% = $1,000, and $1,000 / 5% = $20,000.
+
+7. {#calc2} [calc] A $50,000 position has daily volatility of 5%. What is the one-day 95% loss estimate (1.65 standard deviations)?
+   - [x] $4,125
+   - $2,500
+   - $8,250
+   - $825
+   > 1.65 × 5% × $50,000 = $4,125.

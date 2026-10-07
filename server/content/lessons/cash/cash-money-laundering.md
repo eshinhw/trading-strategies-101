@@ -86,3 +86,10 @@ The alert does not prove laundering. It identifies activity that needs a human r
    - About 9.5 times
    - About 38 times
    > The week's total is 4 × $9,500 = $38,000, and $38,000 / $3,000 ≈ 12.7. Deposits just under $10,000 repeated like this are a classic structuring alert.
+
+7. {#calc2} [calc] A monitoring rule flags more than $25,000 deposited in 7 days when each deposit is between $8,000 and $9,999. A customer makes three $9,200 deposits in a week. What is the total, and is it flagged?
+   - $27,600, and no
+   - $18,400, and yes
+   - $9,200, and no
+   - [x] $27,600, and yes
+   > 3 × $9,200 = $27,600, which is above $25,000, and each deposit sits in the $8,000 to $9,999 band, so the alert fires.

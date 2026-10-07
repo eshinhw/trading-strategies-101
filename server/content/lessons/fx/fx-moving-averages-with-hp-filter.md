@@ -56,3 +56,10 @@ Like any trend-following approach, this strategy still depends on genuine, susta
    - Yes, but only for major currency pairs
    - The filter has no relationship to whether a trend exists
    > The HP filter is a noise-reduction tool, not a trend-creation tool — in truly choppy markets, even a filtered signal can still generate false whipsaws, just less often than an unfiltered one.
+
+6. {#calc1} [calc] An HP-filtered EUR/USD trend rises from 1.0800 to 1.0860 over 10 trading days. What is the average daily drift in pips (1 pip = 0.0001)?
+   - 60 pips a day
+   - [x] 6 pips a day
+   - 0.6 pips a day
+   - 0.006 pips a day
+   > The change is 0.0060, which is 60 pips, and 60 / 10 days = 6 pips a day.

@@ -85,3 +85,10 @@ Reaching that level pauses trading for a few minutes, giving the market time to 
    - Only physically-settled agricultural futures
    - Circuit breakers are never used in any futures market
    > Circuit breakers are especially associated with broad equity index futures, where a fast, large move can trigger a brief, market-wide trading halt rather than a simple price cap.
+
+6. {#calc1} [calc] Corn has a daily limit of $0.30 a bushel, and a contract is 5,000 bushels. A trader is short 4 contracts when corn closes limit-up. What is the one-day loss?
+   - [x] $6,000
+   - $1,500
+   - $600
+   - $24,000
+   > The loss is $0.30 × 5,000 × 4 = $6,000.

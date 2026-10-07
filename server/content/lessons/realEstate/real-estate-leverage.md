@@ -87,3 +87,10 @@ The same price move changes Buyer A's result five times as much, in both directi
    - The number of years remaining on the mortgage
    - The property's appreciation rate over the past decade
    > LTV is the standard measure of leverage in a real estate position — a higher LTV means more borrowed capital relative to the property's value, and less equity cushion.
+
+6. {#calc1} [calc] An investor buys a $400,000 property with 25% down. The property rises 8%. What is the return on the investor's cash?
+   - [x] 32%
+   - 8%
+   - 24%
+   - 16%
+   > The gain is 8% × $400,000 = $32,000 on $100,000 of cash, which is 32%.

@@ -56,3 +56,10 @@ In exchange for that approximation risk, a subset portfolio meaningfully cuts tr
    - It eliminates all correlation risk from the trade
    - It requires holding every stock in the index anyway
    > The subset approach is a deliberate tradeoff — some precision given up in exchange for a meaningfully lower cost and complexity to implement and maintain.
+
+6. {#calc1} [calc] A full dispersion trade needs 50 option positions at $1,500 of setup cost each. A subset version uses 15 positions. How much cheaper is the subset to set up?
+   - $22,500
+   - $75,000
+   - $35,000
+   - [x] $52,500
+   > The full basket costs 50 × $1,500 = $75,000, and the subset costs 15 × $1,500 = $22,500, a saving of $52,500.

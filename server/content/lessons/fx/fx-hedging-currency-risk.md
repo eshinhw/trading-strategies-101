@@ -92,3 +92,10 @@ The exporter receives $1,105,500 in every case. It gives up the chance of the ex
    - $550,000
    - $2,000
    > Hedged proceeds are 500,000 × 1.10 = $550,000, against 500,000 × 1.06 = $530,000 unhedged, a saving of $20,000.
+
+7. {#calc2} [calc] EUR/USD spot is 1.1000 and the three-month forward is 1.1055. What are the forward points, and the forward premium as an annual rate?
+   - 55 pips, about 0.5% a year
+   - 5.5 pips, about 2.0% a year
+   - [x] 55 pips, about 2.0% a year
+   - 55 pips, about 8.0% a year
+   > The gap is 0.0055 = 55 pips. As a rate, 0.0055 / 1.1000 = 0.5% for three months, or about 2.0% a year.

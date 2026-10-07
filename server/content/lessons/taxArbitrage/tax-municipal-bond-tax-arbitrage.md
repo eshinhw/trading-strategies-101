@@ -99,3 +99,10 @@ The trader captures the spread while the mispricing lasts. The risk is that it w
    - 3.4%
    - [x] 5.0%
    > The taxable-equivalent yield is 3.4% / (1 − 0.32) = 5.0%. If a comparable taxable bond yields less than that, the muni looks cheap.
+
+7. {#calc2} [calc] A muni yields 3.0% and an investor's tax rate is 40%. What is the taxable-equivalent yield?
+   - 1.8%
+   - [x] 5.0%
+   - 4.2%
+   - 3.0%
+   > 3.0% / (1 − 0.40) = 5.0%. Against a taxable bond at 4.4%, the muni is the better choice.

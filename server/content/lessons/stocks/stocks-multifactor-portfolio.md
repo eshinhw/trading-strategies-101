@@ -56,3 +56,10 @@ Multifactor portfolios trade off peak performance for consistency: a single-fact
    - There is no meaningful tradeoff at all
    - Multifactor portfolios cannot be constructed using standardized scores
    > Combining factors sacrifices some peak performance in a single factor's best years in exchange for more consistent, less extreme performance over the full cycle.
+
+6. {#calc1} [calc] A stock has z-scores of +1.2 on value, −0.4 on momentum and +0.8 on quality. With equal weights, what is its composite score?
+   - +1.6
+   - +0.80
+   - [x] About +0.53
+   - −0.40
+   > The average is (1.2 − 0.4 + 0.8) / 3 = 1.6 / 3 ≈ 0.53.

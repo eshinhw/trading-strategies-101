@@ -91,3 +91,10 @@ A passive bondholder in the same class would have had to accept the warrants. Th
    - $0.45 million
    - $8.1 million
    > Face value held is 12% × $150M = $18M. Cost is $18M × 0.40 = $7.2M, and recovery is $18M × 0.45 = $8.1M, so the profit is $0.9M.
+
+7. {#calc2} [calc] A reorganized company's equity is worth $120 million. An $80 million unsecured class receives 25% of it. How many cents on the dollar does the class recover?
+   - 25 cents
+   - 66.7 cents
+   - [x] 37.5 cents
+   - 150 cents
+   > The class gets 25% × $120M = $30M, and $30M / $80M = 37.5 cents on the dollar.

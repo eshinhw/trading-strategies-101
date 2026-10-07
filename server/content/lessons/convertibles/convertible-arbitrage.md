@@ -56,3 +56,17 @@ As the stock price moves, the convertible's delta changes, so the position's hed
    - Only the convertible's own coupon payment is a cost
    - The strategy has zero exposure to the issuer's creditworthiness
    > Rebalancing costs, stock borrow costs, and issuer credit risk are all real frictions that reduce the strategy's net profitability despite its largely market-neutral design.
+
+6. {#calc1} [calc] A convertible converts into 20 shares and has a delta of 0.6. A fund buys 500 bonds. How many shares does it short to hedge?
+   - 10,000 shares
+   - 600 shares
+   - [x] 6,000 shares
+   - 12,000 shares
+   > Each bond behaves like 20 × 0.6 = 12 shares, and 500 × 12 = 6,000 shares.
+
+7. {#calc2} [calc] A fund buys 500 convertible bonds, each convertible into 25 shares with a delta of 0.55. How many shares does it short?
+   - [x] 6,875
+   - 12,500
+   - 13,750
+   - 275
+   > The hedge is 500 × 25 × 0.55 = 6,875 shares.

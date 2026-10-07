@@ -56,3 +56,10 @@ Because the dollar often serves as a safe-haven currency during periods of globa
    - Risk-off episodes have no effect on currency markets
    - A short-dollar position is always risk-free
    > Because the dollar tends to strengthen during global market stress as a safe haven, a position betting on dollar weakness can be hit hard by a sudden risk-off-driven dollar rally, independent of interest-rate differentials.
+
+6. {#calc1} [calc] U.S. rates are 5.0% against a global average of 3.2%, so the rule goes long the dollar with $5 million. What is the annual carry?
+   - [x] $90,000
+   - $250,000
+   - $160,000
+   - $18,000
+   > The differential is 1.8%, and 1.8% × $5,000,000 = $90,000.

@@ -97,3 +97,10 @@ Both investors are exposed to the same loans. The only difference is where each 
    - 3.8%
    - 38%
    > Senior pays $7.0M and mezzanine pays $3.2M, leaving $14.0M − $10.2M = $3.8M for the equity, and $3.8M / $20M = 19%.
+
+7. {#calc2} [calc] A $120 million pool has a $84 million senior tranche, a $24 million mezzanine and a $12 million equity tranche. It loses $20 million. How much of that does the mezzanine absorb?
+   - $20 million
+   - $12 million
+   - [x] $8 million
+   - $0
+   > The equity tranche absorbs the first $12M, and the remaining $8M falls on the mezzanine, which is a third of that tranche.

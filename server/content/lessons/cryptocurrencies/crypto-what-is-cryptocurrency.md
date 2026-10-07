@@ -90,3 +90,10 @@ No bank approves either transfer, and the process is the same whether the amount
    - 20%
    - [x] 2%
    > $4 / $200 = 2%. The fee does not scale with the amount, so it is a small share of a large transfer and a big share of a small one.
+
+7. {#calc2} [calc] A bitcoin transfer pays a fee of 5,000 satoshis (1 bitcoin is 100,000,000 satoshis) when bitcoin is $60,000. What is the fee in dollars?
+   - $300
+   - [x] $3.00
+   - $30
+   - $0.30
+   > 5,000 / 100,000,000 = 0.00005 bitcoin, and 0.00005 × $60,000 = $3.00.

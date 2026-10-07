@@ -93,3 +93,10 @@ The unlicensed loan costs more than 28 times as much in interest ($650 vs. $22.5
    - $3,200
    - $40
    > Simple interest is $400 × 10% × 8 weeks = $320, which is 80% of the loan in two months and 520% a year.
+
+7. {#calc2} [calc] An unlicensed lender charges 10% a week, compounding, on $200. What is owed after 4 weeks?
+   - $280.00
+   - $240.00
+   - [x] $292.82
+   - $200.40
+   > $200 × 1.10⁴ = $292.82. Compounding makes it more than the $280 that simple interest would give.

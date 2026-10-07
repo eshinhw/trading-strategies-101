@@ -56,3 +56,10 @@ One particularly notable interaction between the two signals: carry and momentum
    - A sign that the strategy has failed
    - An irrelevant coincidence with no effect on the combined score
    > When carry and momentum point in the same direction, they reinforce each other in the combined score, often making that currency a stronger pick than either signal would suggest alone.
+
+6. {#calc1} [calc] A currency has a carry score of +1.0 and a momentum score of −0.6, weighted 50/50. What is its combined score, and what does it suggest?
+   - +0.20, a strong short
+   - +1.60, a strong long
+   - [x] +0.20, a mild long
+   - −0.20, a mild short
+   > 0.5 × 1.0 + 0.5 × (−0.6) = +0.20. The signals partly disagree, so the position is small.

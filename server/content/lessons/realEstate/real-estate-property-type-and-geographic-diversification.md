@@ -56,3 +56,10 @@ Building a genuinely diversified matrix across both property type and geography 
    - Because institutions are required to hold only one property type
    - Because institutional vehicles cannot diversify at all
    > The capital and operational demands of a genuinely diversified matrix portfolio fit naturally with large, diversified institutional vehicles rather than a single property acquired at a time.
+
+6. {#calc1} [calc] A $12 million portfolio is spread equally across 3 property types and 4 regions (12 cells). A shock hits one property type in one region. What share of the portfolio is affected?
+   - About 33%
+   - About 25%
+   - [x] About 8.3%
+   - About 2.1%
+   > Each cell holds $12M / 12 = $1M, which is 1/12 ≈ 8.3% of the portfolio, far less than if one type or one region carried a third or more.

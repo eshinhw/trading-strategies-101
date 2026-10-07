@@ -94,3 +94,10 @@ With that stake, and a seat on the creditors' committee, Fund B can influence th
    - 37.5%, and no, since it is under two-thirds
    - [x] 37.5%, and yes, since that is more than one-third
    > $45M / $120M = 37.5%. Holding more than one-third means two-thirds can never be reached without the fund, so it can block.
+
+7. {#calc2} [calc] A fund holds 30% of a bond class, and blocking a plan needs more than one-third. About how many more percentage points of the class does it need?
+   - 20 points
+   - [x] A little over 3.3 points
+   - About 36.7 points
+   - 0 points
+   > One-third is 33.3%, and 33.3 − 30 = 3.3, so the fund needs just over 3.3 more percentage points.

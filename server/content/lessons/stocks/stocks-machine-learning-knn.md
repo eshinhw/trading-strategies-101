@@ -56,3 +56,10 @@ Two of the most important design choices in a KNN strategy are k itself, how man
    - Distance metrics are only used in unrelated geometry problems
    - The distance metric determines the company's stock ticker
    > If features are on different scales or have different relevance, an unweighted distance metric can be dominated by whichever feature happens to have the largest raw scale, so choosing (or scaling) the distance metric thoughtfully is an important design decision.
+
+6. {#calc1} [calc] A KNN model with k = 3 finds neighbors whose next-day returns were +2%, +1% and −1%. What is the model's forecast (the average)?
+   - +1.0%
+   - +2.0%
+   - [x] About +0.67%
+   - −1.0%
+   > The average is (2 + 1 − 1) / 3 = 0.67%.

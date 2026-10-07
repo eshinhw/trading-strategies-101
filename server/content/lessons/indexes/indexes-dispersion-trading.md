@@ -56,3 +56,17 @@ The central risk is a "correlation spike": during broad market stress, individua
    - The risk that index options cannot be sold short
    - There is no risk once the trade is correctly sized
    > During systemic selloffs, correlation often spikes as stocks move together in a broad risk-off move, which is exactly the scenario that hurts a trade positioned for correlation to come in lower than implied.
+
+6. {#calc1} [calc] An index has an implied volatility of 20% while its stocks average 28%. Treating all stocks as equally volatile, what correlation does the index price imply?
+   - About 0.71
+   - About 0.28
+   - About 0.80
+   - [x] About 0.51
+   > Index variance is the correlation times the stocks' variance, so the implied correlation is (0.20 / 0.28)² ≈ 0.51.
+
+7. {#calc2} [calc] An index has an implied volatility of 15% while its stocks average 25%. Treating the stocks as equally volatile, what correlation does the index price imply?
+   - 0.60
+   - [x] 0.36
+   - 0.15
+   - 0.75
+   > The implied correlation is (15 / 25)² = 0.36.

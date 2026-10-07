@@ -93,3 +93,10 @@ The pre-tax return is identical. The pension fund pays no tax either way, so it 
    - [x] $3,500 and $0
    - $350 and $0
    > The interest is $200,000 × 5% = $10,000. At 35% the individual owes $3,500, while the tax-exempt pension fund owes nothing.
+
+7. {#calc2} [calc] An investor receives $20,000 as a capital gain taxed at 20% or as a dividend taxed at 37%. How much less tax does the capital gain cost?
+   - [x] $3,400
+   - $7,400
+   - $4,000
+   - $1,700
+   > The capital gain tax is $4,000 and the dividend tax is $7,400, a difference of $3,400.

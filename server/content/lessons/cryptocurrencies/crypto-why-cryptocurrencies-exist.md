@@ -99,3 +99,10 @@ The technology removes the middlemen's fees, but the sender must convert in and 
    - $10
    - $44
    > The conversion cost is 2% × $400 = $8, so crypto costs $2 + $8 = $10 against $44 for the bank, which is $34 cheaper.
+
+7. {#calc2} [calc] A worker sends $800. The bank route costs 11% and the crypto route costs 2.4%. How much cheaper is crypto?
+   - $8.60
+   - $88.00
+   - [x] $68.80
+   - $19.20
+   > The bank costs 11% × $800 = $88.00 and crypto costs 2.4% × $800 = $19.20, so crypto is $68.80 cheaper (before price risk).
