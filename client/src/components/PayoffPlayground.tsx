@@ -227,10 +227,6 @@ export function PayoffPlayground() {
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7c6cff]">Hands-on practice</div>
           <h2 className="mt-2 text-3xl font-bold leading-tight text-[#e6e8ec] sm:text-4xl">Drag the price. Watch the payoff.</h2>
-          <p className="mt-3 max-w-md leading-relaxed text-[#9aa3b2]">
-            Every strategy comes down to one question: what do I make or lose at each price? Slide the stock price to see how
-            a position behaves, then build your own, leg by leg, in the full simulator.
-          </p>
           <ul className="mt-6 flex flex-col gap-3 text-sm text-[#c3c9d4]">
             {[
               "Four classic positions, one slider",

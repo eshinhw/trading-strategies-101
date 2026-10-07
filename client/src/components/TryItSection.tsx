@@ -77,10 +77,6 @@ export function TryItSection() {
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7c6cff]">Try it now</div>
           <h2 className="mt-2 text-3xl font-bold leading-tight text-[#e6e8ec] sm:text-4xl">This is how every lesson ends.</h2>
-          <p className="mt-3 max-w-md leading-relaxed text-[#9aa3b2]">
-            Each lesson closes with a short knowledge check that explains the answer as you go. Pick a course and try one
-            below. No account needed.
-          </p>
           <ul className="mt-6 flex flex-col gap-3 text-sm text-[#c3c9d4]">
             {[
               "Conceptual questions: when, how and why, not arithmetic",

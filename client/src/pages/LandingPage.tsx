@@ -105,10 +105,6 @@ function Hero({ courses }: { courses: Course[] | null }) {
           <h1 className="mt-4 text-4xl font-bold leading-tight text-[#e6e8ec] sm:text-5xl">
             Master trading strategies by understanding, not memorizing.
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-[#9aa3b2]">
-            Learn trading strategies by applying - not just reading. Explore real-world lessons across 18 asset classes,
-            from futures & options and equities to commodities and credit, and test your knowledge as you go.
-          </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               to="/signup"
@@ -222,7 +218,7 @@ function Features() {
     {
       number: "01",
       title: "Core knowledge for every professional",
-      body: "Whether you work in trading, research, risk, operations, or sales, you need to speak the same market language. Each course covers what an asset is, why it exists, and how it's priced and used, across 18 asset classes — the fundamentals everyone in the industry is expected to know.",
+      body: "What each asset is, why it exists, and how it's priced and used, across 18 asset classes.",
       icon: (
         <>
           <path d="M12 3 3 8l9 5 9-5-9-5Z" />
@@ -235,7 +231,7 @@ function Features() {
     {
       number: "02",
       title: "Practical, with minimum theory",
-      body: "Lessons stay focused on what you'll actually use: short explainers, a worked example in every lesson, and only the formulas that matter. You come away able to reason about a position or a market, without wading through academic detail.",
+      body: "Short explainers, a worked example in every lesson, and only the formulas that matter.",
       icon: (
         <>
           <circle cx="12" cy="12" r="9" />
@@ -248,7 +244,7 @@ function Features() {
     {
       number: "03",
       title: "Hands-on practice, maximum repetition",
-      body: "Every lesson ends with a knowledge check, every course finishes with a final quiz that draws a fresh set of questions each attempt, and the Options Payoff Simulator lets you build and rebuild positions as often as you like. Repetition is how it sticks.",
+      body: "A quiz after every lesson, a fresh final quiz each attempt, and a payoff simulator to rebuild positions freely.",
       icon: (
         <>
           <path d="M17 2 21 6l-4 4" />
@@ -291,7 +287,7 @@ function FinalCta() {
     <section className="mx-auto max-w-7xl px-6 py-16 text-center">
       <h2 className="text-2xl font-bold text-[#e6e8ec]">Ready to start?</h2>
       <p className="mx-auto mt-2 max-w-md text-[#9aa3b2]">
-        Create a free account to save your progress and unlock modules as you complete them.
+        Save your progress and unlock modules as you complete them.
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
         <Link to="/signup" className="rounded-lg bg-[#7c6cff] px-5 py-2.5 font-medium text-white hover:bg-[#6552f0]">

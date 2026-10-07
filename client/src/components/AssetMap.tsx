@@ -37,10 +37,6 @@ export function AssetMap({ courses }: { courses: Course[] | null }) {
             <h2 className="mt-2 text-3xl font-bold leading-tight text-[#e6e8ec] sm:text-4xl">
               Eighteen asset classes, one map.
             </h2>
-            <p className="mt-3 text-[#9aa3b2]">
-              Find where you work, then follow it across the market. Every course teaches what an asset is, why it
-              exists, and how it's priced and used.
-            </p>
           </div>
           {courses && (
             <div className="flex gap-6 sm:pb-1">

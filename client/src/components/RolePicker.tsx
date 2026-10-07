@@ -139,8 +139,7 @@ export function RolePicker({ courses }: { courses: Course[] | null }) {
           <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7c6cff]">Start where you work</div>
           <h2 className="mt-2 text-3xl font-bold text-[#e6e8ec] sm:text-4xl">What do you do?</h2>
           <p className="mx-auto mt-3 max-w-xl text-[#9aa3b2]">
-            Pick your role and we'll suggest the courses that matter most to it, in the order that makes them easiest to
-            learn.
+            Pick your role and we'll suggest the courses that matter most.
           </p>
         </div>
 
