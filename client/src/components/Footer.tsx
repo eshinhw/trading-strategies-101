@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { PRACTICE_TOOL_LINKS } from "../lib/practiceTools";
+import { LEGAL_PAGES } from "../lib/legal";
 import { LogoMark } from "./Nav";
 
 interface FooterLink {
@@ -93,7 +94,20 @@ export function Footer() {
             results.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {year} Trading Strategies 101. All rights reserved.</p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+              <p>© {year} Trading Strategies 101. All rights reserved.</p>
+              <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-2">
+                {LEGAL_PAGES.map((l) => (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    className="rounded transition hover:text-[#e6e8ec] focus-visible:text-[#e6e8ec] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c6cff]"
+                  >
+                    {l.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

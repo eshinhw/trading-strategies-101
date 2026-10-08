@@ -29,6 +29,11 @@ const ConstructionPage = lazy(() =>
   import("./pages/ConstructionPage").then((m) => ({ default: m.ConstructionPage })),
 );
 const AuthPage = lazy(() => import("./pages/AuthPage").then((m) => ({ default: m.AuthPage })));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage").then((m) => ({ default: m.PrivacyPage })));
+const CookiePolicyPage = lazy(() =>
+  import("./pages/CookiePolicyPage").then((m) => ({ default: m.CookiePolicyPage })),
+);
+const TermsPage = lazy(() => import("./pages/TermsPage").then((m) => ({ default: m.TermsPage })));
 
 function App() {
   return (
@@ -54,6 +59,9 @@ function App() {
                 <Route path="/construction/:slug" element={<ConstructionPage />} />
                 <Route path="/login" element={<AuthPage mode="login" />} />
                 <Route path="/signup" element={<AuthPage mode="signup" />} />
+                <Route path="/privacy" element={<PrivacyPage />} />
+                <Route path="/cookies" element={<CookiePolicyPage />} />
+                <Route path="/terms" element={<TermsPage />} />
               </Routes>
             </Suspense>
           </div>

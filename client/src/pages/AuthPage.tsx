@@ -310,6 +310,19 @@ export function AuthPage({ mode }: { mode: "login" | "signup" }) {
               </button>
             </form>
 
+            {isSignup && (
+              <p className="mt-4 text-center text-xs leading-relaxed text-[#898781]">
+                By creating an account, you agree to the{" "}
+                <Link to="/terms" className="text-[#a99dff] hover:underline">
+                  Terms of Service
+                </Link>{" "}
+                and{" "}
+                <Link to="/privacy" className="text-[#a99dff] hover:underline">
+                  Privacy Policy
+                </Link>
+                .
+              </p>
+            )}
             <p className="mt-6 text-center text-sm text-[#9aa3b2]">
               {isSignup ? (
                 <>
